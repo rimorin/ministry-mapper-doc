@@ -1,0 +1,5 @@
+site_name: Ministry Mapper Docs
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
