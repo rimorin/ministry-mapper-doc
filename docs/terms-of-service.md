@@ -31,41 +31,18 @@ Our Service allows you and other users to create territories, record householder
 
 When you create territories, record householder status and notes, or manage publisher links on the Service, you grant us the right and license to use, reproduce, modify, publicly perform, publicly display and distribute your content on or through the Service. We may format your content for display throughout the Service, but we will not edit or revise the substance of your content itself.
 
-Aside from our limited right to your content, you retain all of your rights to the content you create, record, and manage on or through the Service.
-
 You have the ability to remove the content that you posted by deleting territories, householder statuses, notes, or publisher links. Once you delete your content, it will not appear on the Service, but copies of your deleted content may remain in our system or backups for some period of time. We will retain web server access logs and then delete them after a period of time.
 
-While using our Service, we ask that you respect the following rules:
+While using our Service, we ask that you adhere to the following guidelines:
 
-- Do not post content that is libelous, defamatory, bigoted, fraudulent, deceptive, or illegal in your territories or notes.
-- Do not infringe or violate any patent, trademark, trade secret, copyright, right of privacy, right of publicity or other intellectual or other right of any party while using the Service.
-- Do not send mass or repeated promotions, political campaigning or commercial messages (SPAM) to other users.
-- Do not share sensitive information about householders, including addresses, phone numbers, email addresses, Social Security numbers, and credit card numbers.
-- Do not upload viruses, corrupted data or other harmful, disruptive or destructive files or code to the Service.
-- Do not use the Service in a way that could interfere with, disrupt, negatively affect or inhibit other users from fully enjoying the Service or that could damage, disable, overburden or impair the functioning of the Service.
-- Do not impersonate or post on behalf of any person or entity or otherwise misrepresent your affiliation with a person or entity.
-- Do not collect any personal information about other users, or intimidate, threaten, stalk or otherwise harass other users of the Service.
-- Do not circumvent or attempt to circumvent any filtering, security measures, rate limits or other features designed to protect the Service, users of the Service, or third parties.
-
-## Hyperlinks and Third Party Content
-You may create a hyperlink to the Service. But, you may not use, frame or utilize framing techniques to enclose any of our trademarks, logos or other proprietary information without our express written consent.
-
-Rimorin makes no claim or representation regarding, and accepts no responsibility for third party websites accessible by hyperlink from the Service or websites linking to the Service. When you leave the Service, you should be aware that these Terms and our policies no longer govern.
-
-If there is any content on the Service from you and others, we don't review, verify or authenticate it, and it may include inaccuracies or false information. We make no representations, warranties, or guarantees relating to the quality, suitability, truth, accuracy or completeness of any content contained in the Service. You acknowledge sole responsibility for and assume all risk arising from your use of or reliance on any content.
-
-## Unavoidable Legal Stuff
-THE SERVICE AND ANY OTHER SERVICE AND CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE ARE PROVIDED TO YOU ON AN AS IS OR AS AVAILABLE BASIS WITHOUT ANY REPRESENTATIONS OR WARRANTIES OF ANY KIND. WE DISCLAIM ANY AND ALL WARRANTIES AND REPRESENTATIONS (EXPRESS OR IMPLIED, ORAL OR WRITTEN) WITH RESPECT TO THE SERVICE AND CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE WHETHER ALLEGED TO ARISE BY OPERATION OF LAW, BY REASON OF CUSTOM OR USAGE IN THE TRADE, BY COURSE OF DEALING OR OTHERWISE.
-
-IN NO EVENT WILL Rimorin BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY SPECIAL, INDIRECT, INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH THE SERVICE OR ANY OTHER SERVICE AND/OR CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE, REGARDLESS OF THE FORM OF ACTION, WHETHER IN CONTRACT, TORT, STRICT LIABILITY OR OTHERWISE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR ARE AWARE OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY FOR ALL CAUSES OF ACTION AND UNDER ALL THEORIES OF LIABILITY WILL BE LIMITED TO THE AMOUNT YOU PAID TO Rimorin. THIS SECTION WILL BE GIVEN FULL EFFECT EVEN IF ANY REMEDY SPECIFIED IN THIS AGREEMENT IS DEEMED TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.
-
-You agree to defend, indemnify and hold us harmless from and against any and all costs, damages, liabilities, and expenses (including attorneys' fees, costs, penalties, interest and disbursements) we incur in relation to, arising from, or for the purpose of avoiding, any claim or demand from a third party relating to your use of the Service or the use of the Service by any person using your account, including any claim that your use of the Service violates any applicable law or regulation, or the rights of any third party, and/or your violation of these Terms.
+- Respect the privacy of householders. Do not share or include sensitive information about householders, such as addresses, phone numbers, email addresses, identity numbers, and credit card numbers.
+- Use the system responsibly and with discretion. Do not post content that is libelous, defamatory, bigoted, fraudulent, deceptive, or illegal.
+- Do not abuse the system. Avoid actions that could interfere with, disrupt, negatively affect or inhibit other users from fully enjoying the Service or that could damage, disable, overburden or impair the functioning of the Service.
+- Respect the privacy of other publishers. Do not collect any personal information about other users, or intimidate, threaten, stalk or otherwise harass other users of the Service.
+- Do not attempt to circumvent the system settings. This includes any filtering, security measures, rate limits or other features designed to protect the Service, users of the Service, or third parties.
 
 ## Termination
 If you breach any of these Terms, we have the right to suspend or disable your access to or use of the Service.
-
-## Entire Agreement
-These Terms constitute the entire agreement between you and Rimorin regarding the use of the Service, superseding any prior agreements between you and Rimorin relating to your use of the Service.
 
 ## Feedback
 Please let us know what you think of the Service, these Terms and, in general, Ministry Mapper. When you provide us with any feedback, comments or suggestions about the Service, these Terms and, in general, Ministry Mapper, you irrevocably assign to us all of your right, title and interest in and to your feedback, comments and suggestions.
