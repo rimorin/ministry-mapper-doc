@@ -9,7 +9,7 @@ The terms used in this Privacy Policy have the same meanings as in our [Terms of
 
 ## Information Collection and Use
 
-In order to use our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name and email address. The information that we request will be retained by us and used as described in this privacy policy.  
+In order to use our Service, we may require you to provide us with your name and email address. The information that we request will be retained by us and used as described in this privacy policy.  
 The app does use third party services that may collect information used to identify you.
 
 ## Cookies
@@ -22,11 +22,11 @@ While you do not have the option to refuse these cookies within our Service, you
 
 ## Location Information
 
-Some of the services may use location information transmitted from users' devices. We only use this information within the scope necessary for the designated service.
+Some of our services utilize location information transmitted from users' devices. We use this information specifically for territory locating purposes within the scope of the designated service.
 
 ## Device Information
 
-We collect information from your device in some cases. The information will be utilized for the provision of better service and to prevent fraudulent acts. Additionally, such information will not include that which will identify the individual user.
+We may collect certain information from your device. This information is used for troubleshooting, debugging, and performance monitoring purposes to improve our service and ensure a smooth user experience. Please note that this information does not include any personally identifiable information.
 
 ## Service Providers
 
@@ -37,7 +37,7 @@ We may employ third-party companies due to the following reasons:
 - Database Management: To store, organize, and manage user data.
 - Cloud Infrastructures: To host our Service and manage data storage and retrieval.
 
-We want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+We want to inform users of this Service that these third parties have access to your name and email address, which we collect. The reason is to perform tasks assigned to them on our behalf, specifically for authentication and security purposes. However, they are obligated not to disclose or use the information for any other purpose.
 
 ## Security
 
