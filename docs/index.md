@@ -1,39 +1,94 @@
-# Home
+# Welcome to Ministry Mapper
 
-## Introduction
+## What is Ministry Mapper?
 
-Ministry Mapper (MM) is a comprehensive cloud-based platform designed to assist congregations in managing and assigning territories to publishers. By digitizing the entire territory process, MM streamlines and simplifies territory management.
+Ministry Mapper is a modern web application that helps congregations manage their field ministry territories. Instead of using paper territory slips, Ministry Mapper lets you organize and track everything digitally from any device with an internet connection.
 
-## Evolution
+## Our Story
 
-The inception of Ministry Mapper (MM) was a modest project our team embarked on in 2022. As we recognized its potential, we dedicated our efforts to refine its features and expand its capabilities. Today, MM has evolved into a robust, comprehensive platform that is making significant strides not just in local congregations, but is also being embraced by communities overseas.
+We started Ministry Mapper in 2022 as a simple project to help our local congregation. As more people found it useful, we kept improving it. Today, Ministry Mapper is used by congregations around the world, helping thousands of publishers stay organized in their ministry work.
 
-## Purpose
+## What Ministry Mapper Does
 
-Ministry Mapper (MM) is designed with the following key objectives:
+Ministry Mapper helps with three main areas:
 
-- Empowering territory servants with a comprehensive tool that streamlines the management of congregation territories, enhancing efficiency and accuracy.
-- Assisting the field service conductor in the seamless assignment of territory slips to publishers, reducing administrative burden and ensuring a smooth workflow.
-- Facilitating near real-time collaboration among publishers, thereby boosting productivity, improving coordination, and fostering a more connected and engaged community.
+- **For Territory Servants**: Makes it easy to manage all your territory records in one place. No more filing cabinets or lost papers.
+- **For Field Service Conductors**: Quickly assign territories to publishers and see who has what territory at any time.
+- **For Publishers**: Everyone can see updates in real-time and work together more effectively without overlapping or confusion.
 
-## Challenges Addressed
+## Problems Ministry Mapper Solves
 
-Ministry Mapper (MM) is engineered to address a variety of prevalent challenges in territory management:
+### Going Paperless
+Traditional paper territory slips get lost, damaged, or become hard to read over time. Ministry Mapper keeps everything digital and safe in the cloud. You can access your territories from your phone, tablet, or computer anytime.
 
-- **Digital Transformation**: MM replaces the traditional paper slips, which are prone to loss or damage, with a digital solution. This transition not only enhances the durability of data but also facilitates easy access and management. Publishers can now access their territories from any device, at any time, ensuring that they are always prepared for field service.
+### Better Organization
+When territories are shared between multiple publishers, it's easy to accidentally work the same addresses. Ministry Mapper helps everyone see what's happening in real-time, so you don't waste time covering the same ground.
 
-- **Efficiency in Resource Allocation**: MM prevents the overlapping of work when territories are shared among different publishers. This ensures that resources are used efficiently and each territory receives adequate attention. Congregations have noted an improvement in the distribution of work and a decrease in duplicated efforts since adopting MM.
+### Instant Updates
+When someone updates a territory, everyone sees the changes right away. No waiting for papers to be passed around or meetings to share updates.
 
-- **Real-Time Updates**: MM utilizes real-time database technologies to allow instant updates to each publisher's territory slip. This ensures everyone has the most current information, reducing confusion and miscommunication. It also allows for quick adjustments in response to changes, enhancing the flexibility and responsiveness of territory management. Congregations have reported improved communication and coordination since implementing MM's real-time update feature.
+### Easier Record Keeping
+Instead of manually writing down every change on paper slips, Ministry Mapper automatically tracks everything. This saves hours of work and prevents mistakes.
 
-- **Simplified Tracking**: MM eliminates the tedious task of manually tracking every minor change to the territory. This feature saves time and effort, allowing users to focus more on their core tasks. Users have reported a decrease in administrative workload and an increase in productivity with the introduction of MM.
+## How Ministry Mapper Works
 
-## Strategy
+### Modern Technology Made Simple
+Ministry Mapper uses current web technologies to provide a smooth, reliable experience:
 
-Ministry Mapper (MM) achieves its objectives through a combination of advanced technologies and strategic approaches:
+- **React Frontend**: A fast, responsive interface that works on any device (phone, tablet, or computer)
+- **PocketBase Backend**: A powerful but easy-to-manage database system that stores all your information securely
+- **Google Maps Integration**: See territories on an actual map to make planning easier
+- **Multiple Languages**: Available in English, Japanese, Korean, Chinese, Indonesian, Malay, and Tamil
 
-- **Real-Time Database Technologies**: MM harnesses the power of real-time database technologies to provide instant updates to each publisher's territory slip. This ensures that all users have access to the most current information, fostering effective communication and coordination. It also allows for quick adjustments in response to changes, enhancing the flexibility and responsiveness of territory management.
+### Built for Reliability
+- **Cloud-Based**: Your data is stored safely in the cloud and backed up automatically
+- **Real-Time Sync**: Changes appear instantly for everyone using the system
+- **Error Monitoring**: Problems are detected and fixed quickly to keep everything running smoothly
+- **Mobile-Friendly**: Works perfectly on smartphones, tablets, and computers
 
-- **Cloud Asynchronous Functions**: MM employs cloud asynchronous functions to automate the cleanup of territory slips at the end of each field service day. This not only reduces the manual work involved but also ensures that the system is always ready for the next day's activities. This automation has been instrumental in improving operational efficiency and reducing the administrative burden on users.
+## Important Considerations
 
-- **Robust Cloud Infrastructure**: MM is built on Google's robust cloud infrastructure, which guarantees stability and scalability. This ensures that MM can handle the growing needs of your congregation, regardless of size or complexity. The use of a reliable cloud infrastructure also provides high availability and data redundancy, ensuring that your data is safe and accessible whenever you need it.
+### Privacy First
+Ministry Mapper tracks residential addresses, which means you need to follow privacy laws in your area. Different countries have different rules (like GDPR in Europe or CCPA in California). Make sure you understand and follow your local regulations before using Ministry Mapper.
+
+### Internet Required
+Ministry Mapper works over the internet, so you'll need a connection to use it. If your area has unreliable internet, this might cause challenges. The app does work well on mobile data if WiFi isn't available.
+
+### Google Maps Availability
+Ministry Mapper uses Google Maps to show territories. In some countries, Google Maps may not work properly due to local restrictions. Check if Google Maps works in your area before setting up Ministry Mapper.
+
+### Learning Curve
+Moving from paper to digital is a change, especially for those less comfortable with technology. We provide help and support to make the transition easier for everyone in your congregation.
+
+## Getting Started
+
+### For Users
+
+The easiest way to use Ministry Mapper is through our hosted service:
+
+**[ministry-mapper.com](https://ministry-mapper.com)**
+
+Simply:
+
+1. Visit [ministry-mapper.com](https://ministry-mapper.com)
+2. Create an account using the sign-up page
+3. Verify your email address
+4. Contact your congregation's administrator for proper permissions
+
+**[Get Started →](getting-started.md)**
+
+### For Administrators
+
+If you're considering Ministry Mapper for your congregation:
+
+- **Recommended**: Use our hosted service at [ministry-mapper.com](https://ministry-mapper.com)
+  - No technical setup required
+  - Professional support available
+  - Automatic updates and maintenance
+  - Better reliability and security
+
+- **Alternative**: Review the [Self-Hosting Guide](self-hosting.md) (advanced users only)
+
+We don't encourage self-hosting due to the technical complexity and ongoing maintenance requirements. The hosted service at ministry-mapper.com provides a simpler, more reliable solution.
+
+**[Learn More →](getting-started.md)**

@@ -1,5 +1,80 @@
-site_name: Ministry Mapper Docs
+site_name: Ministry Mapper Documentation
+site_description: Complete guide for setting up and using Ministry Mapper, a digital territory management system
+site_author: Ministry Mapper Team
+site_url: https://docs.ministry-mapper.com
+
 theme:
   name: material
   logo: assets/logo.png
   favicon: assets/favicon.ico
+  palette:
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: getting-started.md
+  - User Guide:
+      - Using Ministry Mapper: user-guide.md
+  - Advanced:
+      - Self-Hosting Guide: self-hosting.md
+      - Backend Reference: backend-setup.md
+      - Frontend Reference: frontend-setup.md
+  - Reference:
+      - FAQ: faq.md
+  - Legal:
+      - Privacy Policy: privacy-policy.md
+      - Terms of Service: terms-of-service.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/rimorin/ministry-mapper-v2
+      name: Frontend Repository
+    - icon: fontawesome/brands/github
+      link: https://github.com/rimorin/ministry-mapper-be
+      name: Backend Repository
+
+copyright: Copyright &copy; 2024 Ministry Mapper Team
