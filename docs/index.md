@@ -6,7 +6,7 @@ Ministry Mapper is a modern, open-source web application that helps congregation
 
 ## Our Story
 
-We started Ministry Mapper in 2022 as a simple project to help our local congregation manage territories more effectively. As more congregations discovered the benefits of digital territory management, we continued to enhance the platform. Today, Ministry Mapper is used by congregations around the world, helping thousands of publishers stay organized in their ministry work with features like real-time synchronization, interactive mapping, and multi-language support.
+We started Ministry Mapper in 2022 as a simple project to help our local congregation manage territories more effectively. As more congregations discovered the benefits of digital territory management, we continued to enhance the platform. Today, Ministry Mapper is used by congregations in Singapore and Malaysia, helping publishers stay organized in their ministry work with features like real-time synchronization, interactive mapping, and multi-language support.
 
 ## What Ministry Mapper Does
 
