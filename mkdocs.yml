@@ -40,12 +40,17 @@ nav:
   - Home: index.md
   - Getting Started:
       - Quick Start: getting-started.md
+      - Features Overview: features.md
   - User Guide:
       - Using Ministry Mapper: user-guide.md
-  - Advanced:
+  - Technical Documentation:
+      - Architecture Overview: architecture.md
+      - Data Models & Schema: data-models.md
+  - Deployment:
+      - Deployment Guide: deployment.md
       - Self-Hosting Guide: self-hosting.md
-      - Backend Reference: backend-setup.md
-      - Frontend Reference: frontend-setup.md
+      - Backend Setup: backend-setup.md
+      - Frontend Setup: frontend-setup.md
   - Reference:
       - FAQ: faq.md
   - Legal:

@@ -1,516 +1,1489 @@
-# User Guide
+# Ministry Mapper User Guide
 
 ## Introduction
 
-This guide explains how to use Ministry Mapper for managing field service territories. Ministry Mapper is a web-based application that helps congregations organize territory assignments, track visits, and coordinate field service activities.
+Welcome to Ministry Mapper, a modern web-based application designed to help congregations efficiently manage field service territories. This guide will walk you through everything you need to know to get started and make the most of the application.
+
+**What is Ministry Mapper?**
+
+Ministry Mapper is a digital territory management system that replaces traditional paper-based methods. It allows congregations to:
+
+- Organize and assign territories digitally
+- Track field service visits in real-time
+- Coordinate activities across multiple publishers
+- Access territories from any device with internet
+
+**Key Benefits:**
+
+- ✓ Eco-friendly - eliminates paper waste
+- ✓ Real-time updates through cloud synchronization
+- ✓ Works on any device (desktop, tablet, mobile)
+- ✓ Integrated Google Maps for easy navigation
+- ✓ Secure role-based access control
 
 ## Getting Started
 
 ### Creating Your Account
 
-1. **Visit the Website**
+> **📸 Screenshot Placeholder:** Sign-up page showing registration form
 
-   - Go to your congregation's Ministry Mapper URL
-   - Click "Sign Up"
+**Step 1: Access the Registration Page**
 
-2. **Fill in Your Information**
+1. Visit your congregation's Ministry Mapper URL
+2. Click the **"Sign Up"** button on the login page
 
-   - Enter your name
-   - Enter your email address (use a valid email you check regularly)
-   - Create a strong password (at least 6 characters with numbers, capital letters)
-   - Confirm your password
-   - Review and agree to the privacy policy and terms of service
+**Step 2: Complete Registration Form**
 
-3. **Verify Your Email**
+Fill in the following information:
 
-   - Check your email for a verification message
-   - Click the verification link to activate your account
-   - Your account is now verified
+- **Name**: Your full name (will be visible to administrators)
+- **Email**: A valid email address you check regularly
+- **Password**: Must be at least 6 characters with:
+  - At least one number
+  - At least one capital letter
+  - Example: `MyPassword123`
+- **Confirm Password**: Re-enter your password to confirm
 
-4. **First Login**
-   - Return to the login page
-   - Enter your email and password
-   - If your organization uses One-Time Password (OTP), enter the code sent to your email
-   - After logging in, wait for an administrator to grant you access to your congregation
+Review and accept:
+
+- ☐ Privacy Policy
+- ☐ Terms of Service
+
+Click **"Create Account"**
+
+**Step 3: Verify Your Email**
+
+> **📸 Screenshot Placeholder:** Email verification message
+
+1. Check your email inbox for a verification message from Ministry Mapper
+2. Click the verification link in the email
+3. You'll see a confirmation that your account is verified
+
+**Step 4: Wait for Congregation Access**
+
+After verification:
+
+1. Return to the login page
+2. Sign in with your email and password
+3. If One-Time Password (OTP) is enabled, check your email for the code
+4. **Important**: You won't see any territories yet - an administrator must grant you access to your congregation first
+5. Contact your congregation's territory servant or administrator to request access
 
 ### Understanding User Roles
 
-Ministry Mapper has four access levels:
+Ministry Mapper uses a four-tier access control system. Your role determines what features you can access and what actions you can perform.
 
-**Publisher**
+#### Role Hierarchy
 
-- View territories assigned to you via links
-- Update address status (done, not home, do not call)
-- Add notes to addresses
-- View territory maps
-- Track visit attempts
+```
+Administrator (Full Access)
+    ↓
+Conductor (Manage Assignments)
+    ↓
+Read-Only (View Only)
+    ↓
+Publisher (Link Access Only)
+```
 
-**Read-Only**
+---
 
-- View all territories
-- See address information
-- Cannot make changes to territories or addresses
+#### 👤 Publisher
 
-**Conductor**
+**Access Method**: Via assignment links sent by administrators or conductors
 
-- Everything Read-Only can do, plus:
-- Create and manage territory assignments
-- View all territories and their progress
-- Access congregation messages
-- Manage congregation options (status types)
+**What Publishers Can Do:**
 
-**Administrator**
+- ✓ Access territories through shared links
+- ✓ View territory maps with Google Maps integration
+- ✓ Update address status after visits
+  - Mark as: Done, Not Home, Do Not Call, Invalid
+- ✓ Add visit notes to addresses
+- ✓ Track number of "not home" attempts
+- ✓ View address details and sequence
 
-- Full access to everything
-- Create, edit, and delete territories
-- Manage addresses and buildings
-- Assign user roles and permissions
-- Configure congregation settings
-- Manage users and invitations
+**What Publishers Cannot Do:**
+
+- ✗ No dashboard access
+- ✗ Cannot view all congregation territories
+- ✗ Cannot create or manage territories
+- ✗ Cannot access assignment links expire after the set time (default: 24 hours)
+
+**Best For**: Regular publishers doing field service
+
+---
+
+#### 👓 Read-Only
+
+**Access Method**: Dashboard login with read-only permissions
+
+**What Read-Only Users Can Do:**
+
+- ✓ View all territories in the congregation
+- ✓ See complete address information
+- ✓ View territory progress and statistics
+- ✓ Access territory maps
+- ✓ View congregation messages
+
+**What Read-Only Users Cannot Do:**
+
+- ✗ Cannot modify any territory or address data
+- ✗ Cannot create or delete territories
+- ✗ Cannot manage assignments
+- ✗ Cannot change congregation settings
+
+**Best For**: Overseers who need visibility without editing capabilities
+
+---
+
+#### 🎯 Conductor
+
+**Access Method**: Dashboard login with conductor permissions
+
+**Conductor Capabilities Include:**
+
+- ✓ **Everything Read-Only can do**, PLUS:
+- ✓ Create and manage territory assignments
+- ✓ Generate assignment links for publishers
+- ✓ View all assignment history
+- ✓ Access and post congregation messages
+- ✓ Manage congregation options (household status types)
+- ✓ View territory completion status
+
+**What Conductors Cannot Do:**
+
+- ✗ Cannot create or delete territories
+- ✗ Cannot edit address details (addresses, units, floors)
+- ✗ Cannot manage user roles or permissions
+- ✗ Cannot modify core congregation settings
+
+**Best For**: Field service coordinators and group overseers
+
+---
+
+#### 👑 Administrator (Territory Servant)
+
+**Access Method**: Dashboard login with full administrative permissions
+
+**Administrator Has Complete Control:**
+
+- ✓ **Everything Conductors can do**, PLUS:
+- ✓ Create, edit, and delete territories
+- ✓ Add, modify, and remove addresses
+- ✓ Manage buildings and units
+- ✓ Configure congregation settings
+  - Set max "not home" tries
+  - Configure link expiry times
+  - Set up household type options
+- ✓ Invite and manage users
+- ✓ Assign user roles and permissions
+- ✓ Reset territories and addresses
+- ✓ Manage geolocation coordinates
+
+**Best For**: Territory servants and those managing the congregation's territory system
+
+---
+
+> **💡 Note**: Contact your congregation administrator if you need your role changed or if you're unsure which role you currently have.
 
 ## Main Features
 
-### Main Interface
+### Dashboard Overview
 
-After logging in, the interface varies based on your role:
+> **📸 Screenshot Placeholder:** Administrator/Conductor dashboard showing territory selector and main controls
 
-**Publishers** access territories through:
-
-- Assignment links sent by administrators
-- Links expire after a set time (default 24 hours)
-- No dashboard - direct access to assigned territories
-
-**Conductors and Administrators** see:
-
-- **Territory Selector**: Dropdown to choose which territory to manage
-- **Territory View**: Selected territory with addresses and map
-- **Action Buttons**: Access to assignments, messages, and settings
-- **Progress Tracking**: Visual progress bars showing territory completion
-
-### Viewing Territories
+The dashboard interface varies based on your role:
 
 #### For Publishers
 
-1. Click the assignment link provided by your administrator
-2. You'll see the territory map and address list
-3. Territory information includes:
-   - Territory code and description
-   - Interactive Google Map with address markers
-   - List of addresses/units to visit
-   - Progress percentage
+Publishers **do not have dashboard access**. Instead, they:
+
+- Receive assignment links via email or message
+- Click the link to access their assigned territory
+- Work directly within the territory view
+- Links automatically expire after the configured time (default: 24 hours)
 
 #### For Conductors and Administrators
 
-1. Select a territory from the dropdown menu at the top
-2. The territory displays with:
+The dashboard provides a comprehensive overview:
+
+**1. Territory Selector** (Top Dropdown)
+
+- Choose which territory to view or manage
+- Shows territory code and description
+- Quick navigation between territories
+
+**2. Main Action Buttons**
+
+- 📋 **Assignments**: View and manage assignment links
+- 💬 **Messages**: Post and view congregation messages
+- ⚙️ **Settings**: Access congregation configuration (Administrators only)
+- 👥 **Users**: Manage user roles and invitations (Administrators only)
+
+**3. Territory Information Panel**
+
+- Territory code and description
+- Progress bar showing completion percentage
+- Last updated timestamp
+- Total units vs. completed units
+
+**4. Territory View Options**
+
+- 🗺️ **Map View**: Interactive Google Maps display
+- 📋 **List View**: Tabular display of all addresses
+
+---
+
+### Viewing Territories
+
+#### Publisher Territory View
+
+> **📸 Screenshot Placeholder:** Publisher view of territory with map and address list
+
+**Accessing Your Assignment:**
+
+1. Click the assignment link sent by your administrator/conductor
+2. The territory automatically loads with:
+   - Interactive Google Map showing all addresses
+   - Clickable markers for each location
+   - List of addresses/units to visit
+   - Current progress percentage
+
+**Territory Information Displayed:**
+
+- **Territory Code**: Identifier (e.g., "T-001")
+- **Description**: Territory name or area
+- **Progress Bar**: Visual completion status
+- **Map**: Google Maps with address markers
+- **Address List**: All addresses with current status
+
+#### Administrator/Conductor Territory View
+
+> **📸 Screenshot Placeholder:** Admin dashboard with territory selector and management options
+
+**Viewing a Territory:**
+
+1. Log in to your dashboard
+2. Select a territory from the dropdown menu
+3. View detailed information:
    - Territory code and description
-   - Progress bar showing completion percentage
-   - Map view with all addresses
-   - Detailed address/unit list
-   - Management options (edit, delete, reset)
+   - Completion statistics (e.g., "15/20 completed - 75%")
+   - Interactive map with all locations
+   - Complete address/unit listing with details
+   - Management buttons (Edit, Delete, Reset)
+
+**Management Options:**
+
+- ✏️ **Edit Territory**: Change name, code, or description
+- 🗑️ **Delete Territory**: Remove entire territory
+- 🔄 **Reset Territory**: Clear all address statuses
+- ➕ **Add Address**: Create new address in territory
 
 ### Working With Addresses
 
-#### Viewing Address Information
+#### Understanding Address Information
 
-Each address/unit shows:
+> **📸 Screenshot Placeholder:** Address card showing all address details and status
 
-- **Address/Unit Number**: Location identifier
-- **Floor**: Building floor level (for multi-story properties)
-- **Type**: Household type based on congregation options (e.g., Chinese, English, Tamil)
-- **Status**: Current status (default: not done, done, not home, do not call, invalid)
-- **Not Home Count**: Number of times nobody answered
+Each address or unit in Ministry Mapper displays comprehensive information:
+
+**Basic Information:**
+
+- **Address/Unit Number**: Location identifier (e.g., "#05-123")
+- **Floor**: Building level (for multi-story properties)
+- **Type**: Household classification based on congregation options
+  - Examples: Chinese, English, Tamil, Spanish
+  - Multiple types can be selected if configured
+- **Sequence**: Visit order number
+
+**Status Information:**
+
+- **Status**: Current visit status (see status types below)
+- **Not Home Count**: Number of unanswered visit attempts
 - **Do Not Call Date**: When DNC was marked (if applicable)
-- **Notes**: Important information about the householder
-- **Last Updated**: Timestamp of last update
-- **Updated By**: User who made the last update
-- **Sequence**: Order for visiting addresses
+
+**Activity Tracking:**
+
+- **Notes**: Important information about visits or householder
+- **Last Updated**: Date and time of most recent update
+- **Updated By**: Username of person who made the last change
+
+---
+
+#### Address Status Types
+
+Ministry Mapper uses five standard status types:
+
+| Status          | Color         | Description            | Usage                                      |
+| --------------- | ------------- | ---------------------- | ------------------------------------------ |
+| **Not Done**    | White/Default | Not yet visited        | Initial status for all addresses           |
+| **Done**        | Green         | Successfully contacted | Householder was home and contacted         |
+| **Not Home**    | Yellow/Orange | Nobody answered        | Track up to max tries (configurable)       |
+| **Do Not Call** | Red           | Requested no visits    | Householder requested no further contact   |
+| **Invalid**     | Gray          | Inaccessible           | Address doesn't exist or cannot be visited |
+
+> **💡 Tip**: Once "Not Home" reaches the maximum tries (set by administrator), the address automatically marks as completed in progress calculations.
+
+---
 
 #### Updating Address Status
 
-1. **Find the Address**
+> **📸 Screenshot Placeholder:** Update status modal showing all fields and options
 
-   - Scroll through the address list in the territory view
-   - Addresses are grouped by floor for multi-story buildings
+**Step-by-Step Process:**
 
-2. **Click to Edit**
+**1. Locate the Address**
 
-   - Click on an address/unit card
-   - An edit modal will open
+- Scroll through the address list
+- Or click a marker on the map
+- Addresses are grouped by floor for multi-story buildings
 
-3. **Change Status**
-   - Select the appropriate status:
-     - **Not Done**: Not yet visited (default)
-     - **Done**: Householder was contacted
-     - **Not Home**: Nobody answered
-     - **Do Not Call**: Householder requested no further visits
-     - **Invalid**: Address doesn't exist or is inaccessible
-4. **Update Type (if available)**
+**2. Open the Update Modal**
 
-   - Select household type(s) based on congregation options
-   - Multiple types can be selected if configured by administrator
+- Click on the address/unit card
+- The update modal will open with current information
 
-5. **Add Notes**
+**3. Update Status** (Required)
 
-   - Type relevant information:
-     - Best times to visit
-     - Language spoken
-     - Special circumstances
-     - Follow-up needed
-   - Keep notes respectful and factual
+Select the appropriate status:
 
-6. **Save Changes**
-   - Click "Save"
-   - Changes save immediately to the database
-   - Other users will see updates in real-time
+**📗 Done** - When successfully contacted
 
-#### Understanding Status Colors
+- Select this when someone answered
+- Conversation occurred or literature placed
+- Increment "Not Home" count is reset
 
-Addresses are color-coded for quick identification:
+**🏠 Not Home** - When nobody answered
 
-- **Light background**: Not started or in progress
-- **Highlighted**: Nearly complete territory (approaching 90% completion)
-- **Grayed out**: Completed units or non-countable addresses
+- Automatically increments "Not Home" count
+- System tracks number of attempts
+- After reaching max tries, treated as complete
 
-#### Using the Map View
+**🚫 Do Not Call** - When requested not to visit
 
-1. **Access Map**
+- Select this status
+- Optionally set DNC date (defaults to today)
+- Add notes explaining reason if appropriate
+- **Important**: Respect householder wishes always
 
-   - The Google Maps view is displayed at the top of the territory
-   - Shows territory location with address markers
+**❌ Invalid** - When address is inaccessible
 
-2. **Navigate**
+- Address doesn't exist
+- Under construction
+- Permanently closed
+- Cannot be accessed
 
-   - Zoom in/out with +/- buttons or pinch gesture
-   - Drag to move around the map
-   - Click address markers to see details
+**4. Update Household Type** (If Available)
 
-3. **Get Directions**
+If your congregation has configured household types:
 
-   - Click the "Directions" button above the map
-   - Opens Google Maps in a new tab with directions from your congregation location
-   - Helps you plan your route
+- Select single or multiple types
+- Examples: Language preferences, special circumstances
+- Clear existing types if needed
 
-4. **Change Location (Administrators)**
-   - Click the geolocation button to set a custom starting point for directions
-   - Useful for territories far from the congregation
+**5. Add or Update Notes** (Optional but Recommended)
 
-### Real-Time Data Synchronization
+Best practices for notes:
 
-Ministry Mapper uses PocketBase realtime subscriptions:
+- ✓ Be concise and relevant
+- ✓ Record useful details (best time to call, languages spoken)
+- ✓ Note special instructions
+- ✓ Be respectful and appropriate
+- ✗ Avoid unnecessary personal details
+- ✗ Never include sensitive information
 
-- **Instant Updates**: Changes to addresses appear immediately for all users
-- **Live Collaboration**: Multiple users can work on different territories simultaneously
-- **Connection Status**: The app automatically reconnects if internet connection is lost
-- **Background Sync**: Updates sync automatically when you're viewing a territory
+**Example Good Notes:**
 
-**Note**: Real-time updates only work while you have the territory open. Closing the browser or navigating away will stop the subscription.
+- "Best time: Weekends after 2 PM"
+- "Speaks Mandarin and English"
+- "Interested in Bible study"
+- "Ask for apartment number at guardhouse"
 
-### Territory Assignment (For Administrators and Conductors)
+**Example Bad Notes:**
 
-Ministry Mapper doesn't have a "request territory" system for publishers. Instead, administrators and conductors create assignment links.
+- Personal medical information
+- Financial details
+- Excessive personal descriptions
 
-#### Creating Assignment Links
+**6. Adjust Not Home Count** (If Needed)
 
-1. **Access Assignments**
+The system automatically tracks not home attempts, but you can manually adjust if necessary.
 
-   - Click the "Assignments" button in the top navigation
-   - View all active assignment links
+**7. Set Do Not Call Date** (DNC Status Only)
 
-2. **Create New Assignment**
+When marking as Do Not Call:
 
-   - Click "Create New Assignment"
-   - Select the territory from dropdown
-   - Choose assignment type:
-     - **Normal Assignment**: Regular territory assignment
-     - **Personal Slip**: For personal territory work
-   - Select publisher (optional - links can be shared with anyone)
-   - Set expiry time (default: 24 hours)
-   - Click "Create"
+- System defaults to today's date
+- Adjust if needed for specific DNC requests
+- Date helps track when to potentially revisit
 
-3. **Share the Link**
-   - Copy the generated link
-   - Send to publishers via email, WhatsApp, or other messaging
-   - Publisher clicks the link to access the territory
-   - Link expires automatically after the set time
+**8. Update Geolocation** (Administrators Only)
+
+For single-story territories:
+
+- Click "Update Geolocation" button
+- Use the map to set precise location
+- Helps with navigation and mapping accuracy
+
+**9. Save Changes**
+
+- Review all updates
+- Click **"Save"** button
+- Changes sync immediately to all users
+- Success message confirms update
+
+**10. Delete Property** (Administrators Only - Single-Story)
+
+For private properties that need removal:
+
+- Click "Delete Property" button at bottom
+- Confirm deletion
+- **Warning**: This action cannot be undone
+
+---
+
+### Using the Map Feature
+
+> **📸 Screenshot Placeholder:** Map view showing markers and navigation controls
+
+Ministry Mapper integrates Google Maps for intuitive territory navigation.
+
+#### Map Features
+
+**Interactive Markers:**
+
+- Each address is marked on the map
+- Marker colors indicate status:
+  - 🔵 Default (Not Done)
+  - 🟢 Done
+  - 🟡 Not Home
+  - 🔴 Do Not Call
+  - ⚫ Invalid
+- Click any marker to view/edit that address
+
+**Map Controls:**
+
+- **Zoom**: + and - buttons or pinch gesture
+- **Pan**: Click and drag to move around
+- **Satellite View**: Toggle between map and satellite imagery
+- **Full Screen**: Expand map to full screen
+- **Center on Territory**: Reset view to show all addresses
+
+#### Navigation Tips
+
+1. **Before Leaving Home:**
+
+   - View the map to plan your route
+   - Identify clusters of addresses
+   - Note any special access requirements from notes
+
+2. **In the Field:**
+
+   - Use map to navigate between addresses
+   - Follow the sequence numbers for optimal routing
+   - Tap markers to quickly update status after each visit
+
+3. **Using with Phone GPS:**
+   - Enable location services
+   - Map shows your current position
+   - Navigate directly to next address
+   - Works offline if map tiles cached (limited)
+
+---
+
+### Territory Assignments (Conductors & Administrators)
+
+> **📸 Screenshot Placeholder:** Assignments modal showing list of active assignment links
+
+Ministry Mapper uses a link-based assignment system. Conductors and Administrators create shareable links that publishers use to access territories.
+
+#### Why Link-Based Assignments?
+
+- ✓ **Simple Distribution**: Send links via email, message, or text
+- ✓ **Automatic Expiry**: Links expire after set time (default: 24 hours)
+- ✓ **No Account Required**: Publishers work directly through the link
+- ✓ **Security**: Expired links cannot be accessed
+- ✓ **Tracking**: See who accessed what and when
+
+#### Creating an Assignment
+
+**Step 1: Open Assignments**
+
+1. Click the **"Assignments"** button in the top navigation
+2. View list of all active assignments across all territories
+
+**Step 2: Create New Assignment**
+
+1. Click **"Create New Assignment"** or **"+"** button
+2. Fill in the assignment form:
+
+**Assignment Type:**
+
+- **Normal Assignment**: Standard territory assignment for field service
+- **Personal Slip**: For personal territory or return visits
+
+**Territory Selection:**
+
+- Choose territory from dropdown menu
+- Only territories in your congregation available
+
+**Publisher Name:** (Optional)
+
+- Enter the publisher's name for tracking
+- Helps identify who has which territory
+- Not required - link works for anyone with access
+
+**Link Expiry:**
+
+- Set expiration time in hours
+- Default: 24 hours (configured by administrator)
+- Can set custom duration
+- After expiry, link becomes inaccessible
+
+**Step 3: Generate and Share**
+
+1. Click **"Create Assignment"**
+2. System generates a unique link
+3. Share the link with the publisher via:
+   - Email
+   - Text message
+   - Instant messaging app
+   - Any communication method
+
+**Example Assignment Link:**
+
+```
+https://your-ministry-mapper.com/map/abc123xyz456
+```
 
 #### Managing Assignments
 
-- **View Active Links**: See all current assignment links and their expiry times
-- **Delete Links**: Remove links before they expire if needed
-- **Monitor Usage**: Check which territories are currently assigned
+> **📸 Screenshot Placeholder:** Assignment list with expiry times and delete buttons
 
-### Messages and Instructions (For Administrators and Conductors)
+**View All Assignments:**
 
-#### Viewing Messages
+- Click "Assignments" button
+- See all active links for all territories
+- Filter by territory if needed
 
-1. Click the "Messages" button in the top navigation
-2. See congregation-wide messages and territory-specific instructions
-3. Messages show:
-   - Message content
-   - Type (feedback or instruction)
-   - Creator and creation date
-   - Read status
+**Assignment Information Displayed:**
 
-#### Creating Instructions
+- Territory name and code
+- Assignment type (Normal/Personal)
+- Publisher name (if provided)
+- Creation date
+- Expiry date and time
+- Countdown timer (if near expiry)
 
-1. Select a territory
-2. Click "New Instruction"
-3. Type your message for publishers working this territory
-4. Instructions appear when publishers access the territory link
+**Delete an Assignment:**
 
-#### Managing Messages
+1. Find the assignment in the list
+2. Click the **"Delete"** or **"🗑️"** button
+3. Confirm deletion
+4. Link immediately becomes inaccessible
 
-- **Pin Messages**: Keep important messages at the top
-- **Mark as Read**: Track which messages you've reviewed
-- **Delete Messages**: Remove outdated messages
+**When to Delete:**
 
-### User Management (For Administrators)
+- Territory returned early
+- Wrong link created
+- Publisher no longer needs access
+- Security concern
 
-#### Inviting Users
+#### Best Practices for Assignments
 
-1. Click on your profile icon
-2. Select "User Management"
-3. Click "Invite User"
-4. Enter the user's email address
-5. Select their congregation role:
-   - Publisher
-   - Read-Only
-   - Conductor
-   - Administrator
-6. Send invitation
-7. User receives email with link to create account
+**Before Creating:**
 
-#### Managing Existing Users
+- ✓ Verify the territory is ready (addresses updated, instructions clear)
+- ✓ Check congregation settings for default expiry time
+- ✓ Plan appropriate expiry duration for territory size
 
-1. Go to "User Management"
-2. View list of all users in your congregation
-3. For each user you can:
-   - **Change Role**: Update access level
-   - **Remove Access**: Set to "Delete Access" to revoke permissions
-   - **View Details**: See email and verification status
+**When Sharing:**
 
-**Important**: You need "Administrator" role to manage users. Conductors cannot change user permissions.
+- ✓ Include instructions in your message
+- ✓ Remind publisher of expiry time
+- ✓ Provide your contact for questions
+- ✓ Send during reasonable hours
 
-### Managing Territories (For Administrators)
+**Monitoring:**
 
-#### Creating Territories
+- ✓ Regular check for expired assignments
+- ✓ Clean up old assignments periodically
+- ✓ Follow up if territory not returned
+- ✓ Track completion rates
 
-1. Select "Create New" from the territory dropdown
-2. Enter territory code (e.g., M01, W12)
-3. Enter territory description
-4. Click "Create"
-5. Start adding addresses to the new territory
+---
 
-#### Managing Territory Settings
+### Messages and Instructions
 
-- **Change Territory Name**: Update the description
-- **Change Territory Code**: Modify the territory identifier
-- **Reset Territory**: Clear all address statuses back to "not done"
-- **Delete Territory**: Remove territory and all its addresses (cannot be undone)
+> **📸 Screenshot Placeholder:** Messages modal showing posted messages with pinning option
 
-### Managing Multiple Territories
+Administrators and Conductors can post messages visible to specific user groups.
 
-Territory selection works via dropdown:
+#### Message Types
 
-1. **Switch Between Territories**
+**Publisher Messages:**
 
-   - Use the territory selector dropdown at the top
-   - Select any territory to view and manage it
+- Visible to all publishers with assignment links
+- Instructions for field service
+- Territory-specific guidance
+- General announcements
 
-2. **Track Progress**
-   - Progress bars show completion percentage
-   - Based on countable addresses vs. completed addresses
-   - Updates in real-time as addresses are marked
+**Conductor Messages:**
 
-## Advanced Features
+- Visible to Conductors and Administrators
+- Coordination information
+- Administrative notes
+- Planning information
 
-### Congregation Options (For Administrators)
+**Administrator Messages:**
 
-Customize household types for your congregation:
+- Visible only to Administrators
+- System administration notes
+- Critical updates
+- Management reminders
 
-1. Click "Congregation Options" in settings
-2. Add, edit, or remove household types
-3. Set which types are countable
-4. Set default type for new addresses
-5. Reorder types by dragging
+#### Posting a Message
 
-Examples: Chinese, English, Tamil, Malay, etc.
+1. Click **"Messages"** button
+2. Click **"New Message"** or **"+"**
+3. Type your message
+4. Select message type (Publisher/Conductor/Administrator)
+5. Optionally **pin** important messages to top
+6. Click **"Post"**
 
-### Congregation Settings (For Administrators)
+#### Message Features
 
-Configure how territories work:
+**Pinning:**
 
-1. **Max Tries**: Set how many "not home" attempts before considering complete
-2. **Origin Location**: Set default location for map directions
-3. **Default Expiry Hours**: Set how long assignment links last before expiring
-4. **Multiple Options**: Allow addresses to have multiple types
+- Pin important messages to keep them at the top
+- Only one pinned message per type
+- Unpin when no longer critical
 
-### Using Filters
+**Editing:**
 
-The application doesn't have built-in filters, but addresses are organized by:
+- Edit messages after posting
+- Updates immediately for all viewers
 
-- **Status**: Visual color coding helps identify address states
-- **Floor**: Multi-story buildings group units by floor
-- **Sequence**: Addresses are ordered by sequence number for logical visiting order
+**Deleting:**
 
-### Address Management (For Administrators)
+- Remove outdated messages
+- Clean up after events pass
 
-#### Adding Public Addresses (Multi-story buildings)
+**Reading Status:**
 
-1. Click "New Public Address"
-2. Enter postal code
-3. Enter address name
-4. Set number of floors
-5. Enter starting floor number
-6. Enter number of units per floor
-7. Set unit numbering format
-8. Click "Create"
-9. Units are automatically generated for all floors
+- See who has read messages (administrator view)
+- Track acknowledgment of important updates
 
-#### Adding Private Addresses (Single-story properties)
+---
 
-1. Click "New Private Address"
-2. Enter postal code
-3. Enter property name/address
-4. Click "Create"
-5. Manually add individual houses/units as needed
+### Real-Time Data Synchronization
 
-#### Editing Addresses
+Ministry Mapper uses PocketBase real-time subscriptions for instant updates:
 
-Administrators can:
+#### How It Works
 
-- **Change Address Name**: Update the building/property name
-- **Change Postal Code**: Update the postal code
-- **Add/Delete Floors**: Modify floor structure for public addresses
-- **Add/Delete Units**: Manage individual units
-- **Change Unit Sequence**: Reorder units for visiting
-- **Reset Address**: Clear all unit statuses
-- **Delete Address**: Remove entire address with all units
+**Automatic Synchronization:**
 
-### Quick Links (For Administrators)
+- Changes sync immediately across all connected devices
+- No manual refresh needed
+- Updates appear instantly for all users viewing same territory
 
-Create temporary access links:
+**What Gets Synchronized:**
 
-1. Click "Get Quick Link"
-2. Link is generated for current territory
-3. Share with anyone who needs temporary access
-4. Link expires based on congregation settings
-5. No login required for recipients
+- ✓ Address status changes
+- ✓ New notes and updates
+- ✓ Territory progress
+- ✓ New messages
+- ✓ Assignment changes
+
+**Connection Handling:**
+
+- System automatically detects connection loss
+- Reconnects when internet restored
+- Shows connection status indicator
+- Queues updates if offline (limited)
+
+**Performance:**
+
+- Updates only when territory/page is open
+- Automatic cleanup when page closed
+- Minimal bandwidth usage
+- Optimized for mobile data
+
+> **💡 Note**: For real-time updates to work, keep your browser tab active while working on a territory.
+
+---
+
+### User Management (Administrators Only)
+
+> **📸 Screenshot Placeholder:** User management panel showing user list with roles
+
+Administrators have full control over user accounts and permissions within their congregation.
+
+#### Viewing Users
+
+1. Click your **profile icon** or **user menu**
+2. Select **"User Management"** or **"Users"**
+3. View complete list of congregation users showing:
+   - User name
+   - Email address
+   - Verification status (✓ verified / ✗ not verified)
+   - Current role badge
+   - Last activity
+
+#### Inviting New Users
+
+**Step 1: Open Invite Dialog**
+
+1. In User Management, click **"Invite User"** or **"+"**
+2. Invite user modal opens
+
+**Step 2: Enter User Information**
+
+- **Email Address**: User's email (must be valid)
+- **Role Assignment**: Select one of:
+  - Publisher
+  - Read-Only
+  - Conductor
+  - Administrator
+
+**Step 3: Send Invitation**
+
+1. Click **"Send Invite"**
+2. System sends invitation email to user
+3. Email contains:
+   - Link to create account
+   - Congregation information
+   - Role assignment details
+   - Instructions for getting started
+
+**Step 4: User Completes Registration**
+
+- User receives email
+- Clicks link to sign up
+- Creates account with password
+- Verifies email address
+- Automatically added to congregation with assigned role
+
+#### Changing User Roles
+
+1. Locate user in the user list
+2. Click on the user or **"Edit"** button
+3. Select new role from dropdown:
+   - **Publisher**: Basic territory access via links
+   - **Read-Only**: View-only dashboard access
+   - **Conductor**: Can create assignments and manage messages
+   - **Administrator**: Full control
+4. Click **"Save"** or **"Update"**
+5. Changes take effect immediately
+
+> **⚠️ Important**: Users must log out and log back in to see their new permissions reflected.
+
+#### Removing User Access
+
+**Temporary Removal:**
+
+1. Change user's role to **"No Access"** or **"Delete Access"**
+2. User loses all permissions
+3. Account remains but cannot access congregation data
+
+**Permanent Removal:**
+
+1. Click **"Delete"** button for user
+2. Confirm deletion
+3. User completely removed from congregation
+4. User can be re-invited if needed
+
+#### User Verification Status
+
+**Verified Users (✓):**
+
+- Email address confirmed
+- Full access to assigned permissions
+- Can log in normally
+
+**Unverified Users (✗):**
+
+- Email not yet confirmed
+- Limited or no access
+- Need to check email and click verification link
+
+**To Resend Verification:**
+
+- Some systems allow resending verification email
+- Or ask user to use "Forgot Password" feature
+
+---
+
+### Congregation Settings (Administrators Only)
+
+> **📸 Screenshot Placeholder:** Congregation settings page with all configuration options
+
+Configure how Ministry Mapper works for your congregation.
+
+#### Accessing Settings
+
+1. Click **"Settings"** button or ⚙️ icon
+2. View congregation configuration panel
+
+#### Key Settings
+
+**1. Maximum "Not Home" Tries**
+
+- Default: 1
+- Range: 1-4 attempts
+- When reached, address considered complete for progress calculation
+- Affects when territories show as finished
+
+**Example:** If set to 3:
+
+- First "Not Home": Count = 1
+- Second "Not Home": Count = 2
+- Third "Not Home": Count = 3, marks complete
+
+**2. Assignment Link Expiry (Hours)**
+
+- Default: 24 hours
+- Range: 1-168 hours (1 week)
+- How long assignment links remain active
+- Applies to newly created links
+
+**3. Congregation Origin/Location**
+
+- Set your congregation's location
+- Used for map centering and directions
+- Can be city name or coordinates
+- Helps with route planning
+
+**4. OTP (One-Time Password)**
+
+- Enable/disable email OTP for login
+- Adds extra security layer
+- Users receive code via email when logging in
+- Recommended for sensitive congregation data
+
+#### Congregation Options (Household Types)
+
+> **📸 Screenshot Placeholder:** Congregation options management showing type list
+
+Configure custom household classification types for your territory.
+
+**What Are Congregation Options?**
+
+- Custom categories for classifying households
+- Examples: Language groups (Chinese, English, Tamil)
+- Can represent any classification system your congregation uses
+- Multiple types can be assigned to single household if configured
+
+**Managing Options:**
+
+1. **View Options**
+
+   - In Settings, find "Congregation Options" section
+   - See list of all configured types
+
+2. **Add New Option**
+
+   - Click "Add Option" or "+"
+   - Fill in:
+     - **Code**: Short identifier (e.g., "CHI", "ENG")
+     - **Description**: Full name (e.g., "Chinese", "English")
+     - **Is Countable**: Check if should count toward territory progress
+     - **Is Default**: Check if should be default selection
+     - **Sequence**: Display order number
+   - Click "Save"
+
+3. **Edit Option**
+
+   - Click on existing option
+   - Modify fields
+   - Save changes
+
+4. **Delete Option**
+   - Click delete button for option
+   - Confirm deletion
+   - **Warning**: Affects all addresses using this type
+
+**Option Flags:**
+
+- **Is Countable**: Include in progress calculations
+- **Is Default**: Auto-select when creating new addresses
+- **Sequence**: Order in dropdown menus (lower numbers first)
+
+**Multiple Selection Configuration:**
+
+- Enable if households can have multiple types
+- Example: Household speaks both Chinese and English
+- When disabled, only one type per household
+
+---
+
+### Territory Management (Administrators Only)
+
+> **📸 Screenshot Placeholder:** Territory creation and management interface
+
+Administrators have full control over creating, editing, and managing territories.
+
+#### Creating a New Territory
+
+**Step 1: Access Territory Creation**
+
+1. Click the **territory selector** dropdown
+2. Select **"Create New Territory"** or **"New Territory"**
+3. Territory creation form opens
+
+**Step 2: Enter Territory Information**
+
+- **Territory Code**: Short identifier (e.g., "T-001", "M-12", "W-05")
+  - Keep it short and meaningful
+  - Use consistent naming convention
+  - Maximum recommended: 10 characters
+- **Description**: Full name or area description
+  - Examples: "Downtown Commercial", "Northside Residential"
+  - Be descriptive for easy identification
+  - Maximum recommended: 100 characters
+
+**Step 3: Create**
+
+1. Click **"Create Territory"**
+2. New territory is created and selected
+3. Ready to add addresses
+
+#### Editing Territory Details
+
+**Change Territory Code:**
+
+1. Select the territory
+2. Click ✏️ **"Edit"** or **"Change Territory Code"**
+3. Enter new code
+4. Save changes
+5. **Warning**: Update any references to old code
+
+**Change Territory Description:**
+
+1. Select territory
+2. Click **"Change Territory Name"** or edit option
+3. Update description
+4. Save changes
+
+#### Territory Operations
+
+**Reset Territory:**
+
+> **📸 Screenshot Placeholder:** Reset confirmation dialog
+
+Resets all addresses in territory to "Not Done" status:
+
+1. Select territory
+2. Click **"Reset Territory"** button
+3. Confirm action (this clears all visit data!)
+4. All addresses return to "Not Done"
+5. Not home counts reset to 0
+6. Notes are preserved
+7. Progress resets to 0%
+
+**Use When:**
+
+- Territory fully worked and ready to reassign
+- Starting new round of visits
+- Cleaning up test data
+
+**⚠️ Warning**: Cannot be undone. All status updates will be lost.
+
+**Delete Territory:**
+
+> **📸 Screenshot Placeholder:** Delete confirmation warning
+
+Permanently removes territory and all its data:
+
+1. Select territory to delete
+2. Click **"Delete Territory"** button
+3. Read warning message carefully
+4. Type confirmation if required
+5. Confirm deletion
+
+**Deletes:**
+
+- Territory record
+- All addresses in territory
+- All units and floors
+- All assignment history
+- All related data
+
+**⚠️ Critical Warning**: This action CANNOT be undone. Consider exporting data first.
+
+---
+
+### Address Management (Administrators Only)
+
+> **📸 Screenshot Placeholder:** Address creation form for public buildings
+
+Administrators can add and manage addresses within territories.
+
+#### Address Types
+
+Ministry Mapper supports two types of addresses:
+
+**1. Public Addresses (Multi-Story)**
+
+- Apartment buildings, condominiums
+- Multiple floors and units
+- Examples: HDB flats, apartment complexes
+- Each floor has multiple units
+
+**2. Private Addresses (Single-Story)**
+
+- Individual houses, shophouses
+- Single properties with one address
+- Examples: Landed properties, standalone buildings
+- No floor/unit structure
+
+#### Adding a Public Address (Multi-Story)
+
+**Step 1: Initiate Creation**
+
+1. Select territory
+2. Click **"Add Address"** or **"+"** button
+3. Select **"Public Address"** type
+
+**Step 2: Enter Building Information**
+
+- **Postal Code/Address**: Building identifier
+  - Enter postal code or street address
+  - System may auto-populate location
+  - Used for geocoding and map display
+- **Building Name**: Optional building name
+  - Examples: "Block 123A", "Sunny Heights"
+  - Helps publishers identify building
+
+**Step 3: Configure Floors**
+
+- **Start Floor**: Lowest floor number
+  - Can be negative for basement levels
+  - Examples: -2 (B2), 1 (Ground), 0
+- **Top Floor**: Highest floor number
+  - Maximum: 50
+  - Examples: 10, 25, 40
+- **Floor Selection**: Choose specific floors
+  - Skip floors with no units (e.g., mechanical floors)
+  - Typical: All floors from start to top
+
+**Step 4: Configure Units**
+
+- **Units Per Floor**: Number of units on each floor
+  - Examples: 8, 12, 16
+  - Creates units automatically
+- **Unit Number Format**: How to number units
+  - Pattern: Floor + unit (e.g., 01-01, 01-02)
+  - Custom: Manually enter unit numbers later
+
+**Step 5: Create and Populate**
+
+1. Click **"Create"**
+2. System generates all floors and units
+3. Address appears in territory with all units
+
+**Example:**
+
+- Building: Block 123
+- Floors: 1 to 12
+- Units per floor: 8
+- Result: 96 units created (12 floors × 8 units)
+
+#### Adding a Private Address (Single-Story)
+
+**Step 1: Initiate Creation**
+
+1. Select territory
+2. Click **"Add Address"** or **"+"**
+3. Select **"Private Address"** type
+
+**Step 2: Enter Property Information**
+
+- **Property Postal/Address**: Unique identifier
+  - Street address or postal code
+  - Each property is one record
+- **Property Name**: Optional house name
+  - Examples: "123 Main Street", "Villa Sunshine"
+
+**Step 3: Set Location (Optional)**
+
+- Click **"Set Geolocation"**
+- Use map to pinpoint exact location
+- Helps with navigation
+- Can be updated later
+
+**Step 4: Create**
+
+1. Click **"Create Property"**
+2. Single address unit created
+3. Appears in territory list
+
+#### Managing Existing Addresses
+
+**Edit Address Name:**
+
+1. Select territory with address
+2. Click edit option for address
+3. Update name/postal
+4. Save changes
+
+**Change Postal Code:**
+
+1. Access address edit mode
+2. Update postal code field
+3. May affect geocoding
+4. Save and verify map location
+
+**Reset Address:**
+
+- Clears all unit statuses in address
+- Notes preserved
+- Use when address fully worked
+
+**Delete Address:**
+
+- Removes entire address and all units
+- Cannot be undone
+- Confirm carefully before deleting
+
+#### Managing Units (Public Addresses Only)
+
+**Add Units:**
+
+1. Select address
+2. Click **"Add Units"**
+3. Specify unit numbers to add
+4. Units created automatically
+
+**Delete Units:**
+
+1. Click on specific unit
+2. Click **"Delete Unit"** button in modal
+3. Confirm deletion
+4. Unit removed from address
+
+**Change Unit Sequence:**
+
+1. Open unit edit modal
+2. Update sequence number
+3. Affects visit order
+4. Lower numbers visited first
+
+**Add/Delete Floors:**
+
+1. Access floor management
+2. Add new floor numbers
+3. Or remove entire floors
+4. All units on floor affected
+
+**Update Unit Geolocation:**
+
+- Set specific coordinates for unit
+- Useful for large buildings
+- Helps with precise navigation
+- Optional feature
+
+---
+
+---
 
 ## Mobile Usage
 
-### Using on Your Phone
+> **📸 Screenshot Placeholder:** Mobile interface showing responsive design and PWA installation
 
-Ministry Mapper is fully responsive and works on mobile devices:
+### Using Ministry Mapper on Your Phone
 
-**Access on Mobile:**
+Ministry Mapper is fully responsive and optimized for mobile devices, making it perfect for field service.
 
-1. Open your browser (Safari, Chrome, etc.)
-2. Navigate to your Ministry Mapper URL
+#### Accessing on Mobile
+
+**Browser Access:**
+
+1. Open your mobile browser:
+   - **iOS**: Safari, Chrome
+   - **Android**: Chrome, Firefox, Samsung Internet
+2. Navigate to your congregation's Ministry Mapper URL
 3. Log in or click assignment link
-4. The interface automatically adapts to your screen size
+4. Interface automatically adapts to your screen size
 
-**Progressive Web App (PWA):**
+**Features on Mobile:**
 
-- Ministry Mapper can be installed as a PWA
-- Provides app-like experience
-- Faster loading with cached resources
-- Works on iOS and Android
+- ✓ Touch-friendly buttons and controls
+- ✓ Swipe gestures for navigation
+- ✓ Optimized layouts for small screens
+- ✓ Larger tap targets for easy selection
+- ✓ Full access to all desktop features
+- ✓ Google Maps integration with GPS
 
-**Installation Steps:**
+#### Progressive Web App (PWA) Installation
 
-1. Open Ministry Mapper in your mobile browser
-2. For iOS Safari: Tap Share → "Add to Home Screen"
-3. For Android Chrome: Tap menu (⋮) → "Install app" or "Add to Home Screen"
-4. The app icon appears on your home screen
+> **📸 Screenshot Placeholder:** PWA installation prompts for iOS and Android
 
-**Mobile Features:**
+Install Ministry Mapper as an app for better performance:
 
-- Touch-friendly buttons and interface
-- Google Maps integration for navigation
-- Responsive layout adapts to screen size
-- All desktop features available
+**Benefits of Installing:**
 
-### Offline Usage
+- 🚀 Faster loading with cached resources
+- 📱 App icon on home screen
+- 🎯 Full-screen experience (no browser UI)
+- ⚡ Improved performance
+- 🔔 Better integration with device
 
-Ministry Mapper requires internet connection:
+**iOS Installation (Safari):**
 
-**Internet Required:**
+1. Open Ministry Mapper in Safari
+2. Tap the **Share** button (📤)
+3. Scroll down and tap **"Add to Home Screen"**
+4. Edit name if desired
+5. Tap **"Add"**
+6. App icon appears on home screen
 
-- PocketBase backend connection needed for all data operations
-- Real-time synchronization requires active connection
-- Google Maps requires internet for display
-- Updates cannot be made offline
+**Android Installation (Chrome):**
 
-**Service Worker Caching:**
+1. Open Ministry Mapper in Chrome
+2. Tap the menu button (⋮)
+3. Select **"Install app"** or **"Add to Home Screen"**
+4. Confirm installation
+5. App icon appears on home screen or app drawer
 
-- Static assets (CSS, JS, fonts) are cached for faster loading
-- External assets cached for 7 days
-- Fonts cached for 30 days
-- App shell loads faster on repeat visits
+**Using the Installed App:**
 
-**Best Practice:**
+- Launch from home screen like any app
+- No browser address bar
+- Seamless app experience
+- Updates automatically
 
-- Ensure stable internet before starting fieldwork
-- Check connection if updates aren't saving
-- Consider downloading directions ahead of time
+#### Mobile Best Practices
 
-## Settings
+**Before Going Out:**
 
-### Personal Profile
+1. ✓ Check assignment link hasn't expired
+2. ✓ Review territory and map
+3. ✓ Note any special instructions
+4. ✓ Ensure stable internet connection
+5. ✓ Fully charge your device
+6. ✓ Consider portable charger
 
-Access your profile settings:
+**While in Field Service:**
 
-1. Click on your profile name/icon
-2. Select "Profile"
-3. Available options:
-   - Change password
-   - View account information
-   - Access user management (Administrators only)
+1. ✓ Update addresses immediately after visits
+2. ✓ Add notes while information is fresh
+3. ✓ Use GPS navigation on map
+4. ✓ Follow sequence numbers for efficient routing
+5. ✓ Save battery by dimming screen when not needed
+
+**Data Usage Tips:**
+
+- Ministry Mapper uses minimal data
+- Map tiles may use more data
+- Consider downloading maps offline beforehand (in Google Maps app)
+- Most updates are < 1KB each
+- Suitable for mobile data usage
+
+### Offline Capabilities and Limitations
+
+**Internet Connection Required:**
+
+Ministry Mapper requires active internet for:
+
+- ✗ Loading territory data
+- ✗ Saving status updates
+- ✗ Real-time synchronization
+- ✗ Displaying Google Maps
+- ✗ User authentication
+
+**Limited Offline Features:**
+
+- Static assets cached (app shell)
+- Previously loaded territory may display
+- **Cannot make updates offline**
+- **Updates not queued for later sync**
+
+**Handling Connection Loss:**
+
+- System detects connection loss
+- Displays connection status warning
+- Automatically reconnects when available
+- Resume work when connection restored
+
+**Recommendations:**
+
+- ✓ Ensure reliable connection before starting
+- ✓ Test connection at territory location
+- ✓ Have backup plan for no-internet areas
+- ✓ Consider portable WiFi hotspot if needed
+- ✓ Update addresses while connection is active
+
+---
+
+---
+
+## Account Settings and Profile
+
+### Personal Profile Management
+
+> **📸 Screenshot Placeholder:** Profile settings page showing account options
+
+**Accessing Your Profile:**
+
+1. Click your **profile name/icon** (top right corner)
+2. Select **"Profile"** from dropdown menu
+3. View and manage your account settings
+
+**Available Profile Options:**
+
+- View account information (name, email)
+- Change password
+- View congregation membership
+- Access user management (Administrators only)
+- Log out
 
 ### Changing Your Password
 
+**Security Requirements:**
+
+- Minimum 6 characters
+- At least one number
+- At least one capital letter
+- Must match confirmation
+
+**Steps to Change:**
+
 1. Go to your profile
-2. Enter your current password
-3. Enter new password (minimum 6 characters, must include numbers and capital letters)
-4. Confirm new password
-5. Click "Change Password"
+2. Click **"Change Password"**
+3. Enter your **current password**
+4. Enter **new password**
+5. **Confirm new password**
+6. Click **"Save"** or **"Change Password"**
+7. Success message confirms change
+
+> **💡 Tip**: Use a strong, unique password. Consider using a password manager.
 
 ### Password Recovery
 
-If you forgot your password:
+Forgot your password? Easy recovery process:
 
-1. Click "Forgotten your password?" on login page
-2. Enter your email address
-3. Click "Continue"
-4. Check your email for password reset link
-5. Click the link and create a new password
+1. Go to login page
+2. Click **"Forgotten your password?"** link
+3. Enter your **registered email address**
+4. Click **"Continue"** or **"Send Reset Link"**
+5. Check your email inbox
+6. Click the password reset link (valid for limited time)
+7. Create a new password meeting requirements
+8. Confirm new password
+9. Log in with new password
+
+**If you don't receive the email:**
+
+- Check spam/junk folder
+- Verify you entered correct email
+- Wait a few minutes and try again
+- Contact administrator if issues persist
 
 ### Language Selection
 
-Ministry Mapper supports multiple languages:
+> **📸 Screenshot Placeholder:** Language selector or browser language settings
 
-**Available Languages:**
+Ministry Mapper supports multiple languages for international congregations.
 
-- English (en)
-- Japanese (ja / 日本語)
-- Korean (ko / 한국어)
-- Chinese (zh / 中文)
-- Indonesian (id / Bahasa Indonesia)
-- Malay (ms / Bahasa Melayu)
-- Tamil (ta / தமிழ்)
+**Supported Languages:**
 
-**Changing Language:**
+- 🇬🇧 English (en)
+- 🇯🇵 Japanese (ja / 日本語)
+- 🇰🇷 Korean (ko / 한국어)
+- 🇨🇳 Chinese (zh / 中文)
+- 🇮🇩 Indonesian (id / Bahasa Indonesia)
+- 🇲🇾 Malay (ms / Bahasa Melayu)
+- 🇮🇳 Tamil (ta / தமிழ்)
 
-- Language is automatically detected from your browser settings
-- To change: Update your browser's language preferences
-- The app will automatically use the matching translation
-- Default view (list/map)
+**How Language is Determined:**
+
+- Automatically detected from browser language settings
+- Uses your operating system's language preference
+- No manual selection needed in most cases
+
+**To Change Language:**
+
+1. Change your browser's language settings:
+   - **Chrome**: Settings → Languages → Add language
+   - **Safari**: System Preferences → Language & Region
+   - **Firefox**: Settings → General → Language
+2. Refresh Ministry Mapper
+3. Interface updates to selected language
+
+**Translation Coverage:**
+
+- All interface elements translated
+- Buttons, labels, and messages
+- Error messages and confirmations
+- Help text and instructions
+
+---
 
 ## Tips for Effective Territory Work
 
-### Organization
+### Best Practices for Publishers
+
+**Before Starting:**
+
+- ✓ Review entire territory on map before going out
+- ✓ Check for any special instructions or notes
+- ✓ Plan your route using sequence numbers
+- ✓ Note addresses marked "Do Not Call"
+- ✓ Check weather and prepare accordingly
+- ✓ Ensure device is charged
+
+**During Field Service:**
+
+- ✓ Update addresses immediately after each visit
+- ✓ Add detailed but respectful notes
+- ✓ Follow the sequence for efficient routing
+- ✓ Use map for navigation between addresses
+- ✓ Mark "Not Home" accurately
+- ✓ Respect all "Do Not Call" requests
+
+**After Completing:**
+
+- ✓ Review all updates for accuracy
+- ✓ Add any final notes or observations
+- ✓ Notify administrator if territory is complete
+- ✓ Report any address issues (invalid, moved, etc.)
+
+### Best Practices for Administrators
+
+**Territory Setup:**
+
+- ✓ Use consistent naming conventions
+- ✓ Keep territory codes short and meaningful
+- ✓ Add clear descriptions
+- ✓ Verify all addresses on map
+- ✓ Set appropriate sequence numbers
+- ✓ Include helpful instructions
+
+**Managing Assignments:**
+
+- ✓ Set appropriate expiry times
+- ✓ Include publisher names for tracking
+- ✓ Clean up expired assignments regularly
+- ✓ Follow up on long-outstanding assignments
+- ✓ Monitor territory completion rates
+
+**Data Management:**
+
+- ✓ Regularly review and clean up old data
+- ✓ Reset territories when fully worked
+- ✓ Verify address information accuracy
+- ✓ Back up critical information externally
+- ✓ Train users on proper data entry
+
+**User Management:**
+
+- ✓ Assign appropriate roles to users
+- ✓ Remove access for inactive users
+- ✓ Respond promptly to access requests
+- ✓ Communicate role changes clearly
+
+---
 
 - **Start with a Plan**: Review the entire territory before going out
 - **Work Systematically**: Complete one section/building at a time
@@ -538,168 +1511,717 @@ Ministry Mapper supports multiple languages:
 - **Be Flexible**: Adapt to what the territory needs
 - **Be Prayerful**: Remember the purpose of the work
 
-## Troubleshooting
+---
 
-### Can't Log In
+## Troubleshooting Common Issues
 
-**Forgot Password:**
+### Login Problems
 
-1. Click "Forgot Password"
-2. Enter your email
-3. Check email for reset link
-4. Create new password
+#### Can't Log In - Incorrect Password
 
-**Account Locked:**
+**Symptoms:**
 
-- Contact territory servant or administrator
-- May need to verify your email
-- Could be due to inactivity
+- "Invalid credentials" or "Incorrect password" error
+- Cannot access your account
 
-### Changes Not Saving
+**Solutions:**
+
+1. **Verify Email**: Ensure you're using the correct email address
+2. **Check Caps Lock**: Password is case-sensitive
+3. **Use Password Reset**:
+   - Click "Forgot Password" on login page
+   - Enter your email
+   - Check email for reset link
+   - Create new password following requirements
+
+#### Account Not Verified
+
+**Symptoms:**
+
+- "Email not verified" message
+- Cannot log in after creating account
+
+**Solutions:**
+
+1. Check your email inbox for verification message
+2. Check spam/junk folder
+3. Click the verification link in the email
+4. If link expired, request new verification email
+5. Contact administrator if problems persist
+
+#### No Congregation Access
+
+**Symptoms:**
+
+- Successfully logged in but see no territories
+- "No congregation assigned" message
+- Blank dashboard
+
+**Solutions:**
+
+1. Contact your congregation administrator
+2. Administrator needs to:
+   - Invite you to congregation
+   - Assign you appropriate role
+3. Wait for administrator to grant access
+4. Log out and log back in after access granted
+
+#### One-Time Password (OTP) Issues
+
+**Symptoms:**
+
+- Not receiving OTP code
+- OTP code doesn't work
+
+**Solutions:**
+
+- Check email spam folder
+- OTP codes expire quickly (typically 5-10 minutes)
+- Request new code if expired
+- Ensure email address is correct
+- Contact administrator about OTP configuration
+
+---
+
+### Data Update Problems
+
+#### Changes Not Saving
+
+**Symptoms:**
+
+- Click "Save" but changes don't persist
+- Changes disappear after refresh
+- Error message when saving
 
 **Possible Causes:**
 
-- Poor internet connection
-- Browser issue
-- Someone else editing same record
+- Poor or unstable internet connection
+- Browser cache issues
+- Concurrent editing by another user
+- Server connectivity problems
 
 **Solutions:**
 
-- Check internet connection
-- Refresh page and try again
-- Wait a moment and retry
-- Contact support if persists
+1. **Check Connection**:
 
-### Map Not Loading
+   - Verify internet is connected and stable
+   - Test connection by loading another website
+   - Check if you see connection warning in app
 
-**Quick Fixes:**
+2. **Refresh and Retry**:
 
-- Refresh the page (Google Maps may timeout or fail to load initially)
-- Check internet connection
-- Verify VITE_GOOGLE_MAPS_API_KEY is correctly configured
-- Check browser console for specific error messages
-- Ensure Google Maps APIs are enabled in Google Cloud Console
+   - Refresh the browser page (Ctrl/Cmd + R)
+   - Try making the change again
+   - Wait a few moments between attempts
 
-### Connection or Sync Issues
+3. **Clear Browser Cache**:
 
-**Problem**: Changes not saving or "Connection lost" message
+   - Clear browser cache and cookies
+   - Close and reopen browser
+   - Log in again
 
-**Solutions:**
+4. **Try Different Browser**:
 
-- Check your internet connection
-- Refresh the browser page
-- The app will automatically reconnect when connection is restored
-- Check if PocketBase backend is running
-- Look for error messages in browser console
+   - Test in another browser (Chrome, Firefox, Safari)
+   - Determines if browser-specific issue
 
-### Link Expired
+5. **Check for Conflicts**:
+   - Someone else may be editing same address
+   - Wait a moment and try again
+   - Coordinate with other users if needed
 
-**Problem**: Assignment link shows "Link has expired"
+#### Real-Time Updates Not Appearing
 
-**Solutions:**
+**Symptoms:**
 
-- Contact administrator for a new link
-- Assignment links expire after set time (default 24 hours)
-- Administrator needs to create a new assignment
-
-### Permission Issues
-
-**Problem**: "You don't have permission to access this" message
+- Changes by others don't show up
+- Territory appears outdated
+- Progress not updating
 
 **Solutions:**
 
-- Contact your administrator to grant appropriate role
-- Verify your email is verified
-- Check that you've been added to the correct congregation
-- Log out and log back in to refresh permissions
+- Ensure you have active internet connection
+- Keep territory page open for real-time updates
+- Refresh page to force update
+- Updates only sync while page is open
+- Check connection status indicator
 
-## Getting Help
+---
 
-### Support Resources
+### Map and Navigation Issues
 
-1. **Administrator/Conductor**: Your congregation's Ministry Mapper admin
-2. **GitHub Wiki**: https://github.com/rimorin/ministry-mapper/wiki
-3. **Documentation**: Check the setup and security guides
-4. **GitHub Issues**: Report bugs at the repository
+#### Map Not Loading
 
-### Reporting Problems
+> **📸 Screenshot Placeholder:** Map loading error state
 
-When reporting issues, include:
+**Symptoms:**
 
-- What you were trying to do
-- What happened instead
-- Any error messages (exact text or screenshot)
-- Browser and version (Chrome, Safari, Firefox, etc.)
-- Device type (desktop, mobile, tablet)
-- Operating system
-- Whether you're using an assignment link or logged in
+- Gray box where map should be
+- "Failed to load map" error
+- Map partially loaded or frozen
 
-## Best Practices Summary
+**Solutions:**
 
-✓ Update address status immediately after visiting
-✓ Write clear, respectful notes about visits
-✓ Complete territories in reasonable time
-✓ Communicate with administrators about issues
-✓ Keep login credentials secure
-✓ Respect householder privacy
-✓ Use the mobile web app while in field service
-✓ Ensure stable internet connection before starting
-✓ Log out on shared devices
-✓ Ask administrators if you need help
+1. **Immediate Fixes**:
 
-## Keyboard Shortcuts
+   - Refresh the page (F5 or Ctrl/Cmd + R)
+   - Google Maps may timeout on slow connections
+   - Wait 10-15 seconds for map to load
+
+2. **Check Internet**:
+
+   - Verify internet connection is active
+   - Test speed - slow connection may timeout
+   - Try on different network if available
+
+3. **Browser Issues**:
+
+   - Clear browser cache
+   - Try different browser
+   - Disable browser extensions that might block maps
+   - Enable JavaScript if disabled
+
+4. **Configuration Issues** (Administrators):
+   - Verify `VITE_GOOGLE_MAPS_API_KEY` is set correctly
+   - Check Google Cloud Console:
+     - Maps JavaScript API enabled
+     - API key restrictions configured properly
+     - Billing account active (if required)
+   - Check browser console for specific error messages
+
+#### Incorrect Map Location
+
+**Symptoms:**
+
+- Addresses in wrong location on map
+- Markers misplaced
+
+**Solutions:**
+
+- **Administrators**: Update geolocation coordinates
+- Verify postal code/address is correct
+- Use "Update Geolocation" to manually set location
+- Check if Google Maps recognizes the address
+- May need to use latitude/longitude coordinates directly
+
+#### Directions Not Working
+
+**Solutions:**
+
+- Verify congregation origin location is set correctly
+- Check if address has valid coordinates
+- Try opening in Google Maps directly
+- Ensure Google Maps is accessible in your region
+
+---
+
+### Assignment Link Issues
+
+#### Link Expired
+
+**Symptoms:**
+
+- "This link has expired" message
+- Cannot access territory through link
+- "404 Not Found" or similar error
+
+**Understanding:**
+
+- Assignment links expire after set time (default: 24 hours)
+- This is intentional security feature
+- Prevents unauthorized long-term access
+
+**Solutions:**
+
+- Contact your administrator or conductor
+- Request new assignment link
+- Administrator must create fresh assignment
+- New link will have new expiry time
+
+#### Link Not Working
+
+**Symptoms:**
+
+- Link won't open
+- Error when clicking link
+- Broken link message
+
+**Solutions:**
+
+1. **Verify Link**:
+
+   - Ensure entire link was copied
+   - Check for line breaks if sent via email
+   - Link should be single, continuous URL
+
+2. **Copy-Paste Correctly**:
+
+   - Highlight entire link
+   - Copy and paste into browser address bar
+   - Don't type manually (easy to make mistakes)
+
+3. **Check Expiry**:
+
+   - Ask administrator when link was created
+   - May have already expired
+
+4. **Contact Administrator**:
+   - Confirm link was created correctly
+   - Request new link if needed
+
+---
+
+### Permission and Access Issues
+
+#### "You Don't Have Permission" Error
+
+**Symptoms:**
+
+- Cannot access certain features
+- "Insufficient permissions" message
+- Buttons or options greyed out
+
+**Solutions:**
+
+1. **Verify Your Role**:
+
+   - Check with administrator what role you have
+   - Understand what your role can do (see Role Hierarchy section)
+   - May need role upgrade for desired feature
+
+2. **Refresh Permissions**:
+
+   - Log out completely
+   - Clear browser cache
+   - Log back in
+   - Permissions updated on login
+
+3. **Contact Administrator**:
+   - Explain what you're trying to do
+   - Request appropriate role if needed
+   - Administrator can update your permissions
+
+#### Seeing Wrong Congregation Data
+
+**Symptoms:**
+
+- Different congregation's territories appear
+- Unfamiliar data showing
+
+**Solutions:**
+
+- Verify you're logged in with correct account
+- Check congregation selector (if available)
+- Log out and log back in
+- Contact administrator to verify congregation assignment
+
+---
+
+### Performance Issues
+
+#### Slow Loading
+
+**Symptoms:**
+
+- Pages take long time to load
+- Laggy interface
+- Delayed responses
+
+**Solutions:**
+
+- Check internet connection speed
+- Close unnecessary browser tabs
+- Clear browser cache
+- Restart browser
+- Try at different time (server may be busy)
+- Report persistent issues to administrator
+
+#### App Crashes or Freezes
+
+**Solutions:**
+
+- Refresh the page
+- Clear browser cache and cookies
+- Update browser to latest version
+- Try different browser
+- Restart device
+- Check device has sufficient memory available
+
+---
+
+### Browser Compatibility
+
+#### Recommended Browsers
+
+**Fully Supported:**
+
+- ✓ Google Chrome (latest version)
+- ✓ Mozilla Firefox (latest version)
+- ✓ Safari (latest version)
+- ✓ Microsoft Edge (latest version)
+
+**Mobile:**
+
+- ✓ iOS Safari (iOS 13+)
+- ✓ Android Chrome (latest)
+
+**Not Recommended:**
+
+- ✗ Internet Explorer (not supported)
+- ✗ Very old browser versions
+
+#### Browser-Specific Issues
+
+If experiencing problems:
+
+1. Update browser to latest version
+2. Enable JavaScript
+3. Allow cookies
+4. Disable strict tracking prevention
+5. Try different browser to confirm
+
+---
+
+## Getting Help and Support
+
+### Support Channels
+
+**1. Your Congregation Administrator**
+
+- **First point of contact** for most issues
+- Can help with:
+  - Account access and roles
+  - Territory questions
+  - Assignment links
+  - Local configuration
+
+**2. Official Documentation**
+
+- **GitHub Wiki**: https://github.com/rimorin/ministry-mapper/wiki
+- Comprehensive guides for all roles
+- Setup and security documentation
+- FAQ and common solutions
+
+**3. Technical Issues**
+
+- **GitHub Issues**: https://github.com/rimorin/ministry-mapper/issues
+- Report bugs and technical problems
+- Check existing issues first
+- Search for similar problems
+
+### Reporting Problems Effectively
+
+When reporting an issue, include:
+
+**Required Information:**
+
+- ✓ **What you were trying to do**: Specific action or task
+- ✓ **What happened instead**: Actual behavior or error
+- ✓ **Steps to reproduce**: How to make problem happen again
+
+**Helpful Details:**
+
+- ✓ **Error messages**: Exact text or screenshot
+- ✓ **Browser**: Chrome, Safari, Firefox, etc.
+- ✓ **Browser version**: Check in browser settings
+- ✓ **Device**: Desktop, mobile, tablet
+- ✓ **Operating system**: Windows, Mac, iOS, Android
+- ✓ **Account type**: Publisher link, Conductor, Administrator
+- ✓ **Screenshot**: Visual of the problem
+
+**Example Good Report:**
+
+```
+Issue: Cannot save address status update
+
+Steps to reproduce:
+1. Opened assignment link on mobile
+2. Clicked address #05-123
+3. Changed status to "Done"
+4. Added note
+5. Clicked "Save"
+6. Error message appeared: "Failed to update"
+
+Browser: Chrome 120
+Device: iPhone 12, iOS 17
+Account: Publisher via assignment link
+Screenshot: [attached]
+```
+
+**Example Poor Report:**
+
+```
+It doesn't work. Help!
+```
+
+### Emergency Contact
+
+For urgent issues:
+
+- Contact your congregation administrator directly
+- Have phone number/email ready
+- Explain urgency clearly
+- Have relevant details ready
+
+---
+
+---
+
+## Quick Reference
+
+### Keyboard Shortcuts
 
 Ministry Mapper uses standard browser shortcuts:
 
-- `Escape`: Close open modals/dialogs
-- `Tab`: Navigate between form fields
-- `Enter`: Submit forms or confirm actions
-- `Ctrl/Cmd + R`: Refresh page
-- Standard text editing shortcuts work in note fields
+| Shortcut         | Action                                      |
+| ---------------- | ------------------------------------------- |
+| `Escape`         | Close open modals/dialogs                   |
+| `Tab`            | Navigate between form fields                |
+| `Enter`          | Submit forms or confirm actions             |
+| `Ctrl/Cmd + R`   | Refresh page                                |
+| Standard editing | Copy, paste, select all work in text fields |
+
+### Status Quick Reference
+
+| Status          | Symbol | When to Use                           |
+| --------------- | ------ | ------------------------------------- |
+| **Not Done**    | ⚪     | Address not yet visited (default)     |
+| **Done**        | ✅     | Successfully contacted householder    |
+| **Not Home**    | 🏠     | Nobody answered the door              |
+| **Do Not Call** | 🚫     | Householder requested no visits       |
+| **Invalid**     | ❌     | Address doesn't exist or inaccessible |
+
+### Role Capabilities Quick Reference
+
+| Feature                  | Publisher | Read-Only | Conductor | Administrator |
+| ------------------------ | :-------: | :-------: | :-------: | :-----------: |
+| View via assignment link |     ✓     |     -     |     -     |       -       |
+| View all territories     |     -     |     ✓     |     ✓     |       ✓       |
+| Update address status    |     ✓     |     -     |     -     |       ✓       |
+| Create assignments       |     -     |     -     |     ✓     |       ✓       |
+| Post messages            |     -     |     -     |     ✓     |       ✓       |
+| Manage territories       |     -     |     -     |     -     |       ✓       |
+| Manage users             |     -     |     -     |     -     |       ✓       |
+| Configure settings       |     -     |     -     |     -     |       ✓       |
+
+---
+
+## Best Practices Summary
+
+### For All Users
+
+✓ Keep login credentials secure and private
+✓ Log out when using shared or public devices
+✓ Use strong passwords (6+ chars, numbers, capitals)
+✓ Respect householder privacy in all notes
+✓ Follow local privacy laws (GDPR, CCPA, etc.)
+✓ Report issues promptly to administrators
+✓ Ask questions when unsure
+
+### For Publishers
+
+✓ Update address status immediately after each visit
+✓ Write clear, respectful, concise notes
+✓ Complete territories in reasonable timeframe
+✓ Follow sequence numbers for efficient routing
+✓ Ensure internet connection before starting
+✓ Contact administrator if link expires
+✓ Use mobile app for field service convenience
+
+### For Conductors
+
+✓ Set appropriate link expiry times
+✓ Include publisher names in assignments
+✓ Clean up expired assignments regularly
+✓ Follow up on overdue territories
+✓ Post clear instructions and messages
+✓ Monitor territory completion rates
+✓ Respond to publisher questions promptly
+
+### For Administrators
+
+✓ Use consistent territory naming conventions
+✓ Verify address accuracy on maps
+✓ Set appropriate congregation settings
+✓ Respond promptly to access requests
+✓ Regularly review and clean old data
+✓ Train users on proper procedures
+✓ Keep backups of critical information
+✓ Assign appropriate user roles
+
+---
 
 ## Privacy and Security
 
 ### Protecting Information
 
-- **Never Share Login**: Your account credentials are personal
-- **Log Out on Shared Devices**: Always log out when using public/shared computers
-- **Use Strong Password**: Minimum 6 characters with numbers and capital letters
-- **Be Careful With Notes**: Only record necessary, respectful information
-- **Follow Privacy Laws**: Comply with GDPR, CCPA, and local data protection regulations
-- **No Sensitive Data**: Avoid recording personal details beyond what's needed
+Ministry Mapper handles sensitive address and personal information. Please observe these guidelines:
+
+**Account Security:**
+
+- ✓ **Never share login credentials** with anyone
+- ✓ **Use strong, unique passwords** (minimum 6 characters with numbers and capitals)
+- ✓ **Log out on shared devices** always
+- ✓ **Enable OTP if available** for extra security
+- ✓ **Report suspicious activity** immediately
+
+**Data Privacy:**
+
+- ✓ **Record only necessary information** in notes
+- ✓ **Be respectful and factual** in all descriptions
+- ✓ **No sensitive personal data** (medical, financial, etc.)
+- ✓ **Follow householder requests** for privacy
+- ✓ **Comply with privacy laws** (GDPR, CCPA, local regulations)
+
+**Legal Compliance:**
+
+- ⚠️ **GDPR (Europe)**: Personal data protection requirements
+- ⚠️ **CCPA (California)**: Consumer privacy rights
+- ⚠️ **LGPD (Brazil)**: Data protection regulations
+- ⚠️ **Local Laws**: Check your region's requirements
 
 ### What Information is Stored
 
-- Your account details (name, email, verified status)
-- Your congregation role assignment
-- Territory assignment links you've created or accessed
-- Address updates you've made (status, notes, timestamp)
-- Messages and instructions
+**User Data:**
 
-### Data Storage
+- Account details (name, email, verification status)
+- Congregation role assignment
+- Created/accessed assignment links
+- Activity timestamps
 
-- **Backend**: PocketBase database (configured by administrator)
-- **Hosting**: Depends on congregation's deployment
-- **Real-time Sync**: Through PocketBase realtime subscriptions
-- **Cached Data**: Service worker caches static assets for performance
+**Territory Data:**
+
+- Address and unit information
+- Status updates and history
+- Notes and visit information
+- Geolocation coordinates
+- Progress tracking
+
+**System Data:**
+
+- Login sessions
+- Real-time subscriptions
+- Message history
+- Configuration settings
+
+### Data Storage and Security
+
+**Backend:**
+
+- **PocketBase database** managed by administrator
+- **Hosting location** determined by congregation
+- **Backup strategy** set by administrator
+- **Access control** via role-based permissions
+
+**Real-time Sync:**
+
+- **PocketBase subscriptions** for live updates
+- **Encrypted connections** (HTTPS)
+- **Automatic reconnection** on connection loss
+- **Session management** for security
+
+**Client-Side Caching:**
+
+- **Service worker** caches static assets only
+- **No sensitive data** stored locally
+- **Auto-update** when new version available
+- **Secure HTTPS** required
+
+**Best Practices:**
+
+- Congregation administrators should implement proper backup procedures
+- Regular security audits recommended
+- Keep PocketBase backend updated
+- Monitor access logs for unusual activity
+
+---
 
 ## Conclusion
 
-Ministry Mapper is a web-based tool that helps congregations manage field service territories efficiently. It eliminates paper waste, provides real-time collaboration, and works on any device with internet access.
+Thank you for using Ministry Mapper to support your congregation's field service activities. This modern, web-based solution brings efficiency, collaboration, and environmental benefits to territory management.
 
-**Key Features:**
+### Key Takeaways
 
-- Real-time updates through PocketBase
-- Google Maps integration for navigation
-- Mobile-responsive design
-- Multi-language support
-- Role-based permissions
-- Flexible congregation settings
+**For Publishers:**
 
-**Getting Help:**
+- Use assignment links to access territories
+- Update addresses immediately after visits
+- Write respectful, helpful notes
+- Follow the sequence for efficient work
 
-- Administrators: Check the setup guides
-- Users: Contact your congregation administrator
-- Technical Issues: Visit the GitHub wiki at https://github.com/rimorin/ministry-mapper/wiki
+**For Conductors:**
 
-For backend setup information, see the ministry-mapper-be repository.
+- Create and manage assignments
+- Monitor territory progress
+- Post messages and instructions
+- Coordinate field service activities
+
+**For Administrators:**
+
+- Configure congregation settings
+- Manage territories and addresses
+- Invite and assign user roles
+- Ensure data accuracy and security
+
+### System Features
+
+**Technology Stack:**
+
+- ✓ React 19 + TypeScript frontend
+- ✓ PocketBase backend for data management
+- ✓ Google Maps API for navigation
+- ✓ Real-time synchronization
+- ✓ Mobile-responsive PWA
+- ✓ Multi-language support
+- ✓ Role-based access control
+- ✓ Sentry error monitoring
+
+**Benefits:**
+
+- 🌱 **Eco-Friendly**: Eliminates paper waste
+- ⚡ **Real-Time**: Instant updates across all devices
+- 📱 **Mobile-First**: Works on any device with internet
+- 🗺️ **Integrated Maps**: Google Maps for easy navigation
+- 🔒 **Secure**: Role-based permissions and OTP support
+- 🌍 **Multi-Language**: Support for 7+ languages
+- 💾 **Reliable**: PocketBase backend with real-time sync
+
+### Additional Resources
+
+**Documentation:**
+
+- **GitHub Wiki**: https://github.com/rimorin/ministry-mapper/wiki
+  - Administrator guides
+  - Conductor guides
+  - Publisher guides
+  - Setup instructions
+  - Security best practices
+
+**Support:**
+
+- **Your Administrator**: First point of contact
+- **GitHub Issues**: https://github.com/rimorin/ministry-mapper/issues
+- **Backend Repository**: https://github.com/rimorin/ministry-mapper-be
+
+**Important Notes:**
+
+- ⚠️ **Internet required**: Ministry Mapper requires active internet connection
+- ⚠️ **Google Maps**: Verify availability in your region
+- ⚠️ **Privacy compliance**: Review local data protection laws
+- ⚠️ **Backend dependency**: Frontend requires properly configured PocketBase backend
+
+### Getting Started
+
+1. **New Users**: Create account → Verify email → Wait for administrator approval
+2. **Publishers**: Receive assignment link → Access territory → Update as you work
+3. **Conductors**: Log in → Create assignments → Monitor progress → Post messages
+4. **Administrators**: Configure settings → Create territories → Manage users → Oversee system
+
+---
+
+**Version**: Refer to your deployment's version
+**Last Updated**: 2024
+
+For technical support, contact your congregation administrator or visit the GitHub wiki.
+
+---
