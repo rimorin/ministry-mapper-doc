@@ -36,7 +36,7 @@ If you've decided to self-host despite our recommendations, ensure you have:
 - Cloud hosting service (Railway, Render, DigitalOcean, AWS, etc.)
 - Domain name for your instance
 - Email service for notifications (optional)
-- Budget for API costs (Google Maps, Sentry, etc.)
+- Budget for optional API costs (Sentry, etc.)
 
 ### Time Commitment
 - Initial setup: 2-4 hours
@@ -195,9 +195,6 @@ VITE_SYSTEM_ENVIRONMENT=production
 # Version
 VITE_VERSION=$npm_package_version
 
-# Google Maps API Key (required)
-VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
-
 # PocketBase Backend URL (no trailing slash)
 VITE_POCKETBASE_URL=https://your-backend-domain.com
 
@@ -308,20 +305,6 @@ server {
 </VirtualHost>
 ```
 
-### Google Maps API Setup
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com)
-2. Create project
-3. Enable APIs:
-   - Maps JavaScript API (required)
-   - Geocoding API (optional)
-4. Create API key
-5. Restrict API key:
-   - HTTP referrers: Your domain
-   - APIs: Only Maps JavaScript API
-6. Enable billing (free tier available)
-7. Add key to `.env`
-
 ### Sentry Setup (Optional)
 
 1. Create account at [sentry.io](https://sentry.io)
@@ -336,7 +319,6 @@ server {
 **Weekly:**
 - Check Sentry for errors
 - Review application logs
-- Monitor API usage (Google Maps)
 - Verify backups are working
 
 **Monthly:**
@@ -386,7 +368,6 @@ npm run build
 **What to Monitor:**
 - Server uptime and health
 - Application error rates (Sentry)
-- API quota usage (Google Maps)
 - Database size growth
 - Backup success/failure
 - SSL certificate expiration
@@ -435,13 +416,6 @@ kill -9 <process_id>
 - Ensure backend is accessible
 - Check browser console for errors
 
-**Maps Not Loading:**
-- Verify Google Maps API key
-- Check API is enabled
-- Review API restrictions
-- Ensure billing is enabled
-- Check browser console for specific errors
-
 **Build Failures:**
 - Ensure Node.js version 22+
 - Delete `node_modules` and reinstall
@@ -456,12 +430,6 @@ kill -9 <process_id>
 - Enable database optimizations
 - Check network latency
 - Review PocketBase logs for slow queries
-
-**High API Costs:**
-- Review Google Maps API usage
-- Implement caching strategies
-- Optimize map loading
-- Check for API abuse
 
 ## Privacy and Legal Compliance
 
@@ -529,11 +497,6 @@ You must provide:
 - Free (Let's Encrypt) or $0-100/year
 
 ### Service Costs
-
-**Google Maps API:**
-- Free tier: $200/month credit
-- After free tier: $7 per 1,000 map loads
-- Small congregations usually stay within free tier
 
 **Email Service:**
 - Gmail SMTP: Free (limited)

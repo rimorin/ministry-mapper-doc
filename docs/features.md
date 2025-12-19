@@ -623,7 +623,7 @@ Visit URL → Share → "Add to home screen"
 - Viewport-based loading
 - Mobile-optimized
 
-**Advantages Over Google Maps:**
+**Advantages:**
 - No API limits
 - Free to use
 - No billing required

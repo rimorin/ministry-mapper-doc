@@ -18,7 +18,7 @@ Ministry Mapper is a digital territory management system that replaces tradition
 - ✓ Eco-friendly - eliminates paper waste
 - ✓ Real-time updates through cloud synchronization
 - ✓ Works on any device (desktop, tablet, mobile)
-- ✓ Integrated Google Maps for easy navigation
+- ✓ Integrated interactive maps for easy navigation
 - ✓ Secure role-based access control
 
 ## Getting Started
@@ -94,7 +94,7 @@ Publisher (Link Access Only)
 **What Publishers Can Do:**
 
 - ✓ Access territories through shared links
-- ✓ View territory maps with Google Maps integration
+- ✓ View territory maps with interactive mapping
 - ✓ Update address status after visits
   - Mark as: Done, Not Home, Do Not Call, Invalid
 - ✓ Add visit notes to addresses
@@ -228,7 +228,7 @@ The dashboard provides a comprehensive overview:
 
 **4. Territory View Options**
 
-- 🗺️ **Map View**: Interactive Google Maps display
+- 🗺️ **Map View**: Interactive map display
 - 📋 **List View**: Tabular display of all addresses
 
 ---
@@ -253,7 +253,7 @@ The dashboard provides a comprehensive overview:
 - **Territory Code**: Identifier (e.g., "T-001")
 - **Description**: Territory name or area
 - **Progress Bar**: Visual completion status
-- **Map**: Google Maps with address markers
+- **Map**: Interactive map with address markers
 - **Address List**: All addresses with current status
 
 #### Administrator/Conductor Territory View
@@ -445,7 +445,7 @@ For private properties that need removal:
 
 > **📸 Screenshot Placeholder:** Map view showing markers and navigation controls
 
-Ministry Mapper integrates Google Maps for intuitive territory navigation.
+Ministry Mapper integrates interactive mapping for intuitive territory navigation.
 
 #### Map Features
 
@@ -1213,7 +1213,7 @@ Ministry Mapper is fully responsive and optimized for mobile devices, making it 
 - ✓ Optimized layouts for small screens
 - ✓ Larger tap targets for easy selection
 - ✓ Full access to all desktop features
-- ✓ Google Maps integration with GPS
+- ✓ Interactive map integration with GPS
 
 #### Progressive Web App (PWA) Installation
 
@@ -1276,7 +1276,6 @@ Install Ministry Mapper as an app for better performance:
 
 - Ministry Mapper uses minimal data
 - Map tiles may use more data
-- Consider downloading maps offline beforehand (in Google Maps app)
 - Most updates are < 1KB each
 - Suitable for mobile data usage
 
@@ -1289,7 +1288,7 @@ Ministry Mapper requires active internet for:
 - ✗ Loading territory data
 - ✗ Saving status updates
 - ✗ Real-time synchronization
-- ✗ Displaying Google Maps
+- ✗ Displaying maps
 - ✗ User authentication
 
 **Limited Offline Features:**
@@ -1665,7 +1664,7 @@ Ministry Mapper supports multiple languages for international congregations.
 1. **Immediate Fixes**:
 
    - Refresh the page (F5 or Ctrl/Cmd + R)
-   - Google Maps may timeout on slow connections
+   - Maps may timeout on slow connections
    - Wait 10-15 seconds for map to load
 
 2. **Check Internet**:
@@ -1682,11 +1681,7 @@ Ministry Mapper supports multiple languages for international congregations.
    - Enable JavaScript if disabled
 
 4. **Configuration Issues** (Administrators):
-   - Verify `VITE_GOOGLE_MAPS_API_KEY` is set correctly
-   - Check Google Cloud Console:
-     - Maps JavaScript API enabled
-     - API key restrictions configured properly
-     - Billing account active (if required)
+   - Verify map configuration is set correctly
    - Check browser console for specific error messages
 
 #### Incorrect Map Location
@@ -1701,7 +1696,6 @@ Ministry Mapper supports multiple languages for international congregations.
 - **Administrators**: Update geolocation coordinates
 - Verify postal code/address is correct
 - Use "Update Geolocation" to manually set location
-- Check if Google Maps recognizes the address
 - May need to use latitude/longitude coordinates directly
 
 #### Directions Not Working
@@ -1710,8 +1704,6 @@ Ministry Mapper supports multiple languages for international congregations.
 
 - Verify congregation origin location is set correctly
 - Check if address has valid coordinates
-- Try opening in Google Maps directly
-- Ensure Google Maps is accessible in your region
 
 ---
 
@@ -2169,7 +2161,7 @@ Thank you for using Ministry Mapper to support your congregation's field service
 
 - ✓ React 19 + TypeScript frontend
 - ✓ PocketBase backend for data management
-- ✓ Google Maps API for navigation
+- ✓ Leaflet with OpenStreetMap for navigation
 - ✓ Real-time synchronization
 - ✓ Mobile-responsive PWA
 - ✓ Multi-language support
@@ -2181,7 +2173,7 @@ Thank you for using Ministry Mapper to support your congregation's field service
 - 🌱 **Eco-Friendly**: Eliminates paper waste
 - ⚡ **Real-Time**: Instant updates across all devices
 - 📱 **Mobile-First**: Works on any device with internet
-- 🗺️ **Integrated Maps**: Google Maps for easy navigation
+- 🗺️ **Integrated Maps**: Interactive mapping for easy navigation
 - 🔒 **Secure**: Role-based permissions and OTP support
 - 🌍 **Multi-Language**: Support for 7+ languages
 - 💾 **Reliable**: PocketBase backend with real-time sync
@@ -2206,7 +2198,6 @@ Thank you for using Ministry Mapper to support your congregation's field service
 **Important Notes:**
 
 - ⚠️ **Internet required**: Ministry Mapper requires active internet connection
-- ⚠️ **Google Maps**: Verify availability in your region
 - ⚠️ **Privacy compliance**: Review local data protection laws
 - ⚠️ **Backend dependency**: Frontend requires properly configured PocketBase backend
 

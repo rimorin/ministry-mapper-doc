@@ -4,7 +4,7 @@
 
 ### What is Ministry Mapper?
 
-Ministry Mapper is a modern web application that helps congregations manage field service territories digitally. Instead of using paper territory slips, Ministry Mapper lets you organize and track everything digitally from any device with an internet connection. It uses React for the frontend, PocketBase as the backend, and Google Maps API for territory visualization.
+Ministry Mapper is a modern web application that helps congregations manage field service territories digitally. Instead of using paper territory slips, Ministry Mapper lets you organize and track everything digitally from any device with an internet connection. It uses React for the frontend, PocketBase as the backend, and Leaflet for interactive mapping.
 
 ### How do I access Ministry Mapper?
 
@@ -25,7 +25,6 @@ Simply:
 **Self-Hosting**: The source code is free and open-source, but you'll need to provide your own:
 - Hosting for the frontend (e.g., Vercel, Netlify, AWS)
 - PocketBase backend deployment
-- Google Maps API key (has a generous free tier)
 - Optional: Sentry account for error monitoring
 
 Note: Self-hosting costs (server, API fees, maintenance time) often exceed hosted service fees.
@@ -64,7 +63,6 @@ The interface automatically detects your browser's language. You can also manual
 No, an internet connection is required for the app to function properly. This is because:
 
 - It needs to connect to the PocketBase backend
-- Google Maps API requires internet access
 - Real-time updates between users require connectivity
 
 The app does work well on mobile data if WiFi isn't available.
@@ -111,10 +109,6 @@ The app does work well on mobile data if WiFi isn't available.
 
 All data storage complies with security best practices. For hosted service data policies, check [ministry-mapper.com](https://ministry-mapper.com).
 
-### Is Google Maps available in my region?
-
-Ministry Mapper relies on Google Maps API, which may have limited functionality or be completely unavailable in certain countries or regions due to local restrictions. Please verify Google Maps availability in your area before implementing Ministry Mapper.
-
 ## Technical Setup (Self-Hosting)
 
 !!! warning "Self-Hosting Not Recommended"
@@ -143,7 +137,6 @@ Ministry Mapper relies on Google Maps API, which may have limited functionality 
 - Domain name
 - SSL/TLS certificate
 - PocketBase backend (separate deployment)
-- Google Maps API key
 - (Optional) Sentry account for monitoring
 - (Optional) Email service for notifications
 
@@ -207,19 +200,6 @@ The backend is managed in a separate repository: [ministry-mapper-be](https://gi
 **Detailed instructions:** See the [Backend Setup Guide](backend-setup.md) and [Self-Hosting Guide](self-hosting.md).
 
 **Important**: The backend must be deployed and accessible before deploying the frontend.
-
-### How do I get a Google Maps API key?
-
-**For Self-Hosting Only** - Skip this if you're using the hosted service.
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select an existing one
-3. Enable the following APIs:
-   - Maps JavaScript API
-   - Geocoding API
-4. Go to Credentials and create an API key
-5. Restrict the API key to your domain(s) for security
-6. Note: Google Maps has a generous free tier (~$200 credit/month)
 
 ### How do I set up Sentry monitoring?
 
@@ -294,7 +274,7 @@ The project uses Prettier for code formatting and has pre-commit hooks configure
 - **Frontend Framework**: React 19 with TypeScript
 - **Build Tool**: Vite
 - **UI Library**: React Bootstrap (Bootstrap 5)
-- **Maps**: Google Maps API via @vis.gl/react-google-maps
+- **Maps**: Leaflet with OpenStreetMap
 - **State Management**: React Context + custom hooks
 - **Routing**: Wouter
 - **Styling**: SCSS
@@ -323,25 +303,6 @@ See CLAUDE.md for detailed architecture information.
 - Verify the backend is running and accessible
 - Check the URL in your environment variables
 - Configure CORS settings in PocketBase to allow your frontend domain
-
-### Google Maps is not loading
-
-**Possible causes:**
-
-1. Invalid or missing Google Maps API key
-2. API key restrictions blocking your domain
-3. Required Google Maps APIs not enabled
-4. Exceeded Google Maps free tier quota
-5. Google Maps restricted in your country
-
-**Solutions:**
-
-- For hosted service: Contact support if you experience map issues
-- For self-hosting: Verify your API key is correct and APIs are enabled
-- Check API key restrictions in Google Cloud Console
-- Enable Maps JavaScript API and Geocoding API
-- Check usage in Google Cloud Console
-- Verify Google Maps availability in your region
 
 ### Changes are not reflected after rebuilding
 

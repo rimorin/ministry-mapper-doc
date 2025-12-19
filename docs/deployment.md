@@ -463,47 +463,6 @@ VITE_SENTRY_DSN=your_sentry_dsn
 
 ---
 
-## Google Maps API Setup
-
-### 1. Create Google Cloud Project
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com)
-2. Create new project
-3. Name it "Ministry Mapper"
-
-### 2. Enable APIs
-
-Navigate to "APIs & Services" → "Library":
-- Maps JavaScript API ✓ (Required)
-- Geocoding API ✓ (Optional)
-
-### 3. Create API Key
-
-1. Go to "Credentials"
-2. Create API Key
-3. Copy the key
-
-### 4. Restrict API Key (Security)
-
-**Application Restrictions:**
-- HTTP referrers (websites)
-- Add domains:
-  - `your-domain.com/*`
-  - `www.your-domain.com/*`
-  - `localhost:3000/*` (development)
-
-**API Restrictions:**
-- Restrict key
-- Select: Maps JavaScript API
-
-### 5. Enable Billing
-
-- Free tier: $200 credit/month
-- Small congregations stay within free tier
-- Set billing alerts
-
----
-
 ## SSL/TLS Certificate Setup
 
 ### Option 1: Let's Encrypt (Free)
@@ -646,7 +605,6 @@ aws s3 sync /backups/ s3://your-bucket/ministry-mapper-backups/
    - Use platform environment variable UI
 
 2. **API Key Restrictions**
-   - Restrict Google Maps key to domains
    - Restrict API keys to specific APIs
 
 3. **Content Security Policy**
@@ -730,9 +688,6 @@ aws s3 sync /backups/ s3://your-bucket/ministry-mapper-backups/
 **Problem:** Build fails
 **Solution:** Check Node.js version (requires 22+)
 
-**Problem:** Maps not loading
-**Solution:** Verify Google Maps API key and restrictions
-
 **Problem:** CORS errors
 **Solution:** Configure `PB_ALLOW_ORIGINS` in backend
 
@@ -749,13 +704,11 @@ aws s3 sync /backups/ s3://your-bucket/ministry-mapper-backups/
 **Minimal Setup:**
 - Railway/Render: $0-5/month (free tier)
 - Vercel/Netlify: $0/month (free tier)
-- Google Maps: $0/month (free tier usually sufficient)
 - **Total: $0-5/month**
 
 **Recommended Setup:**
 - Backend (Railway): $5/month
 - Frontend (Vercel): $0/month
-- Google Maps: $0/month
 - Sentry: $0/month (free tier)
 - **Total: $5/month**
 

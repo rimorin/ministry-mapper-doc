@@ -14,7 +14,7 @@ The Ministry Mapper frontend (ministry-mapper-v2) is a React-based web applicati
 
 - User authentication and account management
 - Interactive territory management interface
-- Google Maps integration
+- Interactive mapping functionality
 - Real-time data synchronization
 - Mobile-responsive design
 - Multi-language support (7 languages)
@@ -42,7 +42,7 @@ This page provides a quick reference for frontend configuration. **For complete 
 - **TypeScript**: Type-safe JavaScript
 - **Vite 7**: Fast build tool and dev server
 - **Bootstrap 5**: Responsive CSS framework
-- **Google Maps API**: Interactive mapping
+- **Leaflet**: Interactive mapping
 - **PocketBase SDK**: Backend connection
 - **Sentry**: Error tracking
 - **i18next**: Multi-language support
@@ -67,9 +67,6 @@ VITE_SYSTEM_ENVIRONMENT=production
 
 # Version - automatically uses package.json version
 VITE_VERSION=$npm_package_version
-
-# Google Maps API Key - required for map functionality
-VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
 
 # PocketBase Backend URL - no trailing slash
 VITE_POCKETBASE_URL=https://your-backend-url.com
@@ -99,16 +96,6 @@ VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
 - **Value**: `$npm_package_version` (automatically reads from package.json)
 - **Current Version**: 1.9.1 (as of package.json)
 - **Effect**: Shown in Sentry reports and helps track which version has issues
-
-#### VITE_GOOGLE_MAPS_API_KEY
-
-- **Purpose**: Enables Google Maps functionality
-- **Get It From**: [Google Cloud Console](https://console.cloud.google.com)
-- **Required APIs**:
-  - Maps JavaScript API
-  - Geocoding API (optional, for address lookup)
-- **Cost**: Google Maps has free tier with generous limits
-- **Important**: Restrict the API key to your domain in Google Cloud Console
 
 #### VITE_POCKETBASE_URL
 
@@ -447,69 +434,6 @@ server {
 - Set environment variables before running `npm run build`
 - Or create `.env.production` file with your settings
 
-## Setting Up Google Maps API
-
-### 1. Create Google Cloud Project
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com)
-2. Create a new project or select existing one
-3. Name it (e.g., "Ministry Mapper")
-
-### 2. Enable Required APIs
-
-Navigate to "APIs & Services" → "Library":
-
-**Required API:**
-
-- Maps JavaScript API
-
-**Recommended (if using geocoding features):**
-
-- Geocoding API
-
-**Not Required:**
-
-- Places API (not used in Ministry Mapper v2)
-- Directions API (we use external links to Google Maps)
-
-### 3. Create API Key
-
-1. Go to "APIs & Services" → "Credentials"
-2. Click "Create Credentials" → "API Key"
-3. Copy the API key
-
-### 4. Restrict Your API Key (Important for Security)
-
-**Application Restrictions:**
-
-- Choose "HTTP referrers (websites)"
-- Add your domains:
-  - For production: `your-domain.com/*`, `www.your-domain.com/*`
-  - For local development: `localhost:3000/*`
-
-**API Restrictions:**
-
-- Choose "Restrict key"
-- Select only: Maps JavaScript API (and Geocoding API if using)
-- This prevents unauthorized use of your key
-
-### 5. Set Up Billing
-
-Google requires a billing account:
-
-- Free tier: $200 credit per month
-- Additional usage: $7 per 1,000 map loads after free tier
-- Most small congregations stay within free tier
-- Enable billing in Google Cloud Console
-
-### 6. Add to Environment
-
-Add your API key to `.env`:
-
-```bash
-VITE_GOOGLE_MAPS_API_KEY=your_actual_api_key_here
-```
-
 ## Setting Up Sentry (Optional but Recommended)
 
 Sentry monitors JavaScript errors and performance.
@@ -653,7 +577,7 @@ VitePWA({
 - [ ] OTP authentication works (if enabled)
 - [ ] Password reset works
 - [ ] Territory selector displays (for conductors/admins)
-- [ ] Google Maps loads and displays correctly
+- [ ] Maps load and display correctly
 - [ ] Can view territories
 - [ ] Can update address status
 - [ ] Assignment links work
@@ -691,25 +615,6 @@ Test on multiple browsers:
 - [ ] Mobile browsers
 
 ## Troubleshooting
-
-### Google Maps Not Loading
-
-**Problem**: Gray map, error messages, or "For development purposes only" watermark
-
-**Solutions:**
-
-- Check if `VITE_GOOGLE_MAPS_API_KEY` is correct in `.env`
-- Verify Maps JavaScript API is enabled in Google Cloud Console
-- Check API key restrictions match your domain
-- Look for errors in browser console (F12 → Console tab)
-- Confirm billing is enabled in Google Cloud Console
-- Ensure API key hasn't exceeded quota
-
-**Common Error Messages:**
-
-- "Google Maps API error: ApiNotActivatedMapError" → Enable Maps JavaScript API
-- "RefererNotAllowedMapError" → Add your domain to API key restrictions
-- "For development purposes only" watermark → Billing not enabled
 
 ### Backend Connection Failed
 

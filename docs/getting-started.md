@@ -132,7 +132,7 @@ Ministry Mapper has three main user roles:
 
 ### Viewing Territories
 
-- **Map View** - See territory boundaries on Google Maps
+- **Map View** - See territory boundaries with interactive mapping
 - **Address List** - View all addresses in a territory
 - **Status Indicators** - Color-coded address statuses
 - **Search** - Find specific addresses quickly
@@ -214,16 +214,6 @@ After getting access:
 - Wait for a territory to be assigned to you
 - Check that you're using the correct account
 
-### Google Maps Not Showing
-
-**Problem**: Map area is gray or shows errors
-
-**Solutions:**
-- This is a configuration issue - contact your administrator
-- May be a Google Maps API issue
-- Try refreshing the page
-- Try a different browser
-
 ### Can't Update Addresses
 
 **Problem**: Changes don't save or show errors
@@ -299,14 +289,6 @@ Ministry Mapper requires internet connectivity to function:
 - Real-time sync needs active connection
 - Offline mode not currently supported
 - Plan accordingly for field service
-
-### Google Maps Availability
-
-Some countries restrict Google Maps:
-
-- Check if Google Maps works in your area
-- Test before full deployment
-- Have backup territory maps if needed
 
 ### Learning Curve
 

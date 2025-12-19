@@ -4,14 +4,14 @@ This repository contains comprehensive documentation for Ministry Mapper, a mode
 
 ## About Ministry Mapper
 
-Ministry Mapper replaces traditional paper territory cards with a cloud-based system that allows publishers to access and update territories from any device. It features real-time collaboration, Google Maps integration, and multi-language support.
+Ministry Mapper replaces traditional paper territory cards with a cloud-based system that allows publishers to access and update territories from any device. It features real-time collaboration, interactive maps, and multi-language support.
 
 ### Key Features
 
 - **Digital Territory Management**: Manage all territories in one central location
 - **Real-Time Updates**: Changes sync instantly across all devices
 - **Mobile-Friendly**: Works on phones, tablets, and computers
-- **Interactive Maps**: View territories on Google Maps
+- **Interactive Maps**: View territories with interactive mapping
 - **Multi-Language**: Available in 7 languages (English, Japanese, Korean, Chinese, Indonesian, Malay, Tamil)
 - **Secure**: Role-based access control and encrypted data
 - **Open Source**: Free to use and modify

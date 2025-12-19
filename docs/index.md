@@ -97,10 +97,6 @@ Ministry Mapper tracks residential addresses, which means you need to follow pri
 
 Ministry Mapper works over the internet, so you'll need a connection to use it. If your area has unreliable internet, this might cause challenges. The app does work well on mobile data if WiFi isn't available.
 
-### Google Maps Availability
-
-Ministry Mapper uses Google Maps to show territories. In some countries, Google Maps may not work properly due to local restrictions. Check if Google Maps works in your area before setting up Ministry Mapper.
-
 ### Learning Curve
 
 Moving from paper to digital is a change, especially for those less comfortable with technology. We provide help and support to make the transition easier for everyone in your congregation.
