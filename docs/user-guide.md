@@ -1168,6 +1168,44 @@ Configure how maps are displayed and behave in your congregation. Administrators
    - Lower numbers are visited first
    - Helps create logical visiting patterns
 
+##### Update Map Sequence
+
+![Update Map Sequence](assets/screenshots/update_map_sequence.png)
+
+*Drag and drop interface for reordering all map sequences in a territory*
+
+The **Update Map Sequence** feature provides a visual interface for administrators to reorder all addresses in a territory at once. Instead of changing sequences one address at a time, this tool lets you drag and drop cards to optimize the entire route.
+
+**How to Access:**
+
+1. Go to **Address** menu (Administrators only)
+2. Select **"Change Sequence"**
+
+**How to Use:**
+
+1. Each card represents an address with its current sequence number displayed
+2. Drag and drop cards to reorder them - sequence numbers update automatically
+3. The instruction at the top reminds you: "Drag and drop the cards to reorder the sequence"
+4. Click **"Save"** to apply the new sequence order, or **"Cancel"** to discard changes
+
+**Benefits:**
+
+- ✓ Visual interface makes reordering intuitive and fast
+- ✓ See all addresses in the territory at once
+- ✓ No need to manually enter sequence numbers for each address
+- ✓ Immediately preview the new order before saving
+- ✓ Helps create efficient routes for publishers
+
+**Best Practices:**
+
+- Arrange sequences to minimize backtracking during field service
+- Group nearby addresses together for efficient walking/driving routes
+- Consider starting points and logical flow through the territory
+- Review the map view after sequencing to verify the route makes sense
+- For multi-story buildings, group floors together logically
+
+> **💡 Tip**: Plan sequences based on geography and access patterns. For example, start at one end of a street and work systematically to the other end, or group floors in multi-story buildings together for efficient coverage.
+
 **4. Rename**
    - Change the name or identifier of an address/unit
    - Update building names or unit numbers
