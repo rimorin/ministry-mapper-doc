@@ -25,7 +25,9 @@ Ministry Mapper is a digital territory management system that replaces tradition
 
 ### Creating Your Account
 
-> **📸 Screenshot Placeholder:** Sign-up page showing registration form
+![Sign Up Page](assets/screenshots/sign_up.png)
+
+*Figure 1: Registration form for creating a new Ministry Mapper account*
 
 **Step 1: Access the Registration Page**
 
@@ -53,7 +55,9 @@ Click **"Create Account"**
 
 **Step 3: Verify Your Email**
 
-> **📸 Screenshot Placeholder:** Email verification message
+![Forgot Password](assets/screenshots/forgot_password.png)
+
+*Figure 2: Password recovery interface (email verification follows similar process)*
 
 1. Check your email inbox for a verification message from Ministry Mapper
 2. Click the verification link in the email
@@ -189,7 +193,9 @@ Publisher (Link Access Only)
 
 ### Dashboard Overview
 
-> **📸 Screenshot Placeholder:** Administrator/Conductor dashboard showing territory selector and main controls
+![Administrator Dashboard](assets/screenshots/admin_dashboard.png)
+
+*Figure 3: Administrator dashboard showing territory selector and main controls*
 
 The dashboard interface varies based on your role:
 
@@ -237,7 +243,9 @@ The dashboard provides a comprehensive overview:
 
 #### Publisher Territory View
 
-> **📸 Screenshot Placeholder:** Publisher view of territory with map and address list
+![Publisher Assignment Screen](assets/screenshots/publisher_assignment_screen.png)
+
+*Figure 4: Publisher view of assigned territory with map and address list*
 
 **Accessing Your Assignment:**
 
@@ -258,7 +266,9 @@ The dashboard provides a comprehensive overview:
 
 #### Administrator/Conductor Territory View
 
-> **📸 Screenshot Placeholder:** Admin dashboard with territory selector and management options
+![Conductor Dashboard](assets/screenshots/conductor_dashboard.png)
+
+*Figure 5: Conductor dashboard with territory selector and management options*
 
 **Viewing a Territory:**
 
@@ -282,7 +292,9 @@ The dashboard provides a comprehensive overview:
 
 #### Understanding Address Information
 
-> **📸 Screenshot Placeholder:** Address card showing all address details and status
+![Address Status Details](assets/screenshots/address_status_details.png)
+
+*Figure 6: Address card showing all address details and current status*
 
 Each address or unit in Ministry Mapper displays comprehensive information:
 
@@ -327,7 +339,9 @@ Ministry Mapper uses five standard status types:
 
 #### Updating Address Status
 
-> **📸 Screenshot Placeholder:** Update status modal showing all fields and options
+![Address Not Home Status](assets/screenshots/address_not_home_status.png)
+
+*Figure 7: Update status modal showing all fields and options*
 
 **Step-by-Step Process:**
 
@@ -359,6 +373,10 @@ Select the appropriate status:
 - After reaching max tries, treated as complete
 
 **🚫 Do Not Call** - When requested not to visit
+
+![Address Do Not Call Status](assets/screenshots/address_do_not_call_status.png)
+
+*Figure 8: Do Not Call status update with date selection*
 
 - Select this status
 - Optionally set DNC date (defaults to today)
@@ -443,7 +461,9 @@ For private properties that need removal:
 
 ### Using the Map Feature
 
-> **📸 Screenshot Placeholder:** Map view showing markers and navigation controls
+![Map Directions](assets/screenshots/map_directions.png)
+
+*Figure 9: Interactive map view showing markers and navigation controls*
 
 Ministry Mapper integrates interactive mapping for intuitive territory navigation.
 
@@ -492,7 +512,9 @@ Ministry Mapper integrates interactive mapping for intuitive territory navigatio
 
 ### Territory Assignments (Conductors & Administrators)
 
-> **📸 Screenshot Placeholder:** Assignments modal showing list of active assignment links
+![Assigning Publisher Map](assets/screenshots/assigning_publisher_map.png)
+
+*Figure 10: Assignments modal showing list of active assignment links*
 
 Ministry Mapper uses a link-based assignment system. Conductors and Administrators create shareable links that publishers use to access territories.
 
@@ -557,7 +579,9 @@ https://your-ministry-mapper.com/map/abc123xyz456
 
 #### Managing Assignments
 
-> **📸 Screenshot Placeholder:** Assignment list with expiry times and delete buttons
+![Personal Assign Publisher Map](assets/screenshots/personal_assign_publisher_map.png)
+
+*Figure 11: Assignment list with expiry times and management options*
 
 **View All Assignments:**
 
@@ -614,7 +638,9 @@ https://your-ministry-mapper.com/map/abc123xyz456
 
 ### Messages and Instructions
 
-> **📸 Screenshot Placeholder:** Messages modal showing posted messages with pinning option
+![Admin Conductor Messages](assets/screenshots/admin_conductor_messages.png)
+
+*Figure 12: Messages modal showing posted messages with pinning option*
 
 Administrators and Conductors can post messages visible to specific user groups.
 
@@ -715,7 +741,9 @@ Ministry Mapper uses PocketBase real-time subscriptions for instant updates:
 
 ### User Management (Administrators Only)
 
-> **📸 Screenshot Placeholder:** User management panel showing user list with roles
+![Manage Users List](assets/screenshots/manage_users_list.png)
+
+*Figure 13: User management panel showing user list with roles*
 
 Administrators have full control over user accounts and permissions within their congregation.
 
@@ -731,6 +759,10 @@ Administrators have full control over user accounts and permissions within their
    - Last activity
 
 #### Inviting New Users
+
+![Invite Users](assets/screenshots/invite_users.png)
+
+*Figure 14: User invitation dialog for adding new congregation members*
 
 **Step 1: Open Invite Dialog**
 
@@ -765,6 +797,10 @@ Administrators have full control over user accounts and permissions within their
 - Automatically added to congregation with assigned role
 
 #### Changing User Roles
+
+![Manage Users Details](assets/screenshots/manage_users_details.png)
+
+*Figure 29: User details and role management interface*
 
 1. Locate user in the user list
 2. Click on the user or **"Edit"** button
@@ -816,7 +852,9 @@ Administrators have full control over user accounts and permissions within their
 
 ### Congregation Settings (Administrators Only)
 
-> **📸 Screenshot Placeholder:** Congregation settings page with all configuration options
+![Congregation Settings](assets/screenshots/congregation_settings.png)
+
+*Figure 15: Congregation settings page with all configuration options*
 
 Configure how Ministry Mapper works for your congregation.
 
@@ -863,7 +901,9 @@ Configure how Ministry Mapper works for your congregation.
 
 #### Congregation Options (Household Types)
 
-> **📸 Screenshot Placeholder:** Congregation options management showing type list
+![Household Options Settings](assets/screenshots/household_options_settings.png)
+
+*Figure 16: Congregation options management showing household type configuration*
 
 Configure custom household classification types for your territory.
 
@@ -919,7 +959,9 @@ Configure custom household classification types for your territory.
 
 ### Territory Management (Administrators Only)
 
-> **📸 Screenshot Placeholder:** Territory creation and management interface
+![Create New Territory](assets/screenshots/create_new_territory.png)
+
+*Figure 17: Territory creation interface for adding new territories*
 
 Administrators have full control over creating, editing, and managing territories.
 
@@ -969,7 +1011,9 @@ Administrators have full control over creating, editing, and managing territorie
 
 **Reset Territory:**
 
-> **📸 Screenshot Placeholder:** Reset confirmation dialog
+![Create New Map](assets/screenshots/create_new_map.png)
+
+*Figure 18: Territory operations and management interface*
 
 Resets all addresses in territory to "Not Done" status:
 
@@ -991,7 +1035,9 @@ Resets all addresses in territory to "Not Done" status:
 
 **Delete Territory:**
 
-> **📸 Screenshot Placeholder:** Delete confirmation warning
+![Territory Selection List](assets/screenshots/territory_selection_list.png)
+
+*Figure 19: Territory selection list showing all available territories*
 
 Permanently removes territory and all its data:
 
@@ -1015,7 +1061,9 @@ Permanently removes territory and all its data:
 
 ### Address Management (Administrators Only)
 
-> **📸 Screenshot Placeholder:** Address creation form for public buildings
+![Single Story Map](assets/screenshots/single_story_map.png)
+
+*Figure 20: Address management interface for private/single-story properties*
 
 Administrators can add and manage addresses within territories.
 
@@ -1056,6 +1104,10 @@ Ministry Mapper supports two types of addresses:
   - Helps publishers identify building
 
 **Step 3: Configure Floors**
+
+![Multi Story Map](assets/screenshots/multi_story_map.png)
+
+*Figure 21: Multi-story building management with floor and unit organization*
 
 - **Start Floor**: Lowest floor number
   - Can be negative for basement levels
@@ -1189,7 +1241,9 @@ Ministry Mapper supports two types of addresses:
 
 ## Mobile Usage
 
-> **📸 Screenshot Placeholder:** Mobile interface showing responsive design and PWA installation
+![Publisher Assignment Map View](assets/screenshots/publisher_assignment_map_view.png)
+
+*Figure 22: Mobile-responsive interface optimized for field service*
 
 ### Using Ministry Mapper on Your Phone
 
@@ -1217,7 +1271,9 @@ Ministry Mapper is fully responsive and optimized for mobile devices, making it 
 
 #### Progressive Web App (PWA) Installation
 
-> **📸 Screenshot Placeholder:** PWA installation prompts for iOS and Android
+![Single Story Map View Mode](assets/screenshots/single_story_map_view_mode.png)
+
+*Figure 23: Full-screen map view mode available in PWA installation*
 
 Install Ministry Mapper as an app for better performance:
 
@@ -1321,7 +1377,9 @@ Ministry Mapper requires active internet for:
 
 ### Personal Profile Management
 
-> **📸 Screenshot Placeholder:** Profile settings page showing account options
+![Sign In](assets/screenshots/sign_in.png)
+
+*Figure 24: Login interface for accessing your Ministry Mapper account*
 
 **Accessing Your Profile:**
 
@@ -1374,6 +1432,10 @@ Forgot your password? Easy recovery process:
 
 **If you don't receive the email:**
 
+![Congregation Selection List](assets/screenshots/congregation_selection_list.png)
+
+*Figure 28: Congregation selection for multi-congregation users*
+
 - Check spam/junk folder
 - Verify you entered correct email
 - Wait a few minutes and try again
@@ -1381,7 +1443,9 @@ Forgot your password? Easy recovery process:
 
 ### Language Selection
 
-> **📸 Screenshot Placeholder:** Language selector or browser language settings
+![Language Selection List](assets/screenshots/language_selection_list.png)
+
+*Figure 25: Language selection interface showing all supported languages*
 
 Ministry Mapper supports multiple languages for international congregations.
 
@@ -1402,6 +1466,10 @@ Ministry Mapper supports multiple languages for international congregations.
 - No manual selection needed in most cases
 
 **To Change Language:**
+
+![Dark Light Theme Settings](assets/screenshots/dark_light_theme_settings.png)
+
+*Figure 26: Theme and appearance settings (language settings accessible from settings menu)*
 
 1. Change your browser's language settings:
    - **Chrome**: Settings → Languages → Add language
@@ -1651,7 +1719,9 @@ Ministry Mapper supports multiple languages for international congregations.
 
 #### Map Not Loading
 
-> **📸 Screenshot Placeholder:** Map loading error state
+![Map Configurations](assets/screenshots/map_configurations.png)
+
+*Figure 27: Map configuration options for troubleshooting map display issues*
 
 **Symptoms:**
 
