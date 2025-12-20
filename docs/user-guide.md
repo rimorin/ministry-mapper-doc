@@ -193,7 +193,7 @@ Publisher (Link Access Only)
 - ✗ No dashboard access
 - ✗ Cannot view all congregation territories
 - ✗ Cannot create or manage territories
-- ✗ Cannot access assignment links expire after the set time (default: 24 hours)
+- ✗ Cannot access assignment links expire after the set time (default: 24 hours, configurable by congregation administrator)
 
 **Best For**: Regular publishers doing field service
 
