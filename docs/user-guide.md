@@ -1320,10 +1320,52 @@ Administrators have full control over creating, editing, and managing territorie
 
 **Change Territory Sequence:**
 
-1. Select territory
-2. Click **"Change Sequence"** from the territory dropdown menu
-3. Enter new sequence number to control the order territories appear in lists
-4. Save changes
+##### Update Territory Sequence (Drag and Drop)
+
+![Update Territory Sequence](assets/screenshots/territory_sequence_change.png)
+
+*Drag and drop interface for reordering all territories in the congregation*
+
+The **Update Territory Sequence** feature provides a visual interface for administrators to reorder all territories in the congregation at once. Instead of changing sequences one territory at a time, this tool lets you drag and drop cards to reorganize the complete territory list.
+
+**How to Access:**
+
+1. Go to **Territory** dropdown menu (Administrators only)
+2. Select **"Change Sequence"**
+3. The "Update Map Sequence" dialog opens showing all territories
+
+**How to Use:**
+
+1. Each card represents a territory with its sequence number displayed
+2. Drag and drop cards to reorder them - sequence numbers update automatically
+3. The territories are listed with their codes and descriptions (e.g., "872, Woodlands Street 81 (W14)")
+4. Click **"Save"** to apply the new sequence order, or **"Cancel"** to discard changes
+
+**Benefits:**
+
+- ✓ Visual interface makes reordering intuitive and fast
+- ✓ See all territories in the congregation at once
+- ✓ No need to manually enter sequence numbers for each territory
+- ✓ Immediately preview the new order before saving
+- ✓ Controls the order territories appear in selection dropdowns and lists
+
+**Best Practices:**
+
+- Organize territories by geographical proximity for easier management
+- Group territories by type (e.g., residential, commercial, business)
+- Number territories sequentially to make tracking easier
+- Consider field service group assignments when ordering
+- Use consistent naming conventions that complement the sequence
+
+**Use Cases:**
+
+- Reorganizing territories after boundary changes
+- Grouping territories by service group or field service arrangement
+- Creating logical order for territory rotation
+- Balancing workload by ordering territories by size or difficulty
+- Aligning with congregation's administrative structure
+
+> **💡 Tip**: Plan your territory sequence based on your congregation's field service organization. For example, group territories by service group or geographical area to make assignments and tracking more efficient.
 
 #### Territory Configuration Options
 
