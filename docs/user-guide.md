@@ -1280,6 +1280,32 @@ Administrators have full control over creating, editing, and managing territorie
 3. Update description
 4. Save changes
 
+**Change Territory Sequence:**
+
+1. Select territory
+2. Click **"Change Sequence"** from the territory dropdown menu
+3. Enter new sequence number to control the order territories appear in lists
+4. Save changes
+
+#### Territory Configuration Options
+
+![Territory Configuration Options](assets/screenshots/territory_configurations.png)
+
+*Territory dropdown menu showing configuration options*
+
+Administrators can access territory configuration options through the **Territory dropdown** button in the top navigation bar. Click the button to reveal the following options:
+
+**Available Options:**
+
+- **Create New**: Create a new territory from scratch
+- **Change Code**: Modify the territory's unique identifier
+- **Change Name**: Update the territory description
+- **Change Sequence**: Reorder how territories appear in the selection list
+- **Delete Current**: Permanently remove the currently selected territory
+- **Reset Status**: Clear all address statuses back to "Not Done"
+
+These options provide quick access to common territory management tasks without navigating through multiple menus.
+
 #### Territory Operations
 
 **Reset Territory:**
