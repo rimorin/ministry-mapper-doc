@@ -2012,13 +2012,6 @@ Thank you for using Ministry Mapper to support your congregation's field service
 - 🌍 **Multi-Language**: Support for 7+ languages
 - 💾 **Reliable**: PocketBase backend with real-time sync
 
-### Getting Started
-
-1. **New Users**: Create account → Verify email → Wait for administrator approval
-2. **Publishers**: Receive assignment link → Access territory → Update as you work
-3. **Conductors**: Log in → Create assignments → Monitor progress → Post messages
-4. **Administrators**: Configure settings → Create territories → Manage users → Oversee system
-
 ---
 
 **Version**: Refer to your deployment's version
