@@ -2012,29 +2012,6 @@ Thank you for using Ministry Mapper to support your congregation's field service
 - 🌍 **Multi-Language**: Support for 7+ languages
 - 💾 **Reliable**: PocketBase backend with real-time sync
 
-### Additional Resources
-
-**Documentation:**
-
-- **GitHub Wiki**: https://github.com/rimorin/ministry-mapper/wiki
-  - Administrator guides
-  - Conductor guides
-  - Publisher guides
-  - Setup instructions
-  - Security best practices
-
-**Support:**
-
-- **Your Administrator**: First point of contact
-- **GitHub Issues**: https://github.com/rimorin/ministry-mapper/issues
-- **Backend Repository**: https://github.com/rimorin/ministry-mapper-be
-
-**Important Notes:**
-
-- ⚠️ **Internet required**: Ministry Mapper requires active internet connection
-- ⚠️ **Privacy compliance**: Review local data protection laws
-- ⚠️ **Backend dependency**: Frontend requires properly configured PocketBase backend
-
 ### Getting Started
 
 1. **New Users**: Create account → Verify email → Wait for administrator approval
