@@ -40,6 +40,8 @@ Ministry Mapper is a digital territory management system that replaces tradition
 
 **Step 2: Complete Registration Form**
 
+**Option A: Traditional Sign Up**
+
 Fill in the following information:
 
 - **Name**: Your full name (will be visible to administrators)
@@ -56,6 +58,22 @@ Review and accept:
 - ☐ Terms of Service
 
 Click **"Create Account"**
+
+**Option B: Sign Up with Google (Faster & Safer)**
+
+For a quicker and more secure registration:
+
+1. On the sign-up page, look for **"Or continue with"** section
+2. Click the **"Sign in with Google"** button
+3. Select your Google account or sign in to Google if needed
+4. Grant Ministry Mapper permission to access your basic profile information
+5. Your account will be created automatically using your Google profile
+
+**Benefits:**
+- ✓ No password to create or remember
+- ✓ Faster registration process
+- ✓ Enhanced security through Google's authentication
+- ✓ Automatic email verification through your Google account
 
 **Step 3: Verify Your Email**
 
@@ -100,6 +118,26 @@ Once your account is verified and you've been granted congregation access, you c
 1. Enter your registered **email address**
 2. Enter your **password**
 3. Click **"Sign In"** or **"Login"**
+
+**Alternative: Sign In with Google**
+
+![Google OAuth Sign In](assets/screenshots/google_oauth_sign_in.png)
+
+*Figure 6: Google OAuth sign-in option for faster and safer authentication*
+
+For a faster and more secure sign-in experience, you can use Google OAuth:
+
+1. On the login page, look for **"Or continue with"** section
+2. Click the **"Sign in with Google"** button
+3. Select your Google account or sign in to Google if needed
+4. Grant Ministry Mapper permission to access your basic profile information
+5. You'll be automatically signed in without needing to enter a password
+
+**Benefits of Google OAuth:**
+- ✓ Faster sign-in process
+- ✓ No need to remember another password
+- ✓ Enhanced security through Google's authentication
+- ✓ Automatic account linking if your email matches an existing account
 
 **Step 3: Complete OTP Verification (If Enabled)**
 
