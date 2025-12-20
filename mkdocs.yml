@@ -77,10 +77,10 @@ markdown_extensions:
 
 extra:
   social:
-    - icon: fontawesome/brands/github
+    - icon: fontawesome/solid/desktop
       link: https://github.com/rimorin/ministry-mapper-v2
       name: Frontend Repository
-    - icon: fontawesome/brands/github
+    - icon: fontawesome/solid/server
       link: https://github.com/rimorin/ministry-mapper-be
       name: Backend Repository
 
