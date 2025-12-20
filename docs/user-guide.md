@@ -580,12 +580,8 @@ Ministry Mapper integrates interactive mapping for intuitive territory navigatio
 **Interactive Markers:**
 
 - Each address is marked on the map
-- Marker colors indicate status:
-  - 🔵 Default (Not Done)
-  - 🟢 Done
-  - 🟡 Not Home
-  - 🔴 Do Not Call
-  - ⚫ Invalid
+- 🔴 Red marker indicates destination
+- 🔵 Blue blinking marker indicates current location
 - Click any marker to view/edit that address
 
 **Map Controls:**
