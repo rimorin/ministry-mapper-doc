@@ -31,6 +31,10 @@ Ministry Mapper is a digital territory management system that replaces tradition
 
 **Step 1: Access the Registration Page**
 
+![Sign In](assets/screenshots/sign_in.png)
+
+*Figure 2: Login page with Sign Up option*
+
 1. Visit your congregation's Ministry Mapper URL
 2. Click the **"Sign Up"** button on the login page
 
@@ -55,9 +59,9 @@ Click **"Create Account"**
 
 **Step 3: Verify Your Email**
 
-![Forgot Password](assets/screenshots/forgot_password.png)
+![Sign Up Verification Email](assets/screenshots/sign_up_verification_email.png)
 
-*Figure 2: Password recovery interface (email verification follows similar process)*
+*Figure 3: Email verification message sent after account creation*
 
 1. Check your email inbox for a verification message from Ministry Mapper
 2. Click the verification link in the email
@@ -70,8 +74,49 @@ After verification:
 1. Return to the login page
 2. Sign in with your email and password
 3. If One-Time Password (OTP) is enabled, check your email for the code
+
+![OTP Verification Page](assets/screenshots/otp_verification_page.png)
+
+*Figure 4: One-Time Password (OTP) verification screen*
+
+![OTP Verification Email](assets/screenshots/otp_verification_email.png)
+
+*Figure 5: Email containing the OTP code for login verification*
+
 4. **Important**: You won't see any territories yet - an administrator must grant you access to your congregation first
 5. Contact your congregation's territory servant or administrator to request access
+
+### Logging In to Ministry Mapper
+
+Once your account is verified and you've been granted congregation access, you can log in:
+
+**Step 1: Access Login Page**
+
+1. Navigate to your congregation's Ministry Mapper URL
+2. You'll see the login screen
+
+**Step 2: Enter Credentials**
+
+1. Enter your registered **email address**
+2. Enter your **password**
+3. Click **"Sign In"** or **"Login"**
+
+**Step 3: Complete OTP Verification (If Enabled)**
+
+If your congregation has enabled One-Time Password security:
+
+1. After entering credentials, you'll see the OTP verification screen
+2. Check your email for the verification code
+3. Enter the 6-digit code from the email
+4. Click **"Verify"** or **"Submit"**
+5. Code expires in 5-10 minutes
+
+**Step 4: Access Your Dashboard**
+
+- **Publishers**: You won't see a dashboard - use assignment links sent to you
+- **Read-Only, Conductor, Administrator**: You'll see your role-specific dashboard
+
+> **💡 Tip**: Stay logged in on trusted devices for convenience, but always log out on shared computers.
 
 ### Understanding User Roles
 
@@ -195,7 +240,7 @@ Publisher (Link Access Only)
 
 ![Administrator Dashboard](assets/screenshots/admin_dashboard.png)
 
-*Figure 3: Administrator dashboard showing territory selector and main controls*
+*Figure 6: Administrator dashboard showing territory selector and main controls*
 
 The dashboard interface varies based on your role:
 
@@ -245,7 +290,7 @@ The dashboard provides a comprehensive overview:
 
 ![Publisher Assignment Screen](assets/screenshots/publisher_assignment_screen.png)
 
-*Figure 4: Publisher view of assigned territory with map and address list*
+*Figure 7: Publisher view of assigned territory with map and address list*
 
 **Accessing Your Assignment:**
 
@@ -268,7 +313,7 @@ The dashboard provides a comprehensive overview:
 
 ![Conductor Dashboard](assets/screenshots/conductor_dashboard.png)
 
-*Figure 5: Conductor dashboard with territory selector and management options*
+*Figure 8: Conductor dashboard with territory selector and management options*
 
 **Viewing a Territory:**
 
@@ -294,7 +339,7 @@ The dashboard provides a comprehensive overview:
 
 ![Address Status Details](assets/screenshots/address_status_details.png)
 
-*Figure 6: Address card showing all address details and current status*
+*Figure 9: Address card showing all address details and current status*
 
 Each address or unit in Ministry Mapper displays comprehensive information:
 
@@ -341,7 +386,7 @@ Ministry Mapper uses five standard status types:
 
 ![Address Not Home Status](assets/screenshots/address_not_home_status.png)
 
-*Figure 7: Update status modal showing all fields and options*
+*Figure 10: Update status modal showing all fields and options*
 
 **Step-by-Step Process:**
 
@@ -376,7 +421,7 @@ Select the appropriate status:
 
 ![Address Do Not Call Status](assets/screenshots/address_do_not_call_status.png)
 
-*Figure 8: Do Not Call status update with date selection*
+*Figure 11: Do Not Call status update with date selection*
 
 - Select this status
 - Optionally set DNC date (defaults to today)
@@ -463,7 +508,7 @@ For private properties that need removal:
 
 ![Map Directions](assets/screenshots/map_directions.png)
 
-*Figure 9: Interactive map view showing markers and navigation controls*
+*Figure 12: Interactive map view showing markers and navigation controls*
 
 Ministry Mapper integrates interactive mapping for intuitive territory navigation.
 
@@ -514,7 +559,7 @@ Ministry Mapper integrates interactive mapping for intuitive territory navigatio
 
 ![Assigning Publisher Map](assets/screenshots/assigning_publisher_map.png)
 
-*Figure 10: Assignments modal showing list of active assignment links*
+*Figure 13: Assignments modal showing list of active assignment links*
 
 Ministry Mapper uses a link-based assignment system. Conductors and Administrators create shareable links that publishers use to access territories.
 
@@ -581,7 +626,7 @@ https://your-ministry-mapper.com/map/abc123xyz456
 
 ![Personal Assign Publisher Map](assets/screenshots/personal_assign_publisher_map.png)
 
-*Figure 11: Assignment list with expiry times and management options*
+*Figure 14: Assignment list with expiry times and management options*
 
 **View All Assignments:**
 
@@ -640,7 +685,7 @@ https://your-ministry-mapper.com/map/abc123xyz456
 
 ![Admin Conductor Messages](assets/screenshots/admin_conductor_messages.png)
 
-*Figure 12: Messages modal showing posted messages with pinning option*
+*Figure 15: Messages modal showing posted messages with pinning option*
 
 Administrators and Conductors can post messages visible to specific user groups.
 
@@ -743,7 +788,7 @@ Ministry Mapper uses PocketBase real-time subscriptions for instant updates:
 
 ![Manage Users List](assets/screenshots/manage_users_list.png)
 
-*Figure 13: User management panel showing user list with roles*
+*Figure 16: User management panel showing user list with roles*
 
 Administrators have full control over user accounts and permissions within their congregation.
 
@@ -762,7 +807,7 @@ Administrators have full control over user accounts and permissions within their
 
 ![Invite Users](assets/screenshots/invite_users.png)
 
-*Figure 14: User invitation dialog for adding new congregation members*
+*Figure 17: User invitation dialog for adding new congregation members*
 
 **Step 1: Open Invite Dialog**
 
@@ -800,7 +845,7 @@ Administrators have full control over user accounts and permissions within their
 
 ![Manage Users Details](assets/screenshots/manage_users_details.png)
 
-*Figure 29: User details and role management interface*
+*Figure 18: User details and role management interface*
 
 1. Locate user in the user list
 2. Click on the user or **"Edit"** button
@@ -854,7 +899,7 @@ Administrators have full control over user accounts and permissions within their
 
 ![Congregation Settings](assets/screenshots/congregation_settings.png)
 
-*Figure 15: Congregation settings page with all configuration options*
+*Figure 19: Congregation settings page with all configuration options*
 
 Configure how Ministry Mapper works for your congregation.
 
@@ -903,7 +948,7 @@ Configure how Ministry Mapper works for your congregation.
 
 ![Household Options Settings](assets/screenshots/household_options_settings.png)
 
-*Figure 16: Congregation options management showing household type configuration*
+*Figure 20: Congregation options management showing household type configuration*
 
 Configure custom household classification types for your territory.
 
@@ -955,13 +1000,51 @@ Configure custom household classification types for your territory.
 - Example: Household speaks both Chinese and English
 - When disabled, only one type per household
 
+#### Map Configuration
+
+![Map Configurations](assets/screenshots/map_configurations.png)
+
+*Figure 34: Advanced map configuration options for administrators*
+
+Configure how maps are displayed and behave in your congregation:
+
+**Available Map Settings:**
+
+1. **Default Map Type**
+   - Standard: Street map view
+   - Satellite: Aerial imagery
+   - Hybrid: Satellite with street labels
+
+2. **Map Zoom Levels**
+   - Set default zoom level for territory views
+   - Configure maximum/minimum zoom constraints
+
+3. **Marker Display Options**
+   - Customize marker colors for status types
+   - Adjust marker size for better visibility
+   - Enable/disable clustering for dense areas
+
+4. **Location Services**
+   - Enable GPS tracking for publishers
+   - Set accuracy requirements
+   - Configure location update frequency
+
+**To Access Map Configuration:**
+
+1. Go to **Settings** (Administrators only)
+2. Look for **"Map Settings"** or **"Map Configuration"**
+3. Adjust settings as needed
+4. Save changes
+
+> **💡 Note**: Map configuration changes affect all users in your congregation immediately.
+
 ---
 
 ### Territory Management (Administrators Only)
 
 ![Create New Territory](assets/screenshots/create_new_territory.png)
 
-*Figure 17: Territory creation interface for adding new territories*
+*Figure 21: Territory creation interface for adding new territories*
 
 Administrators have full control over creating, editing, and managing territories.
 
@@ -1013,7 +1096,7 @@ Administrators have full control over creating, editing, and managing territorie
 
 ![Create New Map](assets/screenshots/create_new_map.png)
 
-*Figure 18: Territory operations and management interface*
+*Figure 22: Territory operations and management interface*
 
 Resets all addresses in territory to "Not Done" status:
 
@@ -1037,7 +1120,7 @@ Resets all addresses in territory to "Not Done" status:
 
 ![Territory Selection List](assets/screenshots/territory_selection_list.png)
 
-*Figure 19: Territory selection list showing all available territories*
+*Figure 23: Territory selection list showing all available territories*
 
 Permanently removes territory and all its data:
 
@@ -1063,7 +1146,7 @@ Permanently removes territory and all its data:
 
 ![Single Story Map](assets/screenshots/single_story_map.png)
 
-*Figure 20: Address management interface for private/single-story properties*
+*Figure 24: Address management interface for private/single-story properties*
 
 Administrators can add and manage addresses within territories.
 
@@ -1107,7 +1190,7 @@ Ministry Mapper supports two types of addresses:
 
 ![Multi Story Map](assets/screenshots/multi_story_map.png)
 
-*Figure 21: Multi-story building management with floor and unit organization*
+*Figure 25: Multi-story building management with floor and unit organization*
 
 - **Start Floor**: Lowest floor number
   - Can be negative for basement levels
@@ -1243,7 +1326,7 @@ Ministry Mapper supports two types of addresses:
 
 ![Publisher Assignment Map View](assets/screenshots/publisher_assignment_map_view.png)
 
-*Figure 22: Mobile-responsive interface optimized for field service*
+*Figure 26: Mobile-responsive interface optimized for field service*
 
 ### Using Ministry Mapper on Your Phone
 
@@ -1273,7 +1356,7 @@ Ministry Mapper is fully responsive and optimized for mobile devices, making it 
 
 ![Single Story Map View Mode](assets/screenshots/single_story_map_view_mode.png)
 
-*Figure 23: Full-screen map view mode available in PWA installation*
+*Figure 27: Full-screen map view mode available in PWA installation*
 
 Install Ministry Mapper as an app for better performance:
 
@@ -1379,7 +1462,7 @@ Ministry Mapper requires active internet for:
 
 ![Sign In](assets/screenshots/sign_in.png)
 
-*Figure 24: Login interface for accessing your Ministry Mapper account*
+*Figure 28: Login interface for accessing your Ministry Mapper account*
 
 **Accessing Your Profile:**
 
@@ -1418,6 +1501,10 @@ Ministry Mapper requires active internet for:
 
 ### Password Recovery
 
+![Forgot Password](assets/screenshots/forgot_password.png)
+
+*Figure 29: Password recovery page for resetting forgotten passwords*
+
 Forgot your password? Easy recovery process:
 
 1. Go to login page
@@ -1425,16 +1512,17 @@ Forgot your password? Easy recovery process:
 3. Enter your **registered email address**
 4. Click **"Continue"** or **"Send Reset Link"**
 5. Check your email inbox
+
+![Reset Password Email](assets/screenshots/reset_password_email.png)
+
+*Figure 30: Password reset email with secure link to create new password*
+
 6. Click the password reset link (valid for limited time)
 7. Create a new password meeting requirements
 8. Confirm new password
 9. Log in with new password
 
 **If you don't receive the email:**
-
-![Congregation Selection List](assets/screenshots/congregation_selection_list.png)
-
-*Figure 28: Congregation selection for multi-congregation users*
 
 - Check spam/junk folder
 - Verify you entered correct email
@@ -1445,7 +1533,7 @@ Forgot your password? Easy recovery process:
 
 ![Language Selection List](assets/screenshots/language_selection_list.png)
 
-*Figure 25: Language selection interface showing all supported languages*
+*Figure 31: Language selection interface showing all supported languages*
 
 Ministry Mapper supports multiple languages for international congregations.
 
@@ -1469,7 +1557,7 @@ Ministry Mapper supports multiple languages for international congregations.
 
 ![Dark Light Theme Settings](assets/screenshots/dark_light_theme_settings.png)
 
-*Figure 26: Theme and appearance settings (language settings accessible from settings menu)*
+*Figure 32: Theme and appearance settings including language preferences*
 
 1. Change your browser's language settings:
    - **Chrome**: Settings → Languages → Add language
@@ -1484,6 +1572,34 @@ Ministry Mapper supports multiple languages for international congregations.
 - Buttons, labels, and messages
 - Error messages and confirmations
 - Help text and instructions
+
+### Appearance and Theme Settings
+
+Ministry Mapper supports both light and dark themes to suit your preference and reduce eye strain.
+
+**Changing Theme:**
+
+1. Click your **profile icon** or **settings menu**
+2. Look for **"Theme"** or **"Appearance"** settings
+3. Select your preferred theme:
+   - **Light Mode**: Traditional bright interface
+   - **Dark Mode**: Reduced brightness for low-light conditions
+   - **System Default**: Automatically matches your device settings
+
+**Benefits of Dark Mode:**
+
+- ✓ Reduced eye strain in low-light environments
+- ✓ Battery savings on OLED screens
+- ✓ Better for nighttime field service preparation
+- ✓ Reduced glare
+
+**When to Use:**
+
+- Light Mode: Daytime use, bright environments
+- Dark Mode: Evening/night use, battery conservation
+- System Default: Automatic switching based on time of day
+
+> **💡 Tip**: Dark mode is especially useful when reviewing territories in the evening or early morning before field service.
 
 ---
 
@@ -1598,7 +1714,7 @@ Ministry Mapper supports multiple languages for international congregations.
 3. **Use Password Reset**:
    - Click "Forgot Password" on login page
    - Enter your email
-   - Check email for reset link
+   - Check email for reset link (see Password Recovery section above)
    - Create new password following requirements
 
 #### Account Not Verified
@@ -1719,10 +1835,6 @@ Ministry Mapper supports multiple languages for international congregations.
 
 #### Map Not Loading
 
-![Map Configurations](assets/screenshots/map_configurations.png)
-
-*Figure 27: Map configuration options for troubleshooting map display issues*
-
 **Symptoms:**
 
 - Gray box where map should be
@@ -1751,7 +1863,7 @@ Ministry Mapper supports multiple languages for international congregations.
    - Enable JavaScript if disabled
 
 4. **Configuration Issues** (Administrators):
-   - Verify map configuration is set correctly
+   - Verify map configuration is set correctly (see Map Configuration section)
    - Check browser console for specific error messages
 
 #### Incorrect Map Location
