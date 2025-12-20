@@ -1113,9 +1113,23 @@ Configure custom household classification types for your territory.
 
 **Option Flags:**
 
-- **Is Countable**: Include in progress calculations
-- **Is Default**: Auto-select when creating new addresses
-- **Sequence**: Order in dropdown menus (lower numbers first)
+**Is Countable:**
+- Controls whether addresses with this type count toward territory progress
+- **Checked**: Included in progress calculation (e.g., Chinese, English, Tamil)
+- **Unchecked**: Excluded from progress (e.g., Business, Under Construction)
+- Example: 100 total addresses, 10 marked "Business" (not countable) = progress based on 90 addresses only
+
+**Is Default:**
+- Auto-selects this type when creating new addresses
+- Only one option should be default
+- Use for your most common household type
+
+**Sequence:**
+- Controls display order in dropdown menus
+- Lower numbers appear first (1, 2, 3...)
+- **Managed by drag and drop** in settings - simply drag options to reorder
+- Affects order in address household dropdowns
+- Tip: Order from most common to least common
 
 **Multiple Selection Configuration:**
 
