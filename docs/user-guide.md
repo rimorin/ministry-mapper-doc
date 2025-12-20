@@ -510,27 +510,25 @@ If your congregation has configured household types:
 
 **5. Add or Update Notes** (Optional but Recommended)
 
-Best practices for notes:
+**Best practices:**
 
-- ✓ Be concise and relevant
-- ✓ Record useful details (best time to call, languages spoken)
-- ✓ Note special instructions
-- ✓ Be respectful and appropriate
-- ✗ Avoid unnecessary personal details
+- ✓ Focus on property details, not individuals
+- ✓ Record access instructions and timing
+- ✓ Be concise and respectful
+- ✗ Never include personal information about householders
 - ✗ Never include sensitive information
 
-**Example Good Notes:**
+**Good Examples:**
 
+- "Gated property - call guardhouse first"
 - "Best time: Weekends after 2 PM"
-- "Speaks Mandarin and English"
-- "Interested in Bible study"
-- "Ask for apartment number at guardhouse"
+- "Side entrance accessible via driveway"
 
-**Example Bad Notes:**
+**Bad Examples:**
 
-- Personal medical information
-- Financial details
-- Excessive personal descriptions
+- Personal details about residents
+- Medical or financial information
+- Names or descriptions of individuals
 
 **6. Adjust Not Home Count** (If Needed)
 
