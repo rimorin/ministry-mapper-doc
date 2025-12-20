@@ -270,6 +270,33 @@ The dashboard provides a comprehensive overview:
 - ⚙️ **Settings**: Access congregation configuration (Administrators only)
 - 👥 **Users**: Manage user roles and invitations (Administrators only)
 
+**2a. Speed Dial Menu** (Mobile & Desktop)
+
+![Speed Dial Admin Page](assets/screenshots/speeddial_admin_page.png)
+
+*Figure 6a: Speed dial floating action button providing quick access to common actions*
+
+For quick access to frequently used features, Ministry Mapper includes a speed dial menu that appears as a floating action button on the admin and conductor dashboards:
+
+**Accessing Speed Dial:**
+
+- Look for the **➕ (plus)** floating button, typically in the bottom-right corner
+- Click or tap to expand the speed dial menu
+- Available options appear as individual buttons with icons
+
+**Speed Dial Functions:**
+
+- 🗺️ **Map View Mode**: Toggle full-screen map view for better territory visualization
+- 📋 **Quick Link**: Rapidly create and share assignment links (Conductors & Administrators)
+- Other quick actions depending on your role and current view
+
+**Benefits:**
+
+- Fast access without navigating through multiple menus
+- Always visible on the dashboard
+- Context-aware - shows relevant actions based on your current page
+- Touch-friendly for mobile devices
+
 **3. Territory Information Panel**
 
 - Territory code and description
@@ -533,6 +560,41 @@ Ministry Mapper integrates interactive mapping for intuitive territory navigatio
 - **Full Screen**: Expand map to full screen
 - **Center on Territory**: Reset view to show all addresses
 
+#### Full-Screen Map View Mode (Administrators & Conductors)
+
+![Admin Map View Mode](assets/screenshots/admin_map_view_mode.png)
+
+*Figure 12a: Full-screen map view mode accessed via speed dial menu*
+
+For enhanced territory visualization and planning, administrators and conductors can access a dedicated full-screen map view mode:
+
+**Accessing Map View Mode:**
+
+1. Click the **speed dial** button (➕) in the bottom-right corner
+2. Select the **Map View** icon from the expanded menu
+3. Territory map expands to fill entire screen
+
+**Features in Map View Mode:**
+
+- **Maximized Screen Space**: Map occupies full viewport for better overview
+- **All Map Controls**: Zoom, pan, satellite view, and centering remain available
+- **Address Markers**: All territory addresses displayed with status-based colors
+- **Quick Access**: Speed dial menu remains accessible for other functions
+- **Territory Planning**: Ideal for route planning and territory analysis
+
+**Exiting Map View Mode:**
+
+- Click the speed dial menu and deselect map view
+- Or navigate to another section using the main navigation
+- Map returns to standard dashboard layout
+
+**Use Cases:**
+
+- Planning optimal routes before field service
+- Analyzing territory coverage and density
+- Presenting territory overview in meetings
+- Identifying clusters of addresses for efficient visiting
+
 #### Navigation Tips
 
 1. **Before Leaving Home:**
@@ -578,7 +640,32 @@ Ministry Mapper uses a link-based assignment system. Conductors and Administrato
 1. Click the **"Assignments"** button in the top navigation
 2. View list of all active assignments across all territories
 
-**Step 2: Create New Assignment**
+**Alternative: Quick Link via Speed Dial** (Fast Method)
+
+![Admin Conductor Quick Link](assets/screenshots/admin_conductor_quicklink.png)
+
+*Figure 13a: Quick link creation interface accessed via speed dial menu*
+
+For rapid assignment creation, use the **Quick Link** feature:
+
+1. Click the **speed dial** button (➕) in the bottom-right corner
+2. Select the **Quick Link** icon from the menu
+3. Quick assignment form appears with:
+   - Territory selector (current territory pre-selected)
+   - Publisher name field
+   - Default expiry settings
+4. Fill in minimal details and click **"Create"**
+5. Link is instantly generated and ready to share
+
+**Benefits of Quick Link:**
+
+- ✓ Faster than navigating through full assignments page
+- ✓ Creates link for currently selected territory by default
+- ✓ Minimal clicks - ideal for frequent assignments
+- ✓ Available from any dashboard view
+- ✓ Same functionality as standard assignment creation
+
+**Step 2: Create New Assignment** (Standard Method)
 
 1. Click **"Create New Assignment"** or **"+"** button
 2. Fill in the assignment form:
