@@ -1139,37 +1139,94 @@ Configure custom household classification types for your territory.
 
 *Figure 34: Advanced map configuration options for administrators*
 
-Configure how maps are displayed and behave in your congregation:
-
-**Available Map Settings:**
-
-1. **Default Map Type**
-   - Standard: Street map view
-   - Satellite: Aerial imagery
-   - Hybrid: Satellite with street labels
-
-2. **Map Zoom Levels**
-   - Set default zoom level for territory views
-   - Configure maximum/minimum zoom constraints
-
-3. **Marker Display Options**
-   - Customize marker colors for status types
-   - Adjust marker size for better visibility
-   - Enable/disable clustering for dense areas
-
-4. **Location Services**
-   - Enable GPS tracking for publishers
-   - Set accuracy requirements
-   - Configure location update frequency
+Configure how maps are displayed and behave in your congregation. Administrators have access to powerful map management functions for territory maintenance and organization.
 
 **To Access Map Configuration:**
 
 1. Go to **Settings** (Administrators only)
-2. Look for **"Map Settings"** or **"Map Configuration"**
-3. Adjust settings as needed
-4. Save changes
+2. Select a territory from the dropdown
+3. Open the map view for the selected territory
+4. Access the map configuration menu (typically via a settings icon or menu)
 
-> **💡 Note**: Map configuration changes affect all users in your congregation immediately.
+**Available Map Configuration Functions:**
+
+**1. Change Location**
+   - Relocate a map marker to a different address
+   - Updates the geographical location of a territory unit
+   - Useful when addresses have changed or initial location was incorrect
+   - Simply select the new location on the map
+
+**2. Change Territory**
+   - Move an address or unit to a different territory
+   - Helps reorganize territory boundaries
+   - Useful for balancing territory sizes
+   - Maintains all address data and history during transfer
+
+**3. Change Sequence**
+   - Modify the visit order number for an address
+   - Optimizes the route for field service efficiency
+   - Lower numbers are visited first
+   - Helps create logical visiting patterns
+
+**4. Rename**
+   - Change the name or identifier of an address/unit
+   - Update building names or unit numbers
+   - Keeps data current with real-world changes
+   - Useful for correcting initial entry errors
+
+**5. Add Unit No.**
+   - Add new unit numbers to existing addresses
+   - Expand multi-story buildings with additional units
+   - Useful when new apartments are added to a building
+   - Maintains building structure organization
+
+**6. Add Higher Floor**
+   - Extend a building upward with additional floors
+   - For buildings that have been expanded or initially underestimated
+   - Automatically creates units for new floors based on building pattern
+   - Helps keep territory data current with construction changes
+
+**7. Add Lower Floor**
+   - Add floors below the current lowest floor
+   - Useful for basement levels or newly accessible lower floors
+   - Can add negative floor numbers (e.g., B1, B2)
+   - Maintains consistent floor numbering system
+
+**8. Reset Status**
+   - Clear the status of an address back to "Not Done"
+   - Removes "Done" and "Not Home" statuses only
+   - Does NOT remove "Do Not Call" or "Invalid" statuses
+   - Preserves notes and other address information
+   - Useful when restarting work on a previously completed address
+   - Does not affect other addresses in the territory
+
+**9. Delete**
+   - Permanently remove an address, unit, or floor from the territory
+   - Cannot be undone - use with caution
+   - Helpful for removing duplicate entries or non-existent addresses
+   - Confirm carefully before deleting
+
+**Best Practices for Map Configuration:**
+
+- ✓ **Verify Changes**: Double-check location changes on the map before saving
+- ✓ **Sequence Logically**: Set sequences to create efficient walking/driving routes
+- ✓ **Document Major Changes**: Add notes explaining significant reorganizations
+- ✓ **Coordinate with Team**: Inform conductors before major territory changes
+- ✓ **Backup First**: Consider taking screenshots before major deletions
+- ✓ **Test Navigation**: After location changes, verify directions work correctly
+
+**Common Use Cases:**
+
+- **Correcting Errors**: Use Rename and Change Location to fix initial data entry mistakes
+- **Territory Rebalancing**: Use Change Territory to redistribute addresses for balanced workload
+- **Building Updates**: Use Add Higher/Lower Floor when buildings expand
+- **Route Optimization**: Use Change Sequence to create more efficient visiting patterns
+- **Data Cleanup**: Use Delete to remove duplicate or invalid entries
+- **Seasonal Updates**: Use Reset Status when starting a new round of territory work
+
+> **💡 Note**: Map configuration changes affect all users in your congregation immediately. Always verify changes are correct before saving.
+
+> **⚠️ Warning**: The Delete function is permanent and cannot be undone. Always confirm you're deleting the correct item.
 
 ---
 
