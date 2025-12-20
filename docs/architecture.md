@@ -217,7 +217,7 @@ PocketBase Utils (CRUD operations)
     ↓
 PocketBase Backend (permissions, database)
     ↓
-Real-time Subscription (WebSocket)
+Real-time Subscription (SSE)
     ↓
 UI Auto-updates
 ```
@@ -281,9 +281,9 @@ Every entity has congregation foreign key
 
 ## Real-Time Synchronization
 
-### WebSocket Architecture
+### SSE Architecture
 
-- **PocketBase Real-time API**: Server-Sent Events (SSE) or WebSocket
+- **PocketBase Real-time API**: Server-Sent Events (SSE)
 - **Automatic Subscriptions**: Components subscribe to collections
 - **Live Updates**: Changes broadcast to all connected clients
 - **Conflict Resolution**: Timestamp-based resolution

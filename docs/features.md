@@ -335,7 +335,7 @@ Automated email digests sent for:
 
 **Real-Time Features:**
 
-**WebSocket Subscriptions:**
+**SSE Subscriptions:**
 - Live updates via Server-Sent Events (SSE)
 - Automatic reconnection on disconnect
 - Low latency (<100ms typical)
@@ -815,7 +815,7 @@ Visit URL → Share → "Add to home screen"
 
 ## 🔌 API & Integration
 
-### RESTful API + WebSocket
+### RESTful API + SSE
 
 **API Features:**
 - RESTful endpoints
@@ -826,7 +826,7 @@ Visit URL → Share → "Add to home screen"
 - Rate limiting
 - CORS support
 
-**WebSocket/SSE:**
+**SSE (Server-Sent Events):**
 - Real-time subscriptions
 - Automatic reconnection
 - Low latency
@@ -835,7 +835,7 @@ Visit URL → Share → "Add to home screen"
 **Integration Options:**
 - PocketBase SDK (JavaScript/TypeScript)
 - Direct HTTP requests
-- WebSocket client
+- SSE client
 - OAuth2 integration
 - Webhook support (planned)
 

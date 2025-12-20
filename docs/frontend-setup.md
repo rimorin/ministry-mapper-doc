@@ -686,8 +686,8 @@ Test on multiple browsers:
 **Solutions:**
 
 - Verify PocketBase realtime subscriptions are working
-- Check browser console for WebSocket errors
-- Ensure backend WebSocket endpoint is accessible
+- Check browser console for SSE (Server-Sent Events) errors
+- Ensure backend SSE endpoint is accessible
 - Check if multiple users are actually viewing the same territory
 - Refresh the page to force reconnection
 

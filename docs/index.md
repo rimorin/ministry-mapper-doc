@@ -16,7 +16,7 @@ Ministry Mapper provides comprehensive territory management capabilities:
 
 - **🗺️ Territory Management**: Organize geographic regions into territories with automatic completion tracking
 - **🏢 Interactive Mapping**: Leaflet-based maps with OpenStreetMap integration, directions, and geolocation
-- **📱 Real-time Collaboration**: Live data synchronization across all devices via WebSocket
+- **📱 Real-time Collaboration**: Live data synchronization across all devices via SSE (Server-Sent Events)
 - **🌍 Multi-language Support**: 7 languages (English, Indonesian, Japanese, Korean, Malay, Tamil, Chinese)
 - **👥 Role-based Access**: Publisher, Conductor, Administrator, and Read-only roles with fine-grained permissions
 - **🔗 Assignment Links**: Secure, time-limited sharing links for territory access without user accounts
@@ -82,7 +82,7 @@ Ministry Mapper leverages cutting-edge web technologies for optimal performance:
 
 - **Self-Hosted**: No vendor lock-in, complete control over your data
 - **Multi-Tenant**: Congregation-level data isolation for security
-- **Real-Time Sync**: WebSocket-based live updates across all clients
+- **Real-Time Sync**: SSE-based live updates across all clients
 - **Progressive Web App**: Installable on all devices with offline asset support
 - **Docker Containerization**: Easy deployment and scaling
 - **API-First Design**: RESTful API with comprehensive PocketBase SDK support
