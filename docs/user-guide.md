@@ -38,42 +38,25 @@ Ministry Mapper is a digital territory management system that replaces tradition
 1. Visit your congregation's Ministry Mapper URL
 2. Click the **"Sign Up"** button on the login page
 
-**Step 2: Complete Registration Form**
+**Step 2: Choose Registration Method**
 
-**Option A: Traditional Sign Up**
+| Traditional Sign Up | Google OAuth (Recommended) |
+|---------------------|---------------------------|
+| Requires email, password (6+ chars, 1 number, 1 capital), and email verification | One-click registration using Google account |
+| Manual email verification required | Automatic email verification |
+| Need to remember another password | No password to manage |
+| Accept Privacy Policy & Terms | Enhanced security through Google |
 
-Fill in the following information:
+**Traditional Sign Up:**
+1. Fill in: Name, Email, Password, Confirm Password
+2. Accept Privacy Policy and Terms of Service
+3. Click **"Create Account"**
 
-- **Name**: Your full name (will be visible to administrators)
-- **Email**: A valid email address you check regularly
-- **Password**: Must be at least 6 characters with:
-  - At least one number
-  - At least one capital letter
-  - Example: `MyPassword123`
-- **Confirm Password**: Re-enter your password to confirm
-
-Review and accept:
-
-- ☐ Privacy Policy
-- ☐ Terms of Service
-
-Click **"Create Account"**
-
-**Option B: Sign Up with Google (Faster & Safer)**
-
-For a quicker and more secure registration:
-
-1. On the sign-up page, look for **"Or continue with"** section
-2. Click the **"Sign in with Google"** button
-3. Select your Google account or sign in to Google if needed
-4. Grant Ministry Mapper permission to access your basic profile information
-5. Your account will be created automatically using your Google profile
-
-**Benefits:**
-- ✓ No password to create or remember
-- ✓ Faster registration process
-- ✓ Enhanced security through Google's authentication
-- ✓ Automatic email verification through your Google account
+**Google OAuth Sign Up:**
+1. Click **"Sign in with Google"** button under "Or continue with"
+2. Select your Google account
+3. Grant Ministry Mapper basic profile access
+4. Account created automatically
 
 **Step 3: Verify Your Email**
 
@@ -106,38 +89,21 @@ After verification:
 
 ### Logging In to Ministry Mapper
 
-Once your account is verified and you've been granted congregation access, you can log in:
-
-**Step 1: Access Login Page**
-
-1. Navigate to your congregation's Ministry Mapper URL
-2. You'll see the login screen
-
-**Step 2: Enter Credentials**
-
-1. Enter your registered **email address**
-2. Enter your **password**
-3. Click **"Sign In"** or **"Login"**
-
-**Alternative: Sign In with Google**
-
 ![Google OAuth Sign In](assets/screenshots/google_oauth_sign_in.png)
 
 *Figure 6: Google OAuth sign-in option for faster and safer authentication*
 
-For a faster and more secure sign-in experience, you can use Google OAuth:
+Once your account is verified and you've been granted congregation access:
 
-1. On the login page, look for **"Or continue with"** section
-2. Click the **"Sign in with Google"** button
-3. Select your Google account or sign in to Google if needed
-4. Grant Ministry Mapper permission to access your basic profile information
-5. You'll be automatically signed in without needing to enter a password
+**Standard Login:**
+1. Navigate to your congregation's Ministry Mapper URL
+2. Enter your email address and password
+3. Click **"Sign In"**
 
-**Benefits of Google OAuth:**
-- ✓ Faster sign-in process
-- ✓ No need to remember another password
-- ✓ Enhanced security through Google's authentication
-- ✓ Automatic account linking if your email matches an existing account
+**Google OAuth Login (Faster):**
+1. Click **"Sign in with Google"** button
+2. Select your Google account
+3. Automatically signed in (no password needed)
 
 **Step 3: Complete OTP Verification (If Enabled)**
 
@@ -308,33 +274,6 @@ The dashboard provides a comprehensive overview:
 - ⚙️ **Settings**: Access congregation configuration (Administrators only)
 - 👥 **Users**: Manage user roles and invitations (Administrators only)
 
-**2a. Speed Dial Menu** (Mobile & Desktop)
-
-![Speed Dial Admin Page](assets/screenshots/speeddial_admin_page.png)
-
-*Figure 6a: Speed dial floating action button providing quick access to common actions*
-
-For quick access to frequently used features, Ministry Mapper includes a speed dial menu that appears as a floating action button on the admin and conductor dashboards:
-
-**Accessing Speed Dial:**
-
-- Look for the **➕ (plus)** floating button, typically in the bottom-right corner
-- Click or tap to expand the speed dial menu
-- Available options appear as individual buttons with icons
-
-**Speed Dial Functions:**
-
-- 🗺️ **Map View Mode**: Toggle full-screen map view for better territory visualization
-- 📋 **Quick Link**: Rapidly create and share assignment links (Conductors & Administrators)
-- Other quick actions depending on your role and current view
-
-**Benefits:**
-
-- Fast access without navigating through multiple menus
-- Always visible on the dashboard
-- Context-aware - shows relevant actions based on your current page
-- Touch-friendly for mobile devices
-
 **3. Territory Information Panel**
 
 - Territory code and description
@@ -346,6 +285,17 @@ For quick access to frequently used features, Ministry Mapper includes a speed d
 
 - 🗺️ **Map View**: Interactive map display
 - 📋 **List View**: Tabular display of all addresses
+
+**5. Speed Dial Menu** (Floating Action Button)
+
+![Speed Dial Admin Page](assets/screenshots/speeddial_admin_page.png)
+
+*Figure 6a: Speed dial floating action button providing quick access to common actions*
+
+The **➕** button (bottom-right corner) provides quick access to:
+- 🗺️ **Map View Mode**: Toggle full-screen map view
+- 📋 **Quick Link**: Rapidly create assignment links (Conductors & Administrators)
+- Context-aware actions based on current view
 
 ---
 
@@ -589,43 +539,20 @@ Ministry Mapper integrates interactive mapping for intuitive territory navigatio
 - **Zoom**: + and - buttons or pinch gesture
 - **Pan**: Click and drag to move around
 - **Satellite View**: Toggle between map and satellite imagery
-- **Full Screen**: Expand map to full screen
+- **Full Screen**: Expand map to full screen (or use Speed Dial → Map View Mode)
 - **Center on Territory**: Reset view to show all addresses
 
-#### Full-Screen Map View Mode (Administrators & Conductors)
+**Full-Screen Map View Mode** (Administrators & Conductors):
 
 ![Admin Map View Mode](assets/screenshots/admin_map_view_mode.png)
 
 *Figure 12a: Full-screen map view mode accessed via speed dial menu*
 
-For enhanced territory visualization and planning, administrators and conductors can access a dedicated full-screen map view mode:
-
-**Accessing Map View Mode:**
-
-1. Click the **speed dial** button (➕) in the bottom-right corner
-2. Select the **Map View** icon from the expanded menu
-3. Territory map expands to fill entire screen
-
-**Features in Map View Mode:**
-
-- **Maximized Screen Space**: Map occupies full viewport for better overview
-- **All Map Controls**: Zoom, pan, satellite view, and centering remain available
-- **Address Markers**: All territory addresses displayed with status-based colors
-- **Quick Access**: Speed dial menu remains accessible for other functions
-- **Territory Planning**: Ideal for route planning and territory analysis
-
-**Exiting Map View Mode:**
-
-- Click the speed dial menu and deselect map view
-- Or navigate to another section using the main navigation
-- Map returns to standard dashboard layout
-
-**Use Cases:**
-
-- Planning optimal routes before field service
-- Analyzing territory coverage and density
-- Presenting territory overview in meetings
-- Identifying clusters of addresses for efficient visiting
+Access via Speed Dial (➕) → Map View icon. Ideal for:
+- Route planning before field service
+- Territory coverage analysis
+- Meeting presentations
+- Identifying address clusters
 
 #### Navigation Tips
 
@@ -667,63 +594,30 @@ Ministry Mapper uses a link-based assignment system. Conductors and Administrato
 
 #### Creating an Assignment
 
-**Step 1: Open Assignments**
-
-1. Click the **"Assignments"** button in the top navigation
-2. View list of all active assignments across all territories
-
-**Alternative: Quick Link via Speed Dial** (Fast Method)
+**Two Ways to Create Assignments:**
 
 ![Admin Conductor Quick Link](assets/screenshots/admin_conductor_quicklink.png)
 
 *Figure 13a: Quick link creation interface accessed via speed dial menu*
 
-For rapid assignment creation, use the **Quick Link** feature:
+| Method | Access | Best For |
+|--------|--------|----------|
+| **Quick Link** | Speed Dial (➕) → Quick Link | Rapid creation for current territory |
+| **Standard** | Assignments button → Create New | Full options and customization |
 
-1. Click the **speed dial** button (➕) in the bottom-right corner
-2. Select the **Quick Link** icon from the menu
-3. Quick assignment form appears with:
-   - Territory selector (current territory pre-selected)
-   - Publisher name field
-   - Default expiry settings
-4. Fill in minimal details and click **"Create"**
-5. Link is instantly generated and ready to share
+**Step 1: Access Assignment Creation**
 
-**Benefits of Quick Link:**
+- **Quick Link**: Click Speed Dial (➕) → Quick Link icon (pre-fills current territory)
+- **Standard**: Click **"Assignments"** → **"Create New Assignment"** or **"+"**
 
-- ✓ Faster than navigating through full assignments page
-- ✓ Creates link for currently selected territory by default
-- ✓ Minimal clicks - ideal for frequent assignments
-- ✓ Available from any dashboard view
-- ✓ Same functionality as standard assignment creation
+**Step 2: Fill Assignment Form**
 
-**Step 2: Create New Assignment** (Standard Method)
-
-1. Click **"Create New Assignment"** or **"+"** button
-2. Fill in the assignment form:
-
-**Assignment Type:**
-
-- **Normal Assignment**: Standard territory assignment for field service
-- **Personal Slip**: For personal territory or return visits
-
-**Territory Selection:**
-
-- Choose territory from dropdown menu
-- Only territories in your congregation available
-
-**Publisher Name:** (Optional)
-
-- Enter the publisher's name for tracking
-- Helps identify who has which territory
-- Not required - link works for anyone with access
-
-**Link Expiry:**
-
-- Set expiration time in hours
-- Default: 24 hours (configured by administrator)
-- Can set custom duration
-- After expiry, link becomes inaccessible
+| Field | Description | Required |
+|-------|-------------|----------|
+| **Type** | Normal Assignment or Personal Slip | Yes |
+| **Territory** | Select from congregation territories | Yes |
+| **Publisher Name** | For tracking (link works without name) | Optional |
+| **Link Expiry** | Hours until link expires (default: 24) | Yes |
 
 **Step 3: Generate and Share**
 
@@ -1168,43 +1062,24 @@ Configure how maps are displayed and behave in your congregation. Administrators
    - Lower numbers are visited first
    - Helps create logical visiting patterns
 
-##### Update Map Sequence
+##### Update Map Sequence (Drag & Drop)
 
 ![Update Map Sequence](assets/screenshots/update_map_sequence.png)
 
 *Drag and drop interface for reordering all map sequences in a territory*
 
-The **Update Map Sequence** feature provides a visual interface for administrators to reorder all addresses in a territory at once. Instead of changing sequences one address at a time, this tool lets you drag and drop cards to optimize the entire route.
+**Access:** Address menu → "Change Sequence"
 
-**How to Access:**
-
-1. Go to **Address** menu (Administrators only)
-2. Select **"Change Sequence"**
-
-**How to Use:**
-
-1. Each card represents an address with its current sequence number displayed
-2. Drag and drop cards to reorder them - sequence numbers update automatically
-3. The instruction at the top reminds you: "Drag and drop the cards to reorder the sequence"
-4. Click **"Save"** to apply the new sequence order, or **"Cancel"** to discard changes
-
-**Benefits:**
-
-- ✓ Visual interface makes reordering intuitive and fast
-- ✓ See all addresses in the territory at once
-- ✓ No need to manually enter sequence numbers for each address
-- ✓ Immediately preview the new order before saving
-- ✓ Helps create efficient routes for publishers
+**How It Works:**
+1. Each card shows an address with current sequence number
+2. Drag and drop to reorder - numbers update automatically
+3. Click **"Save"** to apply or **"Cancel"** to discard
 
 **Best Practices:**
-
-- Arrange sequences to minimize backtracking during field service
-- Group nearby addresses together for efficient walking/driving routes
-- Consider starting points and logical flow through the territory
-- Review the map view after sequencing to verify the route makes sense
-- For multi-story buildings, group floors together logically
-
-> **💡 Tip**: Plan sequences based on geography and access patterns. For example, start at one end of a street and work systematically to the other end, or group floors in multi-story buildings together for efficient coverage.
+- Minimize backtracking by grouping nearby addresses
+- Group floors together in multi-story buildings
+- Create logical flow from one end to the other
+- Review map view after sequencing
 
 **4. Rename**
    - Change the name or identifier of an address/unit
@@ -1244,27 +1119,15 @@ The **Update Map Sequence** feature provides a visual interface for administrato
    - Helpful for removing duplicate entries or non-existent addresses
    - Confirm carefully before deleting
 
-**Best Practices for Map Configuration:**
-
-- ✓ **Verify Changes**: Double-check location changes on the map before saving
-- ✓ **Sequence Logically**: Set sequences to create efficient walking/driving routes
-- ✓ **Document Major Changes**: Add notes explaining significant reorganizations
-- ✓ **Coordinate with Team**: Inform conductors before major territory changes
-- ✓ **Backup First**: Consider taking screenshots before major deletions
-- ✓ **Test Navigation**: After location changes, verify directions work correctly
-
 **Common Use Cases:**
+- Correcting errors: Rename and Change Location
+- Territory rebalancing: Change Territory
+- Building updates: Add Higher/Lower Floor
+- Route optimization: Change Sequence
+- Data cleanup: Delete duplicates
+- Seasonal updates: Reset Status
 
-- **Correcting Errors**: Use Rename and Change Location to fix initial data entry mistakes
-- **Territory Rebalancing**: Use Change Territory to redistribute addresses for balanced workload
-- **Building Updates**: Use Add Higher/Lower Floor when buildings expand
-- **Route Optimization**: Use Change Sequence to create more efficient visiting patterns
-- **Data Cleanup**: Use Delete to remove duplicate or invalid entries
-- **Seasonal Updates**: Use Reset Status when starting a new round of territory work
-
-> **💡 Note**: Map configuration changes affect all users in your congregation immediately. Always verify changes are correct before saving.
-
-> **⚠️ Warning**: The Delete function is permanent and cannot be undone. Always confirm you're deleting the correct item.
+> **⚠️ Warning**: Changes affect all users immediately. Delete is permanent and cannot be undone.
 
 ---
 
@@ -1320,52 +1183,25 @@ Administrators have full control over creating, editing, and managing territorie
 
 **Change Territory Sequence:**
 
-##### Update Territory Sequence (Drag and Drop)
+##### Update Territory Sequence (Drag & Drop)
 
 ![Update Territory Sequence](assets/screenshots/territory_sequence_change.png)
 
 *Drag and drop interface for reordering all territories in the congregation*
 
-The **Update Territory Sequence** feature provides a visual interface for administrators to reorder all territories in the congregation at once. Instead of changing sequences one territory at a time, this tool lets you drag and drop cards to reorganize the complete territory list.
+**Access:** Territory dropdown → "Change Sequence"
 
-**How to Access:**
-
-1. Go to **Territory** dropdown menu (Administrators only)
-2. Select **"Change Sequence"**
-3. The "Update Map Sequence" dialog opens showing all territories
-
-**How to Use:**
-
-1. Each card represents a territory with its sequence number displayed
-2. Drag and drop cards to reorder them - sequence numbers update automatically
-3. The territories are listed with their codes and descriptions (e.g., "872, Woodlands Street 81 (W14)")
-4. Click **"Save"** to apply the new sequence order, or **"Cancel"** to discard changes
-
-**Benefits:**
-
-- ✓ Visual interface makes reordering intuitive and fast
-- ✓ See all territories in the congregation at once
-- ✓ No need to manually enter sequence numbers for each territory
-- ✓ Immediately preview the new order before saving
-- ✓ Controls the order territories appear in selection dropdowns and lists
+**How It Works:**
+1. Each card shows territory code and description
+2. Drag and drop to reorder - sequence numbers update automatically
+3. Click **"Save"** to apply or **"Cancel"** to discard
+4. Controls order in selection dropdowns and lists
 
 **Best Practices:**
-
-- Organize territories by geographical proximity for easier management
-- Group territories by type (e.g., residential, commercial, business)
-- Number territories sequentially to make tracking easier
-- Consider field service group assignments when ordering
-- Use consistent naming conventions that complement the sequence
-
-**Use Cases:**
-
-- Reorganizing territories after boundary changes
-- Grouping territories by service group or field service arrangement
-- Creating logical order for territory rotation
-- Balancing workload by ordering territories by size or difficulty
-- Aligning with congregation's administrative structure
-
-> **💡 Tip**: Plan your territory sequence based on your congregation's field service organization. For example, group territories by service group or geographical area to make assignments and tracking more efficient.
+- Organize by geographical proximity
+- Group by type (residential, commercial, business)
+- Consider field service group assignments
+- Use for territory rotation planning
 
 #### Territory Configuration Options
 
@@ -1855,19 +1691,7 @@ Ministry Mapper supports multiple languages for international congregations.
 
 *Figure 32: Theme and appearance settings including language preferences*
 
-1. Change your browser's language settings:
-   - **Chrome**: Settings → Languages → Add language
-   - **Safari**: System Preferences → Language & Region
-   - **Firefox**: Settings → General → Language
-2. Refresh Ministry Mapper
-3. Interface updates to selected language
-
-**Translation Coverage:**
-
-- All interface elements translated
-- Buttons, labels, and messages
-- Error messages and confirmations
-- Help text and instructions
+Change browser language settings (Chrome: Settings → Languages | Safari: System Preferences → Language & Region | Firefox: Settings → General → Language), then refresh Ministry Mapper. All interface elements, messages, and help text are fully translated.
 
 ### Appearance and Theme Settings
 
@@ -1875,120 +1699,47 @@ Ministry Mapper supports both light and dark themes to suit your preference and 
 
 **Changing Theme:**
 
-1. Click your **profile icon** or **settings menu**
-2. Look for **"Theme"** or **"Appearance"** settings
-3. Select your preferred theme:
-   - **Light Mode**: Traditional bright interface
-   - **Dark Mode**: Reduced brightness for low-light conditions
-   - **System Default**: Automatically matches your device settings
-
-**Benefits of Dark Mode:**
-
-- ✓ Reduced eye strain in low-light environments
-- ✓ Battery savings on OLED screens
-- ✓ Better for nighttime field service preparation
-- ✓ Reduced glare
-
-**When to Use:**
-
-- Light Mode: Daytime use, bright environments
-- Dark Mode: Evening/night use, battery conservation
-- System Default: Automatic switching based on time of day
-
-> **💡 Tip**: Dark mode is especially useful when reviewing territories in the evening or early morning before field service.
+Profile icon → Theme/Appearance settings → Select:
+- **Light Mode**: Bright interface for daytime
+- **Dark Mode**: Reduced brightness for low-light (saves battery on OLED)
+- **System Default**: Matches device settings automatically
 
 ---
 
-## Tips for Effective Territory Work
+## Best Practices
 
-### Best Practices for Publishers
+### For Publishers
 
-**Before Starting:**
+| Phase | Best Practices |
+|-------|---------------|
+| **Before Starting** | Review territory on map • Check notes/instructions • Plan route using sequences • Note "Do Not Call" addresses • Ensure device charged |
+| **During Service** | Update immediately after each visit • Add detailed, respectful notes • Follow sequence numbers • Use map for navigation • Mark "Not Home" accurately |
+| **After Completing** | Review all updates • Add final observations • Notify administrator if complete • Report address issues |
 
-- ✓ Review entire territory on map before going out
-- ✓ Check for any special instructions or notes
-- ✓ Plan your route using sequence numbers
-- ✓ Note addresses marked "Do Not Call"
-- ✓ Check weather and prepare accordingly
-- ✓ Ensure device is charged
+### For Conductors
 
-**During Field Service:**
+- Set appropriate link expiry times based on territory size
+- Include publisher names for tracking
+- Clean up expired assignments regularly
+- Monitor territory completion and follow up on overdue assignments
+- Post clear messages and instructions
 
-- ✓ Update addresses immediately after each visit
-- ✓ Add detailed but respectful notes
-- ✓ Follow the sequence for efficient routing
-- ✓ Use map for navigation between addresses
-- ✓ Mark "Not Home" accurately
-- ✓ Respect all "Do Not Call" requests
+### For Administrators
 
-**After Completing:**
+| Area | Best Practices |
+|------|---------------|
+| **Territory Setup** | Consistent naming • Short, meaningful codes • Clear descriptions • Verify map locations • Logical sequences |
+| **Data Management** | Regular cleanup • Reset completed territories • Verify accuracy • External backups • Train users |
+| **User Management** | Appropriate role assignment • Remove inactive users • Prompt response to requests • Clear communication |
 
-- ✓ Review all updates for accuracy
-- ✓ Add any final notes or observations
-- ✓ Notify administrator if territory is complete
-- ✓ Report any address issues (invalid, moved, etc.)
+### General Principles
 
-### Best Practices for Administrators
-
-**Territory Setup:**
-
-- ✓ Use consistent naming conventions
-- ✓ Keep territory codes short and meaningful
-- ✓ Add clear descriptions
-- ✓ Verify all addresses on map
-- ✓ Set appropriate sequence numbers
-- ✓ Include helpful instructions
-
-**Managing Assignments:**
-
-- ✓ Set appropriate expiry times
-- ✓ Include publisher names for tracking
-- ✓ Clean up expired assignments regularly
-- ✓ Follow up on long-outstanding assignments
-- ✓ Monitor territory completion rates
-
-**Data Management:**
-
-- ✓ Regularly review and clean up old data
-- ✓ Reset territories when fully worked
-- ✓ Verify address information accuracy
-- ✓ Back up critical information externally
-- ✓ Train users on proper data entry
-
-**User Management:**
-
-- ✓ Assign appropriate roles to users
-- ✓ Remove access for inactive users
-- ✓ Respond promptly to access requests
-- ✓ Communicate role changes clearly
-
----
-
-- **Start with a Plan**: Review the entire territory before going out
-- **Work Systematically**: Complete one section/building at a time
-- **Update as You Go**: Don't wait until you're home to update
-- **Use Notes Wisely**: Add helpful info for next publisher
-
-### Communication
-
-- **Be Clear**: Write notes others can understand
-- **Be Respectful**: Keep notes professional and kind
-- **Be Accurate**: Double-check address and status
-- **Be Timely**: Update immediately after visiting
-
-### Time Management
-
-- **Set Goals**: Aim for a certain number of addresses per session
-- **Check Often**: Review your territories regularly
-- **Return Promptly**: Don't keep territories too long
-- **Ask for Help**: If territory is too large, communicate with servant
-
-### Quality Work
-
-- **Be Thorough**: Cover all addresses
-- **Be Persistent**: Try different times/days for "not homes"
-- **Be Flexible**: Adapt to what the territory needs
-- **Be Prayerful**: Remember the purpose of the work
+- **Plan Ahead**: Review before going out
+- **Work Systematically**: Complete one section at a time
+- **Update Promptly**: Don't wait to record information
+- **Communicate Clearly**: Write understandable, respectful notes
+- **Be Thorough**: Cover all addresses persistently
+- **Stay Flexible**: Adapt to territory needs
 
 ---
 
@@ -1996,359 +1747,70 @@ Ministry Mapper supports both light and dark themes to suit your preference and 
 
 ### Login Problems
 
-#### Can't Log In - Incorrect Password
-
-**Symptoms:**
-
-- "Invalid credentials" or "Incorrect password" error
-- Cannot access your account
-
-**Solutions:**
-
-1. **Verify Email**: Ensure you're using the correct email address
-2. **Check Caps Lock**: Password is case-sensitive
-3. **Use Password Reset**:
-   - Click "Forgot Password" on login page
-   - Enter your email
-   - Check email for reset link (see Password Recovery section above)
-   - Create new password following requirements
-
-#### Account Not Verified
-
-**Symptoms:**
-
-- "Email not verified" message
-- Cannot log in after creating account
-
-**Solutions:**
-
-1. Check your email inbox for verification message
-2. Check spam/junk folder
-3. Click the verification link in the email
-4. If link expired, request new verification email
-5. Contact administrator if problems persist
-
-#### No Congregation Access
-
-**Symptoms:**
-
-- Successfully logged in but see no territories
-- "No congregation assigned" message
-- Blank dashboard
-
-**Solutions:**
-
-1. Contact your congregation administrator
-2. Administrator needs to:
-   - Invite you to congregation
-   - Assign you appropriate role
-3. Wait for administrator to grant access
-4. Log out and log back in after access granted
-
-#### One-Time Password (OTP) Issues
-
-**Symptoms:**
-
-- Not receiving OTP code
-- OTP code doesn't work
-
-**Solutions:**
-
-- Check email spam folder
-- OTP codes expire quickly (typically 5-10 minutes)
-- Request new code if expired
-- Ensure email address is correct
-- Contact administrator about OTP configuration
+| Issue | Symptoms | Solutions |
+|-------|----------|-----------|
+| **Incorrect Password** | "Invalid credentials" error | Verify email • Check Caps Lock • Use "Forgot Password" → Reset via email |
+| **Account Not Verified** | "Email not verified" message | Check inbox/spam for verification email • Click link • Request new if expired |
+| **No Congregation Access** | Logged in but no territories shown | Contact administrator to invite you and assign role • Log out/in after access granted |
+| **OTP Issues** | Not receiving/invalid OTP code | Check spam • Codes expire in 5-10 minutes • Request new code • Verify email address |
 
 ---
 
 ### Data Update Problems
 
-#### Changes Not Saving
-
-**Symptoms:**
-
-- Click "Save" but changes don't persist
-- Changes disappear after refresh
-- Error message when saving
-
-**Possible Causes:**
-
-- Poor or unstable internet connection
-- Browser cache issues
-- Concurrent editing by another user
-- Server connectivity problems
-
-**Solutions:**
-
-1. **Check Connection**:
-
-   - Verify internet is connected and stable
-   - Test connection by loading another website
-   - Check if you see connection warning in app
-
-2. **Refresh and Retry**:
-
-   - Refresh the browser page (Ctrl/Cmd + R)
-   - Try making the change again
-   - Wait a few moments between attempts
-
-3. **Clear Browser Cache**:
-
-   - Clear browser cache and cookies
-   - Close and reopen browser
-   - Log in again
-
-4. **Try Different Browser**:
-
-   - Test in another browser (Chrome, Firefox, Safari)
-   - Determines if browser-specific issue
-
-5. **Check for Conflicts**:
-   - Someone else may be editing same address
-   - Wait a moment and try again
-   - Coordinate with other users if needed
-
-#### Real-Time Updates Not Appearing
-
-**Symptoms:**
-
-- Changes by others don't show up
-- Territory appears outdated
-- Progress not updating
-
-**Solutions:**
-
-- Ensure you have active internet connection
-- Keep territory page open for real-time updates
-- Refresh page to force update
-- Updates only sync while page is open
-- Check connection status indicator
+| Issue | Symptoms | Solutions |
+|-------|----------|-----------|
+| **Changes Not Saving** | Save doesn't persist, disappears after refresh | Check internet connection • Refresh page (Ctrl/Cmd + R) • Clear browser cache • Try different browser • Check for concurrent editing |
+| **Real-Time Updates Not Appearing** | Changes by others not showing | Ensure active internet • Keep page open • Refresh to force update • Check connection status |
 
 ---
 
 ### Map and Navigation Issues
 
-#### Map Not Loading
-
-**Symptoms:**
-
-- Gray box where map should be
-- "Failed to load map" error
-- Map partially loaded or frozen
-
-**Solutions:**
-
-1. **Immediate Fixes**:
-
-   - Refresh the page (F5 or Ctrl/Cmd + R)
-   - Maps may timeout on slow connections
-   - Wait 10-15 seconds for map to load
-
-2. **Check Internet**:
-
-   - Verify internet connection is active
-   - Test speed - slow connection may timeout
-   - Try on different network if available
-
-3. **Browser Issues**:
-
-   - Clear browser cache
-   - Try different browser
-   - Disable browser extensions that might block maps
-   - Enable JavaScript if disabled
-
-4. **Configuration Issues** (Administrators):
-   - Verify map configuration is set correctly (see Map Configuration section)
-   - Check browser console for specific error messages
-
-#### Incorrect Map Location
-
-**Symptoms:**
-
-- Addresses in wrong location on map
-- Markers misplaced
-
-**Solutions:**
-
-- **Administrators**: Update geolocation coordinates
-- Verify postal code/address is correct
-- Use "Update Geolocation" to manually set location
-- May need to use latitude/longitude coordinates directly
-
-#### Directions Not Working
-
-**Solutions:**
-
-- Verify congregation origin location is set correctly
-- Check if address has valid coordinates
+| Issue | Symptoms | Solutions |
+|-------|----------|-----------|
+| **Map Not Loading** | Gray box, error, frozen map | Refresh page (F5) • Wait 10-15 seconds • Check internet speed • Clear cache • Try different browser • Enable JavaScript |
+| **Incorrect Location** | Markers misplaced | Administrators: Update geolocation • Verify postal code • Use "Update Geolocation" • Use lat/long if needed |
+| **Directions Not Working** | Navigation issues | Verify congregation origin location • Check address has valid coordinates |
 
 ---
 
 ### Assignment Link Issues
 
-#### Link Expired
-
-**Symptoms:**
-
-- "This link has expired" message
-- Cannot access territory through link
-- "404 Not Found" or similar error
-
-**Understanding:**
-
-- Assignment links expire after set time (default: 24 hours)
-- This is intentional security feature
-- Prevents unauthorized long-term access
-
-**Solutions:**
-
-- Contact your administrator or conductor
-- Request new assignment link
-- Administrator must create fresh assignment
-- New link will have new expiry time
-
-#### Link Not Working
-
-**Symptoms:**
-
-- Link won't open
-- Error when clicking link
-- Broken link message
-
-**Solutions:**
-
-1. **Verify Link**:
-
-   - Ensure entire link was copied
-   - Check for line breaks if sent via email
-   - Link should be single, continuous URL
-
-2. **Copy-Paste Correctly**:
-
-   - Highlight entire link
-   - Copy and paste into browser address bar
-   - Don't type manually (easy to make mistakes)
-
-3. **Check Expiry**:
-
-   - Ask administrator when link was created
-   - May have already expired
-
-4. **Contact Administrator**:
-   - Confirm link was created correctly
-   - Request new link if needed
+| Issue | Symptoms | Solutions |
+|-------|----------|-----------|
+| **Link Expired** | "Link has expired", 404 error | Contact administrator/conductor for new link (links expire after set time, typically 24 hours - this is a security feature) |
+| **Link Not Working** | Won't open, error message | Ensure entire link copied (check for line breaks) • Copy-paste into browser (don't type) • Verify not expired • Contact administrator |
 
 ---
 
 ### Permission and Access Issues
 
-#### "You Don't Have Permission" Error
-
-**Symptoms:**
-
-- Cannot access certain features
-- "Insufficient permissions" message
-- Buttons or options greyed out
-
-**Solutions:**
-
-1. **Verify Your Role**:
-
-   - Check with administrator what role you have
-   - Understand what your role can do (see Role Hierarchy section)
-   - May need role upgrade for desired feature
-
-2. **Refresh Permissions**:
-
-   - Log out completely
-   - Clear browser cache
-   - Log back in
-   - Permissions updated on login
-
-3. **Contact Administrator**:
-   - Explain what you're trying to do
-   - Request appropriate role if needed
-   - Administrator can update your permissions
-
-#### Seeing Wrong Congregation Data
-
-**Symptoms:**
-
-- Different congregation's territories appear
-- Unfamiliar data showing
-
-**Solutions:**
-
-- Verify you're logged in with correct account
-- Check congregation selector (if available)
-- Log out and log back in
-- Contact administrator to verify congregation assignment
+| Issue | Symptoms | Solutions |
+|-------|----------|-----------|
+| **Permission Denied** | "Insufficient permissions", greyed out features | Verify your role with administrator • Log out, clear cache, log back in • Request role upgrade if needed |
+| **Wrong Congregation Data** | Unfamiliar territories/data | Verify correct account • Check congregation selector • Log out/in • Contact administrator |
 
 ---
 
 ### Performance Issues
 
-#### Slow Loading
-
-**Symptoms:**
-
-- Pages take long time to load
-- Laggy interface
-- Delayed responses
-
-**Solutions:**
-
-- Check internet connection speed
-- Close unnecessary browser tabs
-- Clear browser cache
-- Restart browser
-- Try at different time (server may be busy)
-- Report persistent issues to administrator
-
-#### App Crashes or Freezes
-
-**Solutions:**
-
-- Refresh the page
-- Clear browser cache and cookies
-- Update browser to latest version
-- Try different browser
-- Restart device
-- Check device has sufficient memory available
+| Issue | Symptoms | Solutions |
+|-------|----------|-----------|
+| **Slow Loading** | Long load times, lag, delays | Check internet speed • Close unnecessary tabs • Clear cache • Restart browser • Try different time • Report if persistent |
+| **Crashes/Freezes** | App stops responding | Refresh page • Clear cache/cookies • Update browser • Try different browser • Restart device • Check memory |
 
 ---
 
 ### Browser Compatibility
 
-#### Recommended Browsers
+#### Browser Compatibility
 
-**Fully Supported:**
+**Supported:** Chrome, Firefox, Safari, Edge (latest versions) • iOS Safari (iOS 13+) • Android Chrome
 
-- ✓ Google Chrome (latest version)
-- ✓ Mozilla Firefox (latest version)
-- ✓ Safari (latest version)
-- ✓ Microsoft Edge (latest version)
+**Not Supported:** Internet Explorer, outdated browsers
 
-**Mobile:**
-
-- ✓ iOS Safari (iOS 13+)
-- ✓ Android Chrome (latest)
-
-**Not Recommended:**
-
-- ✗ Internet Explorer (not supported)
-- ✗ Very old browser versions
-
-#### Browser-Specific Issues
-
-If experiencing problems:
-
-1. Update browser to latest version
-2. Enable JavaScript
-3. Allow cookies
-4. Disable strict tracking prevention
-5. Try different browser to confirm
+**If having issues:** Update browser • Enable JavaScript • Allow cookies • Disable strict tracking prevention • Try different browser
 
 ---
 
@@ -2381,47 +1843,20 @@ If experiencing problems:
 
 ### Reporting Problems Effectively
 
-When reporting an issue, include:
-
-**Required Information:**
-
-- ✓ **What you were trying to do**: Specific action or task
-- ✓ **What happened instead**: Actual behavior or error
-- ✓ **Steps to reproduce**: How to make problem happen again
-
-**Helpful Details:**
-
-- ✓ **Error messages**: Exact text or screenshot
-- ✓ **Browser**: Chrome, Safari, Firefox, etc.
-- ✓ **Browser version**: Check in browser settings
-- ✓ **Device**: Desktop, mobile, tablet
-- ✓ **Operating system**: Windows, Mac, iOS, Android
-- ✓ **Account type**: Publisher link, Conductor, Administrator
-- ✓ **Screenshot**: Visual of the problem
+**Include in Your Report:**
+- What you were trying to do
+- What happened instead (error messages, screenshots)
+- Steps to reproduce the problem
+- Browser and version
+- Device and OS
+- Account type (Publisher/Conductor/Administrator)
 
 **Example Good Report:**
-
 ```
 Issue: Cannot save address status update
-
-Steps to reproduce:
-1. Opened assignment link on mobile
-2. Clicked address #05-123
-3. Changed status to "Done"
-4. Added note
-5. Clicked "Save"
-6. Error message appeared: "Failed to update"
-
-Browser: Chrome 120
-Device: iPhone 12, iOS 17
-Account: Publisher via assignment link
+Steps: Opened link → Clicked #05-123 → Changed to "Done" → Clicked Save → Error: "Failed to update"
+Browser: Chrome 120 | Device: iPhone 12, iOS 17 | Account: Publisher link
 Screenshot: [attached]
-```
-
-**Example Poor Report:**
-
-```
-It doesn't work. Help!
 ```
 
 ### Emergency Contact
@@ -2476,50 +1911,7 @@ Ministry Mapper uses standard browser shortcuts:
 
 ---
 
-## Best Practices Summary
 
-### For All Users
-
-✓ Keep login credentials secure and private
-✓ Log out when using shared or public devices
-✓ Use strong passwords (6+ chars, numbers, capitals)
-✓ Respect householder privacy in all notes
-✓ Follow local privacy laws (GDPR, CCPA, etc.)
-✓ Report issues promptly to administrators
-✓ Ask questions when unsure
-
-### For Publishers
-
-✓ Update address status immediately after each visit
-✓ Write clear, respectful, concise notes
-✓ Complete territories in reasonable timeframe
-✓ Follow sequence numbers for efficient routing
-✓ Ensure internet connection before starting
-✓ Contact administrator if link expires
-✓ Use mobile app for field service convenience
-
-### For Conductors
-
-✓ Set appropriate link expiry times
-✓ Include publisher names in assignments
-✓ Clean up expired assignments regularly
-✓ Follow up on overdue territories
-✓ Post clear instructions and messages
-✓ Monitor territory completion rates
-✓ Respond to publisher questions promptly
-
-### For Administrators
-
-✓ Use consistent territory naming conventions
-✓ Verify address accuracy on maps
-✓ Set appropriate congregation settings
-✓ Respond promptly to access requests
-✓ Regularly review and clean old data
-✓ Train users on proper procedures
-✓ Keep backups of critical information
-✓ Assign appropriate user roles
-
----
 
 ## Privacy and Security
 
@@ -2576,33 +1968,12 @@ Ministry Mapper handles sensitive address and personal information. Please obser
 
 ### Data Storage and Security
 
-**Backend:**
-
-- **PocketBase database** managed by administrator
-- **Hosting location** determined by congregation
-- **Backup strategy** set by administrator
-- **Access control** via role-based permissions
-
-**Real-time Sync:**
-
-- **PocketBase subscriptions** for live updates
-- **Encrypted connections** (HTTPS)
-- **Automatic reconnection** on connection loss
-- **Session management** for security
-
-**Client-Side Caching:**
-
-- **Service worker** caches static assets only
-- **No sensitive data** stored locally
-- **Auto-update** when new version available
-- **Secure HTTPS** required
-
-**Best Practices:**
-
-- Congregation administrators should implement proper backup procedures
-- Regular security audits recommended
-- Keep PocketBase backend updated
-- Monitor access logs for unusual activity
+| Component | Details |
+|-----------|---------|
+| **Backend** | PocketBase database managed by administrator • Hosting location determined by congregation • Role-based access control |
+| **Real-time Sync** | PocketBase subscriptions • Encrypted HTTPS connections • Automatic reconnection • Session management |
+| **Client-Side** | Service worker caches static assets only • No sensitive data stored locally • Auto-update on new versions |
+| **Administrator Responsibilities** | Implement backup procedures • Conduct security audits • Keep backend updated • Monitor access logs |
 
 ---
 
@@ -2612,26 +1983,11 @@ Thank you for using Ministry Mapper to support your congregation's field service
 
 ### Key Takeaways
 
-**For Publishers:**
-
-- Use assignment links to access territories
-- Update addresses immediately after visits
-- Write respectful, helpful notes
-- Follow the sequence for efficient work
-
-**For Conductors:**
-
-- Create and manage assignments
-- Monitor territory progress
-- Post messages and instructions
-- Coordinate field service activities
-
-**For Administrators:**
-
-- Configure congregation settings
-- Manage territories and addresses
-- Invite and assign user roles
-- Ensure data accuracy and security
+| Role | Key Responsibilities |
+|------|---------------------|
+| **Publishers** | Access via links • Update immediately after visits • Write respectful notes • Follow sequences |
+| **Conductors** | Create assignments • Monitor progress • Post messages • Coordinate activities |
+| **Administrators** | Configure settings • Manage territories • Assign roles • Ensure security |
 
 ### System Features
 
