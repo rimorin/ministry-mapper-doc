@@ -637,38 +637,78 @@ https://your-ministry-mapper.com/map/abc123xyz456
 
 #### Managing Assignments
 
-![Personal Assign Publisher Map](assets/screenshots/personal_assign_publisher_map.png)
+![Assignment Management](assets/screenshots/assignment_management.png)
 
-*Figure 14: Assignment list with expiry times and management options*
+*Figure 14: Assignment management modal showing all active assignments across territories*
+
+The Assignment Management interface allows conductors and administrators to view and manage all existing assignments in the congregation.
 
 **View All Assignments:**
 
-- Click "Assignments" button
-- See all active links for all territories
-- Filter by territory if needed
+1. Click the **"Assignments"** button from the dashboard
+2. The Assignments modal opens displaying all active assignment links
+3. View assignments for all territories in a centralized list
 
 **Assignment Information Displayed:**
 
-- Territory name and code
-- Assignment type (Normal/Personal)
-- Publisher name (if provided)
-- Creation date
-- Expiry date and time
-- Countdown timer (if near expiry)
+For each assignment, you can see:
+
+- **Territory Code and Location**: Territory identifier with location description (e.g., "187A, Marsiling Road (M01)")
+- **Assignment Type**: "Assign" for normal assignments
+- **Publisher Name**: Name of the person assigned (e.g., Jon, Erli, Pety)
+- **Created Date/Time**: When the assignment was created (e.g., "Dec 22, 2025, 9:38 PM")
+- **Expiry Date/Time**: When the assignment link expires (e.g., "Dec 23, 2025, 9:38 AM" or "11:38 PM")
+- **Delete Button**: Trash icon (🗑️) to remove individual assignments
 
 **Delete an Assignment:**
 
-1. Find the assignment in the list
-2. Click the **"Delete"** or **"🗑️"** button
-3. Confirm deletion
-4. Link immediately becomes inaccessible
+1. Locate the assignment in the list
+2. Click the **trash icon** (🗑️) button on the right side of the assignment
+3. Confirm deletion if prompted
+4. The assignment link immediately becomes inaccessible to the publisher
 
 **When to Delete:**
 
-- Territory returned early
-- Wrong link created
+- Territory returned early by publisher
+- Wrong link was created or sent
 - Publisher no longer needs access
-- Security concern
+- Assignment needs to be reassigned to someone else
+- Security concern or compromise
+
+**Closing the Assignments Modal:**
+
+- Click the **"Cancel"** button at the bottom to close the modal and return to the dashboard
+
+#### Map-Specific Assignment Management
+
+View and manage assignments for individual territories directly from the map view.
+
+**Access:**
+
+1. Navigate to a territory
+2. Click either:
+   - **"Assign Links"** - for normal territory assignments
+   - **"Personal Links"** - for personal slip assignments
+
+![Normal Map Assignments](assets/screenshots/map_assign_links.png)
+
+*Figure 14a: Assign Links modal for a specific territory*
+
+![Personal Map Assignments](assets/screenshots/map_personal_links.png)
+
+*Figure 14b: Personal Links modal for a specific territory*
+
+**Information Displayed:**
+
+- Publisher name
+- Created and expiry date/time
+- Delete button (🗑️) to remove assignments
+
+**When to Use:**
+
+- Check who currently has a territory assigned
+- Remove assignments while viewing the territory
+- Manage normal and personal assignments separately
 
 #### Best Practices for Assignments
 
