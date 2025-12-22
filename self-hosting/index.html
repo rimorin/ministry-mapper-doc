@@ -1,0 +1,2918 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/self-hosting/">
+      
+      
+        <link rel="prev" href="../deployment/">
+      
+      
+        <link rel="next" href="../backend-setup/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Self-Hosting Guide - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#self-hosting-ministry-mapper" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Self-Hosting Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-dont-encourage-self-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why We Don't Encourage Self-Hosting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-for-self-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites for Self-Hosting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites for Self-Hosting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-commitment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Commitment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend-self-hosting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Self-Hosting Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend Self-Hosting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Backups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend-self-hosting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Self-Hosting Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend Self-Hosting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-hosting-services-easiest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Hosting Services (Easiest)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-hosted-web-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Hosted Web Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry-setup-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry Setup (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-and-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance and Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance and Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regular-maintenance-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regular Maintenance Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-to-new-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating to New Versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-self-hosted-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Self-Hosted Instances
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Self-Hosted Instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-and-legal-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy and Legal Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacy and Legal Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-responsibilities-as-self-hoster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Responsibilities as Self-Hoster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-legal-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Legal Documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-protection-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Protection Measures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-investment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Investment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#total-cost-of-ownership-annual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total Cost of Ownership (Annual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#community-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-include-in-support-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Include in Support Requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limited Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives-to-self-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatives to Self-Hosting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-the-hosted-service-instead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use the Hosted Service Instead
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#still-want-to-self-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still Want to Self-Host?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-we-dont-encourage-self-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why We Don't Encourage Self-Hosting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites-for-self-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites for Self-Hosting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites for Self-Hosting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-commitment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Commitment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend-self-hosting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Self-Hosting Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend Self-Hosting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Backups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend-self-hosting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Self-Hosting Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend Self-Hosting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-configuration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-hosting-services-easiest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Static Hosting Services (Easiest)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-hosted-web-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Hosted Web Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry-setup-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry Setup (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance-and-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance and Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance and Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#regular-maintenance-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regular Maintenance Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-to-new-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating to New Versions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-self-hosted-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Self-Hosted Instances
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Self-Hosted Instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacy-and-legal-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy and Legal Compliance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacy and Legal Compliance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-responsibilities-as-self-hoster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Responsibilities as Self-Hoster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required-legal-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Legal Documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-protection-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Protection Measures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Service Costs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-investment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Investment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#total-cost-of-ownership-annual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total Cost of Ownership (Annual)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Help">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#community-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-include-in-support-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Include in Support Requests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limited Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives-to-self-hosting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatives to Self-Hosting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-the-hosted-service-instead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use the Hosted Service Instead
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#still-want-to-self-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still Want to Self-Host?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="self-hosting-ministry-mapper">Self-Hosting Ministry Mapper<a class="headerlink" href="#self-hosting-ministry-mapper" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Self-Hosting Not Recommended</p>
+<p>Self-hosting Ministry Mapper requires significant technical expertise and ongoing maintenance. <strong>We recommend using our hosted service at <a href="https://ministry-mapper.com">ministry-mapper.com</a> instead.</strong> Only proceed with self-hosting if you have:</p>
+<ul>
+<li>Experienced system administrators or developers</li>
+<li>Resources for ongoing maintenance and updates</li>
+<li>Understanding of security best practices</li>
+<li>Ability to comply with privacy regulations</li>
+<li>Specific requirements that cannot be met by the hosted service</li>
+</ul>
+</div>
+<h2 id="why-we-dont-encourage-self-hosting">Why We Don't Encourage Self-Hosting<a class="headerlink" href="#why-we-dont-encourage-self-hosting" title="Permanent link">&para;</a></h2>
+<p>While Ministry Mapper is open source, self-hosting comes with challenges:</p>
+<ul>
+<li><strong>Technical Complexity</strong>: Requires knowledge of Docker, databases, web servers, and cloud infrastructure</li>
+<li><strong>Security Responsibility</strong>: You're responsible for keeping everything secure and updated</li>
+<li><strong>Maintenance Burden</strong>: Regular updates, backups, and monitoring are essential</li>
+<li><strong>Privacy Compliance</strong>: You must ensure GDPR, CCPA, and other privacy law compliance</li>
+<li><strong>Cost</strong>: Server costs, API costs, and time investment often exceed hosted service fees</li>
+<li><strong>Support</strong>: Limited community support for self-hosting issues</li>
+</ul>
+<h2 id="prerequisites-for-self-hosting">Prerequisites for Self-Hosting<a class="headerlink" href="#prerequisites-for-self-hosting" title="Permanent link">&para;</a></h2>
+<p>If you've decided to self-host despite our recommendations, ensure you have:</p>
+<h3 id="technical-requirements">Technical Requirements<a class="headerlink" href="#technical-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Experience with Linux server administration</li>
+<li>Understanding of Docker and containerization</li>
+<li>Familiarity with environment variables and configuration</li>
+<li>Knowledge of web server configuration (Nginx/Apache)</li>
+<li>Experience with SSL/TLS certificates</li>
+<li>Understanding of DNS and domain configuration</li>
+</ul>
+<h3 id="infrastructure-requirements">Infrastructure Requirements<a class="headerlink" href="#infrastructure-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cloud hosting service (Railway, Render, DigitalOcean, AWS, etc.)</li>
+<li>Domain name for your instance</li>
+<li>Email service for notifications (optional)</li>
+<li>Budget for optional API costs (Sentry, etc.)</li>
+</ul>
+<h3 id="time-commitment">Time Commitment<a class="headerlink" href="#time-commitment" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Initial setup: 2-4 hours</li>
+<li>Ongoing maintenance: 2-4 hours per month</li>
+<li>Emergency support when issues arise</li>
+</ul>
+<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper consists of two separate components:</p>
+<ol>
+<li><strong>Backend (ministry-mapper-be)</strong>: PocketBase server with Go extensions</li>
+<li>Repository: <a href="https://github.com/rimorin/ministry-mapper-be">github.com/rimorin/ministry-mapper-be</a></li>
+<li>Technology: Go, PocketBase, SQLite</li>
+<li>
+<p>Runs on port 8080 (Docker) or 8090 (local)</p>
+</li>
+<li>
+<p><strong>Frontend (ministry-mapper-v2)</strong>: React web application</p>
+</li>
+<li>Repository: <a href="https://github.com/rimorin/ministry-mapper-v2">github.com/rimorin/ministry-mapper-v2</a></li>
+<li>Technology: React, TypeScript, Vite</li>
+<li>Static files deployed to hosting service</li>
+</ol>
+<p>Both must be deployed and configured to work together.</p>
+<h2 id="backend-self-hosting-guide">Backend Self-Hosting Guide<a class="headerlink" href="#backend-self-hosting-guide" title="Permanent link">&para;</a></h2>
+<h3 id="environment-configuration">Environment Configuration<a class="headerlink" href="#environment-configuration" title="Permanent link">&para;</a></h3>
+<p>Create a <code>.env</code> file with these settings:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Application Settings</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>https://your-frontend-domain.com
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Initial Admin Account (change password after first login!)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>admin@your-domain.com
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>change_this_secure_password
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Email Configuration (SMTP)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>smtp.gmail.com
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">PB_SMTP_PASSWORD</span><span class="o">=</span>your_app_password
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">PB_SMTP_USERNAME</span><span class="o">=</span>your_email@gmail.com
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">PB_SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nv">PB_SMTP_SENDER_ADDRESS</span><span class="o">=</span>noreply@your-domain.com
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Security Settings</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>https://your-frontend-domain.com
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1"># Authentication (optional)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1"># Error Tracking (optional but recommended)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="nv">SOURCE_COMMIT</span><span class="o">=</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1"># Service Integration (optional)</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="nv">MAILERSEND_FROM_EMAIL</span><span class="o">=</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="nv">LAUNCHDARKLY_CONTEXT_KEY</span><span class="o">=</span>
+</code></pre></div>
+<h3 id="docker-deployment">Docker Deployment<a class="headerlink" href="#docker-deployment" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Clone the Repository</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Build Docker Image</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Run Container</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Important Notes:</strong>
+- Container runs on port 8080 internally
+- Mount a persistent volume to <code>/app/pb_data</code> to preserve data
+- Your database lives in the <code>pb_data</code> folder</p>
+<ol>
+<li><strong>Access Admin Panel</strong>
+Navigate to <code>https://your-backend-domain.com/_/</code> and log in with your admin credentials.</li>
+</ol>
+<h3 id="local-development">Local Development<a class="headerlink" href="#local-development" title="Permanent link">&para;</a></h3>
+<p>For testing on your local machine:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Clone repository</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Install dependencies</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>./scripts/install.sh
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Configure environment</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Edit .env with your settings</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Start application</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>./scripts/start.sh
+</code></pre></div>
+<p>Backend runs at <code>http://localhost:8090</code> by default.</p>
+<h3 id="database-backups">Database Backups<a class="headerlink" href="#database-backups" title="Permanent link">&para;</a></h3>
+<p>Your data is critical. Set up automated backups:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Manual backup</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>tar<span class="w"> </span>-czf<span class="w"> </span>backup-<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Automated daily backup (add to crontab)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+</code></pre></div>
+<h3 id="security-checklist">Security Checklist<a class="headerlink" href="#security-checklist" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Change default admin password immediately</li>
+<li>[ ] Use HTTPS only (never HTTP)</li>
+<li>[ ] Set <code>PB_ALLOW_ORIGINS</code> to specific domain (not <code>*</code>)</li>
+<li>[ ] Enable <code>PB_HIDE_CONTROLS=true</code></li>
+<li>[ ] Enable <code>PB_ENABLE_RATE_LIMITING=true</code></li>
+<li>[ ] Configure firewall to restrict access</li>
+<li>[ ] Set up automated backups</li>
+<li>[ ] Configure Sentry for error monitoring</li>
+<li>[ ] Use strong, unique passwords</li>
+<li>[ ] Keep dependencies updated</li>
+<li>[ ] Review PocketBase security best practices</li>
+</ul>
+<h2 id="frontend-self-hosting-guide">Frontend Self-Hosting Guide<a class="headerlink" href="#frontend-self-hosting-guide" title="Permanent link">&para;</a></h2>
+<h3 id="environment-configuration_1">Environment Configuration<a class="headerlink" href="#environment-configuration_1" title="Permanent link">&para;</a></h3>
+<p>Create a <code>.env</code> file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># System Environment</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Version</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># PocketBase Backend URL (no trailing slash)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-domain.com
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Legal Pages (required)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-domain.com/privacy
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-domain.com/terms
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-domain.com/about
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># Error Tracking (optional but recommended)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div>
+<h3 id="building-for-production">Building for Production<a class="headerlink" href="#building-for-production" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Clone repository</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-v2.git
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Install dependencies</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>npm<span class="w"> </span>install
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Build</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</code></pre></div>
+<p>Output will be in the <code>build/</code> directory.</p>
+<h3 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h3>
+<h4 id="static-hosting-services-easiest">Static Hosting Services (Easiest)<a class="headerlink" href="#static-hosting-services-easiest" title="Permanent link">&para;</a></h4>
+<p><strong>Vercel:</strong>
+1. Import GitHub repository
+2. Framework: Vite
+3. Build command: <code>npm run build</code>
+4. Output directory: <code>build</code>
+5. Add environment variables</p>
+<p><strong>Netlify:</strong>
+1. New site from Git
+2. Build command: <code>npm run build</code>
+3. Publish directory: <code>build</code>
+4. Add environment variables</p>
+<p><strong>Cloudflare Pages:</strong>
+1. Create Pages project
+2. Framework: Vite
+3. Build command: <code>npm run build</code>
+4. Output directory: <code>build</code>
+5. Add environment variables</p>
+<h4 id="self-hosted-web-server">Self-Hosted Web Server<a class="headerlink" href="#self-hosted-web-server" title="Permanent link">&para;</a></h4>
+<p><strong>Nginx Configuration:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/path/to/cert.pem</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/path/to/key.pem</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.html</span><span class="p">;</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1"># Caching</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)</span>$<span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">1y</span><span class="p">;</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">immutable&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="c1"># Security headers</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Frame-Options</span><span class="w"> </span><span class="s">&quot;SAMEORIGIN&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Content-Type-Options</span><span class="w"> </span><span class="s">&quot;nosniff&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-XSS-Protection</span><span class="w"> </span><span class="s">&quot;1</span><span class="p">;</span><span class="w"> </span><span class="kn">mode=block&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Apache Configuration:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:443</span><span class="nt">&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>your-domain.com
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/ministry-mapper/build</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nb">SSLEngine</span><span class="w"> </span><span class="k">on</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nb">SSLCertificateFile</span><span class="w"> </span><span class="sx">/path/to/cert.pem</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nb">SSLCertificateKeyFile</span><span class="w"> </span><span class="sx">/path/to/key.pem</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="nt">&gt;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="nb">Options</span><span class="w"> </span>-Indexes<span class="w"> </span>+FollowSymLinks
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="nb">RewriteBase</span><span class="w"> </span>/
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>^index\.html$<span class="w"> </span>-<span class="w"> </span>[L]
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-d
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>.<span class="w"> </span><span class="sx">/index.html</span><span class="w"> </span>[L]
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<h3 id="sentry-setup-optional">Sentry Setup (Optional)<a class="headerlink" href="#sentry-setup-optional" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create account at <a href="https://sentry.io">sentry.io</a></li>
+<li>Create React project</li>
+<li>Get DSN</li>
+<li>Add to <code>.env</code> as <code>VITE_SENTRY_DSN</code></li>
+</ol>
+<h2 id="maintenance-and-updates">Maintenance and Updates<a class="headerlink" href="#maintenance-and-updates" title="Permanent link">&para;</a></h2>
+<h3 id="regular-maintenance-tasks">Regular Maintenance Tasks<a class="headerlink" href="#regular-maintenance-tasks" title="Permanent link">&para;</a></h3>
+<p><strong>Weekly:</strong>
+- Check Sentry for errors
+- Review application logs
+- Verify backups are working</p>
+<p><strong>Monthly:</strong>
+- Update dependencies: <code>npm install</code> and <code>go get -u</code>
+- Review security advisories
+- Test disaster recovery procedures
+- Check disk space usage
+- Review user feedback</p>
+<p><strong>Quarterly:</strong>
+- Security audit
+- Performance review
+- Update documentation
+- Review and update privacy policy
+- Test all features thoroughly</p>
+<h3 id="updating-to-new-versions">Updating to New Versions<a class="headerlink" href="#updating-to-new-versions" title="Permanent link">&para;</a></h3>
+<p><strong>Backend Update:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>docker<span class="w"> </span>stop<span class="w"> </span>ministry-mapper
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>docker<span class="w"> </span>rm<span class="w"> </span>ministry-mapper
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div></p>
+<p><strong>Frontend Update:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>npm<span class="w"> </span>install
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Deploy build/ folder to your hosting service</span>
+</code></pre></div></p>
+<p><strong>Always backup before updating!</strong></p>
+<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
+<p><strong>What to Monitor:</strong>
+- Server uptime and health
+- Application error rates (Sentry)
+- Database size growth
+- Backup success/failure
+- SSL certificate expiration
+- User authentication issues
+- Performance metrics</p>
+<p><strong>Tools:</strong>
+- Sentry for error tracking
+- Google Cloud Console for API usage
+- Server monitoring (Prometheus, Grafana, etc.)
+- Uptime monitors (UptimeRobot, Pingdom)
+- Log aggregation (ELK stack, CloudWatch)</p>
+<h2 id="troubleshooting-self-hosted-instances">Troubleshooting Self-Hosted Instances<a class="headerlink" href="#troubleshooting-self-hosted-instances" title="Permanent link">&para;</a></h2>
+<h3 id="backend-issues">Backend Issues<a class="headerlink" href="#backend-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Port Already in Use:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8080
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;process_id&gt;
+</code></pre></div></p>
+<p><strong>Database Locked:</strong>
+- Stop all instances accessing the database
+- Ensure only one backend process is running
+- Check for hung processes</p>
+<p><strong>Email Not Sending:</strong>
+- Verify SMTP credentials
+- Check firewall isn't blocking SMTP ports
+- For Gmail, use App Passwords
+- Review email logs in <code>pb_data/logs/</code></p>
+<p><strong>Cannot Access Admin Panel:</strong>
+- URL must be <code>https://your-domain.com/_/</code> (note underscore)
+- Check <code>PB_HIDE_CONTROLS</code> setting
+- Verify backend is running
+- Clear browser cache</p>
+<h3 id="frontend-issues">Frontend Issues<a class="headerlink" href="#frontend-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Cannot Connect to Backend:</strong>
+- Verify <code>VITE_POCKETBASE_URL</code> is correct
+- Check CORS settings in backend
+- Ensure backend is accessible
+- Check browser console for errors</p>
+<p><strong>Build Failures:</strong>
+- Ensure Node.js version 22+
+- Delete <code>node_modules</code> and reinstall
+- Check all environment variables are set
+- Review build error messages</p>
+<h3 id="performance-issues">Performance Issues<a class="headerlink" href="#performance-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Slow Response Times:</strong>
+- Check server resources (CPU, RAM, disk)
+- Review database size and queries
+- Enable database optimizations
+- Check network latency
+- Review PocketBase logs for slow queries</p>
+<h2 id="privacy-and-legal-compliance">Privacy and Legal Compliance<a class="headerlink" href="#privacy-and-legal-compliance" title="Permanent link">&para;</a></h2>
+<h3 id="your-responsibilities-as-self-hoster">Your Responsibilities as Self-Hoster<a class="headerlink" href="#your-responsibilities-as-self-hoster" title="Permanent link">&para;</a></h3>
+<p>When self-hosting, you are the data controller and must:</p>
+<ul>
+<li><strong>Comply with Privacy Laws</strong>: GDPR (EU), CCPA (California), etc.</li>
+<li><strong>Create Privacy Policy</strong>: Explain data collection and usage</li>
+<li><strong>Create Terms of Service</strong>: Define user responsibilities</li>
+<li><strong>Implement Data Security</strong>: Encryption, access controls, backups</li>
+<li><strong>Handle Data Requests</strong>: User access, deletion, portability rights</li>
+<li><strong>Report Data Breaches</strong>: Within legal timeframes</li>
+<li><strong>Maintain Records</strong>: Data processing activities</li>
+<li><strong>Appoint DPO</strong>: If required by regulations</li>
+</ul>
+<h3 id="required-legal-documents">Required Legal Documents<a class="headerlink" href="#required-legal-documents" title="Permanent link">&para;</a></h3>
+<p>You must provide:</p>
+<ol>
+<li><strong>Privacy Policy</strong> - Required by law, must explain:</li>
+<li>What data you collect</li>
+<li>How you use it</li>
+<li>How long you keep it</li>
+<li>User rights</li>
+<li>
+<p>How to contact you</p>
+</li>
+<li>
+<p><strong>Terms of Service</strong> - Defines:</p>
+</li>
+<li>Acceptable use</li>
+<li>User responsibilities</li>
+<li>Liability limitations</li>
+<li>
+<p>Termination policies</p>
+</li>
+<li>
+<p><strong>Cookie Policy</strong> - If you use cookies/tracking</p>
+</li>
+</ol>
+<h3 id="data-protection-measures">Data Protection Measures<a class="headerlink" href="#data-protection-measures" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use HTTPS everywhere</li>
+<li>Encrypt data at rest</li>
+<li>Implement access controls</li>
+<li>Regular security audits</li>
+<li>Backup encryption</li>
+<li>Secure password policies</li>
+<li>Multi-factor authentication</li>
+<li>Activity logging</li>
+<li>Regular security updates</li>
+</ul>
+<h2 id="cost-considerations">Cost Considerations<a class="headerlink" href="#cost-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="infrastructure-costs">Infrastructure Costs<a class="headerlink" href="#infrastructure-costs" title="Permanent link">&para;</a></h3>
+<p><strong>Backend Hosting:</strong>
+- VPS: $10-50/month (DigitalOcean, Linode)
+- PaaS: $10-30/month (Railway, Render)
+- Cloud: Variable (AWS, GCP)</p>
+<p><strong>Frontend Hosting:</strong>
+- Static hosting: $0-10/month (Vercel, Netlify, Cloudflare)
+- CDN costs: Usually included</p>
+<p><strong>Domain:</strong>
+- $10-20/year</p>
+<p><strong>SSL Certificate:</strong>
+- Free (Let's Encrypt) or $0-100/year</p>
+<h3 id="service-costs">Service Costs<a class="headerlink" href="#service-costs" title="Permanent link">&para;</a></h3>
+<p><strong>Email Service:</strong>
+- Gmail SMTP: Free (limited)
+- MailerSend: Free tier available
+- SendGrid: Free tier available</p>
+<p><strong>Error Tracking:</strong>
+- Sentry: Free tier available
+- Paid: $26-80/month</p>
+<p><strong>Backup Storage:</strong>
+- $5-20/month depending on size</p>
+<h3 id="time-investment">Time Investment<a class="headerlink" href="#time-investment" title="Permanent link">&para;</a></h3>
+<p><strong>Initial Setup:</strong>
+- Backend: 2-3 hours
+- Frontend: 1-2 hours
+- Configuration: 1-2 hours
+- Testing: 2-3 hours
+- <strong>Total: 6-10 hours</strong></p>
+<p><strong>Monthly Maintenance:</strong>
+- Monitoring: 1-2 hours
+- Updates: 1-2 hours
+- Support: 1-3 hours
+- <strong>Total: 3-7 hours</strong></p>
+<h3 id="total-cost-of-ownership-annual">Total Cost of Ownership (Annual)<a class="headerlink" href="#total-cost-of-ownership-annual" title="Permanent link">&para;</a></h3>
+<p><strong>Small congregation (&lt; 100 users):</strong>
+- Infrastructure: $240-720
+- APIs: $0-100 (usually free tier)
+- Services: $0-300
+- Domain/SSL: $10-20
+- <strong>Total: $250-1,140 + 48-96 hours/year</strong></p>
+<p>Compare this to a hosted service subscription before committing.</p>
+<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
+<h3 id="community-support">Community Support<a class="headerlink" href="#community-support" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GitHub Issues: <a href="https://github.com/rimorin/ministry-mapper-v2/issues">ministry-mapper-v2</a> and <a href="https://github.com/rimorin/ministry-mapper-be/issues">ministry-mapper-be</a></li>
+<li>Read existing issues before creating new ones</li>
+<li>Provide detailed information when reporting problems</li>
+</ul>
+<h3 id="what-to-include-in-support-requests">What to Include in Support Requests<a class="headerlink" href="#what-to-include-in-support-requests" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Version numbers (backend and frontend)</li>
+<li>Deployment environment (Docker, local, hosting service)</li>
+<li>Error messages (full text)</li>
+<li>Steps to reproduce</li>
+<li>Expected vs actual behavior</li>
+<li>Relevant logs</li>
+<li>Configuration (sanitized, no secrets)</li>
+</ol>
+<h3 id="limited-support">Limited Support<a class="headerlink" href="#limited-support" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Support Limitations</p>
+<p>Self-hosting support is community-based and limited. The Ministry Mapper team prioritizes the hosted service. For professional support, consider using the hosted service instead.</p>
+</div>
+<h2 id="alternatives-to-self-hosting">Alternatives to Self-Hosting<a class="headerlink" href="#alternatives-to-self-hosting" title="Permanent link">&para;</a></h2>
+<p>Before self-hosting, consider:</p>
+<ol>
+<li><strong>Use the Official Hosted Service at <a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></li>
+<li>No maintenance burden</li>
+<li>Professional support</li>
+<li>Automatic updates</li>
+<li>Better reliability</li>
+<li>Compliance handled for you</li>
+<li>
+<p>Available now!</p>
+</li>
+<li>
+<p><strong>Request Features</strong></p>
+</li>
+<li>If you need customization, request features in the main project</li>
+<li>Benefits everyone</li>
+<li>Maintained by the team</li>
+<li>
+<p>May be added to hosted service</p>
+</li>
+<li>
+<p><strong>Contribute to the Project</strong></p>
+</li>
+<li>Improve the main codebase</li>
+<li>Help others</li>
+<li>Get community support</li>
+</ol>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Self-hosting Ministry Mapper is possible but requires significant expertise, time, and resources. <strong>We strongly recommend using the hosted service at <a href="https://ministry-mapper.com">ministry-mapper.com</a></strong> unless you have specific requirements that justify the additional complexity.</p>
+<h3 id="use-the-hosted-service-instead">Use the Hosted Service Instead<a class="headerlink" href="#use-the-hosted-service-instead" title="Permanent link">&para;</a></h3>
+<p>Visit <strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong> for:
+- Instant setup - no technical knowledge required
+- Professional support when you need it
+- Automatic backups and security updates
+- Legal compliance assistance
+- Better reliability and uptime
+- Lower total cost of ownership</p>
+<h3 id="still-want-to-self-host">Still Want to Self-Host?<a class="headerlink" href="#still-want-to-self-host" title="Permanent link">&para;</a></h3>
+<p>If you proceed with self-hosting:
+- Follow all security best practices
+- Keep systems updated
+- Maintain regular backups
+- Ensure legal compliance
+- Monitor system health
+- Budget for ongoing costs
+- Allocate time for maintenance</p>
+<p>Make sure you've read this entire guide and understand the implications. Good luck!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

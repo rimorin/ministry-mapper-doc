@@ -1,0 +1,3503 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/frontend-setup/">
+      
+      
+        <link rel="prev" href="../backend-setup/">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Frontend Setup - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frontend-setup-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Frontend Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-development-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Development Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Development Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clone the Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-environment-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Environment File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-development-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Start Development Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-vercel-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Vercel (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-4-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-5-self-hosted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 5: Self-Hosted
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables-in-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables in Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-sentry-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up Sentry (Optional but Recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up Sentry (Optional but Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-sentry-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Sentry Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-your-dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Get Your DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-to-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add to Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configure-sentry-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configure Sentry (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Language Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Language Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-language-detection-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Language Detection Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a New Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Web App (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwa-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Your Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Your Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functionality-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functionality Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-connection-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Connection Failed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slow-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slow Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Installation Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-updates-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-time Updates Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keeping-dependencies-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Dependencies Updated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-development-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Development Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Development Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clone the Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-environment-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Environment File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-development-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Start Development Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-vercel-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Vercel (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-4-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-5-self-hosted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 5: Self-Hosted
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables-in-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables in Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-sentry-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up Sentry (Optional but Recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting Up Sentry (Optional but Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-sentry-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Sentry Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-your-dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Get Your DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-to-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add to Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configure-sentry-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configure Sentry (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Language Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Language Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-language-detection-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Language Detection Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a New Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Web App (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwa-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Your Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Your Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functionality-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functionality Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-connection-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Connection Failed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slow-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slow Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Installation Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-updates-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-time Updates Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keeping-dependencies-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Dependencies Updated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="frontend-setup-guide">Frontend Setup Guide<a class="headerlink" href="#frontend-setup-guide" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Self-Hosting Not Recommended</p>
+<p>This guide is for advanced users who want to self-host Ministry Mapper. We don't encourage self-hosting due to the technical complexity, maintenance burden, and security responsibilities involved.</p>
+<p><strong>Most users should</strong>: Use our hosted service at <strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Looking for User Documentation?</p>
+<p>If you're a regular user trying to learn how to use Ministry Mapper, see the <a href="../getting-started/">Getting Started</a> or <a href="../user-guide/">User Guide</a> instead.</p>
+</div>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Ministry Mapper frontend (ministry-mapper-v2) is a React-based web application that provides:</p>
+<ul>
+<li>User authentication and account management</li>
+<li>Interactive territory management interface</li>
+<li>Interactive mapping functionality</li>
+<li>Real-time data synchronization</li>
+<li>Mobile-responsive design</li>
+<li>Multi-language support (7 languages)</li>
+<li>Progressive Web App capabilities</li>
+</ul>
+<p><strong>This guide assumes you have</strong>:
+- Experience with Node.js and npm
+- Understanding of environment variables
+- Familiarity with static site deployment
+- Knowledge of web application security</p>
+<p>For complete self-hosting instructions, see the <a href="../self-hosting/">Self-Hosting Guide</a>.</p>
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<p>This page provides a quick reference for frontend configuration. <strong>For complete setup instructions, see the <a href="../self-hosting/">Self-Hosting Guide</a>.</strong></p>
+<h2 id="quick-reference_1">Quick Reference<a class="headerlink" href="#quick-reference_1" title="Permanent link">&para;</a></h2>
+<p>This page provides a quick reference for frontend configuration. <strong>For complete setup instructions, see the <a href="../self-hosting/">Self-Hosting Guide</a>.</strong></p>
+<h3 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>React 19</strong>: Modern UI library</li>
+<li><strong>TypeScript</strong>: Type-safe JavaScript</li>
+<li><strong>Vite 7</strong>: Fast build tool and dev server</li>
+<li><strong>Bootstrap 5</strong>: Responsive CSS framework</li>
+<li><strong>Leaflet</strong>: Interactive mapping</li>
+<li><strong>PocketBase SDK</strong>: Backend connection</li>
+<li><strong>Sentry</strong>: Error tracking</li>
+<li><strong>i18next</strong>: Multi-language support</li>
+<li><strong>Vite PWA</strong>: Progressive Web App features</li>
+</ul>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Complete Setup Instructions</p>
+<p>The sections below provide a technical reference for frontend configuration. For step-by-step setup instructions with deployment options and troubleshooting, please see the <strong><a href="../self-hosting/">Self-Hosting Guide</a></strong>.</p>
+</div>
+<hr />
+<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<p>Create a <code>.env</code> file in the root directory with these settings:</p>
+<h3 id="required-variables">Required Variables<a class="headerlink" href="#required-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># System Environment - specifies the deployment environment</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Version - automatically uses package.json version</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># PocketBase Backend URL - no trailing slash</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-url.com
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Legal Pages - required for production</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-site.com/about
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Error Tracking - optional but recommended</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_sentry_dsn@sentry.io/123456
+</code></pre></div>
+<h3 id="variable-details">Variable Details<a class="headerlink" href="#variable-details" title="Permanent link">&para;</a></h3>
+<h4 id="vite_system_environment">VITE_SYSTEM_ENVIRONMENT<a class="headerlink" href="#vite_system_environment" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Determines which environment the app is running in</li>
+<li><strong>Values</strong>:</li>
+<li><code>local</code> - Development on your local machine</li>
+<li><code>production</code> - Live deployment</li>
+<li><strong>Effect</strong>: Affects Sentry error tracking configuration and logging</li>
+</ul>
+<h4 id="vite_version">VITE_VERSION<a class="headerlink" href="#vite_version" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Tracks application version in error reports</li>
+<li><strong>Value</strong>: <code>$npm_package_version</code> (automatically reads from package.json)</li>
+<li><strong>Current Version</strong>: 1.9.1 (as of package.json)</li>
+<li><strong>Effect</strong>: Shown in Sentry reports and helps track which version has issues</li>
+</ul>
+<h4 id="vite_pocketbase_url">VITE_POCKETBASE_URL<a class="headerlink" href="#vite_pocketbase_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: URL of your PocketBase backend server</li>
+<li><strong>Format</strong>: Full URL without trailing slash</li>
+<li><strong>Example</strong>: <code>https://api.ministry-mapper.com</code> or <code>http://localhost:8090</code> for local</li>
+<li><strong>Important</strong>: Must be accessible from wherever the frontend is deployed</li>
+</ul>
+<h4 id="vite_privacy_url">VITE_PRIVACY_URL<a class="headerlink" href="#vite_privacy_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Link to your privacy policy page</li>
+<li><strong>Required</strong>: Yes, for legal compliance (GDPR, CCPA, etc.)</li>
+<li><strong>Example</strong>: <code>https://ministry-mapper.com/privacy</code></li>
+</ul>
+<h4 id="vite_terms_url">VITE_TERMS_URL<a class="headerlink" href="#vite_terms_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Link to your terms of service page</li>
+<li><strong>Required</strong>: Yes, for legal compliance</li>
+<li><strong>Example</strong>: <code>https://ministry-mapper.com/terms</code></li>
+</ul>
+<h4 id="vite_about_url">VITE_ABOUT_URL<a class="headerlink" href="#vite_about_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Link to information about your Ministry Mapper instance</li>
+<li><strong>Required</strong>: No, but recommended</li>
+<li><strong>Example</strong>: <code>https://ministry-mapper.com/about</code></li>
+</ul>
+<h4 id="vite_sentry_dsn">VITE_SENTRY_DSN<a class="headerlink" href="#vite_sentry_dsn" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Sends JavaScript errors to Sentry for monitoring</li>
+<li><strong>Get It From</strong>: <a href="https://sentry.io">sentry.io</a> (free tier available)</li>
+<li><strong>Required</strong>: No, but highly recommended for production</li>
+<li><strong>Benefits</strong>: Track errors, monitor performance, get notified of issues</li>
+<li><strong>Note</strong>: Only active when VITE_SYSTEM_ENVIRONMENT is "production"</li>
+</ul>
+<h2 id="local-development-setup">Local Development Setup<a class="headerlink" href="#local-development-setup" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>You need Node.js version 22 or higher:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check your Node.js version</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>node<span class="w"> </span>--version
+</code></pre></div>
+<p>If you don't have Node.js 22+, download it from: <a href="https://nodejs.org">nodejs.org</a></p>
+<h3 id="setup-steps">Setup Steps<a class="headerlink" href="#setup-steps" title="Permanent link">&para;</a></h3>
+<h4 id="1-clone-the-repository">1. Clone the Repository<a class="headerlink" href="#1-clone-the-repository" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-v2.git
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+</code></pre></div>
+<h4 id="2-install-dependencies">2. Install Dependencies<a class="headerlink" href="#2-install-dependencies" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>npm<span class="w"> </span>install
+</code></pre></div>
+<p>This downloads all required packages. May take a few minutes depending on your internet connection.</p>
+<h4 id="3-create-environment-file">3. Create Environment File<a class="headerlink" href="#3-create-environment-file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Copy the example environment file</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<p>Edit <code>.env</code> with your settings:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span><span class="nb">local</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nv">VITE_GOOGLE_MAPS_API_KEY</span><span class="o">=</span>your_google_maps_key_here
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>http://localhost:8090
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>http://localhost:3000/privacy
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>http://localhost:3000/terms
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>http://localhost:3000/about
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>
+</code></pre></div>
+<p><strong>Note</strong>: You'll need a PocketBase backend running on port 8090. See the ministry-mapper-be repository for backend setup.</p>
+<h4 id="4-start-development-server">4. Start Development Server<a class="headerlink" href="#4-start-development-server" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>npm<span class="w"> </span>start
+</code></pre></div>
+<p>The app will open at <code>http://localhost:3000</code> (port 3000 is configured in vite.config.js).</p>
+<h3 id="development-features">Development Features<a class="headerlink" href="#development-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Hot Module Replacement (HMR)</strong>: Changes appear instantly without full page reload</li>
+<li><strong>TypeScript Checking</strong>: Errors show in terminal and browser console</li>
+<li><strong>Source Maps</strong>: Debugging is easier with original source code references</li>
+<li><strong>Fast Refresh</strong>: React components update without losing state</li>
+</ul>
+<h3 id="development-commands">Development Commands<a class="headerlink" href="#development-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Start development server (port 3000)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>npm<span class="w"> </span>start
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Run tests with Vitest</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>npm<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Check code formatting</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># Auto-fix formatting issues</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier:fix
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1"># Build for production</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="c1"># Preview production build locally</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>npm<span class="w"> </span>run<span class="w"> </span>serve
+</code></pre></div>
+<h3 id="code-quality-tools">Code Quality Tools<a class="headerlink" href="#code-quality-tools" title="Permanent link">&para;</a></h3>
+<p><strong>Prettier</strong> (code formatting):</p>
+<ul>
+<li>Configured in <code>.prettierrc</code></li>
+<li>Automatically formats on commit via Husky</li>
+<li>Run manually with <code>npm run prettier:fix</code></li>
+</ul>
+<p><strong>ESLint</strong> (code linting):</p>
+<ul>
+<li>Configured in <code>eslint.config.mjs</code></li>
+<li>React and TypeScript rules enabled</li>
+<li>Checks for common errors and code quality issues</li>
+</ul>
+<p><strong>Husky</strong> (git hooks):</p>
+<ul>
+<li>Runs Prettier on staged files before commit</li>
+<li>Ensures consistent code formatting</li>
+<li>Validates commit messages with commitlint</li>
+</ul>
+<h2 id="production-deployment">Production Deployment<a class="headerlink" href="#production-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="building-for-production">Building for Production<a class="headerlink" href="#building-for-production" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Build optimized production files</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</code></pre></div>
+<p><strong>What happens during build:</strong></p>
+<ul>
+<li>TypeScript compiles to JavaScript</li>
+<li>React code is optimized and minified</li>
+<li>CSS is processed and minified</li>
+<li>Source maps are generated</li>
+<li>Code is split into chunks for faster loading</li>
+<li>Output goes to <code>build/</code> directory</li>
+<li>Service worker is generated for PWA support</li>
+</ul>
+<p><strong>Build Output:</strong></p>
+<ul>
+<li><code>build/index.html</code> - Main HTML file</li>
+<li><code>build/assets/</code> - JavaScript, CSS, and other assets</li>
+<li>Filenames include content hashes for caching</li>
+<li>Total size typically under 1MB (excluding external dependencies)</li>
+</ul>
+<h3 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper frontend is a static web application. You can deploy it to any static hosting service.</p>
+<h4 id="option-1-vercel-recommended">Option 1: Vercel (Recommended)<a class="headerlink" href="#option-1-vercel-recommended" title="Permanent link">&para;</a></h4>
+<p>Fast, free tier, automatic deployments.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create account at <a href="https://vercel.com">vercel.com</a></li>
+<li>Click "New Project"</li>
+<li>Import your GitHub repository</li>
+<li>Configure:</li>
+<li>Framework Preset: Vite</li>
+<li>Build Command: <code>npm run build</code></li>
+<li>Output Directory: <code>build</code></li>
+<li>Install Command: <code>npm install</code></li>
+<li>Add environment variables in Vercel dashboard</li>
+<li>Deploy</li>
+</ol>
+<p><strong>Vercel Features:</strong></p>
+<ul>
+<li>Automatic deployments on git push</li>
+<li>Preview deployments for pull requests</li>
+<li>Custom domains</li>
+<li>HTTPS by default</li>
+<li>Global CDN</li>
+<li>Free for personal projects</li>
+</ul>
+<h4 id="option-2-netlify">Option 2: Netlify<a class="headerlink" href="#option-2-netlify" title="Permanent link">&para;</a></h4>
+<p>Simple deployment with great features.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create account at <a href="https://netlify.com">netlify.com</a></li>
+<li>"Add new site" → "Import an existing project"</li>
+<li>Connect GitHub repository</li>
+<li>Build settings:</li>
+<li>Build Command: <code>npm run build</code></li>
+<li>Publish Directory: <code>build</code></li>
+<li>Add environment variables</li>
+<li>Deploy</li>
+</ol>
+<p><strong>Netlify Features:</strong></p>
+<ul>
+<li>Automatic deployments</li>
+<li>Form handling</li>
+<li>Serverless functions (if needed)</li>
+<li>Custom domains</li>
+<li>HTTPS by default</li>
+</ul>
+<h4 id="option-3-cloudflare-pages">Option 3: Cloudflare Pages<a class="headerlink" href="#option-3-cloudflare-pages" title="Permanent link">&para;</a></h4>
+<p>Fast CDN with generous free tier.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create account at <a href="https://cloudflare.com">cloudflare.com</a></li>
+<li>Go to Pages → "Create a project"</li>
+<li>Connect GitHub repository</li>
+<li>Build settings:</li>
+<li>Framework preset: Vite</li>
+<li>Build command: <code>npm run build</code></li>
+<li>Build output directory: <code>build</code></li>
+<li>Add environment variables</li>
+<li>Deploy</li>
+</ol>
+<p><strong>Cloudflare Features:</strong></p>
+<ul>
+<li>Global CDN network</li>
+<li>DDoS protection</li>
+<li>Analytics</li>
+<li>Web Analytics without client-side tracking</li>
+</ul>
+<h4 id="option-4-aws-s3-cloudfront">Option 4: AWS S3 + CloudFront<a class="headerlink" href="#option-4-aws-s3-cloudfront" title="Permanent link">&para;</a></h4>
+<p>More control, good for large deployments.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create S3 bucket</li>
+<li>Enable static website hosting</li>
+<li>Upload <code>build/</code> contents</li>
+<li>Create CloudFront distribution</li>
+<li>Configure custom domain</li>
+<li>Set up SSL certificate</li>
+</ol>
+<p><strong>AWS Considerations:</strong></p>
+<ul>
+<li>More complex setup</li>
+<li>Pay per usage (usually very cheap)</li>
+<li>More configuration options</li>
+<li>Good for enterprise deployments</li>
+</ul>
+<h4 id="option-5-self-hosted">Option 5: Self-Hosted<a class="headerlink" href="#option-5-self-hosted" title="Permanent link">&para;</a></h4>
+<p>Host on your own server.</p>
+<p><strong>Using Nginx:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="p">;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.html</span><span class="p">;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="c1"># Enable gzip compression</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="kn">gzip</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="kn">gzip_types</span><span class="w"> </span><span class="s">text/plain</span><span class="w"> </span><span class="s">text/css</span><span class="w"> </span><span class="s">application/json</span><span class="w"> </span><span class="s">application/javascript</span><span class="w"> </span><span class="s">text/xml</span><span class="w"> </span><span class="s">application/xml</span><span class="p">;</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="c1"># Cache static assets</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)</span>$<span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">1y</span><span class="p">;</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">immutable&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Using Apache:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>your-domain.com
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/ministry-mapper/build</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="nt">&gt;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="nb">Options</span><span class="w"> </span>-Indexes<span class="w"> </span>+FollowSymLinks
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="c"># Enable React Router</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">        </span><span class="nb">RewriteBase</span><span class="w"> </span>/
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>^index\.html$<span class="w"> </span>-<span class="w"> </span>[L]
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-d
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>.<span class="w"> </span><span class="sx">/index.html</span><span class="w"> </span>[L]
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<p><strong>Important for Self-Hosting:</strong></p>
+<ul>
+<li>Serve over HTTPS (required for PWA features)</li>
+<li>Configure proper CORS headers if backend is on different domain</li>
+<li>Set up proper caching headers for static assets</li>
+<li>Ensure SPA routing works (all routes serve index.html)</li>
+</ul>
+<h3 id="environment-variables-in-deployment">Environment Variables in Deployment<a class="headerlink" href="#environment-variables-in-deployment" title="Permanent link">&para;</a></h3>
+<p><strong>Important</strong>: Environment variables must be set during build time, not runtime, because Vite injects them at build time.</p>
+<p><strong>For Vercel/Netlify/Cloudflare:</strong></p>
+<ul>
+<li>Add environment variables in the platform's dashboard</li>
+<li>They'll be available during the build process</li>
+</ul>
+<p><strong>For Self-Hosted:</strong></p>
+<ul>
+<li>Set environment variables before running <code>npm run build</code></li>
+<li>Or create <code>.env.production</code> file with your settings</li>
+</ul>
+<h2 id="setting-up-sentry-optional-but-recommended">Setting Up Sentry (Optional but Recommended)<a class="headerlink" href="#setting-up-sentry-optional-but-recommended" title="Permanent link">&para;</a></h2>
+<p>Sentry monitors JavaScript errors and performance.</p>
+<h3 id="1-create-sentry-account">1. Create Sentry Account<a class="headerlink" href="#1-create-sentry-account" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://sentry.io">sentry.io</a></li>
+<li>Sign up (generous free tier available)</li>
+<li>Create a new project</li>
+<li>Choose platform: "React"</li>
+</ol>
+<h3 id="2-get-your-dsn">2. Get Your DSN<a class="headerlink" href="#2-get-your-dsn" title="Permanent link">&para;</a></h3>
+<ol>
+<li>After creating project, you'll see the DSN</li>
+<li>Or go to Settings → Projects → [Your Project] → Client Keys (DSN)</li>
+<li>Copy the DSN URL</li>
+</ol>
+<h3 id="3-add-to-environment">3. Add to Environment<a class="headerlink" href="#3-add-to-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_key@your_org.sentry.io/your_project_id
+</code></pre></div>
+<p><strong>Note</strong>: Sentry is only active when <code>VITE_SYSTEM_ENVIRONMENT</code> is set to <code>production</code>.</p>
+<h3 id="4-configure-sentry-optional">4. Configure Sentry (Optional)<a class="headerlink" href="#4-configure-sentry-optional" title="Permanent link">&para;</a></h3>
+<p><strong>Source Maps</strong>: The build process automatically generates source maps, which help debug minified production code.</p>
+<p><strong>Alerts</strong>: Set up in Sentry dashboard:</p>
+<ul>
+<li>Email notifications for new issues</li>
+<li>Slack/Discord integration</li>
+<li>Custom alert rules for critical errors</li>
+<li>Release tracking</li>
+</ul>
+<h2 id="multi-language-support">Multi-Language Support<a class="headerlink" href="#multi-language-support" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper includes 7 languages out of the box.</p>
+<h3 id="supported-languages">Supported Languages<a class="headerlink" href="#supported-languages" title="Permanent link">&para;</a></h3>
+<ul>
+<li>English (<code>en</code>)</li>
+<li>Japanese (<code>ja</code> - 日本語)</li>
+<li>Korean (<code>ko</code> - 한국어)</li>
+<li>Chinese (<code>zh</code> - 中文)</li>
+<li>Indonesian (<code>id</code> - Bahasa Indonesia)</li>
+<li>Malay (<code>ms</code> - Bahasa Melayu)</li>
+<li>Tamil (<code>ta</code> - தமிழ்)</li>
+</ul>
+<h3 id="how-language-detection-works">How Language Detection Works<a class="headerlink" href="#how-language-detection-works" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Uses <code>i18next-browser-languagedetector</code></li>
+<li>Automatically detects from browser settings</li>
+<li>Falls back to English if browser language not supported</li>
+<li>Users cannot manually switch language (uses browser setting)</li>
+</ul>
+<h3 id="adding-a-new-language">Adding a New Language<a class="headerlink" href="#adding-a-new-language" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Create Translation File</strong></p>
+</li>
+<li>
+<p>Go to <code>src/i18n/locales/</code></p>
+</li>
+<li>Create new file: <code>[language-code].json</code> (e.g., <code>fr.json</code> for French)</li>
+<li>
+<p>Copy structure from <code>en.json</code></p>
+</li>
+<li>
+<p><strong>Translate All Strings</strong></p>
+</li>
+<li>
+<p>Translate all key-value pairs</p>
+</li>
+<li>Keep the same JSON structure</li>
+<li>
+<p>Maintain placeholder variables like <code>{{variable}}</code></p>
+</li>
+<li>
+<p><strong>Register Language</strong></p>
+</li>
+<li>Edit <code>src/i18n/index.ts</code></li>
+<li>Import your translation file</li>
+<li>Add to resources object</li>
+</ol>
+<p>Example for French:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">fr</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./locales/fr.json&#39;</span><span class="p">;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nx">resources</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">translation</span><span class="o">:</span><span class="w"> </span><span class="kt">en</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nx">fr</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">translation</span><span class="o">:</span><span class="w"> </span><span class="kt">fr</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="c1">// ... other languages</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="progressive-web-app-pwa">Progressive Web App (PWA)<a class="headerlink" href="#progressive-web-app-pwa" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper includes PWA support via Vite PWA plugin.</p>
+<h3 id="pwa-features">PWA Features<a class="headerlink" href="#pwa-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Installable</strong>: Can be installed on mobile/desktop home screen</li>
+<li><strong>Offline Assets</strong>: Static files are cached for faster loading</li>
+<li><strong>Service Worker</strong>: Automatically generated and registered</li>
+<li><strong>Cache Strategy</strong>: StaleWhileRevalidate for external assets, CacheFirst for fonts</li>
+</ul>
+<h3 id="pwa-configuration">PWA Configuration<a class="headerlink" href="#pwa-configuration" title="Permanent link">&para;</a></h3>
+<p>Configuration in <code>vite.config.js</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nx">VitePWA</span><span class="p">({</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nx">registerType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;autoUpdate&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Auto-update service worker</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nx">manifest</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// No manifest (can be added if needed)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nx">workbox</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="nx">globPatterns</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;**/*.{js,css,html,ico,png,svg,woff2}&quot;</span><span class="p">],</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nx">skipWaiting</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Activate new service worker immediately</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="nx">clientsClaim</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Take control of clients immediately</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nx">cleanupOutdatedCaches</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Remove old caches</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="p">});</span>
+</code></pre></div>
+<h3 id="caching-strategy">Caching Strategy<a class="headerlink" href="#caching-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>External Assets</strong> (e.g., from assets.ministry-mapper.com):</p>
+<ul>
+<li>Strategy: StaleWhileRevalidate</li>
+<li>Cache name: "external-assets"</li>
+<li>Expiration: 7 days, max 50 entries</li>
+</ul>
+<p><strong>Fonts</strong>:</p>
+<ul>
+<li>Strategy: CacheFirst</li>
+<li>Cache name: "fonts"</li>
+<li>Expiration: 30 days, max 30 entries</li>
+</ul>
+<p><strong>Note</strong>: The app requires internet for data operations (PocketBase connection). Only static assets are cached offline.</p>
+<h2 id="testing-your-deployment">Testing Your Deployment<a class="headerlink" href="#testing-your-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="functionality-checklist">Functionality Checklist<a class="headerlink" href="#functionality-checklist" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Homepage loads correctly</li>
+<li>[ ] Sign up page works</li>
+<li>[ ] Email verification works</li>
+<li>[ ] Login page works</li>
+<li>[ ] OTP authentication works (if enabled)</li>
+<li>[ ] Password reset works</li>
+<li>[ ] Territory selector displays (for conductors/admins)</li>
+<li>[ ] Maps load and display correctly</li>
+<li>[ ] Can view territories</li>
+<li>[ ] Can update address status</li>
+<li>[ ] Assignment links work</li>
+<li>[ ] Links expire correctly</li>
+<li>[ ] Mobile view is responsive</li>
+<li>[ ] Language detection works</li>
+<li>[ ] All modals open and close properly</li>
+</ul>
+<h3 id="performance-checks">Performance Checks<a class="headerlink" href="#performance-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Initial page load under 3 seconds</li>
+<li>[ ] Lighthouse score &gt; 90</li>
+<li>[ ] No console errors</li>
+<li>[ ] Images load quickly</li>
+<li>[ ] Maps are responsive</li>
+<li>[ ] Smooth scrolling and navigation</li>
+</ul>
+<h3 id="security-checks">Security Checks<a class="headerlink" href="#security-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] HTTPS is enforced (no HTTP access)</li>
+<li>[ ] Privacy policy link works</li>
+<li>[ ] Terms of service link works</li>
+<li>[ ] API keys not exposed in browser code</li>
+<li>[ ] CORS configured correctly for backend</li>
+<li>[ ] PocketBase connection is secure</li>
+</ul>
+<h3 id="browser-testing">Browser Testing<a class="headerlink" href="#browser-testing" title="Permanent link">&para;</a></h3>
+<p>Test on multiple browsers:</p>
+<ul>
+<li>[ ] Chrome/Chromium</li>
+<li>[ ] Firefox</li>
+<li>[ ] Safari (macOS/iOS)</li>
+<li>[ ] Edge</li>
+<li>[ ] Mobile browsers</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="backend-connection-failed">Backend Connection Failed<a class="headerlink" href="#backend-connection-failed" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: "Cannot connect to server" or "Network Error"</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify <code>VITE_POCKETBASE_URL</code> is correct (no trailing slash)</li>
+<li>Check if PocketBase backend is running</li>
+<li>Test backend URL directly in browser</li>
+<li>Check CORS settings in PocketBase (must allow your frontend domain)</li>
+<li>Open browser DevTools → Network tab to see exact error</li>
+<li>Ensure backend is accessible from your deployment location</li>
+</ul>
+<h3 id="build-errors">Build Errors<a class="headerlink" href="#build-errors" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: <code>npm run build</code> fails</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Ensure all environment variables are set correctly</li>
+<li>Run <code>npm install</code> to refresh dependencies</li>
+<li>Delete <code>node_modules</code> and reinstall: <code>rm -rf node_modules &amp;&amp; npm install</code></li>
+<li>Check Node.js version: <code>node --version</code> (needs 22+)</li>
+<li>Check for TypeScript errors: Look at specific error messages</li>
+<li>Try <code>npm run prettier:fix</code> to fix formatting issues</li>
+<li>Clear Vite cache: <code>rm -rf node_modules/.vite</code></li>
+</ul>
+<h3 id="typescript-errors">TypeScript Errors<a class="headerlink" href="#typescript-errors" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: Type errors during build</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check <code>src/utils/interface.ts</code> for type definitions</li>
+<li>Ensure imports are correct</li>
+<li>Run <code>npx tsc --noEmit</code> to see all type errors</li>
+<li>Verify all dependencies are installed</li>
+</ul>
+<h3 id="slow-performance">Slow Performance<a class="headerlink" href="#slow-performance" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: App is slow or laggy</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check internet connection speed</li>
+<li>Clear browser cache and reload</li>
+<li>Ensure PocketBase backend is responding quickly</li>
+<li>Check browser console for JavaScript errors</li>
+<li>Test on different device/browser to isolate issue</li>
+<li>Check Lighthouse performance score</li>
+<li>Verify service worker is working: DevTools → Application → Service Workers</li>
+</ul>
+<h3 id="pwa-installation-issues">PWA Installation Issues<a class="headerlink" href="#pwa-installation-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: "Add to Home Screen" doesn't appear</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Must be served over HTTPS</li>
+<li>Check service worker registration in DevTools</li>
+<li>Verify PWA requirements met (manifest, service worker, etc.)</li>
+<li>Try different browser (Safari, Chrome have different PWA support)</li>
+</ul>
+<h3 id="real-time-updates-not-working">Real-time Updates Not Working<a class="headerlink" href="#real-time-updates-not-working" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: Changes don't appear for other users</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify PocketBase realtime subscriptions are working</li>
+<li>Check browser console for SSE (Server-Sent Events) errors</li>
+<li>Ensure backend SSE endpoint is accessible</li>
+<li>Check if multiple users are actually viewing the same territory</li>
+<li>Refresh the page to force reconnection</li>
+</ul>
+<h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h2>
+<h3 id="keeping-dependencies-updated">Keeping Dependencies Updated<a class="headerlink" href="#keeping-dependencies-updated" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Pull latest changes from repository</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Install updated dependencies</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>npm<span class="w"> </span>install
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Check for security vulnerabilities</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>npm<span class="w"> </span>audit
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># Automatically fix security issues (when possible)</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>npm<span class="w"> </span>audit<span class="w"> </span>fix
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="c1"># Check for outdated packages</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>npm<span class="w"> </span>outdated
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="c1"># Update specific package</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>npm<span class="w"> </span>update<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
+<p><strong>Sentry Dashboard:</strong></p>
+<ul>
+<li>Check weekly for new errors</li>
+<li>Review error trends</li>
+<li>Fix critical issues promptly</li>
+<li>Set up alerts for high-priority errors</li>
+</ul>
+<p><strong>Google Cloud Console:</strong></p>
+<ul>
+<li>Monitor API usage to stay within quota</li>
+<li>Check for unusual spikes in usage</li>
+<li>Review billing alerts</li>
+<li>Ensure APIs remain enabled</li>
+</ul>
+<p><strong>Performance:</strong></p>
+<ul>
+<li>Run Lighthouse audits periodically</li>
+<li>Monitor page load times</li>
+<li>Check Core Web Vitals</li>
+<li>Test on slow connections</li>
+</ul>
+<p><strong>User Feedback:</strong></p>
+<ul>
+<li>Listen to congregation members</li>
+<li>Track common issues</li>
+<li>Document solutions</li>
+<li>Update documentation as needed</li>
+</ul>
+<h3 id="version-updates">Version Updates<a class="headerlink" href="#version-updates" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper uses semantic versioning:</p>
+<ul>
+<li><strong>Major version</strong> (x.0.0): Breaking changes</li>
+<li><strong>Minor version</strong> (1.x.0): New features</li>
+<li><strong>Patch version</strong> (1.9.x): Bug fixes</li>
+</ul>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><strong>For Users:</strong></p>
+<ul>
+<li>Read the <a href="../user-guide/">User Guide</a> to learn how to use the application</li>
+</ul>
+<p><strong>For Administrators:</strong></p>
+<ul>
+<li>Set up the PocketBase backend (see ministry-mapper-be repository)</li>
+<li>Configure congregation settings</li>
+<li>Invite users and assign roles</li>
+<li>Create territories and add addresses</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
