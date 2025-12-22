@@ -578,10 +578,6 @@ Access via Speed Dial (➕) → Map View icon. Ideal for:
 
 ### Territory Assignments (Conductors & Administrators)
 
-![Assigning Publisher Map](assets/screenshots/assigning_publisher_map.png)
-
-*Figure 13: Assignments modal showing list of active assignment links*
-
 Ministry Mapper uses a link-based assignment system. Conductors and Administrators create shareable links that publishers use to access territories.
 
 #### Why Link-Based Assignments?
@@ -634,6 +630,48 @@ Ministry Mapper uses a link-based assignment system. Conductors and Administrato
 ```
 https://your-ministry-mapper.com/map/abc123xyz456
 ```
+
+#### Map-Specific Assignment Creation
+
+Create assignments directly from the map view without navigating to the central assignments modal.
+
+**Access:**
+
+1. Navigate to the territory you want to assign
+2. Click either:
+   - **"Assign"** button - create a normal territory assignment
+   - **"Personal"** button - create a personal slip assignment
+
+**Normal Territory Assignment:**
+
+![Assigning Publisher Map](assets/screenshots/assigning_publisher_map.png)
+
+*Figure 13b: Map-specific normal assignment creation form*
+
+Click **"Assign"** to create a normal territory assignment. The form displays:
+
+- Territory information in header
+- **Publishers Name** field - enter name(s) of assigned publisher(s)
+- **Cancel** and **Confirm** buttons
+
+**Personal Slip Assignment:**
+
+![Personal Assign Publisher Map](assets/screenshots/personal_assign_publisher_map.png)
+
+*Figure 13c: Map-specific personal slip creation form with calendar*
+
+Click **"Personal"** to create a personal slip assignment. The form includes:
+
+- Territory information in header
+- **Calendar picker** - select the assignment date
+- **Publishers Name** field - enter name(s) of assigned publisher(s)
+- **Cancel** and **Confirm** buttons
+
+**Benefits:**
+
+- ✓ Quick assignment creation while viewing territory
+- ✓ No need to switch to assignments modal
+- ✓ Immediate context of the territory being assigned
 
 #### Managing Assignments
 
