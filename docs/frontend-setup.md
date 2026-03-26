@@ -17,7 +17,7 @@ The Ministry Mapper frontend (ministry-mapper-v2) is a React-based web applicati
 - Interactive mapping functionality
 - Real-time data synchronization
 - Mobile-responsive design
-- Multi-language support (7 languages)
+- Multi-language support (8 languages)
 - Progressive Web App capabilities
 
 **This guide assumes you have**:
@@ -75,9 +75,24 @@ VITE_POCKETBASE_URL=https://your-backend-url.com
 VITE_PRIVACY_URL=https://your-site.com/privacy
 VITE_TERMS_URL=https://your-site.com/terms
 VITE_ABOUT_URL=https://your-site.com/about
+```
 
-# Error Tracking - optional but recommended
+### Optional Variables
+
+```bash
+# Error Tracking (Sentry) - recommended for production
 VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
+# Build-time Sentry tokens for source map upload
+SENTRY_AUTH_TOKEN=your_sentry_auth_token
+SENTRY_ORG=your_sentry_org_slug
+SENTRY_PROJECT=your_sentry_project_slug
+
+# Routing & Geocoding
+VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
+
+# Maintenance Mode - show a maintenance banner to users
+VITE_MAINTENANCE_MODE=false
 ```
 
 ### Variable Details
@@ -130,18 +145,43 @@ VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
 - **Benefits**: Track errors, monitor performance, get notified of issues
 - **Note**: Only active when VITE_SYSTEM_ENVIRONMENT is "production"
 
+#### SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+
+- **Purpose**: Used during `npm run build` to upload source maps to Sentry so that minified stack traces can be resolved back to your original source code
+- **Required**: No — source maps are generated locally if these are absent, but uploading them to Sentry greatly improves error debugging in production
+- **How to Get**: Create an auth token in your Sentry organisation settings under **Settings → Auth Tokens**
+
+#### VITE_OPENROUTE_API_KEY
+
+- **Purpose**: Powers turn-by-turn routing and directions on the interactive map
+- **Get It From**: [openrouteservice.org](https://openrouteservice.org) (free tier available)
+- **Required**: No — map navigation works without it, but directions will be unavailable
+
+#### VITE_LOCATIONIQ_API_KEY
+
+- **Purpose**: Geocoding (convert addresses to coordinates) and reverse geocoding (coordinates to addresses)
+- **Get It From**: [locationiq.com](https://locationiq.com) (free tier available)
+- **Required**: No — the app works without it, but address search and auto-fill will be unavailable
+
+#### VITE_MAINTENANCE_MODE
+
+- **Purpose**: When set to `true`, shows a maintenance banner to users
+- **Values**: `true` or `false`
+- **Default**: `false`
+- **Use Case**: Set to `true` temporarily during backend upgrades or planned downtime
+
 ## Local Development Setup
 
 ### Prerequisites
 
-You need Node.js version 22 or higher:
+You need Node.js version 24 or higher:
 
 ```bash
 # Check your Node.js version
 node --version
 ```
 
-If you don't have Node.js 22+, download it from: [nodejs.org](https://nodejs.org)
+If you don't have Node.js 24+, download it from: [nodejs.org](https://nodejs.org)
 
 ### Setup Steps
 
@@ -172,12 +212,14 @@ Edit `.env` with your settings:
 ```bash
 VITE_SYSTEM_ENVIRONMENT=local
 VITE_VERSION=$npm_package_version
-VITE_GOOGLE_MAPS_API_KEY=your_google_maps_key_here
 VITE_POCKETBASE_URL=http://localhost:8090
 VITE_PRIVACY_URL=http://localhost:3000/privacy
 VITE_TERMS_URL=http://localhost:3000/terms
 VITE_ABOUT_URL=http://localhost:3000/about
 VITE_SENTRY_DSN=
+VITE_OPENROUTE_API_KEY=
+VITE_LOCATIONIQ_API_KEY=
+VITE_MAINTENANCE_MODE=false
 ```
 
 **Note**: You'll need a PocketBase backend running on port 8090. See the ministry-mapper-be repository for backend setup.
@@ -472,11 +514,12 @@ VITE_SENTRY_DSN=https://your_key@your_org.sentry.io/your_project_id
 
 ## Multi-Language Support
 
-Ministry Mapper includes 7 languages out of the box.
+Ministry Mapper includes 8 languages out of the box.
 
 ### Supported Languages
 
 - English (`en`)
+- Spanish (`es` - Español)
 - Japanese (`ja` - 日本語)
 - Korean (`ko` - 한국어)
 - Chinese (`zh` - 中文)
@@ -487,9 +530,10 @@ Ministry Mapper includes 7 languages out of the box.
 ### How Language Detection Works
 
 - Uses `i18next-browser-languagedetector`
-- Automatically detects from browser settings
-- Falls back to English if browser language not supported
-- Users cannot manually switch language (uses browser setting)
+- Automatically detects from browser settings on first visit
+- Users can manually switch language via the language selector in the navigation bar
+- Selection is persisted in `localStorage` and takes priority over browser settings
+- Falls back to English if the selected language is not supported
 
 ### Adding a New Language
 
@@ -638,7 +682,7 @@ Test on multiple browsers:
 - Ensure all environment variables are set correctly
 - Run `npm install` to refresh dependencies
 - Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
-- Check Node.js version: `node --version` (needs 22+)
+- Check Node.js version: `node --version` (needs 24+)
 - Check for TypeScript errors: Look at specific error messages
 - Try `npm run prettier:fix` to fix formatting issues
 - Clear Vite cache: `rm -rf node_modules/.vite`

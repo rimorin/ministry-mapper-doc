@@ -61,28 +61,29 @@ Ministry Mapper consists of two main components working together:
 
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
-| **Language** | Go | 1.24.7 | High-performance backend |
-| **Backend Framework** | PocketBase | 0.34.2 | BaaS with SQLite |
+| **Language** | Go | 1.25.0 | High-performance backend |
+| **Backend Framework** | PocketBase | 0.36.7 | BaaS with SQLite |
 | **Database** | SQLite | v1.40.2+ | Self-contained database |
 | **Web Framework** | Echo | v5 | HTTP routing |
 | **Container** | Docker | Latest | Containerization |
-| **Error Tracking** | Sentry | v0.40.0 | Error monitoring |
-| **Email Service** | MailerSend | v1.6.2 | Email API |
-| **Feature Flags** | LaunchDarkly | v7.14.2 | Feature management |
-| **Report Generation** | Excelize | v2.10.0 | Excel reports |
+| **Error Tracking** | Sentry | v0.43.0 | Error monitoring |
+| **Email Service** | MailerSend | v1.6.3 | Email API |
+| **Feature Flags** | LaunchDarkly | v7.14.6 | Feature management |
+| **Report Generation** | Excelize | v2.10.1 | Excel reports |
+| **AI Summaries** | OpenAI GPT | v3.29.0 | Intelligent report & message summaries |
 
 ### Frontend Stack
 
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
-| **Framework** | React | 19.2.3 | UI library |
+| **Framework** | React | 19.2.4 | UI library |
 | **Language** | TypeScript | 5.9.3 | Type safety |
-| **Build Tool** | Vite | 7.3.0 | Fast dev & build |
+| **Build Tool** | Vite | 8.0.2 | Fast dev & build |
 | **Routing** | Wouter | 3.9.0 | Lightweight routing |
 | **State Management** | Context API | - | Global state |
 | **UI Framework** | Bootstrap | 5.3.8 | CSS framework |
 | **Mapping** | Leaflet | 1.9.4 | Interactive maps |
-| **Testing** | Vitest | 4.0.16 | Unit testing |
+| **Testing** | Vitest | 4.1.1 | Unit testing |
 | **Code Quality** | ESLint + Prettier | Latest | Linting & formatting |
 
 ## Data Architecture
@@ -305,11 +306,13 @@ useRealtimeSubscription('addresses', (data) => {
 | Job | Schedule | Purpose |
 |-----|----------|---------|
 | **Assignment Cleanup** | Every 5 min | Delete expired assignments |
-| **Territory Aggregates** | Every 15 min | Update progress statistics |
+| **Territory Aggregates** | Every 10 min | Update progress statistics |
 | **Message Processing** | Every 30 min | Send message notifications |
 | **Instructions** | Every 30 min | Send admin messages |
 | **Note Updates** | Every 1 hour | Notify of note changes |
-| **Monthly Reports** | 1st of month | Generate Excel reports |
+| **Monthly Reports** | 1st of month | Generate Excel reports (with optional AI summaries) |
+| **Unprovisioned Users** | Daily 01:00 UTC | Enforce user lifecycle (warnings → disable → delete) |
+| **Inactive Users** | Daily 01:30 UTC | Warn and disable inactive accounts |
 
 ### Feature Flag Control
 
@@ -318,7 +321,25 @@ All background jobs controlled by LaunchDarkly feature flags:
 - Gradual rollout capabilities
 - Emergency off switch
 
-## Performance Optimizations
+### AI/LLM Integration
+
+Ministry Mapper integrates with OpenAI's GPT model for intelligent text summarisation. This is an **optional** feature gated by the `enable-report-ai-summary` LaunchDarkly flag.
+
+**Model**: GPT (latest available via `openai-go` SDK v3.29.0)  
+**Temperature**: 0.3 (factual, deterministic output)  
+**Response Format**: JSON mode for structured data
+
+**Use Cases:**
+
+| Context | Job | Output |
+|---------|-----|--------|
+| Monthly Excel reports | `generateMonthlyReport` | Per-territory `summary` and `key_points` |
+| Publisher message digests | `processMessages` | `overview` and `key_themes` |
+| Congregation notes digests | `processNotes` | `overview` and `key_themes` |
+
+**Graceful Degradation**: If `OPENAI_API_KEY` is not set or the `enable-report-ai-summary` flag is off, the system falls back to reports and emails without AI-generated content — no errors are raised.
+
+
 
 ### Frontend Optimizations
 

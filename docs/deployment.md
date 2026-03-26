@@ -292,7 +292,8 @@ S3 (File Storage)
    ```bash
    VITE_SYSTEM_ENVIRONMENT=production
    VITE_VERSION=$npm_package_version
-   VITE_GOOGLE_MAPS_API_KEY=your_key
+   VITE_OPENROUTE_API_KEY=your_key
+   VITE_LOCATIONIQ_API_KEY=your_key
    VITE_POCKETBASE_URL=https://your-backend-url.com
    VITE_PRIVACY_URL=https://your-site.com/privacy
    VITE_TERMS_URL=https://your-site.com/terms
@@ -445,7 +446,6 @@ LAUNCHDARKLY_SDK_KEY=your_key
 ```bash
 VITE_SYSTEM_ENVIRONMENT=production
 VITE_VERSION=$npm_package_version
-VITE_GOOGLE_MAPS_API_KEY=your_key
 VITE_POCKETBASE_URL=https://your-backend.com
 ```
 
@@ -454,6 +454,12 @@ VITE_POCKETBASE_URL=https://your-backend.com
 VITE_PRIVACY_URL=https://your-site.com/privacy
 VITE_TERMS_URL=https://your-site.com/terms
 VITE_ABOUT_URL=https://your-site.com/about
+```
+
+**Optional APIs:**
+```bash
+VITE_OPENROUTE_API_KEY=your_openrouteservice_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_key
 ```
 
 **Monitoring:**

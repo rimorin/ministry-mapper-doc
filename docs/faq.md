@@ -149,8 +149,9 @@ All data storage complies with security best practices. For hosted service data 
 ```
 VITE_SYSTEM_ENVIRONMENT=local
 VITE_VERSION=$npm_package_version
-VITE_GOOGLE_MAPS_API_KEY=your_google_maps_key
 VITE_POCKETBASE_URL=your_pocketbase_backend_url
+VITE_OPENROUTE_API_KEY=your_openrouteservice_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_key
 VITE_SENTRY_DSN=your_sentry_dsn (optional)
 VITE_PRIVACY_URL=your_privacy_policy_url
 VITE_TERMS_URL=your_terms_url

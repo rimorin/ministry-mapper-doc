@@ -72,6 +72,10 @@ MAILERSEND_FROM_EMAIL=
 # Jobs run by default if not configured
 LAUNCHDARKLY_SDK_KEY=
 LAUNCHDARKLY_CONTEXT_KEY=
+
+# OpenAI API key - for AI-generated summaries in monthly reports and message digests
+# Optional: reports and digests work fine without this; AI sections are simply omitted
+OPENAI_API_KEY=
 ```
 
 ### Application Settings
@@ -511,6 +515,7 @@ The backend runs automated background tasks using a cron scheduler. These jobs a
 
 3. **Message Processing** (`*/30 * * * *` - every 30 minutes)
    - Processes pending messages in the queue
+   - Optionally attaches an AI-generated overview when `OPENAI_API_KEY` is set
    - Feature flag: `enable-message-processing`
 
 4. **Instruction Processing** (`*/30 * * * *` - every 30 minutes)
@@ -519,13 +524,33 @@ The backend runs automated background tasks using a cron scheduler. These jobs a
 
 5. **Note Processing** (`0 * * * *` - hourly)
    - Processes updated notes for congregations
+   - Optionally attaches an AI-generated digest when `OPENAI_API_KEY` is set
    - Feature flag: `enable-note-processing`
 
 6. **Monthly Report** (`0 0 1 * *` - 1st of each month at midnight)
-   - Generates Excel report of congregation data
+   - Generates Excel report of congregation data and emails it to administrators
    - Feature flag: `enable-monthly-report`
+   - AI summaries flag: `enable-report-ai-summary` (requires `OPENAI_API_KEY`)
+
+7. **Unprovisioned User Processing** (`0 1 * * *` - daily at 01:00 UTC)
+   - Enforces the user lifecycle for accounts without a role assignment:
+     day 3 → first warning email, day 6 → final warning email, day 7 → account disabled, day 37+ → permanent deletion
+   - Feature flag: `enable-unprovisioned-user-processing`
+
+8. **Inactive User Processing** (`30 1 * * *` - daily at 01:30 UTC)
+   - Warns and eventually disables accounts that have been inactive beyond the configured threshold
+   - Feature flag: `enable-inactive-user-processing`
 
 **Note**: If LaunchDarkly is not configured, all jobs run by default (enabled: true).
+
+### AI Report Summaries
+
+When `OPENAI_API_KEY` is configured **and** the `enable-report-ai-summary` LaunchDarkly flag is on, the monthly Excel report includes an AI-generated summary for each territory sheet. The AI analyses activity data and produces a 2–3 sentence overview plus a list of key observations.
+
+This feature is entirely optional — reports are fully functional without it. To enable it:
+
+1. Set `OPENAI_API_KEY` in your `.env` file.
+2. Enable the `enable-report-ai-summary` flag in your LaunchDarkly project (or omit LaunchDarkly entirely and the flag defaults to enabled).
 
 ## Database Hooks
 

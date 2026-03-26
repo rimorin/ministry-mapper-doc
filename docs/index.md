@@ -17,7 +17,7 @@ Ministry Mapper provides comprehensive territory management capabilities:
 - **🗺️ Territory Management**: Organize geographic regions into territories with automatic completion tracking
 - **🏢 Interactive Mapping**: Leaflet-based maps with OpenStreetMap integration, directions, and geolocation
 - **📱 Real-time Collaboration**: Live data synchronization across all devices via SSE (Server-Sent Events)
-- **🌍 Multi-language Support**: 7 languages (English, Indonesian, Japanese, Korean, Malay, Tamil, Chinese)
+- **🌍 Multi-language Support**: 8 languages (English, Spanish, Indonesian, Japanese, Korean, Malay, Tamil, Chinese)
 - **👥 Role-based Access**: Publisher, Conductor, Administrator, and Read-only roles with fine-grained permissions
 - **🔗 Assignment Links**: Secure, time-limited sharing links for territory access without user accounts
 - **📊 Progress Tracking**: Automatic completion status with visual indicators and statistics
@@ -60,23 +60,24 @@ Ministry Mapper leverages cutting-edge web technologies for optimal performance:
 
 **Frontend (ministry-mapper-v2):**
 
-- **React 19.2.3**: Latest UI library with automatic compiler optimization
+- **React 19.2.4**: Latest UI library with automatic compiler optimization
 - **TypeScript 5.9.3**: Type-safe development for fewer bugs
-- **Vite 7.3.0**: Lightning-fast build tool and dev server
+- **Vite 8.0.2**: Lightning-fast build tool and dev server
 - **Leaflet 1.9.4**: Interactive mapping with OpenStreetMap (no API limits)
 - **Bootstrap 5.3.8**: Modern, responsive UI framework
 - **Wouter 3.9.0**: Lightweight routing (3KB vs 40KB alternatives)
 
 **Backend (ministry-mapper-be):**
 
-- **Go 1.24.7**: High-performance compiled language
-- **PocketBase 0.34.2**: Self-hosted backend-as-a-service with SQLite
+- **Go 1.25.0**: High-performance compiled language
+- **PocketBase 0.36.7**: Self-hosted backend-as-a-service with SQLite
 - **SQLite 1.40.2+**: Reliable, self-contained database (pure Go implementation)
 - **Echo v5**: Minimalist, high-performance web framework
-- **Sentry 0.40.0**: Real-time error tracking and monitoring
-- **MailerSend 1.6.2**: Transactional email service
-- **LaunchDarkly 7.14.2**: Feature flag management
-- **Excelize 2.10.0**: Excel report generation
+- **Sentry 0.43.0**: Real-time error tracking and monitoring
+- **MailerSend 1.6.3**: Transactional email service
+- **LaunchDarkly 7.14.6**: Feature flag management
+- **Excelize 2.10.1**: Excel report generation
+- **OpenAI GPT**: AI-powered summaries for reports and message digests
 
 ### Architecture Highlights
 
@@ -86,6 +87,7 @@ Ministry Mapper leverages cutting-edge web technologies for optimal performance:
 - **Progressive Web App**: Installable on all devices with offline asset support
 - **Docker Containerization**: Easy deployment and scaling
 - **API-First Design**: RESTful API with comprehensive PocketBase SDK support
+- **AI-Powered Insights**: Optional OpenAI GPT integration for intelligent report summaries and message digests
 
 ## Important Considerations
 

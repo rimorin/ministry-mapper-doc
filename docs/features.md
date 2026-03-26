@@ -414,12 +414,13 @@ Visit URL → Share → "Add to home screen"
 
 **Supported Languages:**
 1. **English** (en) - Primary language
-2. **Indonesian** (id) - Bahasa Indonesia
-3. **Japanese** (ja) - 日本語
-4. **Korean** (ko) - 한국어
-5. **Malay** (ms) - Bahasa Melayu
-6. **Tamil** (ta) - தமிழ்
-7. **Chinese** (zh) - 中文
+2. **Spanish** (es) - Español
+3. **Indonesian** (id) - Bahasa Indonesia
+4. **Japanese** (ja) - 日本語
+5. **Korean** (ko) - 한국어
+6. **Malay** (ms) - Bahasa Melayu
+7. **Tamil** (ta) - தமிழ்
+8. **Chinese** (zh) - 中文
 
 **i18n Features:**
 - Language selector in navigation
@@ -661,8 +662,9 @@ Visit URL → Share → "Add to home screen"
 **4. Monthly Reports**
 - Schedule: 1st of month
 - Recipients: Administrators
-- Content: Statistical report
+- Content: Statistical report with optional AI-generated territory summaries
 - Attachment: Excel workbook
+- AI Summary: When enabled via `enable-report-ai-summary` feature flag and `OPENAI_API_KEY` is configured, each territory sheet includes an AI-generated overview of key trends and notable observations
 
 **5. System Emails**
 - Email verification
@@ -691,11 +693,13 @@ Visit URL → Share → "Add to home screen"
 | Job | Schedule | Purpose |
 |-----|----------|---------|
 | Assignment Cleanup | Every 5 min | Delete expired assignments |
-| Territory Aggregates | Every 15 min | Update progress statistics |
+| Territory Aggregates | Every 10 min | Update progress statistics |
 | Message Processing | Every 30 min | Send message notifications |
 | Instructions | Every 30 min | Send admin messages |
 | Note Updates | Every 1 hour | Notify of note changes |
-| Monthly Reports | 1st of month | Generate Excel reports |
+| Monthly Reports | 1st of month | Generate Excel reports (with optional AI summaries) |
+| Unprovisioned Users | Daily 01:00 UTC | Enforce user lifecycle (warnings → disable → delete) |
+| Inactive Users | Daily 01:30 UTC | Warn and disable inactive accounts |
 
 **Feature Flag Control:**
 - Enable/disable jobs without deployment
