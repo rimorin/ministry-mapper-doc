@@ -12,7 +12,7 @@ Ministry Mapper replaces traditional paper territory cards with a cloud-based sy
 - **Real-Time Updates**: Changes sync instantly across all devices
 - **Mobile-Friendly**: Works on phones, tablets, and computers
 - **Interactive Maps**: View territories with interactive mapping
-- **Multi-Language**: Available in 7 languages (English, Japanese, Korean, Chinese, Indonesian, Malay, Tamil)
+- **Multi-Language**: Available in 7 languages (English, Japanese, Korean, Chinese, Indonesian, Malay, Spanish)
 - **Secure**: Role-based access control and encrypted data
 - **Open Source**: Free to use and modify
 
@@ -64,7 +64,7 @@ This documentation is built with [MkDocs](https://www.mkdocs.org/) and the [Mate
 ### Prerequisites
 
 ```bash
-pip install mkdocs mkdocs-material
+pip install mkdocs mkdocs-material mkdocs-static-i18n
 ```
 
 ### Local Development

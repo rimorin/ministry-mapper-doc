@@ -24,6 +24,6 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material 
+      - run: pip install mkdocs-material mkdocs-static-i18n
       - run: echo "${{ vars.CUSTOM_DOMAIN }}" > docs/CNAME
       - run: mkdocs gh-deploy --force

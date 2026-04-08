@@ -5,6 +5,7 @@ site_url: https://docs.ministry-mapper.com
 
 theme:
   name: material
+  language: en
   logo: assets/logo.png
   favicon: assets/favicon.ico
   palette:
@@ -25,7 +26,6 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   features:
-    - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
@@ -37,27 +37,53 @@ theme:
 
 plugins:
   - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: zh
+          name: 中文
+          build: true
+        - locale: id
+          name: Indonesia
+          build: true
+        - locale: ms
+          name: Melayu
+          build: true
+        - locale: ja
+          name: 日本語
+          build: true
+        - locale: ko
+          name: 한국어
+          build: true
+        - locale: es
+          name: Español
+          build: true
 
 nav:
-  - Home: index.md
+  - Home: en/index.md
   - Getting Started:
-      - Quick Start: getting-started.md
-      - Features Overview: features.md
+      - Quick Start: en/getting-started.md
+      - Features Overview: en/features.md
   - User Guide:
-      - Using Ministry Mapper: user-guide.md
+      - Using Ministry Mapper: en/user-guide.md
   - Technical Documentation:
-      - Architecture Overview: architecture.md
-      - Data Models & Schema: data-models.md
+      - Architecture Overview: en/architecture.md
+      - Data Models & Schema: en/data-models.md
   - Deployment:
-      - Deployment Guide: deployment.md
-      - Self-Hosting Guide: self-hosting.md
-      - Backend Setup: backend-setup.md
-      - Frontend Setup: frontend-setup.md
+      - Deployment Guide: en/deployment.md
+      - Self-Hosting Guide: en/self-hosting.md
+      - Backend Setup: en/backend-setup.md
+      - Frontend Setup: en/frontend-setup.md
   - Reference:
-      - FAQ: faq.md
+      - FAQ: en/faq.md
   - Legal:
-      - Privacy Policy: privacy-policy.md
-      - Terms of Service: terms-of-service.md
+      - Privacy Policy: en/privacy-policy.md
+      - Terms of Service: en/terms-of-service.md
 
 markdown_extensions:
   - admonition
@@ -76,6 +102,28 @@ markdown_extensions:
       permalink: true
 
 extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 中文
+      link: /zh/
+      lang: zh
+    - name: Indonesia
+      link: /id/
+      lang: id
+    - name: Melayu
+      link: /ms/
+      lang: ms
+    - name: 日本語
+      link: /ja/
+      lang: ja
+    - name: 한국어
+      link: /ko/
+      lang: ko
+    - name: Español
+      link: /es/
+      lang: es
   social:
     - icon: fontawesome/solid/desktop
       link: https://github.com/rimorin/ministry-mapper-v2
