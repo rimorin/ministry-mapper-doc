@@ -63,6 +63,9 @@ plugins:
         - locale: es
           name: Español
           build: true
+        - locale: ta
+          name: தமிழ்
+          build: true
 
 nav:
   - Home: en/index.md
