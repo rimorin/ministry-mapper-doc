@@ -1,0 +1,3215 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ko/data-models/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+        
+          <link rel="alternate" href="../../data-models/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/data-models/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/data-models/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/data-models/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/data-models/" hreflang="ja">
+        
+          <link rel="alternate" href="./" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/data-models/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/data-models/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Data Models & Schema - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Models & Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="언어설정">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../data-models/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/data-models/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/data-models/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/data-models/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/data-models/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/data-models/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/data-models/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        엔티티 관계 다이어그램
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 컬렉션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="핵심 컬렉션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 회중
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 구역
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 지도
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 주소
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 사용자
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 역할
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 배정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 옵션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 메시지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses_log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. addresses_log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. aggregates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-address_options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. address_options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        분석 컬렉션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="분석 컬렉션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        데이터베이스 기술
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 관계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비즈니스 규칙
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="비즈니스 규칙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        진행 상황 계산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주소 수명 주기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자동 업데이트 트리거
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다음 단계
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        엔티티 관계 다이어그램
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        핵심 컬렉션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="핵심 컬렉션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 회중
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 구역
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 지도
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 주소
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 사용자
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 역할
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 배정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. 옵션
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. 메시지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses_log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. addresses_log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. aggregates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-address_options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. address_options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        분석 컬렉션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="분석 컬렉션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        데이터베이스 기술
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요 관계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비즈니스 규칙
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="비즈니스 규칙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        진행 상황 계산
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주소 수명 주기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        자동 업데이트 트리거
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다음 단계
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">데이터 모델 및 스키마<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">개요<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper는 멀티 테넌트 회중 관리를 위해 설계된 계층적 데이터 모델을 사용하여 PocketBase를 통해 SQLite를 사용합니다. 이 문서는 모든 데이터 모델, 관계 및 비즈니스 규칙에 대한 포괄적인 문서를 제공합니다.</p>
+<h2 id="_3">엔티티 관계 다이어그램<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>회중 (루트 엔티티 - 멀티 테넌트 격리)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├─── 구역 (1:M)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    │      │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    │      └─── 지도 (1:M)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    │             │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    │             ├─── 주소 (1:M)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    │             │      ├─── addresses_log (1:M)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    │             │      └─── address_options (1:M)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    │             ├─── 배정 (1:M)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    │             └─── 메시지 (1:M)
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    ├─── 옵션 (1:M)
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    │      └─── address_options (주소와의 M:M 연결 테이블)
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    ├─── 사용자 (역할을 통해 1:M)
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    │      │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    │      ├─── 역할 (1:M)
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    │      └─── 배정 (1:M)
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    │
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    ├─── 메시지 (1:M)
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    └─── aggregates (구역 및 지도에서 1:M)
+</code></pre></div>
+<h2 id="_4">핵심 컬렉션<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 회중<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 멀티 테넌트 격리 및 조직 설정을 위한 중앙 엔티티</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>예</td>
+<td>조직 코드</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>예</td>
+<td>조직 이름</td>
+</tr>
+<tr>
+<td><code>expiry_hours</code></td>
+<td>number</td>
+<td>예</td>
+<td>배정 링크 기간 (시간)</td>
+</tr>
+<tr>
+<td><code>max_tries</code></td>
+<td>number</td>
+<td>예</td>
+<td>완료로 표시되기 전 최대 "부재" 시도 횟수</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>select</td>
+<td>예</td>
+<td>국가/지역 (sg, my)</td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>select</td>
+<td>예</td>
+<td>날짜 계산을 위한 타임존</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>접근 규칙:</strong>
+- <strong>목록:</strong> 사용자는 회중에 역할이 있어야 함
+- <strong>보기:</strong> 역할이 있는 사용자 또는 링크 기반 접근
+- <strong>업데이트:</strong> 관리자만
+- <strong>삭제:</strong> 관리자만</p>
+<p><strong>비즈니스 규칙:</strong>
+- 모든 지도의 기본 배정 기간 제어
+- <code>max_tries</code>는 "부재" 주소가 완료로 계산되는 시점 결정
+- 타임존은 날짜 기반 계산 및 보고서에 영향</p>
+<p><strong>예시:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CONG001&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;북부 회중&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;expiry_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">&quot;origin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sg&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">&quot;timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Asia/Singapore&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="2">2. 구역<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 전도 서비스 구성을 위한 회중 내 지리적 구분</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>예</td>
+<td>구역 식별자 (자동: "0")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>아니오</td>
+<td>사람이 읽을 수 있는 설명</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>자동</td>
+<td>완료 백분율 (0-100)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>인덱스:</strong>
+- <code>(congregation, code)</code> - 회중별 빠른 조회
+- <code>(congregation)</code> - 회중 필터</p>
+<p><strong>관계:</strong>
+- 지도와 1:M
+- 주소와 1:M (성능을 위해 역정규화)</p>
+<p><strong>접근 규칙:</strong>
+- <strong>목록:</strong> 회중에 역할이 있는 사용자
+- <strong>보기:</strong> 역할이 있는 사용자 또는 링크 접근
+- <strong>생성/업데이트/삭제:</strong> 인도자 또는 관리자</p>
+<p><strong>진행 상황 계산:</strong>
+구역 내 모든 지도의 집계에서 자동 계산</p>
+<p><strong>예시:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terr_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1A&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;시내 지구&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">65.5</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="3">3. 지도<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 주소를 포함하는 특정 위치 또는 건물을 나타냄</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>예</td>
+<td>구역에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>자동</td>
+<td>구역 내 순서 (자동 증가)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>예</td>
+<td>지도 식별자/번호 (자동: "0")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>아니오</td>
+<td>위치 설명</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>예</td>
+<td><code>single</code> 또는 <code>multi</code> (층 유형)</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>아니오</td>
+<td>지리적 위치 <code>{lat, lng}</code></td>
+</tr>
+<tr>
+<td><code>aggregates</code></td>
+<td>JSON</td>
+<td>자동</td>
+<td>캐시된 통계 (최대 2MB)</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>자동</td>
+<td>완료 백분율</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>인덱스:</strong>
+- <code>(territory, code)</code> - 기본 조회
+- <code>(territory, sequence)</code> - 정렬
+- <code>(territory)</code> - 구역 필터</p>
+<p><strong>연쇄 삭제:</strong>
+- 주소
+- 배정
+- 메시지</p>
+<p><strong>집계 구조:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;not_done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;dnc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;invalid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;not_home_max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>지도 유형:</strong>
+- <strong>single</strong>: 개인 주소 (집)
+- <strong>multi</strong>: 공공 주소 (다층 건물)</p>
+<p><strong>접근 규칙:</strong>
+- <strong>목록:</strong> 역할이 있는 사용자 또는 링크 접근
+- <strong>보기:</strong> 역할이 있는 사용자 또는 링크 접근
+- <strong>생성/업데이트:</strong> 인도자 또는 관리자
+- <strong>삭제:</strong> 관리자만</p>
+<hr />
+<h3 id="4">4. 주소<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 지도 내 개별 단위 또는 가구</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>예</td>
+<td>지도에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (역정규화)</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>예</td>
+<td>구역에 대한 FK (역정규화)</td>
+</tr>
+<tr>
+<td><code>floor</code></td>
+<td>number</td>
+<td>예</td>
+<td>층 번호 (0 기반)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>예</td>
+<td>단위/문 코드 (예: "101", "A")</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>예</td>
+<td>지도 내 순서</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>select</td>
+<td>예</td>
+<td>주소 방문 상태</td>
+</tr>
+<tr>
+<td><code>not_home_tries</code></td>
+<td>number</td>
+<td>자동</td>
+<td>"부재" 시도 카운터</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>relation</td>
+<td>아니오</td>
+<td>옵션에 대한 M:M (JSON 배열)</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>text</td>
+<td>아니오</td>
+<td>현장 작업자 메모</td>
+</tr>
+<tr>
+<td><code>last_notes_updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>메모가 마지막으로 변경된 시점 (훅을 통해)</td>
+</tr>
+<tr>
+<td><code>last_notes_updated_by</code></td>
+<td>text</td>
+<td>자동</td>
+<td>마지막 업데이터의 사용자 이름 (훅을 통해)</td>
+</tr>
+<tr>
+<td><code>dnc_time</code></td>
+<td>date</td>
+<td>아니오</td>
+<td>"방문 거부"로 표시된 시점</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>아니오</td>
+<td>세밀한 GPS <code>{lat, lng}</code></td>
+</tr>
+<tr>
+<td><code>updated_by</code></td>
+<td>text</td>
+<td>아니오</td>
+<td>업데이트한 사람 추적</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>상태 값:</strong>
+- <code>not_done</code> - 아직 방문하지 않음 (초기 상태)
+- <code>done</code> - 성공적으로 완료
+- <code>not_home</code> - 아무도 없음 (재시도 가능)
+- <code>do_not_call</code> - 작업에서 제외
+- <code>invalid</code> - 주소가 존재하지 않음</p>
+<p><strong>인덱스 (7개):</strong>
+- <code>(map)</code> - 지도 필터
+- <code>(map, status)</code> - 상태 분포 쿼리
+- <code>(map, code)</code> - 코드 조회
+- <code>(map, floor)</code> - 층 구성
+- <code>(type, congregation)</code> - 옵션 분포
+- <code>(congregation, last_notes_updated_by)</code> - 사용자별 최근 메모
+- <code>(territory, status)</code> - 구역 전체 상태</p>
+<p><strong>자동 훅:</strong>
+- 업데이트는 <code>last_notes_updated</code> 및 <code>last_notes_updated_by</code> 필드를 업데이트
+- 지도에서 집계 재계산 트리거
+- 구역 진행 상황 업데이트</p>
+<p><strong>접근 규칙:</strong>
+- <strong>목록:</strong> 역할이 있는 사용자 또는 링크 접근
+- <strong>보기:</strong> 역할이 있는 사용자 또는 링크 접근
+- <strong>생성:</strong> 인도자 또는 관리자
+- <strong>업데이트:</strong> 역할이 있는 사용자 또는 링크 접근 (전도인 업데이트 가능)
+- <strong>삭제:</strong> 관리자만</p>
+<hr />
+<h3 id="5">5. 사용자<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 인증을 사용하는 시스템 사용자 계정</p>
+<p><strong>유형:</strong> Auth 컬렉션 (PocketBase user-auth-type)</p>
+<p><strong>시스템 필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>email</td>
+<td>예</td>
+<td>로그인 ID (고유)</td>
+</tr>
+<tr>
+<td><code>emailVisibility</code></td>
+<td>bool</td>
+<td>예</td>
+<td>이메일 공개 여부</td>
+</tr>
+<tr>
+<td><code>verified</code></td>
+<td>bool</td>
+<td>자동</td>
+<td>이메일 인증 상태</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>password</td>
+<td>예</td>
+<td>Bcrypt 해싱 (비용: 10, 최소 6자)</td>
+</tr>
+<tr>
+<td><code>tokenKey</code></td>
+<td>text</td>
+<td>숨김</td>
+<td>토큰 생성 키 (30-60자)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>커스텀 필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>예</td>
+<td>표시 이름 (2-50자)</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td>bool</td>
+<td>아니오</td>
+<td>계정 비활성화 플래그</td>
+</tr>
+<tr>
+<td><code>last_login</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 인증 타임스탬프 (훅을 통해)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>이름 유효성 검사 패턴:</strong>
+<code>^[A-Za-z][\w\s\.\-']*$</code> (문자로 시작, 단어 문자, 공백, 점, 하이픈, 아포스트로피 허용)</p>
+<p><strong>인증 구성:</strong>
+- <strong>비밀번호 인증:</strong> 활성화 (최소 6자)
+- <strong>OAuth2:</strong> Google PKCE 흐름
+- <strong>MFA:</strong> 활성화 (기간: 1800s)
+- <strong>OTP:</strong> 활성화 (기간: 180s, 길이: 4자리)
+- <strong>이메일 인증:</strong> 기간 604800s (7일)
+- <strong>비밀번호 재설정:</strong> 기간 1800s (30분)</p>
+<p><strong>접근 규칙:</strong>
+- <strong>목록:</strong> 관리자만
+- <strong>보기:</strong> 관리자 또는 자신
+- <strong>생성:</strong> 공개 (OAuth 또는 명시적 등록)
+- <strong>업데이트:</strong> 자신만
+- <strong>삭제:</strong> 관리자만</p>
+<hr />
+<h3 id="6">6. 역할<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 사용자를 회중에 연결하는 권한 배정</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>예</td>
+<td>사용자에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>select</td>
+<td>예</td>
+<td>권한 수준</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>역할 값:</strong>
+- <code>read_only</code> - 보기 전용 접근
+- <code>conductor</code> - 배정 및 지도 관리 가능
+- <code>administrator</code> - 전체 접근</p>
+<p><strong>접근 규칙:</strong>
+- <strong>생성/업데이트/삭제:</strong> 관리자만
+- <strong>목록:</strong> 자신의 역할
+- <strong>보기:</strong> 자신의 역할</p>
+<p><strong>비즈니스 규칙:</strong>
+- 사용자당 회중당 하나의 역할
+- 역할이 모든 행동에 대한 권한 결정</p>
+<hr />
+<h3 id="7">7. 배정<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 시간 제한 지도 접근을 위한 전도인 접근 토큰</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(20)</td>
+<td>예</td>
+<td><strong>익명 접근 토큰으로 사용됨</strong></td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>예</td>
+<td>지도에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>아니오</td>
+<td>전도인 사용자 (선택)</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>예</td>
+<td>배정 분류</td>
+</tr>
+<tr>
+<td><code>expiry_date</code></td>
+<td>date</td>
+<td>예</td>
+<td>자동 만료 타임스탬프</td>
+</tr>
+<tr>
+<td><code>publisher</code></td>
+<td>text</td>
+<td>아니오</td>
+<td>전도인 이름/식별자</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>배정 유형:</strong>
+- <code>normal</code> - 일반 구역 작업
+- <code>personal</code> - 개인 전도 구역</p>
+<p><strong>워크플로우:</strong>
+1. 인도자가 <code>/territory/link</code> 엔드포인트를 통해 생성
+2. 전도인이 20자 <code>link_id</code>(이 배정의 ID)를 받음
+3. 전도인이 HTTP 헤더 <code>@request.headers.link_id</code>를 통해 <code>link_id</code> 전달
+4. PocketBase가 유효성 검사: link_id가 assignment.id와 일치 AND expiry_date &gt; now
+5. 백그라운드 작업이 매 5분마다 만료된 배정 삭제</p>
+<hr />
+<h3 id="8">8. 옵션<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 주소 유형 분류 (회중별 맞춤화 가능)</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>예</td>
+<td>옵션 식별자 (예: "RES", "BUS")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>예</td>
+<td>사람이 읽을 수 있는 레이블</td>
+</tr>
+<tr>
+<td><code>is_countable</code></td>
+<td>bool</td>
+<td>예</td>
+<td>진행 상황 계산에 포함</td>
+</tr>
+<tr>
+<td><code>is_default</code></td>
+<td>bool</td>
+<td>예</td>
+<td>새 주소의 기본 옵션</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>예</td>
+<td>표시/정렬 순서</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>진행 상황에 미치는 영향:</strong>
+- 계산 가능 옵션 (<code>is_countable=true</code>)이 진행 상황 % 계산에 포함
+- 계산 불가 옵션은 별도로 추적되지만 진행 상황에서 제외
+- 옵션이 삭제되면 주소가 자동으로 기본 옵션을 받음</p>
+<hr />
+<h3 id="9">9. 메시지<a class="headerlink" href="#9" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 사용자 간 커뮤니케이션 및 알림</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>예</td>
+<td>지도에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>text</td>
+<td>예</td>
+<td>메시지 내용</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>text</td>
+<td>예</td>
+<td>작성자의 사용자 이름</td>
+</tr>
+<tr>
+<td><code>read</code></td>
+<td>bool</td>
+<td>예</td>
+<td>관리자가 읽었는지 여부</td>
+</tr>
+<tr>
+<td><code>pinned</code></td>
+<td>bool</td>
+<td>예</td>
+<td>관리자 고정 지시사항 플래그</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>예</td>
+<td>수신자 유형</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>생성 타임스탬프</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>자동</td>
+<td>마지막 업데이트 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>메시지 유형:</strong>
+- <code>publisher</code> - 전도인에서 관리자로
+- <code>conductor</code> - 인도자로부터
+- <code>administrator</code> - 관리자 지시사항 (고정 가능)</p>
+<p><strong>백그라운드 처리:</strong>
+- 매 30분: 읽지 않은 메시지가 이메일을 통해 관리자에게 전송
+- 매 30분: 고정된 관리자 메시지가 전도인에게 이메일로 전송
+- 매 1시간: 메모 업데이트가 관리자에게 전송</p>
+<hr />
+<h3 id="10-addresses_log">10. addresses_log<a class="headerlink" href="#10-addresses_log" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 주소 상태 변경의 감사 추적 — 주소 상태가 업데이트될 때마다 여기에 기록이 작성됩니다</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>예</td>
+<td>주소에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>old_status</code></td>
+<td>text</td>
+<td>예</td>
+<td>이전 주소 상태 값</td>
+</tr>
+<tr>
+<td><code>new_status</code></td>
+<td>text</td>
+<td>예</td>
+<td>새 주소 상태 값</td>
+</tr>
+<tr>
+<td><code>changed_by</code></td>
+<td>relation</td>
+<td>아니오</td>
+<td>사용자에 대한 FK — 변경한 사용자</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>자동</td>
+<td>변경 타임스탬프</td>
+</tr>
+</tbody>
+</table>
+<p><strong>접근 규칙:</strong>
+- <strong>목록/보기:</strong> 인도자 또는 관리자
+- <strong>생성:</strong> 시스템 훅 (주소 상태 변경 시 자동)
+- <strong>업데이트/삭제:</strong> 관리자만</p>
+<hr />
+<h3 id="11-aggregates">11. aggregates<a class="headerlink" href="#11-aggregates" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 구역 및 지도의 캐시된 진행 스냅샷. 10분마다 백그라운드 작업으로 재계산됩니다</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>notDone</code></td>
+<td>number</td>
+<td>예</td>
+<td>아직 방문하지 않은 주소 수</td>
+</tr>
+<tr>
+<td><code>notHome</code></td>
+<td>number</td>
+<td>예</td>
+<td>"부재" 주소 수</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>예</td>
+<td>완료 백분율 (0–100)</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>아니오</td>
+<td>구역에 대한 FK — 구역 수준 집계에 설정</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>아니오</td>
+<td>지도에 대한 FK — 지도 수준 집계에 설정</td>
+</tr>
+</tbody>
+</table>
+<p><strong>비즈니스 규칙:</strong>
+- 레코드당 <code>territory</code> 또는 <code>map</code> 중 정확히 하나가 설정됨
+- 백그라운드 작업으로 10분마다 재계산
+- 값은 읽기 전용 스냅샷; 실시간 진행 상황은 필요 시 계산</p>
+<p><strong>접근 규칙:</strong>
+- <strong>목록/보기:</strong> 역할이 있는 사용자 또는 링크 접근
+- <strong>생성/업데이트:</strong> 시스템 백그라운드 작업만
+- <strong>삭제:</strong> 관리자만</p>
+<hr />
+<h3 id="12-address_options">12. address_options<a class="headerlink" href="#12-address_options" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 개별 주소에 적용된 주소 수준 옵션(<code>options</code> 컬렉션)을 추적 — 주소 ↔ 옵션 다대다 관계를 위한 연결 테이블</p>
+<p><strong>유형:</strong> 기본 컬렉션</p>
+<p><strong>필드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>필드</th>
+<th>유형</th>
+<th>필수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>예</td>
+<td>자동 생성된 고유 ID</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>예</td>
+<td>주소에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>option</code></td>
+<td>relation</td>
+<td>예</td>
+<td>옵션에 대한 FK (연쇄 삭제)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>예</td>
+<td>회중에 대한 FK (빠른 쿼리를 위한 비정규화)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>인덱스:</strong>
+- <code>(address, option)</code> — 고유 쌍 (주소당 하나의 옵션)
+- <code>(congregation)</code> — 회중 전체 옵션 사용</p>
+<p><strong>접근 규칙:</strong>
+- <strong>목록/보기:</strong> 역할이 있는 사용자 또는 링크 접근
+- <strong>생성/삭제:</strong> 인도자 또는 관리자</p>
+<hr />
+<h2 id="_5">분석 컬렉션<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>분석 컬렉션은 보고 및 인사이트를 위한 이력 데이터를 저장합니다. 이 컬렉션은 내부적으로 관리되며 정확한 필드는 시간이 지남에 따라 변경될 수 있습니다. 개별 필드 테이블 대신 목적 위주로 문서화되어 있습니다.</p>
+<h3 id="analytics_territories">analytics_territories<a class="headerlink" href="#analytics_territories" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 시간 경과에 따른 구역 수준 지표(예: 진행 백분율, 주소 수)의 주기적 스냅샷을 저장합니다. 이력 트렌드 차트 및 구역 완료 보고서 생성에 사용됩니다.</p>
+<h3 id="analytics_maps">analytics_maps<a class="headerlink" href="#analytics_maps" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 시간 경과에 따른 지도 수준 지표의 주기적 스냅샷을 저장합니다. 개별 지도 완료율 및 활동 패턴에 대한 세부 보고를 가능하게 합니다.</p>
+<h3 id="analytics_daily_status">analytics_daily_status<a class="headerlink" href="#analytics_daily_status" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 회중 전체의 주소 상태(완료, 미완료, 부재, 방문 금지, 유효하지 않음)에 대한 일별 집계 수를 저장합니다. 일별 및 주별 트렌드 대시보드를 지원합니다.</p>
+<h3 id="analytics_not_home">analytics_not_home<a class="headerlink" href="#analytics_not_home" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 반복적으로 "부재"로 표시된 주소를 추적합니다. 인도자를 위한 후속 대상을 표시하고 지속적으로 연락이 닿지 않는 주소를 식별하는 데 사용됩니다.</p>
+<h3 id="analytics_user_audit">analytics_user_audit<a class="headerlink" href="#analytics_user_audit" title="Permanent link">&para;</a></h3>
+<p><strong>목적:</strong> 책임 및 감사 목적으로 로그인, 주소 업데이트, 배정 작업을 포함한 사용자 행동을 기록합니다. 관리자가 활동 이력을 검토하고 이상 징후를 조사할 수 있게 합니다.</p>
+<blockquote>
+<p><strong>참고:</strong> 분석 컬렉션은 백그라운드 작업으로 채워지고 보고 레이어에서 읽습니다. 애플리케이션 코드에서의 직접 쓰기는 피해야 합니다.</p>
+</blockquote>
+<hr />
+<h2 id="_6">데이터베이스 기술<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>엔진:</strong> PocketBase를 통한 SQLite (modernc.org/sqlite v1.40.2+)</p>
+<p><strong>기능:</strong>
+- 순수 Go 구현 (CGo 없음) - 크로스 플랫폼 컴파일 가능
+- ccgo/v4를 사용하여 Go로 변환된 C SQLite 기반
+- 정기적인 보안 업데이트와 함께 적극적으로 유지 관리 (SQLite 3.50+ 정렬)</p>
+<p><strong>사용된 SQL 기능:</strong>
+- 유연한 데이터를 위한 JSON 필드 (좌표, 집계)
+- 쿼리 최적화를 위한 복합 인덱스
+- ACID 준수를 위한 트랜잭션
+- 복잡한 집계를 위한 CTE (공통 테이블 표현식)</p>
+<hr />
+<h2 id="_7">주요 관계<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>관계</th>
+<th>기수성</th>
+<th>연쇄 동작</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>회중 → 구역</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>구역 → 지도</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>지도 → 주소</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>지도 → 배정</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>지도 → 메시지</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>주소 → 옵션</td>
+<td>M:M</td>
+<td>address_options 연결 테이블을 통해</td>
+</tr>
+<tr>
+<td>사용자 → 역할</td>
+<td>M:M</td>
+<td>역할 테이블을 통해</td>
+</tr>
+<tr>
+<td>사용자 → 배정</td>
+<td>1:M</td>
+<td>배정 유지</td>
+</tr>
+<tr>
+<td>회중 → 옵션</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>회중 → 역할</td>
+<td>M:M</td>
+<td>역할 테이블을 통해</td>
+</tr>
+<tr>
+<td>주소 → addresses_log</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>구역 → aggregates</td>
+<td>1:M</td>
+<td>백그라운드 작업으로 재계산</td>
+</tr>
+<tr>
+<td>지도 → aggregates</td>
+<td>1:M</td>
+<td>백그라운드 작업으로 재계산</td>
+</tr>
+<tr>
+<td>주소 → address_options</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+<tr>
+<td>옵션 → address_options</td>
+<td>1:M</td>
+<td>연쇄 삭제</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_8">비즈니스 규칙<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">진행 상황 계산<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><strong>공식:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>completed = (done + not_home_max_tries) / total_countable * 100
+</code></pre></div></p>
+<p><strong>계산 가능한 주소:</strong>
+- <code>is_countable=true</code> 옵션을 가진 주소만
+- DNC 및 유효하지 않은 주소 제외</p>
+<p><strong>완료 기준:</strong>
+- 상태 = <code>done</code>, 또는
+- 상태 = <code>not_home</code> AND <code>not_home_tries &gt;= congregation.max_tries</code></p>
+<h3 id="_10">주소 수명 주기<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>not_done → not_home (재시도 시도) → done
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>        → do_not_call (제외)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        → invalid (제외)
+</code></pre></div>
+<h3 id="_11">자동 업데이트 트리거<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>주소 업데이트:</strong></li>
+<li>메모가 변경되면 <code>last_notes_updated</code> 업데이트</li>
+<li><code>last_notes_updated_by</code>를 현재 사용자로 설정</li>
+<li>집계 재계산 트리거</li>
+<li>지도 진행 상황 업데이트</li>
+<li>
+<p>구역 진행 상황 업데이트</p>
+</li>
+<li>
+<p><strong>지도 작업:</strong></p>
+</li>
+<li>주소가 변경될 때 집계 재계산</li>
+<li>
+<p>구역 진행 상황 업데이트</p>
+</li>
+<li>
+<p><strong>배정 생성:</strong></p>
+</li>
+<li>회중 설정에 따라 만료 설정</li>
+<li>접근 토큰으로 고유한 20자 ID 생성</li>
+</ol>
+<hr />
+<h2 id="_12">다음 단계<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../architecture/">아키텍처</a> - 시스템 아키텍처</li>
+<li><a href="../backend-setup/">백엔드 설정</a> - 데이터베이스 구성</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

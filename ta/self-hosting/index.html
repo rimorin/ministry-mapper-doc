@@ -1,0 +1,2996 @@
+
+<!doctype html>
+<html lang="ta" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ta/self-hosting/">
+      
+      
+        <link rel="prev" href="../deployment/">
+      
+      
+        <link rel="next" href="../backend-setup/">
+      
+      
+        
+          <link rel="alternate" href="../../self-hosting/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/self-hosting/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/self-hosting/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/self-hosting/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/self-hosting/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/self-hosting/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/self-hosting/" hreflang="es">
+        
+          <link rel="alternate" href="./" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Self-Hosting Guide - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ministry-mapper" class="md-skip">
+          உள்ளடக்கத்திற்கு செல்க
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="தலைப்பு">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Self-Hosting Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="மொழியைத் தேர்ந்தெடுக்கவும்">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../self-hosting/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/self-hosting/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/self-hosting/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/self-hosting/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/self-hosting/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/self-hosting/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/self-hosting/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="தேடு" placeholder="தேடு" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="தேடு">
+        
+        <button type="reset" class="md-search__icon md-icon" title="அழிக்கவும்" aria-label="அழிக்கவும்" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            தேடலைத் துவக்குகிறது
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="தாவல்கள்" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="வழிசெலுத்தல்" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="உள்ளடக்க அட்டவணை">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      உள்ளடக்க அட்டவணை
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்வதை நாங்கள் ஊக்குவிக்காத காரணம்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்வதற்கான முன்நிபந்தனைகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="சொந்தமாக ஹோஸ்ட் செய்வதற்கான முன்நிபந்தனைகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொழில்நுட்ப தேவைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்கட்டமைப்பு தேவைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நேர அர்ப்பணிப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கட்டமைப்பு கண்ணோட்டம்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend சொந்த ஹோஸ்டிங் வழிகாட்டி
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend சொந்த ஹோஸ்டிங் வழிகாட்டி">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சூழல் கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker பயன்படுத்தல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்ளூர் மேம்பாடு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவுத்தள காப்புப்பிரதிகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பாதுகாப்பு சரிபார்ப்பு பட்டியல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend சொந்த ஹோஸ்டிங் வழிகாட்டி
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend சொந்த ஹோஸ்டிங் வழிகாட்டி">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சூழல் கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உற்பத்திக்கு உருவாக்குதல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பயன்படுத்தல் விருப்பங்கள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பயன்படுத்தல் விருப்பங்கள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிலையான ஹோஸ்டிங் சேவைகள் (எளிதானது)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட வலை சேவையகம்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry அமைவு (விருப்பத்தேர்வு)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பராமரிப்பு மற்றும் புதுப்பிப்புகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பராமரிப்பு மற்றும் புதுப்பிப்புகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        வழக்கமான பராமரிப்பு பணிகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        புதிய பதிப்புகளுக்கு புதுப்பித்தல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கண்காணிப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட நிகழ்வுகளை சிக்கல் தீர்த்தல்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட நிகழ்வுகளை சிக்கல் தீர்த்தல்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        செயல்திறன் சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தனியுரிமை மற்றும் சட்ட இணக்கம்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தனியுரிமை மற்றும் சட்ட இணக்கம்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்பவராக உங்கள் பொறுப்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தேவையான சட்ட ஆவணங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவு பாதுகாப்பு நடவடிக்கைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        செலவு பரிசீலனைகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="செலவு பரிசீலனைகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்கட்டமைப்பு செலவுகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சேவை செலவுகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நேர முதலீடு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        மொத்த உரிமைச் செலவு (வருடாந்திரம்)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உதவி பெறுவது எங்கே
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="உதவி பெறுவது எங்கே">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சமூக ஆதரவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ஆதரவு கோரிக்கைகளில் சேர்க்க வேண்டியவை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சீமித ஆதரவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்வதற்கான மாற்றுகள்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முடிவு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="முடிவு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        இதற்கு பதிலாக ஹோஸ்ட் செய்யப்பட்ட சேவையை பயன்படுத்தவும்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        இன்னும் சொந்தமாக ஹோஸ்ட் செய்ய விரும்புகிறீர்களா?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="உள்ளடக்க அட்டவணை">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      உள்ளடக்க அட்டவணை
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்வதை நாங்கள் ஊக்குவிக்காத காரணம்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்வதற்கான முன்நிபந்தனைகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="சொந்தமாக ஹோஸ்ட் செய்வதற்கான முன்நிபந்தனைகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொழில்நுட்ப தேவைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்கட்டமைப்பு தேவைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நேர அர்ப்பணிப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கட்டமைப்பு கண்ணோட்டம்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend சொந்த ஹோஸ்டிங் வழிகாட்டி
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backend சொந்த ஹோஸ்டிங் வழிகாட்டி">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சூழல் கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker பயன்படுத்தல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்ளூர் மேம்பாடு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவுத்தள காப்புப்பிரதிகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பாதுகாப்பு சரிபார்ப்பு பட்டியல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend சொந்த ஹோஸ்டிங் வழிகாட்டி
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend சொந்த ஹோஸ்டிங் வழிகாட்டி">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சூழல் கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உற்பத்திக்கு உருவாக்குதல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பயன்படுத்தல் விருப்பங்கள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பயன்படுத்தல் விருப்பங்கள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிலையான ஹோஸ்டிங் சேவைகள் (எளிதானது)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட வலை சேவையகம்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry அமைவு (விருப்பத்தேர்வு)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பராமரிப்பு மற்றும் புதுப்பிப்புகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பராமரிப்பு மற்றும் புதுப்பிப்புகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        வழக்கமான பராமரிப்பு பணிகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        புதிய பதிப்புகளுக்கு புதுப்பித்தல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கண்காணிப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட நிகழ்வுகளை சிக்கல் தீர்த்தல்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட நிகழ்வுகளை சிக்கல் தீர்த்தல்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        செயல்திறன் சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தனியுரிமை மற்றும் சட்ட இணக்கம்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தனியுரிமை மற்றும் சட்ட இணக்கம்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்பவராக உங்கள் பொறுப்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தேவையான சட்ட ஆவணங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவு பாதுகாப்பு நடவடிக்கைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        செலவு பரிசீலனைகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="செலவு பரிசீலனைகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்கட்டமைப்பு செலவுகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சேவை செலவுகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நேர முதலீடு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        மொத்த உரிமைச் செலவு (வருடாந்திரம்)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உதவி பெறுவது எங்கே
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="உதவி பெறுவது எங்கே">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சமூக ஆதரவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ஆதரவு கோரிக்கைகளில் சேர்க்க வேண்டியவை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சீமித ஆதரவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சொந்தமாக ஹோஸ்ட் செய்வதற்கான மாற்றுகள்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முடிவு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="முடிவு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        இதற்கு பதிலாக ஹோஸ்ட் செய்யப்பட்ட சேவையை பயன்படுத்தவும்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        இன்னும் சொந்தமாக ஹோஸ்ட் செய்ய விரும்புகிறீர்களா?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ministry-mapper">Ministry Mapper சொந்தமாக ஹோஸ்ட் செய்தல்<a class="headerlink" href="#ministry-mapper" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">சொந்தமாக ஹோஸ்ட் செய்தல் பரிந்துரைக்கப்படவில்லை</p>
+<p>Ministry Mapper-ஐ சொந்தமாக ஹோஸ்ட் செய்ய கணிசமான தொழில்நுட்ப நிபுணத்துவமும் தொடர்ந்த பராமரிப்பும் தேவை. <strong>அதற்கு பதிலாக <a href="https://ministry-mapper.com">ministry-mapper.com</a> இல் உள்ள எங்கள் ஹோஸ்ட் செய்யப்பட்ட சேவையை பயன்படுத்த பரிந்துரைக்கிறோம்.</strong> பின்வருபவை உங்களிடம் இருந்தால் மட்டுமே சொந்தமாக ஹோஸ்ட் செய்வதை தொடரவும்:</p>
+<ul>
+<li>அனுபவமிக்க சிஸ்டம் நிர்வாகிகள் அல்லது டெவலப்பர்கள்</li>
+<li>தொடர்ந்த பராமரிப்பு மற்றும் புதுப்பிப்புகளுக்கான வளங்கள்</li>
+<li>பாதுகாப்பு சிறந்த நடைமுறைகளின் புரிதல்</li>
+<li>தனியுரிமை விதிமுறைகளை கடைபிடிக்கும் திறன்</li>
+<li>ஹோஸ்ட் செய்யப்பட்ட சேவையால் பூர்த்தி செய்ய முடியாத குறிப்பிட்ட தேவைகள்</li>
+</ul>
+</div>
+<h2 id="_1">சொந்தமாக ஹோஸ்ட் செய்வதை நாங்கள் ஊக்குவிக்காத காரணம்<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper திறந்த மூலமாக இருந்தாலும், சொந்தமாக ஹோஸ்ட் செய்வதில் சவால்கள் உள்ளன:</p>
+<ul>
+<li><strong>தொழில்நுட்ப சிக்கலானது</strong>: Docker, தரவுத்தளங்கள், வலை சேவையகங்கள் மற்றும் cloud உள்கட்டமைப்பு பற்றிய அறிவு தேவை</li>
+<li><strong>பாதுகாப்பு பொறுப்பு</strong>: அனைத்தையும் பாதுகாப்பாகவும் புதுப்பித்தும் வைத்திருப்பதற்கு நீங்களே பொறுப்பு</li>
+<li><strong>பராமரிப்பு சுமை</strong>: வழக்கமான புதுப்பிப்புகள், காப்புப்பிரதிகள் மற்றும் கண்காணிப்பு அவசியம்</li>
+<li><strong>தனியுரிமை இணக்கம்</strong>: GDPR, CCPA மற்றும் பிற தனியுரிமை சட்ட இணக்கத்தை நீங்களே உறுதி செய்ய வேண்டும்</li>
+<li><strong>செலவு</strong>: சேவையக செலவுகள், API செலவுகள் மற்றும் நேர முதலீடு பெரும்பாலும் ஹோஸ்ட் செய்யப்பட்ட சேவை கட்டணங்களை மீறும்</li>
+<li><strong>ஆதரவு</strong>: சொந்தமாக ஹோஸ்ட் செய்யும் சிக்கல்களுக்கு சீமித சமூக ஆதரவு</li>
+</ul>
+<h2 id="_2">சொந்தமாக ஹோஸ்ட் செய்வதற்கான முன்நிபந்தனைகள்<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>எங்கள் பரிந்துரைகளை மீறி சொந்தமாக ஹோஸ்ட் செய்ய முடிவு செய்திருந்தால், பின்வருபவை உங்களிடம் உள்ளதா என உறுதிப்படுத்தவும்:</p>
+<h3 id="_3">தொழில்நுட்ப தேவைகள்<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Linux சேவையக நிர்வாகத்தில் அனுபவம்</li>
+<li>Docker மற்றும் containerization-ன் புரிதல்</li>
+<li>சூழல் மாறிகள் மற்றும் கட்டமைப்பு பற்றிய நடைமுறை அறிவு</li>
+<li>வலை சேவையக கட்டமைப்பின் அறிவு (Nginx/Apache)</li>
+<li>SSL/TLS சான்றிதழ்களில் அனுபவம்</li>
+<li>DNS மற்றும் டொமைன் கட்டமைப்பின் புரிதல்</li>
+</ul>
+<h3 id="_4">உள்கட்டமைப்பு தேவைகள்<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cloud ஹோஸ்டிங் சேவை (Railway, Render, DigitalOcean, AWS போன்றவை)</li>
+<li>உங்கள் நிகழ்விற்கான டொமைன் பெயர்</li>
+<li>அறிவிப்புகளுக்கான மின்னஞ்சல் சேவை (விருப்பத்தேர்வு)</li>
+<li>விருப்பத்தேர்வு API செலவுகளுக்கான பட்ஜெட் (Sentry போன்றவை)</li>
+</ul>
+<h3 id="_5">நேர அர்ப்பணிப்பு<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ஆரம்ப அமைவு: 2-4 மணி நேரம்</li>
+<li>தொடர்ந்த பராமரிப்பு: மாதம் 2-4 மணி நேரம்</li>
+<li>சிக்கல்கள் எழும்போது அவசர ஆதரவு</li>
+</ul>
+<h2 id="_6">கட்டமைப்பு கண்ணோட்டம்<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper இரண்டு தனி கூறுகளை கொண்டுள்ளது:</p>
+<ol>
+<li><strong>Backend (ministry-mapper-be)</strong>: Go நீட்டிப்புகளுடன் PocketBase சேவையகம்</li>
+<li>இணைப்பி: <a href="https://github.com/rimorin/ministry-mapper-be">github.com/rimorin/ministry-mapper-be</a></li>
+<li>தொழில்நுட்பம்: Go, PocketBase, SQLite</li>
+<li>
+<p>போர்ட் 8080 (Docker) அல்லது 8090 (உள்ளூர்) இல் இயங்குகிறது</p>
+</li>
+<li>
+<p><strong>Frontend (ministry-mapper-v2)</strong>: React வலை பயன்பாடு</p>
+</li>
+<li>இணைப்பி: <a href="https://github.com/rimorin/ministry-mapper-v2">github.com/rimorin/ministry-mapper-v2</a></li>
+<li>தொழில்நுட்பம்: React, TypeScript, Vite</li>
+<li>ஹோஸ்டிங் சேவையில் பயன்படுத்தப்படும் நிலையான கோப்புகள்</li>
+</ol>
+<p>இரண்டும் பயன்படுத்தப்பட்டு ஒன்றாக வேலை செய்ய கட்டமைக்கப்பட வேண்டும்.</p>
+<h2 id="backend">Backend சொந்த ஹோஸ்டிங் வழிகாட்டி<a class="headerlink" href="#backend" title="Permanent link">&para;</a></h2>
+<h3 id="_7">சூழல் கட்டமைப்பு<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>இந்த அமைவுகளுடன் <code>.env</code> கோப்பை உருவாக்கவும்:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Application Settings</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>https://your-frontend-domain.com
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Initial Admin Account (change password after first login!)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>admin@your-domain.com
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>change_this_secure_password
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Email Configuration (SMTP)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>smtp.gmail.com
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">PB_SMTP_PASSWORD</span><span class="o">=</span>your_app_password
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">PB_SMTP_USERNAME</span><span class="o">=</span>your_email@gmail.com
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">PB_SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nv">PB_SMTP_SENDER_ADDRESS</span><span class="o">=</span>noreply@your-domain.com
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Security Settings</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>https://your-frontend-domain.com
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1"># Authentication (optional)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1"># Error Tracking (optional but recommended)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="nv">SOURCE_COMMIT</span><span class="o">=</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1"># Service Integration (optional)</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="nv">MAILERSEND_FROM_EMAIL</span><span class="o">=</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="nv">LAUNCHDARKLY_CONTEXT_KEY</span><span class="o">=</span>
+</code></pre></div>
+<h3 id="docker">Docker பயன்படுத்தல்<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>இணைப்பியை குளோன் செய்யவும்</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Docker படம் உருவாக்கவும்</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Container இயக்கவும்</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>முக்கிய குறிப்புகள்:</strong>
+- Container உள்நாட்டில் போர்ட் 8080 இல் இயங்குகிறது
+- தரவை பாதுகாக்க <code>/app/pb_data</code> க்கு நிலையான volume ஐ இணைக்கவும்
+- உங்கள் தரவுத்தளம் <code>pb_data</code> கோப்புறையில் உள்ளது</p>
+<ol>
+<li><strong>நிர்வாக பலகத்தை அணுகவும்</strong>
+<code>https://your-backend-domain.com/_/</code> க்கு செல்லவும் மற்றும் உங்கள் நிர்வாக சான்றுகளுடன் உள்நுழையவும்.</li>
+</ol>
+<h3 id="_8">உள்ளூர் மேம்பாடு<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>உங்கள் உள்ளூர் இயந்திரத்தில் சோதிக்க:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Clone repository</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Install dependencies</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>./scripts/install.sh
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Configure environment</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Edit .env with your settings</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Start application</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>./scripts/start.sh
+</code></pre></div>
+<p>Backend இயல்பாக <code>http://localhost:8090</code> இல் இயங்குகிறது.</p>
+<h3 id="_9">தரவுத்தள காப்புப்பிரதிகள்<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>உங்கள் தரவு மிக முக்கியமானது. தானியங்கி காப்புப்பிரதிகளை அமைக்கவும்:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Manual backup</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>tar<span class="w"> </span>-czf<span class="w"> </span>backup-<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Automated daily backup (add to crontab)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+</code></pre></div>
+<h3 id="_10">பாதுகாப்பு சரிபார்ப்பு பட்டியல்<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] இயல்புநிலை நிர்வாக கடவுச்சொல்லை உடனடியாக மாற்றவும்</li>
+<li>[ ] HTTPS மட்டுமே பயன்படுத்தவும் (ஒருபோதும் HTTP வேண்டாம்)</li>
+<li>[ ] <code>PB_ALLOW_ORIGINS</code> ஐ குறிப்பிட்ட டொமைனுக்கு அமைக்கவும் (<code>*</code> வேண்டாம்)</li>
+<li>[ ] <code>PB_HIDE_CONTROLS=true</code> இயக்கவும்</li>
+<li>[ ] <code>PB_ENABLE_RATE_LIMITING=true</code> இயக்கவும்</li>
+<li>[ ] அணுகலை கட்டுப்படுத்த firewall கட்டமைக்கவும்</li>
+<li>[ ] தானியங்கி காப்புப்பிரதிகளை அமைக்கவும்</li>
+<li>[ ] பிழை கண்காணிப்புக்கு Sentry கட்டமைக்கவும்</li>
+<li>[ ] வலிமையான, தனிப்பட்ட கடவுச்சொற்களை பயன்படுத்தவும்</li>
+<li>[ ] சார்புகளை புதுப்பிக்கவும்</li>
+<li>[ ] PocketBase பாதுகாப்பு சிறந்த நடைமுறைகளை மதிப்பாய்வு செய்யவும்</li>
+</ul>
+<h2 id="frontend">Frontend சொந்த ஹோஸ்டிங் வழிகாட்டி<a class="headerlink" href="#frontend" title="Permanent link">&para;</a></h2>
+<h3 id="_11">சூழல் கட்டமைப்பு<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><code>.env</code> கோப்பை உருவாக்கவும்:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># System Environment</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Version</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># PocketBase Backend URL (no trailing slash)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-domain.com
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Legal Pages (required)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-domain.com/privacy
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-domain.com/terms
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-domain.com/about
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># Error Tracking (optional but recommended)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div>
+<h3 id="_12">உற்பத்திக்கு உருவாக்குதல்<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Clone repository</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-v2.git
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Install dependencies</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>npm<span class="w"> </span>install
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Build</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</code></pre></div>
+<p>வெளியீடு <code>build/</code> கோப்புறையில் இருக்கும்.</p>
+<h3 id="_13">பயன்படுத்தல் விருப்பங்கள்<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h4 id="_14">நிலையான ஹோஸ்டிங் சேவைகள் (எளிதானது)<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p><strong>Vercel:</strong>
+1. GitHub இணைப்பியை இறக்குமதி செய்யவும்
+2. Framework: Vite
+3. Build command: <code>npm run build</code>
+4. Output directory: <code>build</code>
+5. சூழல் மாறிகளை சேர்க்கவும்</p>
+<p><strong>Netlify:</strong>
+1. Git இலிருந்து புதிய தளம்
+2. Build command: <code>npm run build</code>
+3. Publish directory: <code>build</code>
+4. சூழல் மாறிகளை சேர்க்கவும்</p>
+<p><strong>Cloudflare Pages:</strong>
+1. Pages திட்டம் உருவாக்கவும்
+2. Framework: Vite
+3. Build command: <code>npm run build</code>
+4. Output directory: <code>build</code>
+5. சூழல் மாறிகளை சேர்க்கவும்</p>
+<h4 id="_15">சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட வலை சேவையகம்<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p><strong>Nginx கட்டமைப்பு:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/path/to/cert.pem</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/path/to/key.pem</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.html</span><span class="p">;</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1"># Caching</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)</span>$<span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">1y</span><span class="p">;</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">immutable&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="c1"># Security headers</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Frame-Options</span><span class="w"> </span><span class="s">&quot;SAMEORIGIN&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Content-Type-Options</span><span class="w"> </span><span class="s">&quot;nosniff&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-XSS-Protection</span><span class="w"> </span><span class="s">&quot;1</span><span class="p">;</span><span class="w"> </span><span class="kn">mode=block&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Apache கட்டமைப்பு:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:443</span><span class="nt">&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>your-domain.com
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/ministry-mapper/build</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nb">SSLEngine</span><span class="w"> </span><span class="k">on</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nb">SSLCertificateFile</span><span class="w"> </span><span class="sx">/path/to/cert.pem</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nb">SSLCertificateKeyFile</span><span class="w"> </span><span class="sx">/path/to/key.pem</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="nt">&gt;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="nb">Options</span><span class="w"> </span>-Indexes<span class="w"> </span>+FollowSymLinks
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="nb">RewriteBase</span><span class="w"> </span>/
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>^index\.html$<span class="w"> </span>-<span class="w"> </span>[L]
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-d
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>.<span class="w"> </span><span class="sx">/index.html</span><span class="w"> </span>[L]
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<h3 id="sentry">Sentry அமைவு (விருப்பத்தேர்வு)<a class="headerlink" href="#sentry" title="Permanent link">&para;</a></h3>
+<ol>
+<li><a href="https://sentry.io">sentry.io</a> இல் கணக்கு உருவாக்கவும்</li>
+<li>React திட்டம் உருவாக்கவும்</li>
+<li>DSN பெறவும்</li>
+<li><code>.env</code> இல் <code>VITE_SENTRY_DSN</code> ஆக சேர்க்கவும்</li>
+</ol>
+<h2 id="_16">பராமரிப்பு மற்றும் புதுப்பிப்புகள்<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="_17">வழக்கமான பராமரிப்பு பணிகள்<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><strong>வாராந்திரம்:</strong>
+- பிழைகளுக்கு Sentry சரிபார்க்கவும்
+- பயன்பாட்டு பதிவுகளை மதிப்பாய்வு செய்யவும்
+- காப்புப்பிரதிகள் வேலை செய்கின்றனவா சரிபார்க்கவும்</p>
+<p><strong>மாதாந்திரம்:</strong>
+- சார்புகளை புதுப்பிக்கவும்: <code>npm install</code> மற்றும் <code>go get -u</code>
+- பாதுகாப்பு ஆலோசனைகளை மதிப்பாய்வு செய்யவும்
+- பேரிடர் மீட்டெடுப்பு நடைமுறைகளை சோதிக்கவும்
+- வட்டு இட பயன்பாட்டை சரிபார்க்கவும்
+- பயனர் கருத்துகளை மதிப்பாய்வு செய்யவும்</p>
+<p><strong>காலாண்டுதோறும்:</strong>
+- பாதுகாப்பு தணிக்கை
+- செயல்திறன் மதிப்பாய்வு
+- ஆவணங்களை புதுப்பிக்கவும்
+- தனியுரிமை கொள்கையை மதிப்பாய்வு செய்து புதுப்பிக்கவும்
+- அனைத்து அம்சங்களையும் முழுமையாக சோதிக்கவும்</p>
+<h3 id="_18">புதிய பதிப்புகளுக்கு புதுப்பித்தல்<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><strong>Backend புதுப்பித்தல்:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>docker<span class="w"> </span>stop<span class="w"> </span>ministry-mapper
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>docker<span class="w"> </span>rm<span class="w"> </span>ministry-mapper
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div></p>
+<p><strong>Frontend புதுப்பித்தல்:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>npm<span class="w"> </span>install
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Deploy build/ folder to your hosting service</span>
+</code></pre></div></p>
+<p><strong>புதுப்பிப்பதற்கு முன் எப்போதும் காப்புப்பிரதி எடுக்கவும்!</strong></p>
+<h3 id="_19">கண்காணிப்பு<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p><strong>கண்காணிக்க வேண்டியவை:</strong>
+- சேவையக இயக்க நேரம் மற்றும் ஆரோக்கியம்
+- பயன்பாட்டு பிழை விகிதங்கள் (Sentry)
+- தரவுத்தள அளவு வளர்ச்சி
+- காப்புப்பிரதி வெற்றி/தோல்வி
+- SSL சான்றிதழ் காலாவதி
+- பயனர் அங்கீகரண சிக்கல்கள்
+- செயல்திறன் அளவீடுகள்</p>
+<p><strong>கருவிகள்:</strong>
+- பிழை கண்காணிப்புக்கு Sentry
+- API பயன்பாட்டிற்கு Google Cloud Console
+- சேவையக கண்காணிப்பு (Prometheus, Grafana போன்றவை)
+- இயக்க நேர கண்காணிப்பு (UptimeRobot, Pingdom)
+- பதிவு திரட்டல் (ELK stack, CloudWatch)</p>
+<h2 id="_20">சொந்தமாக ஹோஸ்ட் செய்யப்பட்ட நிகழ்வுகளை சிக்கல் தீர்த்தல்<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<h3 id="backend_1">Backend சிக்கல்கள்<a class="headerlink" href="#backend_1" title="Permanent link">&para;</a></h3>
+<p><strong>போர்ட் ஏற்கனவே பயன்பாட்டில் உள்ளது:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8080
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;process_id&gt;
+</code></pre></div></p>
+<p><strong>தரவுத்தளம் பூட்டப்பட்டது:</strong>
+- தரவுத்தளத்தை அணுகும் அனைத்து நிகழ்வுகளையும் நிறுத்தவும்
+- ஒரே ஒரு backend செயல்முறை மட்டுமே இயங்குவதை உறுதிப்படுத்தவும்
+- தொங்கும் செயல்முறைகளை சரிபார்க்கவும்</p>
+<p><strong>மின்னஞ்சல் அனுப்பப்படவில்லை:</strong>
+- SMTP சான்றுகளை சரிபார்க்கவும்
+- Firewall SMTP போர்ட்களை தடுக்கவில்லை என சரிபார்க்கவும்
+- Gmail-க்கு, App Passwords பயன்படுத்தவும்
+- <code>pb_data/logs/</code> இல் மின்னஞ்சல் பதிவுகளை மதிப்பாய்வு செய்யவும்</p>
+<p><strong>நிர்வாக பலகத்தை அணுக முடியவில்லை:</strong>
+- URL <code>https://your-domain.com/_/</code> ஆக இருக்க வேண்டும் (அடிக்கோடை கவனிக்கவும்)
+- <code>PB_HIDE_CONTROLS</code> அமைப்பை சரிபார்க்கவும்
+- Backend இயங்குகிறதா என சரிபார்க்கவும்
+- உலாவி cache ஐ அழிக்கவும்</p>
+<h3 id="frontend_1">Frontend சிக்கல்கள்<a class="headerlink" href="#frontend_1" title="Permanent link">&para;</a></h3>
+<p><strong>Backend-ஐ இணைக்க முடியவில்லை:</strong>
+- <code>VITE_POCKETBASE_URL</code> சரியானதா என சரிபார்க்கவும்
+- Backend-இல் CORS அமைவுகளை சரிபார்க்கவும்
+- Backend அணுகக்கூடியதா என உறுதிப்படுத்தவும்
+- உலாவி console-ல் பிழைகளை சரிபார்க்கவும்</p>
+<p><strong>உருவாக்கல் தோல்விகள்:</strong>
+- Node.js பதிப்பு 22+ உறுதிப்படுத்தவும்
+- <code>node_modules</code> நீக்கி மீண்டும் நிறுவவும்
+- அனைத்து சூழல் மாறிகளும் அமைக்கப்பட்டுள்ளனவா சரிபார்க்கவும்
+- உருவாக்கல் பிழை செய்திகளை மதிப்பாய்வு செய்யவும்</p>
+<h3 id="_21">செயல்திறன் சிக்கல்கள்<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p><strong>மெதுவான பதில் நேரங்கள்:</strong>
+- சேவையக வளங்களை சரிபார்க்கவும் (CPU, RAM, வட்டு)
+- தரவுத்தள அளவு மற்றும் queries மதிப்பாய்வு செய்யவும்
+- தரவுத்தள மேம்படுத்தல்களை இயக்கவும்
+- நெட்வொர்க் தாமதத்தை சரிபார்க்கவும்
+- மெதுவான queries-க்கு PocketBase பதிவுகளை மதிப்பாய்வு செய்யவும்</p>
+<h2 id="_22">தனியுரிமை மற்றும் சட்ட இணக்கம்<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<h3 id="_23">சொந்தமாக ஹோஸ்ட் செய்பவராக உங்கள் பொறுப்புகள்<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>சொந்தமாக ஹோஸ்ட் செய்யும்போது, நீங்கள் தரவு கட்டுப்படுத்தியாக இருக்கிறீர்கள் மற்றும் பின்வருவனவற்றை செய்ய வேண்டும்:</p>
+<ul>
+<li><strong>தனியுரிமை சட்டங்களை கடைபிடிக்கவும்</strong>: GDPR (EU), CCPA (California) போன்றவை</li>
+<li><strong>தனியுரிமை கொள்கை உருவாக்கவும்</strong>: தரவு சேகரிப்பு மற்றும் பயன்பாட்டை விளக்கவும்</li>
+<li><strong>சேவை விதிமுறைகள் உருவாக்கவும்</strong>: பயனர் பொறுப்புகளை வரையறுக்கவும்</li>
+<li><strong>தரவு பாதுகாப்பை செயல்படுத்தவும்</strong>: குறியாக்கம், அணுகல் கட்டுப்பாடுகள், காப்புப்பிரதிகள்</li>
+<li><strong>தரவு கோரிக்கைகளை கையாளவும்</strong>: பயனர் அணுகல், நீக்கம், பெயர்வு உரிமைகள்</li>
+<li><strong>தரவு மீறல்களை தெரிவிக்கவும்</strong>: சட்டப்பூர்வ காலக்கெடுவிற்குள்</li>
+<li><strong>பதிவுகளை பராமரிக்கவும்</strong>: தரவு செயலாக்க செயல்பாடுகள்</li>
+<li><strong>DPO நியமிக்கவும்</strong>: விதிமுறைகளால் தேவைப்பட்டால்</li>
+</ul>
+<h3 id="_24">தேவையான சட்ட ஆவணங்கள்<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் வழங்க வேண்டும்:</p>
+<ol>
+<li><strong>தனியுரிமை கொள்கை</strong> - சட்டத்தால் தேவை, விளக்க வேண்டும்:</li>
+<li>நீங்கள் எந்த தரவை சேகரிக்கிறீர்கள்</li>
+<li>நீங்கள் அதை எவ்வாறு பயன்படுத்துகிறீர்கள்</li>
+<li>எவ்வளவு காலம் வைத்திருக்கிறீர்கள்</li>
+<li>பயனர் உரிமைகள்</li>
+<li>
+<p>உங்களை எவ்வாறு தொடர்பு கொள்வது</p>
+</li>
+<li>
+<p><strong>சேவை விதிமுறைகள்</strong> - வரையறுக்கிறது:</p>
+</li>
+<li>ஏற்கத்தக்க பயன்பாடு</li>
+<li>பயனர் பொறுப்புகள்</li>
+<li>பொறுப்பு வரம்புகள்</li>
+<li>
+<p>நிறுத்தல் கொள்கைகள்</p>
+</li>
+<li>
+<p><strong>Cookie கொள்கை</strong> - நீங்கள் cookies/கண்காணிப்பு பயன்படுத்தினால்</p>
+</li>
+</ol>
+<h3 id="_25">தரவு பாதுகாப்பு நடவடிக்கைகள்<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li>எல்லா இடத்திலும் HTTPS பயன்படுத்தவும்</li>
+<li>ஓய்வில் உள்ள தரவை குறியாக்கம் செய்யவும்</li>
+<li>அணுகல் கட்டுப்பாடுகளை செயல்படுத்தவும்</li>
+<li>வழக்கமான பாதுகாப்பு தணிக்கைகள்</li>
+<li>காப்புப்பிரதி குறியாக்கம்</li>
+<li>பாதுகாப்பான கடவுச்சொல் கொள்கைகள்</li>
+<li>பல்-காரணி அங்கீகரணம்</li>
+<li>செயல்பாடு பதிவு</li>
+<li>வழக்கமான பாதுகாப்பு புதுப்பிப்புகள்</li>
+</ul>
+<h2 id="_26">செலவு பரிசீலனைகள்<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">உள்கட்டமைப்பு செலவுகள்<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p><strong>Backend ஹோஸ்டிங்:</strong>
+- VPS: $10-50/மாதம் (DigitalOcean, Linode)
+- PaaS: $10-30/மாதம் (Railway, Render)
+- Cloud: மாறுபடும் (AWS, GCP)</p>
+<p><strong>Frontend ஹோஸ்டிங்:</strong>
+- நிலையான ஹோஸ்டிங்: $0-10/மாதம் (Vercel, Netlify, Cloudflare)
+- CDN செலவுகள்: பொதுவாக உள்ளடங்கியது</p>
+<p><strong>டொமைன்:</strong>
+- $10-20/ஆண்டு</p>
+<p><strong>SSL சான்றிதழ்:</strong>
+- இலவசம் (Let's Encrypt) அல்லது $0-100/ஆண்டு</p>
+<h3 id="_28">சேவை செலவுகள்<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p><strong>மின்னஞ்சல் சேவை:</strong>
+- Gmail SMTP: இலவசம் (வரம்பிட்டது)
+- MailerSend: இலவச அடுக்கு கிடைக்கும்
+- SendGrid: இலவச அடுக்கு கிடைக்கும்</p>
+<p><strong>பிழை கண்காணிப்பு:</strong>
+- Sentry: இலவச அடுக்கு கிடைக்கும்
+- கட்டணம்: $26-80/மாதம்</p>
+<p><strong>காப்புப்பிரதி சேமிப்பு:</strong>
+- அளவைப் பொறுத்து $5-20/மாதம்</p>
+<h3 id="_29">நேர முதலீடு<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p><strong>ஆரம்ப அமைவு:</strong>
+- Backend: 2-3 மணி நேரம்
+- Frontend: 1-2 மணி நேரம்
+- கட்டமைப்பு: 1-2 மணி நேரம்
+- சோதனை: 2-3 மணி நேரம்
+- <strong>மொத்தம்: 6-10 மணி நேரம்</strong></p>
+<p><strong>மாதாந்திர பராமரிப்பு:</strong>
+- கண்காணிப்பு: 1-2 மணி நேரம்
+- புதுப்பிப்புகள்: 1-2 மணி நேரம்
+- ஆதரவு: 1-3 மணி நேரம்
+- <strong>மொத்தம்: 3-7 மணி நேரம்</strong></p>
+<h3 id="_30">மொத்த உரிமைச் செலவு (வருடாந்திரம்)<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<p><strong>சிறிய சபை (&lt; 100 பயனர்கள்):</strong>
+- உள்கட்டமைப்பு: $240-720
+- API-கள்: $0-100 (பொதுவாக இலவச அடுக்கு)
+- சேவைகள்: $0-300
+- டொமைன்/SSL: $10-20
+- <strong>மொத்தம்: $250-1,140 + 48-96 மணி நேரம்/ஆண்டு</strong></p>
+<p>அர்ப்பணிப்பதற்கு முன் இதை ஒரு ஹோஸ்ட் செய்யப்பட்ட சேவை சந்தாவுடன் ஒப்பிடவும்.</p>
+<h2 id="_31">உதவி பெறுவது எங்கே<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h3 id="_32">சமூக ஆதரவு<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GitHub Issues: <a href="https://github.com/rimorin/ministry-mapper-v2/issues">ministry-mapper-v2</a> மற்றும் <a href="https://github.com/rimorin/ministry-mapper-be/issues">ministry-mapper-be</a></li>
+<li>புதிய issues உருவாக்குவதற்கு முன் ஏற்கனவே உள்ள issues படிக்கவும்</li>
+<li>சிக்கல்களை தெரிவிக்கும்போது விரிவான தகவலை வழங்கவும்</li>
+</ul>
+<h3 id="_33">ஆதரவு கோரிக்கைகளில் சேர்க்க வேண்டியவை<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<ol>
+<li>பதிப்பு எண்கள் (backend மற்றும் frontend)</li>
+<li>பயன்படுத்தல் சூழல் (Docker, உள்ளூர், ஹோஸ்டிங் சேவை)</li>
+<li>பிழை செய்திகள் (முழு உரை)</li>
+<li>மீண்டும் நிகழ்த்தும் படிகள்</li>
+<li>எதிர்பார்க்கப்பட்ட vs உண்மையான நடத்தை</li>
+<li>தொடர்புடைய பதிவுகள்</li>
+<li>கட்டமைப்பு (சுத்திகரிக்கப்பட்டது, ரகசியங்கள் இல்லாமல்)</li>
+</ol>
+<h3 id="_34">சீமித ஆதரவு<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">ஆதரவு வரம்புகள்</p>
+<p>சொந்தமாக ஹோஸ்ட் செய்வதற்கான ஆதரவு சமூக-அடிப்படையிலானது மற்றும் சீமிதமானது. Ministry Mapper குழு ஹோஸ்ட் செய்யப்பட்ட சேவைக்கு முன்னுரிமை அளிக்கிறது. தொழில்முறை ஆதரவுக்கு, ஹோஸ்ட் செய்யப்பட்ட சேவையை பயன்படுத்துவதை பரிசீலிக்கவும்.</p>
+</div>
+<h2 id="_35">சொந்தமாக ஹோஸ்ட் செய்வதற்கான மாற்றுகள்<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<p>சொந்தமாக ஹோஸ்ட் செய்வதற்கு முன், பரிசீலிக்கவும்:</p>
+<ol>
+<li><strong><a href="https://ministry-mapper.com">ministry-mapper.com</a> இல் அதிகாரப்பூர்வ ஹோஸ்ட் செய்யப்பட்ட சேவையை பயன்படுத்தவும்</strong></li>
+<li>பராமரிப்பு சுமை இல்லை</li>
+<li>தொழில்முறை ஆதரவு</li>
+<li>தானியங்கி புதுப்பிப்புகள்</li>
+<li>சிறந்த நம்பகத்தன்மை</li>
+<li>இணக்கம் உங்களுக்காக கையாளப்படுகிறது</li>
+<li>
+<p>இப்போதே கிடைக்கும்!</p>
+</li>
+<li>
+<p><strong>அம்சங்கள் கோரவும்</strong></p>
+</li>
+<li>தனிப்பயனாக்கம் தேவைப்பட்டால், முக்கிய திட்டத்தில் அம்சங்களை கோரவும்</li>
+<li>அனைவருக்கும் பயன்படுகிறது</li>
+<li>குழுவால் பராமரிக்கப்படுகிறது</li>
+<li>
+<p>ஹோஸ்ட் செய்யப்பட்ட சேவையில் சேர்க்கப்படலாம்</p>
+</li>
+<li>
+<p><strong>திட்டத்தில் பங்களிக்கவும்</strong></p>
+</li>
+<li>முக்கிய codebase-ஐ மேம்படுத்தவும்</li>
+<li>மற்றவர்களுக்கு உதவுங்கள்</li>
+<li>சமூக ஆதரவு பெறவும்</li>
+</ol>
+<h2 id="_36">முடிவு<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper-ஐ சொந்தமாக ஹோஸ்ட் செய்வது சாத்தியம், ஆனால் கணிசமான நிபுணத்துவம், நேரம் மற்றும் வளங்கள் தேவை. <strong>கூடுதல் சிக்கலை நியாயப்படுத்தும் குறிப்பிட்ட தேவைகள் இல்லாவிட்டால் <a href="https://ministry-mapper.com">ministry-mapper.com</a> இல் உள்ள ஹோஸ்ட் செய்யப்பட்ட சேவையை பயன்படுத்த வலுவாக பரிந்துரைக்கிறோம்.</strong></p>
+<h3 id="_37">இதற்கு பதிலாக ஹோஸ்ட் செய்யப்பட்ட சேவையை பயன்படுத்தவும்<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p><strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong> ஐ பார்வையிடவும்:
+- உடனடி அமைவு - தொழில்நுட்ப அறிவு தேவையில்லை
+- தேவைப்படும்போது தொழில்முறை ஆதரவு
+- தானியங்கி காப்புப்பிரதிகள் மற்றும் பாதுகாப்பு புதுப்பிப்புகள்
+- சட்ட இணக்க உதவி
+- சிறந்த நம்பகத்தன்மை மற்றும் இயக்க நேரம்
+- குறைந்த மொத்த உரிமைச் செலவு</p>
+<h3 id="_38">இன்னும் சொந்தமாக ஹோஸ்ட் செய்ய விரும்புகிறீர்களா?<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<p>சொந்தமாக ஹோஸ்ட் செய்ய தொடர்ந்தால்:
+- அனைத்து பாதுகாப்பு சிறந்த நடைமுறைகளையும் பின்பற்றவும்
+- அமைப்புகளை புதுப்பித்து வைக்கவும்
+- வழக்கமான காப்புப்பிரதிகளை பராமரிக்கவும்
+- சட்ட இணக்கத்தை உறுதிப்படுத்தவும்
+- அமைப்பு ஆரோக்கியத்தை கண்காணிக்கவும்
+- தொடர்ந்த செலவுகளுக்கு பட்ஜெட் ஒதுக்கவும்
+- பராமரிப்பிற்கு நேரம் ஒதுக்கவும்</p>
+<p>இந்த முழு வழிகாட்டியையும் படித்து விளைவுகளை புரிந்துகொண்டீர்கள் என்பதை உறுதிப்படுத்தவும். வாழ்த்துக்கள்!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  மீண்டும் மேலே
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f\u0ba4\u0bc1", "clipboard.copy": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd", "search.result.more.one": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd 1", "search.result.more.other": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd #", "search.result.none": "\u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0b95\u0bcd\u0b95\u0bc2\u0b9f\u0bbf\u0baf \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0b87\u0bb2\u0bcd\u0bb2\u0bc8", "search.result.one": "1 \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0bae\u0bcd", "search.result.other": "# \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd", "search.result.placeholder": "\u0ba4\u0bc7\u0b9f\u0bb2\u0bc8\u0ba4\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95 \u0ba4\u0b9f\u0bcd\u0b9f\u0b9a\u0bcd\u0b9a\u0bc1 \u0b9a\u0bc6\u0baf\u0bcd\u0baf\u0bb5\u0bc1\u0bae\u0bcd", "search.result.term.missing": "\u0b95\u0bbe\u0ba3\u0bb5\u0bbf\u0bb2\u0bcd\u0bb2\u0bc8", "select.version": "\u0baa\u0ba4\u0bbf\u0baa\u0bcd\u0baa\u0bc8\u0ba4\u0bcd \u0ba4\u0bc7\u0bb0\u0bcd\u0ba8\u0bcd\u0ba4\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

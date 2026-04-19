@@ -1,0 +1,3399 @@
+
+<!doctype html>
+<html lang="id" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/id/data-models/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+        
+          <link rel="alternate" href="../../data-models/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/data-models/" hreflang="zh">
+        
+          <link rel="alternate" href="./" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/data-models/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/data-models/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/data-models/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/data-models/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/data-models/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Data Models & Schema - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-data-skema" class="md-skip">
+          Lewati ke isi
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Models & Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Pilih bahasa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../data-models/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/data-models/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/data-models/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/data-models/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/data-models/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/data-models/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/data-models/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cari">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Kosongkan" aria-label="Kosongkan" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Mempersiapkan pencarian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tab" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ikhtisar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikhtisar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagram-entity-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram Entity Relationship
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koleksi-inti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koleksi Inti
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Koleksi Inti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-congregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Congregations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Addresses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Addresses Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Aggregates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-address-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Address Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koleksi-analitik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koleksi Analitik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Koleksi Analitik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teknologi-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teknologi Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hubungan-kunci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hubungan Kunci
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aturan-bisnis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aturan Bisnis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aturan Bisnis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kalkulasi-kemajuan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kalkulasi Kemajuan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siklus-hidup-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Siklus Hidup Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-auto-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger Auto-Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrasi-pembaruan-skema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrasi &amp; Pembaruan Skema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-selanjutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Selanjutnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Daftar isi">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Daftar isi
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ikhtisar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ikhtisar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagram-entity-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram Entity Relationship
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koleksi-inti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koleksi Inti
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Koleksi Inti">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-congregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Congregations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Addresses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Addresses Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Aggregates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-address-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Address Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#koleksi-analitik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Koleksi Analitik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Koleksi Analitik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teknologi-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Teknologi Database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hubungan-kunci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hubungan Kunci
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aturan-bisnis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aturan Bisnis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aturan Bisnis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kalkulasi-kemajuan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kalkulasi Kemajuan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siklus-hidup-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Siklus Hidup Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-auto-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger Auto-Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrasi-pembaruan-skema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrasi &amp; Pembaruan Skema
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-selanjutnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Selanjutnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="model-data-skema">Model Data &amp; Skema<a class="headerlink" href="#model-data-skema" title="Permanent link">&para;</a></h1>
+<h2 id="ikhtisar">Ikhtisar<a class="headerlink" href="#ikhtisar" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper menggunakan SQLite melalui PocketBase dengan model data hierarkis yang dirancang untuk manajemen jemaat multi-tenant. Dokumen ini menyediakan dokumentasi komprehensif dari semua model data, hubungan, dan aturan bisnis.</p>
+<h2 id="diagram-entity-relationship">Diagram Entity Relationship<a class="headerlink" href="#diagram-entity-relationship" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Congregation (Entitas root - isolasi multi-tenant)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├─── Territory (1:M)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    │      │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    │      └─── Map (1:M)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    │             │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    │             ├─── Address (1:M)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    │             │      ├─── addresses_log (1:M)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    │             │      └─── address_options (1:M)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    │             ├─── Assignment (1:M)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    │             └─── Message (1:M)
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    ├─── Option (1:M)
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    │      └─── address_options (M:M bridge dengan Address)
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    ├─── User (1:M via Role)
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    │      │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    │      ├─── Role (1:M)
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    │      └─── Assignment (1:M)
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    │
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    ├─── Message (1:M)
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    └─── aggregates (1:M dari Territory dan Map)
+</code></pre></div>
+<h2 id="koleksi-inti">Koleksi Inti<a class="headerlink" href="#koleksi-inti" title="Permanent link">&para;</a></h2>
+<h3 id="1-congregations">1. Congregations<a class="headerlink" href="#1-congregations" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Entitas sentral untuk isolasi multi-tenant dan pengaturan organisasi</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Kode organisasi</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Nama organisasi</td>
+</tr>
+<tr>
+<td><code>expiry_hours</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Durasi tautan penugasan (jam)</td>
+</tr>
+<tr>
+<td><code>max_tries</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Maksimal percobaan "tidak ada di rumah" sebelum ditandai selesai</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>select</td>
+<td>Ya</td>
+<td>Negara/wilayah (sg, my)</td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>select</td>
+<td>Ya</td>
+<td>Zona waktu untuk kalkulasi tanggal</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar:</strong> Pengguna harus memiliki peran di jemaat
+- <strong>Lihat:</strong> Pengguna dengan peran ATAU akses berbasis tautan
+- <strong>Perbarui:</strong> Hanya Administrator
+- <strong>Hapus:</strong> Hanya Administrator</p>
+<p><strong>Aturan Bisnis:</strong>
+- Mengontrol durasi penugasan default untuk semua peta
+- <code>max_tries</code> menentukan kapan alamat "tidak ada di rumah" dihitung sebagai selesai
+- Zona waktu mempengaruhi kalkulasi berbasis tanggal dan laporan</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CONG001&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;North Congregation&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;expiry_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">&quot;origin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sg&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">&quot;timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Asia/Singapore&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="2-territories">2. Territories<a class="headerlink" href="#2-territories" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Pembagian geografis dalam jemaat untuk mengorganisir pelayanan lapangan</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Pengenal wilayah (auto: "0")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>Tidak</td>
+<td>Deskripsi yang dapat dibaca manusia</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>Auto</td>
+<td>Persentase penyelesaian (0-100)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indeks:</strong>
+- <code>(congregation, code)</code> - Pencarian cepat berdasarkan jemaat
+- <code>(congregation)</code> - Filter jemaat</p>
+<p><strong>Hubungan:</strong>
+- 1:M dengan Maps
+- 1:M dengan Addresses (denormalized untuk kinerja)</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar:</strong> Pengguna dengan peran di jemaat
+- <strong>Lihat:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Buat/Perbarui/Hapus:</strong> Konduktor atau Administrator</p>
+<p><strong>Kalkulasi Kemajuan:</strong>
+Secara otomatis dikalkulasikan dari agregat semua peta dalam wilayah</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terr_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1A&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Downtown District&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">65.5</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="3-maps">3. Maps<a class="headerlink" href="#3-maps" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Merepresentasikan lokasi atau bangunan tertentu yang berisi alamat</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Territories (cascade delete)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>Auto</td>
+<td>Urutan dalam wilayah (auto-increment)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Pengenal/nomor peta (auto: "0")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>Tidak</td>
+<td>Deskripsi lokasi</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>Ya</td>
+<td><code>single</code> atau <code>multi</code> (tipe lantai)</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>Tidak</td>
+<td>Lokasi geografis <code>{lat, lng}</code></td>
+</tr>
+<tr>
+<td><code>aggregates</code></td>
+<td>JSON</td>
+<td>Auto</td>
+<td>Statistik cache (maks 2MB)</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>Auto</td>
+<td>Persentase penyelesaian</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indeks:</strong>
+- <code>(territory, code)</code> - Pencarian utama
+- <code>(territory, sequence)</code> - Pengurutan
+- <code>(territory)</code> - Filter wilayah</p>
+<p><strong>Cascade Deletes:</strong>
+- Addresses
+- Assignments
+- Messages</p>
+<p><strong>Struktur Aggregates:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;not_done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;dnc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;invalid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;not_home_max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Tipe Peta:</strong>
+- <strong>single</strong>: Alamat pribadi (rumah)
+- <strong>multi</strong>: Alamat publik (bangunan multi-lantai)</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Lihat:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Buat/Perbarui:</strong> Konduktor atau Administrator
+- <strong>Hapus:</strong> Hanya Administrator</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;territory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terr_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Main Street Apartments&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3521</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.8198</span><span class="p">},</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nt">&quot;aggregates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nt">&quot;done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">&quot;not_done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">&quot;dnc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nt">&quot;invalid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nt">&quot;not_home_max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">66.7</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="4-addresses">4. Addresses<a class="headerlink" href="#4-addresses" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Unit atau rumah tangga individual dalam peta</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Maps (cascade delete)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (denormalized)</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Territories (denormalized)</td>
+</tr>
+<tr>
+<td><code>floor</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Nomor lantai (berbasis 0)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Kode unit/pintu (mis., "101", "A")</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Urutan dalam peta</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>select</td>
+<td>Ya</td>
+<td>Status kunjungan alamat</td>
+</tr>
+<tr>
+<td><code>not_home_tries</code></td>
+<td>number</td>
+<td>Auto</td>
+<td>Counter untuk percobaan "tidak ada di rumah"</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>relation</td>
+<td>Tidak</td>
+<td>M:M ke Options (JSON array)</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>text</td>
+<td>Tidak</td>
+<td>Catatan pekerja lapangan</td>
+</tr>
+<tr>
+<td><code>last_notes_updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Saat catatan terakhir diubah (via hook)</td>
+</tr>
+<tr>
+<td><code>last_notes_updated_by</code></td>
+<td>text</td>
+<td>Auto</td>
+<td>Username yang terakhir memperbarui (via hook)</td>
+</tr>
+<tr>
+<td><code>dnc_time</code></td>
+<td>date</td>
+<td>Tidak</td>
+<td>Saat ditandai "jangan hubungi"</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>Tidak</td>
+<td>GPS <code>{lat, lng}</code> yang detail</td>
+</tr>
+<tr>
+<td><code>updated_by</code></td>
+<td>text</td>
+<td>Tidak</td>
+<td>Lacak siapa yang melakukan pembaruan</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nilai Status:</strong>
+- <code>not_done</code> - Belum dikunjungi (status awal)
+- <code>done</code> - Berhasil diselesaikan
+- <code>not_home</code> - Tidak ada orang di rumah (bisa dicoba ulang)
+- <code>do_not_call</code> - Dikecualikan dari pekerjaan
+- <code>invalid</code> - Alamat tidak ada</p>
+<p><strong>Indeks (7 total):</strong>
+- <code>(map)</code> - Filter peta
+- <code>(map, status)</code> - Kueri distribusi status
+- <code>(map, code)</code> - Pencarian kode
+- <code>(map, floor)</code> - Organisasi lantai
+- <code>(type, congregation)</code> - Distribusi opsi
+- <code>(congregation, last_notes_updated_by)</code> - Catatan terbaru oleh pengguna
+- <code>(territory, status)</code> - Status seluruh wilayah</p>
+<p><strong>Auto Hooks:</strong>
+- Pembaruan memicu field <code>last_notes_updated</code> dan <code>last_notes_updated_by</code>
+- Memicu kalkulasi ulang agregat pada peta
+- Memperbarui kemajuan wilayah</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Lihat:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Buat:</strong> Konduktor atau Administrator
+- <strong>Perbarui:</strong> Pengguna dengan peran ATAU akses tautan (penerbit dapat memperbarui)
+- <strong>Hapus:</strong> Hanya Administrator</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;addr_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;territory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terr_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">&quot;floor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;201&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not_home&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">&quot;not_home_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;opt_residential&quot;</span><span class="p">],</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Coba setelah pukul 18:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nt">&quot;last_notes_updated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-12-19T14:30:00Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="nt">&quot;last_notes_updated_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3521</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.8198</span><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="5-users">5. Users<a class="headerlink" href="#5-users" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Akun pengguna sistem dengan autentikasi</p>
+<p><strong>Tipe:</strong> Koleksi autentikasi (tipe user-auth PocketBase)</p>
+<p><strong>Field Sistem:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>email</td>
+<td>Ya</td>
+<td>Identitas login (unik)</td>
+</tr>
+<tr>
+<td><code>emailVisibility</code></td>
+<td>bool</td>
+<td>Ya</td>
+<td>Apakah email bersifat publik</td>
+</tr>
+<tr>
+<td><code>verified</code></td>
+<td>bool</td>
+<td>Auto</td>
+<td>Status verifikasi email</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>password</td>
+<td>Ya</td>
+<td>Hash Bcrypt (cost: 10, min 6 karakter)</td>
+</tr>
+<tr>
+<td><code>tokenKey</code></td>
+<td>text</td>
+<td>Tersembunyi</td>
+<td>Kunci pembuatan token (30-60 karakter)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Field Kustom:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Nama tampilan (2-50 karakter)</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td>bool</td>
+<td>Tidak</td>
+<td>Flag akun dinonaktifkan</td>
+</tr>
+<tr>
+<td><code>last_login</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp autentikasi terakhir (via hook)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pola Validasi Nama:</strong>
+<code>^[A-Za-z][\w\s\.\-']*$</code> (dimulai dengan huruf, memungkinkan karakter kata, spasi, titik, tanda hubung, apostrof)</p>
+<p><strong>Pola Autogen:</strong>
+<code>user[0-9]{5}[A-Za-z]</code> (mis., user12345A)</p>
+<p><strong>Indeks:</strong>
+- <code>email</code> (unik) - Pencarian autentikasi yang cepat
+- <code>tokenKey</code> (unik) - Validasi token</p>
+<p><strong>Konfigurasi Autentikasi:</strong>
+- <strong>Auth Kata Sandi:</strong> Diaktifkan (min 6 karakter)
+- <strong>OAuth2:</strong> Alur PKCE Google
+  - Memetakan <code>name</code> dari penyedia OAuth
+  - Auto-membuat pengguna pada login pertama
+- <strong>MFA:</strong> Diaktifkan (durasi: 1800 detik) - Dinonaktifkan untuk OAuth2
+- <strong>OTP:</strong> Diaktifkan (durasi: 180 detik, panjang: 4 digit)
+- <strong>Verifikasi Email:</strong> Durasi 604800 detik (7 hari)
+- <strong>Reset Kata Sandi:</strong> Durasi 1800 detik (30 menit)
+- <strong>Alert Autentikasi:</strong> Diaktifkan (memberi tahu saat login dari lokasi baru)</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar:</strong> Hanya Administrator
+- <strong>Lihat:</strong> Administrator atau diri sendiri
+- <strong>Buat:</strong> Publik (OAuth atau registrasi eksplisit)
+- <strong>Perbarui:</strong> Hanya diri sendiri
+- <strong>Hapus:</strong> Hanya Administrator</p>
+<p><strong>Token File:</strong> Durasi 120 detik</p>
+<p><strong>Hubungan:</strong>
+- 1:M dengan Roles
+- 1:M dengan Assignments</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">&quot;verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">&quot;disabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">&quot;last_login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-12-19T14:30:00Z&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="6-roles">6. Roles<a class="headerlink" href="#6-roles" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Penugasan izin yang menghubungkan pengguna ke jemaat</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Users (cascade delete)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>select</td>
+<td>Ya</td>
+<td>Level izin</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nilai Peran:</strong>
+- <code>read_only</code> - Hanya akses lihat
+- <code>conductor</code> - Dapat mengelola penugasan dan peta
+- <code>administrator</code> - Akses penuh</p>
+<p><strong>Indeks:</strong>
+- <code>(user, congregation)</code> - Kunci komposit (satu peran per pengguna per jemaat)
+- <code>(user)</code> - Peran pengguna
+- <code>(congregation, role)</code> - Distribusi peran
+- <code>(user, congregation, role)</code> - Pencarian komposit penuh</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Buat/Perbarui/Hapus:</strong> Hanya Administrator
+- <strong>Daftar:</strong> Peran pengguna sendiri
+- <strong>Lihat:</strong> Peran pengguna sendiri</p>
+<p><strong>Hubungan:</strong>
+- M:N antara Users dan Congregations</p>
+<p><strong>Aturan Bisnis:</strong>
+- Satu peran per pengguna per jemaat
+- Peran menentukan izin untuk semua aksi</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;role_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;conductor&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="7-assignments">7. Assignments<a class="headerlink" href="#7-assignments" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Token akses penerbit untuk akses peta terbatas waktu</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(20)</td>
+<td>Ya</td>
+<td><strong>Berfungsi sebagai token akses anonim</strong></td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Maps (cascade delete)</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>Tidak</td>
+<td>Pengguna penerbit (opsional)</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>Ya</td>
+<td>Klasifikasi penugasan</td>
+</tr>
+<tr>
+<td><code>expiry_date</code></td>
+<td>date</td>
+<td>Ya</td>
+<td>Timestamp kedaluwarsa otomatis</td>
+</tr>
+<tr>
+<td><code>publisher</code></td>
+<td>text</td>
+<td>Tidak</td>
+<td>Nama/pengenal penerbit</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tipe Penugasan:</strong>
+- <code>normal</code> - Pekerjaan wilayah biasa
+- <code>personal</code> - Wilayah pelayanan pribadi</p>
+<p><strong>Indeks:</strong>
+- <code>(map)</code> - Penugasan aktif per peta
+- <code>(expiry_date)</code> - Untuk job cleanup latar belakang
+- <code>(user, created)</code> - Riwayat penugasan pengguna
+- <code>(map, expiry_date)</code> - Pemeriksaan kedaluwarsa per peta</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Buat/Hapus:</strong> Konduktor atau Administrator
+- <strong>Lihat:</strong> Pengguna dengan peran ATAU link_id yang cocok dengan ID ini + belum kedaluwarsa
+- <strong>Daftar:</strong> Pengguna dengan peran</p>
+<p><strong>Alur Kerja:</strong>
+1. Konduktor membuat melalui endpoint <code>/territory/link</code>
+2. Penerbit menerima <code>link_id</code> 20 karakter (ID penugasan ini)
+3. Penerbit meneruskan <code>link_id</code> melalui HTTP header <code>@request.headers.link_id</code>
+4. PocketBase memvalidasi: link_id cocok dengan assignment.id DAN expiry_date &gt; sekarang
+5. Background job menghapus penugasan yang kedaluwarsa setiap 5 menit</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;asgn_1234567890abcdef&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">&quot;expiry_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-12-20T14:30:00Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">&quot;publisher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="8-options">8. Options<a class="headerlink" href="#8-options" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Klasifikasi tipe alamat (dapat dikustomisasi per jemaat)</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Pengenal opsi (mis., "RES", "BUS")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Label yang dapat dibaca manusia</td>
+</tr>
+<tr>
+<td><code>is_countable</code></td>
+<td>bool</td>
+<td>Ya</td>
+<td>Sertakan dalam kalkulasi kemajuan</td>
+</tr>
+<tr>
+<td><code>is_default</code></td>
+<td>bool</td>
+<td>Ya</td>
+<td>Opsi default untuk alamat baru</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Urutan tampilan/sortir</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indeks:</strong>
+- <code>(congregation, sequence)</code> - Pengurutan dalam jemaat
+- <code>(congregation, is_default)</code> - Temukan opsi default</p>
+<p><strong>Batasan:</strong>
+- Tepat satu <code>is_default = true</code> per jemaat (diterapkan di layer aplikasi)
+- Kode unik per jemaat
+- Urutan unik per jemaat</p>
+<p><strong>Dampak pada Kemajuan:</strong>
+- Opsi yang dapat dihitung (<code>is_countable=true</code>) disertakan dalam kalkulasi % kemajuan
+- Opsi yang tidak dapat dihitung dilacak secara terpisah tetapi dikecualikan dari kemajuan
+- Ketika opsi dihapus, alamat secara otomatis mendapatkan opsi default ditambahkan</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar/Lihat:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Buat/Perbarui/Hapus:</strong> Gunakan endpoint <code>/options/update</code> (Konduktor atau Administrator)</p>
+<p><strong>Hubungan:</strong>
+- M:M dengan Addresses (disimpan sebagai array JSON di field address.type)</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;opt_res&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RES&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Residential&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">&quot;is_countable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">&quot;is_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="9-messages">9. Messages<a class="headerlink" href="#9-messages" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Komunikasi dan notifikasi antar pengguna</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Maps (cascade delete)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Konten pesan</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Username pembuat</td>
+</tr>
+<tr>
+<td><code>read</code></td>
+<td>bool</td>
+<td>Ya</td>
+<td>Apakah dibaca oleh administrator</td>
+</tr>
+<tr>
+<td><code>pinned</code></td>
+<td>bool</td>
+<td>Ya</td>
+<td>Flag instruksi yang di-pin oleh admin</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>Ya</td>
+<td>Tipe penerima yang dituju</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembuatan</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp pembaruan terakhir</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tipe Pesan:</strong>
+- <code>publisher</code> - Dari penerbit ke admin
+- <code>conductor</code> - Dari konduktor
+- <code>administrator</code> - Instruksi admin (bisa di-pin)</p>
+<p><strong>Indeks:</strong>
+- <code>(map, pinned, created)</code> - Pesan yang di-pin terbaru
+- <code>(map, type, pinned)</code> - Filter berdasarkan tipe penerima dan status pin
+- <code>(map, type, read)</code> - Jumlah yang belum dibaca per tipe</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Buat:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Perbarui:</strong> Hanya Administrator
+- <strong>Daftar:</strong> Pengguna dengan peran ATAU akses tautan</p>
+<p><strong>Pemrosesan Latar Belakang:</strong>
+- Setiap 30 menit: Pesan yang belum dibaca dikirim ke administrator melalui email
+- Setiap 30 menit: Pesan admin yang di-pin dikirim ke penerbit melalui email
+- Setiap 1 jam: Pembaruan catatan dikirim ke administrator</p>
+<p><strong>Contoh:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;msg_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mohon kunjungi kembali unit 205&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">&quot;created_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="nt">&quot;read&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="nt">&quot;pinned&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;publisher&quot;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="10-addresses-log">10. Addresses Log<a class="headerlink" href="#10-addresses-log" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Jejak audit perubahan status alamat — setiap kali status alamat diperbarui, sebuah catatan ditulis di sini</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Addresses (cascade delete)</td>
+</tr>
+<tr>
+<td><code>old_status</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Nilai status alamat sebelumnya</td>
+</tr>
+<tr>
+<td><code>new_status</code></td>
+<td>text</td>
+<td>Ya</td>
+<td>Nilai status alamat baru</td>
+</tr>
+<tr>
+<td><code>changed_by</code></td>
+<td>relation</td>
+<td>Tidak</td>
+<td>FK ke Users — pengguna yang melakukan perubahan</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp perubahan</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hubungan:</strong>
+- M:1 dengan Addresses (setiap entri log milik satu alamat)
+- M:1 dengan Users (melalui <code>changed_by</code>)</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar/Lihat:</strong> Konduktor atau Administrator
+- <strong>Buat:</strong> Hook sistem (otomatis saat status alamat berubah)
+- <strong>Perbarui/Hapus:</strong> Hanya Administrator</p>
+<hr />
+<h3 id="11-aggregates">11. Aggregates<a class="headerlink" href="#11-aggregates" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Snapshot kemajuan yang di-cache untuk wilayah dan peta. Dikalkulasikan ulang oleh background job setiap 10 menit</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>notDone</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Jumlah alamat yang belum dikunjungi</td>
+</tr>
+<tr>
+<td><code>notHome</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Jumlah alamat "tidak ada di rumah"</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>Ya</td>
+<td>Persentase penyelesaian (0–100)</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>Tidak</td>
+<td>FK ke Territories — diatur untuk agregat tingkat wilayah</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Tidak</td>
+<td>FK ke Maps — diatur untuk agregat tingkat peta</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hubungan:</strong>
+- M:1 dengan Territories (snapshot tingkat wilayah)
+- M:1 dengan Maps (snapshot tingkat peta)</p>
+<p><strong>Aturan Bisnis:</strong>
+- Tepat satu dari <code>territory</code> atau <code>map</code> diatur per catatan
+- Dikalkulasikan ulang setiap 10 menit oleh background job
+- Nilai adalah snapshot hanya-baca; kemajuan langsung dihitung sesuai permintaan</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar/Lihat:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Buat/Perbarui:</strong> Hanya background job sistem
+- <strong>Hapus:</strong> Hanya Administrator</p>
+<hr />
+<h3 id="12-address-options">12. Address Options<a class="headerlink" href="#12-address-options" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Tabel gabungan yang melacak opsi tingkat alamat (dari koleksi <code>options</code>) yang telah diterapkan ke alamat individual — tabel junction untuk hubungan many-to-many Address ↔ Option</p>
+<p><strong>Tipe:</strong> Koleksi dasar</p>
+<p><strong>Field:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Tipe</th>
+<th>Wajib</th>
+<th>Deskripsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Ya</td>
+<td>ID unik yang dihasilkan otomatis</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Addresses (cascade delete)</td>
+</tr>
+<tr>
+<td><code>option</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Options (cascade delete)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Ya</td>
+<td>FK ke Congregations (denormalized untuk kueri cepat)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indeks:</strong>
+- <code>(address, option)</code> — Pasangan unik (satu opsi per alamat)
+- <code>(congregation)</code> — Penggunaan opsi di seluruh jemaat</p>
+<p><strong>Hubungan:</strong>
+- M:1 dengan Addresses
+- M:1 dengan Options
+- M:1 dengan Congregations</p>
+<p><strong>Aturan Akses:</strong>
+- <strong>Daftar/Lihat:</strong> Pengguna dengan peran ATAU akses tautan
+- <strong>Buat/Hapus:</strong> Konduktor atau Administrator</p>
+<hr />
+<h2 id="koleksi-analitik">Koleksi Analitik<a class="headerlink" href="#koleksi-analitik" title="Permanent link">&para;</a></h2>
+<p>Koleksi analitik menyimpan data historis untuk pelaporan dan wawasan. Koleksi-koleksi ini dikelola secara internal dan field pastinya dapat berkembang dari waktu ke waktu; koleksi ini didokumentasikan di sini berdasarkan tujuan, bukan field individual.</p>
+<h3 id="analytics_territories">analytics_territories<a class="headerlink" href="#analytics_territories" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Menyimpan snapshot berkala dari metrik tingkat wilayah (mis., persentase kemajuan, jumlah alamat) dari waktu ke waktu. Digunakan untuk menghasilkan grafik tren historis dan laporan penyelesaian wilayah.</p>
+<h3 id="analytics_maps">analytics_maps<a class="headerlink" href="#analytics_maps" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Menyimpan snapshot berkala dari metrik tingkat peta dari waktu ke waktu. Memungkinkan pelaporan terperinci tentang tingkat penyelesaian peta individual dan pola aktivitas.</p>
+<h3 id="analytics_daily_status">analytics_daily_status<a class="headerlink" href="#analytics_daily_status" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Jumlah harian teragregasi dari status alamat (selesai, belum selesai, tidak ada di rumah, jangan hubungi, tidak valid) di seluruh jemaat. Mendukung dashboard tren hari ke hari dan minggu ke minggu.</p>
+<h3 id="analytics_not_home">analytics_not_home<a class="headerlink" href="#analytics_not_home" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Melacak alamat yang telah berulang kali ditandai sebagai "tidak ada di rumah". Digunakan untuk menampilkan target tindak lanjut bagi konduktor dan mengidentifikasi alamat yang terus-menerus tidak dapat dijangkau.</p>
+<h3 id="analytics_user_audit">analytics_user_audit<a class="headerlink" href="#analytics_user_audit" title="Permanent link">&para;</a></h3>
+<p><strong>Tujuan:</strong> Mencatat tindakan pengguna termasuk login, pembaruan alamat, dan operasi penugasan untuk akuntabilitas dan tujuan audit. Memungkinkan administrator meninjau riwayat aktivitas dan menyelidiki anomali.</p>
+<blockquote>
+<p><strong>Catatan:</strong> Koleksi analitik diisi oleh background job dan dibaca oleh lapisan pelaporan. Penulisan langsung dari kode aplikasi harus dihindari.</p>
+</blockquote>
+<hr />
+<h2 id="teknologi-database">Teknologi Database<a class="headerlink" href="#teknologi-database" title="Permanent link">&para;</a></h2>
+<p><strong>Engine:</strong> SQLite melalui PocketBase (modernc.org/sqlite v1.40.2+)</p>
+<p><strong>Fitur:</strong>
+- Implementasi Go murni (bebas CGo) - memungkinkan kompilasi lintas platform
+- Berbasis C SQLite yang ditranspilasi ke Go menggunakan ccgo/v4
+- Dikelola secara aktif dengan pembaruan keamanan rutin (selaras dengan SQLite 3.50+)</p>
+<p><strong>Fitur SQL yang Digunakan:</strong>
+- Field JSON untuk data yang fleksibel (koordinat, agregat)
+- Indeks komposit untuk optimasi kueri
+- Transaksi untuk kepatuhan ACID
+- CTE (Common Table Expressions) untuk agregasi yang kompleks</p>
+<p><strong>Keuntungan:</strong>
+- Database berbasis file mandiri
+- Tidak diperlukan layanan database terpisah
+- Sempurna untuk deployment self-hosted
+- Tidak ada ketergantungan CGO memungkinkan build binary statis
+- Stabilitas yang terbukti dengan patch keamanan</p>
+<hr />
+<h2 id="hubungan-kunci">Hubungan Kunci<a class="headerlink" href="#hubungan-kunci" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Hubungan</th>
+<th>Kardinalitas</th>
+<th>Perilaku Cascade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Congregation → Territory</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Territory → Map</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Map → Address</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Map → Assignment</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Map → Message</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Address → Options</td>
+<td>M:M</td>
+<td>Array JSON</td>
+</tr>
+<tr>
+<td>User → Role</td>
+<td>M:M</td>
+<td>Melalui tabel roles</td>
+</tr>
+<tr>
+<td>User → Assignment</td>
+<td>1:M</td>
+<td>Pertahankan penugasan</td>
+</tr>
+<tr>
+<td>Congregation → Option</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Congregation → Role</td>
+<td>M:M</td>
+<td>Melalui tabel roles</td>
+</tr>
+<tr>
+<td>Address → addresses_log</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Territory → aggregates</td>
+<td>1:M</td>
+<td>Dikalkulasikan ulang oleh background job</td>
+</tr>
+<tr>
+<td>Map → aggregates</td>
+<td>1:M</td>
+<td>Dikalkulasikan ulang oleh background job</td>
+</tr>
+<tr>
+<td>Address → address_options</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Option → address_options</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="aturan-bisnis">Aturan Bisnis<a class="headerlink" href="#aturan-bisnis" title="Permanent link">&para;</a></h2>
+<h3 id="kalkulasi-kemajuan">Kalkulasi Kemajuan<a class="headerlink" href="#kalkulasi-kemajuan" title="Permanent link">&para;</a></h3>
+<p><strong>Formula:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>completed = (done + not_home_max_tries) / total_countable * 100
+</code></pre></div></p>
+<p><strong>Alamat yang Dapat Dihitung:</strong>
+- Hanya alamat dengan opsi <code>is_countable=true</code>
+- Mengecualikan alamat DNC dan tidak valid</p>
+<p><strong>Kriteria Penyelesaian:</strong>
+- Status = <code>done</code>, ATAU
+- Status = <code>not_home</code> DAN <code>not_home_tries &gt;= congregation.max_tries</code></p>
+<h3 id="siklus-hidup-alamat">Siklus Hidup Alamat<a class="headerlink" href="#siklus-hidup-alamat" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>not_done → not_home (percobaan ulang) → done
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>        → do_not_call (dikecualikan)
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>        → invalid (dikecualikan)
+</code></pre></div>
+<h3 id="trigger-auto-update">Trigger Auto-Update<a class="headerlink" href="#trigger-auto-update" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Pembaruan Alamat:</strong></li>
+<li>Memperbarui <code>last_notes_updated</code> jika catatan berubah</li>
+<li>Menetapkan <code>last_notes_updated_by</code> ke pengguna saat ini</li>
+<li>Memicu kalkulasi ulang agregat</li>
+<li>Memperbarui kemajuan peta</li>
+<li>
+<p>Memperbarui kemajuan wilayah</p>
+</li>
+<li>
+<p><strong>Operasi Peta:</strong></p>
+</li>
+<li>Menghitung ulang agregat saat alamat berubah</li>
+<li>
+<p>Memperbarui kemajuan wilayah</p>
+</li>
+<li>
+<p><strong>Pembuatan Penugasan:</strong></p>
+</li>
+<li>Menetapkan kedaluwarsa berdasarkan pengaturan jemaat</li>
+<li>Menghasilkan ID 20 karakter unik sebagai token akses</li>
+</ol>
+<hr />
+<h2 id="migrasi-pembaruan-skema">Migrasi &amp; Pembaruan Skema<a class="headerlink" href="#migrasi-pembaruan-skema" title="Permanent link">&para;</a></h2>
+<p><strong>File Skema:</strong> <code>migrations/1764846700_collections_snapshot.go</code></p>
+<p><strong>Ukuran:</strong> 55.459 baris (dihasilkan oleh PocketBase)</p>
+<p><strong>Proses Migrasi:</strong>
+1. PocketBase secara otomatis menerapkan migrasi saat startup
+2. Migrasi dilacak di koleksi sistem <code>_migrations</code>
+3. Perubahan skema memerlukan file migrasi baru</p>
+<hr />
+<h2 id="langkah-selanjutnya">Langkah Selanjutnya<a class="headerlink" href="#langkah-selanjutnya" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../architecture/">Arsitektur</a> - Arsitektur sistem</li>
+<li><a href="../backend-setup/">Pengaturan Backend</a> - Konfigurasi database</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Tersalin ke clipboard", "clipboard.copy": "Salin ke clipboard", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tidak ada dokumen yang sesuai", "search.result.one": "1 dokumen ditemukan", "search.result.other": "# dokumen ditemukan", "search.result.placeholder": "Ketik untuk mulai pencarian", "search.result.term.missing": "Tidak ada", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

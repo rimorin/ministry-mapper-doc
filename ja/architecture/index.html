@@ -1,0 +1,3069 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ja/architecture/">
+      
+      
+        <link rel="prev" href="../user-guide/">
+      
+      
+        <link rel="next" href="../data-models/">
+      
+      
+        
+          <link rel="alternate" href="../../architecture/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/architecture/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/architecture/" hreflang="ms">
+        
+          <link rel="alternate" href="./" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/architecture/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/architecture/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/architecture/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Architecture Overview - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../architecture/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/architecture/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/architecture/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/architecture/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/architecture/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/architecture/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        システムアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="システムアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高レベルアーキテクチャ図
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テクノロジースタック
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テクノロジースタック">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドスタック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドスタック
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外部インテグレーション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="外部インテグレーション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サードパーティサービス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エンティティ関係モデル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コアコレクション
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="フロントエンドアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンポーネント組織パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        状態管理戦略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データフローパターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要なデザインパターン
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="セキュリティアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認可モデル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アクセス制御パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リアルタイム同期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="リアルタイム同期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSEアーキテクチャ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サブスクリプションパターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックグラウンドジョブ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックグラウンドジョブ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケジュールタスク
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フィーチャーフラグ制御
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aillm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI/LLM統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デプロイアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="デプロイアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker コンテナ化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インフラオプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監視と可観測性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="監視と可観測性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エラー追跡
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロギング
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケーラビリティの考慮事項
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="スケーラビリティの考慮事項">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現在の制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        将来のスケーラビリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テクノロジーの決定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テクノロジーの決定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜこれらのテクノロジーを選んだのか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        システムアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="システムアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高レベルアーキテクチャ図
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テクノロジースタック
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テクノロジースタック">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドスタック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドスタック
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外部インテグレーション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="外部インテグレーション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サードパーティサービス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エンティティ関係モデル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コアコレクション
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="フロントエンドアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンポーネント組織パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        状態管理戦略
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データフローパターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要なデザインパターン
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="セキュリティアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認可モデル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アクセス制御パターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リアルタイム同期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="リアルタイム同期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSEアーキテクチャ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サブスクリプションパターン
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックグラウンドジョブ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックグラウンドジョブ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケジュールタスク
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フィーチャーフラグ制御
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aillm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI/LLM統合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デプロイアーキテクチャ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="デプロイアーキテクチャ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker コンテナ化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インフラオプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監視と可観測性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="監視と可観測性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エラー追跡
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロギング
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケーラビリティの考慮事項
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="スケーラビリティの考慮事項">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現在の制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        将来のスケーラビリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テクノロジーの決定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テクノロジーの決定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        なぜこれらのテクノロジーを選んだのか？
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">アーキテクチャ概要<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">システムアーキテクチャ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper は、連携して動作する2つの主要コンポーネントで構成されています。</p>
+<h3 id="_3">高レベルアーキテクチャ図<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌──────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                     クライアントアプリケーション                      │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│         (Web UI、モバイルアプリ、サードパーティ統合)                  │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└──────────────────────────────┬───────────────────────────────────┘
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                               │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                    HTTP REST API (ポート 8080)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                               │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>┌──────────────────────────────▼───────────────────────────────────┐
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│                    PocketBase アプリケーション                       │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├──────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│                                                                   │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  │ API レイヤー (internal/handlers/)                            │ │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  │ - マップ管理 (9 エンドポイント)                               │ │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  │ - テリトリー管理 (2 エンドポイント)                           │ │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  │ - 設定 (1 エンドポイント)                                    │ │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│                                                                   │
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│  │ ミドルウェアレイヤー                                          │ │
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│  │ - 認証と認可                                                 │ │
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│  │ - エラーキャプチャ (Sentry)                                  │ │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>│  │ - リクエストログ                                             │ │
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│                                                                   │
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>│  │ バックグラウンドジョブ (internal/jobs/)                       │ │
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>│  │ - スケジュールタスク (cron ベース)                            │ │
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>│  │ - フィーチャーフラグ制御 (LaunchDarkly)                      │ │
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>│                                                                   │
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>│  │ 組み込みサービス                                              │ │
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>│  │ - 認証 (メール/パスワード、OAuth2、OTP、MFA)                 │ │
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>│  │ - リアルタイムイベント (SSE)                                  │ │
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>│  │ - 管理ダッシュボード                                          │ │
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>│                                                                   │
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>└────────────┬──────────────────────┬────────────────┬──────────────┘
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>             │                      │                │
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>             │                      │                │
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    ┌────────▼──────┐      ┌────────▼──────┐  ┌─────▼────────┐
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    │   SQLite       │      │  Sentry       │  │MailerSend    │
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    │   データベース  │      │  (エラー追跡)  │  │(メール)      │
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    │   (/app/pb_data)│      │               │  │              │
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    └────────────────┘      └────────────────┘  └──────────────┘
+</code></pre></div>
+<h2 id="_4">テクノロジースタック<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">バックエンドスタック<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>レイヤー</th>
+<th>テクノロジー</th>
+<th>バージョン</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>言語</strong></td>
+<td>Go</td>
+<td>1.25.0</td>
+<td>高性能バックエンド</td>
+</tr>
+<tr>
+<td><strong>バックエンドフレームワーク</strong></td>
+<td>PocketBase</td>
+<td>0.36.9</td>
+<td>SQLite搭載のBaaS</td>
+</tr>
+<tr>
+<td><strong>データベース</strong></td>
+<td>SQLite</td>
+<td>v1.40.2+</td>
+<td>自己完結型データベース</td>
+</tr>
+<tr>
+<td><strong>Webフレームワーク</strong></td>
+<td>Echo</td>
+<td>v5</td>
+<td>HTTPルーティング</td>
+</tr>
+<tr>
+<td><strong>コンテナ</strong></td>
+<td>Docker</td>
+<td>Latest</td>
+<td>コンテナ化</td>
+</tr>
+<tr>
+<td><strong>エラー追跡</strong></td>
+<td>Sentry</td>
+<td>v0.43.0</td>
+<td>エラー監視</td>
+</tr>
+<tr>
+<td><strong>メールサービス</strong></td>
+<td>MailerSend</td>
+<td>v1.6.3</td>
+<td>メールAPI</td>
+</tr>
+<tr>
+<td><strong>フィーチャーフラグ</strong></td>
+<td>LaunchDarkly</td>
+<td>v7.14.6</td>
+<td>機能管理</td>
+</tr>
+<tr>
+<td><strong>レポート生成</strong></td>
+<td>Excelize</td>
+<td>v2.10.1</td>
+<td>Excelレポート</td>
+</tr>
+<tr>
+<td><strong>AI要約</strong></td>
+<td>OpenAI GPT</td>
+<td>v3.29.0</td>
+<td>インテリジェントなレポート・メッセージ要約</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">フロントエンドスタック<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>レイヤー</th>
+<th>テクノロジー</th>
+<th>バージョン</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ランタイム</strong></td>
+<td>Node.js</td>
+<td>&gt;=24.0.0</td>
+<td>JavaScript ランタイム（開発ツールチェーン）</td>
+</tr>
+<tr>
+<td><strong>フレームワーク</strong></td>
+<td>React</td>
+<td>19.2.4</td>
+<td>UIライブラリ</td>
+</tr>
+<tr>
+<td><strong>言語</strong></td>
+<td>TypeScript</td>
+<td>5.9.3</td>
+<td>型安全性</td>
+</tr>
+<tr>
+<td><strong>ビルドツール</strong></td>
+<td>Vite</td>
+<td>8.0.2</td>
+<td>高速開発・ビルド</td>
+</tr>
+<tr>
+<td><strong>ルーティング</strong></td>
+<td>Wouter</td>
+<td>3.9.0</td>
+<td>軽量ルーティング</td>
+</tr>
+<tr>
+<td><strong>状態管理</strong></td>
+<td>Context API</td>
+<td>-</td>
+<td>グローバル状態</td>
+</tr>
+<tr>
+<td><strong>UIフレームワーク</strong></td>
+<td>Bootstrap</td>
+<td>5.3.8</td>
+<td>CSSフレームワーク</td>
+</tr>
+<tr>
+<td><strong>マッピング</strong></td>
+<td>Leaflet</td>
+<td>1.9.4</td>
+<td>インタラクティブマップ</td>
+</tr>
+<tr>
+<td><strong>テスト</strong></td>
+<td>Vitest</td>
+<td>4.1.1</td>
+<td>ユニットテスト</td>
+</tr>
+<tr>
+<td><strong>コード品質</strong></td>
+<td>ESLint + Prettier</td>
+<td>Latest</td>
+<td>リンティング・フォーマット</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">外部インテグレーション<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">サードパーティサービス<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>サービス</th>
+<th>目的</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LaunchDarkly</strong></td>
+<td>フィーチャーフラグとコントロールされたロールアウト</td>
+<td>全9つのバックグラウンドジョブを制御；ゼロダウンタイムのフラグ切り替えを実現</td>
+</tr>
+<tr>
+<td><strong>OpenAI（gpt-5.4-mini）</strong></td>
+<td>AI 生成レポート要約</td>
+<td>オプション；事実的な出力のため温度 0.3；フィーチャーフラグで制御</td>
+</tr>
+<tr>
+<td><strong>MailerSend</strong></td>
+<td>トランザクションメール配信</td>
+<td>レポートおよびライフサイクル通知メールに使用；3回リトライ</td>
+</tr>
+<tr>
+<td><strong>Umami</strong></td>
+<td>プライバシーに配慮した分析</td>
+<td>オプション；13種類のカスタムイベントタイプを追跡</td>
+</tr>
+<tr>
+<td><strong>OpenRouteService</strong></td>
+<td>ルーティング/道順 API</td>
+<td>ドライブ、ウォーキング、サイクリングのルート計算</td>
+</tr>
+<tr>
+<td><strong>LocationIQ</strong></td>
+<td>ジオコーディング API</td>
+<td>住所の座標検索</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_9">データアーキテクチャ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">エンティティ関係モデル<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>システムは会衆レベルの分離を持つ階層的なデータ構造で組織されています：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Congregation（組織の境界）
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ├── Territory（地理的地域）
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    │   ├── Map（建物/場所）
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    │   │   └── Address（個別ユニット）
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    │   └── Option（住所タイプ分類）
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    ├── User（システムユーザー）
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    │   └── Role（権限割り当て）
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    ├── Assignment（伝道者アクセス）
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    └── Message（通知）
+</code></pre></div>
+<h3 id="_11">コアコレクション<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>1. Congregations（会衆）</strong> - 組織設定と境界
+- マルチテナント分離を制御
+- 割り当て期間と再試行制限を定義
+- 地域設定（タイムゾーン、国）</p>
+<p><strong>2. Territories（テリトリー）</strong> - 地理的区分
+- 複数のマップを含む
+- 全体の完了率を追跡
+- 奉仕地域を整理</p>
+<p><strong>3. Maps（マップ）</strong> - 特定の場所（建物）
+- 単層または多層構造
+- 地理座標
+- 進捗追跡と統計</p>
+<p><strong>4. Addresses（住所）</strong> - 個別ユニット/世帯
+- 状態追跡（未完了、完了、不在、DNC）
+- 訪問メモと履歴
+- 階と部屋情報</p>
+<p><strong>5. Users（ユーザー）</strong> - システムアカウント
+- メール/パスワードまたはOAuth2認証
+- 多要素認証サポート
+- 会衆固有の役割</p>
+<p><strong>6. Roles（役割）</strong> - 権限割り当て
+- 3レベル：read_only、conductor、administrator
+- 会衆固有の権限
+- 役割ベースのアクセス制御</p>
+<p><strong>7. Assignments（割り当て）</strong> - 伝道者アクセストークン
+- 時間制限付きアクセスリンク
+- 匿名フィールドワーカーアクセス
+- 自動期限切れ</p>
+<p><strong>8. Options（オプション）</strong> - 住所分類
+- 会衆ごとにカスタマイズ可能
+- カウント可能/不可能なタイプ
+- 進捗計算に影響</p>
+<p><strong>9. Messages（メッセージ）</strong> - コミュニケーション
+- 伝道者からのフィードバック
+- 管理者の指示
+- メール通知</p>
+<h2 id="_12">フロントエンドアーキテクチャ<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">コンポーネント組織パターン<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper は<strong>機能ベースのコンポーネント組織</strong>を使用しています：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Pages（ルート）
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  ├── Admin Dashboard (/)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  ├── Publisher Map (/map/:id)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  ├── User Management (/usermgmt)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  └── Front Page (/)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Components（再利用可能なUI）
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  ├── Form Components（14コンポーネント）
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  ├── Modal Components（24以上のモーダル）
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  ├── Navigation Components（28コンポーネント）
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  ├── Table Components（9コンポーネント）
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  ├── Map Components（7コンポーネント）
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  ├── Middleware/Providers（5コンポーネント）
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  └── Static Pages（8コンポーネント）
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Business Logic（カスタムフック）
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  ├── useTerritoryManagement
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>  ├── useMapManagement
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>  ├── useCongManagement
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>  ├── useModalManagement
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>  ├── useRealtimeSubscription
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>  └── [その他4件...]
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>Utilities &amp; Types
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>  ├── TypeScript インターフェース
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>  ├── 定数
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>  ├── ヘルパー関数（30以上）
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>  ├── PocketBase 統合
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>  ├── 認可ポリシー
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>  └── i18n 設定
+</code></pre></div>
+<h3 id="_14">状態管理戦略<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>4層アプローチ：</strong></p>
+<ol>
+<li><strong>グローバルコンテキスト</strong> - テーマ、言語、アプリモード</li>
+<li><strong>カスタムフック</strong> - ドメイン固有のロジックとデータ</li>
+<li><strong>ローカルコンポーネント状態</strong> - UIトグルとフォーム</li>
+<li><strong>永続状態</strong> - 設定用 LocalStorage</li>
+</ol>
+<p><strong>メリット：</strong>
+- Redux のオーバーヘッドなし
+- シンプルなデータフロー
+- より良いコード分割
+- テストが容易</p>
+<h3 id="_15">データフローパターン<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ユーザーアクション
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    ↓
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>コンポーネントイベントハンドラ
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    ↓
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>カスタムフック（バリデーション、状態管理）
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ↓
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>PocketBase Utils（CRUD操作）
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    ↓
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>PocketBase バックエンド（権限、データベース）
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    ↓
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>リアルタイムサブスクリプション（SSE）
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    ↓
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>UI 自動更新
+</code></pre></div>
+<h2 id="_16">主要なデザインパターン<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>パターン</th>
+<th>使用</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ミドルウェアラッパー</strong></td>
+<td>Sentry統合</td>
+<td>一元的なエラー追跡</td>
+</tr>
+<tr>
+<td><strong>イベントフック</strong></td>
+<td>PocketBaseライフサイクル</td>
+<td>自動更新</td>
+</tr>
+<tr>
+<td><strong>ジョブスケジューラ</strong></td>
+<td>フィーチャーフラグ付きCron</td>
+<td>スケジュール操作</td>
+</tr>
+<tr>
+<td><strong>トランザクションパターン</strong></td>
+<td>データベース操作</td>
+<td>データ整合性</td>
+</tr>
+<tr>
+<td><strong>リンクベースアクセス</strong></td>
+<td>割り当てトークン</td>
+<td>匿名アクセス</td>
+</tr>
+<tr>
+<td><strong>集計キャッシュ</strong></td>
+<td>バッチ cron（10分 / 11分ルックバック）</td>
+<td>事前計算されたテリトリー進捗統計</td>
+</tr>
+<tr>
+<td><strong>カスタムフック</strong></td>
+<td>ビジネスロジック</td>
+<td>再利用可能ロジック</td>
+</tr>
+<tr>
+<td><strong>プロバイダーパターン</strong></td>
+<td>コンテキストプロバイダー</td>
+<td>グローバル状態</td>
+</tr>
+<tr>
+<td><strong>遅延ロード</strong></td>
+<td>ルート分割</td>
+<td>パフォーマンス</td>
+</tr>
+<tr>
+<td><strong>ポリシーパターン</strong></td>
+<td>認可</td>
+<td>セキュリティルール</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_17">セキュリティアーキテクチャ<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="_18">認証方式<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>メール/パスワード</strong> - bcryptハッシュを使用した標準認証</li>
+<li><strong>OAuth2（Google）</strong> - PKCEフローによるソーシャルログイン</li>
+<li><strong>ワンタイムパスワード（OTP）</strong> - 追加セキュリティレイヤー</li>
+<li><strong>多要素認証（MFA）</strong> - 管理者向けの強化されたセキュリティ</li>
+</ol>
+<h3 id="_19">認可モデル<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p><strong>役割ベースのアクセス制御（RBAC）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>役割</th>
+<th>権限</th>
+<th>ユースケース</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>read_only</strong></td>
+<td>データ閲覧のみ</td>
+<td>オブザーバー、監査者</td>
+</tr>
+<tr>
+<td><strong>conductor</strong></td>
+<td>割り当て作成、マップ管理</td>
+<td>フィールドコーディネーター</td>
+</tr>
+<tr>
+<td><strong>administrator</strong></td>
+<td>フルアクセス</td>
+<td>システム管理者</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_20">アクセス制御パターン<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p><strong>パターン1：役割を持つ認証済みユーザー</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ユーザーがログインしている必要がある
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>+ ユーザーがrolesコレクションに役割を持つ
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>+ 役割が特定の会衆に対するもの
+</code></pre></div></p>
+<p><strong>パターン2：リンクベースアクセス</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>割り当てIDがヘッダーで渡される
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>+ 割り当てが存在し期限切れでない
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>+ 割り当てが要求されたマップに属する
+</code></pre></div></p>
+<p><strong>パターン3：会衆の分離</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>すべてのエンティティが会衆の外部キーを持つ
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>+ アクセスルールが会衆でフィルタリング
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>+ 会衆をまたいだデータアクセスを防止
+</code></pre></div></p>
+<h2 id="_21">リアルタイム同期<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<h3 id="sse">SSEアーキテクチャ<a class="headerlink" href="#sse" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PocketBase リアルタイムAPI</strong>：Server-Sent Events（SSE）</li>
+<li><strong>自動サブスクリプション</strong>：コンポーネントがコレクションをサブスクライブ</li>
+<li><strong>ライブ更新</strong>：変更がすべての接続クライアントにブロードキャスト</li>
+<li><strong>競合解決</strong>：タイムスタンプベースの解決</li>
+<li><strong>可視性検出</strong>：タブがアクティブになったときの自動更新</li>
+</ul>
+<h3 id="_22">サブスクリプションパターン<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// コンポーネントはデータ変更をサブスクライブする</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">useRealtimeSubscription</span><span class="p">(</span><span class="s1">&#39;addresses&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="c1">// UIが自動的に更新される</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="_23">バックグラウンドジョブ<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="_24">スケジュールタスク<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ジョブ</th>
+<th>スケジュール</th>
+<th>フラグ</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cleanUpAssignments</code></td>
+<td>5分ごと</td>
+<td><code>enable-assignments-cleanup</code></td>
+<td>期限切れのマップ割り当てを削除</td>
+</tr>
+<tr>
+<td><code>updateTerritoryAggregates</code></td>
+<td>10分ごと</td>
+<td><code>enable-territory-aggregations</code></td>
+<td>テリトリーの進捗を再計算</td>
+</tr>
+<tr>
+<td><code>processMessages</code></td>
+<td>30分ごと</td>
+<td><code>enable-message-processing</code></td>
+<td>保留中の伝道者メッセージを処理</td>
+</tr>
+<tr>
+<td><code>processInstructions</code></td>
+<td>30分ごと</td>
+<td><code>enable-instruction-processing</code></td>
+<td>テリトリー割り当て指示を処理</td>
+</tr>
+<tr>
+<td><code>processNotes</code></td>
+<td>1時間ごと</td>
+<td><code>enable-note-processing</code></td>
+<td>更新された会衆メモを処理</td>
+</tr>
+<tr>
+<td><code>generateMonthlyReport</code></td>
+<td>毎月1日 02:00 SGT</td>
+<td><code>enable-monthly-report</code></td>
+<td>Excel レポートを生成してメール送信</td>
+</tr>
+<tr>
+<td><code>processUnprovisionedUsers</code></td>
+<td>毎日 02:00 SGT</td>
+<td><code>enable-unprovisioned-user-processing</code></td>
+<td>役割のないユーザーを警告/無効化</td>
+</tr>
+<tr>
+<td><code>processInactiveUsers</code></td>
+<td>毎日 02:30 SGT</td>
+<td><code>enable-inactive-user-processing</code></td>
+<td>非アクティブなアカウントを警告/無効化</td>
+</tr>
+<tr>
+<td><code>processNewAddresses</code></td>
+<td>毎日 03:00 SGT</td>
+<td><code>enable-new-addresses-notification</code></td>
+<td><strong>新機能</strong> — アプリで追加された住所のダイジェストメールを送信</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_25">フィーチャーフラグ制御<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p>すべてのバックグラウンドジョブは LaunchDarkly フィーチャーフラグで制御されます：
+- デプロイなしでジョブを有効化/無効化
+- 段階的ロールアウト機能
+- 緊急停止スイッチ</p>
+<h3 id="aillm">AI/LLM統合<a class="headerlink" href="#aillm" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper は OpenAI の GPT モデルとインテグレーションして、インテリジェントなテキスト要約を実現します。これは <code>enable-report-ai-summary</code> LaunchDarkly フラグによってゲートされた<strong>オプション</strong>機能です。</p>
+<p><strong>モデル</strong>：GPT（<code>openai-go</code> SDK v3.29.0 経由で最新利用可能）<br />
+<strong>温度</strong>：0.3（事実的で決定論的な出力）<br />
+<strong>レスポンス形式</strong>：構造化データのための JSON モード</p>
+<p><strong>ユースケース：</strong></p>
+<table>
+<thead>
+<tr>
+<th>コンテキスト</th>
+<th>ジョブ</th>
+<th>出力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>月次 Excel レポート</td>
+<td><code>generateMonthlyReport</code></td>
+<td>テリトリーごとの <code>summary</code> と <code>key_points</code></td>
+</tr>
+<tr>
+<td>伝道者メッセージダイジェスト</td>
+<td><code>processMessages</code></td>
+<td><code>overview</code> と <code>key_themes</code></td>
+</tr>
+<tr>
+<td>会衆メモダイジェスト</td>
+<td><code>processNotes</code></td>
+<td><code>overview</code> と <code>key_themes</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>グレースフルデグラデーション</strong>：<code>OPENAI_API_KEY</code> が設定されていない、または <code>enable-report-ai-summary</code> フラグがオフの場合、システムは AI 生成コンテンツなしのレポートとメールにフォールバックします—エラーは発生しません。</p>
+<h3 id="_26">フロントエンド最適化<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>コード分割</strong>：遅延ロードルート</li>
+<li><strong>バンドル最適化</strong>：ツリーシェイキング、ミニフィケーション</li>
+<li><strong>React 19 コンパイラ</strong>：自動メモ化</li>
+<li><strong>PWA キャッシュ</strong>：静的アセット用サービスワーカー</li>
+<li><strong>仮想化リスト</strong>：大規模データセット用 React-window</li>
+</ul>
+<h3 id="_27">バックエンド最適化<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>データベースインデックス</strong>：高速クエリ用に25以上のインデックス</li>
+<li><strong>集計キャッシュ</strong>：テリトリーの進捗統計はバッチ処理の cron ジョブ（<code>updateTerritoryAggregates</code>、10分ごとに11分のルックバックウィンドウ）によって事前計算されます。これは従来のリアルタイムデバウンサーアプローチを置き換えたものです。結果は高速取得のために JSON として保存されます。</li>
+<li><strong>コネクションプーリング</strong>：効率的なデータベース接続</li>
+<li><strong>トランザクションバッチ処理</strong>：データベースラウンドトリップの削減</li>
+</ul>
+<h2 id="_28">デプロイアーキテクチャ<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h3 id="docker">Docker コンテナ化<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<p><strong>バックエンド：</strong>
+- マルチステージ Docker ビルド
+- 小さなフットプリントのための Alpine ベース
+- データ永続性のためのボリュームマウント
+- 信頼性のためのヘルスチェック</p>
+<p><strong>フロントエンド：</strong>
+- CDN が提供する静的ビルド
+- 高速配信のためのエッジキャッシュ
+- Progressive Web App 機能</p>
+<h3 id="_29">インフラオプション<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>ホストサービス</strong>（推奨）</li>
+<li>ministry-mapper.com</li>
+<li>マネージドインフラ</li>
+<li>
+<p>自動更新</p>
+</li>
+<li>
+<p><strong>セルフホスト</strong></p>
+</li>
+<li>Railway、Render、DigitalOcean</li>
+<li>技術的な専門知識が必要</li>
+<li>完全な制御</li>
+</ol>
+<h2 id="_30">監視と可観測性<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<h3 id="_31">エラー追跡<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sentry統合</strong>：フロントエンドとバックエンドの両方</li>
+<li><strong>エラー分類</strong>：重大度とタイプ別</li>
+<li><strong>ソースマップ</strong>：ミニファイドコードのデバッグ</li>
+<li><strong>リリース追跡</strong>：バージョン固有のエラー</li>
+</ul>
+<h3 id="_32">ロギング<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>バックエンド</strong>：構造化 JSON ログ</li>
+<li><strong>フロントエンド</strong>：開発時のコンソールロギング</li>
+<li><strong>本番</strong>：Sentry に送信されるエラー</li>
+<li><strong>監査証跡</strong>：ユーザーアクションの追跡</li>
+</ul>
+<h2 id="_33">スケーラビリティの考慮事項<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<h3 id="_34">現在の制限<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SQLite シングルライター制限</li>
+<li>小〜中規模の会衆に適合（同時接続ユーザー1000人未満）</li>
+<li>垂直スケーリング（より強力なサーバー）</li>
+</ul>
+<h3 id="_35">将来のスケーラビリティ<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PocketBase は読み取りレプリカをサポート</li>
+<li>必要に応じて PostgreSQL に移行可能</li>
+<li>静的アセット用 CDN キャッシュ</li>
+<li>API 最適化のためのエッジ関数</li>
+</ul>
+<h2 id="_36">テクノロジーの決定<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<h3 id="_37">なぜこれらのテクノロジーを選んだのか？<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p><strong>React 19</strong>：最新機能、自動最適化、小さなバンドル</p>
+<p><strong>TypeScript</strong>：型安全性、より良い IDE サポート、ランタイムエラーの削減</p>
+<p><strong>Vite</strong>：高速な開発サーバー、インスタント HMR、最適化されたビルド</p>
+<p><strong>PocketBase</strong>：セルフホスト、ベンダーロックインなし、メンテナンスが容易</p>
+<p><strong>Wouter</strong>：軽量（React Router の 40KB に対して 3KB）</p>
+<p><strong>Bootstrap</strong>：実績あり、包括的なコンポーネント、優れたアクセシビリティ</p>
+<p><strong>Leaflet</strong>：無料マップ、API制限なし、軽量</p>
+<p><strong>SQLite</strong>：自己完結型、別途データベースサーバー不要、セルフホストに最適</p>
+<h2 id="_38">次のステップ<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../backend-setup/">バックエンドセットアップ</a> - バックエンドの設定</li>
+<li><a href="../frontend-setup/">フロントエンドセットアップ</a> - フロントエンドのデプロイ</li>
+<li><a href="security.md">セキュリティガイド</a> - セキュリティのベストプラクティス</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3356 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ja/deployment/">
+      
+      
+        <link rel="prev" href="../data-models/">
+      
+      
+        <link rel="next" href="../self-hosting/">
+      
+      
+        
+          <link rel="alternate" href="../../deployment/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/deployment/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/deployment/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/deployment/" hreflang="ms">
+        
+          <link rel="alternate" href="./" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/deployment/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/deployment/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/deployment/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Deployment Guide - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../deployment/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/deployment/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/deployment/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/deployment/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/deployment/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/deployment/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/deployment/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クイックデプロイ決定ツリー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：ホストサービス（推奨）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション1：ホストサービス（推奨）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        利点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        はじめかた
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：セルフホスト
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション2：セルフホスト">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セルフホストの概要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドデプロイオプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックエンドデプロイオプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1railway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Railway（セルフホストに推奨）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3digitalocean-droplet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション3：DigitalOcean Droplet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション4：AWS（上級）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドデプロイオプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="フロントエンドデプロイオプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1vercel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Vercel（推奨）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション3：Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション4：AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド環境変数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンド環境変数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL/TLS 証明書のセットアップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSL/TLS 証明書のセットアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1lets-encrypt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Let's Encrypt（無料）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2cloudflare-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：Cloudflare SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション3：クラウドプロバイダー SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースバックアップ戦略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データベースバックアップ戦略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自動バックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クラウドバックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監視とロギング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="監視とロギング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry のセットアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーション監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティのベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="セキュリティのベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンス最適化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンス最適化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケーラビリティの考慮事項
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="スケーラビリティの考慮事項">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現在の制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケーリングオプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デプロイのトラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="デプロイのトラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コスト見積もり
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コスト見積もり">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ホストサービス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セルフホストのコスト
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="次のステップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デプロイ後
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サポートリソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="サポートリソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ドキュメント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コミュニティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロフェッショナルサポート
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クイックデプロイ決定ツリー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：ホストサービス（推奨）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション1：ホストサービス（推奨）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        利点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        はじめかた
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：セルフホスト
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション2：セルフホスト">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セルフホストの概要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドデプロイオプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックエンドデプロイオプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1railway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Railway（セルフホストに推奨）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3digitalocean-droplet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション3：DigitalOcean Droplet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション4：AWS（上級）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドデプロイオプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="フロントエンドデプロイオプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1vercel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Vercel（推奨）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション3：Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション4：AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド環境変数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンド環境変数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSL/TLS 証明書のセットアップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SSL/TLS 証明書のセットアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1lets-encrypt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Let's Encrypt（無料）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2cloudflare-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：Cloudflare SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション3：クラウドプロバイダー SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースバックアップ戦略
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データベースバックアップ戦略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自動バックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クラウドバックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監視とロギング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="監視とロギング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry のセットアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーション監視
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティのベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="セキュリティのベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンス最適化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンス最適化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンド最適化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケーラビリティの考慮事項
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="スケーラビリティの考慮事項">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現在の制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケーリングオプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デプロイのトラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="デプロイのトラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロントエンドの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コスト見積もり
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コスト見積もり">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ホストサービス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セルフホストのコスト
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="次のステップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デプロイ後
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サポートリソース
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="サポートリソース">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ドキュメント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コミュニティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロフェッショナルサポート
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">デプロイメントガイド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">概要<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>このガイドでは、ホストサービスの使用から高度なセルフホスト設定まで、Ministry Mapper のさまざまなデプロイオプションについて説明します。</p>
+<h2 id="_3">クイックデプロイ決定ツリー<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│ 技術的な専門知識と                    │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│ セルフホストの特定のニーズがありますか？│
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└──────────────┬──────────────────────┘
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>               │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>       ┌───────┴───────┐
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>       │               │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>      はい             いいえ
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>       │               │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>       │               └─────────────────┐
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>       │                                 │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>       ▼                                 ▼
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>┌──────────────┐              ┌──────────────────┐
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│ セルフホスト  │              │ ホストサービス    │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│              │              │ を使用           │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│ 下記を参照   │              │                  │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>└──────────────┘              │ ministry-mapper  │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                              │ .com             │
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                              └──────────────────┘
+</code></pre></div>
+<h2 id="1">オプション1：ホストサービス（推奨）<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p><strong>最適：</strong> ほとんどの会衆、中小規模の組織</p>
+<p><strong>URL：</strong> <a href="https://ministry-mapper.com">ministry-mapper.com</a></p>
+<h3 id="_4">利点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>ゼロセットアップ</strong> - すぐに使用開始
+✅ <strong>プロフェッショナルサポート</strong> - 必要なときにヘルプ
+✅ <strong>自動更新</strong> - 常に最新バージョン
+✅ <strong>維持されたインフラ</strong> - サーバー管理不要
+✅ <strong>より良いセキュリティ</strong> - プロフェッショナルなセキュリティ慣行
+✅ <strong>コンプライアンス支援</strong> - GDPR、CCPA などのヘルプ
+✅ <strong>バックアップ含む</strong> - 自動データバックアップ
+✅ <strong>スケーラビリティ</strong> - 成長に自動対応
+✅ <strong>コスト効率</strong> - セルフホストより安いことが多い</p>
+<h3 id="_5">はじめかた<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li><a href="https://ministry-mapper.com">ministry-mapper.com</a> にアクセス</li>
+<li>アカウントを作成</li>
+<li>メールを確認</li>
+<li>会衆アクセスのための管理者に連絡</li>
+<li>すぐに使用開始</li>
+</ol>
+<p><strong>技術的な知識は不要です！</strong></p>
+<hr />
+<h2 id="2">オプション2：セルフホスト<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><strong>最適：</strong> 技術的な専門知識と特定の要件を持つ組織</p>
+<p><strong>要件：</strong>
+- 経験豊富なシステム管理者または開発者
+- Docker、データベース、Webサーバーの理解
+- システムを維持・更新する能力
+- セキュリティのベストプラクティスの知識
+- プライバシー法のコンプライアンス専門知識</p>
+<h3 id="_6">セルフホストの概要<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper は2つのコンポーネントで構成されています：</p>
+<ol>
+<li><strong>バックエンド</strong> - SQLite を使用した PocketBase Go アプリケーション</li>
+<li><strong>フロントエンド</strong> - React 静的 Web アプリケーション</li>
+</ol>
+<p>両方をデプロイして接続する必要があります。</p>
+<hr />
+<h2 id="_7">バックエンドデプロイオプション<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="1railway">オプション1：Railway（セルフホストに推奨）<a class="headerlink" href="#1railway" title="Permanent link">&para;</a></h3>
+<p><strong>最適：</strong> 最小限の設定で簡単なセルフホスト</p>
+<p><strong>セットアップ手順：</strong></p>
+<ol>
+<li>
+<p><strong>Railway アカウントの作成</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Visit: https://railway.app
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GitHub でサインアップ
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>バックエンドのデプロイ</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># リポジトリをフォーク</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Railway に接続</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>railway<span class="w"> </span>init
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>railway<span class="w"> </span>link
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>環境の設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Railway ダッシュボードで環境変数を追加</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>https://your-frontend.vercel.app
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>admin@example.com
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>secure_password_here
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>デプロイ</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>railway<span class="w"> </span>up
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>機能：</strong>
+- 無料ティアあり
+- 自動 HTTPS
+- 簡単なスケーリング
+- 組み込み監視
+- ワンクリックデプロイ</p>
+<hr />
+<h3 id="2render">オプション2：Render<a class="headerlink" href="#2render" title="Permanent link">&para;</a></h3>
+<p><strong>セットアップ手順：</strong></p>
+<ol>
+<li>
+<p><strong>Render アカウントの作成</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Visit: https://render.com
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>サインアップ
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>新しい Web サービスの作成</strong></p>
+</li>
+<li>GitHub リポジトリを接続</li>
+<li><code>ministry-mapper-be</code> を選択</li>
+<li>
+<p>Docker デプロイを選択</p>
+</li>
+<li>
+<p><strong>環境の設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>PB_APP_URL=https://your-frontend-url.vercel.app
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>PB_ADMIN_EMAIL=admin@example.com
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>PB_ADMIN_PASSWORD=secure_password
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>PB_ALLOW_ORIGINS=https://your-frontend-url.vercel.app
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>デプロイ</strong></p>
+</li>
+<li>Render が自動的にビルドとデプロイを実行</li>
+<li>初回デプロイには5〜10分かかります</li>
+</ol>
+<p><strong>機能：</strong>
+- 制限付き無料ティア
+- 自動 HTTPS
+- 簡単なスケーリング
+- GitHub 統合</p>
+<hr />
+<h3 id="3digitalocean-droplet">オプション3：DigitalOcean Droplet<a class="headerlink" href="#3digitalocean-droplet" title="Permanent link">&para;</a></h3>
+<p><strong>最適：</strong> 完全な制御、本番デプロイ</p>
+<p><strong>セットアップ手順：</strong></p>
+<ol>
+<li>
+<p><strong>Droplet の作成</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Ubuntu 22.04 LTS 推奨</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># 最小：1GB RAM、1 CPU、25GB SSD</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># 推奨：2GB RAM、2 CPU、50GB SSD</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Docker のインストール</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker.io<span class="w"> </span>docker-compose<span class="w"> </span>-y
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>リポジトリのクローン</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>環境の設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>nano<span class="w"> </span>.env<span class="w">  </span><span class="c1"># 設定を編集</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>ビルドと実行</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Nginx リバースプロキシのセットアップ</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">api.your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="p">;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Certbot で SSL をセットアップ</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-nginx<span class="w"> </span>-y
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>--nginx<span class="w"> </span>-d<span class="w"> </span>api.your-domain.com
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>機能：</strong>
+- 完全な制御
+- 予測可能な料金（$6〜12/月）
+- 高パフォーマンス
+- カスタム設定</p>
+<hr />
+<h3 id="4aws">オプション4：AWS（上級）<a class="headerlink" href="#4aws" title="Permanent link">&para;</a></h3>
+<p><strong>最適：</strong> エンタープライズデプロイ、高いスケーラビリティのニーズ</p>
+<p><strong>アーキテクチャ：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Route 53（DNS）
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    ↓
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>CloudFront（CDN）
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    ↓
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Application Load Balancer
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    ↓
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>ECS Fargate（コンテナ）
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    ↓
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>RDS PostgreSQL（SQLite から移行する場合）
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    ↓
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>S3（ファイルストレージ）
+</code></pre></div></p>
+<p><strong>セットアップ概要：</strong></p>
+<ol>
+<li><strong>ECS クラスターの作成</strong></li>
+<li><strong>Docker イメージのビルドと ECR へのプッシュ</strong></li>
+<li><strong>タスク定義の作成</strong></li>
+<li><strong>ロードバランサーの設定</strong></li>
+<li><strong>CloudFront CDN のセットアップ</strong></li>
+<li><strong>Route 53 DNS の設定</strong></li>
+</ol>
+<p><strong>費用：</strong> 使用量によって月額 $50〜200</p>
+<p><strong>複雑さ：</strong> 高 - AWS の専門知識が必要</p>
+<hr />
+<h2 id="_8">フロントエンドデプロイオプション<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="1vercel">オプション1：Vercel（推奨）<a class="headerlink" href="#1vercel" title="Permanent link">&para;</a></h3>
+<p><strong>最適：</strong> 優れた DX での高速で簡単なデプロイ</p>
+<p><strong>セットアップ手順：</strong></p>
+<ol>
+<li>
+<p><strong>Vercel アカウントの作成</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Visit: https://vercel.com
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>GitHub でサインアップ
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>リポジトリのインポート</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>- 「New Project」をクリック
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>- ministry-mapper-v2 をインポート
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>- フレームワーク：Vite
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>- ビルドコマンド：npm run build
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>- 出力ディレクトリ：build
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>環境変数の設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>your_key
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>your_key
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-url.com
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>デプロイ</strong></p>
+</li>
+<li>Vercel はプッシュ時に自動デプロイ</li>
+<li>2〜3分かかります</li>
+</ol>
+<p><strong>機能：</strong>
+- 個人プロジェクトは無料
+- 自動 HTTPS
+- エッジネットワーク（グローバルに高速）
+- PR のプレビューデプロイ
+- カスタムドメイン</p>
+<hr />
+<h3 id="2netlify">オプション2：Netlify<a class="headerlink" href="#2netlify" title="Permanent link">&para;</a></h3>
+<p><strong>セットアップ手順：</strong></p>
+<ol>
+<li><strong>Netlify アカウントの作成</strong></li>
+<li><strong>リポジトリのインポート</strong></li>
+<li>GitHub を接続</li>
+<li><code>ministry-mapper-v2</code> を選択</li>
+<li><strong>ビルド設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ビルドコマンド：npm run build
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>公開ディレクトリ：build
+</code></pre></div></li>
+<li><strong>環境変数の追加</strong></li>
+<li><strong>デプロイ</strong></li>
+</ol>
+<p><strong>機能：</strong>
+- 無料ティア
+- 自動 HTTPS
+- フォーム処理
+- サーバーレス関数</p>
+<hr />
+<h3 id="3cloudflare-pages">オプション3：Cloudflare Pages<a class="headerlink" href="#3cloudflare-pages" title="Permanent link">&para;</a></h3>
+<p><strong>セットアップ手順：</strong></p>
+<ol>
+<li><strong>Cloudflare アカウントの作成</strong></li>
+<li><strong>Pages プロジェクトの作成</strong></li>
+<li>GitHub を接続</li>
+<li>リポジトリを選択</li>
+<li><strong>ビルド設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>フレームワーク：Vite
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>ビルドコマンド：npm run build
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>出力ディレクトリ：build
+</code></pre></div></li>
+<li><strong>環境変数</strong></li>
+<li><strong>デプロイ</strong></li>
+</ol>
+<p><strong>機能：</strong>
+- 無制限の帯域幅
+- グローバル CDN
+- DDoS 保護
+- Web 分析</p>
+<hr />
+<h3 id="4aws-s3-cloudfront">オプション4：AWS S3 + CloudFront<a class="headerlink" href="#4aws-s3-cloudfront" title="Permanent link">&para;</a></h3>
+<p><strong>最適：</strong> AWS 中心のデプロイ</p>
+<p><strong>セットアップ手順：</strong></p>
+<ol>
+<li>
+<p><strong>S3 バケットの作成</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>mb<span class="w"> </span>s3://ministry-mapper-frontend
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>静的ホスティングの設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>website<span class="w"> </span>s3://ministry-mapper-frontend<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span>--index-document<span class="w"> </span>index.html<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span>--error-document<span class="w"> </span>index.html
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>ビルドのアップロード</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>build/<span class="w"> </span>s3://ministry-mapper-frontend
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>CloudFront ディストリビューションの作成</strong></p>
+</li>
+<li>オリジン：S3 バケット</li>
+<li>ビューアープロトコル：HTTP を HTTPS にリダイレクト</li>
+<li>
+<p>価格クラス：すべてのエッジロケーションを使用</p>
+</li>
+<li>
+<p><strong>カスタムドメインの設定</strong></p>
+</li>
+</ol>
+<p><strong>費用：</strong> 小規模サイトで約 $1〜5/月</p>
+<hr />
+<h2 id="_9">環境設定<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="_10">バックエンド環境変数<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>必須：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>https://your-frontend-url.com
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>admin@example.com
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>secure_password
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>https://your-frontend-url.com
+</code></pre></div></p>
+<p><strong>SMTP（メール）：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>smtp.gmail.com
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nv">PB_SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nv">PB_SMTP_USERNAME</span><span class="o">=</span>your_email@gmail.com
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="nv">PB_SMTP_PASSWORD</span><span class="o">=</span>app_password
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="nv">PB_SMTP_SENDER_ADDRESS</span><span class="o">=</span>noreply@your-domain.com
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+</code></pre></div></p>
+<p><strong>セキュリティ：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div></p>
+<p><strong>監視：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+</code></pre></div></p>
+<p><strong>オプションサービス：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>your_key
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>your_key
+</code></pre></div></p>
+<h3 id="_11">フロントエンド環境変数<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>必須：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend.com
+</code></pre></div></p>
+<p><strong>法的ページ：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-site.com/about
+</code></pre></div></p>
+<p><strong>オプション API：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>your_openrouteservice_key
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>your_locationiq_key
+</code></pre></div></p>
+<p><strong>監視：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div></p>
+<hr />
+<h2 id="ssltls">SSL/TLS 証明書のセットアップ<a class="headerlink" href="#ssltls" title="Permanent link">&para;</a></h2>
+<h3 id="1lets-encrypt">オプション1：Let's Encrypt（無料）<a class="headerlink" href="#1lets-encrypt" title="Permanent link">&para;</a></h3>
+<p><strong>Certbot を使用：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-nginx
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>--nginx<span class="w"> </span>-d<span class="w"> </span>your-domain.com<span class="w"> </span>-d<span class="w"> </span>www.your-domain.com
+</code></pre></div></p>
+<p><strong>自動更新：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>renew<span class="w"> </span>--dry-run
+</code></pre></div></p>
+<h3 id="2cloudflare-ssl">オプション2：Cloudflare SSL<a class="headerlink" href="#2cloudflare-ssl" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cloudflare に含まれる無料 SSL</li>
+<li>自動更新</li>
+<li>ユニバーサル SSL</li>
+</ul>
+<h3 id="3-ssl">オプション3：クラウドプロバイダー SSL<a class="headerlink" href="#3-ssl" title="Permanent link">&para;</a></h3>
+<p>ほとんどのクラウドプロバイダー（Vercel、Netlify、Railway）は自動 SSL を含みます</p>
+<hr />
+<h2 id="_12">データベースバックアップ戦略<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">自動バックアップ<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p><strong>日次バックアップスクリプト：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="nv">DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d_%H%M%S<span class="k">)</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">&quot;/backups&quot;</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="nv">DB_PATH</span><span class="o">=</span><span class="s2">&quot;/app/pb_data/data.db&quot;</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="c1"># バックアップを作成</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>cp<span class="w"> </span><span class="nv">$DB_PATH</span><span class="w"> </span><span class="nv">$BACKUP_DIR</span>/backup_<span class="nv">$DATE</span>.db
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="c1"># 圧縮</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>gzip<span class="w"> </span><span class="nv">$BACKUP_DIR</span>/backup_<span class="nv">$DATE</span>.db
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="c1"># 最後の30日間を保持</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>find<span class="w"> </span><span class="nv">$BACKUP_DIR</span><span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;backup_*.gz&quot;</span><span class="w"> </span>-mtime<span class="w"> </span>+30<span class="w"> </span>-delete
+</code></pre></div></p>
+<p><strong>Cron スケジュール：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>/path/to/backup-script.sh
+</code></pre></div></p>
+<h3 id="_14">クラウドバックアップ<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>AWS S3：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>aws<span class="w"> </span>s3<span class="w"> </span>sync<span class="w"> </span>/backups/<span class="w"> </span>s3://your-bucket/ministry-mapper-backups/
+</code></pre></div></p>
+<p><strong>Render：</strong>
+- 自動バックアップ含む
+- 日次スナップショット
+- 7日間の保持</p>
+<hr />
+<h2 id="_15">監視とロギング<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="sentry">Sentry のセットアップ<a class="headerlink" href="#sentry" title="Permanent link">&para;</a></h3>
+<ol>
+<li><a href="https://sentry.io">sentry.io</a> でアカウントを作成</li>
+<li>新しいプロジェクトを作成（React + Go）</li>
+<li>DSN をコピー</li>
+<li>環境変数に追加</li>
+<li>アラートを設定</li>
+</ol>
+<p><strong>メリット：</strong>
+- リアルタイムエラー追跡
+- パフォーマンス監視
+- リリース追跡
+- ユーザーフィードバック</p>
+<h3 id="_16">アプリケーション監視<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><strong>追跡するメトリクス：</strong>
+- エラー率
+- レスポンスタイム
+- データベースサイズ
+- アクティブユーザー
+- API 呼び出し
+- メモリ使用量
+- ディスクスペース</p>
+<p><strong>ツール：</strong>
+- Grafana + Prometheus
+- Datadog
+- New Relic
+- クラウドプロバイダーの監視</p>
+<hr />
+<h2 id="_17">セキュリティのベストプラクティス<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="_18">バックエンドセキュリティ<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>強力なパスワードを使用</strong></li>
+<li>最小12文字</li>
+<li>
+<p>文字、数字、記号を混在</p>
+</li>
+<li>
+<p><strong>レート制限を有効化</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>CORS の設定</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>https://your-frontend-url.com
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>定期的な更新</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># 毎月更新を確認</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>docker<span class="w"> </span>pull<span class="w"> </span>your-image:latest
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>ファイアウォールルール</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># ポート 80、443、22（SSH）のみ許可</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>/tcp
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">443</span>/tcp
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">22</span>/tcp
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>sudo<span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="_19">フロントエンドセキュリティ<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>環境変数</strong></li>
+<li><code>.env</code> ファイルをコミットしない</li>
+<li>
+<p>プラットフォームの環境変数 UI を使用</p>
+</li>
+<li>
+<p><strong>API キーの制限</strong></p>
+</li>
+<li>
+<p>API キーを特定の API に制限</p>
+</li>
+<li>
+<p><strong>コンテンツセキュリティポリシー</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Security-Policy&quot;</span> 
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>      <span class="na">content</span><span class="o">=</span><span class="s">&quot;default-src &#39;self&#39;; </span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="s">               script-src &#39;self&#39; &#39;unsafe-inline&#39;; </span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="s">               style-src &#39;self&#39; &#39;unsafe-inline&#39;;&quot;</span><span class="p">&gt;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>HTTPS のみ</strong></p>
+</li>
+<li>本番環境で HTTPS を強制</li>
+<li>HSTS ヘッダーを設定</li>
+</ol>
+<hr />
+<h2 id="_20">パフォーマンス最適化<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<h3 id="_21">バックエンド最適化<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Gzip 圧縮を有効化</strong></li>
+<li><strong>データベースインデックス</strong>（すでに設定済み）</li>
+<li><strong>コネクションプーリング</strong></li>
+<li><strong>キャッシングヘッダー</strong></li>
+</ol>
+<h3 id="_22">フロントエンド最適化<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>コード分割</strong>（Vite で自動）</li>
+<li><strong>画像最適化</strong></li>
+<li><strong>静的アセット用 CDN</strong></li>
+<li><strong>サービスワーカーキャッシング</strong></li>
+</ol>
+<p><strong>Lighthouse スコア目標：</strong>
+- パフォーマンス：&gt;90
+- アクセシビリティ：&gt;95
+- ベストプラクティス：&gt;95
+- SEO：&gt;90</p>
+<hr />
+<h2 id="_23">スケーラビリティの考慮事項<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="_24">現在の制限<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SQLite シングルライター</li>
+<li>同時接続ユーザー1000人未満に適合</li>
+<li>中小規模の会衆に適切</li>
+</ul>
+<h3 id="_25">スケーリングオプション<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p><strong>垂直スケーリング：</strong>
+- サーバーリソースの増加
+- より多くの RAM、CPU、ストレージ</p>
+<p><strong>水平スケーリング：</strong>
+- PocketBase 読み取りレプリカ
+- フロントエンド用 CDN
+- ロードバランサー</p>
+<p><strong>データベース移行：</strong>
+- より大きなスケール用に PostgreSQL に移行
+- PocketBase は PostgreSQL をサポート</p>
+<hr />
+<h2 id="_26">デプロイのトラブルシューティング<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">バックエンドの問題<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p><strong>問題：</strong> データベースがロックされている
+<strong>解決策：</strong> 実行中のインスタンスが1つだけであることを確認</p>
+<p><strong>問題：</strong> メールが送信されない
+<strong>解決策：</strong> SMTP 認証情報とポートを確認</p>
+<p><strong>問題：</strong> メモリ使用量が多い
+<strong>解決策：</strong> サーバー RAM を増加するかクエリを最適化</p>
+<h3 id="_28">フロントエンドの問題<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p><strong>問題：</strong> ビルドが失敗する
+<strong>解決策：</strong> Node.js バージョンを確認（22+ が必要）</p>
+<p><strong>問題：</strong> CORS エラー
+<strong>解決策：</strong> バックエンドで <code>PB_ALLOW_ORIGINS</code> を設定</p>
+<hr />
+<h2 id="_29">コスト見積もり<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<h3 id="_30">ホストサービス<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li>料金については ministry-mapper.com にお問い合わせ</li>
+<li>サポート、更新、バックアップが含まれます</li>
+</ul>
+<h3 id="_31">セルフホストのコスト<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p><strong>最小限のセットアップ：</strong>
+- Railway/Render：$0〜5/月（無料ティア）
+- Vercel/Netlify：$0/月（無料ティア）
+- <strong>合計：$0〜5/月</strong></p>
+<p><strong>推奨セットアップ：</strong>
+- バックエンド（Railway）：$5/月
+- フロントエンド（Vercel）：$0/月
+- Sentry：$0/月（無料ティア）
+- <strong>合計：$5/月</strong></p>
+<p><strong>本番セットアップ：</strong>
+- DigitalOcean Droplet：$12/月
+- CloudFront CDN：$2/月
+- Sentry Pro：$26/月
+- <strong>合計：$40/月</strong></p>
+<p><strong>エンタープライズセットアップ：</strong>
+- AWS インフラ：$100〜500/月
+- サポート契約：変動
+- <strong>合計：$100〜500+/月</strong></p>
+<p><strong>時間投資：</strong>
+- 初期セットアップ：4〜8時間
+- 月次メンテナンス：2〜4時間
+- 緊急サポート：随時</p>
+<hr />
+<h2 id="_32">次のステップ<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<h3 id="_33">デプロイ後<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>徹底的なテスト</strong></li>
+<li>テストアカウントを作成</li>
+<li>サンプルテリトリーを作成</li>
+<li>すべての機能をテスト</li>
+<li>
+<p>メールが機能することを確認</p>
+</li>
+<li>
+<p><strong>ユーザートレーニング</strong></p>
+</li>
+<li>ドキュメントを作成</li>
+<li>管理者をトレーニング</li>
+<li>
+<p>ユーザーセッションを開催</p>
+</li>
+<li>
+<p><strong>システムの監視</strong></p>
+</li>
+<li>Sentry を毎日確認</li>
+<li>ログを毎週確認</li>
+<li>
+<p>毎月更新</p>
+</li>
+<li>
+<p><strong>バックアップの検証</strong></p>
+</li>
+<li>復元プロセスをテスト</li>
+<li>バックアップの整合性を検証</li>
+<li>手順を文書化</li>
+</ol>
+<hr />
+<h2 id="_34">サポートリソース<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<h3 id="_35">ドキュメント<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="../architecture/">アーキテクチャ概要</a></li>
+<li><a href="../backend-setup/">バックエンドセットアップ</a></li>
+<li><a href="../frontend-setup/">フロントエンドセットアップ</a></li>
+</ul>
+<h3 id="_36">コミュニティ<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GitHub Issues</li>
+<li>ドキュメントサイト</li>
+<li>コミュニティフォーラム</li>
+</ul>
+<h3 id="_37">プロフェッショナルサポート<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<ul>
+<li>ホストサービスサポート</li>
+<li>コンサルティングあり</li>
+<li>カスタム開発</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

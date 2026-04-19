@@ -1,0 +1,2996 @@
+
+<!doctype html>
+<html lang="ms" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ms/self-hosting/">
+      
+      
+        <link rel="prev" href="../deployment/">
+      
+      
+        <link rel="next" href="../backend-setup/">
+      
+      
+        
+          <link rel="alternate" href="../../self-hosting/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/self-hosting/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/self-hosting/" hreflang="id">
+        
+          <link rel="alternate" href="./" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/self-hosting/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/self-hosting/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/self-hosting/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/self-hosting/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Self-Hosting Guide - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hos-sendiri-ministry-mapper" class="md-skip">
+          Langkau tajuk talian
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Pengepala">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Self-Hosting Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Pilih bahasa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../self-hosting/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/self-hosting/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/self-hosting/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/self-hosting/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/self-hosting/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/self-hosting/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/self-hosting/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Carian">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Padam" aria-label="Padam" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Siap carian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tab" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mengapa-kami-tidak-menggalakkan-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa Kami Tidak Menggalakkan Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat-untuk-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat untuk Hos Sendiri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prasyarat untuk Hos Sendiri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keperluan-teknikal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keperluan Teknikal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keperluan-infrastruktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keperluan Infrastruktur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komitmen-masa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Komitmen Masa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan-seni-bina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan Seni Bina
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panduan-hos-sendiri-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Panduan Hos Sendiri Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Panduan Hos Sendiri Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penempatan-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penempatan Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pembangunan-tempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pembangunan Tempatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sandaran-pangkalan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandaran Pangkalan Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senarai-semak-keselamatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Senarai Semak Keselamatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panduan-hos-sendiri-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Panduan Hos Sendiri Frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Panduan Hos Sendiri Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-persekitaran_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membina-untuk-pengeluaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Membina untuk Pengeluaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-penempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Penempatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Penempatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perkhidmatan-pengehosan-statik-paling-mudah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perkhidmatan Pengehosan Statik (Paling Mudah)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pelayan-web-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pelayan Web Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persediaan-sentry-pilihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persediaan Sentry (Pilihan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelenggaraan-dan-kemas-kini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelenggaraan dan Kemas Kini
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelenggaraan dan Kemas Kini">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tugas-penyelenggaraan-berkala" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tugas Penyelenggaraan Berkala
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengemas-kini-ke-versi-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengemas Kini ke Versi Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemantauan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemantauan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah-contoh-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah Contoh Hos Sendiri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah Contoh Hos Sendiri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masalah-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Frontend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-prestasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Prestasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privasi-dan-pematuhan-undang-undang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privasi dan Pematuhan Undang-undang
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privasi dan Pematuhan Undang-undang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tanggungjawab-anda-sebagai-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tanggungjawab Anda sebagai Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dokumen-undang-undang-diperlukan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dokumen Undang-undang Diperlukan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#langkah-perlindungan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Perlindungan Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pertimbangan-kos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertimbangan Kos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pertimbangan Kos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kos-infrastruktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kos Infrastruktur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kos-perkhidmatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kos Perkhidmatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pelaburan-masa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pelaburan Masa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jumlah-kos-pemilikan-tahunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jumlah Kos Pemilikan (Tahunan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mendapatkan-bantuan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mendapatkan Bantuan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mendapatkan Bantuan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sokongan-komuniti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sokongan Komuniti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-perlu-disertakan-dalam-permintaan-sokongan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apa yang Perlu Disertakan dalam Permintaan Sokongan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sokongan-terhad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sokongan Terhad
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatif-kepada-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatif kepada Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesimpulan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesimpulan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kesimpulan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gunakan-perkhidmatan-dihoskan-sebaliknya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gunakan Perkhidmatan Dihoskan Sebaliknya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masih-mahu-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masih Mahu Hos Sendiri?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mengapa-kami-tidak-menggalakkan-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa Kami Tidak Menggalakkan Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prasyarat-untuk-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat untuk Hos Sendiri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prasyarat untuk Hos Sendiri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keperluan-teknikal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keperluan Teknikal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keperluan-infrastruktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keperluan Infrastruktur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#komitmen-masa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Komitmen Masa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan-seni-bina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan Seni Bina
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panduan-hos-sendiri-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Panduan Hos Sendiri Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Panduan Hos Sendiri Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penempatan-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penempatan Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pembangunan-tempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pembangunan Tempatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sandaran-pangkalan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandaran Pangkalan Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senarai-semak-keselamatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Senarai Semak Keselamatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#panduan-hos-sendiri-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Panduan Hos Sendiri Frontend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Panduan Hos Sendiri Frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-persekitaran_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membina-untuk-pengeluaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Membina untuk Pengeluaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-penempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Penempatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Penempatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perkhidmatan-pengehosan-statik-paling-mudah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perkhidmatan Pengehosan Statik (Paling Mudah)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pelayan-web-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pelayan Web Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persediaan-sentry-pilihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persediaan Sentry (Pilihan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelenggaraan-dan-kemas-kini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelenggaraan dan Kemas Kini
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelenggaraan dan Kemas Kini">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tugas-penyelenggaraan-berkala" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tugas Penyelenggaraan Berkala
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengemas-kini-ke-versi-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengemas Kini ke Versi Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemantauan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemantauan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah-contoh-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah Contoh Hos Sendiri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah Contoh Hos Sendiri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masalah-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Backend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Frontend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-prestasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Prestasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privasi-dan-pematuhan-undang-undang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privasi dan Pematuhan Undang-undang
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privasi dan Pematuhan Undang-undang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tanggungjawab-anda-sebagai-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tanggungjawab Anda sebagai Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dokumen-undang-undang-diperlukan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dokumen Undang-undang Diperlukan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#langkah-perlindungan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Perlindungan Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pertimbangan-kos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertimbangan Kos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pertimbangan Kos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kos-infrastruktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kos Infrastruktur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kos-perkhidmatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kos Perkhidmatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pelaburan-masa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pelaburan Masa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jumlah-kos-pemilikan-tahunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jumlah Kos Pemilikan (Tahunan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mendapatkan-bantuan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mendapatkan Bantuan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mendapatkan Bantuan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sokongan-komuniti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sokongan Komuniti
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apa-yang-perlu-disertakan-dalam-permintaan-sokongan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apa yang Perlu Disertakan dalam Permintaan Sokongan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sokongan-terhad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sokongan Terhad
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatif-kepada-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatif kepada Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesimpulan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesimpulan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kesimpulan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gunakan-perkhidmatan-dihoskan-sebaliknya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gunakan Perkhidmatan Dihoskan Sebaliknya
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masih-mahu-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masih Mahu Hos Sendiri?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="hos-sendiri-ministry-mapper">Hos Sendiri Ministry Mapper<a class="headerlink" href="#hos-sendiri-ministry-mapper" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Hos Sendiri Tidak Disyorkan</p>
+<p>Hos sendiri Ministry Mapper memerlukan kepakaran teknikal yang ketara dan penyelenggaraan berterusan. <strong>Kami mengesyorkan menggunakan perkhidmatan dihoskan kami di <a href="https://ministry-mapper.com">ministry-mapper.com</a> sebaliknya.</strong> Teruskan dengan hos sendiri hanya jika anda mempunyai:</p>
+<ul>
+<li>Pentadbir sistem atau pembangun berpengalaman</li>
+<li>Sumber untuk penyelenggaraan dan kemas kini berterusan</li>
+<li>Pemahaman tentang amalan terbaik keselamatan</li>
+<li>Keupayaan untuk mematuhi peraturan privasi</li>
+<li>Keperluan khusus yang tidak dapat dipenuhi oleh perkhidmatan dihoskan</li>
+</ul>
+</div>
+<h2 id="mengapa-kami-tidak-menggalakkan-hos-sendiri">Mengapa Kami Tidak Menggalakkan Hos Sendiri<a class="headerlink" href="#mengapa-kami-tidak-menggalakkan-hos-sendiri" title="Permanent link">&para;</a></h2>
+<p>Walaupun Ministry Mapper adalah sumber terbuka, hos sendiri datang dengan cabaran:</p>
+<ul>
+<li><strong>Kerumitan Teknikal</strong>: Memerlukan pengetahuan tentang Docker, pangkalan data, pelayan web, dan infrastruktur awan</li>
+<li><strong>Tanggungjawab Keselamatan</strong>: Anda bertanggungjawab untuk memastikan segala-galanya selamat dan dikemas kini</li>
+<li><strong>Beban Penyelenggaraan</strong>: Kemas kini, sandaran, dan pemantauan berkala adalah penting</li>
+<li><strong>Pematuhan Privasi</strong>: Anda mesti memastikan pematuhan GDPR, CCPA, dan undang-undang privasi lain</li>
+<li><strong>Kos</strong>: Kos pelayan, kos API, dan pelaburan masa sering melebihi yuran perkhidmatan dihoskan</li>
+<li><strong>Sokongan</strong>: Sokongan komuniti terhad untuk masalah hos sendiri</li>
+</ul>
+<h2 id="prasyarat-untuk-hos-sendiri">Prasyarat untuk Hos Sendiri<a class="headerlink" href="#prasyarat-untuk-hos-sendiri" title="Permanent link">&para;</a></h2>
+<p>Jika anda telah memutuskan untuk hos sendiri walaupun dengan pengesyoran kami, pastikan anda mempunyai:</p>
+<h3 id="keperluan-teknikal">Keperluan Teknikal<a class="headerlink" href="#keperluan-teknikal" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pengalaman dengan pentadbiran pelayan Linux</li>
+<li>Pemahaman tentang Docker dan kontainerisasi</li>
+<li>Kebiasaan dengan pemboleh ubah persekitaran dan konfigurasi</li>
+<li>Pengetahuan tentang konfigurasi pelayan web (Nginx/Apache)</li>
+<li>Pengalaman dengan sijil SSL/TLS</li>
+<li>Pemahaman tentang DNS dan konfigurasi domain</li>
+</ul>
+<h3 id="keperluan-infrastruktur">Keperluan Infrastruktur<a class="headerlink" href="#keperluan-infrastruktur" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Perkhidmatan pengehosan awan (Railway, Render, DigitalOcean, AWS, dll.)</li>
+<li>Nama domain untuk contoh anda</li>
+<li>Perkhidmatan e-mel untuk pemberitahuan (pilihan)</li>
+<li>Bajet untuk kos API pilihan (Sentry, dll.)</li>
+</ul>
+<h3 id="komitmen-masa">Komitmen Masa<a class="headerlink" href="#komitmen-masa" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Persediaan awal: 2-4 jam</li>
+<li>Penyelenggaraan berterusan: 2-4 jam sebulan</li>
+<li>Sokongan kecemasan apabila masalah timbul</li>
+</ul>
+<h2 id="gambaran-keseluruhan-seni-bina">Gambaran Keseluruhan Seni Bina<a class="headerlink" href="#gambaran-keseluruhan-seni-bina" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper terdiri daripada dua komponen berasingan:</p>
+<ol>
+<li><strong>Backend (ministry-mapper-be)</strong>: Pelayan PocketBase dengan sambungan Go</li>
+<li>Repositori: <a href="https://github.com/rimorin/ministry-mapper-be">github.com/rimorin/ministry-mapper-be</a></li>
+<li>Teknologi: Go, PocketBase, SQLite</li>
+<li>
+<p>Berjalan pada port 8080 (Docker) atau 8090 (tempatan)</p>
+</li>
+<li>
+<p><strong>Frontend (ministry-mapper-v2)</strong>: Aplikasi web React</p>
+</li>
+<li>Repositori: <a href="https://github.com/rimorin/ministry-mapper-v2">github.com/rimorin/ministry-mapper-v2</a></li>
+<li>Teknologi: React, TypeScript, Vite</li>
+<li>Fail statik ditempatkan ke perkhidmatan pengehosan</li>
+</ol>
+<p>Kedua-duanya mesti ditempatkan dan dikonfigurasi untuk berfungsi bersama.</p>
+<h2 id="panduan-hos-sendiri-backend">Panduan Hos Sendiri Backend<a class="headerlink" href="#panduan-hos-sendiri-backend" title="Permanent link">&para;</a></h2>
+<h3 id="konfigurasi-persekitaran">Konfigurasi Persekitaran<a class="headerlink" href="#konfigurasi-persekitaran" title="Permanent link">&para;</a></h3>
+<p>Cipta fail <code>.env</code> dengan tetapan ini:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Tetapan Aplikasi</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>https://your-frontend-domain.com
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Akaun Pentadbir Awal (tukar kata laluan selepas log masuk pertama!)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>admin@your-domain.com
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>change_this_secure_password
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Konfigurasi E-mel (SMTP)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>smtp.gmail.com
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">PB_SMTP_PASSWORD</span><span class="o">=</span>your_app_password
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">PB_SMTP_USERNAME</span><span class="o">=</span>your_email@gmail.com
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">PB_SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nv">PB_SMTP_SENDER_ADDRESS</span><span class="o">=</span>noreply@your-domain.com
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Tetapan Keselamatan</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>https://your-frontend-domain.com
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1"># Pengesahan (pilihan)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1"># Penjejakan Ralat (pilihan tetapi disyorkan)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="nv">SOURCE_COMMIT</span><span class="o">=</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1"># Integrasi Perkhidmatan (pilihan)</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="nv">MAILERSEND_FROM_EMAIL</span><span class="o">=</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="nv">LAUNCHDARKLY_CONTEXT_KEY</span><span class="o">=</span>
+</code></pre></div>
+<h3 id="penempatan-docker">Penempatan Docker<a class="headerlink" href="#penempatan-docker" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Klon Repositori</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Bina Imej Docker</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Jalankan Kontena</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Nota Penting:</strong>
+- Kontena berjalan pada port 8080 secara dalaman
+- Lekapkan volum berterusan ke <code>/app/pb_data</code> untuk mengekalkan data
+- Pangkalan data anda berada dalam folder <code>pb_data</code></p>
+<ol>
+<li><strong>Akses Panel Pentadbir</strong>
+Navigasi ke <code>https://your-backend-domain.com/_/</code> dan log masuk dengan kelayakan pentadbir anda.</li>
+</ol>
+<h3 id="pembangunan-tempatan">Pembangunan Tempatan<a class="headerlink" href="#pembangunan-tempatan" title="Permanent link">&para;</a></h3>
+<p>Untuk ujian pada mesin tempatan anda:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Klon repositori</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Pasang kebergantungan</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>./scripts/install.sh
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Konfigurasi persekitaran</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Edit .env dengan tetapan anda</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># Mulakan aplikasi</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>./scripts/start.sh
+</code></pre></div>
+<p>Backend berjalan di <code>http://localhost:8090</code> secara lalai.</p>
+<h3 id="sandaran-pangkalan-data">Sandaran Pangkalan Data<a class="headerlink" href="#sandaran-pangkalan-data" title="Permanent link">&para;</a></h3>
+<p>Data anda adalah kritikal. Sediakan sandaran automatik:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Sandaran manual</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>tar<span class="w"> </span>-czf<span class="w"> </span>backup-<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Sandaran harian automatik (tambah ke crontab)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+</code></pre></div>
+<h3 id="senarai-semak-keselamatan">Senarai Semak Keselamatan<a class="headerlink" href="#senarai-semak-keselamatan" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Tukar kata laluan pentadbir lalai serta-merta</li>
+<li>[ ] Gunakan HTTPS sahaja (jangan sekali-kali HTTP)</li>
+<li>[ ] Tetapkan <code>PB_ALLOW_ORIGINS</code> kepada domain khusus (bukan <code>*</code>)</li>
+<li>[ ] Aktifkan <code>PB_HIDE_CONTROLS=true</code></li>
+<li>[ ] Aktifkan <code>PB_ENABLE_RATE_LIMITING=true</code></li>
+<li>[ ] Konfigurasi tembok api untuk menyekat akses</li>
+<li>[ ] Sediakan sandaran automatik</li>
+<li>[ ] Konfigurasi Sentry untuk pemantauan ralat</li>
+<li>[ ] Gunakan kata laluan yang kuat dan unik</li>
+<li>[ ] Kekalkan kebergantungan dikemas kini</li>
+<li>[ ] Semak amalan terbaik keselamatan PocketBase</li>
+</ul>
+<h2 id="panduan-hos-sendiri-frontend">Panduan Hos Sendiri Frontend<a class="headerlink" href="#panduan-hos-sendiri-frontend" title="Permanent link">&para;</a></h2>
+<h3 id="konfigurasi-persekitaran_1">Konfigurasi Persekitaran<a class="headerlink" href="#konfigurasi-persekitaran_1" title="Permanent link">&para;</a></h3>
+<p>Cipta fail <code>.env</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Persekitaran Sistem</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Versi</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># URL Backend PocketBase (tiada garis miring di hujung)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-domain.com
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Halaman Undang-undang (diperlukan)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-domain.com/privacy
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-domain.com/terms
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-domain.com/about
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="c1"># Penjejakan Ralat (pilihan tetapi disyorkan)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div>
+<h3 id="membina-untuk-pengeluaran">Membina untuk Pengeluaran<a class="headerlink" href="#membina-untuk-pengeluaran" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Klon repositori</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-v2.git
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Pasang kebergantungan</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>npm<span class="w"> </span>install
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Bina</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</code></pre></div>
+<p>Output akan berada dalam direktori <code>build/</code>.</p>
+<h3 id="pilihan-penempatan">Pilihan Penempatan<a class="headerlink" href="#pilihan-penempatan" title="Permanent link">&para;</a></h3>
+<h4 id="perkhidmatan-pengehosan-statik-paling-mudah">Perkhidmatan Pengehosan Statik (Paling Mudah)<a class="headerlink" href="#perkhidmatan-pengehosan-statik-paling-mudah" title="Permanent link">&para;</a></h4>
+<p><strong>Vercel:</strong>
+1. Import repositori GitHub
+2. Framework: Vite
+3. Build command: <code>npm run build</code>
+4. Output directory: <code>build</code>
+5. Tambah pemboleh ubah persekitaran</p>
+<p><strong>Netlify:</strong>
+1. New site from Git
+2. Build command: <code>npm run build</code>
+3. Publish directory: <code>build</code>
+4. Tambah pemboleh ubah persekitaran</p>
+<p><strong>Cloudflare Pages:</strong>
+1. Create Pages project
+2. Framework: Vite
+3. Build command: <code>npm run build</code>
+4. Output directory: <code>build</code>
+5. Tambah pemboleh ubah persekitaran</p>
+<h4 id="pelayan-web-hos-sendiri">Pelayan Web Hos Sendiri<a class="headerlink" href="#pelayan-web-hos-sendiri" title="Permanent link">&para;</a></h4>
+<p><strong>Konfigurasi Nginx:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kn">ssl_certificate</span><span class="w"> </span><span class="s">/path/to/cert.pem</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kn">ssl_certificate_key</span><span class="w"> </span><span class="s">/path/to/key.pem</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.html</span><span class="p">;</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1"># Caching</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)</span>$<span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">1y</span><span class="p">;</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">immutable&quot;</span><span class="p">;</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="c1"># Pengepala keselamatan</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Frame-Options</span><span class="w"> </span><span class="s">&quot;SAMEORIGIN&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-Content-Type-Options</span><span class="w"> </span><span class="s">&quot;nosniff&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">    </span><span class="kn">add_header</span><span class="w"> </span><span class="s">X-XSS-Protection</span><span class="w"> </span><span class="s">&quot;1</span><span class="p">;</span><span class="w"> </span><span class="kn">mode=block&quot;</span><span class="w"> </span><span class="s">always</span><span class="p">;</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Konfigurasi Apache:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:443</span><span class="nt">&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>your-domain.com
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/ministry-mapper/build</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nb">SSLEngine</span><span class="w"> </span><span class="k">on</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nb">SSLCertificateFile</span><span class="w"> </span><span class="sx">/path/to/cert.pem</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nb">SSLCertificateKeyFile</span><span class="w"> </span><span class="sx">/path/to/key.pem</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="nt">&gt;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="nb">Options</span><span class="w"> </span>-Indexes<span class="w"> </span>+FollowSymLinks
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">        </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="nb">RewriteBase</span><span class="w"> </span>/
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>^index\.html$<span class="w"> </span>-<span class="w"> </span>[L]
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-d
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>.<span class="w"> </span><span class="sx">/index.html</span><span class="w"> </span>[L]
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<h3 id="persediaan-sentry-pilihan">Persediaan Sentry (Pilihan)<a class="headerlink" href="#persediaan-sentry-pilihan" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Cipta akaun di <a href="https://sentry.io">sentry.io</a></li>
+<li>Cipta projek React</li>
+<li>Dapatkan DSN</li>
+<li>Tambah ke <code>.env</code> sebagai <code>VITE_SENTRY_DSN</code></li>
+</ol>
+<h2 id="penyelenggaraan-dan-kemas-kini">Penyelenggaraan dan Kemas Kini<a class="headerlink" href="#penyelenggaraan-dan-kemas-kini" title="Permanent link">&para;</a></h2>
+<h3 id="tugas-penyelenggaraan-berkala">Tugas Penyelenggaraan Berkala<a class="headerlink" href="#tugas-penyelenggaraan-berkala" title="Permanent link">&para;</a></h3>
+<p><strong>Mingguan:</strong>
+- Semak Sentry untuk ralat
+- Semak log aplikasi
+- Sahkan sandaran berfungsi</p>
+<p><strong>Bulanan:</strong>
+- Kemas kini kebergantungan: <code>npm install</code> dan <code>go get -u</code>
+- Semak nasihat keselamatan
+- Uji prosedur pemulihan bencana
+- Semak penggunaan ruang cakera
+- Semak maklum balas pengguna</p>
+<p><strong>Suku Tahunan:</strong>
+- Audit keselamatan
+- Semakan prestasi
+- Kemas kini dokumentasi
+- Semak dan kemas kini dasar privasi
+- Uji semua ciri dengan teliti</p>
+<h3 id="mengemas-kini-ke-versi-baharu">Mengemas Kini ke Versi Baharu<a class="headerlink" href="#mengemas-kini-ke-versi-baharu" title="Permanent link">&para;</a></h3>
+<p><strong>Kemas Kini Backend:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>docker<span class="w"> </span>stop<span class="w"> </span>ministry-mapper
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>docker<span class="w"> </span>rm<span class="w"> </span>ministry-mapper
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div></p>
+<p><strong>Kemas Kini Frontend:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>npm<span class="w"> </span>install
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Tempatkan folder build/ ke perkhidmatan pengehosan anda</span>
+</code></pre></div></p>
+<p><strong>Sentiasa sandarkan sebelum mengemas kini!</strong></p>
+<h3 id="pemantauan">Pemantauan<a class="headerlink" href="#pemantauan" title="Permanent link">&para;</a></h3>
+<p><strong>Apa yang Perlu Dipantau:</strong>
+- Masa aktif dan kesihatan pelayan
+- Kadar ralat aplikasi (Sentry)
+- Pertumbuhan saiz pangkalan data
+- Kejayaan/kegagalan sandaran
+- Tamat tempoh sijil SSL
+- Masalah pengesahan pengguna
+- Metrik prestasi</p>
+<p><strong>Alat:</strong>
+- Sentry untuk penjejakan ralat
+- Google Cloud Console untuk penggunaan API
+- Pemantauan pelayan (Prometheus, Grafana, dll.)
+- Monitor masa aktif (UptimeRobot, Pingdom)
+- Pengagregatan log (tindanan ELK, CloudWatch)</p>
+<h2 id="penyelesaian-masalah-contoh-hos-sendiri">Penyelesaian Masalah Contoh Hos Sendiri<a class="headerlink" href="#penyelesaian-masalah-contoh-hos-sendiri" title="Permanent link">&para;</a></h2>
+<h3 id="masalah-backend">Masalah Backend<a class="headerlink" href="#masalah-backend" title="Permanent link">&para;</a></h3>
+<p><strong>Port Sudah Digunakan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8080
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;process_id&gt;
+</code></pre></div></p>
+<p><strong>Pangkalan Data Terkunci:</strong>
+- Hentikan semua contoh yang mengakses pangkalan data
+- Pastikan hanya satu proses backend berjalan
+- Semak proses yang tergantung</p>
+<p><strong>E-mel Tidak Dihantar:</strong>
+- Sahkan kelayakan SMTP
+- Semak tembok api tidak menyekat port SMTP
+- Untuk Gmail, gunakan Kata Laluan Aplikasi
+- Semak log e-mel dalam <code>pb_data/logs/</code></p>
+<p><strong>Tidak Boleh Akses Panel Pentadbir:</strong>
+- URL mesti <code>https://your-domain.com/_/</code> (perhatikan garis bawah)
+- Semak tetapan <code>PB_HIDE_CONTROLS</code>
+- Sahkan backend berjalan
+- Kosongkan cache pelayar</p>
+<h3 id="masalah-frontend">Masalah Frontend<a class="headerlink" href="#masalah-frontend" title="Permanent link">&para;</a></h3>
+<p><strong>Tidak Boleh Sambung ke Backend:</strong>
+- Sahkan <code>VITE_POCKETBASE_URL</code> betul
+- Semak tetapan CORS dalam backend
+- Pastikan backend boleh diakses
+- Semak konsol pelayar untuk ralat</p>
+<p><strong>Kegagalan Binaan:</strong>
+- Pastikan versi Node.js 22+
+- Padam <code>node_modules</code> dan pasang semula
+- Semak semua pemboleh ubah persekitaran ditetapkan
+- Semak mesej ralat binaan</p>
+<h3 id="masalah-prestasi">Masalah Prestasi<a class="headerlink" href="#masalah-prestasi" title="Permanent link">&para;</a></h3>
+<p><strong>Masa Tindak Balas Perlahan:</strong>
+- Semak sumber pelayan (CPU, RAM, cakera)
+- Semak saiz dan pertanyaan pangkalan data
+- Aktifkan pengoptimuman pangkalan data
+- Semak kependaman rangkaian
+- Semak log PocketBase untuk pertanyaan perlahan</p>
+<h2 id="privasi-dan-pematuhan-undang-undang">Privasi dan Pematuhan Undang-undang<a class="headerlink" href="#privasi-dan-pematuhan-undang-undang" title="Permanent link">&para;</a></h2>
+<h3 id="tanggungjawab-anda-sebagai-hos-sendiri">Tanggungjawab Anda sebagai Hos Sendiri<a class="headerlink" href="#tanggungjawab-anda-sebagai-hos-sendiri" title="Permanent link">&para;</a></h3>
+<p>Apabila hos sendiri, anda adalah pengawal data dan mesti:</p>
+<ul>
+<li><strong>Patuhi Undang-undang Privasi</strong>: GDPR (EU), CCPA (California), dll.</li>
+<li><strong>Cipta Dasar Privasi</strong>: Terangkan pengumpulan dan penggunaan data</li>
+<li><strong>Cipta Terma Perkhidmatan</strong>: Tentukan tanggungjawab pengguna</li>
+<li><strong>Laksanakan Keselamatan Data</strong>: Penyulitan, kawalan akses, sandaran</li>
+<li><strong>Tangani Permintaan Data</strong>: Hak akses, pemadaman, kebolehpindahan pengguna</li>
+<li><strong>Laporkan Pelanggaran Data</strong>: Dalam tempoh masa undang-undang</li>
+<li><strong>Kekalkan Rekod</strong>: Aktiviti pemprosesan data</li>
+<li><strong>Lantik DPO</strong>: Jika dikehendaki oleh peraturan</li>
+</ul>
+<h3 id="dokumen-undang-undang-diperlukan">Dokumen Undang-undang Diperlukan<a class="headerlink" href="#dokumen-undang-undang-diperlukan" title="Permanent link">&para;</a></h3>
+<p>Anda mesti menyediakan:</p>
+<ol>
+<li><strong>Dasar Privasi</strong> - Dikehendaki oleh undang-undang, mesti menerangkan:</li>
+<li>Data apa yang anda kumpulkan</li>
+<li>Bagaimana anda menggunakannya</li>
+<li>Berapa lama anda menyimpannya</li>
+<li>Hak pengguna</li>
+<li>
+<p>Cara menghubungi anda</p>
+</li>
+<li>
+<p><strong>Terma Perkhidmatan</strong> - Mentakrifkan:</p>
+</li>
+<li>Penggunaan yang boleh diterima</li>
+<li>Tanggungjawab pengguna</li>
+<li>Had liabiliti</li>
+<li>
+<p>Dasar penamatan</p>
+</li>
+<li>
+<p><strong>Dasar Kuki</strong> - Jika anda menggunakan kuki/penjejakan</p>
+</li>
+</ol>
+<h3 id="langkah-perlindungan-data">Langkah Perlindungan Data<a class="headerlink" href="#langkah-perlindungan-data" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Gunakan HTTPS di mana-mana</li>
+<li>Sulitkan data dalam keadaan rehat</li>
+<li>Laksanakan kawalan akses</li>
+<li>Audit keselamatan berkala</li>
+<li>Penyulitan sandaran</li>
+<li>Dasar kata laluan selamat</li>
+<li>Pengesahan berbilang faktor</li>
+<li>Pengelogan aktiviti</li>
+<li>Kemas kini keselamatan berkala</li>
+</ul>
+<h2 id="pertimbangan-kos">Pertimbangan Kos<a class="headerlink" href="#pertimbangan-kos" title="Permanent link">&para;</a></h2>
+<h3 id="kos-infrastruktur">Kos Infrastruktur<a class="headerlink" href="#kos-infrastruktur" title="Permanent link">&para;</a></h3>
+<p><strong>Pengehosan Backend:</strong>
+- VPS: $10-50/bulan (DigitalOcean, Linode)
+- PaaS: $10-30/bulan (Railway, Render)
+- Awan: Berubah-ubah (AWS, GCP)</p>
+<p><strong>Pengehosan Frontend:</strong>
+- Pengehosan statik: $0-10/bulan (Vercel, Netlify, Cloudflare)
+- Kos CDN: Biasanya disertakan</p>
+<p><strong>Domain:</strong>
+- $10-20/tahun</p>
+<p><strong>Sijil SSL:</strong>
+- Percuma (Let's Encrypt) atau $0-100/tahun</p>
+<h3 id="kos-perkhidmatan">Kos Perkhidmatan<a class="headerlink" href="#kos-perkhidmatan" title="Permanent link">&para;</a></h3>
+<p><strong>Perkhidmatan E-mel:</strong>
+- Gmail SMTP: Percuma (terhad)
+- MailerSend: Peringkat percuma tersedia
+- SendGrid: Peringkat percuma tersedia</p>
+<p><strong>Penjejakan Ralat:</strong>
+- Sentry: Peringkat percuma tersedia
+- Berbayar: $26-80/bulan</p>
+<p><strong>Penyimpanan Sandaran:</strong>
+- $5-20/bulan bergantung pada saiz</p>
+<h3 id="pelaburan-masa">Pelaburan Masa<a class="headerlink" href="#pelaburan-masa" title="Permanent link">&para;</a></h3>
+<p><strong>Persediaan Awal:</strong>
+- Backend: 2-3 jam
+- Frontend: 1-2 jam
+- Konfigurasi: 1-2 jam
+- Ujian: 2-3 jam
+- <strong>Jumlah: 6-10 jam</strong></p>
+<p><strong>Penyelenggaraan Bulanan:</strong>
+- Pemantauan: 1-2 jam
+- Kemas kini: 1-2 jam
+- Sokongan: 1-3 jam
+- <strong>Jumlah: 3-7 jam</strong></p>
+<h3 id="jumlah-kos-pemilikan-tahunan">Jumlah Kos Pemilikan (Tahunan)<a class="headerlink" href="#jumlah-kos-pemilikan-tahunan" title="Permanent link">&para;</a></h3>
+<p><strong>Sidang kecil (&lt; 100 pengguna):</strong>
+- Infrastruktur: $240-720
+- API: $0-100 (biasanya peringkat percuma)
+- Perkhidmatan: $0-300
+- Domain/SSL: $10-20
+- <strong>Jumlah: $250-1,140 + 48-96 jam/tahun</strong></p>
+<p>Bandingkan ini dengan langganan perkhidmatan dihoskan sebelum membuat komitmen.</p>
+<h2 id="mendapatkan-bantuan">Mendapatkan Bantuan<a class="headerlink" href="#mendapatkan-bantuan" title="Permanent link">&para;</a></h2>
+<h3 id="sokongan-komuniti">Sokongan Komuniti<a class="headerlink" href="#sokongan-komuniti" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GitHub Issues: <a href="https://github.com/rimorin/ministry-mapper-v2/issues">ministry-mapper-v2</a> dan <a href="https://github.com/rimorin/ministry-mapper-be/issues">ministry-mapper-be</a></li>
+<li>Baca isu sedia ada sebelum mencipta yang baharu</li>
+<li>Berikan maklumat terperinci apabila melaporkan masalah</li>
+</ul>
+<h3 id="apa-yang-perlu-disertakan-dalam-permintaan-sokongan">Apa yang Perlu Disertakan dalam Permintaan Sokongan<a class="headerlink" href="#apa-yang-perlu-disertakan-dalam-permintaan-sokongan" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Nombor versi (backend dan frontend)</li>
+<li>Persekitaran penempatan (Docker, tempatan, perkhidmatan pengehosan)</li>
+<li>Mesej ralat (teks penuh)</li>
+<li>Langkah untuk mengeluarkan semula</li>
+<li>Tingkah laku yang dijangka vs sebenar</li>
+<li>Log yang berkaitan</li>
+<li>Konfigurasi (disanitasi, tiada rahsia)</li>
+</ol>
+<h3 id="sokongan-terhad">Sokongan Terhad<a class="headerlink" href="#sokongan-terhad" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Had Sokongan</p>
+<p>Sokongan hos sendiri adalah berasaskan komuniti dan terhad. Pasukan Ministry Mapper mengutamakan perkhidmatan dihoskan. Untuk sokongan profesional, pertimbangkan menggunakan perkhidmatan dihoskan sebaliknya.</p>
+</div>
+<h2 id="alternatif-kepada-hos-sendiri">Alternatif kepada Hos Sendiri<a class="headerlink" href="#alternatif-kepada-hos-sendiri" title="Permanent link">&para;</a></h2>
+<p>Sebelum hos sendiri, pertimbangkan:</p>
+<ol>
+<li><strong>Gunakan Perkhidmatan Dihoskan Rasmi di <a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></li>
+<li>Tiada beban penyelenggaraan</li>
+<li>Sokongan profesional</li>
+<li>Kemas kini automatik</li>
+<li>Kebolehpercayaan lebih baik</li>
+<li>Pematuhan dikendalikan untuk anda</li>
+<li>
+<p>Tersedia sekarang!</p>
+</li>
+<li>
+<p><strong>Minta Ciri</strong></p>
+</li>
+<li>Jika anda memerlukan penyesuaian, minta ciri dalam projek utama</li>
+<li>Memberi manfaat kepada semua orang</li>
+<li>Diselenggara oleh pasukan</li>
+<li>
+<p>Mungkin ditambah ke perkhidmatan dihoskan</p>
+</li>
+<li>
+<p><strong>Sumbang kepada Projek</strong></p>
+</li>
+<li>Tingkatkan pangkalan kod utama</li>
+<li>Bantu orang lain</li>
+<li>Dapatkan sokongan komuniti</li>
+</ol>
+<h2 id="kesimpulan">Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permanent link">&para;</a></h2>
+<p>Hos sendiri Ministry Mapper adalah mungkin tetapi memerlukan kepakaran, masa, dan sumber yang ketara. <strong>Kami sangat mengesyorkan menggunakan perkhidmatan dihoskan di <a href="https://ministry-mapper.com">ministry-mapper.com</a></strong> melainkan anda mempunyai keperluan khusus yang mewajarkan kerumitan tambahan.</p>
+<h3 id="gunakan-perkhidmatan-dihoskan-sebaliknya">Gunakan Perkhidmatan Dihoskan Sebaliknya<a class="headerlink" href="#gunakan-perkhidmatan-dihoskan-sebaliknya" title="Permanent link">&para;</a></h3>
+<p>Lawati <strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong> untuk:
+- Persediaan serta-merta - tiada pengetahuan teknikal diperlukan
+- Sokongan profesional apabila anda memerlukannya
+- Sandaran automatik dan kemas kini keselamatan
+- Bantuan pematuhan undang-undang
+- Kebolehpercayaan dan masa aktif yang lebih baik
+- Jumlah kos pemilikan yang lebih rendah</p>
+<h3 id="masih-mahu-hos-sendiri">Masih Mahu Hos Sendiri?<a class="headerlink" href="#masih-mahu-hos-sendiri" title="Permanent link">&para;</a></h3>
+<p>Jika anda meneruskan dengan hos sendiri:
+- Ikuti semua amalan terbaik keselamatan
+- Kekalkan sistem dikemas kini
+- Kekalkan sandaran berkala
+- Pastikan pematuhan undang-undang
+- Pantau kesihatan sistem
+- Bajetkan untuk kos berterusan
+- Peruntukkan masa untuk penyelenggaraan</p>
+<p>Pastikan anda telah membaca panduan ini sepenuhnya dan memahami implikasinya. Selamat berjaya!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Disalin ke papan keratan", "clipboard.copy": "Salin ke papan keratan", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tiada dokumen yang sepadan", "search.result.one": "1 dokumen yang sepadan", "search.result.other": "# dokumen yang sepadan", "search.result.placeholder": "Taip untuk mula mencari", "search.result.term.missing": "Hilang", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

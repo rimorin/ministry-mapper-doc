@@ -1,0 +1,6185 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/zh/user-guide/">
+      
+      
+        <link rel="prev" href="../features/">
+      
+      
+        <link rel="next" href="../architecture/">
+      
+      
+        
+          <link rel="alternate" href="../../user-guide/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/user-guide/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/user-guide/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/user-guide/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/user-guide/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/user-guide/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/user-guide/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Using Ministry Mapper - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ministry-mapper" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Ministry Mapper
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../user-guide/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/user-guide/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/user-guide/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/user-guide/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/user-guide/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/user-guide/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/user-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入门
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建您的账户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        登录 Ministry Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        了解用户角色
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="了解用户角色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        角色层级
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👤 传道员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👓 只读
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 负责人
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👑 管理员（区域仆人）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仪表板概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仪表板概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于传道员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于负责人和管理员
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看区域
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="查看区域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        传道员区域视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理员/负责人区域视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用地址
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        了解地址信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地址状态类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新地址状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随时添加缺失地址
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用地图功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用地图功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取路线导航
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        导航提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域分配（负责人和管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域分配（负责人和管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么使用基于链接的分配？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特定地图的分配创建
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特定地图的分配管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分配的最佳实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息和说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="消息和说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发布消息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实时数据同步
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实时数据同步">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户管理（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用户管理（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邀请新用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更改用户角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除用户访问权限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户验证状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会众设置（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="会众设置（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        访问设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会众选项（住户类型）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地图配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新地图顺序（拖放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域管理（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域管理（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建新区域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编辑区域详情
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编辑区域详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新区域顺序（拖放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域配置选项
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地址管理（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地址管理（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地址类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加公共地址（多层）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加私人地址（单层）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理现有地址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理单位（仅限公共地址）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移动端使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="移动端使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在手机上使用 Ministry Mapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="在手机上使用 Ministry Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移动端访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        渐进式 Web 应用 (PWA) 安装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移动端最佳实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        离线功能和限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        账户设置和个人资料
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="账户设置和个人资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        个人资料管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更改您的密码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        密码恢复
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语言选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外观和主题设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于传道员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于负责人
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于管理员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般原则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题故障排除
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题故障排除">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        登录问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据更新问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图和导航问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分配链接问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        权限和访问问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        浏览器兼容性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="浏览器兼容性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        浏览器兼容性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取帮助和支持
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="获取帮助和支持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        支持渠道
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有效报告问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        紧急联系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速参考
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快速参考">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        键盘快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        状态快速参考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        角色能力快速参考
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_95" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        隐私和安全
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="隐私和安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_96" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保护信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_97" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        存储的信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_98" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据存储和安全
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_99" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="结论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        入门
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建您的账户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        登录 Ministry Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        了解用户角色
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="了解用户角色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        角色层级
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👤 传道员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👓 只读
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 负责人
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👑 管理员（区域仆人）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仪表板概述
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仪表板概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于传道员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于负责人和管理员
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看区域
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="查看区域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        传道员区域视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理员/负责人区域视图
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用地址
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        了解地址信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地址状态类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新地址状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随时添加缺失地址
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用地图功能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用地图功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取路线导航
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        导航提示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域分配（负责人和管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域分配（负责人和管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        为什么使用基于链接的分配？
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特定地图的分配创建
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理分配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特定地图的分配管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分配的最佳实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息和说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="消息和说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        发布消息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实时数据同步
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实时数据同步">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作原理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户管理（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用户管理（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        邀请新用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更改用户角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除用户访问权限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户验证状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会众设置（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="会众设置（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        访问设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会众选项（住户类型）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地图配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新地图顺序（拖放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域管理（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域管理（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建新区域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编辑区域详情
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编辑区域详情">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更新区域顺序（拖放）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域配置选项
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地址管理（仅限管理员）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="地址管理（仅限管理员）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地址类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加公共地址（多层）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加私人地址（单层）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理现有地址
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理单位（仅限公共地址）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移动端使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="移动端使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在手机上使用 Ministry Mapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="在手机上使用 Ministry Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移动端访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        渐进式 Web 应用 (PWA) 安装
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移动端最佳实践
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        离线功能和限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        账户设置和个人资料
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="账户设置和个人资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        个人资料管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        更改您的密码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        密码恢复
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语言选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外观和主题设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最佳实践
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最佳实践">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于传道员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于负责人
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对于管理员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般原则
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见问题故障排除
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见问题故障排除">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        登录问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据更新问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        地图和导航问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分配链接问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        权限和访问问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        浏览器兼容性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="浏览器兼容性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        浏览器兼容性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取帮助和支持
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="获取帮助和支持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        支持渠道
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有效报告问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        紧急联系
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速参考
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快速参考">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        键盘快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        状态快速参考
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        角色能力快速参考
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_95" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        隐私和安全
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="隐私和安全">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_96" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保护信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_97" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        存储的信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_98" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据存储和安全
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_99" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="结论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键要点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统功能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ministry-mapper">Ministry Mapper 用户指南<a class="headerlink" href="#ministry-mapper" title="Permanent link">&para;</a></h1>
+<h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>欢迎使用 Ministry Mapper，这是一个现代化的 Web 应用程序，旨在帮助会众高效管理外勤服务区域。本指南将带您了解开始使用和充分利用该应用程序所需的一切。</p>
+<p><strong>什么是 Ministry Mapper？</strong></p>
+<p>Ministry Mapper 是一个数字化区域管理系统，取代了传统的纸质方法。它允许会众：</p>
+<ul>
+<li>以数字方式组织和分配区域</li>
+<li>实时跟踪外勤服务访问</li>
+<li>协调多位传道员的活动</li>
+<li>从任何有互联网的设备访问区域</li>
+</ul>
+<p><strong>主要优势：</strong></p>
+<ul>
+<li>✓ 环保 - 消除纸张浪费</li>
+<li>✓ 通过云同步实时更新</li>
+<li>✓ 适用于任何设备（桌面、平板、手机）</li>
+<li>✓ 集成交互式地图便于导航</li>
+<li>✓ 安全的基于角色的访问控制</li>
+</ul>
+<h2 id="_2">入门<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">创建您的账户<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><img alt="注册页面" src="../../assets/screenshots/sign_up.png" /></p>
+<p><em>图 1：创建新 Ministry Mapper 账户的注册表单</em></p>
+<p><strong>第 1 步：访问注册页面</strong></p>
+<p><img alt="登录" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>图 2：带有注册选项的登录页面</em></p>
+<ol>
+<li>访问您会众的 Ministry Mapper URL</li>
+<li>点击登录页面上的 <strong>"注册"</strong> 按钮</li>
+</ol>
+<p><strong>第 2 步：选择注册方式</strong></p>
+<table>
+<thead>
+<tr>
+<th>传统注册</th>
+<th>Google OAuth（推荐）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>需要电子邮件、密码（6+ 字符、1 个数字、1 个大写字母）和电子邮件验证</td>
+<td>使用 Google 账户一键注册</td>
+</tr>
+<tr>
+<td>需要手动电子邮件验证</td>
+<td>自动电子邮件验证</td>
+</tr>
+<tr>
+<td>需要记住另一个密码</td>
+<td>无需管理密码</td>
+</tr>
+<tr>
+<td>接受隐私政策和条款</td>
+<td>通过 Google 增强安全性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>传统注册：</strong>
+1. 填写：姓名、电子邮件、密码、确认密码
+2. 接受隐私政策和服务条款
+3. 点击 <strong>"创建账户"</strong></p>
+<p><strong>Google OAuth 注册：</strong>
+1. 点击"或继续使用"下方的 <strong>"使用 Google 登录"</strong> 按钮
+2. 选择您的 Google 账户
+3. 授予 Ministry Mapper 基本个人资料访问权限
+4. 账户自动创建</p>
+<p><strong>第 3 步：验证您的电子邮件</strong></p>
+<p><img alt="注册验证电子邮件" src="../../assets/screenshots/sign_up_verification_email.png" /></p>
+<p><em>图 3：账户创建后发送的电子邮件验证消息</em></p>
+<ol>
+<li>检查您的电子邮件收件箱中来自 Ministry Mapper 的验证消息</li>
+<li>点击电子邮件中的验证链接</li>
+<li>您将看到确认您的账户已验证的消息</li>
+</ol>
+<p><strong>第 4 步：等待会众访问权限</strong></p>
+<p>验证后：</p>
+<ol>
+<li>返回登录页面</li>
+<li>使用您的电子邮件和密码登录</li>
+<li>如果启用了一次性密码 (OTP)，请检查您的电子邮件获取代码</li>
+</ol>
+<p><img alt="OTP 验证页面" src="../../assets/screenshots/otp_verification_page.png" /></p>
+<p><em>图 4：一次性密码 (OTP) 验证屏幕</em></p>
+<p><img alt="OTP 验证电子邮件" src="../../assets/screenshots/otp_verification_email.png" /></p>
+<p><em>图 5：包含登录验证 OTP 代码的电子邮件</em></p>
+<ol>
+<li><strong>重要</strong>：您还看不到任何区域 - 管理员必须先授予您访问您会众的权限</li>
+<li>联系您会众的区域仆人或管理员请求访问权限</li>
+</ol>
+<h3 id="ministry-mapper_1">登录 Ministry Mapper<a class="headerlink" href="#ministry-mapper_1" title="Permanent link">&para;</a></h3>
+<p><img alt="Google OAuth 登录" src="../../assets/screenshots/google_oauth_sign_in.png" /></p>
+<p><em>图 6：用于更快更安全身份验证的 Google OAuth 登录选项</em></p>
+<p>一旦您的账户经过验证并获得会众访问权限：</p>
+<p><strong>标准登录：</strong>
+1. 导航到您会众的 Ministry Mapper URL
+2. 输入您的电子邮件地址和密码
+3. 点击 <strong>"登录"</strong></p>
+<p><strong>Google OAuth 登录（更快）：</strong>
+1. 点击 <strong>"使用 Google 登录"</strong> 按钮
+2. 选择您的 Google 账户
+3. 自动登录（无需密码）</p>
+<p><strong>第 3 步：完成 OTP 验证（如已启用）</strong></p>
+<p>如果您的会众启用了一次性密码安全：</p>
+<ol>
+<li>输入凭据后，您将看到 OTP 验证屏幕</li>
+<li>检查您的电子邮件获取验证代码</li>
+<li>输入电子邮件中的 6 位数代码</li>
+<li>点击 <strong>"验证"</strong> 或 <strong>"提交"</strong></li>
+<li>代码在 5-10 分钟后过期</li>
+</ol>
+<p><strong>第 4 步：访问您的仪表板</strong></p>
+<ul>
+<li><strong>传道员</strong>：您不会看到仪表板 - 使用发送给您的分配链接</li>
+<li><strong>只读、负责人、管理员</strong>：您将看到适合您角色的仪表板</li>
+</ul>
+<blockquote>
+<p><strong>💡 提示</strong>：在受信任的设备上保持登录状态以方便使用，但在共享计算机上始终注销。</p>
+</blockquote>
+<h3 id="_4">了解用户角色<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 使用四级访问控制系统。您的角色决定了您可以访问的功能和可以执行的操作。</p>
+<h4 id="_5">角色层级<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>管理员（完全访问）
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>负责人（管理分配）
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>只读（仅查看）
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ↓
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>传道员（仅链接访问）
+</code></pre></div>
+<hr />
+<h4 id="_6">👤 传道员<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p><strong>访问方式</strong>：通过管理员或负责人发送的分配链接</p>
+<p><strong>传道员可以做什么：</strong></p>
+<ul>
+<li>✓ 通过共享链接访问区域</li>
+<li>✓ 查看带有交互式地图的区域地图</li>
+<li>✓ 访问后更新地址状态</li>
+<li>标记为：已完成、不在家、请勿打扰、无效</li>
+<li>✓ 为地址添加访问备注</li>
+<li>✓ 跟踪"不在家"尝试次数</li>
+<li>✓ 查看地址详情和顺序</li>
+</ul>
+<p><strong>传道员不能做什么：</strong></p>
+<ul>
+<li>✗ 无仪表板访问权限</li>
+<li>✗ 无法查看所有会众区域</li>
+<li>✗ 无法创建或管理区域</li>
+<li>✗ 无法访问分配链接在设定时间后过期（默认：24 小时，可由会众管理员配置）</li>
+</ul>
+<p><strong>最适合</strong>：进行外勤服务的普通传道员</p>
+<hr />
+<h4 id="_7">👓 只读<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><strong>访问方式</strong>：具有只读权限的仪表板登录</p>
+<p><strong>只读用户可以做什么：</strong></p>
+<ul>
+<li>✓ 查看会众中的所有区域</li>
+<li>✓ 查看完整的地址信息</li>
+<li>✓ 查看区域进度和统计数据</li>
+<li>✓ 访问区域地图</li>
+<li>✓ 查看会众消息</li>
+</ul>
+<p><strong>只读用户不能做什么：</strong></p>
+<ul>
+<li>✗ 无法修改任何区域或地址数据</li>
+<li>✗ 无法创建或删除区域</li>
+<li>✗ 无法管理分配</li>
+<li>✗ 无法更改会众设置</li>
+</ul>
+<p><strong>最适合</strong>：需要可见性但无编辑能力的监督者</p>
+<hr />
+<h4 id="_8">🎯 负责人<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p><strong>访问方式</strong>：具有负责人权限的仪表板登录</p>
+<p><strong>负责人能力包括：</strong></p>
+<ul>
+<li>✓ <strong>只读可以做的所有事情</strong>，加上：</li>
+<li>✓ 创建和管理区域分配</li>
+<li>✓ 为传道员生成分配链接</li>
+<li>✓ 查看所有分配历史</li>
+<li>✓ 访问和发布会众消息</li>
+<li>✓ 管理会众选项（住户状态类型）</li>
+<li>✓ 查看区域完成状态</li>
+</ul>
+<p><strong>负责人不能做什么：</strong></p>
+<ul>
+<li>✗ 无法创建或删除区域</li>
+<li>✗ 无法编辑地址详情（地址、单位、楼层）</li>
+<li>✗ 无法管理用户角色或权限</li>
+<li>✗ 无法修改核心会众设置</li>
+</ul>
+<p><strong>最适合</strong>：外勤服务协调员和小组监督</p>
+<hr />
+<h4 id="_9">👑 管理员（区域仆人）<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p><strong>访问方式</strong>：具有完全管理权限的仪表板登录</p>
+<p><strong>管理员拥有完全控制权：</strong></p>
+<ul>
+<li>✓ <strong>负责人可以做的所有事情</strong>，加上：</li>
+<li>✓ 创建、编辑和删除区域</li>
+<li>✓ 添加、修改和删除地址</li>
+<li>✓ 管理建筑物和单位</li>
+<li>✓ 配置会众设置</li>
+<li>设置最大"不在家"尝试次数</li>
+<li>配置链接过期时间</li>
+<li>设置住户类型选项</li>
+<li>✓ 邀请和管理用户</li>
+<li>✓ 分配用户角色和权限</li>
+<li>✓ 重置区域和地址</li>
+<li>✓ 管理地理定位坐标</li>
+</ul>
+<p><strong>最适合</strong>：区域仆人和管理会众区域系统的人员</p>
+<hr />
+<blockquote>
+<p><strong>💡 注意</strong>：如果您需要更改角色或不确定当前角色，请联系您的会众管理员。</p>
+</blockquote>
+<h2 id="_10">主要功能<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">仪表板概述<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><img alt="管理员仪表板" src="../../assets/screenshots/admin_dashboard.png" /></p>
+<p><em>图 6：显示区域选择器和主要控件的管理员仪表板</em></p>
+<p>仪表板界面根据您的角色而异：</p>
+<h4 id="_12">对于传道员<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>传道员<strong>没有仪表板访问权限</strong>。相反，他们：</p>
+<ul>
+<li>通过电子邮件或消息接收分配链接</li>
+<li>点击链接访问其分配的区域</li>
+<li>直接在区域视图中工作</li>
+<li>链接在配置的时间后自动过期（默认：24 小时）</li>
+</ul>
+<h4 id="_13">对于负责人和管理员<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>仪表板提供全面的概述：</p>
+<p><strong>1. 区域选择器</strong>（顶部下拉菜单）</p>
+<ul>
+<li>选择要查看或管理的区域</li>
+<li>显示区域代码和描述</li>
+<li>区域之间的快速导航</li>
+</ul>
+<p><strong>2. 主要操作按钮</strong></p>
+<ul>
+<li>📋 <strong>分配</strong>：查看和管理分配链接</li>
+<li>💬 <strong>消息</strong>：发布和查看会众消息</li>
+<li>⚙️ <strong>设置</strong>：访问会众配置（仅限管理员）</li>
+<li>👥 <strong>用户</strong>：管理用户角色和邀请（仅限管理员）</li>
+</ul>
+<p><strong>3. 区域信息面板</strong></p>
+<ul>
+<li>区域代码和描述</li>
+<li>显示完成百分比的进度条</li>
+<li>最后更新时间戳</li>
+<li>总单位数与已完成单位数</li>
+</ul>
+<p><strong>4. 区域视图选项</strong></p>
+<ul>
+<li>🗺️ <strong>地图视图</strong>：交互式地图显示</li>
+<li>📋 <strong>列表视图</strong>：所有地址的表格显示</li>
+</ul>
+<p><strong>5. 快速拨号菜单</strong>（浮动操作按钮）</p>
+<p><img alt="快速拨号管理页面" src="../../assets/screenshots/speeddial_admin_page.png" /></p>
+<p><em>图 6a：提供快速访问常用操作的快速拨号浮动操作按钮</em></p>
+<p><strong>➕</strong> 按钮（右下角）提供快速访问：
+- 🗺️ <strong>地图视图模式</strong>：切换全屏地图视图
+- 📋 <strong>快速链接</strong>：快速创建分配链接（负责人和管理员）
+- 基于当前视图的上下文感知操作</p>
+<hr />
+<h3 id="_14">查看区域<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h4 id="_15">传道员区域视图<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p><img alt="传道员分配屏幕" src="../../assets/screenshots/publisher_assignment_screen.png" /></p>
+<p><em>图 7：显示地图和地址列表的传道员分配区域视图</em></p>
+<p><strong>访问您的分配：</strong></p>
+<ol>
+<li>点击管理员/负责人发送的分配链接</li>
+<li>区域自动加载，包含：</li>
+<li>显示所有地址的交互式 Google 地图</li>
+<li>每个位置的可点击标记</li>
+<li>要访问的地址/单位列表</li>
+<li>当前进度百分比</li>
+</ol>
+<p><strong>显示的区域信息：</strong></p>
+<ul>
+<li><strong>区域代码</strong>：标识符（例如，"T-001"）</li>
+<li><strong>描述</strong>：区域名称或区域</li>
+<li><strong>进度条</strong>：可视化完成状态</li>
+<li><strong>地图</strong>：带有地址标记的交互式地图</li>
+<li><strong>地址列表</strong>：所有地址及其当前状态</li>
+</ul>
+<h4 id="_16">管理员/负责人区域视图<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><img alt="负责人仪表板" src="../../assets/screenshots/conductor_dashboard.png" /></p>
+<p><em>图 8：带有区域选择器和管理选项的负责人仪表板</em></p>
+<p><strong>查看区域：</strong></p>
+<ol>
+<li>登录到您的仪表板</li>
+<li>从下拉菜单中选择一个区域</li>
+<li>查看详细信息：</li>
+<li>区域代码和描述</li>
+<li>完成统计（例如，"15/20 已完成 - 75%"）</li>
+<li>带有所有位置的交互式地图</li>
+<li>完整的地址/单位列表及详情</li>
+<li>管理按钮（编辑、删除、重置）</li>
+</ol>
+<p><strong>管理选项：</strong></p>
+<ul>
+<li>✏️ <strong>编辑区域</strong>：更改名称、代码或描述</li>
+<li>🗑️ <strong>删除区域</strong>：删除整个区域</li>
+<li>🔄 <strong>重置区域</strong>：清除所有地址状态</li>
+<li>➕ <strong>添加地址</strong>：在区域中创建新地址</li>
+</ul>
+<h3 id="_17">使用地址<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<h4 id="_18">了解地址信息<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p><img alt="地址状态详情" src="../../assets/screenshots/address_status_details.png" /></p>
+<p><em>图 9：显示所有地址详情和当前状态的地址卡</em></p>
+<p>Ministry Mapper 中的每个地址或单位都显示全面的信息：</p>
+<p><strong>基本信息：</strong></p>
+<ul>
+<li><strong>地址/单位号</strong>：位置标识符（例如，"#05-123"）</li>
+<li><strong>楼层</strong>：建筑楼层（对于多层物业）</li>
+<li><strong>类型</strong>：基于会众选项的住户分类</li>
+<li>示例：中文、英文、泰米尔语、西班牙语</li>
+<li>如果配置，可以选择多种类型</li>
+<li><strong>顺序</strong>：访问顺序号</li>
+</ul>
+<p><strong>状态信息：</strong></p>
+<ul>
+<li><strong>状态</strong>：当前访问状态（见下面的状态类型）</li>
+<li><strong>不在家次数</strong>：未应答访问尝试次数</li>
+<li><strong>请勿打扰日期</strong>：标记 DNC 的时间（如适用）</li>
+</ul>
+<p><strong>活动跟踪：</strong></p>
+<ul>
+<li><strong>备注</strong>：关于访问或住户的重要信息</li>
+<li><strong>最后更新</strong>：最近更新的日期和时间</li>
+<li><strong>更新者</strong>：进行最后更改的用户名</li>
+</ul>
+<hr />
+<h4 id="_19">地址状态类型<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper 使用五种标准状态类型：</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>颜色</th>
+<th>描述</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>未完成</strong></td>
+<td>白色/默认</td>
+<td>尚未访问</td>
+<td>所有地址的初始状态</td>
+</tr>
+<tr>
+<td><strong>已完成</strong></td>
+<td>绿色</td>
+<td>成功联系</td>
+<td>住户在家并已联系</td>
+</tr>
+<tr>
+<td><strong>不在家</strong></td>
+<td>黄色/橙色</td>
+<td>无人应答</td>
+<td>跟踪最多尝试次数（可配置）</td>
+</tr>
+<tr>
+<td><strong>请勿打扰</strong></td>
+<td>红色</td>
+<td>要求不访问</td>
+<td>住户要求不再联系</td>
+</tr>
+<tr>
+<td><strong>无效</strong></td>
+<td>灰色</td>
+<td>无法访问</td>
+<td>地址不存在或无法访问</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>💡 提示</strong>：一旦"不在家"达到最大尝试次数（由管理员设置），该地址在进度计算中自动标记为已完成。</p>
+</blockquote>
+<hr />
+<h4 id="_20">更新地址状态<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p><img alt="地址不在家状态" src="../../assets/screenshots/address_not_home_status.png" /></p>
+<p><em>图 10：显示所有字段和选项的更新状态模态框</em></p>
+<p><strong>分步流程：</strong></p>
+<p><strong>1. 找到地址</strong></p>
+<ul>
+<li>滚动浏览地址列表</li>
+<li>或点击地图上的标记</li>
+<li>多层建筑的地址按楼层分组</li>
+</ul>
+<p><strong>2. 打开更新模态框</strong></p>
+<ul>
+<li>点击地址/单位卡</li>
+<li>更新模态框将打开，显示当前信息</li>
+</ul>
+<p><strong>3. 更新状态</strong>（必需）</p>
+<p>选择适当的状态：</p>
+<p><strong>📗 已完成</strong> - 成功联系时</p>
+<ul>
+<li>当有人应答时选择此项</li>
+<li>进行了对话或放置了文献</li>
+<li>"不在家"计数递增重置</li>
+</ul>
+<p><strong>🏠 不在家</strong> - 无人应答时</p>
+<ul>
+<li>自动递增"不在家"计数</li>
+<li>系统跟踪尝试次数</li>
+<li>达到最大尝试次数后视为完成</li>
+</ul>
+<p><strong>🚫 请勿打扰</strong> - 当要求不访问时</p>
+<p><img alt="地址请勿打扰状态" src="../../assets/screenshots/address_do_not_call_status.png" /></p>
+<p><em>图 11：带有日期选择的请勿打扰状态更新</em></p>
+<ul>
+<li>选择此状态</li>
+<li>可选择设置 DNC 日期（默认为今天）</li>
+<li>如果适当，添加解释原因的备注</li>
+<li><strong>重要</strong>：始终尊重住户的意愿</li>
+</ul>
+<p><strong>❌ 无效</strong> - 当地址无法访问时</p>
+<ul>
+<li>地址不存在</li>
+<li>正在施工</li>
+<li>永久关闭</li>
+<li>无法访问</li>
+</ul>
+<p><strong>4. 更新住户类型</strong>（如可用）</p>
+<p>如果您的会众配置了住户类型：</p>
+<ul>
+<li>选择单个或多个类型</li>
+<li>示例：语言偏好、特殊情况</li>
+<li>如需要清除现有类型</li>
+</ul>
+<p><strong>5. 添加或更新备注</strong>（可选但推荐）</p>
+<p><strong>最佳实践：</strong></p>
+<ul>
+<li>✓ 关注物业详情，而非个人</li>
+<li>✓ 记录访问说明和时间安排</li>
+<li>✓ 简洁且尊重</li>
+<li>✗ 永远不要包含关于住户的个人信息</li>
+<li>✗ 永远不要包含敏感信息</li>
+</ul>
+<p><strong>好的示例：</strong></p>
+<ul>
+<li>"门禁物业 - 先打电话给警卫室"</li>
+<li>"最佳时间：周末下午 2 点后"</li>
+<li>"侧门可通过车道进入"</li>
+</ul>
+<p><strong>不好的示例：</strong></p>
+<ul>
+<li>居民的个人详情</li>
+<li>医疗或财务信息</li>
+<li>个人的姓名或描述</li>
+</ul>
+<p><strong>6. 调整不在家次数</strong>（如需要）</p>
+<p>系统自动跟踪不在家尝试，但如有必要，您可以手动调整。</p>
+<p><strong>7. 设置请勿打扰日期</strong>（仅限 DNC 状态）</p>
+<p>标记为请勿打扰时：</p>
+<ul>
+<li>系统默认为今天的日期</li>
+<li>根据特定 DNC 请求进行调整</li>
+<li>日期有助于跟踪何时可能重新访问</li>
+</ul>
+<p><strong>8. 更新地理定位</strong>（仅限管理员）</p>
+<p>对于单层区域：</p>
+<ul>
+<li>点击"更新地理定位"按钮</li>
+<li>使用地图设置精确位置</li>
+<li>有助于导航和地图准确性</li>
+</ul>
+<p><strong>9. 保存更改</strong></p>
+<ul>
+<li>审查所有更新</li>
+<li>点击 <strong>"保存"</strong> 按钮</li>
+<li>更改立即同步给所有用户</li>
+<li>成功消息确认更新</li>
+</ul>
+<p><strong>10. 删除物业</strong>（仅限管理员 - 单层）</p>
+<p>对于需要删除的私人物业：</p>
+<ul>
+<li>点击底部的"删除物业"按钮</li>
+<li>确认删除</li>
+<li><strong>警告</strong>：此操作无法撤销</li>
+</ul>
+<hr />
+<h4 id="_21">随时添加缺失地址<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>如果您发现地图中缺少某个实际存在的地址，可以当场添加，无需离开传道视图：</p>
+<ol>
+<li>滚动到地图上地址列表的底部</li>
+<li>点击列表末尾的 <strong>+</strong> 卡片</li>
+<li>在弹出的表单中输入地址详情</li>
+<li>点击<strong>保存</strong> — 地址立即添加到地图中</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>此功能适用于传道员，专为仍在完善地区记录的会众设计。新添加的地址将被标记以供管理员审核。</p>
+</div>
+<p><img alt="地址列表底部的&quot;+&quot;卡片，用于添加缺失地址" src="../../assets/screenshots/add_more_add.png" /></p>
+<hr />
+<h3 id="_22">使用地图功能<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p><img alt="地图路线指引" src="../../assets/screenshots/map_directions.png" /></p>
+<p><em>图 12：显示标记和导航控件的交互式地图视图</em></p>
+<p>Ministry Mapper 集成交互式地图以实现直观的区域导航。</p>
+<h4 id="_23">地图功能<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p><strong>交互式标记：</strong></p>
+<ul>
+<li>每个地址都在地图上标记</li>
+<li>🔴 红色标记表示目的地</li>
+<li>🔵 蓝色闪烁标记表示当前位置</li>
+<li>点击任何标记以查看/编辑该地址</li>
+</ul>
+<p><strong>地图控件：</strong></p>
+<ul>
+<li><strong>缩放</strong>：+ 和 - 按钮或捏合手势</li>
+<li><strong>平移</strong>：点击并拖动以移动</li>
+<li><strong>卫星视图</strong>：在地图和卫星图像之间切换</li>
+<li><strong>全屏</strong>：将地图扩展到全屏（或使用快速拨号 → 地图视图模式）</li>
+<li><strong>居中到区域</strong>：重置视图以显示所有地址</li>
+</ul>
+<p><strong>全屏地图视图模式</strong>（管理员和负责人）：</p>
+<p><img alt="管理员地图视图模式" src="../../assets/screenshots/admin_map_view_mode.png" /></p>
+<p><em>图 12a：通过快速拨号菜单访问的全屏地图视图模式</em></p>
+<p>通过快速拨号 (➕) → 地图视图图标访问。适合：
+- 外勤服务前的路线规划
+- 区域覆盖分析
+- 会议演示
+- 识别地址集群</p>
+<h4 id="_24">获取路线导航<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper 内置路线导航服务，帮助您前往地区中的各个地址：</p>
+<ol>
+<li>在地图视图中，点击列表中的任意地址</li>
+<li>点击<strong>路线</strong>按钮（或路线图标）</li>
+<li>选择您偏好的出行方式：</li>
+<li>🚗 <strong>驾车</strong> — 汽车导航</li>
+<li>🚶 <strong>步行</strong> — 行人路线</li>
+<li>🚴 <strong>骑行</strong> — 适合自行车的路线</li>
+<li>路线显示在地图上，并提供逐向导航指引</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>在人口密集区域传道时，使用<strong>步行</strong>模式可获得更准确的行人路线。</p>
+</div>
+<p><img alt="地图页面上的路线模式选择器" src="../../assets/screenshots/map_routing.png" /></p>
+<h4 id="_25">导航提示<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>离开家之前：</strong></p>
+</li>
+<li>
+<p>在地图上查看以规划路线</p>
+</li>
+<li>识别地址集群</li>
+<li>
+<p>从备注中记录任何特殊访问要求</p>
+</li>
+<li>
+<p><strong>在外勤中：</strong></p>
+</li>
+<li>
+<p>使用地图在地址之间导航</p>
+</li>
+<li>按序列号进行最佳路线</li>
+<li>
+<p>点击标记以在每次访问后快速更新状态</p>
+</li>
+<li>
+<p><strong>使用手机 GPS：</strong></p>
+</li>
+<li>启用位置服务</li>
+<li>地图显示您的当前位置</li>
+<li>直接导航到下一个地址</li>
+<li>如果地图瓦片已缓存，可离线工作（有限）</li>
+</ol>
+<hr />
+<h3 id="_26">区域分配（负责人和管理员）<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 使用基于链接的分配系统。负责人和管理员创建可共享的链接，传道员使用这些链接访问区域。</p>
+<h4 id="_27">为什么使用基于链接的分配？<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<ul>
+<li>✓ <strong>简单分发</strong>：通过电子邮件、消息或短信发送链接</li>
+<li>✓ <strong>自动过期</strong>：链接在设定时间后过期（默认：24 小时）</li>
+<li>✓ <strong>无需账户</strong>：传道员直接通过链接工作</li>
+<li>✓ <strong>安全性</strong>：过期的链接无法访问</li>
+<li>✓ <strong>跟踪</strong>：查看谁访问了什么以及何时访问</li>
+</ul>
+<h4 id="_28">创建分配<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<p><strong>创建分配的两种方式：</strong></p>
+<p><img alt="管理员负责人快速链接" src="../../assets/screenshots/admin_conductor_quicklink.png" /></p>
+<p><em>图 13a：通过快速拨号菜单访问的快速链接创建界面</em></p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>访问</th>
+<th>最适合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>快速链接</strong></td>
+<td>快速拨号 (➕) → 快速链接</td>
+<td>为当前区域快速创建</td>
+</tr>
+<tr>
+<td><strong>标准</strong></td>
+<td>分配按钮 → 新建</td>
+<td>完整选项和自定义</td>
+</tr>
+</tbody>
+</table>
+<p><strong>第 1 步：访问分配创建</strong></p>
+<ul>
+<li><strong>快速链接</strong>：点击快速拨号 (➕) → 快速链接图标（预填当前区域）</li>
+<li><strong>标准</strong>：点击 <strong>"分配"</strong> → <strong>"新建分配"</strong> 或 <strong>"+"</strong></li>
+</ul>
+<p><strong>第 2 步：填写分配表单</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>描述</th>
+<th>必需</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>类型</strong></td>
+<td>普通分配或个人单</td>
+<td>是</td>
+</tr>
+<tr>
+<td><strong>区域</strong></td>
+<td>从会众区域中选择</td>
+<td>是</td>
+</tr>
+<tr>
+<td><strong>传道员姓名</strong></td>
+<td>用于跟踪（链接在没有姓名的情况下也能工作）</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><strong>链接过期</strong></td>
+<td>链接过期前的小时数（默认：24）</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p><strong>第 3 步：生成和分享</strong></p>
+<ol>
+<li>点击 <strong>"创建分配"</strong></li>
+<li>系统生成唯一链接</li>
+<li>通过以下方式与传道员分享链接：</li>
+<li>电子邮件</li>
+<li>短信</li>
+<li>即时通讯应用</li>
+<li>任何通信方式</li>
+</ol>
+<p><strong>示例分配链接：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://your-ministry-mapper.com/map/abc123xyz456
+</code></pre></div>
+<h4 id="_29">特定地图的分配创建<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<p>直接从地图视图创建分配，无需导航到中央分配模态框。</p>
+<p><strong>访问：</strong></p>
+<ol>
+<li>导航到您要分配的区域</li>
+<li>点击以下其中一个：</li>
+<li><strong>"分配"</strong> 按钮 - 创建普通区域分配</li>
+<li><strong>"个人"</strong> 按钮 - 创建个人单分配</li>
+</ol>
+<p><strong>普通区域分配：</strong></p>
+<p><img alt="分配传道员地图" src="../../assets/screenshots/assigning_publisher_map.png" /></p>
+<p><em>图 13b：特定地图的普通分配创建表单</em></p>
+<p>点击 <strong>"分配"</strong> 创建普通区域分配。表单显示：</p>
+<ul>
+<li>标题中的区域信息</li>
+<li><strong>传道员姓名</strong> 字段 - 输入分配传道员的姓名</li>
+<li><strong>取消</strong> 和 <strong>确认</strong> 按钮</li>
+</ul>
+<p><strong>个人单分配：</strong></p>
+<p><img alt="个人分配传道员地图" src="../../assets/screenshots/personal_assign_publisher_map.png" /></p>
+<p><em>图 13c：带有日历的特定地图个人单创建表单</em></p>
+<p>点击 <strong>"个人"</strong> 创建个人单分配。表单包括：</p>
+<ul>
+<li>标题中的区域信息</li>
+<li><strong>日历选择器</strong> - 选择分配日期</li>
+<li><strong>传道员姓名</strong> 字段 - 输入分配传道员的姓名</li>
+<li><strong>取消</strong> 和 <strong>确认</strong> 按钮</li>
+</ul>
+<p><strong>优势：</strong></p>
+<ul>
+<li>✓ 查看区域时快速创建分配</li>
+<li>✓ 无需切换到分配模态框</li>
+<li>✓ 立即了解正在分配的区域</li>
+</ul>
+<h4 id="_30">管理分配<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
+<p><img alt="分配管理" src="../../assets/screenshots/assignment_management.png" /></p>
+<p><em>图 14：显示所有区域活跃分配的分配管理模态框</em></p>
+<p>分配管理界面允许负责人和管理员查看和管理会众中所有现有的分配。</p>
+<p><strong>查看所有分配：</strong></p>
+<ol>
+<li>从仪表板点击 <strong>"分配"</strong> 按钮</li>
+<li>分配模态框打开，显示所有活跃的分配链接</li>
+<li>在集中列表中查看所有区域的分配</li>
+</ol>
+<p><strong>显示的分配信息：</strong></p>
+<p>对于每个分配，您可以看到：</p>
+<ul>
+<li><strong>区域代码和位置</strong>：区域标识符及位置描述（例如，"187A, Marsiling Road (M01)"）</li>
+<li><strong>分配类型</strong>：普通分配为"分配"</li>
+<li><strong>传道员姓名</strong>：分配人员的姓名（例如，Jon, Erli, Pety）</li>
+<li><strong>创建日期/时间</strong>：分配创建的时间（例如，"2025年12月22日 晚上9:38"）</li>
+<li><strong>过期日期/时间</strong>：分配链接过期的时间（例如，"2025年12月23日 上午9:38"或"晚上11:38"）</li>
+<li><strong>删除按钮</strong>：垃圾桶图标 (🗑️) 用于删除单个分配</li>
+</ul>
+<p><strong>删除分配：</strong></p>
+<ol>
+<li>在列表中找到分配</li>
+<li>点击分配右侧的 <strong>垃圾桶图标</strong> (🗑️) 按钮</li>
+<li>如果提示，确认删除</li>
+<li>分配链接立即对传道员不可访问</li>
+</ol>
+<p><strong>何时删除：</strong></p>
+<ul>
+<li>传道员提前归还区域</li>
+<li>创建或发送了错误的链接</li>
+<li>传道员不再需要访问</li>
+<li>分配需要重新分配给其他人</li>
+<li>安全问题或泄露</li>
+</ul>
+<p><strong>关闭分配模态框：</strong></p>
+<ul>
+<li>点击底部的 <strong>"取消"</strong> 按钮关闭模态框并返回仪表板</li>
+</ul>
+<h4 id="_31">特定地图的分配管理<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
+<p>直接从地图视图查看和管理单个区域的分配。</p>
+<p><strong>访问：</strong></p>
+<ol>
+<li>导航到一个区域</li>
+<li>点击以下其中一个：</li>
+<li><strong>"分配链接"</strong> - 查看普通区域分配</li>
+<li><strong>"个人链接"</strong> - 查看个人单分配</li>
+</ol>
+<p><img alt="普通地图分配" src="../../assets/screenshots/map_assign_links.png" /></p>
+<p><em>图 14a：特定区域的分配链接模态框</em></p>
+<p><img alt="个人地图分配" src="../../assets/screenshots/map_personal_links.png" /></p>
+<p><em>图 14b：特定区域的个人链接模态框</em></p>
+<p><strong>显示的信息：</strong></p>
+<ul>
+<li>传道员姓名</li>
+<li>创建和过期日期/时间</li>
+<li>删除按钮 (🗑️) 用于删除分配</li>
+</ul>
+<p><strong>何时使用：</strong></p>
+<ul>
+<li>检查当前谁拥有区域分配</li>
+<li>在查看区域时删除分配</li>
+<li>分别管理普通和个人分配</li>
+</ul>
+<h4 id="_32">分配的最佳实践<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<p><strong>创建之前：</strong></p>
+<ul>
+<li>✓ 验证区域已准备好（地址已更新，说明清晰）</li>
+<li>✓ 检查会众设置中的默认过期时间</li>
+<li>✓ 根据区域大小计划适当的过期时间</li>
+</ul>
+<p><strong>分享时：</strong></p>
+<ul>
+<li>✓ 在消息中包含说明</li>
+<li>✓ 提醒传道员过期时间</li>
+<li>✓ 提供您的联系方式以便提问</li>
+<li>✓ 在合理的时间发送</li>
+</ul>
+<p><strong>监控：</strong></p>
+<ul>
+<li>✓ 定期检查过期的分配</li>
+<li>✓ 定期清理旧分配</li>
+<li>✓ 如果区域未归还则跟进</li>
+<li>✓ 跟踪完成率</li>
+</ul>
+<hr />
+<h3 id="_33">消息和说明<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p><img alt="管理员负责人消息" src="../../assets/screenshots/admin_conductor_messages.png" /></p>
+<p><em>图 15：显示已发布消息和置顶选项的消息模态框</em></p>
+<p>管理员和负责人可以发布对特定用户组可见的消息。</p>
+<h4 id="_34">消息类型<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<p><strong>传道员消息：</strong></p>
+<ul>
+<li>对所有拥有分配链接的传道员可见</li>
+<li>外勤服务说明</li>
+<li>特定区域指导</li>
+<li>一般公告</li>
+</ul>
+<p><strong>负责人消息：</strong></p>
+<ul>
+<li>对负责人和管理员可见</li>
+<li>协调信息</li>
+<li>管理备注</li>
+<li>计划信息</li>
+</ul>
+<p><strong>管理员消息：</strong></p>
+<ul>
+<li>仅对管理员可见</li>
+<li>系统管理备注</li>
+<li>重要更新</li>
+<li>管理提醒</li>
+</ul>
+<h4 id="_35">发布消息<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<ol>
+<li>点击 <strong>"消息"</strong> 按钮</li>
+<li>点击 <strong>"新消息"</strong> 或 <strong>"+"</strong></li>
+<li>输入您的消息</li>
+<li>选择消息类型（传道员/负责人/管理员）</li>
+<li>可选择 <strong>置顶</strong> 重要消息到顶部</li>
+<li>点击 <strong>"发布"</strong></li>
+</ol>
+<h4 id="_36">消息功能<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
+<p><strong>置顶：</strong></p>
+<ul>
+<li>置顶重要消息使其保持在顶部</li>
+<li>每种类型只能有一条置顶消息</li>
+<li>不再重要时取消置顶</li>
+</ul>
+<p><strong>编辑：</strong></p>
+<ul>
+<li>发布后编辑消息</li>
+<li>立即更新给所有查看者</li>
+</ul>
+<p><strong>删除：</strong></p>
+<ul>
+<li>删除过时的消息</li>
+<li>事件结束后清理</li>
+</ul>
+<p><strong>阅读状态：</strong></p>
+<ul>
+<li>查看谁已阅读消息（管理员视图）</li>
+<li>跟踪重要更新的确认</li>
+</ul>
+<hr />
+<h3 id="_37">实时数据同步<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 使用 PocketBase 实时订阅进行即时更新：</p>
+<h4 id="_38">工作原理<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
+<p><strong>自动同步：</strong></p>
+<ul>
+<li>更改立即同步到所有连接的设备</li>
+<li>无需手动刷新</li>
+<li>更新立即出现给查看同一区域的所有用户</li>
+</ul>
+<p><strong>同步的内容：</strong></p>
+<ul>
+<li>✓ 地址状态更改</li>
+<li>✓ 新备注和更新</li>
+<li>✓ 区域进度</li>
+<li>✓ 新消息</li>
+<li>✓ 分配更改</li>
+</ul>
+<p><strong>连接处理：</strong></p>
+<ul>
+<li>系统自动检测连接丢失</li>
+<li>互联网恢复时重新连接</li>
+<li>显示连接状态指示器</li>
+<li>如果离线则排队更新（有限）</li>
+</ul>
+<p><strong>性能：</strong></p>
+<ul>
+<li>仅在区域/页面打开时更新</li>
+<li>页面关闭时自动清理</li>
+<li>最小带宽使用</li>
+<li>针对移动数据优化</li>
+</ul>
+<blockquote>
+<p><strong>💡 注意</strong>：要使实时更新正常工作，请在处理区域时保持浏览器标签页活跃。</p>
+</blockquote>
+<hr />
+<h3 id="_39">用户管理（仅限管理员）<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<p><img alt="管理用户列表" src="../../assets/screenshots/manage_users_list.png" /></p>
+<p><em>图 16：显示带有角色的用户列表的用户管理面板</em></p>
+<p>管理员对其会众内的用户账户和权限拥有完全控制权。</p>
+<h4 id="_40">查看用户<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
+<ol>
+<li>点击您的 <strong>个人资料图标</strong> 或 <strong>用户菜单</strong></li>
+<li>选择 <strong>"用户管理"</strong> 或 <strong>"用户"</strong></li>
+<li>查看会众用户的完整列表，显示：</li>
+<li>用户名</li>
+<li>电子邮件地址</li>
+<li>验证状态（✓ 已验证 / ✗ 未验证）</li>
+<li>当前角色徽章</li>
+<li>最后活动</li>
+</ol>
+<h4 id="_41">邀请新用户<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
+<p><img alt="邀请用户" src="../../assets/screenshots/invite_users.png" /></p>
+<p><em>图 17：用于添加新会众成员的用户邀请对话框</em></p>
+<p><strong>第 1 步：打开邀请对话框</strong></p>
+<ol>
+<li>在用户管理中，点击 <strong>"邀请用户"</strong> 或 <strong>"+"</strong></li>
+<li>邀请用户模态框打开</li>
+</ol>
+<p><strong>第 2 步：输入用户信息</strong></p>
+<ul>
+<li><strong>电子邮件地址</strong>：用户的电子邮件（必须有效）</li>
+<li><strong>角色分配</strong>：选择以下之一：</li>
+<li>传道员</li>
+<li>只读</li>
+<li>负责人</li>
+<li>管理员</li>
+</ul>
+<p><strong>第 3 步：发送邀请</strong></p>
+<ol>
+<li>点击 <strong>"发送邀请"</strong></li>
+<li>系统向用户发送邀请电子邮件</li>
+<li>电子邮件包含：</li>
+<li>创建账户的链接</li>
+<li>会众信息</li>
+<li>角色分配详情</li>
+<li>入门说明</li>
+</ol>
+<p><strong>第 4 步：用户完成注册</strong></p>
+<ul>
+<li>用户收到电子邮件</li>
+<li>点击链接注册</li>
+<li>使用密码创建账户</li>
+<li>验证电子邮件地址</li>
+<li>自动添加到具有分配角色的会众</li>
+</ul>
+<h4 id="_42">更改用户角色<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h4>
+<p><img alt="管理用户详情" src="../../assets/screenshots/manage_users_details.png" /></p>
+<p><em>图 18：用户详情和角色管理界面</em></p>
+<ol>
+<li>在用户列表中找到用户</li>
+<li>点击用户或 <strong>"编辑"</strong> 按钮</li>
+<li>从下拉菜单中选择新角色：</li>
+<li><strong>传道员</strong>：通过链接访问基本区域</li>
+<li><strong>只读</strong>：仅查看仪表板访问</li>
+<li><strong>负责人</strong>：可以创建分配和管理消息</li>
+<li><strong>管理员</strong>：完全控制</li>
+<li>点击 <strong>"保存"</strong> 或 <strong>"更新"</strong></li>
+<li>更改立即生效</li>
+</ol>
+<blockquote>
+<p><strong>⚠️ 重要</strong>：用户必须注销并重新登录才能看到其新权限的反映。</p>
+</blockquote>
+<h4 id="_43">删除用户访问权限<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<p><strong>临时删除：</strong></p>
+<ol>
+<li>将用户的角色更改为 <strong>"无访问权限"</strong> 或 <strong>"删除访问权限"</strong></li>
+<li>用户失去所有权限</li>
+<li>账户保留但无法访问会众数据</li>
+</ol>
+<p><strong>永久删除：</strong></p>
+<ol>
+<li>点击用户的 <strong>"删除"</strong> 按钮</li>
+<li>确认删除</li>
+<li>用户从会众中完全删除</li>
+<li>如需要可以重新邀请用户</li>
+</ol>
+<h4 id="_44">用户验证状态<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<p><strong>已验证用户 (✓)：</strong></p>
+<ul>
+<li>电子邮件地址已确认</li>
+<li>完全访问分配的权限</li>
+<li>可以正常登录</li>
+</ul>
+<p><strong>未验证用户 (✗)：</strong></p>
+<ul>
+<li>电子邮件尚未确认</li>
+<li>有限或无访问权限</li>
+<li>需要检查电子邮件并点击验证链接</li>
+</ul>
+<p><strong>重新发送验证：</strong></p>
+<ul>
+<li>某些系统允许重新发送验证电子邮件</li>
+<li>或请用户使用"忘记密码"功能</li>
+</ul>
+<hr />
+<h3 id="_45">会众设置（仅限管理员）<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<p><img alt="会众设置" src="../../assets/screenshots/congregation_settings.png" /></p>
+<p><em>图 19：包含所有配置选项的会众设置页面</em></p>
+<p>配置 Ministry Mapper 如何为您的会众工作。</p>
+<h4 id="_46">访问设置<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<ol>
+<li>点击 <strong>"设置"</strong> 按钮或 ⚙️ 图标</li>
+<li>查看会众配置面板</li>
+</ol>
+<h4 id="_47">关键设置<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<p><strong>1. 最大"不在家"尝试次数</strong></p>
+<ul>
+<li>默认：1</li>
+<li>范围：1-4 次</li>
+<li>达到后，地址在进度计算中被视为完成</li>
+<li>影响区域何时显示为完成</li>
+</ul>
+<p><strong>示例：</strong> 如果设置为 3：</p>
+<ul>
+<li>第一次"不在家"：计数 = 1</li>
+<li>第二次"不在家"：计数 = 2</li>
+<li>第三次"不在家"：计数 = 3，标记为完成</li>
+</ul>
+<p><strong>2. 分配链接过期（小时）</strong></p>
+<ul>
+<li>默认：24 小时</li>
+<li>范围：1-168 小时（1 周）</li>
+<li>分配链接保持活跃的时间</li>
+<li>适用于新创建的链接</li>
+</ul>
+<p><strong>3. 会众来源/位置</strong></p>
+<ul>
+<li>设置您会众的位置</li>
+<li>用于地图居中和路线指引</li>
+<li>可以是城市名称或坐标</li>
+<li>有助于路线规划</li>
+</ul>
+<p><strong>4. OTP（一次性密码）</strong></p>
+<ul>
+<li>启用/禁用登录的电子邮件 OTP</li>
+<li>添加额外的安全层</li>
+<li>用户登录时通过电子邮件接收代码</li>
+<li>建议用于敏感的会众数据</li>
+</ul>
+<h4 id="_48">会众选项（住户类型）<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<p><img alt="住户选项设置" src="../../assets/screenshots/household_options_settings.png" /></p>
+<p><em>图 20：显示住户类型配置的会众选项管理</em></p>
+<p>为您的区域配置自定义住户分类类型。</p>
+<p><strong>什么是会众选项？</strong></p>
+<ul>
+<li>用于分类住户的自定义类别</li>
+<li>示例：语言组（中文、英文、泰米尔语）</li>
+<li>可以代表您会众使用的任何分类系统</li>
+<li>如果配置，可以为单个住户分配多种类型</li>
+</ul>
+<p><strong>管理选项：</strong></p>
+<ol>
+<li>
+<p><strong>查看选项</strong></p>
+</li>
+<li>
+<p>在设置中，找到"会众选项"部分</p>
+</li>
+<li>
+<p>查看所有配置类型的列表</p>
+</li>
+<li>
+<p><strong>添加新选项</strong></p>
+</li>
+<li>
+<p>点击"添加选项"或"+"</p>
+</li>
+<li>填写：<ul>
+<li><strong>代码</strong>：短标识符（例如，"CHI"、"ENG"）</li>
+<li><strong>描述</strong>：全名（例如，"中文"、"英文"）</li>
+<li><strong>是否可统计</strong>：如果应计入区域进度则勾选</li>
+<li><strong>是否默认</strong>：如果应为默认选择则勾选</li>
+<li><strong>顺序</strong>：显示顺序号</li>
+</ul>
+</li>
+<li>
+<p>点击"保存"</p>
+</li>
+<li>
+<p><strong>编辑选项</strong></p>
+</li>
+<li>
+<p>点击现有选项</p>
+</li>
+<li>修改字段</li>
+<li>
+<p>保存更改</p>
+</li>
+<li>
+<p><strong>删除选项</strong></p>
+</li>
+<li>点击选项的删除按钮</li>
+<li>确认删除</li>
+<li><strong>警告</strong>：影响使用此类型的所有地址</li>
+</ol>
+<p><strong>选项标志：</strong></p>
+<p><strong>是否可统计：</strong>
+- 控制具有此类型的地址是否计入区域进度
+- <strong>勾选</strong>：包含在进度计算中（例如，中文、英文、泰米尔语）
+- <strong>未勾选</strong>：从进度中排除（例如，商业、施工中）
+- 示例：100 个总地址，10 个标记为"商业"（不可统计）= 进度仅基于 90 个地址</p>
+<p><strong>是否默认：</strong>
+- 创建新地址时自动选择此类型
+- 只有一个选项应该是默认的
+- 用于您最常见的住户类型</p>
+<p><strong>顺序：</strong>
+- 控制下拉菜单中的显示顺序
+- 较低的数字先出现（1, 2, 3...）
+- <strong>通过设置中的拖放管理</strong> - 只需拖动选项重新排序
+- 影响地址住户下拉菜单中的顺序
+- 提示：从最常见到最不常见排序</p>
+<p><strong>多选配置：</strong></p>
+<ul>
+<li>如果住户可以有多种类型则启用</li>
+<li>示例：住户同时说中文和英文</li>
+<li>禁用时，每个住户只能有一种类型</li>
+</ul>
+<h4 id="_49">地图配置<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h4>
+<p><img alt="地图配置" src="../../assets/screenshots/map_configurations.png" /></p>
+<p><em>图 34：管理员的高级地图配置选项</em></p>
+<p>配置地图在您会众中的显示和行为方式。管理员可以访问强大的地图管理功能，用于区域维护和组织。</p>
+<p><strong>访问地图配置：</strong></p>
+<ol>
+<li>转到 <strong>设置</strong>（仅限管理员）</li>
+<li>从下拉菜单中选择一个区域</li>
+<li>打开所选区域的地图视图</li>
+<li>访问地图配置菜单（通常通过设置图标或菜单）</li>
+</ol>
+<p><strong>可用的地图配置功能：</strong></p>
+<p><strong>1. 更改位置</strong>
+   - 将地图标记重新定位到不同的地址
+   - 更新区域单位的地理位置
+   - 当地址已更改或初始位置不正确时有用
+   - 只需在地图上选择新位置</p>
+<p><strong>2. 更改区域</strong>
+   - 将地址或单位移动到不同的区域
+   - 帮助重新组织区域边界
+   - 用于平衡区域大小
+   - 在转移期间保留所有地址数据和历史</p>
+<p><strong>3. 更改顺序</strong>
+   - 修改地址的访问顺序号
+   - 优化外勤服务效率的路线
+   - 较低的数字先访问
+   - 帮助创建合理的访问模式</p>
+<h5 id="_50">更新地图顺序（拖放）<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h5>
+<p><img alt="更新地图顺序" src="../../assets/screenshots/update_map_sequence.png" /></p>
+<p><em>用于重新排序区域中所有地图顺序的拖放界面</em></p>
+<p><strong>访问：</strong> 地址菜单 → "更改顺序"</p>
+<p><strong>工作原理：</strong>
+1. 每张卡片显示一个地址及其当前序列号
+2. 拖放重新排序 - 数字自动更新
+3. 点击 <strong>"保存"</strong> 应用或 <strong>"取消"</strong> 放弃</p>
+<p><strong>最佳实践：</strong>
+- 通过将附近地址分组来减少回溯
+- 在多层建筑中将楼层分组在一起
+- 创建从一端到另一端的逻辑流程
+- 排序后查看地图视图</p>
+<p><strong>4. 重命名</strong>
+   - 更改地址/单位的名称或标识符
+   - 更新建筑名称或单位号
+   - 使数据与现实世界的变化保持同步
+   - 用于纠正初始录入错误</p>
+<p><strong>5. 添加单位号</strong>
+   - 向现有地址添加新单位号
+   - 扩展多层建筑的额外单位
+   - 当新公寓添加到建筑时有用
+   - 保持建筑结构组织</p>
+<p><strong>6. 添加高层楼层</strong>
+   - 向上扩展建筑的额外楼层
+   - 用于已扩建或最初低估的建筑
+   - 根据建筑模式自动为新楼层创建单位
+   - 帮助使区域数据与建设变化保持同步</p>
+<p><strong>7. 添加低层楼层</strong>
+   - 在当前最低楼层下方添加楼层
+   - 用于地下室或新开放的低层楼层
+   - 可以添加负楼层号（例如，B1、B2）
+   - 保持一致的楼层编号系统</p>
+<p><strong>8. 重置状态</strong>
+   - 将地址状态清除回"未完成"
+   - 仅删除"已完成"和"不在家"状态
+   - 不删除"请勿打扰"或"无效"状态
+   - 保留备注和其他地址信息
+   - 当重新开始先前完成的地址的工作时有用
+   - 不影响区域中的其他地址</p>
+<p><strong>9. 删除</strong>
+   - 从区域中永久删除地址、单位或楼层
+   - 无法撤销 - 谨慎使用
+   - 有助于删除重复条目或不存在的地址
+   - 删除前仔细确认</p>
+<p><strong>常见使用场景：</strong>
+- 纠正错误：重命名和更改位置
+- 区域再平衡：更改区域
+- 建筑更新：添加高/低层楼层
+- 路线优化：更改顺序
+- 数据清理：删除重复项
+- 季节性更新：重置状态</p>
+<blockquote>
+<p><strong>⚠️ 警告</strong>：更改会立即影响所有用户。删除是永久的，无法撤销。</p>
+</blockquote>
+<hr />
+<h3 id="_51">区域管理（仅限管理员）<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<p><img alt="创建新区域" src="../../assets/screenshots/create_new_territory.png" /></p>
+<p><em>图 21：用于添加新区域的区域创建界面</em></p>
+<p>管理员对创建、编辑和管理区域拥有完全控制权。</p>
+<h4 id="_52">创建新区域<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h4>
+<p><strong>第 1 步：访问区域创建</strong></p>
+<ol>
+<li>点击 <strong>区域选择器</strong> 下拉菜单</li>
+<li>选择 <strong>"创建新区域"</strong> 或 <strong>"新区域"</strong></li>
+<li>区域创建表单打开</li>
+</ol>
+<p><strong>第 2 步：输入区域信息</strong></p>
+<ul>
+<li><strong>区域代码</strong>：短标识符（例如，"T-001"、"M-12"、"W-05"）</li>
+<li>保持简短且有意义</li>
+<li>使用一致的命名约定</li>
+<li>建议最大：10 个字符</li>
+<li><strong>描述</strong>：全名或区域描述</li>
+<li>示例："市中心商业区"、"北区住宅区"</li>
+<li>描述性以便于识别</li>
+<li>建议最大：100 个字符</li>
+</ul>
+<p><strong>第 3 步：创建</strong></p>
+<ol>
+<li>点击 <strong>"创建区域"</strong></li>
+<li>创建并选择新区域</li>
+<li>准备添加地址</li>
+</ol>
+<h4 id="_53">编辑区域详情<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h4>
+<p><strong>更改区域代码：</strong></p>
+<ol>
+<li>选择区域</li>
+<li>点击 ✏️ <strong>"编辑"</strong> 或 <strong>"更改区域代码"</strong></li>
+<li>输入新代码</li>
+<li>保存更改</li>
+<li><strong>警告</strong>：更新对旧代码的任何引用</li>
+</ol>
+<p><strong>更改区域描述：</strong></p>
+<ol>
+<li>选择区域</li>
+<li>点击 <strong>"更改区域名称"</strong> 或编辑选项</li>
+<li>更新描述</li>
+<li>保存更改</li>
+</ol>
+<p><strong>更改区域顺序：</strong></p>
+<h5 id="_54">更新区域顺序（拖放）<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h5>
+<p><img alt="更新区域顺序" src="../../assets/screenshots/territory_sequence_change.png" /></p>
+<p><em>用于重新排序会众中所有区域的拖放界面</em></p>
+<p><strong>访问：</strong> 区域下拉菜单 → "更改顺序"</p>
+<p><strong>工作原理：</strong>
+1. 每张卡片显示区域代码和描述
+2. 拖放重新排序 - 序列号自动更新
+3. 点击 <strong>"保存"</strong> 应用或 <strong>"取消"</strong> 放弃
+4. 控制选择下拉菜单和列表中的顺序</p>
+<p><strong>最佳实践：</strong>
+- 按地理位置接近度组织
+- 按类型分组（住宅、商业、业务）
+- 考虑外勤服务小组分配
+- 用于区域轮换计划</p>
+<h4 id="_55">区域配置选项<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h4>
+<p><img alt="区域配置选项" src="../../assets/screenshots/territory_configurations.png" /></p>
+<p><em>显示配置选项的区域下拉菜单</em></p>
+<p>管理员可以通过顶部导航栏中的 <strong>区域下拉菜单</strong> 按钮访问区域配置选项。点击按钮显示以下选项：</p>
+<p><strong>可用选项：</strong></p>
+<ul>
+<li><strong>新建</strong>：从头创建新区域</li>
+<li><strong>更改代码</strong>：修改区域的唯一标识符</li>
+<li><strong>更改名称</strong>：更新区域描述</li>
+<li><strong>更改顺序</strong>：重新排序区域在选择列表中的显示方式</li>
+<li><strong>删除当前</strong>：永久删除当前选择的区域</li>
+<li><strong>重置状态</strong>：将所有地址状态清除回"未完成"</li>
+</ul>
+<p>这些选项提供了对常见区域管理任务的快速访问，无需浏览多个菜单。</p>
+<h4 id="_56">区域操作<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h4>
+<p><strong>重置区域：</strong></p>
+<p><img alt="创建新地图" src="../../assets/screenshots/create_new_map.png" /></p>
+<p><em>图 22：区域操作和管理界面</em></p>
+<p>将区域中的所有地址重置为"未完成"状态：</p>
+<ol>
+<li>选择区域</li>
+<li>点击 <strong>"重置区域"</strong> 按钮</li>
+<li>确认操作（这会清除所有访问数据！）</li>
+<li>所有地址返回"未完成"</li>
+<li>不在家计数重置为 0</li>
+<li>备注保留</li>
+<li>进度重置为 0%</li>
+</ol>
+<p><strong>使用时机：</strong></p>
+<ul>
+<li>区域完全工作并准备重新分配</li>
+<li>开始新一轮访问</li>
+<li>清理测试数据</li>
+</ul>
+<p><strong>⚠️ 警告</strong>：无法撤销。所有状态更新将丢失。</p>
+<p><strong>删除区域：</strong></p>
+<p><img alt="区域选择列表" src="../../assets/screenshots/territory_selection_list.png" /></p>
+<p><em>图 23：显示所有可用区域的区域选择列表</em></p>
+<p>永久删除区域及其所有数据：</p>
+<ol>
+<li>选择要删除的区域</li>
+<li>点击 <strong>"删除区域"</strong> 按钮</li>
+<li>仔细阅读警告消息</li>
+<li>如需要输入确认</li>
+<li>确认删除</li>
+</ol>
+<p><strong>删除内容：</strong></p>
+<ul>
+<li>区域记录</li>
+<li>区域中的所有地址</li>
+<li>所有单位和楼层</li>
+<li>所有分配历史</li>
+<li>所有相关数据</li>
+</ul>
+<p><strong>⚠️ 严重警告</strong>：此操作无法撤销。考虑先导出数据。</p>
+<hr />
+<h3 id="_57">地址管理（仅限管理员）<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<p><img alt="单层地图" src="../../assets/screenshots/single_story_map.png" /></p>
+<p><em>图 24：私人/单层物业的地址管理界面</em></p>
+<p>管理员可以在区域内添加和管理地址。</p>
+<h4 id="_58">地址类型<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper 支持两种类型的地址：</p>
+<p><strong>1. 公共地址（多层）</strong></p>
+<ul>
+<li>公寓楼、公寓</li>
+<li>多个楼层和单位</li>
+<li>示例：组屋、公寓大楼</li>
+<li>每层有多个单位</li>
+</ul>
+<p><strong>2. 私人地址（单层）</strong></p>
+<ul>
+<li>独立房屋、店屋</li>
+<li>单个物业只有一个地址</li>
+<li>示例：独立物业、独立建筑</li>
+<li>无楼层/单位结构</li>
+</ul>
+<h4 id="_59">添加公共地址（多层）<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h4>
+<p><strong>第 1 步：开始创建</strong></p>
+<ol>
+<li>选择区域</li>
+<li>点击 <strong>"添加地址"</strong> 或 <strong>"+"</strong> 按钮</li>
+<li>选择 <strong>"公共地址"</strong> 类型</li>
+</ol>
+<p><strong>第 2 步：输入建筑信息</strong></p>
+<ul>
+<li><strong>邮政编码/地址</strong>：建筑标识符</li>
+<li>输入邮政编码或街道地址</li>
+<li>系统可能自动填充位置</li>
+<li>用于地理编码和地图显示</li>
+<li><strong>建筑名称</strong>：可选的建筑名称</li>
+<li>示例："第 123A 座"、"阳光高地"</li>
+<li>帮助传道员识别建筑</li>
+</ul>
+<p><strong>第 3 步：配置楼层</strong></p>
+<p><img alt="多层地图" src="../../assets/screenshots/multi_story_map.png" /></p>
+<p><em>图 25：带有楼层和单位组织的多层建筑管理</em></p>
+<ul>
+<li><strong>起始楼层</strong>：最低楼层号</li>
+<li>可以为负数表示地下室</li>
+<li>示例：-2 (B2)、1（底层）、0</li>
+<li><strong>顶层</strong>：最高楼层号</li>
+<li>最大：50</li>
+<li>示例：10、25、40</li>
+<li><strong>楼层选择</strong>：选择特定楼层</li>
+<li>跳过没有单位的楼层（例如，机械层）</li>
+<li>典型：从起始到顶层的所有楼层</li>
+</ul>
+<p><strong>第 4 步：配置单位</strong></p>
+<ul>
+<li><strong>每层单位数</strong>：每层的单位数量</li>
+<li>示例：8、12、16</li>
+<li>自动创建单位</li>
+<li><strong>单位号格式</strong>：如何编号单位</li>
+<li>模式：楼层 + 单位（例如，01-01、01-02）</li>
+<li>自定义：稍后手动输入单位号</li>
+</ul>
+<p><strong>第 5 步：创建和填充</strong></p>
+<ol>
+<li>点击 <strong>"创建"</strong></li>
+<li>系统生成所有楼层和单位</li>
+<li>地址显示在区域中，包含所有单位</li>
+</ol>
+<p><strong>示例：</strong></p>
+<ul>
+<li>建筑：第 123 座</li>
+<li>楼层：1 到 12</li>
+<li>每层单位：8</li>
+<li>结果：创建 96 个单位（12 层 × 8 单位）</li>
+</ul>
+<h4 id="_60">添加私人地址（单层）<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h4>
+<p><strong>第 1 步：开始创建</strong></p>
+<ol>
+<li>选择区域</li>
+<li>点击 <strong>"添加地址"</strong> 或 <strong>"+"</strong></li>
+<li>选择 <strong>"私人地址"</strong> 类型</li>
+</ol>
+<p><strong>第 2 步：输入物业信息</strong></p>
+<ul>
+<li><strong>物业邮政编码/地址</strong>：唯一标识符</li>
+<li>街道地址或邮政编码</li>
+<li>每个物业是一条记录</li>
+<li><strong>物业名称</strong>：可选的房屋名称</li>
+<li>示例："主街 123 号"、"阳光别墅"</li>
+</ul>
+<p><strong>第 3 步：设置位置（可选）</strong></p>
+<ul>
+<li>点击 <strong>"设置地理定位"</strong></li>
+<li>使用地图精确定位</li>
+<li>有助于导航</li>
+<li>可以稍后更新</li>
+</ul>
+<p><strong>第 4 步：创建</strong></p>
+<ol>
+<li>点击 <strong>"创建物业"</strong></li>
+<li>创建单个地址单位</li>
+<li>出现在区域列表中</li>
+</ol>
+<h4 id="_61">管理现有地址<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h4>
+<p><strong>编辑地址名称：</strong></p>
+<ol>
+<li>选择包含地址的区域</li>
+<li>点击地址的编辑选项</li>
+<li>更新名称/邮政编码</li>
+<li>保存更改</li>
+</ol>
+<p><strong>更改邮政编码：</strong></p>
+<ol>
+<li>访问地址编辑模式</li>
+<li>更新邮政编码字段</li>
+<li>可能影响地理编码</li>
+<li>保存并验证地图位置</li>
+</ol>
+<p><strong>重置地址：</strong></p>
+<ul>
+<li>清除地址中的所有单位状态</li>
+<li>保留备注</li>
+<li>当地址完全工作时使用</li>
+</ul>
+<p><strong>删除地址：</strong></p>
+<ul>
+<li>删除整个地址及所有单位</li>
+<li>无法撤销</li>
+<li>删除前仔细确认</li>
+</ul>
+<h4 id="_62">管理单位（仅限公共地址）<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h4>
+<p><strong>添加单位：</strong></p>
+<ol>
+<li>选择地址</li>
+<li>点击 <strong>"添加单位"</strong></li>
+<li>指定要添加的单位号</li>
+<li>自动创建单位</li>
+</ol>
+<p><strong>删除单位：</strong></p>
+<ol>
+<li>点击特定单位</li>
+<li>点击模态框中的 <strong>"删除单位"</strong> 按钮</li>
+<li>确认删除</li>
+<li>从地址中删除单位</li>
+</ol>
+<p><strong>更改单位顺序：</strong></p>
+<ol>
+<li>打开单位编辑模态框</li>
+<li>更新序列号</li>
+<li>影响访问顺序</li>
+<li>较低的数字先访问</li>
+</ol>
+<p><strong>添加/删除楼层：</strong></p>
+<ol>
+<li>访问楼层管理</li>
+<li>添加新楼层号</li>
+<li>或删除整个楼层</li>
+<li>楼层上的所有单位受影响</li>
+</ol>
+<p><strong>更新单位地理定位：</strong></p>
+<ul>
+<li>为单位设置特定坐标</li>
+<li>对大型建筑有用</li>
+<li>有助于精确导航</li>
+<li>可选功能</li>
+</ul>
+<hr />
+<hr />
+<h2 id="_63">移动端使用<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h2>
+<p><img alt="传道员分配地图视图" src="../../assets/screenshots/publisher_assignment_map_view.png" /></p>
+<p><em>图 26：为外勤服务优化的移动端响应式界面</em></p>
+<h3 id="ministry-mapper_2">在手机上使用 Ministry Mapper<a class="headerlink" href="#ministry-mapper_2" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 完全响应式，针对移动设备进行了优化，非常适合外勤服务。</p>
+<h4 id="_64">移动端访问<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h4>
+<p><strong>浏览器访问：</strong></p>
+<ol>
+<li>打开您的移动浏览器：</li>
+<li><strong>iOS</strong>：Safari、Chrome</li>
+<li><strong>Android</strong>：Chrome、Firefox、三星浏览器</li>
+<li>导航到您会众的 Ministry Mapper URL</li>
+<li>登录或点击分配链接</li>
+<li>界面自动适应您的屏幕大小</li>
+</ol>
+<p><strong>移动端功能：</strong></p>
+<ul>
+<li>✓ 触摸友好的按钮和控件</li>
+<li>✓ 滑动手势导航</li>
+<li>✓ 小屏幕优化布局</li>
+<li>✓ 更大的点击目标便于选择</li>
+<li>✓ 完全访问所有桌面功能</li>
+<li>✓ 带有 GPS 的交互式地图集成</li>
+</ul>
+<h4 id="web-pwa">渐进式 Web 应用 (PWA) 安装<a class="headerlink" href="#web-pwa" title="Permanent link">&para;</a></h4>
+<p><img alt="单层地图视图模式" src="../../assets/screenshots/single_story_map_view_mode.png" /></p>
+<p><em>图 27：PWA 安装中可用的全屏地图视图模式</em></p>
+<p>将 Ministry Mapper 作为应用安装以获得更好的性能：</p>
+<p><strong>安装的好处：</strong></p>
+<ul>
+<li>🚀 使用缓存资源更快加载</li>
+<li>📱 主屏幕上的应用图标</li>
+<li>🎯 全屏体验（无浏览器 UI）</li>
+<li>⚡ 改进的性能</li>
+<li>🔔 更好地与设备集成</li>
+</ul>
+<p><strong>iOS 安装（Safari）：</strong></p>
+<ol>
+<li>在 Safari 中打开 Ministry Mapper</li>
+<li>点击 <strong>分享</strong> 按钮 (📤)</li>
+<li>向下滚动并点击 <strong>"添加到主屏幕"</strong></li>
+<li>如需要编辑名称</li>
+<li>点击 <strong>"添加"</strong></li>
+<li>应用图标出现在主屏幕上</li>
+</ol>
+<p><strong>Android 安装（Chrome）：</strong></p>
+<ol>
+<li>在 Chrome 中打开 Ministry Mapper</li>
+<li>点击菜单按钮 (⋮)</li>
+<li>选择 <strong>"安装应用"</strong> 或 <strong>"添加到主屏幕"</strong></li>
+<li>确认安装</li>
+<li>应用图标出现在主屏幕或应用抽屉中</li>
+</ol>
+<p><strong>使用已安装的应用：</strong></p>
+<ul>
+<li>像任何应用一样从主屏幕启动</li>
+<li>无浏览器地址栏</li>
+<li>无缝的应用体验</li>
+<li>自动更新</li>
+</ul>
+<h4 id="_65">移动端最佳实践<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h4>
+<p><strong>出发前：</strong></p>
+<ol>
+<li>✓ 检查分配链接是否未过期</li>
+<li>✓ 查看区域和地图</li>
+<li>✓ 记录任何特殊说明</li>
+<li>✓ 确保稳定的互联网连接</li>
+<li>✓ 完全充电您的设备</li>
+<li>✓ 考虑携带移动电源</li>
+</ol>
+<p><strong>在外勤服务中：</strong></p>
+<ol>
+<li>✓ 访问后立即更新地址</li>
+<li>✓ 在信息新鲜时添加备注</li>
+<li>✓ 使用地图上的 GPS 导航</li>
+<li>✓ 按序列号进行高效路线</li>
+<li>✓ 不使用时调暗屏幕以节省电池</li>
+</ol>
+<p><strong>数据使用提示：</strong></p>
+<ul>
+<li>Ministry Mapper 使用最少的数据</li>
+<li>地图瓦片可能使用更多数据</li>
+<li>大多数更新 &lt; 1KB 每次</li>
+<li>适合移动数据使用</li>
+</ul>
+<h3 id="_66">离线功能和限制<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
+<p><strong>需要互联网连接：</strong></p>
+<p>Ministry Mapper 需要活跃的互联网来：</p>
+<ul>
+<li>✗ 加载区域数据</li>
+<li>✗ 保存状态更新</li>
+<li>✗ 实时同步</li>
+<li>✗ 显示地图</li>
+<li>✗ 用户身份验证</li>
+</ul>
+<p><strong>有限的离线功能：</strong></p>
+<ul>
+<li>静态资源缓存（应用外壳）</li>
+<li>之前加载的区域可能显示</li>
+<li><strong>无法离线更新</strong></li>
+<li><strong>更新不会排队以供稍后同步</strong></li>
+</ul>
+<p><strong>处理连接丢失：</strong></p>
+<ul>
+<li>系统检测连接丢失</li>
+<li>显示连接状态警告</li>
+<li>可用时自动重新连接</li>
+<li>连接恢复后继续工作</li>
+</ul>
+<p><strong>建议：</strong></p>
+<ul>
+<li>✓ 开始前确保可靠连接</li>
+<li>✓ 在区域位置测试连接</li>
+<li>✓ 为无网络区域制定备用计划</li>
+<li>✓ 如需要考虑便携式 WiFi 热点</li>
+<li>✓ 在连接活跃时更新地址</li>
+</ul>
+<hr />
+<hr />
+<h2 id="_67">账户设置和个人资料<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h2>
+<h3 id="_68">个人资料管理<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h3>
+<p><img alt="登录" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>图 28：访问您 Ministry Mapper 账户的登录界面</em></p>
+<p><strong>访问您的个人资料：</strong></p>
+<ol>
+<li>点击您的 <strong>个人资料名称/图标</strong>（右上角）</li>
+<li>从下拉菜单中选择 <strong>"个人资料"</strong></li>
+<li>查看和管理您的账户设置</li>
+</ol>
+<p><strong>可用的个人资料选项：</strong></p>
+<ul>
+<li>查看账户信息（姓名、电子邮件）</li>
+<li>更改密码</li>
+<li>查看会众成员资格</li>
+<li>访问用户管理（仅限管理员）</li>
+<li>注销</li>
+</ul>
+<h3 id="_69">更改您的密码<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h3>
+<p><strong>安全要求：</strong></p>
+<ul>
+<li>最少 6 个字符</li>
+<li>至少一个数字</li>
+<li>至少一个大写字母</li>
+<li>必须与确认匹配</li>
+</ul>
+<p><strong>更改步骤：</strong></p>
+<ol>
+<li>转到您的个人资料</li>
+<li>点击 <strong>"更改密码"</strong></li>
+<li>输入您的 <strong>当前密码</strong></li>
+<li>输入 <strong>新密码</strong></li>
+<li><strong>确认新密码</strong></li>
+<li>点击 <strong>"保存"</strong> 或 <strong>"更改密码"</strong></li>
+<li>成功消息确认更改</li>
+</ol>
+<blockquote>
+<p><strong>💡 提示</strong>：使用强大、唯一的密码。考虑使用密码管理器。</p>
+</blockquote>
+<h3 id="_70">密码恢复<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h3>
+<p><img alt="忘记密码" src="../../assets/screenshots/forgot_password.png" /></p>
+<p><em>图 29：用于重置忘记密码的密码恢复页面</em></p>
+<p>忘记密码了？简单的恢复流程：</p>
+<ol>
+<li>转到登录页面</li>
+<li>点击 <strong>"忘记密码？"</strong> 链接</li>
+<li>输入您的 <strong>注册电子邮件地址</strong></li>
+<li>点击 <strong>"继续"</strong> 或 <strong>"发送重置链接"</strong></li>
+<li>检查您的电子邮件收件箱</li>
+</ol>
+<p><img alt="重置密码电子邮件" src="../../assets/screenshots/reset_password_email.png" /></p>
+<p><em>图 30：带有创建新密码安全链接的密码重置电子邮件</em></p>
+<ol>
+<li>点击密码重置链接（有效期有限）</li>
+<li>创建符合要求的新密码</li>
+<li>确认新密码</li>
+<li>使用新密码登录</li>
+</ol>
+<p><strong>如果您没有收到电子邮件：</strong></p>
+<ul>
+<li>检查垃圾邮件/垃圾文件夹</li>
+<li>验证您输入了正确的电子邮件</li>
+<li>等几分钟再试</li>
+<li>如果问题持续，请联系管理员</li>
+</ul>
+<h3 id="_71">语言选择<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h3>
+<p><img alt="语言选择列表" src="../../assets/screenshots/language_selection_list.png" /></p>
+<p><em>图 31：显示所有支持语言的语言选择界面</em></p>
+<p>Ministry Mapper 为国际会众支持多种语言。</p>
+<p><strong>支持的语言：</strong></p>
+<ul>
+<li>🇬🇧 英语 (en)</li>
+<li>🇯🇵 日语 (ja / 日本語)</li>
+<li>🇰🇷 韩语 (ko / 한국어)</li>
+<li>🇨🇳 中文 (zh / 中文)</li>
+<li>🇮🇩 印度尼西亚语 (id / Bahasa Indonesia)</li>
+<li>🇲🇾 马来语 (ms / Bahasa Melayu)</li>
+</ul>
+<p><strong>语言如何确定：</strong></p>
+<ul>
+<li>自动从浏览器语言设置检测</li>
+<li>使用您操作系统的语言偏好</li>
+<li>在大多数情况下无需手动选择</li>
+</ul>
+<p><strong>更改语言：</strong></p>
+<p><img alt="深色浅色主题设置" src="../../assets/screenshots/dark_light_theme_settings.png" /></p>
+<p><em>图 32：包括语言偏好的主题和外观设置</em></p>
+<p>更改浏览器语言设置（Chrome：设置 → 语言 | Safari：系统偏好设置 → 语言与地区 | Firefox：设置 → 通用 → 语言），然后刷新 Ministry Mapper。所有界面元素、消息和帮助文本都已完全翻译。</p>
+<h3 id="_72">外观和主题设置<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 支持浅色和深色主题，以适应您的偏好并减少眼睛疲劳。</p>
+<p><strong>更改主题：</strong></p>
+<p>个人资料图标 → 主题/外观设置 → 选择：
+- <strong>浅色模式</strong>：适合白天的明亮界面
+- <strong>深色模式</strong>：适合低光环境的降低亮度（在 OLED 上节省电池）
+- <strong>系统默认</strong>：自动匹配设备设置</p>
+<hr />
+<h2 id="_73">最佳实践<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h2>
+<h3 id="_74">对于传道员<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>最佳实践</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>开始前</strong></td>
+<td>在地图上查看区域 • 检查备注/说明 • 使用序列规划路线 • 记录"请勿打扰"地址 • 确保设备充电</td>
+</tr>
+<tr>
+<td><strong>服务期间</strong></td>
+<td>每次访问后立即更新 • 添加详细、尊重的备注 • 按序列号进行 • 使用地图导航 • 准确标记"不在家"</td>
+</tr>
+<tr>
+<td><strong>完成后</strong></td>
+<td>审查所有更新 • 添加最终观察 • 如果完成通知管理员 • 报告地址问题</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_75">对于负责人<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
+<ul>
+<li>根据区域大小设置适当的链接过期时间</li>
+<li>包含传道员姓名以便跟踪</li>
+<li>定期清理过期的分配</li>
+<li>监控区域完成情况并跟进逾期分配</li>
+<li>发布清晰的消息和说明</li>
+</ul>
+<h3 id="_76">对于管理员<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>最佳实践</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>区域设置</strong></td>
+<td>一致的命名 • 简短、有意义的代码 • 清晰的描述 • 验证地图位置 • 合理的顺序</td>
+</tr>
+<tr>
+<td><strong>数据管理</strong></td>
+<td>定期清理 • 重置已完成的区域 • 验证准确性 • 外部备份 • 培训用户</td>
+</tr>
+<tr>
+<td><strong>用户管理</strong></td>
+<td>适当的角色分配 • 删除不活跃用户 • 及时响应请求 • 清晰沟通</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_77">一般原则<a class="headerlink" href="#_77" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>提前计划</strong>：出发前查看</li>
+<li><strong>系统工作</strong>：一次完成一个部分</li>
+<li><strong>及时更新</strong>：不要等待记录信息</li>
+<li><strong>清晰沟通</strong>：写可理解、尊重的备注</li>
+<li><strong>彻底完成</strong>：持续覆盖所有地址</li>
+<li><strong>保持灵活</strong>：适应区域需求</li>
+</ul>
+<hr />
+<h2 id="_78">常见问题故障排除<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h2>
+<h3 id="_79">登录问题<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>症状</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>密码错误</strong></td>
+<td>"凭据无效"错误</td>
+<td>验证电子邮件 • 检查大写锁定 • 使用"忘记密码" → 通过电子邮件重置</td>
+</tr>
+<tr>
+<td><strong>账户未验证</strong></td>
+<td>"电子邮件未验证"消息</td>
+<td>检查收件箱/垃圾邮件中的验证电子邮件 • 点击链接 • 如果过期请求新的</td>
+</tr>
+<tr>
+<td><strong>无会众访问</strong></td>
+<td>登录但未显示区域</td>
+<td>联系管理员邀请您并分配角色 • 授予访问权限后注销/登录</td>
+</tr>
+<tr>
+<td><strong>OTP 问题</strong></td>
+<td>未收到/无效的 OTP 代码</td>
+<td>检查垃圾邮件 • 代码在 5-10 分钟后过期 • 请求新代码 • 验证电子邮件地址</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_80">数据更新问题<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>症状</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>更改未保存</strong></td>
+<td>保存不持久，刷新后消失</td>
+<td>检查网络连接 • 刷新页面 (Ctrl/Cmd + R) • 清除浏览器缓存 • 尝试不同浏览器 • 检查并发编辑</td>
+</tr>
+<tr>
+<td><strong>实时更新不显示</strong></td>
+<td>其他人的更改不显示</td>
+<td>确保互联网活跃 • 保持页面打开 • 刷新以强制更新 • 检查连接状态</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_81">地图和导航问题<a class="headerlink" href="#_81" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>症状</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>地图不加载</strong></td>
+<td>灰色框、错误、冻结地图</td>
+<td>刷新页面 (F5) • 等待 10-15 秒 • 检查网速 • 清除缓存 • 尝试不同浏览器 • 启用 JavaScript</td>
+</tr>
+<tr>
+<td><strong>位置不正确</strong></td>
+<td>标记放置错误</td>
+<td>管理员：更新地理定位 • 验证邮政编码 • 使用"更新地理定位" • 如需要使用经纬度</td>
+</tr>
+<tr>
+<td><strong>路线不工作</strong></td>
+<td>导航问题</td>
+<td>验证会众来源位置 • 检查地址是否有有效坐标</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_82">分配链接问题<a class="headerlink" href="#_82" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>症状</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>链接过期</strong></td>
+<td>"链接已过期"、404 错误</td>
+<td>联系管理员/负责人获取新链接（链接在设定时间后过期，通常 24 小时 - 这是安全功能）</td>
+</tr>
+<tr>
+<td><strong>链接不工作</strong></td>
+<td>无法打开、错误消息</td>
+<td>确保复制了整个链接（检查换行符） • 复制粘贴到浏览器（不要输入） • 验证未过期 • 联系管理员</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_83">权限和访问问题<a class="headerlink" href="#_83" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>症状</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>权限被拒绝</strong></td>
+<td>"权限不足"、功能灰显</td>
+<td>与管理员验证您的角色 • 注销、清除缓存、重新登录 • 如需要请求角色升级</td>
+</tr>
+<tr>
+<td><strong>错误的会众数据</strong></td>
+<td>不熟悉的区域/数据</td>
+<td>验证正确的账户 • 检查会众选择器 • 注销/登录 • 联系管理员</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_84">性能问题<a class="headerlink" href="#_84" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>症状</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>加载缓慢</strong></td>
+<td>长加载时间、延迟、延迟</td>
+<td>检查网速 • 关闭不必要的标签页 • 清除缓存 • 重启浏览器 • 尝试不同时间 • 如果持续报告</td>
+</tr>
+<tr>
+<td><strong>崩溃/冻结</strong></td>
+<td>应用停止响应</td>
+<td>刷新页面 • 清除缓存/cookies • 更新浏览器 • 尝试不同浏览器 • 重启设备 • 检查内存</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_85">浏览器兼容性<a class="headerlink" href="#_85" title="Permanent link">&para;</a></h3>
+<h4 id="_86">浏览器兼容性<a class="headerlink" href="#_86" title="Permanent link">&para;</a></h4>
+<p><strong>支持：</strong> Chrome、Firefox、Safari、Edge（最新版本） • iOS Safari (iOS 13+) • Android Chrome</p>
+<p><strong>不支持：</strong> Internet Explorer、过时的浏览器</p>
+<p><strong>如果有问题：</strong> 更新浏览器 • 启用 JavaScript • 允许 cookies • 禁用严格跟踪阻止 • 尝试不同浏览器</p>
+<hr />
+<h2 id="_87">获取帮助和支持<a class="headerlink" href="#_87" title="Permanent link">&para;</a></h2>
+<h3 id="_88">支持渠道<a class="headerlink" href="#_88" title="Permanent link">&para;</a></h3>
+<p><strong>1. 您的会众管理员</strong></p>
+<ul>
+<li>大多数问题的<strong>第一联系人</strong></li>
+<li>可以帮助：</li>
+<li>账户访问和角色</li>
+<li>区域问题</li>
+<li>分配链接</li>
+<li>本地配置</li>
+</ul>
+<p><strong>2. 官方文档</strong></p>
+<ul>
+<li><strong>GitHub Wiki</strong>：https://github.com/rimorin/ministry-mapper/wiki</li>
+<li>所有角色的全面指南</li>
+<li>设置和安全文档</li>
+<li>常见问题和常见解决方案</li>
+</ul>
+<p><strong>3. 技术问题</strong></p>
+<ul>
+<li><strong>GitHub Issues</strong>：https://github.com/rimorin/ministry-mapper/issues</li>
+<li>报告错误和技术问题</li>
+<li>先检查现有问题</li>
+<li>搜索类似问题</li>
+</ul>
+<h3 id="_89">有效报告问题<a class="headerlink" href="#_89" title="Permanent link">&para;</a></h3>
+<p><strong>在报告中包含：</strong>
+- 您正在尝试做什么
+- 发生了什么（错误消息、截图）
+- 重现问题的步骤
+- 浏览器和版本
+- 设备和操作系统
+- 账户类型（传道员/负责人/管理员）</p>
+<p><strong>好的报告示例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>问题：无法保存地址状态更新
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>步骤：打开链接 → 点击 #05-123 → 更改为&quot;已完成&quot; → 点击保存 → 错误：&quot;更新失败&quot;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>浏览器：Chrome 120 | 设备：iPhone 12, iOS 17 | 账户：传道员链接
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>截图：[已附加]
+</code></pre></div></p>
+<h3 id="_90">紧急联系<a class="headerlink" href="#_90" title="Permanent link">&para;</a></h3>
+<p>对于紧急问题：</p>
+<ul>
+<li>直接联系您的会众管理员</li>
+<li>准备好电话号码/电子邮件</li>
+<li>清楚地解释紧急性</li>
+<li>准备好相关详情</li>
+</ul>
+<hr />
+<hr />
+<h2 id="_91">快速参考<a class="headerlink" href="#_91" title="Permanent link">&para;</a></h2>
+<h3 id="_92">键盘快捷键<a class="headerlink" href="#_92" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 使用标准浏览器快捷键：</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Escape</code></td>
+<td>关闭打开的模态框/对话框</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>在表单字段之间导航</td>
+</tr>
+<tr>
+<td><code>Enter</code></td>
+<td>提交表单或确认操作</td>
+</tr>
+<tr>
+<td><code>Ctrl/Cmd + R</code></td>
+<td>刷新页面</td>
+</tr>
+<tr>
+<td>标准编辑</td>
+<td>复制、粘贴、全选在文本字段中有效</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_93">状态快速参考<a class="headerlink" href="#_93" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>符号</th>
+<th>何时使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>未完成</strong></td>
+<td>⚪</td>
+<td>地址尚未访问（默认）</td>
+</tr>
+<tr>
+<td><strong>已完成</strong></td>
+<td>✅</td>
+<td>成功联系住户</td>
+</tr>
+<tr>
+<td><strong>不在家</strong></td>
+<td>🏠</td>
+<td>无人应门</td>
+</tr>
+<tr>
+<td><strong>请勿打扰</strong></td>
+<td>🚫</td>
+<td>住户要求不访问</td>
+</tr>
+<tr>
+<td><strong>无效</strong></td>
+<td>❌</td>
+<td>地址不存在或无法访问</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_94">角色能力快速参考<a class="headerlink" href="#_94" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th style="text-align: center;">传道员</th>
+<th style="text-align: center;">只读</th>
+<th style="text-align: center;">负责人</th>
+<th style="text-align: center;">管理员</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通过分配链接查看</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>查看所有区域</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>更新地址状态</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>创建分配</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>发布消息</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>管理区域</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>管理用户</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>配置设置</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_95">隐私和安全<a class="headerlink" href="#_95" title="Permanent link">&para;</a></h2>
+<h3 id="_96">保护信息<a class="headerlink" href="#_96" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 处理敏感的地址和个人信息。请遵守这些准则：</p>
+<p><strong>账户安全：</strong></p>
+<ul>
+<li>✓ <strong>永远不要分享登录凭据</strong></li>
+<li>✓ <strong>使用强大、唯一的密码</strong>（至少 6 个字符，包含数字和大写字母）</li>
+<li>✓ <strong>在共享设备上总是注销</strong></li>
+<li>✓ <strong>如果可用启用 OTP</strong> 以增加安全性</li>
+<li>✓ <strong>立即报告可疑活动</strong></li>
+</ul>
+<p><strong>数据隐私：</strong></p>
+<ul>
+<li>✓ <strong>只记录必要信息</strong></li>
+<li>✓ <strong>在所有描述中保持尊重和事实</strong></li>
+<li>✓ <strong>不要包含敏感个人数据</strong>（医疗、财务等）</li>
+<li>✓ <strong>遵循住户的隐私请求</strong></li>
+<li>✓ <strong>遵守隐私法</strong>（GDPR、CCPA、当地法规）</li>
+</ul>
+<p><strong>法律合规：</strong></p>
+<ul>
+<li>⚠️ <strong>GDPR（欧洲）</strong>：个人数据保护要求</li>
+<li>⚠️ <strong>CCPA（加利福尼亚）</strong>：消费者隐私权</li>
+<li>⚠️ <strong>LGPD（巴西）</strong>：数据保护法规</li>
+<li>⚠️ <strong>当地法律</strong>：检查您所在地区的要求</li>
+</ul>
+<h3 id="_97">存储的信息<a class="headerlink" href="#_97" title="Permanent link">&para;</a></h3>
+<p><strong>用户数据：</strong></p>
+<ul>
+<li>账户详情（姓名、电子邮件、验证状态）</li>
+<li>会众角色分配</li>
+<li>创建/访问的分配链接</li>
+<li>活动时间戳</li>
+</ul>
+<p><strong>区域数据：</strong></p>
+<ul>
+<li>地址和单位信息</li>
+<li>状态更新和历史</li>
+<li>备注和访问信息</li>
+<li>地理定位坐标</li>
+<li>进度跟踪</li>
+</ul>
+<p><strong>系统数据：</strong></p>
+<ul>
+<li>登录会话</li>
+<li>实时订阅</li>
+<li>消息历史</li>
+<li>配置设置</li>
+</ul>
+<h3 id="_98">数据存储和安全<a class="headerlink" href="#_98" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>后端</strong></td>
+<td>由管理员管理的 PocketBase 数据库 • 由会众决定的托管位置 • 基于角色的访问控制</td>
+</tr>
+<tr>
+<td><strong>实时同步</strong></td>
+<td>PocketBase 订阅 • 加密的 HTTPS 连接 • 自动重连 • 会话管理</td>
+</tr>
+<tr>
+<td><strong>客户端</strong></td>
+<td>Service worker 仅缓存静态资源 • 不在本地存储敏感数据 • 新版本自动更新</td>
+</tr>
+<tr>
+<td><strong>管理员职责</strong></td>
+<td>实施备份程序 • 进行安全审计 • 保持后端更新 • 监控访问日志</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_99">结论<a class="headerlink" href="#_99" title="Permanent link">&para;</a></h2>
+<p>感谢您使用 Ministry Mapper 支持您会众的外勤服务活动。这个现代化的 Web 解决方案为区域管理带来了效率、协作和环保优势。</p>
+<h3 id="_100">关键要点<a class="headerlink" href="#_100" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>关键职责</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>传道员</strong></td>
+<td>通过链接访问 • 访问后立即更新 • 写尊重的备注 • 按顺序进行</td>
+</tr>
+<tr>
+<td><strong>负责人</strong></td>
+<td>创建分配 • 监控进度 • 发布消息 • 协调活动</td>
+</tr>
+<tr>
+<td><strong>管理员</strong></td>
+<td>配置设置 • 管理区域 • 分配角色 • 确保安全</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_101">系统功能<a class="headerlink" href="#_101" title="Permanent link">&para;</a></h3>
+<p><strong>技术栈：</strong></p>
+<ul>
+<li>✓ React 19 + TypeScript 前端</li>
+<li>✓ PocketBase 后端用于数据管理</li>
+<li>✓ Leaflet 与 OpenStreetMap 用于导航</li>
+<li>✓ 实时同步</li>
+<li>✓ 移动端响应式 PWA</li>
+<li>✓ 多语言支持</li>
+<li>✓ 基于角色的访问控制</li>
+<li>✓ Sentry 错误监控</li>
+</ul>
+<p><strong>优势：</strong></p>
+<ul>
+<li>🌱 <strong>环保</strong>：消除纸张浪费</li>
+<li>⚡ <strong>实时</strong>：所有设备即时更新</li>
+<li>📱 <strong>移动优先</strong>：在任何有互联网的设备上工作</li>
+<li>🗺️ <strong>集成地图</strong>：交互式地图便于导航</li>
+<li>🔒 <strong>安全</strong>：基于角色的权限和 OTP 支持</li>
+<li>🌍 <strong>多语言</strong>：支持 7+ 种语言</li>
+<li>💾 <strong>可靠</strong>：PocketBase 后端与实时同步</li>
+</ul>
+<hr />
+<p><strong>版本</strong>：请参阅您部署的版本
+<strong>最后更新</strong>：2024</p>
+<p>如需技术支持，请联系您的会众管理员或访问 GitHub wiki。</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

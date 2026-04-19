@@ -1,0 +1,3391 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ja/backend-setup/">
+      
+      
+        <link rel="prev" href="../self-hosting/">
+      
+      
+        <link rel="next" href="../frontend-setup/">
+      
+      
+        
+          <link rel="alternate" href="../../backend-setup/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/backend-setup/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/backend-setup/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/backend-setup/" hreflang="ms">
+        
+          <link rel="alternate" href="./" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/backend-setup/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/backend-setup/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/backend-setup/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Backend Setup - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backend Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../backend-setup/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/backend-setup/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/backend-setup/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/backend-setup/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/backend-setup/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/backend-setup/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/backend-setup/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クイックリファレンス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="クイックリファレンス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術スタック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境変数の説明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数の説明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サービス統合キー（オプション）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーション設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デフォルト管理者アカウント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メール設定（SMTP）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティとアクセス制御
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レート制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envsample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エラー追跡（.env.sample にない場合は手動で追加）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フィーチャーフラグ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール手順
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール手順">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Docker デプロイ（推奨）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション1：Docker デプロイ（推奨）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Docker イメージのビルド
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. コンテナの実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：ローカル開発
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション2：ローカル開発">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Go 依存関係のインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 環境変数のセットアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. アプリケーションの実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理パネルへのアクセス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="管理パネルへのアクセス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理パネルでできること
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベース管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データベース管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データのバックアップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データのバックアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手動バックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自動日次バックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックアップからの復元
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティチェックリスト
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドの更新
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックエンドの更新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker の更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ローカル開発の更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースマイグレーション
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監視とログ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="監視とログ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログの表示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ログの表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker ログ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーションログ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログで確認すべき項目
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ポートがすでに使用中
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースがロックされている
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メールが送信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メモリ不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理パネルにアクセスできない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスのヒント
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンスのヒント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小規模な会衆（ユーザー100人未満）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#100500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中規模の会衆（ユーザー100〜500人）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        大規模な会衆（ユーザー500人以上）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API エンドポイント
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API エンドポイント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロア管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テリトリー管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックグラウンドジョブ（Cron スケジューラー）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックグラウンドジョブ（Cron スケジューラー）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケジュールされたジョブ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI レポート要約
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースフック
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クイックリファレンス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="クイックリファレンス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技術スタック
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境変数の説明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数の説明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サービス統合キー（オプション）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーション設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デフォルト管理者アカウント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メール設定（SMTP）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティとアクセス制御
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レート制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envsample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エラー追跡（.env.sample にない場合は手動で追加）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フィーチャーフラグ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール手順
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール手順">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション1：Docker デプロイ（推奨）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション1：Docker デプロイ（推奨）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Docker イメージのビルド
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. コンテナの実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション2：ローカル開発
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション2：ローカル開発">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Go 依存関係のインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 環境変数のセットアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. アプリケーションの実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理パネルへのアクセス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="管理パネルへのアクセス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理パネルでできること
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベース管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データベース管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データのバックアップ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="データのバックアップ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手動バックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自動日次バックアップ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックアップからの復元
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティチェックリスト
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックエンドの更新
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックエンドの更新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker の更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ローカル開発の更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースマイグレーション
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        監視とログ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="監視とログ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログの表示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ログの表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker ログ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アプリケーションログ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログで確認すべき項目
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ポートがすでに使用中
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースがロックされている
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メールが送信されない
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メモリ不足
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理パネルにアクセスできない
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスのヒント
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パフォーマンスのヒント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        小規模な会衆（ユーザー100人未満）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#100500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        中規模の会衆（ユーザー100〜500人）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#500" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        大規模な会衆（ユーザー500人以上）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API エンドポイント
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API エンドポイント">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フロア管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テリトリー管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックグラウンドジョブ（Cron スケジューラー）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バックグラウンドジョブ（Cron スケジューラー）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スケジュールされたジョブ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI レポート要約
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベースフック
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">バックエンドセットアップガイド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">セルフホストは推奨しません</p>
+<p>このガイドは Ministry Mapper をセルフホストしたい上級ユーザー向けです。技術的な複雑さ、メンテナンスの負担、セキュリティの責任のため、セルフホストはお勧めしません。</p>
+<p><strong>ほとんどのユーザーは</strong>：<strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong> のホストサービスを使用してください。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">ユーザードキュメントをお探しですか？</p>
+<p>Ministry Mapper の使い方を学びたい一般ユーザーの方は、代わりに<a href="../getting-started/">はじめかた</a>または<a href="../user-guide/">ユーザーガイド</a>をご覧ください。</p>
+</div>
+<h2 id="_2">概要<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper バックエンド（ministry-mapper-be）は Go と PocketBase で構築されています。以下を提供します：</p>
+<ul>
+<li>データストレージと管理（SQLite データベース）</li>
+<li>ユーザー認証と認可</li>
+<li>リアルタイムデータ同期</li>
+<li>テリトリー管理のカスタム API エンドポイント</li>
+<li>自動タスク用のバックグラウンドジョブ</li>
+<li>SMTP 経由のメール通知</li>
+</ul>
+<p><strong>このガイドは以下を前提としています</strong>：
+- サーバー管理の経験
+- Docker とコンテナ化の理解
+- 環境変数の知識
+- セキュリティのベストプラクティスの知識</p>
+<p>完全なセルフホスト手順については、<a href="../self-hosting/">セルフホストガイド</a>を参照してください。</p>
+<h2 id="_3">クイックリファレンス<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>このページはバックエンド設定のクイックリファレンスを提供します。<strong>完全なセットアップ手順については、<a href="../self-hosting/">セルフホストガイド</a>を参照してください。</strong></p>
+<h3 id="_4">技術スタック<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Go</strong>：高速で効率的なプログラミング言語</li>
+<li><strong>PocketBase</strong>：組み込み管理パネル付きの Backend-as-a-Service</li>
+<li><strong>SQLite</strong>：<code>pb_data</code> フォルダの軽量データベース</li>
+<li><strong>Docker</strong>：Alpine Linux ベースのコンテナ</li>
+</ul>
+<h3 id="_5">主要機能<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>データストレージと管理</li>
+<li>ユーザー認証</li>
+<li>リアルタイムサブスクリプション（Server-Sent Events）</li>
+<li>カスタム API エンドポイント</li>
+<li>スケジュールされたバックグラウンドジョブ</li>
+<li>メール通知（SMTP）</li>
+<li>エラー追跡（Sentry）</li>
+<li>フィーチャーフラグ（LaunchDarkly）</li>
+</ul>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">完全なセットアップ手順</p>
+<p>以下のセクションはバックエンド設定の技術的なリファレンスを提供します。コンテキストと説明付きのステップバイステップのセットアップ手順については、<strong><a href="../self-hosting/">セルフホストガイド</a></strong> を参照してください。</p>
+</div>
+<hr />
+<h2 id="_6">環境変数の説明<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">サービス統合キー（オプション）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># MailerSend API キー - MailerSend サービス経由でメールを送信するため</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># SMTP を使用する場合は空のままにしてください</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># MailerSend 送信者メールアドレス</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">MAILERSEND_FROM_EMAIL</span><span class="o">=</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># LaunchDarkly SDK キー - バックグラウンドジョブを制御するフィーチャーフラグ用</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># 設定されていない場合、ジョブはデフォルトで実行されます</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">LAUNCHDARKLY_CONTEXT_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># OpenAI API キー - 月次レポートとメッセージダイジェストの AI による要約用</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># オプション：AI セクションが省略されるだけで、レポートとダイジェストはこれなしでも問題なく機能します</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>
+</code></pre></div>
+<h3 id="_8">アプリケーション設定<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># メールと管理パネルに表示される名前</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># フロントエンドがホストされている URL</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>http://localhost:3000
+</code></pre></div>
+<h3 id="_9">デフォルト管理者アカウント<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 初回セットアップ時に作成される初期管理者アカウント</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># 初回ログイン後すぐにパスワードを変更してください！</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>testing_account@ministry-mapper.com
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>pb123456789
+</code></pre></div>
+<h3 id="smtp">メール設定（SMTP）<a class="headerlink" href="#smtp" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># SMTP サーバーアドレス（例：smtp.gmail.com、smtp.sendgrid.net）</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># SMTP パスワード（Gmail の場合は通常のパスワードではなくアプリパスワードを使用）</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">PB_SMTP_PASSWORD</span><span class="o">=</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># SMTP ユーザー名（通常はメールアドレス）</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nv">PB_SMTP_USERNAME</span><span class="o">=</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># SMTP ポート（TLS は 587、SSL は 465）</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nv">PB_SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># 「From」フィールドに表示されるメールアドレス</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nv">PB_SMTP_SENDER_ADDRESS</span><span class="o">=</span>support@ministry-mapper.com
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># 「From」フィールドに表示される名前</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>MM<span class="w"> </span>Support
+</code></pre></div>
+<h3 id="_10">セキュリティとアクセス制御<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># CORS で許可されるオリジンのカンマ区切りリスト</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># 開発時は *、本番環境では特定のドメインを使用</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># 例：https://app.example.com,https://app2.example.com</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>*
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># 管理 UI を公開アクセスから非表示にする（true/false）</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># セキュリティのため本番環境では true に設定</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="_11">認証設定<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># ワンタイムパスワードログインを有効にする（true/false）</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># 多要素認証を有効にする（true/false）</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="_12">レート制限<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># API の乱用を防ぐためのレート制限を有効にする（true/false）</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="envsample">エラー追跡（.env.sample にない場合は手動で追加）<a class="headerlink" href="#envsample" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># エラー監視と追跡用の Sentry DSN</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Sentry の環境名（development、staging、production）</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Git コミットハッシュ - Coolify などのホスティングプラットフォームで自動設定</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nv">SOURCE_COMMIT</span><span class="o">=</span>
+</code></pre></div>
+<h2 id="_13">フィーチャーフラグ<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper は <a href="https://launchdarkly.com">LaunchDarkly</a> を使用してバックグラウンドジョブの実行をゲートします。各ジョブは再デプロイなしに独立して有効化・無効化できます。フィーチャーフラグには <code>LAUNCHDARKLY_SDK_KEY</code> と <code>LAUNCHDARKLY_CONTEXT_KEY</code> の設定が必要です。</p>
+<table>
+<thead>
+<tr>
+<th>フラグキー</th>
+<th>制御対象ジョブ</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable-assignments-cleanup</code></td>
+<td><code>cleanUpAssignments</code></td>
+<td>期限切れのマップ割り当てを削除（5分ごとに実行）</td>
+</tr>
+<tr>
+<td><code>enable-territory-aggregations</code></td>
+<td><code>updateTerritoryAggregates</code></td>
+<td>テリトリーの進捗統計を再計算（10分ごとに実行）</td>
+</tr>
+<tr>
+<td><code>enable-message-processing</code></td>
+<td><code>processMessages</code></td>
+<td>保留中の伝道者メッセージを処理（30分ごとに実行）</td>
+</tr>
+<tr>
+<td><code>enable-instruction-processing</code></td>
+<td><code>processInstructions</code></td>
+<td>テリトリー割り当て指示を処理（30分ごとに実行）</td>
+</tr>
+<tr>
+<td><code>enable-note-processing</code></td>
+<td><code>processNotes</code></td>
+<td>更新された会衆メモを処理（1時間ごとに実行）</td>
+</tr>
+<tr>
+<td><code>enable-monthly-report</code></td>
+<td><code>generateMonthlyReport</code></td>
+<td>Excel レポートを生成してメール送信（毎月1日に実行）</td>
+</tr>
+<tr>
+<td><code>enable-unprovisioned-user-processing</code></td>
+<td><code>processUnprovisionedUsers</code></td>
+<td>役割が割り当てられていないユーザーを警告・無効化（毎日実行）</td>
+</tr>
+<tr>
+<td><code>enable-inactive-user-processing</code></td>
+<td><code>processInactiveUsers</code></td>
+<td>非アクティブなアカウントを警告・無効化 — NIST AC-2(3)（毎日実行）</td>
+</tr>
+<tr>
+<td><code>enable-new-addresses-notification</code></td>
+<td><code>processNewAddresses</code></td>
+<td>アプリで追加された住所のダイジェストメールを送信（毎日実行）</td>
+</tr>
+<tr>
+<td><code>enable-report-ai-summary</code></td>
+<td>レポート内の AI 要約</td>
+<td>会衆レポートに OpenAI 生成のサマリーを含める</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>LaunchDarkly が設定されていない場合、すべてのジョブはデフォルトで実行されます（enabled: true）。</p>
+</div>
+<h2 id="_14">インストール手順<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="1docker">オプション1：Docker デプロイ（推奨）<a class="headerlink" href="#1docker" title="Permanent link">&para;</a></h3>
+<p>Docker でデプロイがシンプルかつプラットフォーム間で一貫したものになります。</p>
+<h4 id="1-docker">1. Docker イメージのビルド<a class="headerlink" href="#1-docker" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+</code></pre></div>
+<h4 id="2">2. コンテナの実行<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div>
+<p><strong>重要なメモ：</strong></p>
+<ul>
+<li>コンテナはポート <strong>8080</strong>（8090 ではない）で実行されます</li>
+<li><code>-p 8080:8080</code> でコンテナのポート 8080 をホストのポート 8080 にマップします</li>
+<li><code>-v /path/to/pb_data:/app/pb_data</code> でデータベースを永続的に保存します（<code>/path/to/pb_data</code> を実際のパスに置き換えてください）</li>
+<li><code>--env-file .env</code> で <code>.env</code> ファイルから環境変数を読み込みます</li>
+<li><code>-d</code> でコンテナをバックグラウンドで実行します（デタッチモード）</li>
+</ul>
+<h3 id="2_1">オプション2：ローカル開発<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p>コンピュータでの開発とテスト用：</p>
+<h4 id="1-go">1. Go 依存関係のインストール<a class="headerlink" href="#1-go" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>./scripts/install.sh
+</code></pre></div>
+<p>このスクリプトは <code>go get ./...</code> と <code>go mod tidy</code> を実行してすべての依存関係をインストールします。</p>
+<h4 id="2_2">2. 環境変数のセットアップ<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># .env を設定で編集</span>
+</code></pre></div>
+<h4 id="3">3. アプリケーションの実行<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./scripts/start.sh
+</code></pre></div>
+<p>このスクリプトは <code>.env</code> から環境変数をエクスポートして <code>go run main.go serve</code> を実行します。</p>
+<p>バックエンドはデフォルトで <strong>http://localhost:8090</strong> で起動します（PocketBase のデフォルトポート）。</p>
+<h2 id="_15">管理パネルへのアクセス<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>バックエンドが実行されたら：</p>
+<ol>
+<li><code>http://your-backend-url/_/</code> にアクセス（アンダースコアとスラッシュに注意）</li>
+<li><code>PB_ADMIN_EMAIL</code> と <code>PB_ADMIN_PASSWORD</code> の管理者認証情報でログイン</li>
+<li>PocketBase 管理ダッシュボードが表示されます</li>
+</ol>
+<h3 id="_16">管理パネルでできること<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>コレクション</strong>：すべてのデータベーステーブルの表示と編集（ユーザー、会衆、テリトリー、マップ、住所など）</li>
+<li><strong>ログ</strong>：アプリケーションとリクエストのログの表示</li>
+<li><strong>設定</strong>：認証、メール、バックアップなどの設定</li>
+<li><strong>ファイル</strong>：アップロードされたファイルとストレージの管理</li>
+<li><strong>API ルール</strong>：各コレクションの権限設定</li>
+</ul>
+<p><strong>セキュリティメモ</strong>：管理 UI への公開アクセスを非表示にするため、本番環境では <code>PB_HIDE_CONTROLS=true</code> を設定してください。</p>
+<h2 id="_17">データベース管理<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="_18">データのバックアップ<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>データは <code>pb_data</code> フォルダに保存されています。定期的なバックアップが重要です。</p>
+<h4 id="_19">手動バックアップ<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># pb_data フォルダ全体のバックアップを作成</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>tar<span class="w"> </span>-czf<span class="w"> </span>ministry-mapper-backup-<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+</code></pre></div>
+<h4 id="_20">自動日次バックアップ<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p>自動バックアップ用の cron ジョブを設定：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># crontab に追加（実行：crontab -e）</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-backup-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+</code></pre></div>
+<p>これは毎日午前2時に実行され、タイムスタンプ付きのバックアップを作成します。</p>
+<h4 id="_21">バックアップからの復元<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># まずアプリケーションを停止</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># その後バックアップを解凍</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>ministry-mapper-backup-20240101.tar.gz<span class="w"> </span>-C<span class="w"> </span>/path/to/
+</code></pre></div>
+<h2 id="_22">セキュリティチェックリスト<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>本番環境に移行する前に：</p>
+<ul>
+<li>[ ] 初回ログイン後すぐにデフォルトの管理者パスワードを変更</li>
+<li>[ ] <code>PB_ALLOW_ORIGINS</code> を <code>*</code> ではなく実際のドメインに設定</li>
+<li>[ ] HTTPS を有効化（本番環境では HTTP を使用しない）</li>
+<li>[ ] 不正アクセスから管理 UI を非表示にするため <code>PB_HIDE_CONTROLS=true</code> を設定</li>
+<li>[ ] <code>PB_ENABLE_RATE_LIMITING=true</code> でレート制限の有効化を検討</li>
+<li>[ ] エラー監視用に Sentry を設定（<code>SENTRY_DSN</code> と <code>SENTRY_ENV</code>）</li>
+<li>[ ] 自動日次バックアップの設定</li>
+<li>[ ] すべてのアカウントに強力でユニークなパスワードを使用</li>
+<li>[ ] Gmail SMTP の場合、通常のパスワードではなくアプリパスワードを使用</li>
+<li>[ ] <code>./scripts/update.sh</code> で Go の依存関係を定期的に更新</li>
+</ul>
+<h2 id="_23">バックエンドの更新<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<p>新しいバージョンに更新するには：</p>
+<h3 id="docker">Docker の更新<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># 最新のコードを取得</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Docker イメージのリビルド</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># 古いコンテナを停止して削除</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>docker<span class="w"> </span>stop<span class="w"> </span>ministry-mapper
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>docker<span class="w"> </span>rm<span class="w"> </span>ministry-mapper
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1"># 新しいコンテナを起動（ポート 8090 ではなく 8080 を使用）</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div>
+<h3 id="_24">ローカル開発の更新<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># 最新のコードを取得</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># 依存関係の更新</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>./scripts/update.sh
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># アプリケーションの再起動</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>./scripts/start.sh
+</code></pre></div>
+<p><strong>注意</strong>：<code>pb_data</code> のデータは更新中も保持されます。</p>
+<h2 id="_25">データベースマイグレーション<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<p>バックエンドは開発モード（<code>go run</code> を使用）で起動する際にデータベースマイグレーションを自動実行します。ログに以下のようなメッセージが表示されます：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Running migrations...
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Migration 1759244334_collections_snapshot completed
+</code></pre></div>
+<p><strong>動作方法：</strong></p>
+<ul>
+<li>マイグレーションは <code>migrations/</code> フォルダに保存されています</li>
+<li>PocketBase は <code>go run</code> で実行しているかどうかを検出して自動マイグレーションを実行</li>
+<li>本番環境（コンパイル済みバイナリ）では、<code>./main migrate</code> を使用してマイグレーションを手動で実行する必要があります</li>
+</ul>
+<p><strong>重要：</strong> マイグレーションファイルを手動で削除または修正しないでください。データベースが壊れる可能性があります。</p>
+<h2 id="_26">監視とログ<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">ログの表示<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<h4 id="docker_1">Docker ログ<a class="headerlink" href="#docker_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># 最近のログを表示</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>ministry-mapper
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># リアルタイムでログをフォロー（デバッグに便利）</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>ministry-mapper
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># 最後の100行を表示</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span>ministry-mapper
+</code></pre></div>
+<h4 id="_28">アプリケーションログ<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<p>PocketBase はログを <code>pb_data/logs/</code> フォルダに保存します。以下が含まれます：</p>
+<ul>
+<li>リクエストログ</li>
+<li>エラーログ</li>
+<li>カスタムアプリケーションログ</li>
+</ul>
+<h3 id="_29">ログで確認すべき項目<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>起動メッセージ</strong>：正常な初期化を確認（例：「Starting Ministry Mapper build...」）</li>
+<li><strong>マイグレーションメッセージ</strong>：適用されているデータベースマイグレーション</li>
+<li><strong>Sentry の初期化</strong>：エラー追跡のセットアップ</li>
+<li><strong>Cron ジョブ</strong>：バックグラウンドタスクの実行（テリトリー集計、メッセージ処理など）</li>
+<li><strong>エラーメッセージ</strong>：データベース、メール、API 呼び出し、LaunchDarkly の問題</li>
+<li><strong>認証イベント</strong>：ログイン試行とユーザーアクティビティ</li>
+<li><strong>パフォーマンスの問題</strong>：遅いクエリやタイムアウト</li>
+</ul>
+<h2 id="_30">トラブルシューティング<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<h3 id="_31">ポートがすでに使用中<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>：「Port already in use」エラー</p>
+<p><strong>解決策</strong>：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Docker 用（ポート 8080）</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8080
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># ローカル開発用（ポート 8090）</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8090
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># ポートを使用しているプロセスを終了</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;process_id&gt;
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1"># または別のポートにマップ</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8081</span>:8080<span class="w"> </span>...<span class="w">  </span><span class="c1"># ホストポート 8081 をコンテナポート 8080 にマップ</span>
+</code></pre></div>
+<h3 id="_32">データベースがロックされている<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>：「Database is locked」エラー</p>
+<p><strong>解決策</strong>：
+- データベースにアクセスしているすべてのコンテナ/プロセスを停止
+- バックアッププロセスが実行中かどうかを確認
+- アプリのインスタンスが1つだけ実行されていることを確認
+- SQLite は複数プロセスからの同時書き込みをサポートしない
+- アプリケーションを再起動</p>
+<h3 id="_33">メールが送信されない<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>：ユーザーがメールを受信しない</p>
+<p><strong>解決策</strong>：
+1. <strong>SMTP 設定の確認</strong>：<code>.env</code> のすべての <code>PB_SMTP_*</code> 変数を確認
+2. <strong>Gmail ユーザー</strong>：通常のパスワードではなく<a href="https://support.google.com/accounts/answer/185833">アプリパスワード</a>を使用
+3. <strong>スパムフォルダを確認</strong>：メールがフィルタリングされている可能性
+4. <strong>SMTP 接続のテスト</strong>：<code>telnet</code> などのツールやメールクライアントで SMTP 認証情報を確認
+5. <strong>ログを確認</strong>：<code>pb_data/logs/</code> または Docker ログのエラーメッセージを確認
+6. <strong>ポートの問題</strong>：ポート 587（TLS）または 465（SSL）がファイアウォールでブロックされていないか確認</p>
+<h3 id="_34">メモリ不足<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>：メモリエラーでアプリケーションがクラッシュ</p>
+<p><strong>解決策</strong>：
+- Docker のメモリ制限を増加：<code>docker run -m 1g ...</code>
+- メモリリークのログを確認
+- 大きなデータベースクエリを最適化
+- ホスティングプランの RAM 割り当てをアップグレード
+- 大きなデータセット向けの SQLite PRAGMA 最適化を検討</p>
+<h3 id="_35">管理パネルにアクセスできない<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p><strong>問題</strong>：管理 URL にアクセスしたときに 404 エラー</p>
+<p><strong>解決策</strong>：
+- URL 形式を確認：<code>http://your-url/_/</code>（アンダースコアとスラッシュあり）
+- <code>PB_HIDE_CONTROLS=true</code> かどうかを確認（管理 UI へのアクセスを防止）
+- アプリケーションが実行中であることを確認：<code>docker ps</code> またはプロセスの確認
+- ブラウザキャッシュとクッキーをクリア
+- 起動エラーのログを確認</p>
+<h2 id="_36">パフォーマンスのヒント<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<h3 id="100">小規模な会衆（ユーザー100人未満）<a class="headerlink" href="#100" title="Permanent link">&para;</a></h3>
+<ul>
+<li>デフォルト設定で問題なく動作</li>
+<li>512MB の RAM で十分</li>
+<li>SQLite はこの負荷を簡単に処理</li>
+<li>特別な設定は不要</li>
+</ul>
+<h3 id="100500">中規模の会衆（ユーザー100〜500人）<a class="headerlink" href="#100500" title="Permanent link">&para;</a></h3>
+<ul>
+<li>推奨：1GB RAM</li>
+<li>レート制限を有効化：<code>PB_ENABLE_RATE_LIMITING=true</code></li>
+<li>自動日次バックアップを設定</li>
+<li><code>pb_data/data.db</code> のデータベースサイズを監視</li>
+</ul>
+<h3 id="500">大規模な会衆（ユーザー500人以上）<a class="headerlink" href="#500" title="Permanent link">&para;</a></h3>
+<ul>
+<li>推奨：2GB 以上の RAM</li>
+<li>レート制限を有効化</li>
+<li>専用ホスティングを検討（共有ホスティングではない）</li>
+<li>遅いクエリのログを監視</li>
+<li>バックアップ保持ポリシーを設定（最後の30日間を保持）</li>
+<li>バックグラウンドジョブの頻度を制御するために LaunchDarkly フィーチャーフラグを検討</li>
+</ul>
+<h2 id="api">API エンドポイント<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p>バックエンドはこれらのカスタム認証済み API エンドポイントを提供します（すべてユーザー認証が必要）：</p>
+<h3 id="_37">マップ管理<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /map/codes</code> - 特定のマップのすべてのマップコードを取得</li>
+<li><code>POST /map/code/add</code> - マップに新しい住所コードを追加</li>
+<li><code>POST /map/codes/update</code> - マップコードのシーケンス/順序を更新</li>
+<li><code>POST /map/code/delete</code> - マップから住所コードを削除</li>
+<li><code>POST /map/add</code> - 新しいマップを作成</li>
+<li><code>POST /map/territory/update</code> - マップが属するテリトリーを更新</li>
+<li><code>POST /map/reset</code> - マップをリセット（すべての割り当てとデータをクリア）</li>
+</ul>
+<h3 id="_38">フロア管理<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /map/floor/add</code> - マップにフロアレベルを追加</li>
+<li><code>POST /map/floor/remove</code> - マップからフロアを削除</li>
+</ul>
+<h3 id="_39">テリトリー管理<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /territory/reset</code> - テリトリーをリセット（割り当てをクリア）</li>
+<li><code>POST /territory/link</code> - テリトリーのクイックアクセスリンクを作成</li>
+</ul>
+<h3 id="_40">設定<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /options/update</code> - 会衆オプション/設定を更新</li>
+</ul>
+<p><strong>認証</strong>：すべてのエンドポイントにリクエストヘッダーに有効な PocketBase 認証トークンが必要です。</p>
+<p><strong>PocketBase 組み込み API</strong>：カスタムエンドポイントに加えて、PocketBase はすべてのコレクション用の自動 REST API を <code>/api/collections/{collection}/records</code> で提供します。</p>
+<h2 id="cron">バックグラウンドジョブ（Cron スケジューラー）<a class="headerlink" href="#cron" title="Permanent link">&para;</a></h2>
+<p>バックエンドは cron スケジューラーを使用して自動バックグラウンドタスクを実行します。これらのジョブは LaunchDarkly フィーチャーフラグで制御されます：</p>
+<h3 id="_41">スケジュールされたジョブ<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>テリトリー集計</strong>（<code>*/10 * * * *</code> - 10分ごと）</li>
+<li>テリトリーの統計と集計データを更新</li>
+<li>
+<p>フィーチャーフラグ：<code>enable-territory-aggregations</code></p>
+</li>
+<li>
+<p><strong>割り当てクリーンアップ</strong>（<code>*/5 * * * *</code> - 5分ごと）</p>
+</li>
+<li>期限切れまたは無効なテリトリー割り当てを削除</li>
+<li>
+<p>フィーチャーフラグ：<code>enable-assignments-cleanup</code></p>
+</li>
+<li>
+<p><strong>メッセージ処理</strong>（<code>*/30 * * * *</code> - 30分ごと）</p>
+</li>
+<li>キューの保留中のメッセージを処理</li>
+<li><code>OPENAI_API_KEY</code> が設定されている場合、AI による概要をオプションで添付</li>
+<li>
+<p>フィーチャーフラグ：<code>enable-message-processing</code></p>
+</li>
+<li>
+<p><strong>指示処理</strong>（<code>*/30 * * * *</code> - 30分ごと）</p>
+</li>
+<li>保留中のテリトリー割り当て指示を処理</li>
+<li>
+<p>フィーチャーフラグ：<code>enable-instruction-processing</code></p>
+</li>
+<li>
+<p><strong>メモ処理</strong>（<code>0 * * * *</code> - 毎時）</p>
+</li>
+<li>会衆の更新されたメモを処理</li>
+<li><code>OPENAI_API_KEY</code> が設定されている場合、AI によるダイジェストをオプションで添付</li>
+<li>
+<p>フィーチャーフラグ：<code>enable-note-processing</code></p>
+</li>
+<li>
+<p><strong>月次レポート</strong>（<code>0 0 1 * *</code> - 毎月1日の深夜）</p>
+</li>
+<li>会衆データの Excel レポートを生成して管理者にメール送信</li>
+<li>フィーチャーフラグ：<code>enable-monthly-report</code></li>
+<li>
+<p>AI 要約フラグ：<code>enable-report-ai-summary</code>（<code>OPENAI_API_KEY</code> が必要）</p>
+</li>
+<li>
+<p><strong>未プロビジョニングユーザー処理</strong>（<code>0 1 * * *</code> - 毎日 01:00 UTC）</p>
+</li>
+<li>役割が割り当てられていないアカウントのユーザーライフサイクルを実施：
+     3日目→最初の警告メール、6日目→最終警告メール、7日目→アカウント無効化、37日目以降→永久削除</li>
+<li>
+<p>フィーチャーフラグ：<code>enable-unprovisioned-user-processing</code></p>
+</li>
+<li>
+<p><strong>非アクティブユーザー処理</strong>（<code>30 1 * * *</code> - 毎日 01:30 UTC）</p>
+</li>
+<li>設定されたしきい値を超えて非アクティブになったアカウントを警告して最終的に無効化</li>
+<li>フィーチャーフラグ：<code>enable-inactive-user-processing</code></li>
+</ol>
+<p><strong>注意</strong>：LaunchDarkly が設定されていない場合、すべてのジョブはデフォルトで実行されます（enabled: true）。</p>
+<h3 id="ai">AI レポート要約<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h3>
+<p><code>OPENAI_API_KEY</code> が設定されており、<code>enable-report-ai-summary</code> LaunchDarkly フラグがオンの場合、月次 Excel レポートには各テリトリーシートの AI による要約が含まれます。AI はアクティビティデータを分析し、2〜3文の概要と主要な観察事項のリストを生成します。</p>
+<p>この機能は完全にオプションです。レポートはこれなしでも完全に機能します。有効にするには：</p>
+<ol>
+<li><code>.env</code> ファイルに <code>OPENAI_API_KEY</code> を設定</li>
+<li>LaunchDarkly プロジェクトで <code>enable-report-ai-summary</code> フラグを有効化（または LaunchDarkly を省略してフラグのデフォルトを有効にする）</li>
+</ol>
+<h2 id="_42">データベースフック<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<p>アプリケーションは特定のイベントを自動的に処理します：</p>
+<ul>
+<li><strong>住所更新</strong>：住所のメモが変更された場合、タイムスタンプとユーザー情報が記録されます</li>
+<li><strong>住所更新</strong>：マップ集計の再計算をトリガー</li>
+<li><strong>ユーザー認証</strong>：最終ログインタイムスタンプを更新</li>
+<li><strong>ユーザー作成</strong>：メールアドレスを正規化して小文字化</li>
+</ul>
+<h2 id="_43">次のステップ<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../frontend-setup/">フロントエンドアプリケーション</a>のセットアップ</li>
+<li><a href="user-management.md">ユーザー管理</a>について学ぶ</li>
+<li><a href="security.md">セキュリティ設定</a>の設定</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

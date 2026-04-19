@@ -1,0 +1,6185 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ja/user-guide/">
+      
+      
+        <link rel="prev" href="../features/">
+      
+      
+        <link rel="next" href="../architecture/">
+      
+      
+        
+          <link rel="alternate" href="../../user-guide/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/user-guide/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/user-guide/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/user-guide/" hreflang="ms">
+        
+          <link rel="alternate" href="./" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/user-guide/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/user-guide/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/user-guide/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Using Ministry Mapper - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ministry-mapper" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Ministry Mapper
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../user-guide/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/user-guide/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/user-guide/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/user-guide/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/user-guide/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/user-guide/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/user-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        はじめに
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        はじめに
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="はじめに">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アカウントの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapperへのログイン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーロールの理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザーロールの理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロール階層
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👤 伝道者
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👓 読み取り専用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 司会者
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👑 管理者（区域担当者）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主な機能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主な機能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ダッシュボード概要
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ダッシュボード概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伝道者の場合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        司会者と管理者の場合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域の表示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域の表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伝道者区域ビュー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理者/司会者区域ビュー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所の操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="住所の操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所情報の理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所ステータスタイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所ステータスの更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不足している住所をその場で追加する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ機能の使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="マップ機能の使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所への道順を取得する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ナビゲーションのヒント
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域割り当て（司会者と管理者）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域割り当て（司会者と管理者）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リンクベースの割り当ての理由
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当ての作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ固有の割り当て作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当ての管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ固有の割り当て管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当てのベストプラクティス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージと指示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="メッセージと指示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージタイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージの投稿
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージ機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リアルタイムデータ同期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="リアルタイムデータ同期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仕組み
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザー管理（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザー管理（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーの表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新しいユーザーの招待
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーロールの変更
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーアクセスの削除
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザー確認ステータス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会衆設定（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="会衆設定（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定へのアクセス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会衆オプション（世帯タイプ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="マップ設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ順序の更新（ドラッグ＆ドロップ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域管理（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域管理（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新しい区域の作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域詳細の編集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域詳細の編集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域順序の更新（ドラッグ＆ドロップ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域設定オプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所管理（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="住所管理（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所タイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公共住所の追加（複数階建て）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        個人住所の追加（一戸建て）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既存の住所の管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユニットの管理（公共住所のみ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイル使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="モバイル使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        電話でMinistry Mapperを使用する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="電話でMinistry Mapperを使用する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイルでのアクセス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プログレッシブウェブアプリ（PWA）インストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイルのベストプラクティス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オフライン機能と制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アカウント設定とプロフィール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アカウント設定とプロフィール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        個人プロフィール管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パスワードの変更
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パスワード回復
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        言語選択
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外観とテーマ設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伝道者向け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        司会者向け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理者向け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般原則
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般的な問題のトラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般的な問題のトラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログインの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ更新の問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップとナビゲーションの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当てリンクの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        権限とアクセスの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ブラウザ互換性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ブラウザ互換性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ブラウザ互換性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ヘルプとサポートの取得
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ヘルプとサポートの取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サポートチャンネル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        効果的な問題報告
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        緊急連絡
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クイックリファレンス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="クイックリファレンス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キーボードショートカット
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ステータスクイックリファレンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロール機能クイックリファレンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_95" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プライバシーとセキュリティ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="プライバシーとセキュリティ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_96" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        情報の保護
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_97" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保存される情報
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_98" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データストレージとセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_99" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        まとめ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="まとめ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要なポイント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        システム機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        はじめに
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        はじめに
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="はじめに">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アカウントの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapperへのログイン
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーロールの理解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザーロールの理解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロール階層
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👤 伝道者
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👓 読み取り専用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 司会者
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👑 管理者（区域担当者）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主な機能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主な機能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ダッシュボード概要
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ダッシュボード概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伝道者の場合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        司会者と管理者の場合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域の表示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域の表示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伝道者区域ビュー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理者/司会者区域ビュー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所の操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="住所の操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所情報の理解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所ステータスタイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所ステータスの更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不足している住所をその場で追加する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ機能の使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="マップ機能の使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所への道順を取得する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ナビゲーションのヒント
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域割り当て（司会者と管理者）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域割り当て（司会者と管理者）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リンクベースの割り当ての理由
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当ての作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ固有の割り当て作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当ての管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ固有の割り当て管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当てのベストプラクティス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージと指示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="メッセージと指示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージタイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージの投稿
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メッセージ機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リアルタイムデータ同期
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="リアルタイムデータ同期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仕組み
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザー管理（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザー管理（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーの表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新しいユーザーの招待
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーロールの変更
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーアクセスの削除
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザー確認ステータス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会衆設定（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="会衆設定（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定へのアクセス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会衆オプション（世帯タイプ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="マップ設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップ順序の更新（ドラッグ＆ドロップ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域管理（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域管理（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新しい区域の作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域詳細の編集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="区域詳細の編集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域順序の更新（ドラッグ＆ドロップ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域設定オプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区域操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所管理（管理者のみ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="住所管理（管理者のみ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所タイプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公共住所の追加（複数階建て）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        個人住所の追加（一戸建て）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既存の住所の管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユニットの管理（公共住所のみ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイル使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="モバイル使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ministry-mapper_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        電話でMinistry Mapperを使用する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="電話でMinistry Mapperを使用する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイルでのアクセス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プログレッシブウェブアプリ（PWA）インストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モバイルのベストプラクティス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オフライン機能と制限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アカウント設定とプロフィール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アカウント設定とプロフィール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        個人プロフィール管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パスワードの変更
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パスワード回復
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        言語選択
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外観とテーマ設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ベストプラクティス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ベストプラクティス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伝道者向け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        司会者向け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理者向け
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般原則
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般的な問題のトラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般的な問題のトラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログインの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データ更新の問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マップとナビゲーションの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        割り当てリンクの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        権限とアクセスの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パフォーマンスの問題
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ブラウザ互換性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ブラウザ互換性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ブラウザ互換性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ヘルプとサポートの取得
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ヘルプとサポートの取得">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サポートチャンネル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        効果的な問題報告
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        緊急連絡
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        クイックリファレンス
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="クイックリファレンス">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キーボードショートカット
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ステータスクイックリファレンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_94" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ロール機能クイックリファレンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_95" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プライバシーとセキュリティ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="プライバシーとセキュリティ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_96" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        情報の保護
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_97" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        保存される情報
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_98" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データストレージとセキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_99" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        まとめ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="まとめ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要なポイント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        システム機能
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ministry-mapper">Ministry Mapperユーザーガイド<a class="headerlink" href="#ministry-mapper" title="Permanent link">&para;</a></h1>
+<h2 id="_1">はじめに<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapperへようこそ。これは、会衆が野外奉仕の区域を効率的に管理するために設計された最新のウェブベースアプリケーションです。このガイドでは、始め方からアプリケーションを最大限に活用する方法まで、知っておくべきすべてのことを説明します。</p>
+<p><strong>Ministry Mapperとは？</strong></p>
+<p>Ministry Mapperは、従来の紙ベースの方法に代わるデジタル区域管理システムです。会衆が以下のことを可能にします：</p>
+<ul>
+<li>区域をデジタルで整理し、割り当てる</li>
+<li>野外奉仕の訪問をリアルタイムで追跡</li>
+<li>複数の伝道者間で活動を調整</li>
+<li>インターネットに接続された任意のデバイスから区域にアクセス</li>
+</ul>
+<p><strong>主な利点：</strong></p>
+<ul>
+<li>✓ エコフレンドリー - 紙の無駄を排除</li>
+<li>✓ クラウド同期によるリアルタイム更新</li>
+<li>✓ 任意のデバイス（デスクトップ、タブレット、モバイル）で動作</li>
+<li>✓ 簡単なナビゲーションのための統合インタラクティブマップ</li>
+<li>✓ 安全なロールベースのアクセス制御</li>
+</ul>
+<h2 id="_2">はじめに<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">アカウントの作成<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><img alt="サインアップページ" src="../../assets/screenshots/sign_up.png" /></p>
+<p><em>図1：新しいMinistry Mapperアカウントを作成するための登録フォーム</em></p>
+<p><strong>ステップ1：登録ページにアクセス</strong></p>
+<p><img alt="サインイン" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>図2：サインアップオプションのあるログインページ</em></p>
+<ol>
+<li>会衆のMinistry Mapper URLにアクセス</li>
+<li>ログインページの<strong>「サインアップ」</strong>ボタンをクリック</li>
+</ol>
+<p><strong>ステップ2：登録方法の選択</strong></p>
+<table>
+<thead>
+<tr>
+<th>従来のサインアップ</th>
+<th>Google OAuth（推奨）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>メール、パスワード（6文字以上、数字1つ、大文字1つ）、メール確認が必要</td>
+<td>Googleアカウントを使用したワンクリック登録</td>
+</tr>
+<tr>
+<td>手動でのメール確認が必要</td>
+<td>自動メール確認</td>
+</tr>
+<tr>
+<td>別のパスワードを覚える必要がある</td>
+<td>パスワード管理不要</td>
+</tr>
+<tr>
+<td>プライバシーポリシーと利用規約に同意</td>
+<td>Googleによる強化されたセキュリティ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>従来のサインアップ：</strong>
+1. 入力：名前、メール、パスワード、パスワード確認
+2. プライバシーポリシーと利用規約に同意
+3. <strong>「アカウントを作成」</strong>をクリック</p>
+<p><strong>Google OAuthサインアップ：</strong>
+1. 「または次で続行」の下の<strong>「Googleでサインイン」</strong>ボタンをクリック
+2. Googleアカウントを選択
+3. Ministry Mapperに基本的なプロフィールアクセスを許可
+4. アカウントが自動的に作成</p>
+<p><strong>ステップ3：メールの確認</strong></p>
+<p><img alt="サインアップ確認メール" src="../../assets/screenshots/sign_up_verification_email.png" /></p>
+<p><em>図3：アカウント作成後に送信されるメール確認メッセージ</em></p>
+<ol>
+<li>Ministry Mapperからの確認メッセージがメール受信トレイにあるか確認</li>
+<li>メール内の確認リンクをクリック</li>
+<li>アカウントが確認されたという確認が表示されます</li>
+</ol>
+<p><strong>ステップ4：会衆アクセスを待つ</strong></p>
+<p>確認後：</p>
+<ol>
+<li>ログインページに戻る</li>
+<li>メールとパスワードでサインイン</li>
+<li>ワンタイムパスワード（OTP）が有効な場合は、メールでコードを確認</li>
+</ol>
+<p><img alt="OTP確認ページ" src="../../assets/screenshots/otp_verification_page.png" /></p>
+<p><em>図4：ワンタイムパスワード（OTP）確認画面</em></p>
+<p><img alt="OTP確認メール" src="../../assets/screenshots/otp_verification_email.png" /></p>
+<p><em>図5：ログイン確認用のOTPコードが含まれるメール</em></p>
+<ol>
+<li><strong>重要</strong>：まだ区域は表示されません - 管理者が最初に会衆へのアクセスを許可する必要があります</li>
+<li>会衆の区域担当者または管理者に連絡してアクセスをリクエスト</li>
+</ol>
+<h3 id="ministry-mapper_1">Ministry Mapperへのログイン<a class="headerlink" href="#ministry-mapper_1" title="Permanent link">&para;</a></h3>
+<p><img alt="Google OAuthサインイン" src="../../assets/screenshots/google_oauth_sign_in.png" /></p>
+<p><em>図6：より速く安全な認証のためのGoogle OAuthサインインオプション</em></p>
+<p>アカウントが確認され、会衆アクセスが付与されたら：</p>
+<p><strong>標準ログイン：</strong>
+1. 会衆のMinistry Mapper URLに移動
+2. メールアドレスとパスワードを入力
+3. <strong>「サインイン」</strong>をクリック</p>
+<p><strong>Google OAuthログイン（より速い）：</strong>
+1. <strong>「Googleでサインイン」</strong>ボタンをクリック
+2. Googleアカウントを選択
+3. 自動的にサインイン（パスワード不要）</p>
+<p><strong>ステップ3：OTP確認を完了（有効な場合）</strong></p>
+<p>会衆がワンタイムパスワードセキュリティを有効にしている場合：</p>
+<ol>
+<li>資格情報を入力後、OTP確認画面が表示されます</li>
+<li>メールで確認コードを確認</li>
+<li>メールからの6桁のコードを入力</li>
+<li><strong>「確認」</strong>または<strong>「送信」</strong>をクリック</li>
+<li>コードは5〜10分で期限切れ</li>
+</ol>
+<p><strong>ステップ4：ダッシュボードにアクセス</strong></p>
+<ul>
+<li><strong>伝道者</strong>：ダッシュボードは表示されません - 送られた割り当てリンクを使用します</li>
+<li><strong>読み取り専用、司会者、管理者</strong>：ロール固有のダッシュボードが表示されます</li>
+</ul>
+<blockquote>
+<p><strong>💡 ヒント</strong>：信頼できるデバイスではログイン状態を維持すると便利ですが、共有コンピューターでは必ずログアウトしてください。</p>
+</blockquote>
+<h3 id="_4">ユーザーロールの理解<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapperは4層のアクセス制御システムを使用しています。ロールによって、アクセスできる機能と実行できるアクションが決まります。</p>
+<h4 id="_5">ロール階層<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>管理者（フルアクセス）
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>司会者（割り当て管理）
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>読み取り専用（閲覧のみ）
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ↓
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>伝道者（リンクアクセスのみ）
+</code></pre></div>
+<hr />
+<h4 id="_6">👤 伝道者<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p><strong>アクセス方法</strong>：管理者または司会者から送られた割り当てリンク経由</p>
+<p><strong>伝道者ができること：</strong></p>
+<ul>
+<li>✓ 共有リンク経由で区域にアクセス</li>
+<li>✓ インタラクティブマッピングで区域マップを表示</li>
+<li>✓ 訪問後に住所ステータスを更新</li>
+<li>完了、不在、訪問不可、無効としてマーク</li>
+<li>✓ 住所に訪問メモを追加</li>
+<li>✓ 「不在」の試行回数を追跡</li>
+<li>✓ 住所の詳細と順序を表示</li>
+</ul>
+<p><strong>伝道者ができないこと：</strong></p>
+<ul>
+<li>✗ ダッシュボードにアクセスできない</li>
+<li>✗ すべての会衆区域を表示できない</li>
+<li>✗ 区域を作成・管理できない</li>
+<li>✗ 割り当てリンクは設定された時間後に期限切れ（デフォルト：24時間、会衆管理者が設定可能）</li>
+</ul>
+<p><strong>最適な対象</strong>：野外奉仕を行う通常の伝道者</p>
+<hr />
+<h4 id="_7">👓 読み取り専用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p><strong>アクセス方法</strong>：読み取り専用権限でのダッシュボードログイン</p>
+<p><strong>読み取り専用ユーザーができること：</strong></p>
+<ul>
+<li>✓ 会衆のすべての区域を表示</li>
+<li>✓ 完全な住所情報を確認</li>
+<li>✓ 区域の進捗と統計を表示</li>
+<li>✓ 区域マップにアクセス</li>
+<li>✓ 会衆メッセージを表示</li>
+</ul>
+<p><strong>読み取り専用ユーザーができないこと：</strong></p>
+<ul>
+<li>✗ 区域や住所データを変更できない</li>
+<li>✗ 区域を作成・削除できない</li>
+<li>✗ 割り当てを管理できない</li>
+<li>✗ 会衆設定を変更できない</li>
+</ul>
+<p><strong>最適な対象</strong>：編集機能なしで可視性が必要な監督者</p>
+<hr />
+<h4 id="_8">🎯 司会者<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p><strong>アクセス方法</strong>：司会者権限でのダッシュボードログイン</p>
+<p><strong>司会者の能力には以下が含まれます：</strong></p>
+<ul>
+<li>✓ <strong>読み取り専用のすべての機能</strong>、さらに：</li>
+<li>✓ 区域割り当ての作成と管理</li>
+<li>✓ 伝道者用の割り当てリンクを生成</li>
+<li>✓ すべての割り当て履歴を表示</li>
+<li>✓ 会衆メッセージへのアクセスと投稿</li>
+<li>✓ 会衆オプション（世帯ステータスタイプ）の管理</li>
+<li>✓ 区域完了状況の表示</li>
+</ul>
+<p><strong>司会者ができないこと：</strong></p>
+<ul>
+<li>✗ 区域を作成・削除できない</li>
+<li>✗ 住所の詳細（住所、ユニット、階）を編集できない</li>
+<li>✗ ユーザーロールや権限を管理できない</li>
+<li>✗ コア会衆設定を変更できない</li>
+</ul>
+<p><strong>最適な対象</strong>：野外奉仕コーディネーターとグループ監督者</p>
+<hr />
+<h4 id="_9">👑 管理者（区域担当者）<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p><strong>アクセス方法</strong>：完全な管理権限でのダッシュボードログイン</p>
+<p><strong>管理者は完全な制御を持ちます：</strong></p>
+<ul>
+<li>✓ <strong>司会者のすべての機能</strong>、さらに：</li>
+<li>✓ 区域の作成、編集、削除</li>
+<li>✓ 住所の追加、変更、削除</li>
+<li>✓ 建物とユニットの管理</li>
+<li>✓ 会衆設定の構成</li>
+<li>最大「不在」試行回数の設定</li>
+<li>リンク有効期限の設定</li>
+<li>世帯タイプオプションの設定</li>
+<li>✓ ユーザーの招待と管理</li>
+<li>✓ ユーザーロールと権限の割り当て</li>
+<li>✓ 区域と住所のリセット</li>
+<li>✓ ジオロケーション座標の管理</li>
+</ul>
+<p><strong>最適な対象</strong>：区域担当者と会衆の区域システムを管理する人</p>
+<hr />
+<blockquote>
+<p><strong>💡 注意</strong>：ロールの変更が必要な場合や、現在のロールが不明な場合は、会衆管理者に連絡してください。</p>
+</blockquote>
+<h2 id="_10">主な機能<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">ダッシュボード概要<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><img alt="管理者ダッシュボード" src="../../assets/screenshots/admin_dashboard.png" /></p>
+<p><em>図6：区域セレクターとメインコントロールを表示する管理者ダッシュボード</em></p>
+<p>ダッシュボードインターフェースはロールによって異なります：</p>
+<h4 id="_12">伝道者の場合<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>伝道者は<strong>ダッシュボードにアクセスできません</strong>。代わりに：</p>
+<ul>
+<li>メールまたはメッセージで割り当てリンクを受け取る</li>
+<li>リンクをクリックして割り当てられた区域にアクセス</li>
+<li>区域ビュー内で直接作業</li>
+<li>リンクは設定された時間後に自動的に期限切れ（デフォルト：24時間）</li>
+</ul>
+<h4 id="_13">司会者と管理者の場合<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>ダッシュボードは包括的な概要を提供します：</p>
+<p><strong>1. 区域セレクター</strong>（上部ドロップダウン）</p>
+<ul>
+<li>表示または管理する区域を選択</li>
+<li>区域コードと説明を表示</li>
+<li>区域間のクイックナビゲーション</li>
+</ul>
+<p><strong>2. メインアクションボタン</strong></p>
+<ul>
+<li>📋 <strong>割り当て</strong>：割り当てリンクの表示と管理</li>
+<li>💬 <strong>メッセージ</strong>：会衆メッセージの投稿と表示</li>
+<li>⚙️ <strong>設定</strong>：会衆構成へのアクセス（管理者のみ）</li>
+<li>👥 <strong>ユーザー</strong>：ユーザーロールと招待の管理（管理者のみ）</li>
+</ul>
+<p><strong>3. 区域情報パネル</strong></p>
+<ul>
+<li>区域コードと説明</li>
+<li>完了率を示すプログレスバー</li>
+<li>最終更新のタイムスタンプ</li>
+<li>総ユニット数対完了ユニット数</li>
+</ul>
+<p><strong>4. 区域表示オプション</strong></p>
+<ul>
+<li>🗺️ <strong>マップビュー</strong>：インタラクティブマップ表示</li>
+<li>📋 <strong>リストビュー</strong>：すべての住所の表形式表示</li>
+</ul>
+<p><strong>5. スピードダイヤルメニュー</strong>（フローティングアクションボタン）</p>
+<p><img alt="スピードダイヤル管理ページ" src="../../assets/screenshots/speeddial_admin_page.png" /></p>
+<p><em>図6a：一般的なアクションへのクイックアクセスを提供するスピードダイヤルフローティングアクションボタン</em></p>
+<p><strong>➕</strong>ボタン（右下隅）はクイックアクセスを提供します：
+- 🗺️ <strong>マップビューモード</strong>：フルスクリーンマップビューの切り替え
+- 📋 <strong>クイックリンク</strong>：割り当てリンクの迅速な作成（司会者と管理者）
+- 現在のビューに基づくコンテキスト対応アクション</p>
+<hr />
+<h3 id="_14">区域の表示<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h4 id="_15">伝道者区域ビュー<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p><img alt="伝道者割り当て画面" src="../../assets/screenshots/publisher_assignment_screen.png" /></p>
+<p><em>図7：マップと住所リストを含む割り当てられた区域の伝道者ビュー</em></p>
+<p><strong>割り当てへのアクセス：</strong></p>
+<ol>
+<li>管理者/司会者から送られた割り当てリンクをクリック</li>
+<li>区域が自動的に読み込まれ、以下が表示されます：</li>
+<li>すべての住所を表示するインタラクティブGoogle Map</li>
+<li>各場所のクリック可能なマーカー</li>
+<li>訪問する住所/ユニットのリスト</li>
+<li>現在の進捗率</li>
+</ol>
+<p><strong>表示される区域情報：</strong></p>
+<ul>
+<li><strong>区域コード</strong>：識別子（例：「T-001」）</li>
+<li><strong>説明</strong>：区域名またはエリア</li>
+<li><strong>プログレスバー</strong>：視覚的な完了状況</li>
+<li><strong>マップ</strong>：住所マーカー付きのインタラクティブマップ</li>
+<li><strong>住所リスト</strong>：現在のステータスを含むすべての住所</li>
+</ul>
+<h4 id="_16">管理者/司会者区域ビュー<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><img alt="司会者ダッシュボード" src="../../assets/screenshots/conductor_dashboard.png" /></p>
+<p><em>図8：区域セレクターと管理オプションを含む司会者ダッシュボード</em></p>
+<p><strong>区域の表示：</strong></p>
+<ol>
+<li>ダッシュボードにログイン</li>
+<li>ドロップダウンメニューから区域を選択</li>
+<li>詳細情報を表示：</li>
+<li>区域コードと説明</li>
+<li>完了統計（例：「15/20完了 - 75%」）</li>
+<li>すべての場所を含むインタラクティブマップ</li>
+<li>詳細付きの完全な住所/ユニットリスト</li>
+<li>管理ボタン（編集、削除、リセット）</li>
+</ol>
+<p><strong>管理オプション：</strong></p>
+<ul>
+<li>✏️ <strong>区域を編集</strong>：名前、コード、説明を変更</li>
+<li>🗑️ <strong>区域を削除</strong>：区域全体を削除</li>
+<li>🔄 <strong>区域をリセット</strong>：すべての住所ステータスをクリア</li>
+<li>➕ <strong>住所を追加</strong>：区域に新しい住所を作成</li>
+</ul>
+<h3 id="_17">住所の操作<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<h4 id="_18">住所情報の理解<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p><img alt="住所ステータス詳細" src="../../assets/screenshots/address_status_details.png" /></p>
+<p><em>図9：すべての住所詳細と現在のステータスを表示する住所カード</em></p>
+<p>Ministry Mapperの各住所またはユニットには包括的な情報が表示されます：</p>
+<p><strong>基本情報：</strong></p>
+<ul>
+<li><strong>住所/ユニット番号</strong>：場所識別子（例：「#05-123」）</li>
+<li><strong>階</strong>：建物の階（複数階建ての物件の場合）</li>
+<li><strong>タイプ</strong>：会衆オプションに基づく世帯分類</li>
+<li>例：中国語、英語、タミル語、スペイン語</li>
+<li>設定されている場合は複数のタイプを選択可能</li>
+<li><strong>順序</strong>：訪問順序番号</li>
+</ul>
+<p><strong>ステータス情報：</strong></p>
+<ul>
+<li><strong>ステータス</strong>：現在の訪問ステータス（以下のステータスタイプを参照）</li>
+<li><strong>不在カウント</strong>：応答がなかった訪問試行回数</li>
+<li><strong>訪問不可日</strong>：DNCがマークされた日付（該当する場合）</li>
+</ul>
+<p><strong>アクティビティ追跡：</strong></p>
+<ul>
+<li><strong>メモ</strong>：訪問や世帯主に関する重要な情報</li>
+<li><strong>最終更新</strong>：最新の更新の日時</li>
+<li><strong>更新者</strong>：最後の変更を行った人のユーザー名</li>
+</ul>
+<hr />
+<h4 id="_19">住所ステータスタイプ<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapperは5つの標準ステータスタイプを使用します：</p>
+<table>
+<thead>
+<tr>
+<th>ステータス</th>
+<th>色</th>
+<th>説明</th>
+<th>使用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>未完了</strong></td>
+<td>白/デフォルト</td>
+<td>まだ訪問していない</td>
+<td>すべての住所の初期ステータス</td>
+</tr>
+<tr>
+<td><strong>完了</strong></td>
+<td>緑</td>
+<td>正常に連絡がとれた</td>
+<td>世帯主が在宅で連絡がとれた</td>
+</tr>
+<tr>
+<td><strong>不在</strong></td>
+<td>黄/オレンジ</td>
+<td>誰も応答しなかった</td>
+<td>最大試行回数まで追跡（設定可能）</td>
+</tr>
+<tr>
+<td><strong>訪問不可</strong></td>
+<td>赤</td>
+<td>訪問を拒否された</td>
+<td>世帯主がこれ以上の連絡を拒否</td>
+</tr>
+<tr>
+<td><strong>無効</strong></td>
+<td>グレー</td>
+<td>アクセス不可</td>
+<td>住所が存在しないかアクセスできない</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>💡 ヒント</strong>：「不在」が最大試行回数（管理者が設定）に達すると、住所は自動的に進捗計算で完了としてマークされます。</p>
+</blockquote>
+<hr />
+<h4 id="_20">住所ステータスの更新<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h4>
+<p><img alt="住所不在ステータス" src="../../assets/screenshots/address_not_home_status.png" /></p>
+<p><em>図10：すべてのフィールドとオプションを表示する更新ステータスモーダル</em></p>
+<p><strong>ステップバイステップのプロセス：</strong></p>
+<p><strong>1. 住所を探す</strong></p>
+<ul>
+<li>住所リストをスクロール</li>
+<li>またはマップ上のマーカーをクリック</li>
+<li>複数階建ての建物では住所は階ごとにグループ化</li>
+</ul>
+<p><strong>2. 更新モーダルを開く</strong></p>
+<ul>
+<li>住所/ユニットカードをクリック</li>
+<li>現在の情報を含む更新モーダルが開く</li>
+</ul>
+<p><strong>3. ステータスを更新</strong>（必須）</p>
+<p>適切なステータスを選択：</p>
+<p><strong>📗 完了</strong> - 正常に連絡がとれたとき</p>
+<ul>
+<li>誰かが応答したときに選択</li>
+<li>会話が行われたか、出版物が配置された</li>
+<li>「不在」カウントがリセットされる</li>
+</ul>
+<p><strong>🏠 不在</strong> - 誰も応答しなかったとき</p>
+<ul>
+<li>自動的に「不在」カウントが増加</li>
+<li>システムが試行回数を追跡</li>
+<li>最大試行回数に達すると、完了として扱われる</li>
+</ul>
+<p><strong>🚫 訪問不可</strong> - 訪問しないよう要求されたとき</p>
+<p><img alt="住所訪問不可ステータス" src="../../assets/screenshots/address_do_not_call_status.png" /></p>
+<p><em>図11：日付選択を含む訪問不可ステータス更新</em></p>
+<ul>
+<li>このステータスを選択</li>
+<li>オプションでDNC日を設定（デフォルトは今日）</li>
+<li>必要に応じて理由を説明するメモを追加</li>
+<li><strong>重要</strong>：常に世帯主の希望を尊重</li>
+</ul>
+<p><strong>❌ 無効</strong> - 住所にアクセスできないとき</p>
+<ul>
+<li>住所が存在しない</li>
+<li>建設中</li>
+<li>恒久的に閉鎖</li>
+<li>アクセスできない</li>
+</ul>
+<p><strong>4. 世帯タイプを更新</strong>（利用可能な場合）</p>
+<p>会衆が世帯タイプを設定している場合：</p>
+<ul>
+<li>単一または複数のタイプを選択</li>
+<li>例：言語の好み、特別な状況</li>
+<li>必要に応じて既存のタイプをクリア</li>
+</ul>
+<p><strong>5. メモを追加または更新</strong>（オプションですが推奨）</p>
+<p><strong>ベストプラクティス：</strong></p>
+<ul>
+<li>✓ 個人ではなく、物件の詳細に焦点を当てる</li>
+<li>✓ アクセス手順とタイミングを記録</li>
+<li>✓ 簡潔で敬意を持って</li>
+<li>✗ 世帯主に関する個人情報を含めない</li>
+<li>✗ センシティブな情報を含めない</li>
+</ul>
+<p><strong>良い例：</strong></p>
+<ul>
+<li>「ゲート付き物件 - 最初に警備室に電話」</li>
+<li>「最適な時間：週末の午後2時以降」</li>
+<li>「ドライブウェイ経由でサイドエントランスにアクセス可能」</li>
+</ul>
+<p><strong>悪い例：</strong></p>
+<ul>
+<li>住人に関する個人的な詳細</li>
+<li>医療または財務情報</li>
+<li>個人の名前や説明</li>
+</ul>
+<p><strong>6. 不在カウントを調整</strong>（必要な場合）</p>
+<p>システムは自動的に不在試行を追跡しますが、必要に応じて手動で調整できます。</p>
+<p><strong>7. 訪問不可日を設定</strong>（DNCステータスのみ）</p>
+<p>訪問不可としてマークするとき：</p>
+<ul>
+<li>システムはデフォルトで今日の日付</li>
+<li>特定のDNCリクエストに応じて調整</li>
+<li>日付は潜在的に再訪問するタイミングを追跡するのに役立つ</li>
+</ul>
+<p><strong>8. ジオロケーションを更新</strong>（管理者のみ）</p>
+<p>一戸建て区域の場合：</p>
+<ul>
+<li>「ジオロケーションを更新」ボタンをクリック</li>
+<li>マップを使用して正確な位置を設定</li>
+<li>ナビゲーションとマッピングの精度を向上</li>
+</ul>
+<p><strong>9. 変更を保存</strong></p>
+<ul>
+<li>すべての更新を確認</li>
+<li><strong>「保存」</strong>ボタンをクリック</li>
+<li>変更はすべてのユーザーに即座に同期</li>
+<li>成功メッセージで更新を確認</li>
+</ul>
+<p><strong>10. 物件を削除</strong>（管理者のみ - 一戸建て）</p>
+<p>削除が必要な個人物件の場合：</p>
+<ul>
+<li>下部の「物件を削除」ボタンをクリック</li>
+<li>削除を確認</li>
+<li><strong>警告</strong>：このアクションは取り消せません</li>
+</ul>
+<hr />
+<h3 id="_21">不足している住所をその場で追加する<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>マップに物理的な住所が不足していることに気づいた場合、マッピングビューを離れることなくその場で追加できます：</p>
+<ol>
+<li>マップ上の住所リストの一番下までスクロール</li>
+<li>リストの末尾にある <strong>「+」</strong> カードをタップ</li>
+<li>表示されるフォームに住所の詳細を入力</li>
+<li><strong>「保存」</strong> をタップ — 住所がすぐにマップに追加されます</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>この機能は伝道者が利用でき、テリトリー記録をまだ整備中の会衆向けに設計されています。新しく追加された住所は管理者によるレビューのためにフラグが立てられます。</p>
+</div>
+<p><img alt="住所リスト下部の「+」カードで不足している住所を追加" src="../../assets/screenshots/add_more_add.png" /></p>
+<hr />
+<h3 id="_22">マップ機能の使用<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p><img alt="マップの道順" src="../../assets/screenshots/map_directions.png" /></p>
+<p><em>図12：マーカーとナビゲーションコントロールを表示するインタラクティブマップビュー</em></p>
+<p>Ministry Mapperは直感的な区域ナビゲーションのためのインタラクティブマッピングを統合しています。</p>
+<h4 id="_23">マップ機能<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p><strong>インタラクティブマーカー：</strong></p>
+<ul>
+<li>各住所はマップ上にマーク</li>
+<li>🔴 赤いマーカーは目的地を示す</li>
+<li>🔵 青い点滅マーカーは現在地を示す</li>
+<li>任意のマーカーをクリックしてその住所を表示/編集</li>
+</ul>
+<p><strong>マップコントロール：</strong></p>
+<ul>
+<li><strong>ズーム</strong>：+と-ボタンまたはピンチジェスチャー</li>
+<li><strong>パン</strong>：クリックしてドラッグで移動</li>
+<li><strong>衛星ビュー</strong>：マップと衛星画像を切り替え</li>
+<li><strong>フルスクリーン</strong>：マップをフルスクリーンに拡大（またはスピードダイヤル→マップビューモードを使用）</li>
+<li><strong>区域を中心に</strong>：すべての住所を表示するようにビューをリセット</li>
+</ul>
+<p><strong>フルスクリーンマップビューモード</strong>（管理者と司会者）：</p>
+<p><img alt="管理者マップビューモード" src="../../assets/screenshots/admin_map_view_mode.png" /></p>
+<p><em>図12a：スピードダイヤルメニューからアクセスするフルスクリーンマップビューモード</em></p>
+<p>スピードダイヤル（➕）→マップビューアイコンでアクセス。以下に最適：
+- 野外奉仕前のルート計画
+- 区域カバレッジ分析
+- ミーティングのプレゼンテーション
+- 住所クラスターの特定</p>
+<h4 id="_24">住所への道順を取得する<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper には、テリトリー内の住所に向かうためのルーティングサービスが組み込まれています：</p>
+<ol>
+<li>マップビューで住所リストから任意の住所をタップ</li>
+<li><strong>「道順」</strong> ボタン（またはルートアイコン）をタップ</li>
+<li>希望する移動モードを選択：</li>
+<li>🚗 <strong>ドライブ</strong> — 車によるナビゲーション</li>
+<li>🚶 <strong>ウォーキング</strong> — 歩行者ルート</li>
+<li>🚴 <strong>サイクリング</strong> — 自転車対応ルート</li>
+<li>ルートがマップ上に表示され、ターンバイターンの案内が提供されます</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>人口密集エリアで活動する場合は、より正確な歩行者ルートを取得するために <strong>ウォーキング</strong> モードをご利用ください。</p>
+</div>
+<p><img alt="地図ページのルーティングモードセレクター" src="../../assets/screenshots/map_routing.png" /></p>
+<h4 id="_25">ナビゲーションのヒント<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>出発前：</strong></p>
+</li>
+<li>
+<p>マップを見てルートを計画</p>
+</li>
+<li>住所のクラスターを特定</li>
+<li>
+<p>メモから特別なアクセス要件を確認</p>
+</li>
+<li>
+<p><strong>現場で：</strong></p>
+</li>
+<li>
+<p>マップを使用して住所間を移動</p>
+</li>
+<li>最適なルーティングのために順序番号に従う</li>
+<li>
+<p>各訪問後にマーカーをタップしてステータスを迅速に更新</p>
+</li>
+<li>
+<p><strong>電話のGPSを使用：</strong></p>
+</li>
+<li>位置情報サービスを有効化</li>
+<li>マップに現在位置が表示</li>
+<li>次の住所に直接ナビゲート</li>
+<li>マップタイルがキャッシュされている場合はオフラインでも動作（制限あり）</li>
+</ol>
+<hr />
+<h3 id="_26">区域割り当て（司会者と管理者）<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapperはリンクベースの割り当てシステムを使用しています。司会者と管理者は、伝道者が区域にアクセスするために使用する共有可能なリンクを作成します。</p>
+<h4 id="_27">リンクベースの割り当ての理由<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<ul>
+<li>✓ <strong>簡単な配布</strong>：メール、メッセージ、テキストでリンクを送信</li>
+<li>✓ <strong>自動期限切れ</strong>：リンクは設定された時間後に期限切れ（デフォルト：24時間）</li>
+<li>✓ <strong>アカウント不要</strong>：伝道者はリンクを通じて直接作業</li>
+<li>✓ <strong>セキュリティ</strong>：期限切れのリンクはアクセス不可</li>
+<li>✓ <strong>追跡</strong>：誰がいつ何にアクセスしたかを確認</li>
+</ul>
+<h4 id="_28">割り当ての作成<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h4>
+<p><strong>割り当てを作成する2つの方法：</strong></p>
+<p><img alt="管理者司会者クイックリンク" src="../../assets/screenshots/admin_conductor_quicklink.png" /></p>
+<p><em>図13a：スピードダイヤルメニューからアクセスするクイックリンク作成インターフェース</em></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>アクセス</th>
+<th>最適な用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>クイックリンク</strong></td>
+<td>スピードダイヤル（➕）→クイックリンク</td>
+<td>現在の区域の迅速な作成</td>
+</tr>
+<tr>
+<td><strong>標準</strong></td>
+<td>割り当てボタン→新規作成</td>
+<td>すべてのオプションとカスタマイズ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ステップ1：割り当て作成にアクセス</strong></p>
+<ul>
+<li><strong>クイックリンク</strong>：スピードダイヤル（➕）→クイックリンクアイコンをクリック（現在の区域が事前入力）</li>
+<li><strong>標準</strong>：<strong>「割り当て」</strong>→<strong>「新しい割り当てを作成」</strong>または<strong>「+」</strong>をクリック</li>
+</ul>
+<p><strong>ステップ2：割り当てフォームに入力</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>説明</th>
+<th>必須</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>タイプ</strong></td>
+<td>通常の割り当てまたは個人スリップ</td>
+<td>はい</td>
+</tr>
+<tr>
+<td><strong>区域</strong></td>
+<td>会衆の区域から選択</td>
+<td>はい</td>
+</tr>
+<tr>
+<td><strong>伝道者名</strong></td>
+<td>追跡用（名前なしでもリンクは機能）</td>
+<td>オプション</td>
+</tr>
+<tr>
+<td><strong>リンク有効期限</strong></td>
+<td>リンクが期限切れになるまでの時間（デフォルト：24）</td>
+<td>はい</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ステップ3：生成して共有</strong></p>
+<ol>
+<li><strong>「割り当てを作成」</strong>をクリック</li>
+<li>システムが一意のリンクを生成</li>
+<li>以下の方法で伝道者とリンクを共有：</li>
+<li>メール</li>
+<li>テキストメッセージ</li>
+<li>インスタントメッセージアプリ</li>
+<li>任意のコミュニケーション方法</li>
+</ol>
+<p><strong>割り当てリンクの例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://your-ministry-mapper.com/map/abc123xyz456
+</code></pre></div>
+<h4 id="_29">マップ固有の割り当て作成<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<p>中央の割り当てモーダルに移動せずに、マップビューから直接割り当てを作成できます。</p>
+<p><strong>アクセス：</strong></p>
+<ol>
+<li>割り当てたい区域に移動</li>
+<li>いずれかをクリック：</li>
+<li><strong>「割り当て」</strong>ボタン - 通常の区域割り当てを作成</li>
+<li><strong>「個人」</strong>ボタン - 個人スリップ割り当てを作成</li>
+</ol>
+<p><strong>通常の区域割り当て：</strong></p>
+<p><img alt="伝道者マップの割り当て" src="../../assets/screenshots/assigning_publisher_map.png" /></p>
+<p><em>図13b：マップ固有の通常割り当て作成フォーム</em></p>
+<p><strong>「割り当て」</strong>をクリックして通常の区域割り当てを作成。フォームには以下が表示されます：</p>
+<ul>
+<li>ヘッダーの区域情報</li>
+<li><strong>伝道者名</strong>フィールド - 割り当てられた伝道者の名前を入力</li>
+<li><strong>キャンセル</strong>と<strong>確認</strong>ボタン</li>
+</ul>
+<p><strong>個人スリップ割り当て：</strong></p>
+<p><img alt="個人割り当て伝道者マップ" src="../../assets/screenshots/personal_assign_publisher_map.png" /></p>
+<p><em>図13c：カレンダー付きのマップ固有の個人スリップ作成フォーム</em></p>
+<p><strong>「個人」</strong>をクリックして個人スリップ割り当てを作成。フォームには以下が含まれます：</p>
+<ul>
+<li>ヘッダーの区域情報</li>
+<li><strong>カレンダーピッカー</strong> - 割り当て日を選択</li>
+<li><strong>伝道者名</strong>フィールド - 割り当てられた伝道者の名前を入力</li>
+<li><strong>キャンセル</strong>と<strong>確認</strong>ボタン</li>
+</ul>
+<p><strong>利点：</strong></p>
+<ul>
+<li>✓ 区域を表示しながら素早く割り当て作成</li>
+<li>✓ 割り当てモーダルに切り替える必要なし</li>
+<li>✓ 割り当てられる区域の即座のコンテキスト</li>
+</ul>
+<h4 id="_30">割り当ての管理<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
+<p><img alt="割り当て管理" src="../../assets/screenshots/assignment_management.png" /></p>
+<p><em>図14：すべての区域のすべてのアクティブな割り当てを表示する割り当て管理モーダル</em></p>
+<p>割り当て管理インターフェースにより、司会者と管理者は会衆内のすべての既存の割り当てを表示および管理できます。</p>
+<p><strong>すべての割り当てを表示：</strong></p>
+<ol>
+<li>ダッシュボードから<strong>「割り当て」</strong>ボタンをクリック</li>
+<li>割り当てモーダルが開き、すべてのアクティブな割り当てリンクを表示</li>
+<li>中央のリストですべての区域の割り当てを表示</li>
+</ol>
+<p><strong>表示される割り当て情報：</strong></p>
+<p>各割り当てについて、以下が確認できます：</p>
+<ul>
+<li><strong>区域コードと場所</strong>：場所の説明を含む区域識別子（例：「187A, Marsiling Road (M01)」）</li>
+<li><strong>割り当てタイプ</strong>：通常の割り当ての場合は「Assign」</li>
+<li><strong>伝道者名</strong>：割り当てられた人の名前（例：Jon、Erli、Pety）</li>
+<li><strong>作成日時</strong>：割り当てが作成された日時（例：「Dec 22, 2025, 9:38 PM」）</li>
+<li><strong>有効期限</strong>：割り当てリンクが期限切れになる日時（例：「Dec 23, 2025, 9:38 AM」または「11:38 PM」）</li>
+<li><strong>削除ボタン</strong>：個々の割り当てを削除するゴミ箱アイコン（🗑️）</li>
+</ul>
+<p><strong>割り当ての削除：</strong></p>
+<ol>
+<li>リスト内で割り当てを見つける</li>
+<li>割り当ての右側にある<strong>ゴミ箱アイコン</strong>（🗑️）ボタンをクリック</li>
+<li>プロンプトが表示されたら削除を確認</li>
+<li>割り当てリンクは即座に伝道者にアクセス不可になる</li>
+</ol>
+<p><strong>削除するタイミング：</strong></p>
+<ul>
+<li>区域が伝道者から早期に返却された</li>
+<li>間違ったリンクが作成または送信された</li>
+<li>伝道者がもうアクセスを必要としない</li>
+<li>割り当てを別の人に再割り当てする必要がある</li>
+<li>セキュリティの懸念または侵害</li>
+</ul>
+<p><strong>割り当てモーダルを閉じる：</strong></p>
+<ul>
+<li>下部の<strong>「キャンセル」</strong>ボタンをクリックしてモーダルを閉じ、ダッシュボードに戻る</li>
+</ul>
+<h4 id="_31">マップ固有の割り当て管理<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
+<p>マップビューから直接、個々の区域の割り当てを表示および管理できます。</p>
+<p><strong>アクセス：</strong></p>
+<ol>
+<li>区域に移動</li>
+<li>いずれかをクリック：</li>
+<li><strong>「割り当てリンク」</strong> - 通常の区域割り当て用</li>
+<li><strong>「個人リンク」</strong> - 個人スリップ割り当て用</li>
+</ol>
+<p><img alt="通常のマップ割り当て" src="../../assets/screenshots/map_assign_links.png" /></p>
+<p><em>図14a：特定の区域の割り当てリンクモーダル</em></p>
+<p><img alt="個人マップ割り当て" src="../../assets/screenshots/map_personal_links.png" /></p>
+<p><em>図14b：特定の区域の個人リンクモーダル</em></p>
+<p><strong>表示される情報：</strong></p>
+<ul>
+<li>伝道者名</li>
+<li>作成日時と有効期限</li>
+<li>削除ボタン（🗑️）で割り当てを削除</li>
+</ul>
+<p><strong>使用するタイミング：</strong></p>
+<ul>
+<li>現在その区域を誰が割り当てられているか確認</li>
+<li>区域を表示しながら割り当てを削除</li>
+<li>通常と個人の割り当てを別々に管理</li>
+</ul>
+<h4 id="_32">割り当てのベストプラクティス<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<p><strong>作成前：</strong></p>
+<ul>
+<li>✓ 区域が準備できていることを確認（住所が更新され、指示が明確）</li>
+<li>✓ デフォルトの有効期限について会衆設定を確認</li>
+<li>✓ 区域サイズに適した有効期限を計画</li>
+</ul>
+<p><strong>共有時：</strong></p>
+<ul>
+<li>✓ メッセージに指示を含める</li>
+<li>✓ 伝道者に有効期限を通知</li>
+<li>✓ 質問がある場合の連絡先を提供</li>
+<li>✓ 適切な時間帯に送信</li>
+</ul>
+<p><strong>監視：</strong></p>
+<ul>
+<li>✓ 期限切れの割り当てを定期的に確認</li>
+<li>✓ 古い割り当てを定期的にクリーンアップ</li>
+<li>✓ 区域が返却されない場合はフォローアップ</li>
+<li>✓ 完了率を追跡</li>
+</ul>
+<hr />
+<h3 id="_33">メッセージと指示<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p><img alt="管理者司会者メッセージ" src="../../assets/screenshots/admin_conductor_messages.png" /></p>
+<p><em>図15：固定オプション付きの投稿メッセージを表示するメッセージモーダル</em></p>
+<p>管理者と司会者は、特定のユーザーグループに表示されるメッセージを投稿できます。</p>
+<h4 id="_34">メッセージタイプ<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<p><strong>伝道者メッセージ：</strong></p>
+<ul>
+<li>割り当てリンクを持つすべての伝道者に表示</li>
+<li>野外奉仕の指示</li>
+<li>区域固有のガイダンス</li>
+<li>一般的なお知らせ</li>
+</ul>
+<p><strong>司会者メッセージ：</strong></p>
+<ul>
+<li>司会者と管理者に表示</li>
+<li>調整情報</li>
+<li>管理メモ</li>
+<li>計画情報</li>
+</ul>
+<p><strong>管理者メッセージ：</strong></p>
+<ul>
+<li>管理者のみに表示</li>
+<li>システム管理メモ</li>
+<li>重要な更新</li>
+<li>管理リマインダー</li>
+</ul>
+<h4 id="_35">メッセージの投稿<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>「メッセージ」</strong>ボタンをクリック</li>
+<li><strong>「新しいメッセージ」</strong>または<strong>「+」</strong>をクリック</li>
+<li>メッセージを入力</li>
+<li>メッセージタイプを選択（伝道者/司会者/管理者）</li>
+<li>オプションで重要なメッセージを上部に<strong>固定</strong></li>
+<li><strong>「投稿」</strong>をクリック</li>
+</ol>
+<h4 id="_36">メッセージ機能<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
+<p><strong>固定：</strong></p>
+<ul>
+<li>重要なメッセージを固定して上部に保持</li>
+<li>タイプごとに1つの固定メッセージのみ</li>
+<li>重要でなくなったら固定解除</li>
+</ul>
+<p><strong>編集：</strong></p>
+<ul>
+<li>投稿後にメッセージを編集</li>
+<li>すべての閲覧者に即座に更新</li>
+</ul>
+<p><strong>削除：</strong></p>
+<ul>
+<li>古くなったメッセージを削除</li>
+<li>イベント後にクリーンアップ</li>
+</ul>
+<p><strong>既読ステータス：</strong></p>
+<ul>
+<li>誰がメッセージを読んだかを確認（管理者ビュー）</li>
+<li>重要な更新の確認を追跡</li>
+</ul>
+<hr />
+<h3 id="_37">リアルタイムデータ同期<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p>Ministry MapperはPocketBaseリアルタイムサブスクリプションを使用して即座に更新します：</p>
+<h4 id="_38">仕組み<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
+<p><strong>自動同期：</strong></p>
+<ul>
+<li>変更はすべての接続されたデバイス間で即座に同期</li>
+<li>手動更新は不要</li>
+<li>同じ区域を表示しているすべてのユーザーに即座に更新が表示</li>
+</ul>
+<p><strong>同期されるもの：</strong></p>
+<ul>
+<li>✓ 住所ステータスの変更</li>
+<li>✓ 新しいメモと更新</li>
+<li>✓ 区域の進捗</li>
+<li>✓ 新しいメッセージ</li>
+<li>✓ 割り当ての変更</li>
+</ul>
+<p><strong>接続処理：</strong></p>
+<ul>
+<li>システムが接続損失を自動検出</li>
+<li>インターネットが復旧したら自動再接続</li>
+<li>接続ステータスインジケーターを表示</li>
+<li>オフライン時に更新をキュー（制限あり）</li>
+</ul>
+<p><strong>パフォーマンス：</strong></p>
+<ul>
+<li>区域/ページが開いているときのみ更新</li>
+<li>ページが閉じられると自動クリーンアップ</li>
+<li>最小限の帯域幅使用</li>
+<li>モバイルデータ用に最適化</li>
+</ul>
+<blockquote>
+<p><strong>💡 注意</strong>：リアルタイム更新が機能するには、区域で作業中はブラウザタブをアクティブに保ってください。</p>
+</blockquote>
+<hr />
+<h3 id="_39">ユーザー管理（管理者のみ）<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<p><img alt="ユーザー管理リスト" src="../../assets/screenshots/manage_users_list.png" /></p>
+<p><em>図16：ロール付きのユーザーリストを表示するユーザー管理パネル</em></p>
+<p>管理者は会衆内のユーザーアカウントと権限を完全に制御できます。</p>
+<h4 id="_40">ユーザーの表示<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>プロフィールアイコン</strong>または<strong>ユーザーメニュー</strong>をクリック</li>
+<li>ドロップダウンから<strong>「ユーザー管理」</strong>または<strong>「ユーザー」</strong>を選択</li>
+<li>会衆ユーザーの完全なリストを表示：</li>
+<li>ユーザー名</li>
+<li>メールアドレス</li>
+<li>確認ステータス（✓ 確認済み / ✗ 未確認）</li>
+<li>現在のロールバッジ</li>
+<li>最終アクティビティ</li>
+</ol>
+<h4 id="_41">新しいユーザーの招待<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
+<p><img alt="ユーザー招待" src="../../assets/screenshots/invite_users.png" /></p>
+<p><em>図17：新しい会衆メンバーを追加するためのユーザー招待ダイアログ</em></p>
+<p><strong>ステップ1：招待ダイアログを開く</strong></p>
+<ol>
+<li>ユーザー管理で<strong>「ユーザーを招待」</strong>または<strong>「+」</strong>をクリック</li>
+<li>ユーザー招待モーダルが開く</li>
+</ol>
+<p><strong>ステップ2：ユーザー情報を入力</strong></p>
+<ul>
+<li><strong>メールアドレス</strong>：ユーザーのメール（有効である必要あり）</li>
+<li><strong>ロール割り当て</strong>：以下のいずれかを選択：</li>
+<li>伝道者</li>
+<li>読み取り専用</li>
+<li>司会者</li>
+<li>管理者</li>
+</ul>
+<p><strong>ステップ3：招待を送信</strong></p>
+<ol>
+<li><strong>「招待を送信」</strong>をクリック</li>
+<li>システムがユーザーに招待メールを送信</li>
+<li>メールには以下が含まれます：</li>
+<li>アカウント作成リンク</li>
+<li>会衆情報</li>
+<li>ロール割り当ての詳細</li>
+<li>始め方の説明</li>
+</ol>
+<p><strong>ステップ4：ユーザーが登録を完了</strong></p>
+<ul>
+<li>ユーザーがメールを受信</li>
+<li>リンクをクリックしてサインアップ</li>
+<li>パスワード付きでアカウントを作成</li>
+<li>メールアドレスを確認</li>
+<li>割り当てられたロールで会衆に自動追加</li>
+</ul>
+<h4 id="_42">ユーザーロールの変更<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h4>
+<p><img alt="ユーザー管理詳細" src="../../assets/screenshots/manage_users_details.png" /></p>
+<p><em>図18：ユーザー詳細とロール管理インターフェース</em></p>
+<ol>
+<li>ユーザーリストでユーザーを見つける</li>
+<li>ユーザーまたは<strong>「編集」</strong>ボタンをクリック</li>
+<li>ドロップダウンから新しいロールを選択：</li>
+<li><strong>伝道者</strong>：リンク経由の基本的な区域アクセス</li>
+<li><strong>読み取り専用</strong>：閲覧のみのダッシュボードアクセス</li>
+<li><strong>司会者</strong>：割り当て作成とメッセージ管理が可能</li>
+<li><strong>管理者</strong>：フルコントロール</li>
+<li><strong>「保存」</strong>または<strong>「更新」</strong>をクリック</li>
+<li>変更は即座に有効</li>
+</ol>
+<blockquote>
+<p><strong>⚠️ 重要</strong>：ユーザーは新しい権限を反映するためにログアウトして再ログインする必要があります。</p>
+</blockquote>
+<h4 id="_43">ユーザーアクセスの削除<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<p><strong>一時的な削除：</strong></p>
+<ol>
+<li>ユーザーのロールを<strong>「アクセスなし」</strong>または<strong>「アクセスを削除」</strong>に変更</li>
+<li>ユーザーはすべての権限を失う</li>
+<li>アカウントは残るが会衆データにアクセス不可</li>
+</ol>
+<p><strong>恒久的な削除：</strong></p>
+<ol>
+<li>ユーザーの<strong>「削除」</strong>ボタンをクリック</li>
+<li>削除を確認</li>
+<li>ユーザーが会衆から完全に削除</li>
+<li>必要に応じてユーザーを再招待可能</li>
+</ol>
+<h4 id="_44">ユーザー確認ステータス<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<p><strong>確認済みユーザー（✓）：</strong></p>
+<ul>
+<li>メールアドレスが確認済み</li>
+<li>割り当てられた権限へのフルアクセス</li>
+<li>通常にログイン可能</li>
+</ul>
+<p><strong>未確認ユーザー（✗）：</strong></p>
+<ul>
+<li>メールがまだ確認されていない</li>
+<li>制限付きまたはアクセスなし</li>
+<li>メールを確認して確認リンクをクリックする必要あり</li>
+</ul>
+<p><strong>確認を再送信するには：</strong></p>
+<ul>
+<li>一部のシステムでは確認メールの再送信が可能</li>
+<li>またはユーザーに「パスワードを忘れた」機能を使用するよう依頼</li>
+</ul>
+<hr />
+<h3 id="_45">会衆設定（管理者のみ）<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<p><img alt="会衆設定" src="../../assets/screenshots/congregation_settings.png" /></p>
+<p><em>図19：すべての設定オプションを含む会衆設定ページ</em></p>
+<p>会衆でMinistry Mapperがどのように機能するかを設定します。</p>
+<h4 id="_46">設定へのアクセス<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>「設定」</strong>ボタンまたは⚙️アイコンをクリック</li>
+<li>会衆設定パネルを表示</li>
+</ol>
+<h4 id="_47">主要設定<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<p><strong>1. 最大「不在」試行回数</strong></p>
+<ul>
+<li>デフォルト：1</li>
+<li>範囲：1〜4回</li>
+<li>達成時、住所は進捗計算で完了とみなされる</li>
+<li>区域が完了として表示されるタイミングに影響</li>
+</ul>
+<p><strong>例：</strong> 3に設定した場合：</p>
+<ul>
+<li>1回目の「不在」：カウント = 1</li>
+<li>2回目の「不在」：カウント = 2</li>
+<li>3回目の「不在」：カウント = 3、完了としてマーク</li>
+</ul>
+<p><strong>2. 割り当てリンクの有効期限（時間）</strong></p>
+<ul>
+<li>デフォルト：24時間</li>
+<li>範囲：1〜168時間（1週間）</li>
+<li>割り当てリンクがアクティブな期間</li>
+<li>新しく作成されたリンクに適用</li>
+</ul>
+<p><strong>3. 会衆の原点/場所</strong></p>
+<ul>
+<li>会衆の場所を設定</li>
+<li>マップのセンタリングと道順に使用</li>
+<li>都市名または座標を指定可能</li>
+<li>ルート計画に役立つ</li>
+</ul>
+<p><strong>4. OTP（ワンタイムパスワード）</strong></p>
+<ul>
+<li>ログイン用のメールOTPを有効/無効</li>
+<li>追加のセキュリティレイヤーを追加</li>
+<li>ログイン時にユーザーがメールでコードを受信</li>
+<li>センシティブな会衆データに推奨</li>
+</ul>
+<h4 id="_48">会衆オプション（世帯タイプ）<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<p><img alt="世帯オプション設定" src="../../assets/screenshots/household_options_settings.png" /></p>
+<p><em>図20：世帯タイプ設定を表示する会衆オプション管理</em></p>
+<p>区域用のカスタム世帯分類タイプを設定します。</p>
+<p><strong>会衆オプションとは？</strong></p>
+<ul>
+<li>世帯を分類するためのカスタムカテゴリ</li>
+<li>例：言語グループ（中国語、英語、タミル語）</li>
+<li>会衆が使用する任意の分類システムを表すことができる</li>
+<li>設定されている場合、単一の世帯に複数のタイプを割り当て可能</li>
+</ul>
+<p><strong>オプションの管理：</strong></p>
+<ol>
+<li>
+<p><strong>オプションを表示</strong></p>
+</li>
+<li>
+<p>設定で「会衆オプション」セクションを見つける</p>
+</li>
+<li>
+<p>設定されているすべてのタイプのリストを表示</p>
+</li>
+<li>
+<p><strong>新しいオプションを追加</strong></p>
+</li>
+<li>
+<p>「オプションを追加」または「+」をクリック</p>
+</li>
+<li>入力：<ul>
+<li><strong>コード</strong>：短い識別子（例：「CHI」、「ENG」）</li>
+<li><strong>説明</strong>：フルネーム（例：「中国語」、「英語」）</li>
+<li><strong>カウント可能か</strong>：区域進捗にカウントするかチェック</li>
+<li><strong>デフォルトか</strong>：デフォルト選択にするかチェック</li>
+<li><strong>順序</strong>：表示順序番号</li>
+</ul>
+</li>
+<li>
+<p>「保存」をクリック</p>
+</li>
+<li>
+<p><strong>オプションを編集</strong></p>
+</li>
+<li>
+<p>既存のオプションをクリック</p>
+</li>
+<li>フィールドを変更</li>
+<li>
+<p>変更を保存</p>
+</li>
+<li>
+<p><strong>オプションを削除</strong></p>
+</li>
+<li>オプションの削除ボタンをクリック</li>
+<li>削除を確認</li>
+<li><strong>警告</strong>：このタイプを使用しているすべての住所に影響</li>
+</ol>
+<p><strong>オプションフラグ：</strong></p>
+<p><strong>カウント可能か：</strong>
+- このタイプの住所が区域進捗にカウントされるかを制御
+- <strong>チェック済み</strong>：進捗計算に含まれる（例：中国語、英語、タミル語）
+- <strong>未チェック</strong>：進捗から除外（例：ビジネス、建設中）
+- 例：総住所100、「ビジネス」（カウント不可）としてマーク10 = 進捗は90住所のみに基づく</p>
+<p><strong>デフォルトか：</strong>
+- 新しい住所を作成するときにこのタイプを自動選択
+- デフォルトは1つのオプションのみにする
+- 最も一般的な世帯タイプに使用</p>
+<p><strong>順序：</strong>
+- ドロップダウンメニューでの表示順序を制御
+- 小さい数字が先に表示（1、2、3...）
+- 設定で<strong>ドラッグ＆ドロップで管理</strong> - 単にオプションをドラッグして並べ替え
+- 住所世帯ドロップダウンでの順序に影響
+- ヒント：最も一般的なものから最も珍しいものへ順序付け</p>
+<p><strong>複数選択の設定：</strong></p>
+<ul>
+<li>世帯が複数のタイプを持てる場合に有効化</li>
+<li>例：世帯が中国語と英語の両方を話す</li>
+<li>無効時、世帯ごとに1つのタイプのみ</li>
+</ul>
+<h4 id="_49">マップ設定<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h4>
+<p><img alt="マップ設定" src="../../assets/screenshots/map_configurations.png" /></p>
+<p><em>図34：管理者向けの高度なマップ設定オプション</em></p>
+<p>会衆でのマップの表示と動作を設定します。管理者は区域のメンテナンスと組織化のための強力なマップ管理機能にアクセスできます。</p>
+<p><strong>マップ設定にアクセスするには：</strong></p>
+<ol>
+<li><strong>設定</strong>に移動（管理者のみ）</li>
+<li>ドロップダウンから区域を選択</li>
+<li>選択した区域のマップビューを開く</li>
+<li>マップ設定メニューにアクセス（通常は設定アイコンまたはメニュー経由）</li>
+</ol>
+<p><strong>利用可能なマップ設定機能：</strong></p>
+<p><strong>1. 場所の変更</strong>
+   - マップマーカーを別の住所に移動
+   - 区域ユニットの地理的位置を更新
+   - 住所が変更されたか、初期位置が間違っていた場合に便利
+   - マップ上で新しい位置を選択するだけ</p>
+<p><strong>2. 区域の変更</strong>
+   - 住所またはユニットを別の区域に移動
+   - 区域境界の再編成に役立つ
+   - 区域サイズのバランスを取るのに便利
+   - 転送中にすべての住所データと履歴を維持</p>
+<p><strong>3. 順序の変更</strong>
+   - 住所の訪問順序番号を変更
+   - 野外奉仕効率のためにルートを最適化
+   - 小さい数字が先に訪問
+   - 論理的な訪問パターンを作成するのに役立つ</p>
+<h5 id="_50">マップ順序の更新（ドラッグ＆ドロップ）<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h5>
+<p><img alt="マップ順序の更新" src="../../assets/screenshots/update_map_sequence.png" /></p>
+<p><em>区域内のすべてのマップ順序を並べ替えるためのドラッグ＆ドロップインターフェース</em></p>
+<p><strong>アクセス：</strong> 住所メニュー → 「順序の変更」</p>
+<p><strong>仕組み：</strong>
+1. 各カードには現在の順序番号付きの住所が表示
+2. ドラッグ＆ドロップして並べ替え - 番号は自動的に更新
+3. <strong>「保存」</strong>をクリックして適用、または<strong>「キャンセル」</strong>で破棄</p>
+<p><strong>ベストプラクティス：</strong>
+- 近くの住所をグループ化してバックトラッキングを最小化
+- 複数階建ての建物では階をまとめる
+- 端から端への論理的なフローを作成
+- 順序付け後にマップビューを確認</p>
+<p><strong>4. 名前の変更</strong>
+   - 住所/ユニットの名前または識別子を変更
+   - 建物名やユニット番号を更新
+   - データを実世界の変更に合わせて最新に保つ
+   - 初期入力エラーの修正に便利</p>
+<p><strong>5. ユニット番号を追加</strong>
+   - 既存の住所に新しいユニット番号を追加
+   - 追加ユニットで複数階建ての建物を拡張
+   - 建物に新しいアパートが追加されたときに便利
+   - 建物構造の組織を維持</p>
+<p><strong>6. 上の階を追加</strong>
+   - 追加の階で建物を上方に拡張
+   - 拡張された建物や最初に過小評価された建物用
+   - 建物パターンに基づいて新しい階のユニットを自動作成
+   - 区域データを建設変更に合わせて最新に保つ</p>
+<p><strong>7. 下の階を追加</strong>
+   - 現在の最低階より下に階を追加
+   - 地下レベルや新しくアクセス可能になった下の階に便利
+   - 負の階番号を追加可能（例：B1、B2）
+   - 一貫した階番号システムを維持</p>
+<p><strong>8. ステータスをリセット</strong>
+   - 住所のステータスを「未完了」にクリア
+   - 「完了」と「不在」ステータスのみを削除
+   - 「訪問不可」や「無効」ステータスは削除<strong>しない</strong>
+   - メモやその他の住所情報を保持
+   - 以前に完了した住所での作業を再開するときに便利
+   - 区域内の他の住所には影響しない</p>
+<p><strong>9. 削除</strong>
+   - 区域から住所、ユニット、または階を恒久的に削除
+   - 取り消し不可 - 注意して使用
+   - 重複エントリや存在しない住所の削除に役立つ
+   - 削除前に慎重に確認</p>
+<p><strong>一般的な使用例：</strong>
+- エラーの修正：名前の変更と場所の変更
+- 区域のリバランス：区域の変更
+- 建物の更新：上/下の階を追加
+- ルート最適化：順序の変更
+- データクリーンアップ：重複の削除
+- 季節の更新：ステータスのリセット</p>
+<blockquote>
+<p><strong>⚠️ 警告</strong>：変更はすべてのユーザーに即座に影響します。削除は恒久的で取り消しできません。</p>
+</blockquote>
+<hr />
+<h3 id="_51">区域管理（管理者のみ）<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<p><img alt="新しい区域を作成" src="../../assets/screenshots/create_new_territory.png" /></p>
+<p><em>図21：新しい区域を追加するための区域作成インターフェース</em></p>
+<p>管理者は区域の作成、編集、管理を完全に制御できます。</p>
+<h4 id="_52">新しい区域の作成<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h4>
+<p><strong>ステップ1：区域作成にアクセス</strong></p>
+<ol>
+<li><strong>区域セレクター</strong>ドロップダウンをクリック</li>
+<li><strong>「新しい区域を作成」</strong>または<strong>「新しい区域」</strong>を選択</li>
+<li>区域作成フォームが開く</li>
+</ol>
+<p><strong>ステップ2：区域情報を入力</strong></p>
+<ul>
+<li><strong>区域コード</strong>：短い識別子（例：「T-001」、「M-12」、「W-05」）</li>
+<li>短く意味のあるものに</li>
+<li>一貫した命名規則を使用</li>
+<li>最大推奨：10文字</li>
+<li><strong>説明</strong>：フルネームまたはエリアの説明</li>
+<li>例：「ダウンタウン商業」、「ノースサイド住宅」</li>
+<li>簡単に識別できるように説明的に</li>
+<li>最大推奨：100文字</li>
+</ul>
+<p><strong>ステップ3：作成</strong></p>
+<ol>
+<li><strong>「区域を作成」</strong>をクリック</li>
+<li>新しい区域が作成され、選択される</li>
+<li>住所を追加する準備完了</li>
+</ol>
+<h4 id="_53">区域詳細の編集<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h4>
+<p><strong>区域コードの変更：</strong></p>
+<ol>
+<li>区域を選択</li>
+<li>✏️ <strong>「編集」</strong>または<strong>「区域コードを変更」</strong>をクリック</li>
+<li>新しいコードを入力</li>
+<li>変更を保存</li>
+<li><strong>警告</strong>：古いコードへの参照を更新</li>
+</ol>
+<p><strong>区域の説明の変更：</strong></p>
+<ol>
+<li>区域を選択</li>
+<li><strong>「区域名を変更」</strong>または編集オプションをクリック</li>
+<li>説明を更新</li>
+<li>変更を保存</li>
+</ol>
+<p><strong>区域の順序の変更：</strong></p>
+<h5 id="_54">区域順序の更新（ドラッグ＆ドロップ）<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h5>
+<p><img alt="区域順序の更新" src="../../assets/screenshots/territory_sequence_change.png" /></p>
+<p><em>会衆内のすべての区域を並べ替えるためのドラッグ＆ドロップインターフェース</em></p>
+<p><strong>アクセス：</strong> 区域ドロップダウン → 「順序の変更」</p>
+<p><strong>仕組み：</strong>
+1. 各カードには区域コードと説明が表示
+2. ドラッグ＆ドロップして並べ替え - 順序番号は自動的に更新
+3. <strong>「保存」</strong>をクリックして適用、または<strong>「キャンセル」</strong>で破棄
+4. 選択ドロップダウンとリストでの順序を制御</p>
+<p><strong>ベストプラクティス：</strong>
+- 地理的な近接性で整理
+- タイプ別にグループ化（住宅、商業、ビジネス）
+- 野外奉仕グループの割り当てを考慮
+- 区域ローテーション計画に使用</p>
+<h4 id="_55">区域設定オプション<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h4>
+<p><img alt="区域設定オプション" src="../../assets/screenshots/territory_configurations.png" /></p>
+<p><em>設定オプションを表示する区域ドロップダウンメニュー</em></p>
+<p>管理者はトップナビゲーションバーの<strong>区域ドロップダウン</strong>ボタンから区域設定オプションにアクセスできます。ボタンをクリックすると以下のオプションが表示されます：</p>
+<p><strong>利用可能なオプション：</strong></p>
+<ul>
+<li><strong>新規作成</strong>：ゼロから新しい区域を作成</li>
+<li><strong>コードを変更</strong>：区域の一意の識別子を変更</li>
+<li><strong>名前を変更</strong>：区域の説明を更新</li>
+<li><strong>順序を変更</strong>：選択リストでの区域の表示順序を変更</li>
+<li><strong>現在を削除</strong>：現在選択されている区域を恒久的に削除</li>
+<li><strong>ステータスをリセット</strong>：すべての住所ステータスを「未完了」にクリア</li>
+</ul>
+<p>これらのオプションにより、複数のメニューを移動せずに一般的な区域管理タスクに素早くアクセスできます。</p>
+<h4 id="_56">区域操作<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h4>
+<p><strong>区域をリセット：</strong></p>
+<p><img alt="新しいマップを作成" src="../../assets/screenshots/create_new_map.png" /></p>
+<p><em>図22：区域操作と管理インターフェース</em></p>
+<p>区域内のすべての住所を「未完了」ステータスにリセット：</p>
+<ol>
+<li>区域を選択</li>
+<li><strong>「区域をリセット」</strong>ボタンをクリック</li>
+<li>アクション確認（これですべての訪問データがクリアされます！）</li>
+<li>すべての住所が「未完了」に戻る</li>
+<li>不在カウントが0にリセット</li>
+<li>メモは保持される</li>
+<li>進捗が0%にリセット</li>
+</ol>
+<p><strong>使用するタイミング：</strong></p>
+<ul>
+<li>区域が完全に作業され、再割り当ての準備ができた</li>
+<li>新しい訪問ラウンドを開始</li>
+<li>テストデータのクリーンアップ</li>
+</ul>
+<p><strong>⚠️ 警告</strong>：取り消しできません。すべてのステータス更新が失われます。</p>
+<p><strong>区域を削除：</strong></p>
+<p><img alt="区域選択リスト" src="../../assets/screenshots/territory_selection_list.png" /></p>
+<p><em>図23：利用可能なすべての区域を表示する区域選択リスト</em></p>
+<p>区域とそのすべてのデータを恒久的に削除：</p>
+<ol>
+<li>削除する区域を選択</li>
+<li><strong>「区域を削除」</strong>ボタンをクリック</li>
+<li>警告メッセージを注意深く読む</li>
+<li>必要に応じて確認を入力</li>
+<li>削除を確認</li>
+</ol>
+<p><strong>削除されるもの：</strong></p>
+<ul>
+<li>区域レコード</li>
+<li>区域内のすべての住所</li>
+<li>すべてのユニットと階</li>
+<li>すべての割り当て履歴</li>
+<li>すべての関連データ</li>
+</ul>
+<p><strong>⚠️ 重大な警告</strong>：このアクションは取り消しできません。最初にデータをエクスポートすることを検討してください。</p>
+<hr />
+<h3 id="_57">住所管理（管理者のみ）<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<p><img alt="一戸建てマップ" src="../../assets/screenshots/single_story_map.png" /></p>
+<p><em>図24：個人/一戸建て物件の住所管理インターフェース</em></p>
+<p>管理者は区域内の住所を追加および管理できます。</p>
+<h4 id="_58">住所タイプ<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapperは2種類の住所をサポートしています：</p>
+<p><strong>1. 公共住所（複数階建て）</strong></p>
+<ul>
+<li>アパート、マンション</li>
+<li>複数の階とユニット</li>
+<li>例：HDBフラット、アパート複合施設</li>
+<li>各階に複数のユニット</li>
+</ul>
+<p><strong>2. 個人住所（一戸建て）</strong></p>
+<ul>
+<li>個別の住宅、ショップハウス</li>
+<li>1つの住所を持つ単一の物件</li>
+<li>例：戸建て物件、独立した建物</li>
+<li>階/ユニット構造なし</li>
+</ul>
+<h4 id="_59">公共住所の追加（複数階建て）<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h4>
+<p><strong>ステップ1：作成を開始</strong></p>
+<ol>
+<li>区域を選択</li>
+<li><strong>「住所を追加」</strong>または<strong>「+」</strong>ボタンをクリック</li>
+<li><strong>「公共住所」</strong>タイプを選択</li>
+</ol>
+<p><strong>ステップ2：建物情報を入力</strong></p>
+<ul>
+<li><strong>郵便番号/住所</strong>：建物識別子</li>
+<li>郵便番号または通りの住所を入力</li>
+<li>システムが位置を自動入力する可能性あり</li>
+<li>ジオコーディングとマップ表示に使用</li>
+<li><strong>建物名</strong>：オプションの建物名</li>
+<li>例：「ブロック123A」、「サニーハイツ」</li>
+<li>伝道者が建物を識別するのに役立つ</li>
+</ul>
+<p><strong>ステップ3：階を設定</strong></p>
+<p><img alt="複数階建てマップ" src="../../assets/screenshots/multi_story_map.png" /></p>
+<p><em>図25：階とユニットの組織を備えた複数階建ての建物管理</em></p>
+<ul>
+<li><strong>開始階</strong>：最下階の番号</li>
+<li>地下レベルの場合は負の値可能</li>
+<li>例：-2（B2）、1（地上）、0</li>
+<li><strong>最上階</strong>：最上階の番号</li>
+<li>最大：50</li>
+<li>例：10、25、40</li>
+<li><strong>階の選択</strong>：特定の階を選択</li>
+<li>ユニットのない階をスキップ（例：機械階）</li>
+<li>通常：開始から最上までのすべての階</li>
+</ul>
+<p><strong>ステップ4：ユニットを設定</strong></p>
+<ul>
+<li><strong>各階のユニット数</strong>：各階のユニット数</li>
+<li>例：8、12、16</li>
+<li>ユニットを自動作成</li>
+<li><strong>ユニット番号形式</strong>：ユニットの番号付け方法</li>
+<li>パターン：階 + ユニット（例：01-01、01-02）</li>
+<li>カスタム：後で手動でユニット番号を入力</li>
+</ul>
+<p><strong>ステップ5：作成して入力</strong></p>
+<ol>
+<li><strong>「作成」</strong>をクリック</li>
+<li>システムがすべての階とユニットを生成</li>
+<li>住所がすべてのユニットと共に区域に表示</li>
+</ol>
+<p><strong>例：</strong></p>
+<ul>
+<li>建物：ブロック123</li>
+<li>階：1から12</li>
+<li>各階のユニット：8</li>
+<li>結果：96ユニット作成（12階 × 8ユニット）</li>
+</ul>
+<h4 id="_60">個人住所の追加（一戸建て）<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h4>
+<p><strong>ステップ1：作成を開始</strong></p>
+<ol>
+<li>区域を選択</li>
+<li><strong>「住所を追加」</strong>または<strong>「+」</strong>をクリック</li>
+<li><strong>「個人住所」</strong>タイプを選択</li>
+</ol>
+<p><strong>ステップ2：物件情報を入力</strong></p>
+<ul>
+<li><strong>物件郵便番号/住所</strong>：一意の識別子</li>
+<li>通りの住所または郵便番号</li>
+<li>各物件は1つのレコード</li>
+<li><strong>物件名</strong>：オプションの住宅名</li>
+<li>例：「123 メインストリート」、「ヴィラサンシャイン」</li>
+</ul>
+<p><strong>ステップ3：場所を設定（オプション）</strong></p>
+<ul>
+<li><strong>「ジオロケーションを設定」</strong>をクリック</li>
+<li>マップを使用して正確な位置を特定</li>
+<li>ナビゲーションに役立つ</li>
+<li>後で更新可能</li>
+</ul>
+<p><strong>ステップ4：作成</strong></p>
+<ol>
+<li><strong>「物件を作成」</strong>をクリック</li>
+<li>単一の住所ユニットが作成</li>
+<li>区域リストに表示</li>
+</ol>
+<h4 id="_61">既存の住所の管理<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h4>
+<p><strong>住所名の編集：</strong></p>
+<ol>
+<li>住所のある区域を選択</li>
+<li>住所の編集オプションをクリック</li>
+<li>名前/郵便番号を更新</li>
+<li>変更を保存</li>
+</ol>
+<p><strong>郵便番号の変更：</strong></p>
+<ol>
+<li>住所編集モードにアクセス</li>
+<li>郵便番号フィールドを更新</li>
+<li>ジオコーディングに影響する可能性あり</li>
+<li>保存してマップ位置を確認</li>
+</ol>
+<p><strong>住所をリセット：</strong></p>
+<ul>
+<li>住所内のすべてのユニットステータスをクリア</li>
+<li>メモは保持</li>
+<li>住所が完全に作業されたときに使用</li>
+</ul>
+<p><strong>住所を削除：</strong></p>
+<ul>
+<li>住所全体とすべてのユニットを削除</li>
+<li>取り消し不可</li>
+<li>削除前に慎重に確認</li>
+</ul>
+<h4 id="_62">ユニットの管理（公共住所のみ）<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h4>
+<p><strong>ユニットを追加：</strong></p>
+<ol>
+<li>住所を選択</li>
+<li><strong>「ユニットを追加」</strong>をクリック</li>
+<li>追加するユニット番号を指定</li>
+<li>ユニットが自動作成</li>
+</ol>
+<p><strong>ユニットを削除：</strong></p>
+<ol>
+<li>特定のユニットをクリック</li>
+<li>モーダルの<strong>「ユニットを削除」</strong>ボタンをクリック</li>
+<li>削除を確認</li>
+<li>ユニットが住所から削除</li>
+</ol>
+<p><strong>ユニット順序の変更：</strong></p>
+<ol>
+<li>ユニット編集モーダルを開く</li>
+<li>順序番号を更新</li>
+<li>訪問順序に影響</li>
+<li>小さい数字が先に訪問</li>
+</ol>
+<p><strong>階を追加/削除：</strong></p>
+<ol>
+<li>階管理にアクセス</li>
+<li>新しい階番号を追加</li>
+<li>または階全体を削除</li>
+<li>その階のすべてのユニットに影響</li>
+</ol>
+<p><strong>ユニットのジオロケーションを更新：</strong></p>
+<ul>
+<li>ユニットの特定の座標を設定</li>
+<li>大きな建物に便利</li>
+<li>正確なナビゲーションに役立つ</li>
+<li>オプション機能</li>
+</ul>
+<hr />
+<hr />
+<h2 id="_63">モバイル使用<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h2>
+<p><img alt="伝道者割り当てマップビュー" src="../../assets/screenshots/publisher_assignment_map_view.png" /></p>
+<p><em>図26：野外奉仕用に最適化されたモバイルレスポンシブインターフェース</em></p>
+<h3 id="ministry-mapper_2">電話でMinistry Mapperを使用する<a class="headerlink" href="#ministry-mapper_2" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapperは完全にレスポンシブでモバイルデバイス用に最適化されており、野外奉仕に最適です。</p>
+<h4 id="_64">モバイルでのアクセス<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h4>
+<p><strong>ブラウザアクセス：</strong></p>
+<ol>
+<li>モバイルブラウザを開く：</li>
+<li><strong>iOS</strong>：Safari、Chrome</li>
+<li><strong>Android</strong>：Chrome、Firefox、Samsung Internet</li>
+<li>会衆のMinistry Mapper URLに移動</li>
+<li>ログインまたは割り当てリンクをクリック</li>
+<li>インターフェースが画面サイズに自動的に適応</li>
+</ol>
+<p><strong>モバイルでの機能：</strong></p>
+<ul>
+<li>✓ タッチフレンドリーなボタンとコントロール</li>
+<li>✓ ナビゲーション用のスワイプジェスチャー</li>
+<li>✓ 小さな画面用に最適化されたレイアウト</li>
+<li>✓ 簡単に選択できる大きなタップターゲット</li>
+<li>✓ すべてのデスクトップ機能へのフルアクセス</li>
+<li>✓ GPS付きのインタラクティブマップ統合</li>
+</ul>
+<h4 id="pwa">プログレッシブウェブアプリ（PWA）インストール<a class="headerlink" href="#pwa" title="Permanent link">&para;</a></h4>
+<p><img alt="一戸建てマップビューモード" src="../../assets/screenshots/single_story_map_view_mode.png" /></p>
+<p><em>図27：PWAインストールで利用可能なフルスクリーンマップビューモード</em></p>
+<p>パフォーマンス向上のためにMinistry Mapperをアプリとしてインストール：</p>
+<p><strong>インストールの利点：</strong></p>
+<ul>
+<li>🚀 キャッシュされたリソースでより速い読み込み</li>
+<li>📱 ホーム画面にアプリアイコン</li>
+<li>🎯 フルスクリーン体験（ブラウザUIなし）</li>
+<li>⚡ 向上したパフォーマンス</li>
+<li>🔔 デバイスとのより良い統合</li>
+</ul>
+<p><strong>iOSインストール（Safari）：</strong></p>
+<ol>
+<li>SafariでMinistry Mapperを開く</li>
+<li><strong>共有</strong>ボタン（📤）をタップ</li>
+<li>下にスクロールして<strong>「ホーム画面に追加」</strong>をタップ</li>
+<li>必要に応じて名前を編集</li>
+<li><strong>「追加」</strong>をタップ</li>
+<li>ホーム画面にアプリアイコンが表示</li>
+</ol>
+<p><strong>Androidインストール（Chrome）：</strong></p>
+<ol>
+<li>ChromeでMinistry Mapperを開く</li>
+<li>メニューボタン（⋮）をタップ</li>
+<li><strong>「アプリをインストール」</strong>または<strong>「ホーム画面に追加」</strong>を選択</li>
+<li>インストールを確認</li>
+<li>ホーム画面またはアプリドロワーにアプリアイコンが表示</li>
+</ol>
+<p><strong>インストールしたアプリの使用：</strong></p>
+<ul>
+<li>他のアプリと同様にホーム画面から起動</li>
+<li>ブラウザのアドレスバーなし</li>
+<li>シームレスなアプリ体験</li>
+<li>自動的に更新</li>
+</ul>
+<h4 id="_65">モバイルのベストプラクティス<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h4>
+<p><strong>出発前：</strong></p>
+<ol>
+<li>✓ 割り当てリンクが期限切れでないか確認</li>
+<li>✓ 区域とマップを確認</li>
+<li>✓ 特別な指示をメモ</li>
+<li>✓ 安定したインターネット接続を確保</li>
+<li>✓ デバイスを完全に充電</li>
+<li>✓ ポータブル充電器を検討</li>
+</ol>
+<p><strong>野外奉仕中：</strong></p>
+<ol>
+<li>✓ 訪問後すぐに住所を更新</li>
+<li>✓ 情報が新鮮なうちにメモを追加</li>
+<li>✓ マップでGPSナビゲーションを使用</li>
+<li>✓ 効率的なルーティングのために順序番号に従う</li>
+<li>✓ 不要なときは画面を暗くしてバッテリーを節約</li>
+</ol>
+<p><strong>データ使用のヒント：</strong></p>
+<ul>
+<li>Ministry Mapperは最小限のデータを使用</li>
+<li>マップタイルはより多くのデータを使用する可能性あり</li>
+<li>ほとんどの更新は各1KB未満</li>
+<li>モバイルデータ使用に適切</li>
+</ul>
+<h3 id="_66">オフライン機能と制限<a class="headerlink" href="#_66" title="Permanent link">&para;</a></h3>
+<p><strong>インターネット接続が必要：</strong></p>
+<p>Ministry Mapperは以下にアクティブなインターネットが必要：</p>
+<ul>
+<li>✗ 区域データの読み込み</li>
+<li>✗ ステータス更新の保存</li>
+<li>✗ リアルタイム同期</li>
+<li>✗ マップの表示</li>
+<li>✗ ユーザー認証</li>
+</ul>
+<p><strong>限定的なオフライン機能：</strong></p>
+<ul>
+<li>静的アセットがキャッシュ（アプリシェル）</li>
+<li>以前に読み込まれた区域が表示される可能性あり</li>
+<li><strong>オフラインで更新はできない</strong></li>
+<li><strong>更新は後の同期用にキューされない</strong></li>
+</ul>
+<p><strong>接続損失の処理：</strong></p>
+<ul>
+<li>システムが接続損失を検出</li>
+<li>接続ステータス警告を表示</li>
+<li>利用可能になると自動再接続</li>
+<li>接続復旧後に作業を再開</li>
+</ul>
+<p><strong>推奨事項：</strong></p>
+<ul>
+<li>✓ 開始前に信頼できる接続を確保</li>
+<li>✓ 区域場所で接続をテスト</li>
+<li>✓ インターネットがないエリアのバックアッププランを用意</li>
+<li>✓ 必要に応じてポータブルWiFiホットスポットを検討</li>
+<li>✓ 接続がアクティブな間に住所を更新</li>
+</ul>
+<hr />
+<hr />
+<h2 id="_67">アカウント設定とプロフィール<a class="headerlink" href="#_67" title="Permanent link">&para;</a></h2>
+<h3 id="_68">個人プロフィール管理<a class="headerlink" href="#_68" title="Permanent link">&para;</a></h3>
+<p><img alt="サインイン" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>図28：Ministry Mapperアカウントにアクセスするためのログインインターフェース</em></p>
+<p><strong>プロフィールへのアクセス：</strong></p>
+<ol>
+<li><strong>プロフィール名/アイコン</strong>（右上隅）をクリック</li>
+<li>ドロップダウンメニューから<strong>「プロフィール」</strong>を選択</li>
+<li>アカウント設定を表示および管理</li>
+</ol>
+<p><strong>利用可能なプロフィールオプション：</strong></p>
+<ul>
+<li>アカウント情報の表示（名前、メール）</li>
+<li>パスワードの変更</li>
+<li>会衆メンバーシップの表示</li>
+<li>ユーザー管理へのアクセス（管理者のみ）</li>
+<li>ログアウト</li>
+</ul>
+<h3 id="_69">パスワードの変更<a class="headerlink" href="#_69" title="Permanent link">&para;</a></h3>
+<p><strong>セキュリティ要件：</strong></p>
+<ul>
+<li>最小6文字</li>
+<li>少なくとも1つの数字</li>
+<li>少なくとも1つの大文字</li>
+<li>確認と一致する必要あり</li>
+</ul>
+<p><strong>変更手順：</strong></p>
+<ol>
+<li>プロフィールに移動</li>
+<li><strong>「パスワードを変更」</strong>をクリック</li>
+<li><strong>現在のパスワード</strong>を入力</li>
+<li><strong>新しいパスワード</strong>を入力</li>
+<li><strong>新しいパスワードを確認</strong></li>
+<li><strong>「保存」</strong>または<strong>「パスワードを変更」</strong>をクリック</li>
+<li>成功メッセージで変更を確認</li>
+</ol>
+<blockquote>
+<p><strong>💡 ヒント</strong>：強力でユニークなパスワードを使用してください。パスワードマネージャーの使用を検討してください。</p>
+</blockquote>
+<h3 id="_70">パスワード回復<a class="headerlink" href="#_70" title="Permanent link">&para;</a></h3>
+<p><img alt="パスワードを忘れた" src="../../assets/screenshots/forgot_password.png" /></p>
+<p><em>図29：忘れたパスワードをリセットするためのパスワード回復ページ</em></p>
+<p>パスワードを忘れましたか？簡単な回復プロセス：</p>
+<ol>
+<li>ログインページに移動</li>
+<li><strong>「パスワードをお忘れですか？」</strong>リンクをクリック</li>
+<li><strong>登録されたメールアドレス</strong>を入力</li>
+<li><strong>「続行」</strong>または<strong>「リセットリンクを送信」</strong>をクリック</li>
+<li>メール受信トレイを確認</li>
+</ol>
+<p><img alt="パスワードリセットメール" src="../../assets/screenshots/reset_password_email.png" /></p>
+<p><em>図30：新しいパスワードを作成するための安全なリンク付きのパスワードリセットメール</em></p>
+<ol>
+<li>パスワードリセットリンクをクリック（限られた時間有効）</li>
+<li>要件を満たす新しいパスワードを作成</li>
+<li>新しいパスワードを確認</li>
+<li>新しいパスワードでログイン</li>
+</ol>
+<p><strong>メールを受信しない場合：</strong></p>
+<ul>
+<li>スパム/迷惑メールフォルダを確認</li>
+<li>正しいメールを入力したか確認</li>
+<li>数分待って再試行</li>
+<li>問題が続く場合は管理者に連絡</li>
+</ul>
+<h3 id="_71">言語選択<a class="headerlink" href="#_71" title="Permanent link">&para;</a></h3>
+<p><img alt="言語選択リスト" src="../../assets/screenshots/language_selection_list.png" /></p>
+<p><em>図31：サポートされているすべての言語を表示する言語選択インターフェース</em></p>
+<p>Ministry Mapperは国際会衆向けに複数の言語をサポートしています。</p>
+<p><strong>サポートされている言語：</strong></p>
+<ul>
+<li>🇬🇧 英語（en）</li>
+<li>🇯🇵 日本語（ja / 日本語）</li>
+<li>🇰🇷 韓国語（ko / 한국어）</li>
+<li>🇨🇳 中国語（zh / 中文）</li>
+<li>🇮🇩 インドネシア語（id / Bahasa Indonesia）</li>
+<li>🇲🇾 マレー語（ms / Bahasa Melayu）</li>
+</ul>
+<p><strong>言語の決定方法：</strong></p>
+<ul>
+<li>ブラウザの言語設定から自動検出</li>
+<li>オペレーティングシステムの言語設定を使用</li>
+<li>ほとんどの場合、手動選択は不要</li>
+</ul>
+<p><strong>言語を変更するには：</strong></p>
+<p><img alt="ダーク/ライトテーマ設定" src="../../assets/screenshots/dark_light_theme_settings.png" /></p>
+<p><em>図32：言語設定を含むテーマと外観設定</em></p>
+<p>ブラウザの言語設定を変更（Chrome：設定 → 言語 | Safari：システム環境設定 → 言語と地域 | Firefox：設定 → 一般 → 言語）し、Ministry Mapperを更新します。すべてのインターフェース要素、メッセージ、ヘルプテキストは完全に翻訳されています。</p>
+<h3 id="_72">外観とテーマ設定<a class="headerlink" href="#_72" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapperは好みに合わせてライトとダークの両方のテーマをサポートし、目の疲れを軽減します。</p>
+<p><strong>テーマの変更：</strong></p>
+<p>プロフィールアイコン → テーマ/外観設定 → 選択：
+- <strong>ライトモード</strong>：日中用の明るいインターフェース
+- <strong>ダークモード</strong>：低照度用の明るさを抑えた設定（OLEDでバッテリー節約）
+- <strong>システムデフォルト</strong>：デバイス設定に自動的に一致</p>
+<hr />
+<h2 id="_73">ベストプラクティス<a class="headerlink" href="#_73" title="Permanent link">&para;</a></h2>
+<h3 id="_74">伝道者向け<a class="headerlink" href="#_74" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フェーズ</th>
+<th>ベストプラクティス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>開始前</strong></td>
+<td>マップで区域を確認 • メモ/指示を確認 • 順序を使用してルートを計画 • 「訪問不可」住所をメモ • デバイスが充電されていることを確認</td>
+</tr>
+<tr>
+<td><strong>奉仕中</strong></td>
+<td>各訪問後すぐに更新 • 詳細で敬意あるメモを追加 • 順序番号に従う • ナビゲーションにマップを使用 • 「不在」を正確にマーク</td>
+</tr>
+<tr>
+<td><strong>完了後</strong></td>
+<td>すべての更新を確認 • 最終観察を追加 • 完了したら管理者に通知 • 住所の問題を報告</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_75">司会者向け<a class="headerlink" href="#_75" title="Permanent link">&para;</a></h3>
+<ul>
+<li>区域サイズに基づいて適切なリンク有効期限を設定</li>
+<li>追跡用に伝道者名を含める</li>
+<li>期限切れの割り当てを定期的にクリーンアップ</li>
+<li>区域完了を監視し、期限超過の割り当てをフォローアップ</li>
+<li>明確なメッセージと指示を投稿</li>
+</ul>
+<h3 id="_76">管理者向け<a class="headerlink" href="#_76" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>エリア</th>
+<th>ベストプラクティス</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>区域設定</strong></td>
+<td>一貫した命名 • 短く意味のあるコード • 明確な説明 • マップ位置を確認 • 論理的な順序</td>
+</tr>
+<tr>
+<td><strong>データ管理</strong></td>
+<td>定期的なクリーンアップ • 完了した区域をリセット • 精度を確認 • 外部バックアップ • ユーザーをトレーニング</td>
+</tr>
+<tr>
+<td><strong>ユーザー管理</strong></td>
+<td>適切なロール割り当て • 非アクティブユーザーを削除 • リクエストに迅速に対応 • 明確なコミュニケーション</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_77">一般原則<a class="headerlink" href="#_77" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>事前に計画</strong>：出発前に確認</li>
+<li><strong>体系的に作業</strong>：一度に1つのセクションを完了</li>
+<li><strong>迅速に更新</strong>：情報を記録するのを待たない</li>
+<li><strong>明確にコミュニケーション</strong>：理解しやすく、敬意あるメモを書く</li>
+<li><strong>徹底的に</strong>：すべての住所を粘り強くカバー</li>
+<li><strong>柔軟に</strong>：区域のニーズに適応</li>
+</ul>
+<hr />
+<h2 id="_78">一般的な問題のトラブルシューティング<a class="headerlink" href="#_78" title="Permanent link">&para;</a></h2>
+<h3 id="_79">ログインの問題<a class="headerlink" href="#_79" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>症状</th>
+<th>解決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>間違ったパスワード</strong></td>
+<td>「無効な資格情報」エラー</td>
+<td>メールを確認 • Caps Lockを確認 • 「パスワードを忘れた」を使用 → メールでリセット</td>
+</tr>
+<tr>
+<td><strong>アカウントが未確認</strong></td>
+<td>「メールが未確認」メッセージ</td>
+<td>受信トレイ/スパムで確認メールを確認 • リンクをクリック • 期限切れの場合は新しいリンクをリクエスト</td>
+</tr>
+<tr>
+<td><strong>会衆アクセスがない</strong></td>
+<td>ログインしたが区域が表示されない</td>
+<td>管理者に連絡して招待とロール割り当てを依頼 • アクセス付与後にログアウト/ログイン</td>
+</tr>
+<tr>
+<td><strong>OTPの問題</strong></td>
+<td>OTPコードを受信しない/無効</td>
+<td>スパムを確認 • コードは5〜10分で期限切れ • 新しいコードをリクエスト • メールアドレスを確認</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_80">データ更新の問題<a class="headerlink" href="#_80" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>症状</th>
+<th>解決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>変更が保存されない</strong></td>
+<td>保存が持続しない、更新後に消える</td>
+<td>インターネット接続を確認 • ページを更新（Ctrl/Cmd + R） • ブラウザキャッシュをクリア • 別のブラウザを試す • 同時編集を確認</td>
+</tr>
+<tr>
+<td><strong>リアルタイム更新が表示されない</strong></td>
+<td>他のユーザーの変更が表示されない</td>
+<td>アクティブなインターネットを確保 • ページを開いたままにする • 更新を強制して再読み込み • 接続ステータスを確認</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_81">マップとナビゲーションの問題<a class="headerlink" href="#_81" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>症状</th>
+<th>解決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>マップが読み込まれない</strong></td>
+<td>灰色のボックス、エラー、フリーズしたマップ</td>
+<td>ページを更新（F5） • 10〜15秒待つ • インターネット速度を確認 • キャッシュをクリア • 別のブラウザを試す • JavaScriptを有効化</td>
+</tr>
+<tr>
+<td><strong>間違った位置</strong></td>
+<td>マーカーが誤配置</td>
+<td>管理者：ジオロケーションを更新 • 郵便番号を確認 • 「ジオロケーションを更新」を使用 • 必要に応じて緯度/経度を使用</td>
+</tr>
+<tr>
+<td><strong>道順が機能しない</strong></td>
+<td>ナビゲーションの問題</td>
+<td>会衆の原点位置を確認 • 住所に有効な座標があることを確認</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_82">割り当てリンクの問題<a class="headerlink" href="#_82" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>症状</th>
+<th>解決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>リンク期限切れ</strong></td>
+<td>「リンクが期限切れです」、404エラー</td>
+<td>新しいリンクを管理者/司会者に連絡（リンクは設定された時間後に期限切れ、通常24時間 - これはセキュリティ機能）</td>
+</tr>
+<tr>
+<td><strong>リンクが機能しない</strong></td>
+<td>開かない、エラーメッセージ</td>
+<td>リンク全体がコピーされていることを確認（改行を確認） • ブラウザにコピー＆ペースト（入力しない） • 期限切れでないことを確認 • 管理者に連絡</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_83">権限とアクセスの問題<a class="headerlink" href="#_83" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>症状</th>
+<th>解決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>権限が拒否された</strong></td>
+<td>「権限が不十分」、グレーアウトされた機能</td>
+<td>管理者にロールを確認 • ログアウト、キャッシュをクリア、再ログイン • 必要に応じてロールアップグレードをリクエスト</td>
+</tr>
+<tr>
+<td><strong>間違った会衆データ</strong></td>
+<td>見慣れない区域/データ</td>
+<td>正しいアカウントを確認 • 会衆セレクターを確認 • ログアウト/ログイン • 管理者に連絡</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_84">パフォーマンスの問題<a class="headerlink" href="#_84" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>症状</th>
+<th>解決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>読み込みが遅い</strong></td>
+<td>長い読み込み時間、遅延</td>
+<td>インターネット速度を確認 • 不要なタブを閉じる • キャッシュをクリア • ブラウザを再起動 • 別の時間を試す • 持続する場合は報告</td>
+</tr>
+<tr>
+<td><strong>クラッシュ/フリーズ</strong></td>
+<td>アプリが応答しなくなる</td>
+<td>ページを更新 • キャッシュ/Cookieをクリア • ブラウザを更新 • 別のブラウザを試す • デバイスを再起動 • メモリを確認</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_85">ブラウザ互換性<a class="headerlink" href="#_85" title="Permanent link">&para;</a></h3>
+<h4 id="_86">ブラウザ互換性<a class="headerlink" href="#_86" title="Permanent link">&para;</a></h4>
+<p><strong>サポート：</strong> Chrome、Firefox、Safari、Edge（最新バージョン） • iOS Safari（iOS 13以上） • Android Chrome</p>
+<p><strong>非サポート：</strong> Internet Explorer、古いブラウザ</p>
+<p><strong>問題がある場合：</strong> ブラウザを更新 • JavaScriptを有効化 • Cookieを許可 • 厳格なトラッキング防止を無効化 • 別のブラウザを試す</p>
+<hr />
+<h2 id="_87">ヘルプとサポートの取得<a class="headerlink" href="#_87" title="Permanent link">&para;</a></h2>
+<h3 id="_88">サポートチャンネル<a class="headerlink" href="#_88" title="Permanent link">&para;</a></h3>
+<p><strong>1. 会衆管理者</strong></p>
+<ul>
+<li>ほとんどの問題に対する<strong>最初の連絡先</strong></li>
+<li>以下について支援可能：</li>
+<li>アカウントアクセスとロール</li>
+<li>区域に関する質問</li>
+<li>割り当てリンク</li>
+<li>ローカル設定</li>
+</ul>
+<p><strong>2. 公式ドキュメント</strong></p>
+<ul>
+<li><strong>GitHub Wiki</strong>：https://github.com/rimorin/ministry-mapper/wiki</li>
+<li>すべてのロールの包括的なガイド</li>
+<li>セットアップとセキュリティのドキュメント</li>
+<li>FAQと一般的な解決策</li>
+</ul>
+<p><strong>3. 技術的な問題</strong></p>
+<ul>
+<li><strong>GitHub Issues</strong>：https://github.com/rimorin/ministry-mapper/issues</li>
+<li>バグと技術的な問題を報告</li>
+<li>最初に既存のイシューを確認</li>
+<li>類似の問題を検索</li>
+</ul>
+<h3 id="_89">効果的な問題報告<a class="headerlink" href="#_89" title="Permanent link">&para;</a></h3>
+<p><strong>レポートに含めるべきもの：</strong>
+- 何をしようとしていたか
+- 代わりに何が起こったか（エラーメッセージ、スクリーンショット）
+- 問題を再現する手順
+- ブラウザとバージョン
+- デバイスとOS
+- アカウントタイプ（伝道者/司会者/管理者）</p>
+<p><strong>良いレポートの例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>問題：住所ステータスの更新を保存できない
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>手順：リンクを開く → #05-123をクリック → 「完了」に変更 → 保存をクリック → エラー：「更新に失敗しました」
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ブラウザ：Chrome 120 | デバイス：iPhone 12、iOS 17 | アカウント：伝道者リンク
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>スクリーンショット：[添付]
+</code></pre></div></p>
+<h3 id="_90">緊急連絡<a class="headerlink" href="#_90" title="Permanent link">&para;</a></h3>
+<p>緊急の問題の場合：</p>
+<ul>
+<li>会衆管理者に直接連絡</li>
+<li>電話番号/メールを用意</li>
+<li>緊急性を明確に説明</li>
+<li>関連する詳細を準備</li>
+</ul>
+<hr />
+<hr />
+<h2 id="_91">クイックリファレンス<a class="headerlink" href="#_91" title="Permanent link">&para;</a></h2>
+<h3 id="_92">キーボードショートカット<a class="headerlink" href="#_92" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapperは標準的なブラウザショートカットを使用します：</p>
+<table>
+<thead>
+<tr>
+<th>ショートカット</th>
+<th>アクション</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Escape</code></td>
+<td>開いているモーダル/ダイアログを閉じる</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>フォームフィールド間を移動</td>
+</tr>
+<tr>
+<td><code>Enter</code></td>
+<td>フォームを送信またはアクションを確認</td>
+</tr>
+<tr>
+<td><code>Ctrl/Cmd + R</code></td>
+<td>ページを更新</td>
+</tr>
+<tr>
+<td>標準編集</td>
+<td>コピー、ペースト、すべて選択がテキストフィールドで機能</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_93">ステータスクイックリファレンス<a class="headerlink" href="#_93" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ステータス</th>
+<th>シンボル</th>
+<th>使用するタイミング</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>未完了</strong></td>
+<td>⚪</td>
+<td>まだ訪問していない住所（デフォルト）</td>
+</tr>
+<tr>
+<td><strong>完了</strong></td>
+<td>✅</td>
+<td>世帯主と正常に連絡がとれた</td>
+</tr>
+<tr>
+<td><strong>不在</strong></td>
+<td>🏠</td>
+<td>ドアに誰も応答しなかった</td>
+</tr>
+<tr>
+<td><strong>訪問不可</strong></td>
+<td>🚫</td>
+<td>世帯主が訪問を拒否</td>
+</tr>
+<tr>
+<td><strong>無効</strong></td>
+<td>❌</td>
+<td>住所が存在しないかアクセス不可</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_94">ロール機能クイックリファレンス<a class="headerlink" href="#_94" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>機能</th>
+<th style="text-align: center;">伝道者</th>
+<th style="text-align: center;">読み取り専用</th>
+<th style="text-align: center;">司会者</th>
+<th style="text-align: center;">管理者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>割り当てリンク経由で表示</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>すべての区域を表示</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>住所ステータスを更新</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>割り当てを作成</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>メッセージを投稿</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>区域を管理</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>ユーザーを管理</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>設定を構成</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_95">プライバシーとセキュリティ<a class="headerlink" href="#_95" title="Permanent link">&para;</a></h2>
+<h3 id="_96">情報の保護<a class="headerlink" href="#_96" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapperはセンシティブな住所と個人情報を扱います。以下のガイドラインを遵守してください：</p>
+<p><strong>アカウントセキュリティ：</strong></p>
+<ul>
+<li>✓ <strong>ログイン資格情報を誰とも共有しない</strong></li>
+<li>✓ <strong>強力でユニークなパスワードを使用</strong>（最小6文字、数字と大文字を含む）</li>
+<li>✓ <strong>共有デバイスでは常にログアウト</strong></li>
+<li>✓ <strong>利用可能な場合はOTPを有効化</strong>して追加のセキュリティ</li>
+<li>✓ <strong>不審なアクティビティを直ちに報告</strong></li>
+</ul>
+<p><strong>データプライバシー：</strong></p>
+<ul>
+<li>✓ メモには<strong>必要な情報のみを記録</strong></li>
+<li>✓ すべての説明で<strong>敬意を持ち事実に基づく</strong></li>
+<li>✓ <strong>センシティブな個人データなし</strong>（医療、財務など）</li>
+<li>✓ プライバシーに関する<strong>世帯主のリクエストに従う</strong></li>
+<li>✓ <strong>プライバシー法を遵守</strong>（GDPR、CCPA、地域の規制）</li>
+</ul>
+<p><strong>法的コンプライアンス：</strong></p>
+<ul>
+<li>⚠️ <strong>GDPR（ヨーロッパ）</strong>：個人データ保護要件</li>
+<li>⚠️ <strong>CCPA（カリフォルニア）</strong>：消費者プライバシー権</li>
+<li>⚠️ <strong>LGPD（ブラジル）</strong>：データ保護規制</li>
+<li>⚠️ <strong>地域の法律</strong>：地域の要件を確認</li>
+</ul>
+<h3 id="_97">保存される情報<a class="headerlink" href="#_97" title="Permanent link">&para;</a></h3>
+<p><strong>ユーザーデータ：</strong></p>
+<ul>
+<li>アカウント詳細（名前、メール、確認ステータス）</li>
+<li>会衆ロール割り当て</li>
+<li>作成/アクセスした割り当てリンク</li>
+<li>アクティビティタイムスタンプ</li>
+</ul>
+<p><strong>区域データ：</strong></p>
+<ul>
+<li>住所とユニット情報</li>
+<li>ステータス更新と履歴</li>
+<li>メモと訪問情報</li>
+<li>ジオロケーション座標</li>
+<li>進捗追跡</li>
+</ul>
+<p><strong>システムデータ：</strong></p>
+<ul>
+<li>ログインセッション</li>
+<li>リアルタイムサブスクリプション</li>
+<li>メッセージ履歴</li>
+<li>設定設定</li>
+</ul>
+<h3 id="_98">データストレージとセキュリティ<a class="headerlink" href="#_98" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>コンポーネント</th>
+<th>詳細</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>バックエンド</strong></td>
+<td>管理者によって管理されるPocketBaseデータベース • 会衆によって決定されるホスティング場所 • ロールベースのアクセス制御</td>
+</tr>
+<tr>
+<td><strong>リアルタイム同期</strong></td>
+<td>PocketBaseサブスクリプション • 暗号化されたHTTPS接続 • 自動再接続 • セッション管理</td>
+</tr>
+<tr>
+<td><strong>クライアントサイド</strong></td>
+<td>サービスワーカーは静的アセットのみをキャッシュ • センシティブなデータはローカルに保存されない • 新しいバージョンで自動更新</td>
+</tr>
+<tr>
+<td><strong>管理者の責任</strong></td>
+<td>バックアップ手順を実装 • セキュリティ監査を実施 • バックエンドを最新に保つ • アクセスログを監視</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_99">まとめ<a class="headerlink" href="#_99" title="Permanent link">&para;</a></h2>
+<p>会衆の野外奉仕活動をサポートするためにMinistry Mapperをご利用いただきありがとうございます。このモダンなウェブベースのソリューションは、区域管理に効率性、コラボレーション、環境への利点をもたらします。</p>
+<h3 id="_100">重要なポイント<a class="headerlink" href="#_100" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ロール</th>
+<th>主な責任</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>伝道者</strong></td>
+<td>リンク経由でアクセス • 訪問後すぐに更新 • 敬意あるメモを書く • 順序に従う</td>
+</tr>
+<tr>
+<td><strong>司会者</strong></td>
+<td>割り当てを作成 • 進捗を監視 • メッセージを投稿 • 活動を調整</td>
+</tr>
+<tr>
+<td><strong>管理者</strong></td>
+<td>設定を構成 • 区域を管理 • ロールを割り当て • セキュリティを確保</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_101">システム機能<a class="headerlink" href="#_101" title="Permanent link">&para;</a></h3>
+<p><strong>テクノロジースタック：</strong></p>
+<ul>
+<li>✓ React 19 + TypeScriptフロントエンド</li>
+<li>✓ データ管理用のPocketBaseバックエンド</li>
+<li>✓ ナビゲーション用のLeafletとOpenStreetMap</li>
+<li>✓ リアルタイム同期</li>
+<li>✓ モバイルレスポンシブPWA</li>
+<li>✓ 多言語サポート</li>
+<li>✓ ロールベースのアクセス制御</li>
+<li>✓ Sentryエラー監視</li>
+</ul>
+<p><strong>利点：</strong></p>
+<ul>
+<li>🌱 <strong>エコフレンドリー</strong>：紙の無駄を排除</li>
+<li>⚡ <strong>リアルタイム</strong>：すべてのデバイスで即座に更新</li>
+<li>📱 <strong>モバイルファースト</strong>：インターネットに接続された任意のデバイスで動作</li>
+<li>🗺️ <strong>統合マップ</strong>：簡単なナビゲーションのためのインタラクティブマッピング</li>
+<li>🔒 <strong>安全</strong>：ロールベースの権限とOTPサポート</li>
+<li>🌍 <strong>多言語</strong>：7言語以上のサポート</li>
+<li>💾 <strong>信頼性</strong>：リアルタイム同期付きのPocketBaseバックエンド</li>
+</ul>
+<hr />
+<p><strong>バージョン</strong>：デプロイメントのバージョンを参照
+<strong>最終更新</strong>：2024</p>
+<p>技術サポートについては、会衆管理者に連絡するか、GitHub Wikiをご覧ください。</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

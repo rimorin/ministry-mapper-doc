@@ -1,0 +1,3069 @@
+
+<!doctype html>
+<html lang="ta" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ta/architecture/">
+      
+      
+        <link rel="prev" href="../user-guide/">
+      
+      
+        <link rel="next" href="../data-models/">
+      
+      
+        
+          <link rel="alternate" href="../../architecture/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/architecture/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/architecture/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/architecture/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/architecture/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/architecture/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/architecture/" hreflang="es">
+        
+          <link rel="alternate" href="./" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Architecture Overview - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          உள்ளடக்கத்திற்கு செல்க
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="தலைப்பு">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="மொழியைத் தேர்ந்தெடுக்கவும்">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../architecture/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/architecture/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/architecture/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/architecture/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/architecture/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/architecture/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/architecture/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="தேடு" placeholder="தேடு" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="தேடு">
+        
+        <button type="reset" class="md-search__icon md-icon" title="அழிக்கவும்" aria-label="அழிக்கவும்" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            தேடலைத் துவக்குகிறது
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="தாவல்கள்" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="வழிசெலுத்தல்" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="உள்ளடக்க அட்டவணை">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      உள்ளடக்க அட்டவணை
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கணினி கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="கணினி கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உயர்-நிலை கட்டமைப்பு வரைபடம்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொழில்நுட்ப அடுக்கு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தொழில்நுட்ப அடுக்கு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பின்தள அடுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முன்தள அடுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        வெளிப்புற ஒருங்கிணைப்புகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="வெளிப்புற ஒருங்கிணைப்புகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        மூன்றாம் தரப்பு சேவைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவு கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தரவு கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிறுவன உறவு மாதிரி
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கிய தொகுப்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முன்தள கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="முன்தள கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கூறு ஒழுங்கமைப்பு முறை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிலை நிர்வாக உத்தி
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவு ஓட்ட முறை
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கிய வடிவமைப்பு முறைகள்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பாதுகாப்பு கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பாதுகாப்பு கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அங்கீகார முறைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அங்கீகார மாதிரி
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அணுகல் கட்டுப்பாட்டு முறைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிகழ்-நேர ஒத்திசைவு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="நிகழ்-நேர ஒத்திசைவு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSE கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சந்தா முறை
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பின்னணி வேலைகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பின்னணி வேலைகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        திட்டமிடப்பட்ட பணிகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அம்சக் கொடி கட்டுப்பாடு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aillm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI/LLM ஒருங்கிணைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முன்தள உகப்பாக்கங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பின்தள உகப்பாக்கங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கட்டமைப்பு வரிசைப்படுத்தல்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="கட்டமைப்பு வரிசைப்படுத்தல்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker கொள்கலன் மயமாக்கல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்கட்டமைப்பு விருப்பங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கண்காணிப்பு &amp; கவனிக்கும் திறன்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="கண்காணிப்பு &amp; கவனிக்கும் திறன்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பிழை கண்காணிப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பதிவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அளவிடல் கருத்தாய்வுகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="அளவிடல் கருத்தாய்வுகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தற்போதைய வரம்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        எதிர்கால அளவிடல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொழில்நுட்ப முடிவுகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தொழில்நுட்ப முடிவுகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ஏன் இந்த தொழில்நுட்பங்கள்?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அடுத்த படிகள்
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="உள்ளடக்க அட்டவணை">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      உள்ளடக்க அட்டவணை
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கணினி கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="கணினி கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உயர்-நிலை கட்டமைப்பு வரைபடம்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொழில்நுட்ப அடுக்கு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தொழில்நுட்ப அடுக்கு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பின்தள அடுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முன்தள அடுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        வெளிப்புற ஒருங்கிணைப்புகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="வெளிப்புற ஒருங்கிணைப்புகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        மூன்றாம் தரப்பு சேவைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவு கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தரவு கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிறுவன உறவு மாதிரி
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கிய தொகுப்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முன்தள கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="முன்தள கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கூறு ஒழுங்கமைப்பு முறை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிலை நிர்வாக உத்தி
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தரவு ஓட்ட முறை
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கிய வடிவமைப்பு முறைகள்
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பாதுகாப்பு கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பாதுகாப்பு கட்டமைப்பு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அங்கீகார முறைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அங்கீகார மாதிரி
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அணுகல் கட்டுப்பாட்டு முறைகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிகழ்-நேர ஒத்திசைவு
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="நிகழ்-நேர ஒத்திசைவு">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSE கட்டமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சந்தா முறை
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பின்னணி வேலைகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="பின்னணி வேலைகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        திட்டமிடப்பட்ட பணிகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அம்சக் கொடி கட்டுப்பாடு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aillm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI/LLM ஒருங்கிணைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முன்தள உகப்பாக்கங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பின்தள உகப்பாக்கங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கட்டமைப்பு வரிசைப்படுத்தல்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="கட்டமைப்பு வரிசைப்படுத்தல்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker கொள்கலன் மயமாக்கல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உள்கட்டமைப்பு விருப்பங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கண்காணிப்பு &amp; கவனிக்கும் திறன்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="கண்காணிப்பு &amp; கவனிக்கும் திறன்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பிழை கண்காணிப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பதிவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அளவிடல் கருத்தாய்வுகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="அளவிடல் கருத்தாய்வுகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தற்போதைய வரம்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        எதிர்கால அளவிடல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொழில்நுட்ப முடிவுகள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தொழில்நுட்ப முடிவுகள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ஏன் இந்த தொழில்நுட்பங்கள்?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        அடுத்த படிகள்
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">கட்டமைப்பு மேலோட்டம்<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">கணினி கட்டமைப்பு<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper இரண்டு முக்கிய கூறுகளை ஒன்றிணைத்து செயல்படுகிறது:</p>
+<h3 id="-">உயர்-நிலை கட்டமைப்பு வரைபடம்<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌──────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                     Client Applications                           │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│         (Web UI, Mobile Apps, Third-party Integrations)          │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└──────────────────────────────┬───────────────────────────────────┘
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                               │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                    HTTP REST API (Port 8080)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                               │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>┌──────────────────────────────▼───────────────────────────────────┐
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│                    PocketBase Application                         │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├──────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│                                                                   │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  │ API Layer (internal/handlers/)                              │ │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  │ - Map Management (9 endpoints)                              │ │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  │ - Territory Management (2 endpoints)                        │ │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  │ - Configuration (1 endpoint)                                │ │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│                                                                   │
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│  │ Middleware Layer                                            │ │
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│  │ - Authentication &amp; Authorization                            │ │
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│  │ - Error Capture (Sentry)                                    │ │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>│  │ - Request Logging                                           │ │
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│                                                                   │
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>│  │ Background Jobs (internal/jobs/)                            │ │
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>│  │ - Scheduled tasks (cron-based)                             │ │
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>│  │ - Feature flag control (LaunchDarkly)                      │ │
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>│                                                                   │
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>│  │ Built-in Services                                           │ │
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>│  │ - Authentication (Email/Password, OAuth2, OTP, MFA)        │ │
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>│  │ - Real-time Events (SSE)                                   │ │
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>│  │ - Admin Dashboard                                          │ │
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>│                                                                   │
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>└────────────┬──────────────────────┬────────────────┬──────────────┘
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>             │                      │                │
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>             │                      │                │
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    ┌────────▼──────┐      ┌────────▼──────┐  ┌─────▼────────┐
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    │   SQLite       │      │  Sentry       │  │MailerSend    │
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    │   Database     │      │  (Error Track)│  │(Email)       │
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    │   (/app/pb_data)│      │               │  │              │
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    └────────────────┘      └────────────────┘  └──────────────┘
+</code></pre></div>
+<h2 id="_3">தொழில்நுட்ப அடுக்கு<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">பின்தள அடுக்கு<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>அடுக்கு</th>
+<th>தொழில்நுட்பம்</th>
+<th>பதிப்பு</th>
+<th>நோக்கம்</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Language</strong></td>
+<td>Go</td>
+<td>1.25.0</td>
+<td>உயர்-செயல்திறன் பின்தளம்</td>
+</tr>
+<tr>
+<td><strong>Backend Framework</strong></td>
+<td>PocketBase</td>
+<td>0.36.9</td>
+<td>SQLite உடன் BaaS</td>
+</tr>
+<tr>
+<td><strong>Database</strong></td>
+<td>SQLite</td>
+<td>v1.40.2+</td>
+<td>சுயேச்சையான தரவுத்தளம்</td>
+</tr>
+<tr>
+<td><strong>Web Framework</strong></td>
+<td>Echo</td>
+<td>v5</td>
+<td>HTTP வழிசெலுத்தல்</td>
+</tr>
+<tr>
+<td><strong>Container</strong></td>
+<td>Docker</td>
+<td>Latest</td>
+<td>கொள்கலன் மயமாக்கல்</td>
+</tr>
+<tr>
+<td><strong>Error Tracking</strong></td>
+<td>Sentry</td>
+<td>v0.43.0</td>
+<td>பிழை கண்காணிப்பு</td>
+</tr>
+<tr>
+<td><strong>Email Service</strong></td>
+<td>MailerSend</td>
+<td>v1.6.3</td>
+<td>மின்னஞ்சல் API</td>
+</tr>
+<tr>
+<td><strong>Feature Flags</strong></td>
+<td>LaunchDarkly</td>
+<td>v7.14.6</td>
+<td>அம்சம் நிர்வாகம்</td>
+</tr>
+<tr>
+<td><strong>Report Generation</strong></td>
+<td>Excelize</td>
+<td>v2.10.1</td>
+<td>Excel அறிக்கைகள்</td>
+</tr>
+<tr>
+<td><strong>AI Summaries</strong></td>
+<td>OpenAI GPT</td>
+<td>v3.29.0</td>
+<td>அறிவார்ந்த அறிக்கை மற்றும் செய்தி சுருக்கங்கள்</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">முன்தள அடுக்கு<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>அடுக்கு</th>
+<th>தொழில்நுட்பம்</th>
+<th>பதிப்பு</th>
+<th>நோக்கம்</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Runtime</strong></td>
+<td>Node.js</td>
+<td>&gt;=24.0.0</td>
+<td>JavaScript இயக்கி (dev கருவிச்சங்கிலி)</td>
+</tr>
+<tr>
+<td><strong>Framework</strong></td>
+<td>React</td>
+<td>19.2.4</td>
+<td>UI நூலகம்</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td>TypeScript</td>
+<td>5.9.3</td>
+<td>வகை பாதுகாப்பு</td>
+</tr>
+<tr>
+<td><strong>Build Tool</strong></td>
+<td>Vite</td>
+<td>8.0.2</td>
+<td>விரைவான dev &amp; கட்டமைப்பு</td>
+</tr>
+<tr>
+<td><strong>Routing</strong></td>
+<td>Wouter</td>
+<td>3.9.0</td>
+<td>இலகுரக வழிசெலுத்தல்</td>
+</tr>
+<tr>
+<td><strong>State Management</strong></td>
+<td>Context API</td>
+<td>-</td>
+<td>உலகளாவிய நிலை</td>
+</tr>
+<tr>
+<td><strong>UI Framework</strong></td>
+<td>Bootstrap</td>
+<td>5.3.8</td>
+<td>CSS கட்டமைப்பு</td>
+</tr>
+<tr>
+<td><strong>Mapping</strong></td>
+<td>Leaflet</td>
+<td>1.9.4</td>
+<td>தொடர்புடைய வரைபடங்கள்</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Vitest</td>
+<td>4.1.1</td>
+<td>அலகு சோதனை</td>
+</tr>
+<tr>
+<td><strong>Code Quality</strong></td>
+<td>ESLint + Prettier</td>
+<td>Latest</td>
+<td>Linting &amp; வடிவமைப்பு</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">வெளிப்புற ஒருங்கிணைப்புகள்<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">மூன்றாம் தரப்பு சேவைகள்<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>சேவை</th>
+<th>நோக்கம்</th>
+<th>குறிப்புகள்</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LaunchDarkly</strong></td>
+<td>அம்சக் கொடிகள் மற்றும் கட்டுப்படுத்தப்பட்ட வெளியீடுகள்</td>
+<td>அனைத்து 9 பின்னணி வேலைகளையும் கட்டுப்படுத்துகிறது; கட்டமைப்பு இல்லாமல் கொடி மாறுதல்</td>
+</tr>
+<tr>
+<td><strong>OpenAI (gpt-5.4-mini)</strong></td>
+<td>AI-உருவாக்கப்பட்ட அறிக்கை சுருக்கங்கள்</td>
+<td>விருப்பமானது; உண்மையான வெளியீட்டிற்கு temperature 0.3; அம்சக் கொடியால் கட்டுப்படுத்தப்பட்டது</td>
+</tr>
+<tr>
+<td><strong>MailerSend</strong></td>
+<td>பரிவர்த்தனை மின்னஞ்சல் வழங்கல்</td>
+<td>அறிக்கைகள் மற்றும் வாழ்க்கைச் சுழற்சி அறிவிப்பு மின்னஞ்சல்களுக்கு பயன்படுத்தப்படுகிறது; 3-முயற்சி மீண்டும் முயற்சி</td>
+</tr>
+<tr>
+<td><strong>Umami</strong></td>
+<td>தனியுரிமை-நட்பு பகுப்பாய்வு</td>
+<td>விருப்பமானது; 13 தனிப்பயன் நிகழ்வு வகைகள் கண்காணிக்கப்படுகின்றன</td>
+</tr>
+<tr>
+<td><strong>OpenRouteService</strong></td>
+<td>வழிசெலுத்தல்/திசைகள் API</td>
+<td>வாகனம், நடைபாதை மற்றும் சைக்கிள் வழிகள்</td>
+</tr>
+<tr>
+<td><strong>LocationIQ</strong></td>
+<td>புவியியல் குறியீடு API</td>
+<td>முகவரி ஆய கண்டுபிடிப்பு</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">தரவு கட்டமைப்பு<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">நிறுவன உறவு மாதிரி<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>கணினி சபை-அளவிலான தனிமைப்படுத்தலுடன் படிநிலையாக தரவை ஒழுங்கமைக்கிறது:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Congregation (Organization boundary)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ├── Territory (Geographic region)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    │   ├── Map (Building/Location)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    │   │   └── Address (Individual unit)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    │   └── Option (Address type classification)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    ├── User (System user)
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    │   └── Role (Permission assignment)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    ├── Assignment (Publisher access)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    └── Message (Notification)
+</code></pre></div>
+<h3 id="_10">முக்கிய தொகுப்புகள்<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>1. Congregations</strong> - நிறுவன அமைப்புகள் மற்றும் எல்லைகள்
+- பல-குத்தகை தனிமைப்படுத்தலை கட்டுப்படுத்துகிறது
+- பணிப்பு கால அளவு மற்றும் மீண்டும் முயற்சி வரம்புகளை வரையறுக்கிறது
+- பிராந்திய அமைப்புகள் (நேர மண்டலம், நாடு)</p>
+<p><strong>2. Territories</strong> - புவியியல் பிரிவுகள்
+- பல வரைபடங்களை உள்ளடக்கியது
+- ஒருங்கிணைந்த நிறைவு சதவீதத்தை கண்காணிக்கிறது
+- வயல் சேவை பகுதிகளை ஒழுங்கமைக்கிறது</p>
+<p><strong>3. Maps</strong> - குறிப்பிட்ட இடங்கள் (கட்டிடங்கள்)
+- தனி அல்லது பல-தள கட்டமைப்புகள்
+- புவியியல் ஆயங்கள்
+- முன்னேற்ற கண்காணிப்பு மற்றும் புள்ளிவிவரங்கள்</p>
+<p><strong>4. Addresses</strong> - தனிப்பட்ட அலகுகள்/வீடுகள்
+- நிலை கண்காணிப்பு (முடிக்கப்படவில்லை, முடிந்தது, வீட்டில் இல்லை, DNC)
+- வருகை குறிப்புகள் மற்றும் வரலாறு
+- தள மற்றும் அலகு தகவல்</p>
+<p><strong>5. Users</strong> - கணினி கணக்குகள்
+- மின்னஞ்சல்/கடவுச்சொல் அல்லது OAuth2 அங்கீகாரம்
+- பல-காரணி அங்கீகார ஆதரவு
+- சபை-குறிப்பிட்ட பாத்திரங்கள்</p>
+<p><strong>6. Roles</strong> - அனுமதி ஒதுக்கீடுகள்
+- மூன்று நிலைகள்: read_only, conductor, administrator
+- சபை-குறிப்பிட்ட அனுமதிகள்
+- பாத்திர-அடிப்படையிலான அணுகல் கட்டுப்பாடு</p>
+<p><strong>7. Assignments</strong> - வெளியீட்டாளர் அணுகல் டோக்கன்கள்
+- நேர-வரையறுக்கப்பட்ட அணுகல் இணைப்புகள்
+- அநாமதேய வயல் தொழிலாளர் அணுகல்
+- தானியங்கி காலாவதி</p>
+<p><strong>8. Options</strong> - முகவரி வகைப்படுத்தல்கள்
+- சபைக்கு ஏற்ப தனிப்பயனாக்கக்கூடியது
+- எண்ணக்கூடிய மற்றும் எண்ண முடியாத வகைகள்
+- முன்னேற்ற கணக்கீடுகளை பாதிக்கிறது</p>
+<p><strong>9. Messages</strong> - தகவல்தொடர்புகள்
+- வெளியீட்டாளர் கருத்துக்கள்
+- நிர்வாகி அறிவுறுத்தல்கள்
+- மின்னஞ்சல் அறிவிப்புகள்</p>
+<h2 id="_11">முன்தள கட்டமைப்பு<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="_12">கூறு ஒழுங்கமைப்பு முறை<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper <strong>அம்சம்-அடிப்படையிலான கூறு ஒழுங்கமைப்பை</strong> பயன்படுத்துகிறது:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Pages (Routes)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  ├── Admin Dashboard (/)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  ├── Publisher Map (/map/:id)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  ├── User Management (/usermgmt)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  └── Front Page (/)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Components (Reusable UI)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  ├── Form Components (14 components)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  ├── Modal Components (24+ modals)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  ├── Navigation Components (28 components)
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  ├── Table Components (9 components)
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  ├── Map Components (7 components)
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  ├── Middleware/Providers (5 components)
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  └── Static Pages (8 components)
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>Business Logic (Custom Hooks)
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  ├── useTerritoryManagement
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>  ├── useMapManagement
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>  ├── useCongManagement
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>  ├── useModalManagement
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>  ├── useRealtimeSubscription
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>  └── [4 more...]
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>Utilities &amp; Types
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>  ├── TypeScript Interfaces
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>  ├── Constants
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>  ├── Helper Functions (30+)
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>  ├── PocketBase Integration
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>  ├── Authorization Policies
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>  └── i18n Configuration
+</code></pre></div>
+<h3 id="_13">நிலை நிர்வாக உத்தி<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p><strong>நான்கு-அடுக்கு அணுகுமுறை:</strong></p>
+<ol>
+<li><strong>Global Context</strong> - கருப்பொருள், மொழி, பயன்பாட்டு முறை</li>
+<li><strong>Custom Hooks</strong> - டொமைன்-குறிப்பிட்ட தர்க்கம் மற்றும் தரவு</li>
+<li><strong>Local Component State</strong> - UI மாற்றிகள் மற்றும் படிவங்கள்</li>
+<li><strong>Persistent State</strong> - விருப்பத்தேர்வுகளுக்கு LocalStorage</li>
+</ol>
+<p><strong>நன்மைகள்:</strong>
+- Redux மேல்பட்டை இல்லை
+- எளிமையான தரவு ஓட்டம்
+- சிறந்த குறியீடு பிரித்தல்
+- எளிதான சோதனை</p>
+<h3 id="_14">தரவு ஓட்ட முறை<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>User Action
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    ↓
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Component Event Handler
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    ↓
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Custom Hook (validation, state management)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ↓
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>PocketBase Utils (CRUD operations)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    ↓
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>PocketBase Backend (permissions, database)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    ↓
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Real-time Subscription (SSE)
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    ↓
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>UI Auto-updates
+</code></pre></div>
+<h2 id="_15">முக்கிய வடிவமைப்பு முறைகள்<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>முறை</th>
+<th>பயன்பாடு</th>
+<th>நோக்கம்</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Middleware Wrapper</strong></td>
+<td>Sentry ஒருங்கிணைப்பு</td>
+<td>மையப்படுத்தப்பட்ட பிழை கண்காணிப்பு</td>
+</tr>
+<tr>
+<td><strong>Event Hooks</strong></td>
+<td>PocketBase வாழ்க்கைச் சுழற்சி</td>
+<td>தானியங்கி புதுப்பிப்புகள்</td>
+</tr>
+<tr>
+<td><strong>Job Scheduler</strong></td>
+<td>அம்சக் கொடிகளுடன் Cron</td>
+<td>திட்டமிடப்பட்ட செயல்பாடுகள்</td>
+</tr>
+<tr>
+<td><strong>Transaction Pattern</strong></td>
+<td>தரவுத்தள செயல்பாடுகள்</td>
+<td>தரவு நிலைத்தன்மை</td>
+</tr>
+<tr>
+<td><strong>Link-Based Access</strong></td>
+<td>Assignment டோக்கன்கள்</td>
+<td>அநாமதேய அணுகல்</td>
+</tr>
+<tr>
+<td><strong>Aggregate Caching</strong></td>
+<td>தொகுத்த cron (10 நிமிடம் / 11 நிமிடம் lookback)</td>
+<td>முன்-கணக்கிடப்பட்ட பகுதி முன்னேற்ற புள்ளிவிவரங்கள்</td>
+</tr>
+<tr>
+<td><strong>Custom Hooks</strong></td>
+<td>வணிக தர்க்கம்</td>
+<td>மீண்டும் பயன்படுத்தக்கூடிய தர்க்கம்</td>
+</tr>
+<tr>
+<td><strong>Provider Pattern</strong></td>
+<td>Context வழங்குநர்கள்</td>
+<td>உலகளாவிய நிலை</td>
+</tr>
+<tr>
+<td><strong>Lazy Loading</strong></td>
+<td>Route பிரித்தல்</td>
+<td>செயல்திறன்</td>
+</tr>
+<tr>
+<td><strong>Policy Pattern</strong></td>
+<td>அங்கீகாரம்</td>
+<td>பாதுகாப்பு விதிகள்</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_16">பாதுகாப்பு கட்டமைப்பு<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="_17">அங்கீகார முறைகள்<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Email/Password</strong> - bcrypt hashing உடன் நிலையான அங்கீகாரம்</li>
+<li><strong>OAuth2 (Google)</strong> - PKCE flow உடன் சமூக உள்நுழைவு</li>
+<li><strong>One-Time Password (OTP)</strong> - கூடுதல் பாதுகாப்பு அடுக்கு</li>
+<li><strong>Multi-Factor Authentication (MFA)</strong> - நிர்வாகிகளுக்கு மேம்பட்ட பாதுகாப்பு</li>
+</ol>
+<h3 id="_18">அங்கீகார மாதிரி<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><strong>பாத்திர-அடிப்படையிலான அணுகல் கட்டுப்பாடு (RBAC):</strong></p>
+<table>
+<thead>
+<tr>
+<th>பாத்திரம்</th>
+<th>அனுமதிகள்</th>
+<th>பயன்பாட்டு வழக்கு</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>read_only</strong></td>
+<td>தரவை மட்டும் பார்க்க</td>
+<td>கண்காணிப்பாளர்கள், தணிக்கையாளர்கள்</td>
+</tr>
+<tr>
+<td><strong>conductor</strong></td>
+<td>பணிப்புகளை உருவாக்க, வரைபடங்களை நிர்வகிக்க</td>
+<td>வயல் ஒருங்கிணைப்பாளர்கள்</td>
+</tr>
+<tr>
+<td><strong>administrator</strong></td>
+<td>முழு அணுகல்</td>
+<td>கணினி நிர்வாகிகள்</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_19">அணுகல் கட்டுப்பாட்டு முறைகள்<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p><strong>முறை 1: பாத்திரமுடைய அங்கீகரிக்கப்பட்ட பயனர்</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>User must be logged in
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>+ User has role in roles collection
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>+ Role is for specific congregation
+</code></pre></div></p>
+<p><strong>முறை 2: இணைப்பு-அடிப்படையிலான அணுகல்</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Assignment ID passed in header
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>+ Assignment exists and not expired
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>+ Assignment belongs to requested map
+</code></pre></div></p>
+<p><strong>முறை 3: சபை தனிமைப்படுத்தல்</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Every entity has congregation foreign key
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>+ Access rules filter by congregation
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>+ Prevents cross-congregation data access
+</code></pre></div></p>
+<h2 id="-_1">நிகழ்-நேர ஒத்திசைவு<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h2>
+<h3 id="sse">SSE கட்டமைப்பு<a class="headerlink" href="#sse" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PocketBase Real-time API</strong>: Server-Sent Events (SSE)</li>
+<li><strong>தானியங்கி சந்தாக்கள்</strong>: கூறுகள் தொகுப்புகளுக்கு சந்தா செய்கின்றன</li>
+<li><strong>நேரடி புதுப்பிப்புகள்</strong>: மாற்றங்கள் இணைக்கப்பட்ட அனைத்து கிளையண்டுகளுக்கும் ஒளிபரப்பப்படுகின்றன</li>
+<li><strong>முரண்பாட்டு தீர்வு</strong>: நேரமுத்திரை-அடிப்படையிலான தீர்வு</li>
+<li><strong>தெரிவுநிலை கண்டறிதல்</strong>: தாவல் செயல்படும்போது தானியங்கி புதுப்பிப்பு</li>
+</ul>
+<h3 id="_20">சந்தா முறை<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Components subscribe to data changes</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">useRealtimeSubscription</span><span class="p">(</span><span class="s1">&#39;addresses&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="c1">// UI updates automatically</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">});</span>
+</code></pre></div>
+<h2 id="_21">பின்னணி வேலைகள்<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<h3 id="_22">திட்டமிடப்பட்ட பணிகள்<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>வேலை</th>
+<th>அட்டவணை</th>
+<th>கொடி</th>
+<th>விளக்கம்</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cleanUpAssignments</code></td>
+<td>ஒவ்வொரு 5 நிமிடத்திற்கும்</td>
+<td><code>enable-assignments-cleanup</code></td>
+<td>காலாவதியான வரைபட பணிப்புகளை நீக்கு</td>
+</tr>
+<tr>
+<td><code>updateTerritoryAggregates</code></td>
+<td>ஒவ்வொரு 10 நிமிடத்திற்கும்</td>
+<td><code>enable-territory-aggregations</code></td>
+<td>பகுதி முன்னேற்றத்தை மறு கணக்கிடு</td>
+</tr>
+<tr>
+<td><code>processMessages</code></td>
+<td>ஒவ்வொரு 30 நிமிடத்திற்கும்</td>
+<td><code>enable-message-processing</code></td>
+<td>நிலுவையிலுள்ள வெளியீட்டாளர் செய்திகளை செயல்படுத்து</td>
+</tr>
+<tr>
+<td><code>processInstructions</code></td>
+<td>ஒவ்வொரு 30 நிமிடத்திற்கும்</td>
+<td><code>enable-instruction-processing</code></td>
+<td>பகுதி பணிப்பு அறிவுறுத்தல்களை செயல்படுத்து</td>
+</tr>
+<tr>
+<td><code>processNotes</code></td>
+<td>மணிக்கு ஒருமுறை</td>
+<td><code>enable-note-processing</code></td>
+<td>புதுப்பிக்கப்பட்ட சபை குறிப்புகளை செயல்படுத்து</td>
+</tr>
+<tr>
+<td><code>generateMonthlyReport</code></td>
+<td>மாதத்தின் 1ஆம் தேதி @ 02:00 SGT</td>
+<td><code>enable-monthly-report</code></td>
+<td>Excel அறிக்கையை உருவாக்கி மின்னஞ்சல் அனுப்பு</td>
+</tr>
+<tr>
+<td><code>processUnprovisionedUsers</code></td>
+<td>தினமும் @ 02:00 SGT</td>
+<td><code>enable-unprovisioned-user-processing</code></td>
+<td>பாத்திரமில்லாத பயனர்களை எச்சரிக்கை/முடக்கு</td>
+</tr>
+<tr>
+<td><code>processInactiveUsers</code></td>
+<td>தினமும் @ 02:30 SGT</td>
+<td><code>enable-inactive-user-processing</code></td>
+<td>செயல்படாத கணக்குகளை எச்சரிக்கை/முடக்கு</td>
+</tr>
+<tr>
+<td><code>processNewAddresses</code></td>
+<td>தினமும் @ 03:00 SGT</td>
+<td><code>enable-new-addresses-notification</code></td>
+<td><strong>புதியது</strong> — பயன்பாட்டில் உருவாக்கப்பட்ட முகவரிகளுக்கான தினசரி சுருக்க மின்னஞ்சல்</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">அம்சக் கொடி கட்டுப்பாடு<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>அனைத்து பின்னணி வேலைகளும் LaunchDarkly அம்சக் கொடிகளால் கட்டுப்படுத்தப்படுகின்றன:
+- கட்டமைப்பு இல்லாமல் வேலைகளை இயக்கு/நிறுத்து
+- படிப்படியான வெளியீட்டு திறன்கள்
+- அவசர நிறுத்தி</p>
+<h3 id="aillm">AI/LLM ஒருங்கிணைப்பு<a class="headerlink" href="#aillm" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper புத்திசாலித்தனமான உரை சுருக்கத்திற்காக OpenAI GPT மாதிரியுடன் ஒருங்கிணைகிறது. இது <code>enable-report-ai-summary</code> LaunchDarkly கொடியால் கட்டுப்படுத்தப்படும் ஒரு <strong>விருப்பமான</strong> அம்சமாகும்.</p>
+<p><strong>மாதிரி</strong>: GPT (சமீபத்திய கிடைக்கக்கூடிய <code>openai-go</code> SDK v3.29.0 வழியாக)<br />
+<strong>Temperature</strong>: 0.3 (உண்மையான, நிர்ணயிக்கக்கூடிய வெளியீடு)<br />
+<strong>பதில் வடிவம்</strong>: கட்டமைக்கப்பட்ட தரவுக்கு JSON முறை</p>
+<p><strong>பயன்பாட்டு வழக்குகள்:</strong></p>
+<table>
+<thead>
+<tr>
+<th>சூழல்</th>
+<th>வேலை</th>
+<th>வெளியீடு</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>மாதாந்திர Excel அறிக்கைகள்</td>
+<td><code>generateMonthlyReport</code></td>
+<td>பகுதிக்கான <code>summary</code> மற்றும் <code>key_points</code></td>
+</tr>
+<tr>
+<td>வெளியீட்டாளர் செய்தி சுருக்கங்கள்</td>
+<td><code>processMessages</code></td>
+<td><code>overview</code> மற்றும் <code>key_themes</code></td>
+</tr>
+<tr>
+<td>சபை குறிப்பு சுருக்கங்கள்</td>
+<td><code>processNotes</code></td>
+<td><code>overview</code> மற்றும் <code>key_themes</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>நேர்மையான தரமிறக்கம்</strong>: <code>OPENAI_API_KEY</code> அமைக்கப்படவில்லை அல்லது <code>enable-report-ai-summary</code> கொடி முடக்கப்பட்டிருந்தால், கணினி AI-உருவாக்கப்பட்ட உள்ளடக்கம் இல்லாமல் அறிக்கைகள் மற்றும் மின்னஞ்சல்களை வழங்கும் — எந்த பிழைகளும் எழாது.</p>
+<h3 id="_24">முன்தள உகப்பாக்கங்கள்<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>குறியீடு பிரித்தல்</strong>: சோம்பல் ஏற்றப்பட்ட routes</li>
+<li><strong>Bundle உகப்பாக்கம்</strong>: Tree shaking, குறைத்தல்</li>
+<li><strong>React 19 Compiler</strong>: தானியங்கி memoization</li>
+<li><strong>PWA தேக்கல்</strong>: நிலையான சொத்துகளுக்கு service worker</li>
+<li><strong>மெய்நிகர் பட்டியல்கள்</strong>: பெரிய தரவுத்தொகுப்புகளுக்கு React-window</li>
+</ul>
+<h3 id="_25">பின்தள உகப்பாக்கங்கள்<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>தரவுத்தள குறியீடுகள்</strong>: விரைவான வினவல்களுக்கு 25+ குறியீடுகள்</li>
+<li><strong>Aggregate தேக்கல்</strong>: பகுதி முன்னேற்ற புள்ளிவிவரங்கள் ஒரு தொகுத்த cron வேலை மூலம் முன்-கணக்கிடப்படுகின்றன (<code>updateTerritoryAggregates</code>, ஒவ்வொரு 10 நிமிடத்திற்கும் 11-நிமிட lookback சாளரத்துடன்), முந்தைய நிகழ்-நேர debouncer அணுகுமுறையை மாற்றி. முடிவுகள் விரைவான மீட்டெடுப்பிற்காக JSON ஆக சேமிக்கப்படுகின்றன.</li>
+<li><strong>இணைப்பு குளம்</strong>: திறமையான தரவுத்தள இணைப்புகள்</li>
+<li><strong>Transaction தொகுத்தல்</strong>: தரவுத்தள சுற்று-பயணங்களை குறைக்க</li>
+</ul>
+<h2 id="_26">கட்டமைப்பு வரிசைப்படுத்தல்<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="docker">Docker கொள்கலன் மயமாக்கல்<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<p><strong>பின்தளம்:</strong>
+- பல-நிலை Docker கட்டமைப்பு
+- சிறிய அளவிற்கு Alpine அடிப்படை
+- தரவு நிலைத்தன்மைக்கு Volume மவுண்டுகள்
+- நம்பகத்தன்மைக்கு சுகாதார சோதனைகள்</p>
+<p><strong>முன்தளம்:</strong>
+- CDN மூலம் வழங்கப்படும் நிலையான கட்டமைப்பு
+- விரைவான வழங்கலுக்கு Edge தேக்கல்
+- Progressive Web App திறன்கள்</p>
+<h3 id="_27">உள்கட்டமைப்பு விருப்பங்கள்<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>ஹோஸ்ட் செய்யப்பட்ட சேவை</strong> (பரிந்துரைக்கப்படுகிறது)</li>
+<li>ministry-mapper.com</li>
+<li>நிர்வகிக்கப்பட்ட உள்கட்டமைப்பு</li>
+<li>
+<p>தானியங்கி புதுப்பிப்புகள்</p>
+</li>
+<li>
+<p><strong>சுய-ஹோஸ்ட்</strong></p>
+</li>
+<li>Railway, Render, DigitalOcean</li>
+<li>தொழில்நுட்ப நிபுணத்துவம் தேவை</li>
+<li>முழு கட்டுப்பாடு</li>
+</ol>
+<h2 id="_28">கண்காணிப்பு &amp; கவனிக்கும் திறன்<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h3 id="_29">பிழை கண்காணிப்பு<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sentry ஒருங்கிணைப்பு</strong>: முன்தளம் மற்றும் பின்தளம் இரண்டும்</li>
+<li><strong>பிழை வகைப்படுத்தல்</strong>: தீவிரம் மற்றும் வகை அடிப்படையில்</li>
+<li><strong>Source Maps</strong>: சுருக்கப்பட்ட குறியீட்டை பிழைத்திருத்தம்</li>
+<li><strong>வெளியீட்டு கண்காணிப்பு</strong>: பதிப்பு-குறிப்பிட்ட பிழைகள்</li>
+</ul>
+<h3 id="_30">பதிவு<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>பின்தளம்</strong>: கட்டமைக்கப்பட்ட JSON பதிவுகள்</li>
+<li><strong>முன்தளம்</strong>: மேம்பாட்டில் Console பதிவு</li>
+<li><strong>உற்பத்தி</strong>: பிழைகள் Sentry க்கு அனுப்பப்படுகின்றன</li>
+<li><strong>தணிக்கை தடம்</strong>: பயனர் செயல்களை கண்காணிக்கப்படுகிறது</li>
+</ul>
+<h2 id="_31">அளவிடல் கருத்தாய்வுகள்<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h3 id="_32">தற்போதைய வரம்புகள்<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SQLite ஒற்றை-எழுத்தர் வரம்பு</li>
+<li>சிறிய முதல் நடுத்தர சபைகளுக்கு ஏற்றது (&lt; 1000 ஒரே நேரத்தில் பயனர்கள்)</li>
+<li>செங்குத்து அளவிடல் (மிகவும் சக்திவாய்ந்த சர்வர்)</li>
+</ul>
+<h3 id="_33">எதிர்கால அளவிடல்<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PocketBase படிக்கல் நகல்களை ஆதரிக்கிறது</li>
+<li>தேவைப்பட்டால் PostgreSQL க்கு இடம்பெயரலாம்</li>
+<li>நிலையான சொத்துகளுக்கு CDN தேக்கல்</li>
+<li>API உகப்பாக்கத்திற்கு Edge functions</li>
+</ul>
+<h2 id="_34">தொழில்நுட்ப முடிவுகள்<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<h3 id="_35">ஏன் இந்த தொழில்நுட்பங்கள்?<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<p><strong>React 19</strong>: சமீபத்திய அம்சங்கள், தானியங்கி உகப்பாக்கம், சிறிய bundle</p>
+<p><strong>TypeScript</strong>: வகை பாதுகாப்பு, சிறந்த IDE ஆதரவு, குறைவான இயக்க நேர பிழைகள்</p>
+<p><strong>Vite</strong>: விரைவான dev சர்வர், உடனடி HMR, உகப்பாக்கப்பட்ட கட்டமைப்புகள்</p>
+<p><strong>PocketBase</strong>: சுய-ஹோஸ்ட், விற்பனையாளர் lock-in இல்லை, பராமரிக்க எளிதானது</p>
+<p><strong>Wouter</strong>: இலகுரக (React Router க்கு 40KB க்கு எதிராக 3KB)</p>
+<p><strong>Bootstrap</strong>: போர்-சோதிக்கப்பட்ட, விரிவான கூறுகள், நல்ல அணுகல்தன்மை</p>
+<p><strong>Leaflet</strong>: இலவச வரைபடங்கள், API வரம்புகள் இல்லை, இலகுரக</p>
+<p><strong>SQLite</strong>: சுயேச்சையானது, தனி தரவுத்தள சர்வர் தேவையில்லை, சுய-ஹோஸ்டிங்கிற்கு சரியானது</p>
+<h2 id="_36">அடுத்த படிகள்<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../backend-setup/">Backend Setup</a> - பின்தளத்தை உள்ளமைக்கவும்</li>
+<li><a href="../frontend-setup/">Frontend Setup</a> - முன்தளத்தை வரிசைப்படுத்தவும்</li>
+<li><a href="security.md">Security Guide</a> - பாதுகாப்பு சிறந்த நடைமுறைகள்</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  மீண்டும் மேலே
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f\u0ba4\u0bc1", "clipboard.copy": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd", "search.result.more.one": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd 1", "search.result.more.other": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd #", "search.result.none": "\u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0b95\u0bcd\u0b95\u0bc2\u0b9f\u0bbf\u0baf \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0b87\u0bb2\u0bcd\u0bb2\u0bc8", "search.result.one": "1 \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0bae\u0bcd", "search.result.other": "# \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd", "search.result.placeholder": "\u0ba4\u0bc7\u0b9f\u0bb2\u0bc8\u0ba4\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95 \u0ba4\u0b9f\u0bcd\u0b9f\u0b9a\u0bcd\u0b9a\u0bc1 \u0b9a\u0bc6\u0baf\u0bcd\u0baf\u0bb5\u0bc1\u0bae\u0bcd", "search.result.term.missing": "\u0b95\u0bbe\u0ba3\u0bb5\u0bbf\u0bb2\u0bcd\u0bb2\u0bc8", "select.version": "\u0baa\u0ba4\u0bbf\u0baa\u0bcd\u0baa\u0bc8\u0ba4\u0bcd \u0ba4\u0bc7\u0bb0\u0bcd\u0ba8\u0bcd\u0ba4\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

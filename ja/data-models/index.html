@@ -1,0 +1,3374 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ja/data-models/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+        
+          <link rel="alternate" href="../../data-models/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/data-models/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/data-models/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/data-models/" hreflang="ms">
+        
+          <link rel="alternate" href="./" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/data-models/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/data-models/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/data-models/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Data Models & Schema - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Models & Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../data-models/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/data-models/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/data-models/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/data-models/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/data-models/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/data-models/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/data-models/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エンティティ関係図
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コアコレクション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コアコレクション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-congregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Congregations（会衆）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Territories（テリトリー）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Maps（マップ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Addresses（住所）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Users（ユーザー）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Roles（役割）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Assignments（割り当て）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Options（オプション）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Messages（メッセージ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Addresses Log（住所ログ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Aggregates（集計）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-address-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Address Options（住所オプション）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アナリティクスコレクション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アナリティクスコレクション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベース技術
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要な関係
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ビジネスルール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ビジネスルール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        進捗計算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所ライフサイクル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自動更新トリガー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マイグレーションとスキーマ更新
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概要
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エンティティ関係図
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コアコレクション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コアコレクション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-congregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Congregations（会衆）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Territories（テリトリー）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Maps（マップ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Addresses（住所）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Users（ユーザー）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Roles（役割）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Assignments（割り当て）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Options（オプション）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Messages（メッセージ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Addresses Log（住所ログ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Aggregates（集計）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-address-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Address Options（住所オプション）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アナリティクスコレクション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アナリティクスコレクション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        データベース技術
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要な関係
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ビジネスルール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ビジネスルール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        進捗計算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        住所ライフサイクル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自動更新トリガー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マイグレーションとスキーマ更新
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        次のステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">データモデルとスキーマ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">概要<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper は PocketBase 経由の SQLite を使用し、マルチテナント会衆管理のために設計された階層型データモデルを採用しています。このドキュメントはすべてのデータモデル、関係、ビジネスルールの包括的な説明を提供します。</p>
+<h2 id="_3">エンティティ関係図<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Congregation（ルートエンティティ - マルチテナント分離）
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├─── Territory（1:M）
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    │      │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    │      └─── Map（1:M）
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    │             │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    │             ├─── Address（1:M）
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    │             │      ├─── addresses_log（1:M）
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    │             │      └─── address_options（1:M）
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    │             ├─── Assignment（1:M）
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    │             └─── Message（1:M）
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    ├─── Option（1:M）
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    │      └─── address_options（AddressとのM:Mブリッジ）
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    ├─── User（1:M、Role 経由）
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    │      │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    │      ├─── Role（1:M）
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    │      └─── Assignment（1:M）
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    │
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    ├─── Message（1:M）
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    └─── aggregates（Territory と Map から 1:M）
+</code></pre></div>
+<h2 id="_4">コアコレクション<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1-congregations">1. Congregations（会衆）<a class="headerlink" href="#1-congregations" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> マルチテナント分離と組織設定の中核エンティティ</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>はい</td>
+<td>組織コード</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>はい</td>
+<td>組織名</td>
+</tr>
+<tr>
+<td><code>expiry_hours</code></td>
+<td>number</td>
+<td>はい</td>
+<td>割り当てリンクの期間（時間）</td>
+</tr>
+<tr>
+<td><code>max_tries</code></td>
+<td>number</td>
+<td>はい</td>
+<td>完了とマークされるまでの最大「不在」試行回数</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>select</td>
+<td>はい</td>
+<td>国/地域（sg、my）</td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>select</td>
+<td>はい</td>
+<td>日付計算のタイムゾーン</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト：</strong> 会衆に役割を持つユーザー
+- <strong>表示：</strong> 役割を持つユーザー OR リンクベースのアクセス
+- <strong>更新：</strong> 管理者のみ
+- <strong>削除：</strong> 管理者のみ</p>
+<p><strong>ビジネスルール：</strong>
+- すべてのマップのデフォルト割り当て期間を制御
+- <code>max_tries</code> は「不在」の住所が完了とカウントされるタイミングを決定
+- タイムゾーンは日付ベースの計算とレポートに影響</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc123&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CONG001&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;北部会衆&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;expiry_hours&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">&quot;origin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sg&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">&quot;timezone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Asia/Singapore&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="2-territories">2. Territories（テリトリー）<a class="headerlink" href="#2-territories" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> フィールド奉仕を整理するための会衆内の地理的区分</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>はい</td>
+<td>テリトリー識別子（自動：「0」）</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>いいえ</td>
+<td>人間が読める説明</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>自動</td>
+<td>完了率（0-100）</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>インデックス：</strong>
+- <code>(congregation, code)</code> - 会衆による高速検索
+- <code>(congregation)</code> - 会衆フィルター</p>
+<p><strong>関係：</strong>
+- Maps と 1:M
+- Addresses と 1:M（パフォーマンスのために非正規化）</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト：</strong> 会衆に役割を持つユーザー
+- <strong>表示：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>作成/更新/削除：</strong> コンダクターまたは管理者</p>
+<p><strong>進捗計算：</strong>
+テリトリー内のすべてのマップの集計から自動計算</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terr_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1A&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ダウンタウン地区&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">65.5</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="3-maps">3. Maps（マップ）<a class="headerlink" href="#3-maps" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 住所を含む特定の場所または建物を表す</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Territories への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>自動</td>
+<td>テリトリー内の順序（自動インクリメント）</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>はい</td>
+<td>マップ識別子/番号（自動：「0」）</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>いいえ</td>
+<td>場所の説明</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>はい</td>
+<td><code>single</code> または <code>multi</code>（フロアタイプ）</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>いいえ</td>
+<td>地理的位置 <code>{lat, lng}</code></td>
+</tr>
+<tr>
+<td><code>aggregates</code></td>
+<td>JSON</td>
+<td>自動</td>
+<td>キャッシュされた統計（最大 2MB）</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>自動</td>
+<td>完了率</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>インデックス：</strong>
+- <code>(territory, code)</code> - プライマリ検索
+- <code>(territory, sequence)</code> - 順序付け
+- <code>(territory)</code> - テリトリーフィルター</p>
+<p><strong>カスケード削除：</strong>
+- Addresses
+- Assignments
+- Messages</p>
+<p><strong>集計構造：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;not_done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;dnc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;invalid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;not_home_max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>マップタイプ：</strong>
+- <strong>single</strong>：個人住所（一戸建て）
+- <strong>multi</strong>：公共住所（多層建物）</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>表示：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>作成/更新：</strong> コンダクターまたは管理者
+- <strong>削除：</strong> 管理者のみ</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;territory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terr_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;メインストリートアパート&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;multi&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3521</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.8198</span><span class="p">},</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nt">&quot;aggregates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nt">&quot;done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">&quot;not_done&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">&quot;dnc&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nt">&quot;invalid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nt">&quot;not_home_max_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="nt">&quot;progress&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">66.7</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="4-addresses">4. Addresses（住所）<a class="headerlink" href="#4-addresses" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> マップ内の個別ユニットまたは世帯</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Maps への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（非正規化）</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Territories への FK（非正規化）</td>
+</tr>
+<tr>
+<td><code>floor</code></td>
+<td>number</td>
+<td>はい</td>
+<td>フロア番号（0ベース）</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>はい</td>
+<td>ユニット/ドアコード（例：「101」、「A」）</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>はい</td>
+<td>マップ内の順序</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>select</td>
+<td>はい</td>
+<td>住所の訪問ステータス</td>
+</tr>
+<tr>
+<td><code>not_home_tries</code></td>
+<td>number</td>
+<td>自動</td>
+<td>「不在」試行回数カウンター</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>relation</td>
+<td>いいえ</td>
+<td>Options への M:M（JSON 配列）</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>text</td>
+<td>いいえ</td>
+<td>フィールドワーカーのメモ</td>
+</tr>
+<tr>
+<td><code>last_notes_updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>メモが最後に変更された日時（フック経由）</td>
+</tr>
+<tr>
+<td><code>last_notes_updated_by</code></td>
+<td>text</td>
+<td>自動</td>
+<td>最終更新者のユーザー名（フック経由）</td>
+</tr>
+<tr>
+<td><code>dnc_time</code></td>
+<td>date</td>
+<td>いいえ</td>
+<td>「訪問禁止」とマークされた日時</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>いいえ</td>
+<td>詳細な GPS <code>{lat, lng}</code></td>
+</tr>
+<tr>
+<td><code>updated_by</code></td>
+<td>text</td>
+<td>いいえ</td>
+<td>更新者を追跡</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ステータス値：</strong>
+- <code>not_done</code> - 未訪問（初期状態）
+- <code>done</code> - 正常完了
+- <code>not_home</code> - 誰も在宅でない（再試行可能）
+- <code>do_not_call</code> - 奉仕から除外
+- <code>invalid</code> - 住所が存在しない</p>
+<p><strong>インデックス（計7つ）：</strong>
+- <code>(map)</code> - マップフィルター
+- <code>(map, status)</code> - ステータス分布クエリ
+- <code>(map, code)</code> - コード検索
+- <code>(map, floor)</code> - フロア整理
+- <code>(type, congregation)</code> - オプション分布
+- <code>(congregation, last_notes_updated_by)</code> - ユーザー別の最近のメモ
+- <code>(territory, status)</code> - テリトリー全体のステータス</p>
+<p><strong>自動フック：</strong>
+- 更新は <code>last_notes_updated</code> と <code>last_notes_updated_by</code> フィールドをトリガー
+- マップの集計再計算をトリガー
+- テリトリーの進捗を更新</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>表示：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>作成：</strong> コンダクターまたは管理者
+- <strong>更新：</strong> 役割を持つユーザー OR リンクアクセス（伝道者が更新可能）
+- <strong>削除：</strong> 管理者のみ</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;addr_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;territory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;terr_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">&quot;floor&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;201&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not_home&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">&quot;not_home_tries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;opt_residential&quot;</span><span class="p">],</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;18時以降に試みてください&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nt">&quot;last_notes_updated&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-12-19T14:30:00Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="nt">&quot;last_notes_updated_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="nt">&quot;coordinates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;lat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3521</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;lng&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">103.8198</span><span class="p">}</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="5-users">5. Users（ユーザー）<a class="headerlink" href="#5-users" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 認証付きシステムユーザーアカウント</p>
+<p><strong>タイプ：</strong> Auth コレクション（PocketBase ユーザー認証タイプ）</p>
+<p><strong>システムフィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>email</td>
+<td>はい</td>
+<td>ログイン識別子（一意）</td>
+</tr>
+<tr>
+<td><code>emailVisibility</code></td>
+<td>bool</td>
+<td>はい</td>
+<td>メールが公開かどうか</td>
+</tr>
+<tr>
+<td><code>verified</code></td>
+<td>bool</td>
+<td>自動</td>
+<td>メール確認ステータス</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>password</td>
+<td>はい</td>
+<td>Bcrypt ハッシュ（コスト：10、最小6文字）</td>
+</tr>
+<tr>
+<td><code>tokenKey</code></td>
+<td>text</td>
+<td>非表示</td>
+<td>トークン生成キー（30〜60文字）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>カスタムフィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>はい</td>
+<td>表示名（2〜50文字）</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td>bool</td>
+<td>いいえ</td>
+<td>アカウント無効フラグ</td>
+</tr>
+<tr>
+<td><code>last_login</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終認証タイムスタンプ（フック経由）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>名前のバリデーションパターン：</strong>
+<code>^[A-Za-z][\w\s\.\-']*$</code>（文字で始まり、単語文字、スペース、ドット、ハイフン、アポストロフィを許可）</p>
+<p><strong>自動生成パターン：</strong>
+<code>user[0-9]{5}[A-Za-z]</code>（例：user12345A）</p>
+<p><strong>インデックス：</strong>
+- <code>email</code>（一意）- 高速認証検索
+- <code>tokenKey</code>（一意）- トークン検証</p>
+<p><strong>認証設定：</strong>
+- <strong>パスワード認証：</strong> 有効（最小6文字）
+- <strong>OAuth2：</strong> Google PKCE フロー
+  - OAuth プロバイダーから <code>name</code> をマッピング
+  - 初回ログイン時に自動ユーザー作成
+- <strong>MFA：</strong> 有効（期間：1800秒）- OAuth2 では無効
+- <strong>OTP：</strong> 有効（期間：180秒、長さ：4桁）
+- <strong>メール確認：</strong> 期間 604800秒（7日）
+- <strong>パスワードリセット：</strong> 期間 1800秒（30分）
+- <strong>認証アラート：</strong> 有効（新しい場所からのログイン時に通知）</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト：</strong> 管理者のみ
+- <strong>表示：</strong> 管理者または本人
+- <strong>作成：</strong> 公開（OAuth またはユーザー登録）
+- <strong>更新：</strong> 本人のみ
+- <strong>削除：</strong> 管理者のみ</p>
+<p><strong>ファイルトークン：</strong> 120秒の期間</p>
+<p><strong>関係：</strong>
+- Roles と 1:M
+- Assignments と 1:M</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe@example.com&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">&quot;verified&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">&quot;disabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">&quot;last_login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-12-19T14:30:00Z&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="6-roles">6. Roles（役割）<a class="headerlink" href="#6-roles" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> ユーザーを会衆にリンクする権限割り当て</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Users への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>select</td>
+<td>はい</td>
+<td>権限レベル</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>役割の値：</strong>
+- <code>read_only</code> - 閲覧のみアクセス
+- <code>conductor</code> - 割り当てとマップの管理が可能
+- <code>administrator</code> - フルアクセス</p>
+<p><strong>インデックス：</strong>
+- <code>(user, congregation)</code> - 複合キー（会衆ごとに一役割）
+- <code>(user)</code> - ユーザーの役割
+- <code>(congregation, role)</code> - 役割の分布
+- <code>(user, congregation, role)</code> - フル複合検索</p>
+<p><strong>アクセスルール：</strong>
+- <strong>作成/更新/削除：</strong> 管理者のみ
+- <strong>リスト：</strong> 自分の役割
+- <strong>表示：</strong> 自分の役割</p>
+<p><strong>関係：</strong>
+- Users と Congregations の間の M:N</p>
+<p><strong>ビジネスルール：</strong>
+- 会衆ごとにユーザー1人につき1役割
+- 役割がすべてのアクションの権限を決定</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;role_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;conductor&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="7-assignments">7. Assignments（割り当て）<a class="headerlink" href="#7-assignments" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 時間制限付きマップアクセスのための伝道者アクセストークン</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(20)</td>
+<td>はい</td>
+<td><strong>匿名アクセストークンとして機能</strong></td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Maps への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>いいえ</td>
+<td>伝道者ユーザー（オプション）</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>はい</td>
+<td>割り当て分類</td>
+</tr>
+<tr>
+<td><code>expiry_date</code></td>
+<td>date</td>
+<td>はい</td>
+<td>自動期限切れタイムスタンプ</td>
+</tr>
+<tr>
+<td><code>publisher</code></td>
+<td>text</td>
+<td>いいえ</td>
+<td>伝道者名/識別子</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>割り当てタイプ：</strong>
+- <code>normal</code> - 通常のテリトリー作業
+- <code>personal</code> - 個人奉仕テリトリー</p>
+<p><strong>インデックス：</strong>
+- <code>(map)</code> - マップごとのアクティブな割り当て
+- <code>(expiry_date)</code> - バックグラウンドクリーンアップジョブ用
+- <code>(user, created)</code> - ユーザーの割り当て履歴
+- <code>(map, expiry_date)</code> - マップごとの期限確認</p>
+<p><strong>アクセスルール：</strong>
+- <strong>作成/削除：</strong> コンダクターまたは管理者
+- <strong>表示：</strong> 役割を持つユーザー OR この ID に一致する link_id + 期限切れでない
+- <strong>リスト：</strong> 役割を持つユーザー</p>
+<p><strong>ワークフロー：</strong>
+1. コンダクターが <code>/territory/link</code> エンドポイント経由で作成
+2. 伝道者が20文字の <code>link_id</code>（この割り当ての ID）を受け取る
+3. 伝道者が HTTP ヘッダー <code>@request.headers.link_id</code> で <code>link_id</code> を渡す
+4. PocketBase が検証：link_id が assignment.id に一致し、かつ expiry_date &gt; 現在時刻
+5. バックグラウンドジョブが5分ごとに期限切れ割り当てを削除</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;asgn_1234567890abcdef&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;normal&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">&quot;expiry_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2025-12-20T14:30:00Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">&quot;publisher&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="8-options">8. Options（オプション）<a class="headerlink" href="#8-options" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 住所タイプの分類（会衆ごとにカスタマイズ可能）</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>はい</td>
+<td>オプション識別子（例：「RES」、「BUS」）</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>はい</td>
+<td>人間が読めるラベル</td>
+</tr>
+<tr>
+<td><code>is_countable</code></td>
+<td>bool</td>
+<td>はい</td>
+<td>進捗計算に含める</td>
+</tr>
+<tr>
+<td><code>is_default</code></td>
+<td>bool</td>
+<td>はい</td>
+<td>新しい住所のデフォルトオプション</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>はい</td>
+<td>表示/ソート順序</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>インデックス：</strong>
+- <code>(congregation, sequence)</code> - 会衆内での順序付け
+- <code>(congregation, is_default)</code> - デフォルトオプションの検索</p>
+<p><strong>制約：</strong>
+- 会衆ごとに <code>is_default = true</code> は正確に1つ（アプリケーション層で強制）
+- コードは会衆ごとに一意
+- シーケンスは会衆ごとに一意</p>
+<p><strong>進捗への影響：</strong>
+- カウント可能なオプション（<code>is_countable=true</code>）は進捗 % 計算に含まれる
+- カウント不可能なオプションは別途追跡されるが進捗から除外
+- オプションが削除されると、住所には自動的にデフォルトオプションが追加される</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト/表示：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>作成/更新/削除：</strong> <code>/options/update</code> エンドポイントを使用（コンダクターまたは管理者）</p>
+<p><strong>関係：</strong>
+- Addresses と M:M（address.type フィールドに JSON 配列として保存）</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;opt_res&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RES&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;住宅&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">&quot;is_countable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">&quot;is_default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="9-messages">9. Messages（メッセージ）<a class="headerlink" href="#9-messages" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> ユーザー間のコミュニケーションと通知</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Maps への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>text</td>
+<td>はい</td>
+<td>メッセージ内容</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>text</td>
+<td>はい</td>
+<td>作成者のユーザー名</td>
+</tr>
+<tr>
+<td><code>read</code></td>
+<td>bool</td>
+<td>はい</td>
+<td>管理者が読んだかどうか</td>
+</tr>
+<tr>
+<td><code>pinned</code></td>
+<td>bool</td>
+<td>はい</td>
+<td>管理者のピン留め指示フラグ</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>はい</td>
+<td>意図した受信者タイプ</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>作成タイムスタンプ</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>自動</td>
+<td>最終更新タイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>メッセージタイプ：</strong>
+- <code>publisher</code> - 伝道者から管理者へ
+- <code>conductor</code> - コンダクターから
+- <code>administrator</code> - 管理者の指示（ピン留め可能）</p>
+<p><strong>インデックス：</strong>
+- <code>(map, pinned, created)</code> - 最近のピン留めメッセージ
+- <code>(map, type, pinned)</code> - 受信者タイプとピン留めステータスでフィルター
+- <code>(map, type, read)</code> - タイプごとの未読カウント</p>
+<p><strong>アクセスルール：</strong>
+- <strong>作成：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>更新：</strong> 管理者のみ
+- <strong>リスト：</strong> 役割を持つユーザー OR リンクアクセス</p>
+<p><strong>バックグラウンド処理：</strong>
+- 30分ごと：未読メッセージがメール経由で管理者に送信
+- 30分ごと：ピン留めされた管理者メッセージがメール経由で伝道者に送信
+- 1時間ごと：メモの更新が管理者に送信</p>
+<p><strong>例：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;msg_abc&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;map&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;map_xyz&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;congregation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cong_123&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;205号室を再訪してください&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">&quot;created_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="nt">&quot;read&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="nt">&quot;pinned&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;publisher&quot;</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="10-addresses-log">10. Addresses Log（住所ログ）<a class="headerlink" href="#10-addresses-log" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 住所ステータス変更の監査証跡 — 住所ステータスが更新されるたびにここにレコードが書き込まれます</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Addresses への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>old_status</code></td>
+<td>text</td>
+<td>はい</td>
+<td>変更前の住所ステータス値</td>
+</tr>
+<tr>
+<td><code>new_status</code></td>
+<td>text</td>
+<td>はい</td>
+<td>変更後の住所ステータス値</td>
+</tr>
+<tr>
+<td><code>changed_by</code></td>
+<td>relation</td>
+<td>いいえ</td>
+<td>Users への FK — 変更を行ったユーザー</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>自動</td>
+<td>変更のタイムスタンプ</td>
+</tr>
+</tbody>
+</table>
+<p><strong>関係：</strong>
+- Addresses と M:1（各ログエントリは1つの住所に属する）
+- Users と M:1（<code>changed_by</code> 経由）</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト/表示：</strong> コンダクターまたは管理者
+- <strong>作成：</strong> システムフック（住所ステータス変更時に自動）
+- <strong>更新/削除：</strong> 管理者のみ</p>
+<hr />
+<h3 id="11-aggregates">11. Aggregates（集計）<a class="headerlink" href="#11-aggregates" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> テリトリーとマップのキャッシュされた進捗スナップショット。バックグラウンドジョブにより10分ごとに再計算されます</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>notDone</code></td>
+<td>number</td>
+<td>はい</td>
+<td>まだ訪問されていない住所の数</td>
+</tr>
+<tr>
+<td><code>notHome</code></td>
+<td>number</td>
+<td>はい</td>
+<td>「不在」住所の数</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>はい</td>
+<td>完了率（0〜100）</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>いいえ</td>
+<td>Territories への FK — テリトリーレベルの集計に設定</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>いいえ</td>
+<td>Maps への FK — マップレベルの集計に設定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>関係：</strong>
+- Territories と M:1（テリトリーレベルのスナップショット）
+- Maps と M:1（マップレベルのスナップショット）</p>
+<p><strong>ビジネスルール：</strong>
+- 各レコードに <code>territory</code> または <code>map</code> のいずれか一方が設定されます
+- バックグラウンドジョブにより10分ごとに再計算
+- 値は読み取り専用のスナップショット；ライブ進捗はオンデマンドで計算</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト/表示：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>作成/更新：</strong> システムバックグラウンドジョブのみ
+- <strong>削除：</strong> 管理者のみ</p>
+<hr />
+<h3 id="12-address-options">12. Address Options（住所オプション）<a class="headerlink" href="#12-address-options" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 個々の住所に適用されている住所レベルのオプション（<code>options</code> コレクションから）を追跡 — Address ↔ Option の多対多関係のジャンクションテーブル</p>
+<p><strong>タイプ：</strong> ベースコレクション</p>
+<p><strong>フィールド：</strong></p>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>タイプ</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>はい</td>
+<td>自動生成一意 ID</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Addresses への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>option</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Options への FK（カスケード削除）</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>はい</td>
+<td>Congregations への FK（高速クエリのため非正規化）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>インデックス：</strong>
+- <code>(address, option)</code> — 一意ペアリング（住所ごとに1オプション）
+- <code>(congregation)</code> — 会衆全体のオプション使用状況</p>
+<p><strong>関係：</strong>
+- Addresses と M:1
+- Options と M:1
+- Congregations と M:1</p>
+<p><strong>アクセスルール：</strong>
+- <strong>リスト/表示：</strong> 役割を持つユーザー OR リンクアクセス
+- <strong>作成/削除：</strong> コンダクターまたは管理者</p>
+<hr />
+<h2 id="_5">アナリティクスコレクション<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>アナリティクスコレクションはレポートとインサイトのための履歴データを保存します。これらのコレクションは内部的に管理され、正確なフィールドは時間とともに変化する可能性があります；個別フィールドのテーブルではなく目的で説明します。</p>
+<h3 id="analytics_territories">analytics_territories<a class="headerlink" href="#analytics_territories" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 時系列のテリトリーレベルメトリクス（進捗率、住所数など）の定期スナップショットを保存します。履歴トレンドチャートとテリトリー完了レポートの生成に使用されます。</p>
+<h3 id="analytics_maps">analytics_maps<a class="headerlink" href="#analytics_maps" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 時系列のマップレベルメトリクスの定期スナップショットを保存します。個別のマップ完了率とアクティビティパターンのきめ細かいレポートを実現します。</p>
+<h3 id="analytics_daily_status">analytics_daily_status<a class="headerlink" href="#analytics_daily_status" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 会衆全体の住所ステータス（完了、未完了、不在、訪問不可、無効）の日次集計カウント。日ごとおよび週ごとのトレンドダッシュボードを提供します。</p>
+<h3 id="analytics_not_home">analytics_not_home<a class="headerlink" href="#analytics_not_home" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> 繰り返し「不在」とマークされた住所を追跡します。司会者のフォローアップ対象の特定や、継続的に連絡が取れない住所の識別に使用されます。</p>
+<h3 id="analytics_user_audit">analytics_user_audit<a class="headerlink" href="#analytics_user_audit" title="Permanent link">&para;</a></h3>
+<p><strong>目的：</strong> ログイン、住所更新、割り当て操作などのユーザーアクションを記録し、説明責任と監査の目的に使用されます。管理者がアクティビティ履歴を確認し、異常を調査できます。</p>
+<blockquote>
+<p><strong>注意：</strong> アナリティクスコレクションはバックグラウンドジョブによって書き込まれ、レポートレイヤーによって読み取られます。アプリケーションコードからの直接書き込みは避けてください。</p>
+</blockquote>
+<hr />
+<h2 id="_6">データベース技術<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>エンジン：</strong> PocketBase 経由の SQLite（modernc.org/sqlite v1.40.2+）</p>
+<p><strong>機能：</strong>
+- 純粋な Go 実装（CGo フリー）- クロスプラットフォームコンパイルを可能にする
+- ccgo/v4 を使用して Go にトランスパイルされた C SQLite ベース
+- 定期的なセキュリティアップデートで積極的にメンテナンス（SQLite 3.50+ に準拠）</p>
+<p><strong>使用されている SQL 機能：</strong>
+- 柔軟なデータのための JSON フィールド（座標、集計）
+- クエリ最適化のための複合インデックス
+- ACID コンプライアンスのためのトランザクション
+- 複雑な集計のための CTE（Common Table Expressions）</p>
+<p><strong>利点：</strong>
+- 自己完結型ファイルベースのデータベース
+- 別途データベースサービス不要
+- セルフホストデプロイに最適
+- CGO 依存なし - 静的バイナリビルドが可能
+- セキュリティパッチによる実証された安定性</p>
+<hr />
+<h2 id="_7">主要な関係<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>関係</th>
+<th>カーディナリティ</th>
+<th>カスケード動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Congregation → Territory</td>
+<td>1:M</td>
+<td>削除カスケード</td>
+</tr>
+<tr>
+<td>Territory → Map</td>
+<td>1:M</td>
+<td>削除カスケード</td>
+</tr>
+<tr>
+<td>Map → Address</td>
+<td>1:M</td>
+<td>削除カスケード</td>
+</tr>
+<tr>
+<td>Map → Assignment</td>
+<td>1:M</td>
+<td>削除カスケード</td>
+</tr>
+<tr>
+<td>Map → Message</td>
+<td>1:M</td>
+<td>削除カスケード</td>
+</tr>
+<tr>
+<td>Address → Options</td>
+<td>M:M</td>
+<td>JSON 配列</td>
+</tr>
+<tr>
+<td>User → Role</td>
+<td>M:M</td>
+<td>roles テーブル経由</td>
+</tr>
+<tr>
+<td>User → Assignment</td>
+<td>1:M</td>
+<td>割り当てを保持</td>
+</tr>
+<tr>
+<td>Congregation → Option</td>
+<td>1:M</td>
+<td>削除カスケード</td>
+</tr>
+<tr>
+<td>Congregation → Role</td>
+<td>M:M</td>
+<td>roles テーブル経由</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_8">ビジネスルール<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">進捗計算<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><strong>計算式：</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>completed = (done + not_home_max_tries) / total_countable * 100
+</code></pre></div></p>
+<p><strong>カウント可能な住所：</strong>
+- <code>is_countable=true</code> オプションを持つ住所のみ
+- DNC と無効な住所を除外</p>
+<p><strong>完了基準：</strong>
+- ステータス = <code>done</code>、または
+- ステータス = <code>not_home</code> かつ <code>not_home_tries &gt;= congregation.max_tries</code></p>
+<h3 id="_10">住所ライフサイクル<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>not_done → not_home（再試行）→ done
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>         → do_not_call（除外）
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>         → invalid（除外）
+</code></pre></div>
+<h3 id="_11">自動更新トリガー<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>住所更新：</strong></li>
+<li>メモが変更された場合 <code>last_notes_updated</code> を更新</li>
+<li>現在のユーザーに <code>last_notes_updated_by</code> を設定</li>
+<li>集計再計算をトリガー</li>
+<li>マップの進捗を更新</li>
+<li>
+<p>テリトリーの進捗を更新</p>
+</li>
+<li>
+<p><strong>マップ操作：</strong></p>
+</li>
+<li>住所が変更されたときに集計を再計算</li>
+<li>
+<p>テリトリーの進捗を更新</p>
+</li>
+<li>
+<p><strong>割り当て作成：</strong></p>
+</li>
+<li>会衆の設定に基づいて期限切れを設定</li>
+<li>アクセストークンとして一意の20文字 ID を生成</li>
+</ol>
+<hr />
+<h2 id="_12">マイグレーションとスキーマ更新<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p><strong>スキーマファイル：</strong> <code>migrations/1764846700_collections_snapshot.go</code></p>
+<p><strong>サイズ：</strong> 55,459行（PocketBase が生成）</p>
+<p><strong>マイグレーションプロセス：</strong>
+1. PocketBase は起動時に自動的にマイグレーションを適用
+2. マイグレーションは <code>_migrations</code> システムコレクションで追跡
+3. スキーマ変更には新しいマイグレーションファイルが必要</p>
+<hr />
+<h2 id="_13">次のステップ<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../architecture/">アーキテクチャ</a> - システムアーキテクチャ</li>
+<li><a href="../backend-setup/">バックエンドセットアップ</a> - データベースの設定</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

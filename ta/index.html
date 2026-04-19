@@ -1,0 +1,2026 @@
+
+<!doctype html>
+<html lang="ta" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ta/">
+      
+      
+      
+        <link rel="next" href="getting-started/">
+      
+      
+        
+          <link rel="alternate" href="/en/" hreflang="en">
+        
+          <link rel="alternate" href="/zh/" hreflang="zh">
+        
+          <link rel="alternate" href="/id/" hreflang="id">
+        
+          <link rel="alternate" href="/ms/" hreflang="ms">
+        
+          <link rel="alternate" href="/ja/" hreflang="ja">
+        
+          <link rel="alternate" href="/ko/" hreflang="ko">
+        
+          <link rel="alternate" href="/es/" hreflang="es">
+        
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Home - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ministry-mapper" class="md-skip">
+          உள்ளடக்கத்திற்கு செல்க
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="தலைப்பு">
+    <a href="./" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="மொழியைத் தேர்ந்தெடுக்கவும்">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/zh/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/id/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ms/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ja/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ko/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/es/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ta/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="தேடு" placeholder="தேடு" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="தேடு">
+        
+        <button type="reset" class="md-search__icon md-icon" title="அழிக்கவும்" aria-label="அழிக்கவும்" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            தேடலைத் துவக்குகிறது
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="தாவல்கள்" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="வழிசெலுத்தல்" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="உள்ளடக்க அட்டவணை">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      உள்ளடக்க அட்டவணை
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper என்றால் என்ன?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        எங்கள் கதை
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper என்ன செய்கிறது
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ministry Mapper என்ன செய்கிறது">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கிய அம்சங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        வெவ்வேறு பயனர்களுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper தீர்க்கும் சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ministry Mapper தீர்க்கும் சிக்கல்கள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        காகித இல்லாமல் போவது
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சிறந்த ஒழுங்கமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உடனடி புதுப்பிப்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        எளிதான பதிவு வைத்தல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper எவ்வாறு செயல்படுகிறது
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ministry Mapper எவ்வாறு செயல்படுகிறது">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நவீன தொழில்நுட்ப அடுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கட்டமைப்பு சிறப்பு அம்சங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கியமான கருத்தில் கொள்ள வேண்டியவை
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="முக்கியமான கருத்தில் கொள்ள வேண்டியவை">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முதலில் தனியுரிமை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        இணையம் தேவை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கற்றல் வளைவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொடங்குவது எப்படி
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தொடங்குவது எப்படி">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பயனர்களுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிர்வாகிகளுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        டெவலப்பர்களுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="உள்ளடக்க அட்டவணை">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      உள்ளடக்க அட்டவணை
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper என்றால் என்ன?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        எங்கள் கதை
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper என்ன செய்கிறது
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ministry Mapper என்ன செய்கிறது">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கிய அம்சங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        வெவ்வேறு பயனர்களுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper தீர்க்கும் சிக்கல்கள்
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ministry Mapper தீர்க்கும் சிக்கல்கள்">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        காகித இல்லாமல் போவது
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        சிறந்த ஒழுங்கமைப்பு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        உடனடி புதுப்பிப்புகள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        எளிதான பதிவு வைத்தல்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ministry-mapper_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ministry Mapper எவ்வாறு செயல்படுகிறது
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ministry Mapper எவ்வாறு செயல்படுகிறது">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நவீன தொழில்நுட்ப அடுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கட்டமைப்பு சிறப்பு அம்சங்கள்
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முக்கியமான கருத்தில் கொள்ள வேண்டியவை
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="முக்கியமான கருத்தில் கொள்ள வேண்டியவை">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        முதலில் தனியுரிமை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        இணையம் தேவை
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        கற்றல் வளைவு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        தொடங்குவது எப்படி
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="தொடங்குவது எப்படி">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        பயனர்களுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        நிர்வாகிகளுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        டெவலப்பர்களுக்கு
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ministry-mapper">Ministry Mapper க்கு வரவேற்கிறோம்<a class="headerlink" href="#ministry-mapper" title="Permanent link">&para;</a></h1>
+<h2 id="ministry-mapper_1">Ministry Mapper என்றால் என்ன?<a class="headerlink" href="#ministry-mapper_1" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper என்பது ஒரு நவீன, திறந்த மூல இணைய பயன்பாடாகும், இது சபைகள் தங்கள் மண்டல ஊழியப் பகுதிகளை திறம்படவாக நிர்வகிக்க உதவுகிறது. காகித பகுதி சீட்டுகளுக்கு பதிலாக, Ministry Mapper இணையதளத்தில் இணைப்பு உள்ள எந்த சாதனத்திலிருந்தும் மண்டல ஊழியப் பணியை ஒழுங்கமைக்கவும், கண்காணிக்கவும், நிர்வகிக்கவும் ஒரு விரிவான டிஜிட்டல் தீர்வை வழங்குகிறது.</p>
+<h2 id="_1">எங்கள் கதை<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>நாங்கள் 2022 ஆம் ஆண்டில் Ministry Mapper ஐ எங்கள் உள்ளூர் சபை பகுதிகளை மிகவும் திறம்படவாக நிர்வகிக்க உதவும் ஒரு எளிய திட்டமாக தொடங்கினோம். மேலும் சபைகள் டிஜிட்டல் பகுதி நிர்வாகத்தின் நன்மைகளை கண்டறிந்தவுடன், நாங்கள் தளத்தை மேம்படுத்தி வந்தோம். இன்று, Ministry Mapper சிங்கப்பூர் மற்றும் மலேசியாவிலுள்ள சபைகளால் பயன்படுத்தப்படுகிறது, நேர-ஒத்திசைவு, ஊடாடும் வரைப்படம் மற்றும் பல மொழி ஆதரவு போன்ற அம்சங்களுடன் பதிப்பாளர்கள் தங்கள் ஊழியப் பணியில் ஒழுங்கமைக்க உதவுகிறது.</p>
+<h2 id="ministry-mapper_2">Ministry Mapper என்ன செய்கிறது<a class="headerlink" href="#ministry-mapper_2" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper விரிவான பகுதி நிர்வாக திறன்களை வழங்குகிறது:</p>
+<h3 id="_2">முக்கிய அம்சங்கள்<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>🗺️ பகுதி நிர்வாகம்</strong>: தானியங்கி நிறைவு கண்காணிப்புடன் புவியியல் பகுதிகளை பகுதிகளாக ஒழுங்கமைக்கவும்</li>
+<li><strong>🏢 ஊடாடும் வரைப்படம்</strong>: OpenStreetMap ஒருங்கிணைப்பு, திசைகள் மற்றும் இடம் கண்டறிதலுடன் Leaflet அடிப்படையிலான வரைப்படங்கள்</li>
+<li><strong>📱 நேரடி கூட்டு பணி</strong>: SSE (Server-Sent Events) வழியாக அனைத்து சாதனங்களிலும் நேரடி தரவு ஒத்திசைவு</li>
+<li><strong>🌍 பல மொழி ஆதரவு</strong>: 8 மொழிகள் (ஆங்கிலம், ஸ்பானிஷ், இந்தோனேசியன், ஜப்பானிய, கொரியன், மலாய், சீனம், தமிழ்)</li>
+<li><strong>👥 பங்கு அடிப்படையிலான அணுகல்</strong>: நுண்-கட்டுப்படுத்தப்பட்ட அனுமதிகளுடன் பதிப்பாளர், நடத்துனர், நிர்வாகி மற்றும் படிக்க-மட்டும் பங்குகள்</li>
+<li><strong>🔗 பணி இணைப்புகள்</strong>: பயனர் கணக்குகள் இல்லாமல் பகுதி அணுகலுக்கான பாதுகாப்பான, நேர-வரையறுக்கப்பட்ட பகிர்வு இணைப்புகள்</li>
+<li><strong>📊 முன்னேற்ற கண்காணிப்பு</strong>: காட்சி குறிகாட்டிகள் மற்றும் புள்ளிவிவரங்களுடன் தானியங்கி நிறைவு நிலை</li>
+<li><strong>✉️ மின்னஞ்சல் அறிவிப்புகள்</strong>: செய்திகள், குறிப்புகள் மற்றும் மாதாந்திர அறிக்கைகளுக்கான HTML மின்னஞ்சல் வார்ப்புருக்கள்</li>
+<li><strong>📈 Excel அறிக்கையிடல்</strong>: விரிவான புள்ளிவிவரங்களுடன் மாதாந்திர சபை அறிக்கைகள்</li>
+<li><strong>🔐 பல-காரணி அங்கீகாரம்</strong>: OTP, MFA மற்றும் OAuth2 (Google) ஆதரவு</li>
+<li><strong>🌙 இருண்ட முறை</strong>: ஒளி/இருண்ட/கணினி விருப்பங்களுடன் கணினி-விழிப்புணர்வு தீம்மிங்</li>
+<li><strong>📲 முற்போக்கான இணைய பயன்பாடு</strong>: ஆஃப்லைன் சொத்து சேமிப்பகத்துடன் மொபைல் மற்றும் டெஸ்க்டாப்பில் நிறுவக்கூடியது</li>
+</ul>
+<h3 id="_3">வெவ்வேறு பயனர்களுக்கு<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>பகுதி ஊழியர்கள்</strong>: விரிவான புள்ளிவிவரங்கள் மற்றும் அறிக்கையிடலுடன் அனைத்து பகுதி பதிவுகளையும் டிஜிட்டல் முறையில் நிர்வகிக்கவும்</li>
+<li><strong>மண்டல ஊழிய நடத்துனர்கள்</strong>: புத்திசாலித்தனமான அல்காரிதங்களுடன் பகுதிகளை விரைவாக நியமிக்கவும் மற்றும் பதிப்பாளர் செயல்பாட்டை கண்காணிக்கவும்</li>
+<li><strong>பதிப்பாளர்கள்</strong>: எளிய இணைப்புகள் வழியாக நியமிக்கப்பட்ட வரைப்படங்களை அணுகவும், முகவரி நிலையை நேரடியாக புதுப்பிக்கவும் மற்றும் திறம்பட கூட்டு பணி செய்யவும்</li>
+<li><strong>நிர்வாகிகள்</strong>: பயனர் நிர்வாகம், சபை அமைப்புகள் மற்றும் தணிக்கை தடங்களுடன் முழு கணினி கட்டுப்பாடு</li>
+</ul>
+<h2 id="ministry-mapper_3">Ministry Mapper தீர்க்கும் சிக்கல்கள்<a class="headerlink" href="#ministry-mapper_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">காகித இல்லாமல் போவது<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>பாரம்பரிய காகித பகுதி சீட்டுகள் தொலைந்துவிடும், சேதமடையும் அல்லது காலப்போக்கில் படிக்க கடினமாகிவிடும். Ministry Mapper எல்லாவற்றையும் டிஜிட்டல் முறையில் மற்றும் கிளவுட்டில் பாதுகாப்பாக வைத்திருக்கிறது. உங்கள் தொலைபேசி, டேப்லெட் அல்லது கணினியிலிருந்து எந்த நேரத்திலும் உங்கள் பகுதிகளை அணுகலாம்.</p>
+<h3 id="_5">சிறந்த ஒழுங்கமைப்பு<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>பகுதிகள் பல பதிப்பாளர்களிடையே பகிரப்படும்போது, தற்செயலாக அதே முகவரிகளில் பணிசெய்வது எளிதாகிவிடும். Ministry Mapper எல்லாரும் நேரடியாக என்ன நடக்கிறது என்பதை பார்க்க உதவுகிறது, எனவே அதே இடத்தை மூடி வீணாக நேரத்தை செலவிடுவதில்லை.</p>
+<h3 id="_6">உடனடி புதுப்பிப்புகள்<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>யாரோ ஒரு பகுதியை புதுப்பித்தால், எல்லாரும் மாற்றங்களை உடனே பார்க்கிறார்கள். காகிதங்கள் கைமாற்றப்படுவதற்காகவோ அல்லது புதுப்பிப்புகளை பகிர கூட்டங்களுக்காகவோ காத்திருக்க தேவையில்லை.</p>
+<h3 id="_7">எளிதான பதிவு வைத்தல்<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>காகித சீட்டுகளில் ஒவ்வொரு மாற்றத்தையும் கைமுறையாக எழுதுவதற்கு பதிலாக, Ministry Mapper எல்லாவற்றையும் தானியங்கியாக கண்காணிக்கிறது. இது மணிக்கணக்கான வேலையை சேமிக்கிறது மற்றும் தவறுகளை தடுக்கிறது.</p>
+<h2 id="ministry-mapper_4">Ministry Mapper எவ்வாறு செயல்படுகிறது<a class="headerlink" href="#ministry-mapper_4" title="Permanent link">&para;</a></h2>
+<h3 id="_8">நவீன தொழில்நுட்ப அடுக்கு<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper சிறந்த செயல்திறனுக்கு அதிநவீன இணைய தொழில்நுட்பங்களை பயன்படுத்துகிறது:</p>
+<p><strong>முன்-முனை (ministry-mapper-v2):</strong></p>
+<ul>
+<li><strong>React 19.2.4</strong>: தானியங்கி கம்பைலர் மேம்படுத்தலுடன் சமீபத்திய UI நூலகம்</li>
+<li><strong>TypeScript 5.9.3</strong>: குறைந்த பிழைகளுக்கு வகை-பாதுகாப்பான மேம்பாடு</li>
+<li><strong>Vite 8.0.2</strong>: மின்னல்-வேக உருவாக்க கருவி மற்றும் dev சேவையகம்</li>
+<li><strong>Leaflet 1.9.4</strong>: OpenStreetMap உடன் ஊடாடும் வரைப்படம் (API வரம்புகள் இல்லை)</li>
+<li><strong>Bootstrap 5.3.8</strong>: நவீன, பதிலளிக்கும் UI கட்டமைப்பு</li>
+<li><strong>Wouter 3.9.0</strong>: இலகுரக திசைப்பயணம் (3KB vs 40KB மாற்றுகள்)</li>
+</ul>
+<p><strong>பின்-முனை (ministry-mapper-be):</strong></p>
+<ul>
+<li><strong>Go 1.25.0</strong>: உயர்-செயல்திறன் கம்பைல்டு மொழி</li>
+<li><strong>PocketBase 0.36.7</strong>: SQLite உடன் சுய-நேர பின்-முனை-சேவையாக</li>
+<li><strong>SQLite 1.40.2+</strong>: நம்பகமான, சுய-இயங்கும் தரவுத்தளம் (தூய Go செயலாக்கம்)</li>
+<li><strong>Echo v5</strong>: குறைவான, உயர்-செயல்திறன் இணைய கட்டமைப்பு</li>
+<li><strong>Sentry 0.43.0</strong>: நேரடி பிழை கண்காணிப்பு மற்றும் கண்காணிப்பு</li>
+<li><strong>MailerSend 1.6.3</strong>: பரிவர்த்தனை மின்னஞ்சல் சேவை</li>
+<li><strong>LaunchDarkly 7.14.6</strong>: அம்சக் கொடி நிர்வாகம்</li>
+<li><strong>Excelize 2.10.1</strong>: Excel அறிக்கை உருவாக்கம்</li>
+<li><strong>OpenAI GPT</strong>: அறிக்கைகள் மற்றும் செய்தி சுருக்கங்களுக்கான AI-இயக்கப்படும் சுருக்கங்கள்</li>
+</ul>
+<h3 id="_9">கட்டமைப்பு சிறப்பு அம்சங்கள்<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>சுய-நேர்</strong>: எந்த விற்பனையாளர் பூட்டு இல்லை, உங்கள் தரவு மீது முழுக் கட்டுப்பாடு</li>
+<li><strong>பல-குத்தகை</strong>: பாதுகாப்பிற்காக சபை-நிலை தரவு தனிமைப்படுத்தல்</li>
+<li><strong>நேரடி ஒத்திசைவு</strong>: அனைத்து கிளையன்ட்களிலும் SSE-அடிப்படையிலான நேரடி புதுப்பிப்புகள்</li>
+<li><strong>முற்போக்கான இணைய பயன்பாடு</strong>: ஆஃப்லைன் சொத்து ஆதரவுடன் அனைத்து சாதனங்களிலும் நிறுவக்கூடியது</li>
+<li><strong>Docker கண்டெய்னரைசேஷன்</strong>: எளிதான வரிசைப்படுத்தல் மற்றும் அளவிடல்</li>
+<li><strong>API-முதல் வடிவமைப்பு</strong>: விரிவான PocketBase SDK ஆதரவுடன் RESTful API</li>
+<li><strong>AI-இயக்கப்படும் நுண்ணறிவுகள்</strong>: புத்திசாலி அறிக்கை சுருக்கங்கள் மற்றும் செய்தி சுருக்கங்களுக்கான விருப்பமான OpenAI GPT ஒருங்கிணைப்பு</li>
+</ul>
+<h2 id="_10">முக்கியமான கருத்தில் கொள்ள வேண்டியவை<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">முதலில் தனியுரிமை<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper குடியிருப்பு முகவரிகளை கண்காணிக்கிறது, அதாவது உங்கள் பகுதியில் தனியுரிமை சட்டங்களை பின்பற்ற வேண்டும். வெவ்வேறு நாடுகளில் வெவ்வேறு விதிகள் உள்ளன (ஐரோப்பாவில் GDPR அல்லது கலிபோர்னியாவில் CCPA போல). Ministry Mapper ஐ பயன்படுத்துவதற்கு முன்பு உங்கள் உள்ளூர் ஒழுங்குமுறைகளை புரிந்துகொண்டு பின்பற்றுவதை உறுதிசெய்யுங்கள்.</p>
+<h3 id="_12">இணையம் தேவை<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper இணையத்தில் வேலை செய்கிறது, எனவே அதை பயன்படுத்த இணைப்பு தேவைப்படும். உங்கள் பகுதியில் நம்பகமற்ற இணையம் இருந்தால், இது சவால்களை ஏற்படுத்தலாம். WiFi கிடைக்காத நிலையில் மொபைல் தரவில் பயன்பாடு நன்றாக செயல்படுகிறது.</p>
+<h3 id="_13">கற்றல் வளைவு<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>காகிதத்திலிருந்து டிஜிட்டலுக்கு மாறுவது ஒரு மாற்றம், குறிப்பாக தொழில்நுட்பத்துடன் குறைவாக வசதியுள்ளவர்களுக்கு. உங்கள் சபையில் உள்ள அனைவருக்கும் மாற்றத்தை எளிதாக்க உதவி மற்றும் ஆதரவை நாங்கள் வழங்குகிறோம்.</p>
+<h2 id="_14">தொடங்குவது எப்படி<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="_15">பயனர்களுக்கு<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper ஐ பயன்படுத்த எளிதான வழி எங்கள் நேர சேவை மூலம்:</p>
+<p><strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></p>
+<p>எளிமையாக:</p>
+<ol>
+<li><a href="https://ministry-mapper.com">ministry-mapper.com</a> ஐ பார்வையிடவும்</li>
+<li>பதிவு பக்கத்தைப் பயன்படுத்தி ஒரு கணக்கை உருவாக்கவும்</li>
+<li>உங்கள் மின்னஞ்சல் முகவரியை சரிபார்க்கவும்</li>
+<li>சரியான அனுமதிகளுக்கு உங்கள் சபையின் நிர்வாகியை தொடர்புகொள்ளவும்</li>
+</ol>
+<p><strong>விரைவு இணைப்புகள்:</strong></p>
+<ul>
+<li><strong><a href="getting-started/">தொடங்குங்கள் →</a></strong></li>
+<li><strong><a href="features/">அம்சங்கள் கண்ணோட்டம் →</a></strong></li>
+<li><strong><a href="user-guide/">பயனர் வழிகாட்டி →</a></strong></li>
+<li><strong><a href="faq/">அடிக்கடி கேட்கப்படும் கேள்விகள் →</a></strong></li>
+</ul>
+<h3 id="_16">நிர்வாகிகளுக்கு<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>உங்கள் சபைக்கு Ministry Mapper ஐ கருத்தில் கொண்டால்:</p>
+<ul>
+<li>
+<p><strong>பரிந்துரைக்கப்பட்டது</strong>: <a href="https://ministry-mapper.com">ministry-mapper.com</a> இல் எங்கள் நேர சேவையை பயன்படுத்தவும்</p>
+</li>
+<li>
+<p>தொழில்நுட்ப அமைவு தேவையில்லை</p>
+</li>
+<li>தொழில்முறை ஆதரவு கிடைக்கும்</li>
+<li>தானியங்கி புதுப்பிப்புகள் மற்றும் பராமரிப்பு</li>
+<li>
+<p>சிறந்த நம்பகத்தன்மை மற்றும் பாதுகாப்பு</p>
+</li>
+<li>
+<p><strong>மாற்று</strong>: <a href="deployment/">Deployment Guide</a> ஐ மதிப்பாய்வு செய்யவும் (மேம்பட்ட பயனர்கள் மட்டும்)</p>
+</li>
+</ul>
+<p>தொழில்நுட்ப சிக்கலான தன்மை மற்றும் தொடர்ந்த பராமரிப்பு தேவைகள் காரணமாக சுய-நேர்விடலை நாங்கள் ஊக்குவிக்கவில்லை. ministry-mapper.com இல் நேர சேவை ஒரு எளிமையான, மிகவும் நம்பகமான தீர்வை வழங்குகிறது.</p>
+<p><strong>நிர்வாகி ஆதாரங்கள்:</strong></p>
+<ul>
+<li><strong><a href="getting-started/">தொடங்குவதற்கான வழிகாட்டி →</a></strong></li>
+<li><strong><a href="deployment/">வரிசைப்படுத்தல் விருப்பங்கள் →</a></strong></li>
+<li><strong><a href="self-hosting/">சுய-நேர்விடல் வழிகாட்டி →</a></strong></li>
+</ul>
+<h3 id="_17">டெவலப்பர்களுக்கு<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>தொழில்நுட்ப அம்சங்களில் ஆர்வம் உள்ளவர்களுக்கு அல்லது பங்களிக்க விரும்புபவர்களுக்கு:</p>
+<p><strong>தொழில்நுட்ப ஆவணங்கள்:</strong></p>
+<ul>
+<li><strong><a href="architecture/">கட்டமைப்பு கண்ணோட்டம் →</a></strong> - கணினி வடிவமைப்பு மற்றும் தொழில்நுட்ப முடிவுகள்</li>
+<li><strong><a href="data-models/">தரவு மாதிரிகள் &amp; திட்டம் →</a></strong> - தரவுத்தள அமைப்பு மற்றும் உறவுகள்</li>
+<li><strong><a href="backend-setup/">பின்-முனை அமைவு →</a></strong> - PocketBase கட்டமைப்பு</li>
+<li><strong><a href="frontend-setup/">முன்-முனை அமைவு →</a></strong> - React பயன்பாட்டு அமைவு</li>
+</ul>
+<p><strong>மேம்பாடு:</strong></p>
+<ul>
+<li><strong>முன்-முனை களஞ்சியம்:</strong> <a href="https://github.com/rimorin/ministry-mapper-v2">github.com/rimorin/ministry-mapper-v2</a></li>
+<li><strong>பின்-முனை களஞ்சியம்:</strong> <a href="https://github.com/rimorin/ministry-mapper-be">github.com/rimorin/ministry-mapper-be</a></li>
+<li><strong>சிக்கல்கள்:</strong> தொடர்புடைய களஞ்சியங்களில் GitHub Issues</li>
+<li><strong>பங்களிப்பு:</strong> களஞ்சிய CONTRIBUTING.md கோப்புகளை பாருங்கள்</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  மீண்டும் மேலே
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f\u0ba4\u0bc1", "clipboard.copy": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd", "search.result.more.one": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd 1", "search.result.more.other": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd #", "search.result.none": "\u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0b95\u0bcd\u0b95\u0bc2\u0b9f\u0bbf\u0baf \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0b87\u0bb2\u0bcd\u0bb2\u0bc8", "search.result.one": "1 \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0bae\u0bcd", "search.result.other": "# \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd", "search.result.placeholder": "\u0ba4\u0bc7\u0b9f\u0bb2\u0bc8\u0ba4\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95 \u0ba4\u0b9f\u0bcd\u0b9f\u0b9a\u0bcd\u0b9a\u0bc1 \u0b9a\u0bc6\u0baf\u0bcd\u0baf\u0bb5\u0bc1\u0bae\u0bcd", "search.result.term.missing": "\u0b95\u0bbe\u0ba3\u0bb5\u0bbf\u0bb2\u0bcd\u0bb2\u0bc8", "select.version": "\u0baa\u0ba4\u0bbf\u0baa\u0bcd\u0baa\u0bc8\u0ba4\u0bcd \u0ba4\u0bc7\u0bb0\u0bcd\u0ba8\u0bcd\u0ba4\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

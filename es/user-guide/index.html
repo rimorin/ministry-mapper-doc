@@ -1,0 +1,6188 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/es/user-guide/">
+      
+      
+        <link rel="prev" href="../features/">
+      
+      
+        <link rel="next" href="../architecture/">
+      
+      
+        
+          <link rel="alternate" href="../../user-guide/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/user-guide/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/user-guide/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/user-guide/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/user-guide/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/user-guide/" hreflang="ko">
+        
+          <link rel="alternate" href="./" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/user-guide/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Using Ministry Mapper - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guia-de-usuario-de-ministry-mapper" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Ministry Mapper
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../user-guide/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/user-guide/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/user-guide/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/user-guide/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/user-guide/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/user-guide/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/user-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comenzar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comenzar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comenzar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-su-cuenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear Su Cuenta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iniciar-sesion-en-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iniciar Sesión en Ministry Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entender-los-roles-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entender los Roles de Usuario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entender los Roles de Usuario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jerarquia-de-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jerarquía de Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publicador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solo-lectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solo Lectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conductor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrador-siervo-de-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administrador (Siervo de Territorio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características Principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Características Principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion-general-del-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripción General del Panel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Descripción General del Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-publicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Publicadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-conductores-y-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Conductores y Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ver-territorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver Territorios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ver Territorios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vista-de-territorio-del-publicador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vista de Territorio del Publicador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vista-de-territorio-del-administradorconductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vista de Territorio del Administrador/Conductor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-direcciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajar Con Direcciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar Con Direcciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entender-la-informacion-de-direcciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entender la Información de Direcciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-estado-de-direccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Estado de Dirección
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizar-estado-de-direccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar Estado de Dirección
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usar-la-funcion-de-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usar la Función de Mapa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usar la Función de Mapa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-del-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características del Mapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consejos-de-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consejos de Navegación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asignaciones-de-territorio-conductores-y-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asignaciones de Territorio (Conductores y Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asignaciones de Territorio (Conductores y Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-asignaciones-basadas-en-enlaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por Qué Asignaciones Basadas en Enlaces?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear una Asignación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-asignacion-especifica-del-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de Asignación Específica del Mapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestionar-asignaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionar Asignaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-asignaciones-especificas-del-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Asignaciones Específicas del Mapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejores-practicas-para-asignaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejores Prácticas para Asignaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mensajes-e-instrucciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensajes e Instrucciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mensajes e Instrucciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-mensajes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Mensajes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicar-un-mensaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publicar un Mensaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-mensajes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características de Mensajes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sincronizacion-de-datos-en-tiempo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sincronización de Datos en Tiempo Real
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sincronización de Datos en Tiempo Real">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo Funciona
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-usuarios-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Usuarios (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de Usuarios (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ver-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invitar-nuevos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invitar Nuevos Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambiar-roles-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambiar Roles de Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-acceso-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eliminar Acceso de Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estado-de-verificacion-del-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estado de Verificación del Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-congregacion-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Congregación (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Congregación (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acceder-a-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceder a Configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuraciones-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuraciones Clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opciones-de-congregacion-tipos-de-hogar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opciones de Congregación (Tipos de Hogar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Mapa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Mapa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizar-secuencia-del-mapa-arrastrar-y-soltar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar Secuencia del Mapa (Arrastrar y Soltar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-territorios-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Territorios (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de Territorios (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-nuevo-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un Nuevo Territorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editar-detalles-del-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editar Detalles del Territorio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editar Detalles del Territorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizar-secuencia-de-territorio-arrastrar-y-soltar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar Secuencia de Territorio (Arrastrar y Soltar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opciones-de-configuracion-del-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opciones de Configuración del Territorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-de-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operaciones de Territorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-direcciones-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Direcciones (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de Direcciones (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-direcciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Direcciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregar-una-direccion-publica-varios-pisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar una Dirección Pública (Varios Pisos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregar-una-direccion-privada-un-solo-piso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar una Dirección Privada (Un Solo Piso)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestionar-direcciones-existentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionar Direcciones Existentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestionar-unidades-solo-direcciones-publicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionar Unidades (Solo Direcciones Públicas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-movil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uso Móvil
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso Móvil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usar-ministry-mapper-en-su-telefono" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usar Ministry Mapper en Su Teléfono
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usar Ministry Mapper en Su Teléfono">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acceder-en-movil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceder en Móvil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-aplicacion-web-progresiva-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación de Aplicación Web Progresiva (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejores-practicas-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejores Prácticas Móviles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacidades-y-limitaciones-sin-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacidades y Limitaciones Sin Conexión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-cuenta-y-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Cuenta y Perfil
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Cuenta y Perfil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-perfil-personal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Perfil Personal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambiar-su-contrasena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambiar Su Contraseña
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperacion-de-contrasena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recuperación de Contraseña
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seleccion-de-idioma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selección de Idioma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-apariencia-y-tema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Apariencia y Tema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mejores-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejores Prácticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mejores Prácticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-publicadores_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Publicadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-conductores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Conductores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principios-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principios Generales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-de-problemas-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución de Problemas Comunes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solución de Problemas Comunes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-inicio-de-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Inicio de Sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-actualizacion-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Actualización de Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-mapa-y-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Mapa y Navegación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-enlaces-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Enlaces de Asignación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-permisos-y-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Permisos y Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Rendimiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibilidad-de-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibilidad de Navegador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibilidad de Navegador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compatibilidad-de-navegador_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibilidad de Navegador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtener-ayuda-y-soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtener Ayuda y Soporte
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtener Ayuda y Soporte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canales-de-soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canales de Soporte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reportar-problemas-efectivamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reportar Problemas Efectivamente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contacto-de-emergencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contacto de Emergencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencia-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Referencia Rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atajos-de-teclado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de Teclado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencia-rapida-de-estados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida de Estados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencia-rapida-de-capacidades-por-rol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida de Capacidades por Rol
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacidad-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacidad y Seguridad
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacidad y Seguridad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proteger-la-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proteger la Información
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-informacion-se-almacena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Información Se Almacena
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento-y-seguridad-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento y Seguridad de Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntos-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puntos Clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características del Sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregar-una-direccion-faltante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar una Dirección Faltante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtener-indicaciones-a-una-direccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtener Indicaciones a una Dirección
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comenzar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comenzar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comenzar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-su-cuenta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear Su Cuenta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iniciar-sesion-en-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iniciar Sesión en Ministry Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entender-los-roles-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entender los Roles de Usuario
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entender los Roles de Usuario">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jerarquia-de-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jerarquía de Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publicador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solo-lectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solo Lectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conductor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrador-siervo-de-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administrador (Siervo de Territorio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características Principales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Características Principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcion-general-del-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripción General del Panel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Descripción General del Panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-publicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Publicadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-conductores-y-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Conductores y Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ver-territorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver Territorios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ver Territorios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vista-de-territorio-del-publicador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vista de Territorio del Publicador
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vista-de-territorio-del-administradorconductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vista de Territorio del Administrador/Conductor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trabajar-con-direcciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajar Con Direcciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajar Con Direcciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entender-la-informacion-de-direcciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entender la Información de Direcciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-estado-de-direccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Estado de Dirección
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizar-estado-de-direccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar Estado de Dirección
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usar-la-funcion-de-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usar la Función de Mapa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usar la Función de Mapa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-del-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características del Mapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consejos-de-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consejos de Navegación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asignaciones-de-territorio-conductores-y-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asignaciones de Territorio (Conductores y Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asignaciones de Territorio (Conductores y Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-asignaciones-basadas-en-enlaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Por Qué Asignaciones Basadas en Enlaces?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear una Asignación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-asignacion-especifica-del-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creación de Asignación Específica del Mapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestionar-asignaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionar Asignaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-asignaciones-especificas-del-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Asignaciones Específicas del Mapa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejores-practicas-para-asignaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejores Prácticas para Asignaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mensajes-e-instrucciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mensajes e Instrucciones
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mensajes e Instrucciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-mensajes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Mensajes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicar-un-mensaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publicar un Mensaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-de-mensajes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características de Mensajes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sincronizacion-de-datos-en-tiempo-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sincronización de Datos en Tiempo Real
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sincronización de Datos en Tiempo Real">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo Funciona
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-usuarios-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Usuarios (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de Usuarios (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ver-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invitar-nuevos-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invitar Nuevos Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambiar-roles-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambiar Roles de Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-acceso-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eliminar Acceso de Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estado-de-verificacion-del-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estado de Verificación del Usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-congregacion-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Congregación (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Congregación (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acceder-a-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceder a Configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuraciones-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuraciones Clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opciones-de-congregacion-tipos-de-hogar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opciones de Congregación (Tipos de Hogar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-mapa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Mapa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Mapa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizar-secuencia-del-mapa-arrastrar-y-soltar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar Secuencia del Mapa (Arrastrar y Soltar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-territorios-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Territorios (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de Territorios (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-un-nuevo-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear un Nuevo Territorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editar-detalles-del-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editar Detalles del Territorio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Editar Detalles del Territorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizar-secuencia-de-territorio-arrastrar-y-soltar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar Secuencia de Territorio (Arrastrar y Soltar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opciones-de-configuracion-del-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opciones de Configuración del Territorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-de-territorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operaciones de Territorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-direcciones-solo-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Direcciones (Solo Administradores)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de Direcciones (Solo Administradores)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-direcciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipos de Direcciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregar-una-direccion-publica-varios-pisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar una Dirección Pública (Varios Pisos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregar-una-direccion-privada-un-solo-piso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar una Dirección Privada (Un Solo Piso)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestionar-direcciones-existentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionar Direcciones Existentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestionar-unidades-solo-direcciones-publicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionar Unidades (Solo Direcciones Públicas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-movil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uso Móvil
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Uso Móvil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usar-ministry-mapper-en-su-telefono" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usar Ministry Mapper en Su Teléfono
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usar Ministry Mapper en Su Teléfono">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acceder-en-movil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceder en Móvil
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-aplicacion-web-progresiva-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instalación de Aplicación Web Progresiva (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejores-practicas-moviles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejores Prácticas Móviles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacidades-y-limitaciones-sin-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacidades y Limitaciones Sin Conexión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-cuenta-y-perfil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Cuenta y Perfil
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración de Cuenta y Perfil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-perfil-personal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Perfil Personal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cambiar-su-contrasena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambiar Su Contraseña
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recuperacion-de-contrasena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recuperación de Contraseña
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seleccion-de-idioma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selección de Idioma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-apariencia-y-tema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Apariencia y Tema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mejores-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejores Prácticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mejores Prácticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-publicadores_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Publicadores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-conductores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Conductores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principios-generales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principios Generales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-de-problemas-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución de Problemas Comunes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solución de Problemas Comunes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-inicio-de-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Inicio de Sesión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-actualizacion-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Actualización de Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-mapa-y-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Mapa y Navegación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-enlaces-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Enlaces de Asignación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-permisos-y-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Permisos y Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemas-de-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas de Rendimiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibilidad-de-navegador" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibilidad de Navegador
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compatibilidad de Navegador">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compatibilidad-de-navegador_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibilidad de Navegador
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obtener-ayuda-y-soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtener Ayuda y Soporte
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Obtener Ayuda y Soporte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canales-de-soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Canales de Soporte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reportar-problemas-efectivamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reportar Problemas Efectivamente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contacto-de-emergencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contacto de Emergencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencia-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Referencia Rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#atajos-de-teclado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Atajos de Teclado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencia-rapida-de-estados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida de Estados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#referencia-rapida-de-capacidades-por-rol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida de Capacidades por Rol
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privacidad-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacidad y Seguridad
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privacidad y Seguridad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proteger-la-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proteger la Información
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-informacion-se-almacena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Información Se Almacena
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento-y-seguridad-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Almacenamiento y Seguridad de Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusión
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conclusión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puntos-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puntos Clave
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-del-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características del Sistema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agregar-una-direccion-faltante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar una Dirección Faltante
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obtener-indicaciones-a-una-direccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obtener Indicaciones a una Dirección
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="guia-de-usuario-de-ministry-mapper">Guía de Usuario de Ministry Mapper<a class="headerlink" href="#guia-de-usuario-de-ministry-mapper" title="Permanent link">&para;</a></h1>
+<h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<p>Bienvenido a Ministry Mapper, una aplicación web moderna diseñada para ayudar a las congregaciones a gestionar eficientemente los territorios del servicio del campo. Esta guía le mostrará todo lo que necesita saber para comenzar y aprovechar al máximo la aplicación.</p>
+<p><strong>¿Qué es Ministry Mapper?</strong></p>
+<p>Ministry Mapper es un sistema de gestión de territorios digital que reemplaza los métodos tradicionales basados en papel. Permite a las congregaciones:</p>
+<ul>
+<li>Organizar y asignar territorios digitalmente</li>
+<li>Rastrear visitas del servicio del campo en tiempo real</li>
+<li>Coordinar actividades entre múltiples publicadores</li>
+<li>Acceder a territorios desde cualquier dispositivo con internet</li>
+</ul>
+<p><strong>Beneficios Clave:</strong></p>
+<ul>
+<li>Ecológico - elimina el desperdicio de papel</li>
+<li>Actualizaciones en tiempo real a través de sincronización en la nube</li>
+<li>Funciona en cualquier dispositivo (escritorio, tableta, móvil)</li>
+<li>Mapas interactivos integrados para navegación fácil</li>
+<li>Control de acceso seguro basado en roles</li>
+</ul>
+<h2 id="comenzar">Comenzar<a class="headerlink" href="#comenzar" title="Permanent link">&para;</a></h2>
+<h3 id="crear-su-cuenta">Crear Su Cuenta<a class="headerlink" href="#crear-su-cuenta" title="Permanent link">&para;</a></h3>
+<p><img alt="Página de Registro" src="../../assets/screenshots/sign_up.png" /></p>
+<p><em>Figura 1: Formulario de registro para crear una nueva cuenta de Ministry Mapper</em></p>
+<p><strong>Paso 1: Acceder a la Página de Registro</strong></p>
+<p><img alt="Iniciar Sesión" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>Figura 2: Página de inicio de sesión con opción de Registrarse</em></p>
+<ol>
+<li>Visite la URL de Ministry Mapper de su congregación</li>
+<li>Haga clic en el botón <strong>"Registrarse"</strong> en la página de inicio de sesión</li>
+</ol>
+<p><strong>Paso 2: Elegir Método de Registro</strong></p>
+<table>
+<thead>
+<tr>
+<th>Registro Tradicional</th>
+<th>Google OAuth (Recomendado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Requiere correo electrónico, contraseña (6+ caracteres, 1 número, 1 mayúscula) y verificación de correo electrónico</td>
+<td>Registro con un clic usando cuenta de Google</td>
+</tr>
+<tr>
+<td>Verificación manual de correo electrónico requerida</td>
+<td>Verificación automática de correo electrónico</td>
+</tr>
+<tr>
+<td>Necesita recordar otra contraseña</td>
+<td>Sin contraseña que gestionar</td>
+</tr>
+<tr>
+<td>Aceptar Política de Privacidad y Términos</td>
+<td>Seguridad mejorada a través de Google</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Registro Tradicional:</strong>
+1. Complete: Nombre, Correo Electrónico, Contraseña, Confirmar Contraseña
+2. Acepte la Política de Privacidad y Términos de Servicio
+3. Haga clic en <strong>"Crear Cuenta"</strong></p>
+<p><strong>Registro con Google OAuth:</strong>
+1. Haga clic en el botón <strong>"Iniciar sesión con Google"</strong> debajo de "O continuar con"
+2. Seleccione su cuenta de Google
+3. Otorgue a Ministry Mapper acceso básico al perfil
+4. Cuenta creada automáticamente</p>
+<p><strong>Paso 3: Verificar Su Correo Electrónico</strong></p>
+<p><img alt="Correo de Verificación de Registro" src="../../assets/screenshots/sign_up_verification_email.png" /></p>
+<p><em>Figura 3: Mensaje de verificación de correo electrónico enviado después de la creación de cuenta</em></p>
+<ol>
+<li>Revise su bandeja de entrada para un mensaje de verificación de Ministry Mapper</li>
+<li>Haga clic en el enlace de verificación en el correo electrónico</li>
+<li>Verá una confirmación de que su cuenta está verificada</li>
+</ol>
+<p><strong>Paso 4: Esperar Acceso a la Congregación</strong></p>
+<p>Después de la verificación:</p>
+<ol>
+<li>Regrese a la página de inicio de sesión</li>
+<li>Inicie sesión con su correo electrónico y contraseña</li>
+<li>Si la Contraseña de Un Solo Uso (OTP) está habilitada, revise su correo electrónico para el código</li>
+</ol>
+<p><img alt="Página de Verificación OTP" src="../../assets/screenshots/otp_verification_page.png" /></p>
+<p><em>Figura 4: Pantalla de verificación de Contraseña de Un Solo Uso (OTP)</em></p>
+<p><img alt="Correo de Verificación OTP" src="../../assets/screenshots/otp_verification_email.png" /></p>
+<p><em>Figura 5: Correo electrónico que contiene el código OTP para verificación de inicio de sesión</em></p>
+<ol>
+<li><strong>Importante</strong>: No verá territorios aún - un administrador debe otorgarle acceso a su congregación primero</li>
+<li>Contacte al siervo de territorio o administrador de su congregación para solicitar acceso</li>
+</ol>
+<h3 id="iniciar-sesion-en-ministry-mapper">Iniciar Sesión en Ministry Mapper<a class="headerlink" href="#iniciar-sesion-en-ministry-mapper" title="Permanent link">&para;</a></h3>
+<p><img alt="Inicio de Sesión con Google OAuth" src="../../assets/screenshots/google_oauth_sign_in.png" /></p>
+<p><em>Figura 6: Opción de inicio de sesión con Google OAuth para autenticación más rápida y segura</em></p>
+<p>Una vez que su cuenta esté verificada y se le haya otorgado acceso a la congregación:</p>
+<p><strong>Inicio de Sesión Estándar:</strong>
+1. Navegue a la URL de Ministry Mapper de su congregación
+2. Ingrese su dirección de correo electrónico y contraseña
+3. Haga clic en <strong>"Iniciar Sesión"</strong></p>
+<p><strong>Inicio de Sesión con Google OAuth (Más Rápido):</strong>
+1. Haga clic en el botón <strong>"Iniciar sesión con Google"</strong>
+2. Seleccione su cuenta de Google
+3. Sesión iniciada automáticamente (sin contraseña necesaria)</p>
+<p><strong>Paso 3: Completar Verificación OTP (Si Está Habilitada)</strong></p>
+<p>Si su congregación ha habilitado la seguridad de Contraseña de Un Solo Uso:</p>
+<ol>
+<li>Después de ingresar credenciales, verá la pantalla de verificación OTP</li>
+<li>Revise su correo electrónico para el código de verificación</li>
+<li>Ingrese el código de 6 dígitos del correo electrónico</li>
+<li>Haga clic en <strong>"Verificar"</strong> o <strong>"Enviar"</strong></li>
+<li>El código expira en 5-10 minutos</li>
+</ol>
+<p><strong>Paso 4: Acceder a Su Panel</strong></p>
+<ul>
+<li><strong>Publicadores</strong>: No verá un panel - use los enlaces de asignación que se le envíen</li>
+<li><strong>Solo Lectura, Conductor, Administrador</strong>: Verá su panel específico de rol</li>
+</ul>
+<blockquote>
+<p><strong>Consejo</strong>: Manténgase conectado en dispositivos de confianza para mayor comodidad, pero siempre cierre sesión en computadoras compartidas.</p>
+</blockquote>
+<h3 id="entender-los-roles-de-usuario">Entender los Roles de Usuario<a class="headerlink" href="#entender-los-roles-de-usuario" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper usa un sistema de control de acceso de cuatro niveles. Su rol determina qué características puede acceder y qué acciones puede realizar.</p>
+<h4 id="jerarquia-de-roles">Jerarquía de Roles<a class="headerlink" href="#jerarquia-de-roles" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Administrador (Acceso Completo)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Conductor (Gestionar Asignaciones)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Solo Lectura (Solo Ver)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ↓
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Publicador (Acceso Solo por Enlace)
+</code></pre></div>
+<hr />
+<h4 id="publicador">Publicador<a class="headerlink" href="#publicador" title="Permanent link">&para;</a></h4>
+<p><strong>Método de Acceso</strong>: A través de enlaces de asignación enviados por administradores o conductores</p>
+<p><strong>Lo que los Publicadores Pueden Hacer:</strong></p>
+<ul>
+<li>Acceder a territorios a través de enlaces compartidos</li>
+<li>Ver mapas de territorio con mapeo interactivo</li>
+<li>Actualizar estado de dirección después de visitas</li>
+<li>Marcar como: Hecho, No en Casa, No Visitar, Inválido</li>
+<li>Agregar notas de visita a direcciones</li>
+<li>Rastrear número de intentos de "no en casa"</li>
+<li>Ver detalles de dirección y secuencia</li>
+</ul>
+<p><strong>Lo que los Publicadores No Pueden Hacer:</strong></p>
+<ul>
+<li>Sin acceso al panel</li>
+<li>No pueden ver todos los territorios de la congregación</li>
+<li>No pueden crear o gestionar territorios</li>
+<li>Los enlaces de asignación expiran después del tiempo establecido (predeterminado: 24 horas, configurable por el administrador de la congregación)</li>
+</ul>
+<p><strong>Mejor Para</strong>: Publicadores regulares haciendo servicio del campo</p>
+<hr />
+<h4 id="solo-lectura">Solo Lectura<a class="headerlink" href="#solo-lectura" title="Permanent link">&para;</a></h4>
+<p><strong>Método de Acceso</strong>: Inicio de sesión en panel con permisos de solo lectura</p>
+<p><strong>Lo que los Usuarios de Solo Lectura Pueden Hacer:</strong></p>
+<ul>
+<li>Ver todos los territorios en la congregación</li>
+<li>Ver información completa de direcciones</li>
+<li>Ver progreso y estadísticas del territorio</li>
+<li>Acceder a mapas de territorio</li>
+<li>Ver mensajes de la congregación</li>
+</ul>
+<p><strong>Lo que los Usuarios de Solo Lectura No Pueden Hacer:</strong></p>
+<ul>
+<li>No pueden modificar ningún dato de territorio o dirección</li>
+<li>No pueden crear o eliminar territorios</li>
+<li>No pueden gestionar asignaciones</li>
+<li>No pueden cambiar configuraciones de la congregación</li>
+</ul>
+<p><strong>Mejor Para</strong>: Superintendentes que necesitan visibilidad sin capacidades de edición</p>
+<hr />
+<h4 id="conductor">Conductor<a class="headerlink" href="#conductor" title="Permanent link">&para;</a></h4>
+<p><strong>Método de Acceso</strong>: Inicio de sesión en panel con permisos de conductor</p>
+<p><strong>Las Capacidades del Conductor Incluyen:</strong></p>
+<ul>
+<li><strong>Todo lo que Solo Lectura puede hacer</strong>, MÁS:</li>
+<li>Crear y gestionar asignaciones de territorio</li>
+<li>Generar enlaces de asignación para publicadores</li>
+<li>Ver todo el historial de asignaciones</li>
+<li>Acceder y publicar mensajes de la congregación</li>
+<li>Gestionar opciones de la congregación (tipos de estado de hogar)</li>
+<li>Ver estado de completado del territorio</li>
+</ul>
+<p><strong>Lo que los Conductores No Pueden Hacer:</strong></p>
+<ul>
+<li>No pueden crear o eliminar territorios</li>
+<li>No pueden editar detalles de dirección (direcciones, unidades, pisos)</li>
+<li>No pueden gestionar roles o permisos de usuario</li>
+<li>No pueden modificar configuraciones principales de la congregación</li>
+</ul>
+<p><strong>Mejor Para</strong>: Coordinadores del servicio del campo y superintendentes de grupo</p>
+<hr />
+<h4 id="administrador-siervo-de-territorio">Administrador (Siervo de Territorio)<a class="headerlink" href="#administrador-siervo-de-territorio" title="Permanent link">&para;</a></h4>
+<p><strong>Método de Acceso</strong>: Inicio de sesión en panel con permisos administrativos completos</p>
+<p><strong>El Administrador Tiene Control Completo:</strong></p>
+<ul>
+<li><strong>Todo lo que los Conductores pueden hacer</strong>, MÁS:</li>
+<li>Crear, editar y eliminar territorios</li>
+<li>Agregar, modificar y eliminar direcciones</li>
+<li>Gestionar edificios y unidades</li>
+<li>Configurar ajustes de la congregación</li>
+<li>Establecer intentos máximos de "no en casa"</li>
+<li>Configurar tiempos de expiración de enlaces</li>
+<li>Configurar opciones de tipo de hogar</li>
+<li>Invitar y gestionar usuarios</li>
+<li>Asignar roles y permisos de usuario</li>
+<li>Restablecer territorios y direcciones</li>
+<li>Gestionar coordenadas de geolocalización</li>
+</ul>
+<p><strong>Mejor Para</strong>: Siervos de territorio y aquellos que gestionan el sistema de territorios de la congregación</p>
+<hr />
+<blockquote>
+<p><strong>Nota</strong>: Contacte al administrador de su congregación si necesita cambiar su rol o si no está seguro de qué rol tiene actualmente.</p>
+</blockquote>
+<h2 id="caracteristicas-principales">Características Principales<a class="headerlink" href="#caracteristicas-principales" title="Permanent link">&para;</a></h2>
+<h3 id="descripcion-general-del-panel">Descripción General del Panel<a class="headerlink" href="#descripcion-general-del-panel" title="Permanent link">&para;</a></h3>
+<p><img alt="Panel de Administrador" src="../../assets/screenshots/admin_dashboard.png" /></p>
+<p><em>Figura 6: Panel de administrador mostrando selector de territorio y controles principales</em></p>
+<p>La interfaz del panel varía según su rol:</p>
+<h4 id="para-publicadores">Para Publicadores<a class="headerlink" href="#para-publicadores" title="Permanent link">&para;</a></h4>
+<p>Los publicadores <strong>no tienen acceso al panel</strong>. En su lugar:</p>
+<ul>
+<li>Reciben enlaces de asignación por correo electrónico o mensaje</li>
+<li>Hacen clic en el enlace para acceder a su territorio asignado</li>
+<li>Trabajan directamente dentro de la vista del territorio</li>
+<li>Los enlaces expiran automáticamente después del tiempo configurado (predeterminado: 24 horas)</li>
+</ul>
+<h4 id="para-conductores-y-administradores">Para Conductores y Administradores<a class="headerlink" href="#para-conductores-y-administradores" title="Permanent link">&para;</a></h4>
+<p>El panel proporciona una descripción general completa:</p>
+<p><strong>1. Selector de Territorio</strong> (Menú Desplegable Superior)</p>
+<ul>
+<li>Elegir qué territorio ver o gestionar</li>
+<li>Muestra código y descripción del territorio</li>
+<li>Navegación rápida entre territorios</li>
+</ul>
+<p><strong>2. Botones de Acción Principal</strong></p>
+<ul>
+<li><strong>Asignaciones</strong>: Ver y gestionar enlaces de asignación</li>
+<li><strong>Mensajes</strong>: Publicar y ver mensajes de la congregación</li>
+<li><strong>Configuración</strong>: Acceder a configuración de la congregación (Solo Administradores)</li>
+<li><strong>Usuarios</strong>: Gestionar roles e invitaciones de usuarios (Solo Administradores)</li>
+</ul>
+<p><strong>3. Panel de Información del Territorio</strong></p>
+<ul>
+<li>Código y descripción del territorio</li>
+<li>Barra de progreso mostrando porcentaje de completado</li>
+<li>Marca de tiempo de última actualización</li>
+<li>Total de unidades vs. unidades completadas</li>
+</ul>
+<p><strong>4. Opciones de Vista del Territorio</strong></p>
+<ul>
+<li><strong>Vista de Mapa</strong>: Visualización de mapa interactivo</li>
+<li><strong>Vista de Lista</strong>: Visualización tabular de todas las direcciones</li>
+</ul>
+<p><strong>5. Menú de Marcación Rápida</strong> (Botón de Acción Flotante)</p>
+<p><img alt="Marcación Rápida Página Admin" src="../../assets/screenshots/speeddial_admin_page.png" /></p>
+<p><em>Figura 6a: Botón de acción flotante de marcación rápida proporcionando acceso rápido a acciones comunes</em></p>
+<p>El botón <strong>+</strong> (esquina inferior derecha) proporciona acceso rápido a:
+- <strong>Modo Vista de Mapa</strong>: Alternar vista de mapa a pantalla completa
+- <strong>Enlace Rápido</strong>: Crear rápidamente enlaces de asignación (Conductores y Administradores)
+- Acciones contextuales basadas en la vista actual</p>
+<hr />
+<h3 id="ver-territorios">Ver Territorios<a class="headerlink" href="#ver-territorios" title="Permanent link">&para;</a></h3>
+<h4 id="vista-de-territorio-del-publicador">Vista de Territorio del Publicador<a class="headerlink" href="#vista-de-territorio-del-publicador" title="Permanent link">&para;</a></h4>
+<p><img alt="Pantalla de Asignación del Publicador" src="../../assets/screenshots/publisher_assignment_screen.png" /></p>
+<p><em>Figura 7: Vista del publicador del territorio asignado con mapa y lista de direcciones</em></p>
+<p><strong>Acceder a Su Asignación:</strong></p>
+<ol>
+<li>Haga clic en el enlace de asignación enviado por su administrador/conductor</li>
+<li>El territorio se carga automáticamente con:</li>
+<li>Mapa interactivo de Google mostrando todas las direcciones</li>
+<li>Marcadores clicables para cada ubicación</li>
+<li>Lista de direcciones/unidades para visitar</li>
+<li>Porcentaje de progreso actual</li>
+</ol>
+<p><strong>Información del Territorio Mostrada:</strong></p>
+<ul>
+<li><strong>Código del Territorio</strong>: Identificador (ej., "T-001")</li>
+<li><strong>Descripción</strong>: Nombre o área del territorio</li>
+<li><strong>Barra de Progreso</strong>: Estado visual de completado</li>
+<li><strong>Mapa</strong>: Mapa interactivo con marcadores de direcciones</li>
+<li><strong>Lista de Direcciones</strong>: Todas las direcciones con estado actual</li>
+</ul>
+<h4 id="vista-de-territorio-del-administradorconductor">Vista de Territorio del Administrador/Conductor<a class="headerlink" href="#vista-de-territorio-del-administradorconductor" title="Permanent link">&para;</a></h4>
+<p><img alt="Panel del Conductor" src="../../assets/screenshots/conductor_dashboard.png" /></p>
+<p><em>Figura 8: Panel del conductor con selector de territorio y opciones de gestión</em></p>
+<p><strong>Ver un Territorio:</strong></p>
+<ol>
+<li>Inicie sesión en su panel</li>
+<li>Seleccione un territorio del menú desplegable</li>
+<li>Vea información detallada:</li>
+<li>Código y descripción del territorio</li>
+<li>Estadísticas de completado (ej., "15/20 completados - 75%")</li>
+<li>Mapa interactivo con todas las ubicaciones</li>
+<li>Lista completa de direcciones/unidades con detalles</li>
+<li>Botones de gestión (Editar, Eliminar, Restablecer)</li>
+</ol>
+<p><strong>Opciones de Gestión:</strong></p>
+<ul>
+<li><strong>Editar Territorio</strong>: Cambiar nombre, código o descripción</li>
+<li><strong>Eliminar Territorio</strong>: Eliminar territorio completo</li>
+<li><strong>Restablecer Territorio</strong>: Limpiar todos los estados de direcciones</li>
+<li><strong>Agregar Dirección</strong>: Crear nueva dirección en el territorio</li>
+</ul>
+<h3 id="trabajar-con-direcciones">Trabajar Con Direcciones<a class="headerlink" href="#trabajar-con-direcciones" title="Permanent link">&para;</a></h3>
+<h4 id="entender-la-informacion-de-direcciones">Entender la Información de Direcciones<a class="headerlink" href="#entender-la-informacion-de-direcciones" title="Permanent link">&para;</a></h4>
+<p><img alt="Detalles de Estado de Dirección" src="../../assets/screenshots/address_status_details.png" /></p>
+<p><em>Figura 9: Tarjeta de dirección mostrando todos los detalles de dirección y estado actual</em></p>
+<p>Cada dirección o unidad en Ministry Mapper muestra información completa:</p>
+<p><strong>Información Básica:</strong></p>
+<ul>
+<li><strong>Dirección/Número de Unidad</strong>: Identificador de ubicación (ej., "#05-123")</li>
+<li><strong>Piso</strong>: Nivel del edificio (para propiedades de varios pisos)</li>
+<li><strong>Tipo</strong>: Clasificación del hogar basada en opciones de la congregación</li>
+<li>Ejemplos: Chino, Inglés, Tamil, Español</li>
+<li>Se pueden seleccionar múltiples tipos si está configurado</li>
+<li><strong>Secuencia</strong>: Número de orden de visita</li>
+</ul>
+<p><strong>Información de Estado:</strong></p>
+<ul>
+<li><strong>Estado</strong>: Estado actual de visita (ver tipos de estado abajo)</li>
+<li><strong>Conteo de No en Casa</strong>: Número de intentos de visita sin respuesta</li>
+<li><strong>Fecha de No Visitar</strong>: Cuándo se marcó como DNC (si aplica)</li>
+</ul>
+<p><strong>Seguimiento de Actividad:</strong></p>
+<ul>
+<li><strong>Notas</strong>: Información importante sobre visitas o residente</li>
+<li><strong>Última Actualización</strong>: Fecha y hora de la actualización más reciente</li>
+<li><strong>Actualizado Por</strong>: Nombre de usuario de la persona que hizo el último cambio</li>
+</ul>
+<hr />
+<h4 id="tipos-de-estado-de-direccion">Tipos de Estado de Dirección<a class="headerlink" href="#tipos-de-estado-de-direccion" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper usa cinco tipos de estado estándar:</p>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Color</th>
+<th>Descripción</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No Hecho</strong></td>
+<td>Blanco/Predeterminado</td>
+<td>Aún no visitado</td>
+<td>Estado inicial para todas las direcciones</td>
+</tr>
+<tr>
+<td><strong>Hecho</strong></td>
+<td>Verde</td>
+<td>Contactado con éxito</td>
+<td>El residente estaba en casa y fue contactado</td>
+</tr>
+<tr>
+<td><strong>No en Casa</strong></td>
+<td>Amarillo/Naranja</td>
+<td>Nadie respondió</td>
+<td>Rastrear hasta intentos máximos (configurable)</td>
+</tr>
+<tr>
+<td><strong>No Visitar</strong></td>
+<td>Rojo</td>
+<td>Solicitó no ser visitado</td>
+<td>El residente solicitó no más contacto</td>
+</tr>
+<tr>
+<td><strong>Inválido</strong></td>
+<td>Gris</td>
+<td>Inaccesible</td>
+<td>La dirección no existe o no puede ser visitada</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Consejo</strong>: Una vez que "No en Casa" alcanza los intentos máximos (establecido por el administrador), la dirección se marca automáticamente como completada en los cálculos de progreso.</p>
+</blockquote>
+<hr />
+<h4 id="actualizar-estado-de-direccion">Actualizar Estado de Dirección<a class="headerlink" href="#actualizar-estado-de-direccion" title="Permanent link">&para;</a></h4>
+<p><img alt="Estado de Dirección No en Casa" src="../../assets/screenshots/address_not_home_status.png" /></p>
+<p><em>Figura 10: Modal de actualización de estado mostrando todos los campos y opciones</em></p>
+<p><strong>Proceso Paso a Paso:</strong></p>
+<p><strong>1. Ubicar la Dirección</strong></p>
+<ul>
+<li>Desplácese por la lista de direcciones</li>
+<li>O haga clic en un marcador en el mapa</li>
+<li>Las direcciones están agrupadas por piso para edificios de varios pisos</li>
+</ul>
+<p><strong>2. Abrir el Modal de Actualización</strong></p>
+<ul>
+<li>Haga clic en la tarjeta de dirección/unidad</li>
+<li>El modal de actualización se abrirá con la información actual</li>
+</ul>
+<p><strong>3. Actualizar Estado</strong> (Requerido)</p>
+<p>Seleccione el estado apropiado:</p>
+<p><strong>Hecho</strong> - Cuando se contactó con éxito</p>
+<ul>
+<li>Seleccione esto cuando alguien respondió</li>
+<li>Ocurrió una conversación o se dejó literatura</li>
+<li>El conteo de "No en Casa" se restablece</li>
+</ul>
+<p><strong>No en Casa</strong> - Cuando nadie respondió</p>
+<ul>
+<li>Incrementa automáticamente el conteo de "No en Casa"</li>
+<li>El sistema rastrea el número de intentos</li>
+<li>Después de alcanzar los intentos máximos, se trata como completo</li>
+</ul>
+<p><strong>No Visitar</strong> - Cuando se solicitó no visitar</p>
+<p><img alt="Estado de Dirección No Visitar" src="../../assets/screenshots/address_do_not_call_status.png" /></p>
+<p><em>Figura 11: Actualización de estado No Visitar con selección de fecha</em></p>
+<ul>
+<li>Seleccione este estado</li>
+<li>Opcionalmente establezca la fecha de DNC (predeterminado: hoy)</li>
+<li>Agregue notas explicando la razón si es apropiado</li>
+<li><strong>Importante</strong>: Respete siempre los deseos del residente</li>
+</ul>
+<p><strong>Inválido</strong> - Cuando la dirección es inaccesible</p>
+<ul>
+<li>La dirección no existe</li>
+<li>En construcción</li>
+<li>Permanentemente cerrado</li>
+<li>No se puede acceder</li>
+</ul>
+<p><strong>4. Actualizar Tipo de Hogar</strong> (Si Está Disponible)</p>
+<p>Si su congregación ha configurado tipos de hogar:</p>
+<ul>
+<li>Seleccione uno o múltiples tipos</li>
+<li>Ejemplos: Preferencias de idioma, circunstancias especiales</li>
+<li>Limpie tipos existentes si es necesario</li>
+</ul>
+<p><strong>5. Agregar o Actualizar Notas</strong> (Opcional pero Recomendado)</p>
+<p><strong>Mejores prácticas:</strong></p>
+<ul>
+<li>Enfóquese en detalles de la propiedad, no en individuos</li>
+<li>Registre instrucciones de acceso y horarios</li>
+<li>Sea conciso y respetuoso</li>
+<li>Nunca incluya información personal sobre residentes</li>
+<li>Nunca incluya información sensible</li>
+</ul>
+<p><strong>Buenos Ejemplos:</strong></p>
+<ul>
+<li>"Propiedad con portón - llame a la garita primero"</li>
+<li>"Mejor hora: Fines de semana después de las 2 PM"</li>
+<li>"Entrada lateral accesible por el camino de entrada"</li>
+</ul>
+<p><strong>Malos Ejemplos:</strong></p>
+<ul>
+<li>Detalles personales sobre residentes</li>
+<li>Información médica o financiera</li>
+<li>Nombres o descripciones de individuos</li>
+</ul>
+<p><strong>6. Ajustar Conteo de No en Casa</strong> (Si Es Necesario)</p>
+<p>El sistema rastrea automáticamente los intentos de no en casa, pero puede ajustar manualmente si es necesario.</p>
+<p><strong>7. Establecer Fecha de No Visitar</strong> (Solo Estado DNC)</p>
+<p>Al marcar como No Visitar:</p>
+<ul>
+<li>El sistema predetermina la fecha de hoy</li>
+<li>Ajuste si es necesario para solicitudes específicas de DNC</li>
+<li>La fecha ayuda a rastrear cuándo potencialmente revisitar</li>
+</ul>
+<p><strong>8. Actualizar Geolocalización</strong> (Solo Administradores)</p>
+<p>Para territorios de un solo piso:</p>
+<ul>
+<li>Haga clic en el botón "Actualizar Geolocalización"</li>
+<li>Use el mapa para establecer la ubicación precisa</li>
+<li>Ayuda con la navegación y precisión del mapeo</li>
+</ul>
+<p><strong>9. Guardar Cambios</strong></p>
+<ul>
+<li>Revise todas las actualizaciones</li>
+<li>Haga clic en el botón <strong>"Guardar"</strong></li>
+<li>Los cambios se sincronizan inmediatamente para todos los usuarios</li>
+<li>Un mensaje de éxito confirma la actualización</li>
+</ul>
+<p><strong>10. Eliminar Propiedad</strong> (Solo Administradores - Un Solo Piso)</p>
+<p>Para propiedades privadas que necesitan ser eliminadas:</p>
+<ul>
+<li>Haga clic en el botón "Eliminar Propiedad" en la parte inferior</li>
+<li>Confirme la eliminación</li>
+<li><strong>Advertencia</strong>: Esta acción no se puede deshacer</li>
+</ul>
+<hr />
+<h3 id="usar-la-funcion-de-mapa">Usar la Función de Mapa<a class="headerlink" href="#usar-la-funcion-de-mapa" title="Permanent link">&para;</a></h3>
+<p><img alt="Direcciones del Mapa" src="../../assets/screenshots/map_directions.png" /></p>
+<p><em>Figura 12: Vista de mapa interactivo mostrando marcadores y controles de navegación</em></p>
+<p>Ministry Mapper integra mapeo interactivo para navegación intuitiva del territorio.</p>
+<h4 id="caracteristicas-del-mapa">Características del Mapa<a class="headerlink" href="#caracteristicas-del-mapa" title="Permanent link">&para;</a></h4>
+<p><strong>Marcadores Interactivos:</strong></p>
+<ul>
+<li>Cada dirección está marcada en el mapa</li>
+<li>Marcador rojo indica destino</li>
+<li>Marcador azul parpadeante indica ubicación actual</li>
+<li>Haga clic en cualquier marcador para ver/editar esa dirección</li>
+</ul>
+<p><strong>Controles del Mapa:</strong></p>
+<ul>
+<li><strong>Zoom</strong>: Botones + y - o gesto de pellizco</li>
+<li><strong>Panorámica</strong>: Haga clic y arrastre para moverse</li>
+<li><strong>Vista Satelital</strong>: Alternar entre mapa e imágenes satelitales</li>
+<li><strong>Pantalla Completa</strong>: Expandir mapa a pantalla completa (o use Marcación Rápida → Modo Vista de Mapa)</li>
+<li><strong>Centrar en Territorio</strong>: Restablecer vista para mostrar todas las direcciones</li>
+</ul>
+<p><strong>Modo de Vista de Mapa a Pantalla Completa</strong> (Administradores y Conductores):</p>
+<p><img alt="Modo Vista de Mapa Admin" src="../../assets/screenshots/admin_map_view_mode.png" /></p>
+<p><em>Figura 12a: Modo de vista de mapa a pantalla completa accedido mediante el menú de marcación rápida</em></p>
+<p>Acceda mediante Marcación Rápida (+) → icono de Vista de Mapa. Ideal para:
+- Planificación de rutas antes del servicio del campo
+- Análisis de cobertura del territorio
+- Presentaciones en reuniones
+- Identificar grupos de direcciones</p>
+<h4 id="consejos-de-navegacion">Consejos de Navegación<a class="headerlink" href="#consejos-de-navegacion" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>Antes de Salir de Casa:</strong></p>
+</li>
+<li>
+<p>Vea el mapa para planificar su ruta</p>
+</li>
+<li>Identifique grupos de direcciones</li>
+<li>
+<p>Note cualquier requisito especial de acceso de las notas</p>
+</li>
+<li>
+<p><strong>En el Campo:</strong></p>
+</li>
+<li>
+<p>Use el mapa para navegar entre direcciones</p>
+</li>
+<li>Siga los números de secuencia para enrutamiento óptimo</li>
+<li>
+<p>Toque los marcadores para actualizar rápidamente el estado después de cada visita</p>
+</li>
+<li>
+<p><strong>Usando con GPS del Teléfono:</strong></p>
+</li>
+<li>Habilite los servicios de ubicación</li>
+<li>El mapa muestra su posición actual</li>
+<li>Navegue directamente a la siguiente dirección</li>
+<li>Funciona sin conexión si los mosaicos del mapa están en caché (limitado)</li>
+</ol>
+<hr />
+<h3 id="asignaciones-de-territorio-conductores-y-administradores">Asignaciones de Territorio (Conductores y Administradores)<a class="headerlink" href="#asignaciones-de-territorio-conductores-y-administradores" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper usa un sistema de asignación basado en enlaces. Los Conductores y Administradores crean enlaces compartibles que los publicadores usan para acceder a los territorios.</p>
+<h4 id="por-que-asignaciones-basadas-en-enlaces">¿Por Qué Asignaciones Basadas en Enlaces?<a class="headerlink" href="#por-que-asignaciones-basadas-en-enlaces" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Distribución Simple</strong>: Envíe enlaces por correo electrónico, mensaje o texto</li>
+<li><strong>Expiración Automática</strong>: Los enlaces expiran después del tiempo establecido (predeterminado: 24 horas)</li>
+<li><strong>Sin Cuenta Requerida</strong>: Los publicadores trabajan directamente a través del enlace</li>
+<li><strong>Seguridad</strong>: Los enlaces expirados no pueden accederse</li>
+<li><strong>Seguimiento</strong>: Vea quién accedió a qué y cuándo</li>
+</ul>
+<h4 id="crear-una-asignacion">Crear una Asignación<a class="headerlink" href="#crear-una-asignacion" title="Permanent link">&para;</a></h4>
+<p><strong>Dos Formas de Crear Asignaciones:</strong></p>
+<p><img alt="Enlace Rápido Admin Conductor" src="../../assets/screenshots/admin_conductor_quicklink.png" /></p>
+<p><em>Figura 13a: Interfaz de creación de enlace rápido accedida mediante el menú de marcación rápida</em></p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Acceso</th>
+<th>Mejor Para</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enlace Rápido</strong></td>
+<td>Marcación Rápida (+) → Enlace Rápido</td>
+<td>Creación rápida para territorio actual</td>
+</tr>
+<tr>
+<td><strong>Estándar</strong></td>
+<td>Botón Asignaciones → Crear Nueva</td>
+<td>Opciones completas y personalización</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paso 1: Acceder a Creación de Asignación</strong></p>
+<ul>
+<li><strong>Enlace Rápido</strong>: Haga clic en Marcación Rápida (+) → icono de Enlace Rápido (pre-llena el territorio actual)</li>
+<li><strong>Estándar</strong>: Haga clic en <strong>"Asignaciones"</strong> → <strong>"Crear Nueva Asignación"</strong> o <strong>"+"</strong></li>
+</ul>
+<p><strong>Paso 2: Llenar Formulario de Asignación</strong></p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Descripción</th>
+<th>Requerido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tipo</strong></td>
+<td>Asignación Normal o Ficha Personal</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>Territorio</strong></td>
+<td>Seleccionar de los territorios de la congregación</td>
+<td>Sí</td>
+</tr>
+<tr>
+<td><strong>Nombre del Publicador</strong></td>
+<td>Para seguimiento (el enlace funciona sin nombre)</td>
+<td>Opcional</td>
+</tr>
+<tr>
+<td><strong>Expiración del Enlace</strong></td>
+<td>Horas hasta que el enlace expire (predeterminado: 24)</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paso 3: Generar y Compartir</strong></p>
+<ol>
+<li>Haga clic en <strong>"Crear Asignación"</strong></li>
+<li>El sistema genera un enlace único</li>
+<li>Comparta el enlace con el publicador mediante:</li>
+<li>Correo electrónico</li>
+<li>Mensaje de texto</li>
+<li>Aplicación de mensajería instantánea</li>
+<li>Cualquier método de comunicación</li>
+</ol>
+<p><strong>Ejemplo de Enlace de Asignación:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://su-ministry-mapper.com/map/abc123xyz456
+</code></pre></div>
+<h4 id="creacion-de-asignacion-especifica-del-mapa">Creación de Asignación Específica del Mapa<a class="headerlink" href="#creacion-de-asignacion-especifica-del-mapa" title="Permanent link">&para;</a></h4>
+<p>Cree asignaciones directamente desde la vista del mapa sin navegar al modal central de asignaciones.</p>
+<p><strong>Acceso:</strong></p>
+<ol>
+<li>Navegue al territorio que desea asignar</li>
+<li>Haga clic en:</li>
+<li>Botón <strong>"Asignar"</strong> - crear una asignación de territorio normal</li>
+<li>Botón <strong>"Personal"</strong> - crear una asignación de ficha personal</li>
+</ol>
+<p><strong>Asignación de Territorio Normal:</strong></p>
+<p><img alt="Asignar Publicador Mapa" src="../../assets/screenshots/assigning_publisher_map.png" /></p>
+<p><em>Figura 13b: Formulario de creación de asignación normal específico del mapa</em></p>
+<p>Haga clic en <strong>"Asignar"</strong> para crear una asignación de territorio normal. El formulario muestra:</p>
+<ul>
+<li>Información del territorio en el encabezado</li>
+<li>Campo <strong>Nombre del Publicador</strong> - ingrese el/los nombre(s) del/los publicador(es) asignado(s)</li>
+<li>Botones <strong>Cancelar</strong> y <strong>Confirmar</strong></li>
+</ul>
+<p><strong>Asignación de Ficha Personal:</strong></p>
+<p><img alt="Asignación Personal Publicador Mapa" src="../../assets/screenshots/personal_assign_publisher_map.png" /></p>
+<p><em>Figura 13c: Formulario de creación de ficha personal específico del mapa con calendario</em></p>
+<p>Haga clic en <strong>"Personal"</strong> para crear una asignación de ficha personal. El formulario incluye:</p>
+<ul>
+<li>Información del territorio en el encabezado</li>
+<li><strong>Selector de calendario</strong> - seleccione la fecha de asignación</li>
+<li>Campo <strong>Nombre del Publicador</strong> - ingrese el/los nombre(s) del/los publicador(es) asignado(s)</li>
+<li>Botones <strong>Cancelar</strong> y <strong>Confirmar</strong></li>
+</ul>
+<p><strong>Beneficios:</strong></p>
+<ul>
+<li>Creación rápida de asignaciones mientras ve el territorio</li>
+<li>No necesita cambiar al modal de asignaciones</li>
+<li>Contexto inmediato del territorio que se está asignando</li>
+</ul>
+<h4 id="gestionar-asignaciones">Gestionar Asignaciones<a class="headerlink" href="#gestionar-asignaciones" title="Permanent link">&para;</a></h4>
+<p><img alt="Gestión de Asignaciones" src="../../assets/screenshots/assignment_management.png" /></p>
+<p><em>Figura 14: Modal de gestión de asignaciones mostrando todas las asignaciones activas en todos los territorios</em></p>
+<p>La interfaz de Gestión de Asignaciones permite a conductores y administradores ver y gestionar todas las asignaciones existentes en la congregación.</p>
+<p><strong>Ver Todas las Asignaciones:</strong></p>
+<ol>
+<li>Haga clic en el botón <strong>"Asignaciones"</strong> desde el panel</li>
+<li>Se abre el modal de Asignaciones mostrando todos los enlaces de asignación activos</li>
+<li>Vea asignaciones para todos los territorios en una lista centralizada</li>
+</ol>
+<p><strong>Información de Asignación Mostrada:</strong></p>
+<p>Para cada asignación, puede ver:</p>
+<ul>
+<li><strong>Código del Territorio y Ubicación</strong>: Identificador del territorio con descripción de ubicación (ej., "187A, Marsiling Road (M01)")</li>
+<li><strong>Tipo de Asignación</strong>: "Asignar" para asignaciones normales</li>
+<li><strong>Nombre del Publicador</strong>: Nombre de la persona asignada (ej., Jon, Erli, Pety)</li>
+<li><strong>Fecha/Hora de Creación</strong>: Cuándo se creó la asignación (ej., "22 dic 2025, 9:38 PM")</li>
+<li><strong>Fecha/Hora de Expiración</strong>: Cuándo expira el enlace de asignación (ej., "23 dic 2025, 9:38 AM" o "11:38 PM")</li>
+<li><strong>Botón Eliminar</strong>: Icono de papelera para eliminar asignaciones individuales</li>
+</ul>
+<p><strong>Eliminar una Asignación:</strong></p>
+<ol>
+<li>Ubique la asignación en la lista</li>
+<li>Haga clic en el botón de <strong>icono de papelera</strong> en el lado derecho de la asignación</li>
+<li>Confirme la eliminación si se le solicita</li>
+<li>El enlace de asignación se vuelve inaccesible inmediatamente para el publicador</li>
+</ol>
+<p><strong>Cuándo Eliminar:</strong></p>
+<ul>
+<li>Territorio devuelto temprano por el publicador</li>
+<li>Se creó o envió un enlace incorrecto</li>
+<li>El publicador ya no necesita acceso</li>
+<li>La asignación necesita reasignarse a otra persona</li>
+<li>Preocupación de seguridad o compromiso</li>
+</ul>
+<p><strong>Cerrar el Modal de Asignaciones:</strong></p>
+<ul>
+<li>Haga clic en el botón <strong>"Cancelar"</strong> en la parte inferior para cerrar el modal y regresar al panel</li>
+</ul>
+<h4 id="gestion-de-asignaciones-especificas-del-mapa">Gestión de Asignaciones Específicas del Mapa<a class="headerlink" href="#gestion-de-asignaciones-especificas-del-mapa" title="Permanent link">&para;</a></h4>
+<p>Vea y gestione asignaciones para territorios individuales directamente desde la vista del mapa.</p>
+<p><strong>Acceso:</strong></p>
+<ol>
+<li>Navegue a un territorio</li>
+<li>Haga clic en:</li>
+<li><strong>"Enlaces de Asignación"</strong> - para asignaciones de territorio normales</li>
+<li><strong>"Enlaces Personales"</strong> - para asignaciones de ficha personal</li>
+</ol>
+<p><img alt="Asignaciones Normales del Mapa" src="../../assets/screenshots/map_assign_links.png" /></p>
+<p><em>Figura 14a: Modal de Enlaces de Asignación para un territorio específico</em></p>
+<p><img alt="Asignaciones Personales del Mapa" src="../../assets/screenshots/map_personal_links.png" /></p>
+<p><em>Figura 14b: Modal de Enlaces Personales para un territorio específico</em></p>
+<p><strong>Información Mostrada:</strong></p>
+<ul>
+<li>Nombre del publicador</li>
+<li>Fecha/hora de creación y expiración</li>
+<li>Botón eliminar para eliminar asignaciones</li>
+</ul>
+<p><strong>Cuándo Usar:</strong></p>
+<ul>
+<li>Verificar quién tiene actualmente un territorio asignado</li>
+<li>Eliminar asignaciones mientras ve el territorio</li>
+<li>Gestionar asignaciones normales y personales por separado</li>
+</ul>
+<h4 id="mejores-practicas-para-asignaciones">Mejores Prácticas para Asignaciones<a class="headerlink" href="#mejores-practicas-para-asignaciones" title="Permanent link">&para;</a></h4>
+<p><strong>Antes de Crear:</strong></p>
+<ul>
+<li>Verifique que el territorio esté listo (direcciones actualizadas, instrucciones claras)</li>
+<li>Verifique la configuración de la congregación para el tiempo de expiración predeterminado</li>
+<li>Planifique la duración de expiración apropiada para el tamaño del territorio</li>
+</ul>
+<p><strong>Al Compartir:</strong></p>
+<ul>
+<li>Incluya instrucciones en su mensaje</li>
+<li>Recuerde al publicador el tiempo de expiración</li>
+<li>Proporcione su contacto para preguntas</li>
+<li>Envíe durante horas razonables</li>
+</ul>
+<p><strong>Monitoreo:</strong></p>
+<ul>
+<li>Verificación regular de asignaciones expiradas</li>
+<li>Limpie asignaciones antiguas periódicamente</li>
+<li>Haga seguimiento si el territorio no se devuelve</li>
+<li>Rastree tasas de completado</li>
+</ul>
+<hr />
+<h3 id="mensajes-e-instrucciones">Mensajes e Instrucciones<a class="headerlink" href="#mensajes-e-instrucciones" title="Permanent link">&para;</a></h3>
+<p><img alt="Mensajes Admin Conductor" src="../../assets/screenshots/admin_conductor_messages.png" /></p>
+<p><em>Figura 15: Modal de mensajes mostrando mensajes publicados con opción de fijar</em></p>
+<p>Los Administradores y Conductores pueden publicar mensajes visibles para grupos de usuarios específicos.</p>
+<h4 id="tipos-de-mensajes">Tipos de Mensajes<a class="headerlink" href="#tipos-de-mensajes" title="Permanent link">&para;</a></h4>
+<p><strong>Mensajes de Publicador:</strong></p>
+<ul>
+<li>Visibles para todos los publicadores con enlaces de asignación</li>
+<li>Instrucciones para el servicio del campo</li>
+<li>Orientación específica del territorio</li>
+<li>Anuncios generales</li>
+</ul>
+<p><strong>Mensajes de Conductor:</strong></p>
+<ul>
+<li>Visibles para Conductores y Administradores</li>
+<li>Información de coordinación</li>
+<li>Notas administrativas</li>
+<li>Información de planificación</li>
+</ul>
+<p><strong>Mensajes de Administrador:</strong></p>
+<ul>
+<li>Visibles solo para Administradores</li>
+<li>Notas de administración del sistema</li>
+<li>Actualizaciones críticas</li>
+<li>Recordatorios de gestión</li>
+</ul>
+<h4 id="publicar-un-mensaje">Publicar un Mensaje<a class="headerlink" href="#publicar-un-mensaje" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Haga clic en el botón <strong>"Mensajes"</strong></li>
+<li>Haga clic en <strong>"Nuevo Mensaje"</strong> o <strong>"+"</strong></li>
+<li>Escriba su mensaje</li>
+<li>Seleccione el tipo de mensaje (Publicador/Conductor/Administrador)</li>
+<li>Opcionalmente <strong>fije</strong> mensajes importantes arriba</li>
+<li>Haga clic en <strong>"Publicar"</strong></li>
+</ol>
+<h4 id="caracteristicas-de-mensajes">Características de Mensajes<a class="headerlink" href="#caracteristicas-de-mensajes" title="Permanent link">&para;</a></h4>
+<p><strong>Fijar:</strong></p>
+<ul>
+<li>Fije mensajes importantes para mantenerlos arriba</li>
+<li>Solo un mensaje fijado por tipo</li>
+<li>Desfije cuando ya no sea crítico</li>
+</ul>
+<p><strong>Editar:</strong></p>
+<ul>
+<li>Edite mensajes después de publicar</li>
+<li>Las actualizaciones son inmediatas para todos los que ven</li>
+</ul>
+<p><strong>Eliminar:</strong></p>
+<ul>
+<li>Elimine mensajes desactualizados</li>
+<li>Limpie después de que pasen los eventos</li>
+</ul>
+<p><strong>Estado de Lectura:</strong></p>
+<ul>
+<li>Vea quién ha leído los mensajes (vista de administrador)</li>
+<li>Rastree el reconocimiento de actualizaciones importantes</li>
+</ul>
+<hr />
+<h3 id="sincronizacion-de-datos-en-tiempo-real">Sincronización de Datos en Tiempo Real<a class="headerlink" href="#sincronizacion-de-datos-en-tiempo-real" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper usa suscripciones en tiempo real de PocketBase para actualizaciones instantáneas:</p>
+<h4 id="como-funciona">Cómo Funciona<a class="headerlink" href="#como-funciona" title="Permanent link">&para;</a></h4>
+<p><strong>Sincronización Automática:</strong></p>
+<ul>
+<li>Los cambios se sincronizan inmediatamente en todos los dispositivos conectados</li>
+<li>No se necesita actualización manual</li>
+<li>Las actualizaciones aparecen instantáneamente para todos los usuarios que ven el mismo territorio</li>
+</ul>
+<p><strong>Qué Se Sincroniza:</strong></p>
+<ul>
+<li>Cambios de estado de dirección</li>
+<li>Nuevas notas y actualizaciones</li>
+<li>Progreso del territorio</li>
+<li>Nuevos mensajes</li>
+<li>Cambios de asignación</li>
+</ul>
+<p><strong>Manejo de Conexión:</strong></p>
+<ul>
+<li>El sistema detecta automáticamente la pérdida de conexión</li>
+<li>Se reconecta cuando se restaura internet</li>
+<li>Muestra indicador de estado de conexión</li>
+<li>Pone en cola las actualizaciones si está sin conexión (limitado)</li>
+</ul>
+<p><strong>Rendimiento:</strong></p>
+<ul>
+<li>Actualiza solo cuando el territorio/página está abierto</li>
+<li>Limpieza automática cuando se cierra la página</li>
+<li>Uso mínimo de ancho de banda</li>
+<li>Optimizado para datos móviles</li>
+</ul>
+<blockquote>
+<p><strong>Nota</strong>: Para que las actualizaciones en tiempo real funcionen, mantenga la pestaña de su navegador activa mientras trabaja en un territorio.</p>
+</blockquote>
+<hr />
+<h3 id="gestion-de-usuarios-solo-administradores">Gestión de Usuarios (Solo Administradores)<a class="headerlink" href="#gestion-de-usuarios-solo-administradores" title="Permanent link">&para;</a></h3>
+<p><img alt="Lista de Gestión de Usuarios" src="../../assets/screenshots/manage_users_list.png" /></p>
+<p><em>Figura 16: Panel de gestión de usuarios mostrando lista de usuarios con roles</em></p>
+<p>Los Administradores tienen control total sobre las cuentas de usuario y permisos dentro de su congregación.</p>
+<h4 id="ver-usuarios">Ver Usuarios<a class="headerlink" href="#ver-usuarios" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Haga clic en su <strong>icono de perfil</strong> o <strong>menú de usuario</strong></li>
+<li>Seleccione <strong>"Gestión de Usuarios"</strong> o <strong>"Usuarios"</strong></li>
+<li>Vea la lista completa de usuarios de la congregación mostrando:</li>
+<li>Nombre de usuario</li>
+<li>Dirección de correo electrónico</li>
+<li>Estado de verificación (verificado / no verificado)</li>
+<li>Insignia de rol actual</li>
+<li>Última actividad</li>
+</ol>
+<h4 id="invitar-nuevos-usuarios">Invitar Nuevos Usuarios<a class="headerlink" href="#invitar-nuevos-usuarios" title="Permanent link">&para;</a></h4>
+<p><img alt="Invitar Usuarios" src="../../assets/screenshots/invite_users.png" /></p>
+<p><em>Figura 17: Diálogo de invitación de usuarios para agregar nuevos miembros a la congregación</em></p>
+<p><strong>Paso 1: Abrir Diálogo de Invitación</strong></p>
+<ol>
+<li>En Gestión de Usuarios, haga clic en <strong>"Invitar Usuario"</strong> o <strong>"+"</strong></li>
+<li>Se abre el modal de invitar usuario</li>
+</ol>
+<p><strong>Paso 2: Ingresar Información del Usuario</strong></p>
+<ul>
+<li><strong>Dirección de Correo Electrónico</strong>: Correo del usuario (debe ser válido)</li>
+<li><strong>Asignación de Rol</strong>: Seleccione uno de:</li>
+<li>Publicador</li>
+<li>Solo Lectura</li>
+<li>Conductor</li>
+<li>Administrador</li>
+</ul>
+<p><strong>Paso 3: Enviar Invitación</strong></p>
+<ol>
+<li>Haga clic en <strong>"Enviar Invitación"</strong></li>
+<li>El sistema envía un correo de invitación al usuario</li>
+<li>El correo contiene:</li>
+<li>Enlace para crear cuenta</li>
+<li>Información de la congregación</li>
+<li>Detalles de asignación de rol</li>
+<li>Instrucciones para comenzar</li>
+</ol>
+<p><strong>Paso 4: El Usuario Completa el Registro</strong></p>
+<ul>
+<li>El usuario recibe el correo</li>
+<li>Hace clic en el enlace para registrarse</li>
+<li>Crea cuenta con contraseña</li>
+<li>Verifica la dirección de correo electrónico</li>
+<li>Se agrega automáticamente a la congregación con el rol asignado</li>
+</ul>
+<h4 id="cambiar-roles-de-usuario">Cambiar Roles de Usuario<a class="headerlink" href="#cambiar-roles-de-usuario" title="Permanent link">&para;</a></h4>
+<p><img alt="Detalles de Gestión de Usuarios" src="../../assets/screenshots/manage_users_details.png" /></p>
+<p><em>Figura 18: Interfaz de detalles de usuario y gestión de roles</em></p>
+<ol>
+<li>Ubique al usuario en la lista de usuarios</li>
+<li>Haga clic en el usuario o botón <strong>"Editar"</strong></li>
+<li>Seleccione el nuevo rol del menú desplegable:</li>
+<li><strong>Publicador</strong>: Acceso básico al territorio mediante enlaces</li>
+<li><strong>Solo Lectura</strong>: Acceso al panel solo para ver</li>
+<li><strong>Conductor</strong>: Puede crear asignaciones y gestionar mensajes</li>
+<li><strong>Administrador</strong>: Control total</li>
+<li>Haga clic en <strong>"Guardar"</strong> o <strong>"Actualizar"</strong></li>
+<li>Los cambios surten efecto inmediatamente</li>
+</ol>
+<blockquote>
+<p><strong>Importante</strong>: Los usuarios deben cerrar sesión y volver a iniciar sesión para ver sus nuevos permisos reflejados.</p>
+</blockquote>
+<h4 id="eliminar-acceso-de-usuario">Eliminar Acceso de Usuario<a class="headerlink" href="#eliminar-acceso-de-usuario" title="Permanent link">&para;</a></h4>
+<p><strong>Eliminación Temporal:</strong></p>
+<ol>
+<li>Cambie el rol del usuario a <strong>"Sin Acceso"</strong> o <strong>"Eliminar Acceso"</strong></li>
+<li>El usuario pierde todos los permisos</li>
+<li>La cuenta permanece pero no puede acceder a los datos de la congregación</li>
+</ol>
+<p><strong>Eliminación Permanente:</strong></p>
+<ol>
+<li>Haga clic en el botón <strong>"Eliminar"</strong> para el usuario</li>
+<li>Confirme la eliminación</li>
+<li>El usuario se elimina completamente de la congregación</li>
+<li>El usuario puede ser re-invitado si es necesario</li>
+</ol>
+<h4 id="estado-de-verificacion-del-usuario">Estado de Verificación del Usuario<a class="headerlink" href="#estado-de-verificacion-del-usuario" title="Permanent link">&para;</a></h4>
+<p><strong>Usuarios Verificados:</strong></p>
+<ul>
+<li>Dirección de correo electrónico confirmada</li>
+<li>Acceso completo a los permisos asignados</li>
+<li>Puede iniciar sesión normalmente</li>
+</ul>
+<p><strong>Usuarios No Verificados:</strong></p>
+<ul>
+<li>Correo electrónico aún no confirmado</li>
+<li>Acceso limitado o sin acceso</li>
+<li>Necesita revisar el correo electrónico y hacer clic en el enlace de verificación</li>
+</ul>
+<p><strong>Para Reenviar Verificación:</strong></p>
+<ul>
+<li>Algunos sistemas permiten reenviar el correo de verificación</li>
+<li>O pida al usuario que use la función "Olvidé mi Contraseña"</li>
+</ul>
+<hr />
+<h3 id="configuracion-de-congregacion-solo-administradores">Configuración de Congregación (Solo Administradores)<a class="headerlink" href="#configuracion-de-congregacion-solo-administradores" title="Permanent link">&para;</a></h3>
+<p><img alt="Configuración de Congregación" src="../../assets/screenshots/congregation_settings.png" /></p>
+<p><em>Figura 19: Página de configuración de congregación con todas las opciones de configuración</em></p>
+<p>Configure cómo funciona Ministry Mapper para su congregación.</p>
+<h4 id="acceder-a-configuracion">Acceder a Configuración<a class="headerlink" href="#acceder-a-configuracion" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Haga clic en el botón <strong>"Configuración"</strong> o icono de engranaje</li>
+<li>Vea el panel de configuración de la congregación</li>
+</ol>
+<h4 id="configuraciones-clave">Configuraciones Clave<a class="headerlink" href="#configuraciones-clave" title="Permanent link">&para;</a></h4>
+<p><strong>1. Intentos Máximos de "No en Casa"</strong></p>
+<ul>
+<li>Predeterminado: 1</li>
+<li>Rango: 1-4 intentos</li>
+<li>Cuando se alcanza, la dirección se considera completa para el cálculo de progreso</li>
+<li>Afecta cuándo los territorios se muestran como terminados</li>
+</ul>
+<p><strong>Ejemplo:</strong> Si se establece en 3:</p>
+<ul>
+<li>Primer "No en Casa": Conteo = 1</li>
+<li>Segundo "No en Casa": Conteo = 2</li>
+<li>Tercer "No en Casa": Conteo = 3, se marca como completo</li>
+</ul>
+<p><strong>2. Expiración de Enlace de Asignación (Horas)</strong></p>
+<ul>
+<li>Predeterminado: 24 horas</li>
+<li>Rango: 1-168 horas (1 semana)</li>
+<li>Cuánto tiempo permanecen activos los enlaces de asignación</li>
+<li>Se aplica a enlaces recién creados</li>
+</ul>
+<p><strong>3. Origen/Ubicación de la Congregación</strong></p>
+<ul>
+<li>Establezca la ubicación de su congregación</li>
+<li>Usado para centrado del mapa y direcciones</li>
+<li>Puede ser nombre de ciudad o coordenadas</li>
+<li>Ayuda con la planificación de rutas</li>
+</ul>
+<p><strong>4. OTP (Contraseña de Un Solo Uso)</strong></p>
+<ul>
+<li>Habilitar/deshabilitar OTP por correo electrónico para inicio de sesión</li>
+<li>Agrega capa de seguridad adicional</li>
+<li>Los usuarios reciben código por correo electrónico al iniciar sesión</li>
+<li>Recomendado para datos sensibles de la congregación</li>
+</ul>
+<h4 id="opciones-de-congregacion-tipos-de-hogar">Opciones de Congregación (Tipos de Hogar)<a class="headerlink" href="#opciones-de-congregacion-tipos-de-hogar" title="Permanent link">&para;</a></h4>
+<p><img alt="Configuración de Opciones de Hogar" src="../../assets/screenshots/household_options_settings.png" /></p>
+<p><em>Figura 20: Gestión de opciones de congregación mostrando configuración de tipos de hogar</em></p>
+<p>Configure tipos de clasificación de hogar personalizados para su territorio.</p>
+<p><strong>¿Qué Son las Opciones de Congregación?</strong></p>
+<ul>
+<li>Categorías personalizadas para clasificar hogares</li>
+<li>Ejemplos: Grupos de idioma (Chino, Inglés, Tamil)</li>
+<li>Puede representar cualquier sistema de clasificación que use su congregación</li>
+<li>Se pueden asignar múltiples tipos a un solo hogar si está configurado</li>
+</ul>
+<p><strong>Gestionar Opciones:</strong></p>
+<ol>
+<li>
+<p><strong>Ver Opciones</strong></p>
+</li>
+<li>
+<p>En Configuración, encuentre la sección "Opciones de Congregación"</p>
+</li>
+<li>
+<p>Vea la lista de todos los tipos configurados</p>
+</li>
+<li>
+<p><strong>Agregar Nueva Opción</strong></p>
+</li>
+<li>
+<p>Haga clic en "Agregar Opción" o "+"</p>
+</li>
+<li>Complete:<ul>
+<li><strong>Código</strong>: Identificador corto (ej., "CHI", "ESP")</li>
+<li><strong>Descripción</strong>: Nombre completo (ej., "Chino", "Español")</li>
+<li><strong>Es Contable</strong>: Marque si debe contar hacia el progreso del territorio</li>
+<li><strong>Es Predeterminado</strong>: Marque si debe ser la selección predeterminada</li>
+<li><strong>Secuencia</strong>: Número de orden de visualización</li>
+</ul>
+</li>
+<li>
+<p>Haga clic en "Guardar"</p>
+</li>
+<li>
+<p><strong>Editar Opción</strong></p>
+</li>
+<li>
+<p>Haga clic en la opción existente</p>
+</li>
+<li>Modifique los campos</li>
+<li>
+<p>Guarde los cambios</p>
+</li>
+<li>
+<p><strong>Eliminar Opción</strong></p>
+</li>
+<li>Haga clic en el botón eliminar para la opción</li>
+<li>Confirme la eliminación</li>
+<li><strong>Advertencia</strong>: Afecta todas las direcciones que usan este tipo</li>
+</ol>
+<p><strong>Indicadores de Opción:</strong></p>
+<p><strong>Es Contable:</strong>
+- Controla si las direcciones con este tipo cuentan hacia el progreso del territorio
+- <strong>Marcado</strong>: Incluido en el cálculo de progreso (ej., Chino, Inglés, Tamil)
+- <strong>No Marcado</strong>: Excluido del progreso (ej., Comercial, En Construcción)
+- Ejemplo: 100 direcciones totales, 10 marcadas "Comercial" (no contable) = progreso basado en 90 direcciones solamente</p>
+<p><strong>Es Predeterminado:</strong>
+- Auto-selecciona este tipo al crear nuevas direcciones
+- Solo una opción debe ser predeterminada
+- Use para su tipo de hogar más común</p>
+<p><strong>Secuencia:</strong>
+- Controla el orden de visualización en menús desplegables
+- Los números más bajos aparecen primero (1, 2, 3...)
+- <strong>Gestionado por arrastrar y soltar</strong> en configuración - simplemente arrastre opciones para reordenar
+- Afecta el orden en menús desplegables de hogar de dirección
+- Consejo: Ordene de más común a menos común</p>
+<p><strong>Configuración de Selección Múltiple:</strong></p>
+<ul>
+<li>Habilite si los hogares pueden tener múltiples tipos</li>
+<li>Ejemplo: El hogar habla tanto chino como inglés</li>
+<li>Cuando está deshabilitado, solo un tipo por hogar</li>
+</ul>
+<h4 id="configuracion-de-mapa">Configuración de Mapa<a class="headerlink" href="#configuracion-de-mapa" title="Permanent link">&para;</a></h4>
+<p><img alt="Configuraciones de Mapa" src="../../assets/screenshots/map_configurations.png" /></p>
+<p><em>Figura 34: Opciones avanzadas de configuración de mapa para administradores</em></p>
+<p>Configure cómo se muestran y comportan los mapas en su congregación. Los administradores tienen acceso a potentes funciones de gestión de mapas para mantenimiento y organización del territorio.</p>
+<p><strong>Para Acceder a la Configuración del Mapa:</strong></p>
+<ol>
+<li>Vaya a <strong>Configuración</strong> (Solo Administradores)</li>
+<li>Seleccione un territorio del menú desplegable</li>
+<li>Abra la vista del mapa para el territorio seleccionado</li>
+<li>Acceda al menú de configuración del mapa (típicamente mediante un icono de configuración o menú)</li>
+</ol>
+<p><strong>Funciones de Configuración de Mapa Disponibles:</strong></p>
+<p><strong>1. Cambiar Ubicación</strong>
+   - Reubique un marcador de mapa a una dirección diferente
+   - Actualiza la ubicación geográfica de una unidad de territorio
+   - Útil cuando las direcciones han cambiado o la ubicación inicial era incorrecta
+   - Simplemente seleccione la nueva ubicación en el mapa</p>
+<p><strong>2. Cambiar Territorio</strong>
+   - Mueva una dirección o unidad a un territorio diferente
+   - Ayuda a reorganizar los límites del territorio
+   - Útil para equilibrar tamaños de territorio
+   - Mantiene todos los datos e historial de la dirección durante la transferencia</p>
+<p><strong>3. Cambiar Secuencia</strong>
+   - Modifique el número de orden de visita para una dirección
+   - Optimiza la ruta para eficiencia del servicio del campo
+   - Los números más bajos se visitan primero
+   - Ayuda a crear patrones de visita lógicos</p>
+<h5 id="actualizar-secuencia-del-mapa-arrastrar-y-soltar">Actualizar Secuencia del Mapa (Arrastrar y Soltar)<a class="headerlink" href="#actualizar-secuencia-del-mapa-arrastrar-y-soltar" title="Permanent link">&para;</a></h5>
+<p><img alt="Actualizar Secuencia del Mapa" src="../../assets/screenshots/update_map_sequence.png" /></p>
+<p><em>Interfaz de arrastrar y soltar para reordenar todas las secuencias del mapa en un territorio</em></p>
+<p><strong>Acceso:</strong> Menú de dirección → "Cambiar Secuencia"</p>
+<p><strong>Cómo Funciona:</strong>
+1. Cada tarjeta muestra una dirección con el número de secuencia actual
+2. Arrastre y suelte para reordenar - los números se actualizan automáticamente
+3. Haga clic en <strong>"Guardar"</strong> para aplicar o <strong>"Cancelar"</strong> para descartar</p>
+<p><strong>Mejores Prácticas:</strong>
+- Minimice el retroceso agrupando direcciones cercanas
+- Agrupe pisos juntos en edificios de varios pisos
+- Cree flujo lógico de un extremo al otro
+- Revise la vista del mapa después de secuenciar</p>
+<p><strong>4. Renombrar</strong>
+   - Cambie el nombre o identificador de una dirección/unidad
+   - Actualice nombres de edificios o números de unidad
+   - Mantiene los datos actualizados con cambios del mundo real
+   - Útil para corregir errores de entrada iniciales</p>
+<p><strong>5. Agregar No. de Unidad</strong>
+   - Agregue nuevos números de unidad a direcciones existentes
+   - Expanda edificios de varios pisos con unidades adicionales
+   - Útil cuando se agregan nuevos apartamentos a un edificio
+   - Mantiene la organización de estructura del edificio</p>
+<p><strong>6. Agregar Piso Superior</strong>
+   - Extienda un edificio hacia arriba con pisos adicionales
+   - Para edificios que se han expandido o inicialmente se subestimaron
+   - Crea automáticamente unidades para nuevos pisos basándose en el patrón del edificio
+   - Ayuda a mantener los datos del territorio actualizados con cambios de construcción</p>
+<p><strong>7. Agregar Piso Inferior</strong>
+   - Agregue pisos debajo del piso más bajo actual
+   - Útil para niveles de sótano o pisos inferiores recién accesibles
+   - Puede agregar números de piso negativos (ej., S1, S2)
+   - Mantiene sistema de numeración de pisos consistente</p>
+<p><strong>8. Restablecer Estado</strong>
+   - Limpie el estado de una dirección de vuelta a "No Hecho"
+   - Elimina solo los estados "Hecho" y "No en Casa"
+   - NO elimina los estados "No Visitar" o "Inválido"
+   - Preserva notas y otra información de la dirección
+   - Útil al reiniciar trabajo en una dirección previamente completada
+   - No afecta otras direcciones en el territorio</p>
+<p><strong>9. Eliminar</strong>
+   - Elimine permanentemente una dirección, unidad o piso del territorio
+   - No se puede deshacer - use con precaución
+   - Útil para eliminar entradas duplicadas o direcciones inexistentes
+   - Confirme cuidadosamente antes de eliminar</p>
+<p><strong>Casos de Uso Comunes:</strong>
+- Corregir errores: Renombrar y Cambiar Ubicación
+- Reequilibrio de territorio: Cambiar Territorio
+- Actualizaciones de edificio: Agregar Piso Superior/Inferior
+- Optimización de ruta: Cambiar Secuencia
+- Limpieza de datos: Eliminar duplicados
+- Actualizaciones estacionales: Restablecer Estado</p>
+<blockquote>
+<p><strong>Advertencia</strong>: Los cambios afectan a todos los usuarios inmediatamente. Eliminar es permanente y no se puede deshacer.</p>
+</blockquote>
+<hr />
+<h3 id="gestion-de-territorios-solo-administradores">Gestión de Territorios (Solo Administradores)<a class="headerlink" href="#gestion-de-territorios-solo-administradores" title="Permanent link">&para;</a></h3>
+<p><img alt="Crear Nuevo Territorio" src="../../assets/screenshots/create_new_territory.png" /></p>
+<p><em>Figura 21: Interfaz de creación de territorio para agregar nuevos territorios</em></p>
+<p>Los Administradores tienen control total sobre la creación, edición y gestión de territorios.</p>
+<h4 id="crear-un-nuevo-territorio">Crear un Nuevo Territorio<a class="headerlink" href="#crear-un-nuevo-territorio" title="Permanent link">&para;</a></h4>
+<p><strong>Paso 1: Acceder a Creación de Territorio</strong></p>
+<ol>
+<li>Haga clic en el menú desplegable del <strong>selector de territorio</strong></li>
+<li>Seleccione <strong>"Crear Nuevo Territorio"</strong> o <strong>"Nuevo Territorio"</strong></li>
+<li>Se abre el formulario de creación de territorio</li>
+</ol>
+<p><strong>Paso 2: Ingresar Información del Territorio</strong></p>
+<ul>
+<li><strong>Código del Territorio</strong>: Identificador corto (ej., "T-001", "M-12", "O-05")</li>
+<li>Manténgalo corto y significativo</li>
+<li>Use convención de nomenclatura consistente</li>
+<li>Máximo recomendado: 10 caracteres</li>
+<li><strong>Descripción</strong>: Nombre completo o descripción del área</li>
+<li>Ejemplos: "Centro Comercial", "Residencial Norte"</li>
+<li>Sea descriptivo para fácil identificación</li>
+<li>Máximo recomendado: 100 caracteres</li>
+</ul>
+<p><strong>Paso 3: Crear</strong></p>
+<ol>
+<li>Haga clic en <strong>"Crear Territorio"</strong></li>
+<li>El nuevo territorio se crea y se selecciona</li>
+<li>Listo para agregar direcciones</li>
+</ol>
+<h4 id="editar-detalles-del-territorio">Editar Detalles del Territorio<a class="headerlink" href="#editar-detalles-del-territorio" title="Permanent link">&para;</a></h4>
+<p><strong>Cambiar Código del Territorio:</strong></p>
+<ol>
+<li>Seleccione el territorio</li>
+<li>Haga clic en <strong>"Editar"</strong> o <strong>"Cambiar Código de Territorio"</strong></li>
+<li>Ingrese el nuevo código</li>
+<li>Guarde los cambios</li>
+<li><strong>Advertencia</strong>: Actualice cualquier referencia al código antiguo</li>
+</ol>
+<p><strong>Cambiar Descripción del Territorio:</strong></p>
+<ol>
+<li>Seleccione el territorio</li>
+<li>Haga clic en <strong>"Cambiar Nombre del Territorio"</strong> u opción de edición</li>
+<li>Actualice la descripción</li>
+<li>Guarde los cambios</li>
+</ol>
+<p><strong>Cambiar Secuencia del Territorio:</strong></p>
+<h5 id="actualizar-secuencia-de-territorio-arrastrar-y-soltar">Actualizar Secuencia de Territorio (Arrastrar y Soltar)<a class="headerlink" href="#actualizar-secuencia-de-territorio-arrastrar-y-soltar" title="Permanent link">&para;</a></h5>
+<p><img alt="Actualizar Secuencia de Territorio" src="../../assets/screenshots/territory_sequence_change.png" /></p>
+<p><em>Interfaz de arrastrar y soltar para reordenar todos los territorios en la congregación</em></p>
+<p><strong>Acceso:</strong> Menú desplegable de Territorio → "Cambiar Secuencia"</p>
+<p><strong>Cómo Funciona:</strong>
+1. Cada tarjeta muestra código y descripción del territorio
+2. Arrastre y suelte para reordenar - los números de secuencia se actualizan automáticamente
+3. Haga clic en <strong>"Guardar"</strong> para aplicar o <strong>"Cancelar"</strong> para descartar
+4. Controla el orden en menús desplegables y listas de selección</p>
+<p><strong>Mejores Prácticas:</strong>
+- Organice por proximidad geográfica
+- Agrupe por tipo (residencial, comercial, empresarial)
+- Considere asignaciones de grupo del servicio del campo
+- Use para planificación de rotación de territorios</p>
+<h4 id="opciones-de-configuracion-del-territorio">Opciones de Configuración del Territorio<a class="headerlink" href="#opciones-de-configuracion-del-territorio" title="Permanent link">&para;</a></h4>
+<p><img alt="Opciones de Configuración del Territorio" src="../../assets/screenshots/territory_configurations.png" /></p>
+<p><em>Menú desplegable del territorio mostrando opciones de configuración</em></p>
+<p>Los Administradores pueden acceder a las opciones de configuración del territorio a través del botón <strong>desplegable de Territorio</strong> en la barra de navegación superior. Haga clic en el botón para revelar las siguientes opciones:</p>
+<p><strong>Opciones Disponibles:</strong></p>
+<ul>
+<li><strong>Crear Nuevo</strong>: Crear un nuevo territorio desde cero</li>
+<li><strong>Cambiar Código</strong>: Modificar el identificador único del territorio</li>
+<li><strong>Cambiar Nombre</strong>: Actualizar la descripción del territorio</li>
+<li><strong>Cambiar Secuencia</strong>: Reordenar cómo aparecen los territorios en la lista de selección</li>
+<li><strong>Eliminar Actual</strong>: Eliminar permanentemente el territorio actualmente seleccionado</li>
+<li><strong>Restablecer Estado</strong>: Limpiar todos los estados de direcciones de vuelta a "No Hecho"</li>
+</ul>
+<p>Estas opciones proporcionan acceso rápido a tareas comunes de gestión de territorios sin navegar a través de múltiples menús.</p>
+<h4 id="operaciones-de-territorio">Operaciones de Territorio<a class="headerlink" href="#operaciones-de-territorio" title="Permanent link">&para;</a></h4>
+<p><strong>Restablecer Territorio:</strong></p>
+<p><img alt="Crear Nuevo Mapa" src="../../assets/screenshots/create_new_map.png" /></p>
+<p><em>Figura 22: Interfaz de operaciones y gestión de territorios</em></p>
+<p>Restablece todas las direcciones en el territorio al estado "No Hecho":</p>
+<ol>
+<li>Seleccione el territorio</li>
+<li>Haga clic en el botón <strong>"Restablecer Territorio"</strong></li>
+<li>Confirme la acción (¡esto borra todos los datos de visita!)</li>
+<li>Todas las direcciones regresan a "No Hecho"</li>
+<li>Los conteos de no en casa se restablecen a 0</li>
+<li>Las notas se preservan</li>
+<li>El progreso se restablece a 0%</li>
+</ol>
+<p><strong>Usar Cuando:</strong></p>
+<ul>
+<li>El territorio está completamente trabajado y listo para reasignar</li>
+<li>Comenzar nueva ronda de visitas</li>
+<li>Limpiar datos de prueba</li>
+</ul>
+<p><strong>Advertencia</strong>: No se puede deshacer. Todas las actualizaciones de estado se perderán.</p>
+<p><strong>Eliminar Territorio:</strong></p>
+<p><img alt="Lista de Selección de Territorios" src="../../assets/screenshots/territory_selection_list.png" /></p>
+<p><em>Figura 23: Lista de selección de territorios mostrando todos los territorios disponibles</em></p>
+<p>Elimina permanentemente el territorio y todos sus datos:</p>
+<ol>
+<li>Seleccione el territorio a eliminar</li>
+<li>Haga clic en el botón <strong>"Eliminar Territorio"</strong></li>
+<li>Lea el mensaje de advertencia cuidadosamente</li>
+<li>Escriba la confirmación si se requiere</li>
+<li>Confirme la eliminación</li>
+</ol>
+<p><strong>Elimina:</strong></p>
+<ul>
+<li>Registro del territorio</li>
+<li>Todas las direcciones en el territorio</li>
+<li>Todas las unidades y pisos</li>
+<li>Todo el historial de asignaciones</li>
+<li>Todos los datos relacionados</li>
+</ul>
+<p><strong>Advertencia Crítica</strong>: Esta acción NO PUEDE deshacerse. Considere exportar datos primero.</p>
+<hr />
+<h3 id="gestion-de-direcciones-solo-administradores">Gestión de Direcciones (Solo Administradores)<a class="headerlink" href="#gestion-de-direcciones-solo-administradores" title="Permanent link">&para;</a></h3>
+<p><img alt="Mapa de Un Solo Piso" src="../../assets/screenshots/single_story_map.png" /></p>
+<p><em>Figura 24: Interfaz de gestión de direcciones para propiedades privadas/de un solo piso</em></p>
+<p>Los Administradores pueden agregar y gestionar direcciones dentro de los territorios.</p>
+<h4 id="tipos-de-direcciones">Tipos de Direcciones<a class="headerlink" href="#tipos-de-direcciones" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper soporta dos tipos de direcciones:</p>
+<p><strong>1. Direcciones Públicas (Varios Pisos)</strong></p>
+<ul>
+<li>Edificios de apartamentos, condominios</li>
+<li>Múltiples pisos y unidades</li>
+<li>Ejemplos: Edificios HDB, complejos de apartamentos</li>
+<li>Cada piso tiene múltiples unidades</li>
+</ul>
+<p><strong>2. Direcciones Privadas (Un Solo Piso)</strong></p>
+<ul>
+<li>Casas individuales, casas-tienda</li>
+<li>Propiedades individuales con una dirección</li>
+<li>Ejemplos: Propiedades residenciales, edificios independientes</li>
+<li>Sin estructura de piso/unidad</li>
+</ul>
+<h4 id="agregar-una-direccion-publica-varios-pisos">Agregar una Dirección Pública (Varios Pisos)<a class="headerlink" href="#agregar-una-direccion-publica-varios-pisos" title="Permanent link">&para;</a></h4>
+<p><strong>Paso 1: Iniciar Creación</strong></p>
+<ol>
+<li>Seleccione el territorio</li>
+<li>Haga clic en el botón <strong>"Agregar Dirección"</strong> o <strong>"+"</strong></li>
+<li>Seleccione tipo <strong>"Dirección Pública"</strong></li>
+</ol>
+<p><strong>Paso 2: Ingresar Información del Edificio</strong></p>
+<ul>
+<li><strong>Código Postal/Dirección</strong>: Identificador del edificio</li>
+<li>Ingrese código postal o dirección de calle</li>
+<li>El sistema puede auto-completar la ubicación</li>
+<li>Usado para geocodificación y visualización en mapa</li>
+<li><strong>Nombre del Edificio</strong>: Nombre opcional del edificio</li>
+<li>Ejemplos: "Bloque 123A", "Torres Soleadas"</li>
+<li>Ayuda a los publicadores a identificar el edificio</li>
+</ul>
+<p><strong>Paso 3: Configurar Pisos</strong></p>
+<p><img alt="Mapa de Varios Pisos" src="../../assets/screenshots/multi_story_map.png" /></p>
+<p><em>Figura 25: Gestión de edificios de varios pisos con organización de pisos y unidades</em></p>
+<ul>
+<li><strong>Piso Inicial</strong>: Número del piso más bajo</li>
+<li>Puede ser negativo para niveles de sótano</li>
+<li>Ejemplos: -2 (S2), 1 (Planta Baja), 0</li>
+<li><strong>Piso Superior</strong>: Número del piso más alto</li>
+<li>Máximo: 50</li>
+<li>Ejemplos: 10, 25, 40</li>
+<li><strong>Selección de Pisos</strong>: Elegir pisos específicos</li>
+<li>Salte pisos sin unidades (ej., pisos mecánicos)</li>
+<li>Típico: Todos los pisos desde inicio hasta tope</li>
+</ul>
+<p><strong>Paso 4: Configurar Unidades</strong></p>
+<ul>
+<li><strong>Unidades Por Piso</strong>: Número de unidades en cada piso</li>
+<li>Ejemplos: 8, 12, 16</li>
+<li>Crea unidades automáticamente</li>
+<li><strong>Formato de Número de Unidad</strong>: Cómo numerar unidades</li>
+<li>Patrón: Piso + unidad (ej., 01-01, 01-02)</li>
+<li>Personalizado: Ingrese números de unidad manualmente después</li>
+</ul>
+<p><strong>Paso 5: Crear y Poblar</strong></p>
+<ol>
+<li>Haga clic en <strong>"Crear"</strong></li>
+<li>El sistema genera todos los pisos y unidades</li>
+<li>La dirección aparece en el territorio con todas las unidades</li>
+</ol>
+<p><strong>Ejemplo:</strong></p>
+<ul>
+<li>Edificio: Bloque 123</li>
+<li>Pisos: 1 a 12</li>
+<li>Unidades por piso: 8</li>
+<li>Resultado: 96 unidades creadas (12 pisos × 8 unidades)</li>
+</ul>
+<h4 id="agregar-una-direccion-privada-un-solo-piso">Agregar una Dirección Privada (Un Solo Piso)<a class="headerlink" href="#agregar-una-direccion-privada-un-solo-piso" title="Permanent link">&para;</a></h4>
+<p><strong>Paso 1: Iniciar Creación</strong></p>
+<ol>
+<li>Seleccione el territorio</li>
+<li>Haga clic en <strong>"Agregar Dirección"</strong> o <strong>"+"</strong></li>
+<li>Seleccione tipo <strong>"Dirección Privada"</strong></li>
+</ol>
+<p><strong>Paso 2: Ingresar Información de la Propiedad</strong></p>
+<ul>
+<li><strong>Código Postal/Dirección de la Propiedad</strong>: Identificador único</li>
+<li>Dirección de calle o código postal</li>
+<li>Cada propiedad es un registro</li>
+<li><strong>Nombre de la Propiedad</strong>: Nombre opcional de la casa</li>
+<li>Ejemplos: "123 Calle Principal", "Villa Soleada"</li>
+</ul>
+<p><strong>Paso 3: Establecer Ubicación (Opcional)</strong></p>
+<ul>
+<li>Haga clic en <strong>"Establecer Geolocalización"</strong></li>
+<li>Use el mapa para señalar la ubicación exacta</li>
+<li>Ayuda con la navegación</li>
+<li>Puede actualizarse después</li>
+</ul>
+<p><strong>Paso 4: Crear</strong></p>
+<ol>
+<li>Haga clic en <strong>"Crear Propiedad"</strong></li>
+<li>Se crea una unidad de dirección única</li>
+<li>Aparece en la lista del territorio</li>
+</ol>
+<h4 id="gestionar-direcciones-existentes">Gestionar Direcciones Existentes<a class="headerlink" href="#gestionar-direcciones-existentes" title="Permanent link">&para;</a></h4>
+<p><strong>Editar Nombre de Dirección:</strong></p>
+<ol>
+<li>Seleccione el territorio con la dirección</li>
+<li>Haga clic en la opción de edición para la dirección</li>
+<li>Actualice nombre/código postal</li>
+<li>Guarde los cambios</li>
+</ol>
+<p><strong>Cambiar Código Postal:</strong></p>
+<ol>
+<li>Acceda al modo de edición de dirección</li>
+<li>Actualice el campo de código postal</li>
+<li>Puede afectar la geocodificación</li>
+<li>Guarde y verifique la ubicación en el mapa</li>
+</ol>
+<p><strong>Restablecer Dirección:</strong></p>
+<ul>
+<li>Limpia todos los estados de unidad en la dirección</li>
+<li>Las notas se preservan</li>
+<li>Use cuando la dirección esté completamente trabajada</li>
+</ul>
+<p><strong>Eliminar Dirección:</strong></p>
+<ul>
+<li>Elimina toda la dirección y todas las unidades</li>
+<li>No se puede deshacer</li>
+<li>Confirme cuidadosamente antes de eliminar</li>
+</ul>
+<h4 id="gestionar-unidades-solo-direcciones-publicas">Gestionar Unidades (Solo Direcciones Públicas)<a class="headerlink" href="#gestionar-unidades-solo-direcciones-publicas" title="Permanent link">&para;</a></h4>
+<p><strong>Agregar Unidades:</strong></p>
+<ol>
+<li>Seleccione la dirección</li>
+<li>Haga clic en <strong>"Agregar Unidades"</strong></li>
+<li>Especifique los números de unidad a agregar</li>
+<li>Las unidades se crean automáticamente</li>
+</ol>
+<p><strong>Eliminar Unidades:</strong></p>
+<ol>
+<li>Haga clic en la unidad específica</li>
+<li>Haga clic en el botón <strong>"Eliminar Unidad"</strong> en el modal</li>
+<li>Confirme la eliminación</li>
+<li>La unidad se elimina de la dirección</li>
+</ol>
+<p><strong>Cambiar Secuencia de Unidad:</strong></p>
+<ol>
+<li>Abra el modal de edición de unidad</li>
+<li>Actualice el número de secuencia</li>
+<li>Afecta el orden de visita</li>
+<li>Los números más bajos se visitan primero</li>
+</ol>
+<p><strong>Agregar/Eliminar Pisos:</strong></p>
+<ol>
+<li>Acceda a la gestión de pisos</li>
+<li>Agregue nuevos números de piso</li>
+<li>O elimine pisos completos</li>
+<li>Todas las unidades en el piso se afectan</li>
+</ol>
+<p><strong>Actualizar Geolocalización de Unidad:</strong></p>
+<ul>
+<li>Establezca coordenadas específicas para la unidad</li>
+<li>Útil para edificios grandes</li>
+<li>Ayuda con navegación precisa</li>
+<li>Característica opcional</li>
+</ul>
+<hr />
+<hr />
+<h2 id="uso-movil">Uso Móvil<a class="headerlink" href="#uso-movil" title="Permanent link">&para;</a></h2>
+<p><img alt="Vista de Mapa de Asignación de Publicador" src="../../assets/screenshots/publisher_assignment_map_view.png" /></p>
+<p><em>Figura 26: Interfaz responsive para móviles optimizada para el servicio del campo</em></p>
+<h3 id="usar-ministry-mapper-en-su-telefono">Usar Ministry Mapper en Su Teléfono<a class="headerlink" href="#usar-ministry-mapper-en-su-telefono" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper es completamente responsive y optimizado para dispositivos móviles, haciéndolo perfecto para el servicio del campo.</p>
+<h4 id="acceder-en-movil">Acceder en Móvil<a class="headerlink" href="#acceder-en-movil" title="Permanent link">&para;</a></h4>
+<p><strong>Acceso por Navegador:</strong></p>
+<ol>
+<li>Abra su navegador móvil:</li>
+<li><strong>iOS</strong>: Safari, Chrome</li>
+<li><strong>Android</strong>: Chrome, Firefox, Samsung Internet</li>
+<li>Navegue a la URL de Ministry Mapper de su congregación</li>
+<li>Inicie sesión o haga clic en el enlace de asignación</li>
+<li>La interfaz se adapta automáticamente al tamaño de su pantalla</li>
+</ol>
+<p><strong>Características en Móvil:</strong></p>
+<ul>
+<li>Botones y controles amigables para táctil</li>
+<li>Gestos de deslizamiento para navegación</li>
+<li>Diseños optimizados para pantallas pequeñas</li>
+<li>Áreas de toque más grandes para selección fácil</li>
+<li>Acceso completo a todas las características de escritorio</li>
+<li>Integración de mapa interactivo con GPS</li>
+</ul>
+<h4 id="instalacion-de-aplicacion-web-progresiva-pwa">Instalación de Aplicación Web Progresiva (PWA)<a class="headerlink" href="#instalacion-de-aplicacion-web-progresiva-pwa" title="Permanent link">&para;</a></h4>
+<p><img alt="Modo Vista de Mapa Un Solo Piso" src="../../assets/screenshots/single_story_map_view_mode.png" /></p>
+<p><em>Figura 27: Modo de vista de mapa a pantalla completa disponible en instalación PWA</em></p>
+<p>Instale Ministry Mapper como una aplicación para mejor rendimiento:</p>
+<p><strong>Beneficios de Instalar:</strong></p>
+<ul>
+<li>Carga más rápida con recursos en caché</li>
+<li>Icono de aplicación en pantalla de inicio</li>
+<li>Experiencia a pantalla completa (sin UI del navegador)</li>
+<li>Rendimiento mejorado</li>
+<li>Mejor integración con el dispositivo</li>
+</ul>
+<p><strong>Instalación en iOS (Safari):</strong></p>
+<ol>
+<li>Abra Ministry Mapper en Safari</li>
+<li>Toque el botón <strong>Compartir</strong></li>
+<li>Desplácese hacia abajo y toque <strong>"Agregar a pantalla de inicio"</strong></li>
+<li>Edite el nombre si lo desea</li>
+<li>Toque <strong>"Agregar"</strong></li>
+<li>El icono de la aplicación aparece en la pantalla de inicio</li>
+</ol>
+<p><strong>Instalación en Android (Chrome):</strong></p>
+<ol>
+<li>Abra Ministry Mapper en Chrome</li>
+<li>Toque el botón de menú</li>
+<li>Seleccione <strong>"Instalar aplicación"</strong> o <strong>"Agregar a pantalla de inicio"</strong></li>
+<li>Confirme la instalación</li>
+<li>El icono de la aplicación aparece en la pantalla de inicio o cajón de aplicaciones</li>
+</ol>
+<p><strong>Usar la Aplicación Instalada:</strong></p>
+<ul>
+<li>Inicie desde la pantalla de inicio como cualquier aplicación</li>
+<li>Sin barra de direcciones del navegador</li>
+<li>Experiencia de aplicación fluida</li>
+<li>Se actualiza automáticamente</li>
+</ul>
+<h4 id="mejores-practicas-moviles">Mejores Prácticas Móviles<a class="headerlink" href="#mejores-practicas-moviles" title="Permanent link">&para;</a></h4>
+<p><strong>Antes de Salir:</strong></p>
+<ol>
+<li>Verifique que el enlace de asignación no haya expirado</li>
+<li>Revise el territorio y mapa</li>
+<li>Note cualquier instrucción especial</li>
+<li>Asegure conexión a internet estable</li>
+<li>Cargue completamente su dispositivo</li>
+<li>Considere cargador portátil</li>
+</ol>
+<p><strong>Durante el Servicio del Campo:</strong></p>
+<ol>
+<li>Actualice direcciones inmediatamente después de las visitas</li>
+<li>Agregue notas mientras la información está fresca</li>
+<li>Use navegación GPS en el mapa</li>
+<li>Siga los números de secuencia para enrutamiento eficiente</li>
+<li>Ahorre batería reduciendo brillo de pantalla cuando no se necesite</li>
+</ol>
+<p><strong>Consejos de Uso de Datos:</strong></p>
+<ul>
+<li>Ministry Mapper usa datos mínimos</li>
+<li>Los mosaicos del mapa pueden usar más datos</li>
+<li>La mayoría de las actualizaciones son &lt; 1KB cada una</li>
+<li>Adecuado para uso de datos móviles</li>
+</ul>
+<h3 id="capacidades-y-limitaciones-sin-conexion">Capacidades y Limitaciones Sin Conexión<a class="headerlink" href="#capacidades-y-limitaciones-sin-conexion" title="Permanent link">&para;</a></h3>
+<p><strong>Conexión a Internet Requerida:</strong></p>
+<p>Ministry Mapper requiere internet activo para:</p>
+<ul>
+<li>Cargar datos del territorio</li>
+<li>Guardar actualizaciones de estado</li>
+<li>Sincronización en tiempo real</li>
+<li>Mostrar mapas</li>
+<li>Autenticación de usuario</li>
+</ul>
+<p><strong>Características Sin Conexión Limitadas:</strong></p>
+<ul>
+<li>Recursos estáticos en caché (shell de la aplicación)</li>
+<li>El territorio cargado previamente puede mostrarse</li>
+<li><strong>No puede hacer actualizaciones sin conexión</strong></li>
+<li><strong>Las actualizaciones no se ponen en cola para sincronización posterior</strong></li>
+</ul>
+<p><strong>Manejo de Pérdida de Conexión:</strong></p>
+<ul>
+<li>El sistema detecta la pérdida de conexión</li>
+<li>Muestra advertencia de estado de conexión</li>
+<li>Se reconecta automáticamente cuando está disponible</li>
+<li>Reanude el trabajo cuando se restaure la conexión</li>
+</ul>
+<p><strong>Recomendaciones:</strong></p>
+<ul>
+<li>Asegure conexión confiable antes de comenzar</li>
+<li>Pruebe la conexión en la ubicación del territorio</li>
+<li>Tenga plan de respaldo para áreas sin internet</li>
+<li>Considere hotspot WiFi portátil si es necesario</li>
+<li>Actualice direcciones mientras la conexión está activa</li>
+</ul>
+<hr />
+<hr />
+<h2 id="configuracion-de-cuenta-y-perfil">Configuración de Cuenta y Perfil<a class="headerlink" href="#configuracion-de-cuenta-y-perfil" title="Permanent link">&para;</a></h2>
+<h3 id="gestion-de-perfil-personal">Gestión de Perfil Personal<a class="headerlink" href="#gestion-de-perfil-personal" title="Permanent link">&para;</a></h3>
+<p><img alt="Iniciar Sesión" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>Figura 28: Interfaz de inicio de sesión para acceder a su cuenta de Ministry Mapper</em></p>
+<p><strong>Acceder a Su Perfil:</strong></p>
+<ol>
+<li>Haga clic en su <strong>nombre/icono de perfil</strong> (esquina superior derecha)</li>
+<li>Seleccione <strong>"Perfil"</strong> del menú desplegable</li>
+<li>Vea y gestione la configuración de su cuenta</li>
+</ol>
+<p><strong>Opciones de Perfil Disponibles:</strong></p>
+<ul>
+<li>Ver información de la cuenta (nombre, correo electrónico)</li>
+<li>Cambiar contraseña</li>
+<li>Ver membresía de congregación</li>
+<li>Acceder a gestión de usuarios (Solo Administradores)</li>
+<li>Cerrar sesión</li>
+</ul>
+<h3 id="cambiar-su-contrasena">Cambiar Su Contraseña<a class="headerlink" href="#cambiar-su-contrasena" title="Permanent link">&para;</a></h3>
+<p><strong>Requisitos de Seguridad:</strong></p>
+<ul>
+<li>Mínimo 6 caracteres</li>
+<li>Al menos un número</li>
+<li>Al menos una letra mayúscula</li>
+<li>Debe coincidir con la confirmación</li>
+</ul>
+<p><strong>Pasos para Cambiar:</strong></p>
+<ol>
+<li>Vaya a su perfil</li>
+<li>Haga clic en <strong>"Cambiar Contraseña"</strong></li>
+<li>Ingrese su <strong>contraseña actual</strong></li>
+<li>Ingrese <strong>nueva contraseña</strong></li>
+<li><strong>Confirme nueva contraseña</strong></li>
+<li>Haga clic en <strong>"Guardar"</strong> o <strong>"Cambiar Contraseña"</strong></li>
+<li>Un mensaje de éxito confirma el cambio</li>
+</ol>
+<blockquote>
+<p><strong>Consejo</strong>: Use una contraseña fuerte y única. Considere usar un gestor de contraseñas.</p>
+</blockquote>
+<h3 id="recuperacion-de-contrasena">Recuperación de Contraseña<a class="headerlink" href="#recuperacion-de-contrasena" title="Permanent link">&para;</a></h3>
+<p><img alt="Olvidé Contraseña" src="../../assets/screenshots/forgot_password.png" /></p>
+<p><em>Figura 29: Página de recuperación de contraseña para restablecer contraseñas olvidadas</em></p>
+<p>¿Olvidó su contraseña? Proceso de recuperación fácil:</p>
+<ol>
+<li>Vaya a la página de inicio de sesión</li>
+<li>Haga clic en el enlace <strong>"¿Olvidó su contraseña?"</strong></li>
+<li>Ingrese su <strong>dirección de correo electrónico registrada</strong></li>
+<li>Haga clic en <strong>"Continuar"</strong> o <strong>"Enviar Enlace de Restablecimiento"</strong></li>
+<li>Revise su bandeja de entrada de correo electrónico</li>
+</ol>
+<p><img alt="Correo de Restablecimiento de Contraseña" src="../../assets/screenshots/reset_password_email.png" /></p>
+<p><em>Figura 30: Correo de restablecimiento de contraseña con enlace seguro para crear nueva contraseña</em></p>
+<ol>
+<li>Haga clic en el enlace de restablecimiento de contraseña (válido por tiempo limitado)</li>
+<li>Cree una nueva contraseña cumpliendo los requisitos</li>
+<li>Confirme la nueva contraseña</li>
+<li>Inicie sesión con la nueva contraseña</li>
+</ol>
+<p><strong>Si no recibe el correo electrónico:</strong></p>
+<ul>
+<li>Revise la carpeta de spam/correo no deseado</li>
+<li>Verifique que ingresó el correo correcto</li>
+<li>Espere unos minutos e intente de nuevo</li>
+<li>Contacte al administrador si los problemas persisten</li>
+</ul>
+<h3 id="seleccion-de-idioma">Selección de Idioma<a class="headerlink" href="#seleccion-de-idioma" title="Permanent link">&para;</a></h3>
+<p><img alt="Lista de Selección de Idioma" src="../../assets/screenshots/language_selection_list.png" /></p>
+<p><em>Figura 31: Interfaz de selección de idioma mostrando todos los idiomas soportados</em></p>
+<p>Ministry Mapper soporta múltiples idiomas para congregaciones internacionales.</p>
+<p><strong>Idiomas Soportados:</strong></p>
+<ul>
+<li>Inglés (en)</li>
+<li>Japonés (ja / 日本語)</li>
+<li>Coreano (ko / 한국어)</li>
+<li>Chino (zh / 中文)</li>
+<li>Indonesio (id / Bahasa Indonesia)</li>
+<li>Malayo (ms / Bahasa Melayu)</li>
+</ul>
+<p><strong>Cómo Se Determina el Idioma:</strong></p>
+<ul>
+<li>Detectado automáticamente desde la configuración del navegador</li>
+<li>Usa la preferencia de idioma de su sistema operativo</li>
+<li>No se necesita selección manual en la mayoría de los casos</li>
+</ul>
+<p><strong>Para Cambiar el Idioma:</strong></p>
+<p><img alt="Configuración de Tema Oscuro Claro" src="../../assets/screenshots/dark_light_theme_settings.png" /></p>
+<p><em>Figura 32: Configuración de tema y apariencia incluyendo preferencias de idioma</em></p>
+<p>Cambie la configuración de idioma del navegador (Chrome: Configuración → Idiomas | Safari: Preferencias del Sistema → Idioma y Región | Firefox: Configuración → General → Idioma), luego actualice Ministry Mapper. Todos los elementos de la interfaz, mensajes y texto de ayuda están completamente traducidos.</p>
+<h3 id="configuracion-de-apariencia-y-tema">Configuración de Apariencia y Tema<a class="headerlink" href="#configuracion-de-apariencia-y-tema" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper soporta temas claro y oscuro para adaptarse a su preferencia y reducir la fatiga visual.</p>
+<p><strong>Cambiar Tema:</strong></p>
+<p>Icono de perfil → Configuración de Tema/Apariencia → Seleccione:
+- <strong>Modo Claro</strong>: Interfaz brillante para el día
+- <strong>Modo Oscuro</strong>: Brillo reducido para poca luz (ahorra batería en OLED)
+- <strong>Sistema Predeterminado</strong>: Coincide con la configuración del dispositivo automáticamente</p>
+<hr />
+<h2 id="mejores-practicas">Mejores Prácticas<a class="headerlink" href="#mejores-practicas" title="Permanent link">&para;</a></h2>
+<h3 id="para-publicadores_1">Para Publicadores<a class="headerlink" href="#para-publicadores_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Mejores Prácticas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Antes de Comenzar</strong></td>
+<td>Revise el territorio en el mapa - Verifique notas/instrucciones - Planifique ruta usando secuencias - Note direcciones "No Visitar" - Asegure dispositivo cargado</td>
+</tr>
+<tr>
+<td><strong>Durante el Servicio</strong></td>
+<td>Actualice inmediatamente después de cada visita - Agregue notas detalladas y respetuosas - Siga los números de secuencia - Use el mapa para navegación - Marque "No en Casa" con precisión</td>
+</tr>
+<tr>
+<td><strong>Después de Completar</strong></td>
+<td>Revise todas las actualizaciones - Agregue observaciones finales - Notifique al administrador si está completo - Reporte problemas de direcciones</td>
+</tr>
+</tbody>
+</table>
+<h3 id="para-conductores">Para Conductores<a class="headerlink" href="#para-conductores" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Establezca tiempos de expiración de enlace apropiados basados en el tamaño del territorio</li>
+<li>Incluya nombres de publicadores para seguimiento</li>
+<li>Limpie asignaciones expiradas regularmente</li>
+<li>Monitoree el completado del territorio y haga seguimiento de asignaciones vencidas</li>
+<li>Publique mensajes e instrucciones claras</li>
+</ul>
+<h3 id="para-administradores">Para Administradores<a class="headerlink" href="#para-administradores" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>Mejores Prácticas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Configuración de Territorio</strong></td>
+<td>Nomenclatura consistente - Códigos cortos y significativos - Descripciones claras - Verificar ubicaciones en mapa - Secuencias lógicas</td>
+</tr>
+<tr>
+<td><strong>Gestión de Datos</strong></td>
+<td>Limpieza regular - Restablecer territorios completados - Verificar precisión - Copias de seguridad externas - Capacitar usuarios</td>
+</tr>
+<tr>
+<td><strong>Gestión de Usuarios</strong></td>
+<td>Asignación de roles apropiada - Eliminar usuarios inactivos - Respuesta rápida a solicitudes - Comunicación clara</td>
+</tr>
+</tbody>
+</table>
+<h3 id="principios-generales">Principios Generales<a class="headerlink" href="#principios-generales" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Planifique con Anticipación</strong>: Revise antes de salir</li>
+<li><strong>Trabaje Sistemáticamente</strong>: Complete una sección a la vez</li>
+<li><strong>Actualice Prontamente</strong>: No espere para registrar información</li>
+<li><strong>Comunique Claramente</strong>: Escriba notas comprensibles y respetuosas</li>
+<li><strong>Sea Exhaustivo</strong>: Cubra todas las direcciones persistentemente</li>
+<li><strong>Sea Flexible</strong>: Adáptese a las necesidades del territorio</li>
+</ul>
+<hr />
+<h2 id="solucion-de-problemas-comunes">Solución de Problemas Comunes<a class="headerlink" href="#solucion-de-problemas-comunes" title="Permanent link">&para;</a></h2>
+<h3 id="problemas-de-inicio-de-sesion">Problemas de Inicio de Sesión<a class="headerlink" href="#problemas-de-inicio-de-sesion" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Síntomas</th>
+<th>Soluciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contraseña Incorrecta</strong></td>
+<td>Error "Credenciales inválidas"</td>
+<td>Verifique correo - Verifique Bloq Mayús - Use "Olvidé Contraseña" → Restablecer vía correo</td>
+</tr>
+<tr>
+<td><strong>Cuenta No Verificada</strong></td>
+<td>Mensaje "Correo no verificado"</td>
+<td>Revise bandeja/spam para correo de verificación - Haga clic en enlace - Solicite nuevo si expiró</td>
+</tr>
+<tr>
+<td><strong>Sin Acceso a Congregación</strong></td>
+<td>Sesión iniciada pero sin territorios</td>
+<td>Contacte administrador para invitación y asignación de rol - Cierre/inicie sesión después de acceso otorgado</td>
+</tr>
+<tr>
+<td><strong>Problemas de OTP</strong></td>
+<td>No recibe/código OTP inválido</td>
+<td>Revise spam - Códigos expiran en 5-10 minutos - Solicite nuevo código - Verifique dirección de correo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="problemas-de-actualizacion-de-datos">Problemas de Actualización de Datos<a class="headerlink" href="#problemas-de-actualizacion-de-datos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Síntomas</th>
+<th>Soluciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Los Cambios No Se Guardan</strong></td>
+<td>Guardar no persiste, desaparece después de actualizar</td>
+<td>Verifique conexión a internet - Actualice página (Ctrl/Cmd + R) - Limpie caché del navegador - Pruebe diferente navegador - Verifique edición concurrente</td>
+</tr>
+<tr>
+<td><strong>Actualizaciones en Tiempo Real No Aparecen</strong></td>
+<td>Cambios de otros no se muestran</td>
+<td>Asegure internet activo - Mantenga página abierta - Actualice para forzar actualización - Verifique estado de conexión</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="problemas-de-mapa-y-navegacion">Problemas de Mapa y Navegación<a class="headerlink" href="#problemas-de-mapa-y-navegacion" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Síntomas</th>
+<th>Soluciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>El Mapa No Carga</strong></td>
+<td>Caja gris, error, mapa congelado</td>
+<td>Actualice página (F5) - Espere 10-15 segundos - Verifique velocidad de internet - Limpie caché - Pruebe diferente navegador - Habilite JavaScript</td>
+</tr>
+<tr>
+<td><strong>Ubicación Incorrecta</strong></td>
+<td>Marcadores mal ubicados</td>
+<td>Administradores: Actualice geolocalización - Verifique código postal - Use "Actualizar Geolocalización" - Use lat/long si es necesario</td>
+</tr>
+<tr>
+<td><strong>Direcciones No Funcionan</strong></td>
+<td>Problemas de navegación</td>
+<td>Verifique ubicación de origen de congregación - Verifique que la dirección tenga coordenadas válidas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="problemas-de-enlaces-de-asignacion">Problemas de Enlaces de Asignación<a class="headerlink" href="#problemas-de-enlaces-de-asignacion" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Síntomas</th>
+<th>Soluciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enlace Expirado</strong></td>
+<td>"El enlace ha expirado", error 404</td>
+<td>Contacte administrador/conductor para nuevo enlace (los enlaces expiran después del tiempo establecido, típicamente 24 horas - esta es una característica de seguridad)</td>
+</tr>
+<tr>
+<td><strong>Enlace No Funciona</strong></td>
+<td>No abre, mensaje de error</td>
+<td>Asegure que todo el enlace esté copiado (verifique saltos de línea) - Copie-pegue en navegador (no escriba) - Verifique que no esté expirado - Contacte administrador</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="problemas-de-permisos-y-acceso">Problemas de Permisos y Acceso<a class="headerlink" href="#problemas-de-permisos-y-acceso" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Síntomas</th>
+<th>Soluciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Permiso Denegado</strong></td>
+<td>"Permisos insuficientes", características en gris</td>
+<td>Verifique su rol con administrador - Cierre sesión, limpie caché, inicie sesión de nuevo - Solicite actualización de rol si es necesario</td>
+</tr>
+<tr>
+<td><strong>Datos de Congregación Incorrectos</strong></td>
+<td>Territorios/datos desconocidos</td>
+<td>Verifique cuenta correcta - Verifique selector de congregación - Cierre/inicie sesión - Contacte administrador</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="problemas-de-rendimiento">Problemas de Rendimiento<a class="headerlink" href="#problemas-de-rendimiento" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Problema</th>
+<th>Síntomas</th>
+<th>Soluciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Carga Lenta</strong></td>
+<td>Tiempos de carga largos, lag, retrasos</td>
+<td>Verifique velocidad de internet - Cierre pestañas innecesarias - Limpie caché - Reinicie navegador - Pruebe diferente hora - Reporte si persiste</td>
+</tr>
+<tr>
+<td><strong>Bloqueos/Congelamientos</strong></td>
+<td>La aplicación deja de responder</td>
+<td>Actualice página - Limpie caché/cookies - Actualice navegador - Pruebe diferente navegador - Reinicie dispositivo - Verifique memoria</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="compatibilidad-de-navegador">Compatibilidad de Navegador<a class="headerlink" href="#compatibilidad-de-navegador" title="Permanent link">&para;</a></h3>
+<h4 id="compatibilidad-de-navegador_1">Compatibilidad de Navegador<a class="headerlink" href="#compatibilidad-de-navegador_1" title="Permanent link">&para;</a></h4>
+<p><strong>Soportados:</strong> Chrome, Firefox, Safari, Edge (versiones más recientes) - iOS Safari (iOS 13+) - Android Chrome</p>
+<p><strong>No Soportados:</strong> Internet Explorer, navegadores desactualizados</p>
+<p><strong>Si tiene problemas:</strong> Actualice navegador - Habilite JavaScript - Permita cookies - Deshabilite prevención de seguimiento estricta - Pruebe diferente navegador</p>
+<hr />
+<h2 id="obtener-ayuda-y-soporte">Obtener Ayuda y Soporte<a class="headerlink" href="#obtener-ayuda-y-soporte" title="Permanent link">&para;</a></h2>
+<h3 id="canales-de-soporte">Canales de Soporte<a class="headerlink" href="#canales-de-soporte" title="Permanent link">&para;</a></h3>
+<p><strong>1. El Administrador de Su Congregación</strong></p>
+<ul>
+<li><strong>Primer punto de contacto</strong> para la mayoría de problemas</li>
+<li>Puede ayudar con:</li>
+<li>Acceso a cuenta y roles</li>
+<li>Preguntas sobre territorio</li>
+<li>Enlaces de asignación</li>
+<li>Configuración local</li>
+</ul>
+<p><strong>2. Documentación Oficial</strong></p>
+<ul>
+<li><strong>GitHub Wiki</strong>: https://github.com/rimorin/ministry-mapper/wiki</li>
+<li>Guías completas para todos los roles</li>
+<li>Documentación de configuración y seguridad</li>
+<li>Preguntas frecuentes y soluciones comunes</li>
+</ul>
+<p><strong>3. Problemas Técnicos</strong></p>
+<ul>
+<li><strong>GitHub Issues</strong>: https://github.com/rimorin/ministry-mapper/issues</li>
+<li>Reporte errores y problemas técnicos</li>
+<li>Verifique problemas existentes primero</li>
+<li>Busque problemas similares</li>
+</ul>
+<h3 id="reportar-problemas-efectivamente">Reportar Problemas Efectivamente<a class="headerlink" href="#reportar-problemas-efectivamente" title="Permanent link">&para;</a></h3>
+<p><strong>Incluya en Su Reporte:</strong>
+- Lo que estaba tratando de hacer
+- Lo que sucedió en su lugar (mensajes de error, capturas de pantalla)
+- Pasos para reproducir el problema
+- Navegador y versión
+- Dispositivo y SO
+- Tipo de cuenta (Publicador/Conductor/Administrador)</p>
+<p><strong>Ejemplo de Buen Reporte:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Problema: No puedo guardar actualización de estado de dirección
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Pasos: Abrí enlace → Hice clic en #05-123 → Cambié a &quot;Hecho&quot; → Hice clic en Guardar → Error: &quot;Error al actualizar&quot;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Navegador: Chrome 120 | Dispositivo: iPhone 12, iOS 17 | Cuenta: Enlace de publicador
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Captura de pantalla: [adjunta]
+</code></pre></div></p>
+<h3 id="contacto-de-emergencia">Contacto de Emergencia<a class="headerlink" href="#contacto-de-emergencia" title="Permanent link">&para;</a></h3>
+<p>Para problemas urgentes:</p>
+<ul>
+<li>Contacte al administrador de su congregación directamente</li>
+<li>Tenga número de teléfono/correo electrónico listo</li>
+<li>Explique la urgencia claramente</li>
+<li>Tenga detalles relevantes listos</li>
+</ul>
+<hr />
+<hr />
+<h2 id="referencia-rapida">Referencia Rápida<a class="headerlink" href="#referencia-rapida" title="Permanent link">&para;</a></h2>
+<h3 id="atajos-de-teclado">Atajos de Teclado<a class="headerlink" href="#atajos-de-teclado" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper usa atajos estándar del navegador:</p>
+<table>
+<thead>
+<tr>
+<th>Atajo</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Escape</code></td>
+<td>Cerrar modales/diálogos abiertos</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>Navegar entre campos de formulario</td>
+</tr>
+<tr>
+<td><code>Enter</code></td>
+<td>Enviar formularios o confirmar acciones</td>
+</tr>
+<tr>
+<td><code>Ctrl/Cmd + R</code></td>
+<td>Actualizar página</td>
+</tr>
+<tr>
+<td>Edición estándar</td>
+<td>Copiar, pegar, seleccionar todo funcionan en campos de texto</td>
+</tr>
+</tbody>
+</table>
+<h3 id="referencia-rapida-de-estados">Referencia Rápida de Estados<a class="headerlink" href="#referencia-rapida-de-estados" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Símbolo</th>
+<th>Cuándo Usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>No Hecho</strong></td>
+<td>(blanco)</td>
+<td>Dirección aún no visitada (predeterminado)</td>
+</tr>
+<tr>
+<td><strong>Hecho</strong></td>
+<td>(verde)</td>
+<td>Contactó con éxito al residente</td>
+</tr>
+<tr>
+<td><strong>No en Casa</strong></td>
+<td>(amarillo)</td>
+<td>Nadie respondió la puerta</td>
+</tr>
+<tr>
+<td><strong>No Visitar</strong></td>
+<td>(rojo)</td>
+<td>El residente solicitó no ser visitado</td>
+</tr>
+<tr>
+<td><strong>Inválido</strong></td>
+<td>(gris)</td>
+<td>La dirección no existe o es inaccesible</td>
+</tr>
+</tbody>
+</table>
+<h3 id="referencia-rapida-de-capacidades-por-rol">Referencia Rápida de Capacidades por Rol<a class="headerlink" href="#referencia-rapida-de-capacidades-por-rol" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th style="text-align: center;">Publicador</th>
+<th style="text-align: center;">Solo Lectura</th>
+<th style="text-align: center;">Conductor</th>
+<th style="text-align: center;">Administrador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ver vía enlace de asignación</td>
+<td style="text-align: center;">Si</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>Ver todos los territorios</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Si</td>
+<td style="text-align: center;">Si</td>
+<td style="text-align: center;">Si</td>
+</tr>
+<tr>
+<td>Actualizar estado de dirección</td>
+<td style="text-align: center;">Si</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Si</td>
+</tr>
+<tr>
+<td>Crear asignaciones</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Si</td>
+<td style="text-align: center;">Si</td>
+</tr>
+<tr>
+<td>Publicar mensajes</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Si</td>
+<td style="text-align: center;">Si</td>
+</tr>
+<tr>
+<td>Gestionar territorios</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Si</td>
+</tr>
+<tr>
+<td>Gestionar usuarios</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Si</td>
+</tr>
+<tr>
+<td>Configurar ajustes</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Si</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="privacidad-y-seguridad">Privacidad y Seguridad<a class="headerlink" href="#privacidad-y-seguridad" title="Permanent link">&para;</a></h2>
+<h3 id="proteger-la-informacion">Proteger la Información<a class="headerlink" href="#proteger-la-informacion" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper maneja información sensible de direcciones y personal. Por favor observe estas pautas:</p>
+<p><strong>Seguridad de Cuenta:</strong></p>
+<ul>
+<li><strong>Nunca comparta credenciales de inicio de sesión</strong> con nadie</li>
+<li><strong>Use contraseñas fuertes y únicas</strong> (mínimo 6 caracteres con números y mayúsculas)</li>
+<li><strong>Cierre sesión en dispositivos compartidos</strong> siempre</li>
+<li><strong>Habilite OTP si está disponible</strong> para seguridad extra</li>
+<li><strong>Reporte actividad sospechosa</strong> inmediatamente</li>
+</ul>
+<p><strong>Privacidad de Datos:</strong></p>
+<ul>
+<li><strong>Registre solo información necesaria</strong> en notas</li>
+<li><strong>Sea respetuoso y factual</strong> en todas las descripciones</li>
+<li><strong>Sin datos personales sensibles</strong> (médicos, financieros, etc.)</li>
+<li><strong>Siga las solicitudes del residente</strong> para privacidad</li>
+<li><strong>Cumpla con las leyes de privacidad</strong> (GDPR, CCPA, regulaciones locales)</li>
+</ul>
+<p><strong>Cumplimiento Legal:</strong></p>
+<ul>
+<li><strong>GDPR (Europa)</strong>: Requisitos de protección de datos personales</li>
+<li><strong>CCPA (California)</strong>: Derechos de privacidad del consumidor</li>
+<li><strong>LGPD (Brasil)</strong>: Regulaciones de protección de datos</li>
+<li><strong>Leyes Locales</strong>: Verifique los requisitos de su región</li>
+</ul>
+<h3 id="que-informacion-se-almacena">Qué Información Se Almacena<a class="headerlink" href="#que-informacion-se-almacena" title="Permanent link">&para;</a></h3>
+<p><strong>Datos de Usuario:</strong></p>
+<ul>
+<li>Detalles de cuenta (nombre, correo, estado de verificación)</li>
+<li>Asignación de rol en congregación</li>
+<li>Enlaces de asignación creados/accedidos</li>
+<li>Marcas de tiempo de actividad</li>
+</ul>
+<p><strong>Datos de Territorio:</strong></p>
+<ul>
+<li>Información de dirección y unidad</li>
+<li>Actualizaciones de estado e historial</li>
+<li>Notas e información de visita</li>
+<li>Coordenadas de geolocalización</li>
+<li>Seguimiento de progreso</li>
+</ul>
+<p><strong>Datos del Sistema:</strong></p>
+<ul>
+<li>Sesiones de inicio de sesión</li>
+<li>Suscripciones en tiempo real</li>
+<li>Historial de mensajes</li>
+<li>Configuración de ajustes</li>
+</ul>
+<h3 id="almacenamiento-y-seguridad-de-datos">Almacenamiento y Seguridad de Datos<a class="headerlink" href="#almacenamiento-y-seguridad-de-datos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Detalles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Backend</strong></td>
+<td>Base de datos PocketBase gestionada por administrador - Ubicación de hospedaje determinada por congregación - Control de acceso basado en roles</td>
+</tr>
+<tr>
+<td><strong>Sincronización en Tiempo Real</strong></td>
+<td>Suscripciones de PocketBase - Conexiones HTTPS encriptadas - Reconexión automática - Gestión de sesión</td>
+</tr>
+<tr>
+<td><strong>Lado del Cliente</strong></td>
+<td>Service worker almacena en caché solo recursos estáticos - Sin datos sensibles almacenados localmente - Auto-actualización en nuevas versiones</td>
+</tr>
+<tr>
+<td><strong>Responsabilidades del Administrador</strong></td>
+<td>Implementar procedimientos de copia de seguridad - Realizar auditorías de seguridad - Mantener backend actualizado - Monitorear registros de acceso</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conclusion">Conclusión<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Gracias por usar Ministry Mapper para apoyar las actividades del servicio del campo de su congregación. Esta solución moderna basada en web trae eficiencia, colaboración y beneficios ambientales a la gestión de territorios.</p>
+<h3 id="puntos-clave">Puntos Clave<a class="headerlink" href="#puntos-clave" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Responsabilidades Clave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Publicadores</strong></td>
+<td>Acceder vía enlaces - Actualizar inmediatamente después de visitas - Escribir notas respetuosas - Seguir secuencias</td>
+</tr>
+<tr>
+<td><strong>Conductores</strong></td>
+<td>Crear asignaciones - Monitorear progreso - Publicar mensajes - Coordinar actividades</td>
+</tr>
+<tr>
+<td><strong>Administradores</strong></td>
+<td>Configurar ajustes - Gestionar territorios - Asignar roles - Asegurar seguridad</td>
+</tr>
+</tbody>
+</table>
+<h3 id="caracteristicas-del-sistema">Características del Sistema<a class="headerlink" href="#caracteristicas-del-sistema" title="Permanent link">&para;</a></h3>
+<p><strong>Stack Tecnológico:</strong></p>
+<ul>
+<li>React 19 + TypeScript frontend</li>
+<li>Backend PocketBase para gestión de datos</li>
+<li>Leaflet con OpenStreetMap para navegación</li>
+<li>Sincronización en tiempo real</li>
+<li>PWA responsive para móviles</li>
+<li>Soporte multiidioma</li>
+<li>Control de acceso basado en roles</li>
+<li>Monitoreo de errores con Sentry</li>
+</ul>
+<p><strong>Beneficios:</strong></p>
+<ul>
+<li><strong>Ecológico</strong>: Elimina el desperdicio de papel</li>
+<li><strong>Tiempo Real</strong>: Actualizaciones instantáneas en todos los dispositivos</li>
+<li><strong>Móvil Primero</strong>: Funciona en cualquier dispositivo con internet</li>
+<li><strong>Mapas Integrados</strong>: Mapeo interactivo para navegación fácil</li>
+<li><strong>Seguro</strong>: Permisos basados en roles y soporte OTP</li>
+<li><strong>Multiidioma</strong>: Soporte para 7+ idiomas</li>
+<li><strong>Confiable</strong>: Backend PocketBase con sincronización en tiempo real</li>
+</ul>
+<hr />
+<h3 id="agregar-una-direccion-faltante">Agregar una Dirección Faltante<a class="headerlink" href="#agregar-una-direccion-faltante" title="Permanent link">&para;</a></h3>
+<p>Si nota que falta una dirección en la lista durante el servicio del campo, puede agregarla directamente sin necesidad de contactar a un administrador.</p>
+<p><strong>Cómo Agregar una Dirección Faltante:</strong></p>
+<ol>
+<li>Desplácese hasta el final de la lista de direcciones</li>
+<li>Toque la tarjeta con el símbolo <strong>"+"</strong> al final de la lista</li>
+<li>Ingrese los detalles de la dirección en el formulario</li>
+<li>Toque <strong>"Guardar"</strong> para agregar la dirección</li>
+</ol>
+<p><img alt="La tarjeta &quot;+&quot; al final de la lista de direcciones para agregar una dirección faltante" src="../../assets/screenshots/add_more_add.png" /></p>
+<p><em>La tarjeta con el símbolo más al final de la lista de direcciones permite agregar una dirección faltante</em></p>
+<blockquote>
+<p><strong>Nota:</strong> Esta función está diseñada para congregaciones que aún están construyendo sus registros de territorio. La dirección se agrega inmediatamente y es visible para todos los usuarios.</p>
+</blockquote>
+<hr />
+<h3 id="obtener-indicaciones-a-una-direccion">Obtener Indicaciones a una Dirección<a class="headerlink" href="#obtener-indicaciones-a-una-direccion" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper incluye un servicio de rutas integrado para ayudarle a navegar al campo.</p>
+<p><strong>Cómo Obtener Indicaciones:</strong></p>
+<ol>
+<li>Toque la dirección a la que desea ir</li>
+<li>Toque el botón <strong>"Indicaciones"</strong> en los detalles de la dirección</li>
+<li>Seleccione su modo de viaje preferido:</li>
+<li><strong>Conducción</strong> — para desplazarse en auto</li>
+<li><strong>Caminata</strong> — para áreas densamente pobladas o distancias cortas</li>
+<li><strong>Ciclismo</strong> — para desplazarse en bicicleta</li>
+<li>La ruta se calcula y se muestra directamente en el mapa</li>
+</ol>
+<p><img alt="Panel de enrutamiento mostrando opciones de modo de viaje y una ruta trazada en el mapa" src="../../assets/screenshots/map_routing.png" /></p>
+<p><em>El panel de rutas muestra las opciones de modo de viaje y la ruta calculada sobre el mapa</em></p>
+<blockquote>
+<p><strong>Consejo:</strong> Use el modo caminata para áreas densamente pobladas donde el estacionamiento puede ser difícil. Requiere que <code>VITE_OPENROUTE_API_KEY</code> esté configurado en su despliegue.</p>
+</blockquote>
+<hr />
+<p><strong>Versión</strong>: Consulte la versión de su despliegue
+<strong>Última Actualización</strong>: 2024</p>
+<p>Para soporte técnico, contacte al administrador de su congregación o visite el wiki de GitHub.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3731 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ko/frontend-setup/">
+      
+      
+        <link rel="prev" href="../backend-setup/">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+        
+          <link rel="alternate" href="../../frontend-setup/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/frontend-setup/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/frontend-setup/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/frontend-setup/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/frontend-setup/" hreflang="ja">
+        
+          <link rel="alternate" href="./" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/frontend-setup/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/frontend-setup/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Frontend Setup - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Frontend Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="언어설정">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../frontend-setup/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/frontend-setup/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/frontend-setup/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/frontend-setup/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/frontend-setup/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/frontend-setup/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/frontend-setup/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빠른 참조
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빠른 참조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="빠른 참조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기술 스택
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        환경 변수
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="환경 변수">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필수 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        선택적 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        변수 세부 정보
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="변수 세부 정보">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry_auth_token-sentry_org-sentry_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_openroute_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_OPENROUTE_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_locationiq_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_LOCATIONIQ_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_maintenance_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_MAINTENANCE_MODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로컬 개발 설정
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="로컬 개발 설정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전제 조건
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        설정 단계
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="설정 단계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 저장소 복제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 종속성 설치
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 환경 파일 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 개발 서버 시작
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개발 기능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개발 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        코드 품질 도구
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로덕션 배포
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="프로덕션 배포">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로덕션용 빌드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        배포 옵션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="배포 옵션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vercel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 1: Vercel (권장)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 4: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 5: 자체 호스팅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        배포 시 환경 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry 설정 (선택 사항이지만 권장)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentry 설정 (선택 사항이지만 권장)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sentry 계정 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DSN 얻기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 환경에 추가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sentry 구성 (선택 사항)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다국어 지원
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="다국어 지원">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        지원 언어
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언어 감지 작동 방식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        새 언어 추가
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로그레시브 웹 앱 (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="프로그레시브 웹 앱 (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwa_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA 기능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA 구성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        캐싱 전략
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        배포 테스트
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="배포 테스트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기능 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        성능 검사
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        보안 검사
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        브라우저 테스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        문제 해결
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="문제 해결">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        백엔드 연결 실패
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빌드 오류
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript 오류
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        느린 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA 설치 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실시간 업데이트 작동 안 함
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        유지 관리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="유지 관리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종속성 업데이트 유지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        모니터링
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        버전 업데이트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다음 단계
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빠른 참조
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빠른 참조
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="빠른 참조">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기술 스택
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        환경 변수
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="환경 변수">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필수 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        선택적 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        변수 세부 정보
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="변수 세부 정보">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry_auth_token-sentry_org-sentry_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_openroute_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_OPENROUTE_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_locationiq_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_LOCATIONIQ_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_maintenance_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_MAINTENANCE_MODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로컬 개발 설정
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="로컬 개발 설정">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        전제 조건
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        설정 단계
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="설정 단계">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 저장소 복제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 종속성 설치
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 환경 파일 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 개발 서버 시작
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개발 기능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개발 명령
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        코드 품질 도구
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로덕션 배포
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="프로덕션 배포">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로덕션용 빌드
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        배포 옵션
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="배포 옵션">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-vercel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 1: Vercel (권장)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 4: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        옵션 5: 자체 호스팅
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        배포 시 환경 변수
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sentry 설정 (선택 사항이지만 권장)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentry 설정 (선택 사항이지만 권장)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Sentry 계정 생성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. DSN 얻기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 환경에 추가
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sentry 구성 (선택 사항)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다국어 지원
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="다국어 지원">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        지원 언어
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언어 감지 작동 방식
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        새 언어 추가
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로그레시브 웹 앱 (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="프로그레시브 웹 앱 (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwa_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA 기능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA 구성
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        캐싱 전략
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        배포 테스트
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="배포 테스트">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기능 체크리스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        성능 검사
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        보안 검사
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        브라우저 테스트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        문제 해결
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="문제 해결">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        백엔드 연결 실패
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        빌드 오류
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript 오류
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        느린 성능
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA 설치 문제
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실시간 업데이트 작동 안 함
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        유지 관리
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="유지 관리">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종속성 업데이트 유지
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        모니터링
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        버전 업데이트
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다음 단계
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">프론트엔드 설정 가이드<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">자체 호스팅 권장하지 않음</p>
+<p>이 가이드는 Ministry Mapper를 자체 호스팅하려는 고급 사용자를 위한 것입니다. 기술적 복잡성, 유지 관리 부담 및 보안 책임으로 인해 자체 호스팅을 권장하지 않습니다.</p>
+<p><strong>대부분의 사용자는</strong>: <strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong>에서 호스팅 서비스를 사용해야 합니다.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">사용자 문서를 찾고 계신가요?</p>
+<p>Ministry Mapper 사용법을 배우려는 일반 사용자라면 대신 <a href="../getting-started/">시작하기</a> 또는 <a href="../user-guide/">사용자 가이드</a>를 참조하세요.</p>
+</div>
+<h2 id="_2">개요<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper 프론트엔드 (ministry-mapper-v2)는 다음을 제공하는 React 기반 웹 애플리케이션입니다:</p>
+<ul>
+<li>사용자 인증 및 계정 관리</li>
+<li>대화형 구역 관리 인터페이스</li>
+<li>대화형 매핑 기능</li>
+<li>실시간 데이터 동기화</li>
+<li>모바일 반응형 디자인</li>
+<li>다국어 지원 (8개 언어)</li>
+<li>프로그레시브 웹 앱 기능</li>
+</ul>
+<p><strong>이 가이드는 다음을 갖추고 있다고 가정합니다</strong>:
+- Node.js 및 npm 경험
+- 환경 변수에 대한 이해
+- 정적 사이트 배포에 대한 친숙함
+- 웹 애플리케이션 보안에 대한 지식</p>
+<p>전체 자체 호스팅 지침은 <a href="../self-hosting/">자체 호스팅 가이드</a>를 참조하세요.</p>
+<h2 id="_3">빠른 참조<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>이 페이지는 프론트엔드 구성에 대한 빠른 참조를 제공합니다. <strong>전체 설정 지침은 <a href="../self-hosting/">자체 호스팅 가이드</a>를 참조하세요.</strong></p>
+<h2 id="_4">빠른 참조<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>이 페이지는 프론트엔드 구성에 대한 빠른 참조를 제공합니다. <strong>전체 설정 지침은 <a href="../self-hosting/">자체 호스팅 가이드</a>를 참조하세요.</strong></p>
+<h3 id="_5">기술 스택<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>React 19</strong>: 현대적인 UI 라이브러리</li>
+<li><strong>TypeScript</strong>: 타입 안전 JavaScript</li>
+<li><strong>Vite 7</strong>: 빠른 빌드 도구 및 개발 서버</li>
+<li><strong>Bootstrap 5</strong>: 반응형 CSS 프레임워크</li>
+<li><strong>Leaflet</strong>: 대화형 매핑</li>
+<li><strong>PocketBase SDK</strong>: 백엔드 연결</li>
+<li><strong>Sentry</strong>: 오류 추적</li>
+<li><strong>i18next</strong>: 다국어 지원</li>
+<li><strong>Vite PWA</strong>: 프로그레시브 웹 앱 기능</li>
+</ul>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">전체 설정 지침</p>
+<p>아래 섹션은 프론트엔드 구성에 대한 기술 참조를 제공합니다. 배포 옵션 및 문제 해결을 포함한 단계별 설정 지침은 <strong><a href="../self-hosting/">자체 호스팅 가이드</a></strong>를 참조하세요.</p>
+</div>
+<hr />
+<h2 id="_6">환경 변수<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>루트 디렉토리에 다음 설정으로 <code>.env</code> 파일을 생성하세요:</p>
+<h3 id="_7">필수 변수<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 시스템 환경 - 배포 환경 지정</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 버전 - 자동으로 package.json 버전 사용</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># PocketBase 백엔드 URL - 후행 슬래시 없음</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-url.com
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># 법적 페이지 - 프로덕션에 필수</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-site.com/about
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># 지도 및 라우팅</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>your_openrouteservice_api_key
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>your_locationiq_api_key
+</code></pre></div>
+<h3 id="_8">선택적 변수<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 오류 추적 (Sentry) - 프로덕션에 권장</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_sentry_dsn@sentry.io/123456
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 소스맵 업로드를 위한 빌드 시 Sentry 토큰</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">SENTRY_AUTH_TOKEN</span><span class="o">=</span>your_sentry_auth_token
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">SENTRY_ORG</span><span class="o">=</span>your_sentry_org_slug
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">SENTRY_PROJECT</span><span class="o">=</span>your_sentry_project_slug
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># 유지 관리 모드 - 사용자에게 유지 관리 배너 표시</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nv">VITE_MAINTENANCE_MODE</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="_9">변수 세부 정보<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h4 id="vite_system_environment">VITE_SYSTEM_ENVIRONMENT<a class="headerlink" href="#vite_system_environment" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: 앱이 실행 중인 환경 결정</li>
+<li><strong>값</strong>:</li>
+<li><code>local</code> - 로컬 머신에서 개발</li>
+<li><code>production</code> - 라이브 배포</li>
+<li><strong>영향</strong>: Sentry 오류 추적 구성 및 로깅에 영향</li>
+</ul>
+<h4 id="vite_version">VITE_VERSION<a class="headerlink" href="#vite_version" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: 오류 보고서에서 애플리케이션 버전 추적</li>
+<li><strong>값</strong>: <code>$npm_package_version</code> (package.json에서 자동 읽기)</li>
+<li><strong>현재 버전</strong>: 1.9.1 (package.json 기준)</li>
+<li><strong>영향</strong>: Sentry 보고서에 표시되며 어떤 버전에 문제가 있는지 추적하는 데 도움</li>
+</ul>
+<h4 id="vite_pocketbase_url">VITE_POCKETBASE_URL<a class="headerlink" href="#vite_pocketbase_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: PocketBase 백엔드 서버의 URL</li>
+<li><strong>형식</strong>: 후행 슬래시 없는 전체 URL</li>
+<li><strong>예</strong>: <code>https://api.ministry-mapper.com</code> 또는 로컬의 경우 <code>http://localhost:8090</code></li>
+<li><strong>중요</strong>: 프론트엔드가 배포된 곳에서 접근 가능해야 함</li>
+</ul>
+<h4 id="vite_privacy_url">VITE_PRIVACY_URL<a class="headerlink" href="#vite_privacy_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: 개인정보 보호정책 페이지 링크</li>
+<li><strong>필수</strong>: 예, 법적 준수를 위해 (GDPR, CCPA 등)</li>
+<li><strong>예</strong>: <code>https://ministry-mapper.com/privacy</code></li>
+</ul>
+<h4 id="vite_terms_url">VITE_TERMS_URL<a class="headerlink" href="#vite_terms_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: 서비스 약관 페이지 링크</li>
+<li><strong>필수</strong>: 예, 법적 준수를 위해</li>
+<li><strong>예</strong>: <code>https://ministry-mapper.com/terms</code></li>
+</ul>
+<h4 id="vite_about_url">VITE_ABOUT_URL<a class="headerlink" href="#vite_about_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: Ministry Mapper 인스턴스에 대한 정보 링크</li>
+<li><strong>필수</strong>: 아니오, 하지만 권장</li>
+<li><strong>예</strong>: <code>https://ministry-mapper.com/about</code></li>
+</ul>
+<h4 id="vite_sentry_dsn">VITE_SENTRY_DSN<a class="headerlink" href="#vite_sentry_dsn" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: 모니터링을 위해 JavaScript 오류를 Sentry로 전송</li>
+<li><strong>얻는 곳</strong>: <a href="https://sentry.io">sentry.io</a> (무료 티어 제공)</li>
+<li><strong>필수</strong>: 아니오, 하지만 프로덕션에 강력히 권장</li>
+<li><strong>이점</strong>: 오류 추적, 성능 모니터링, 문제 알림 받기</li>
+<li><strong>참고</strong>: VITE_SYSTEM_ENVIRONMENT가 "production"일 때만 활성화</li>
+</ul>
+<h4 id="sentry_auth_token-sentry_org-sentry_project">SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT<a class="headerlink" href="#sentry_auth_token-sentry_org-sentry_project" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: <code>npm run build</code> 중 소스맵을 Sentry에 업로드하여 축소된 스택 추적을 원본 소스 코드로 다시 해결할 수 있도록 사용</li>
+<li><strong>필수</strong>: 아니오 — 없으면 소스맵이 로컬에서 생성되지만, Sentry에 업로드하면 프로덕션에서 오류 디버깅이 크게 향상됨</li>
+<li><strong>얻는 방법</strong>: Sentry 조직 설정의 <strong>설정 → 인증 토큰</strong>에서 인증 토큰 생성</li>
+</ul>
+<h4 id="vite_openroute_api_key">VITE_OPENROUTE_API_KEY<a class="headerlink" href="#vite_openroute_api_key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: 대화형 지도에서 턴바이턴 라우팅 및 길 안내(자동차, 도보, 자전거) 제공</li>
+<li><strong>얻는 곳</strong>: <a href="https://openrouteservice.org">openrouteservice.org</a> (무료 티어 제공)</li>
+<li><strong>필수</strong>: 예</li>
+</ul>
+<h4 id="vite_locationiq_api_key">VITE_LOCATIONIQ_API_KEY<a class="headerlink" href="#vite_locationiq_api_key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: 지오코딩(주소를 좌표로) 및 역 지오코딩(좌표를 주소로)</li>
+<li><strong>얻는 곳</strong>: <a href="https://locationiq.com">locationiq.com</a> (무료 티어 제공)</li>
+<li><strong>필수</strong>: 예</li>
+</ul>
+<h4 id="vite_maintenance_mode">VITE_MAINTENANCE_MODE<a class="headerlink" href="#vite_maintenance_mode" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>목적</strong>: <code>true</code>로 설정하면 사용자에게 유지 관리 배너 표시</li>
+<li><strong>값</strong>: <code>true</code> 또는 <code>false</code></li>
+<li><strong>기본값</strong>: <code>false</code></li>
+<li><strong>사용 사례</strong>: 백엔드 업그레이드 또는 계획된 다운타임 중 일시적으로 <code>true</code>로 설정</li>
+</ul>
+<h2 id="_10">로컬 개발 설정<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="_11">전제 조건<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>Node.js <strong>&gt;=24.0.0</strong>이 필요합니다:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Node.js 버전 확인</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>node<span class="w"> </span>--version
+</code></pre></div>
+<p>Node.js 24+가 없다면 다음에서 다운로드하세요: <a href="https://nodejs.org">nodejs.org</a></p>
+<h3 id="_12">설정 단계<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. 저장소 복제<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-v2.git
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+</code></pre></div>
+<h4 id="2">2. 종속성 설치<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm<span class="w"> </span>install
+</code></pre></div>
+<p>인터넷 연결에 따라 몇 분이 걸릴 수 있습니다.</p>
+<h4 id="3">3. 환경 파일 생성<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 예제 환경 파일 복사</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<p><code>.env</code>를 다음 설정으로 편집하세요:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span><span class="nb">local</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>http://localhost:8090
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>http://localhost:3000/privacy
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>http://localhost:3000/terms
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>http://localhost:3000/about
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nv">VITE_MAINTENANCE_MODE</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<p><strong>참고</strong>: 포트 8090에서 실행 중인 PocketBase 백엔드가 필요합니다. 백엔드 설정은 ministry-mapper-be 저장소를 참조하세요.</p>
+<h4 id="4">4. 개발 서버 시작<a class="headerlink" href="#4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>npm<span class="w"> </span>start
+</code></pre></div>
+<p>앱이 <code>http://localhost:3000</code>에서 열립니다 (포트 3000은 vite.config.js에서 구성됨).</p>
+<h3 id="_13">개발 기능<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Hot Module Replacement (HMR)</strong>: 전체 페이지 새로고침 없이 변경 사항 즉시 반영</li>
+<li><strong>TypeScript 검사</strong>: 터미널 및 브라우저 콘솔에 오류 표시</li>
+<li><strong>소스맵</strong>: 원본 소스 코드 참조로 디버깅 용이</li>
+<li><strong>Fast Refresh</strong>: 상태를 잃지 않고 React 컴포넌트 업데이트</li>
+</ul>
+<h3 id="_14">개발 명령<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 개발 서버 시작 (포트 3000)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>npm<span class="w"> </span>start
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Vitest로 테스트 실행</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>npm<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 코드 서식 검사</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># 서식 문제 자동 수정</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier:fix
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1"># 프로덕션용 빌드</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="c1"># 프로덕션 빌드 로컬 미리보기</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>npm<span class="w"> </span>run<span class="w"> </span>serve
+</code></pre></div>
+<h3 id="_15">코드 품질 도구<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><strong>Prettier</strong> (코드 서식):</p>
+<ul>
+<li><code>.prettierrc</code>에서 구성</li>
+<li>Husky를 통해 커밋 시 자동 서식 지정</li>
+<li><code>npm run prettier:fix</code>로 수동 실행</li>
+</ul>
+<p><strong>ESLint</strong> (코드 린팅):</p>
+<ul>
+<li><code>eslint.config.mjs</code>에서 구성</li>
+<li>React 및 TypeScript 규칙 활성화</li>
+<li>일반적인 오류 및 코드 품질 문제 검사</li>
+</ul>
+<p><strong>Husky</strong> (git 훅):</p>
+<ul>
+<li>커밋 전 스테이징된 파일에 Prettier 실행</li>
+<li>일관된 코드 서식 보장</li>
+<li>commitlint로 커밋 메시지 검증</li>
+</ul>
+<h2 id="_16">프로덕션 배포<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<h3 id="_17">프로덕션용 빌드<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 최적화된 프로덕션 파일 빌드</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</code></pre></div>
+<p><strong>빌드 중 수행되는 작업:</strong></p>
+<ul>
+<li>TypeScript를 JavaScript로 컴파일</li>
+<li>React 코드 최적화 및 축소</li>
+<li>CSS 처리 및 축소</li>
+<li>소스맵 생성</li>
+<li>더 빠른 로딩을 위해 코드를 청크로 분할</li>
+<li>출력은 <code>build/</code> 디렉토리로</li>
+<li>PWA 지원을 위한 서비스 워커 생성</li>
+</ul>
+<p><strong>빌드 출력:</strong></p>
+<ul>
+<li><code>build/index.html</code> - 메인 HTML 파일</li>
+<li><code>build/assets/</code> - JavaScript, CSS 및 기타 자산</li>
+<li>캐싱을 위해 파일 이름에 콘텐츠 해시 포함</li>
+<li>총 크기는 일반적으로 1MB 미만 (외부 종속성 제외)</li>
+</ul>
+<h3 id="_18">배포 옵션<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper 프론트엔드는 정적 웹 애플리케이션입니다. 모든 정적 호스팅 서비스에 배포할 수 있습니다.</p>
+<h4 id="1-vercel">옵션 1: Vercel (권장)<a class="headerlink" href="#1-vercel" title="Permanent link">&para;</a></h4>
+<p>빠르고, 무료 티어, 자동 배포.</p>
+<p><strong>설정:</strong></p>
+<ol>
+<li><a href="https://vercel.com">vercel.com</a>에서 계정 생성</li>
+<li>"New Project" 클릭</li>
+<li>GitHub 저장소 가져오기</li>
+<li>구성:</li>
+<li>프레임워크 프리셋: Vite</li>
+<li>빌드 명령: <code>npm run build</code></li>
+<li>출력 디렉토리: <code>build</code></li>
+<li>설치 명령: <code>npm install</code></li>
+<li>Vercel 대시보드에서 환경 변수 추가</li>
+<li>배포</li>
+</ol>
+<p><strong>Vercel 기능:</strong></p>
+<ul>
+<li>git push 시 자동 배포</li>
+<li>Pull request에 대한 미리보기 배포</li>
+<li>사용자 정의 도메인</li>
+<li>기본 HTTPS</li>
+<li>글로벌 CDN</li>
+<li>개인 프로젝트에 무료</li>
+</ul>
+<h4 id="2-netlify">옵션 2: Netlify<a class="headerlink" href="#2-netlify" title="Permanent link">&para;</a></h4>
+<p>훌륭한 기능을 갖춘 간단한 배포.</p>
+<p><strong>설정:</strong></p>
+<ol>
+<li><a href="https://netlify.com">netlify.com</a>에서 계정 생성</li>
+<li>"Add new site" → "Import an existing project"</li>
+<li>GitHub 저장소 연결</li>
+<li>빌드 설정:</li>
+<li>빌드 명령: <code>npm run build</code></li>
+<li>게시 디렉토리: <code>build</code></li>
+<li>환경 변수 추가</li>
+<li>배포</li>
+</ol>
+<p><strong>Netlify 기능:</strong></p>
+<ul>
+<li>자동 배포</li>
+<li>폼 처리</li>
+<li>서버리스 함수 (필요한 경우)</li>
+<li>사용자 정의 도메인</li>
+<li>기본 HTTPS</li>
+</ul>
+<h4 id="3-cloudflare-pages">옵션 3: Cloudflare Pages<a class="headerlink" href="#3-cloudflare-pages" title="Permanent link">&para;</a></h4>
+<p>넉넉한 무료 티어를 갖춘 빠른 CDN.</p>
+<p><strong>설정:</strong></p>
+<ol>
+<li><a href="https://cloudflare.com">cloudflare.com</a>에서 계정 생성</li>
+<li>Pages → "Create a project"로 이동</li>
+<li>GitHub 저장소 연결</li>
+<li>빌드 설정:</li>
+<li>프레임워크 프리셋: Vite</li>
+<li>빌드 명령: <code>npm run build</code></li>
+<li>빌드 출력 디렉토리: <code>build</code></li>
+<li>환경 변수 추가</li>
+<li>배포</li>
+</ol>
+<p><strong>Cloudflare 기능:</strong></p>
+<ul>
+<li>글로벌 CDN 네트워크</li>
+<li>DDoS 보호</li>
+<li>분석</li>
+<li>클라이언트 측 추적 없는 웹 분석</li>
+</ul>
+<h4 id="4-aws-s3-cloudfront">옵션 4: AWS S3 + CloudFront<a class="headerlink" href="#4-aws-s3-cloudfront" title="Permanent link">&para;</a></h4>
+<p>더 많은 제어, 대규모 배포에 적합.</p>
+<p><strong>설정:</strong></p>
+<ol>
+<li>S3 버킷 생성</li>
+<li>정적 웹사이트 호스팅 활성화</li>
+<li><code>build/</code> 콘텐츠 업로드</li>
+<li>CloudFront 배포 생성</li>
+<li>사용자 정의 도메인 구성</li>
+<li>SSL 인증서 설정</li>
+</ol>
+<p><strong>AWS 고려 사항:</strong></p>
+<ul>
+<li>더 복잡한 설정</li>
+<li>사용량에 따른 지불 (보통 매우 저렴)</li>
+<li>더 많은 구성 옵션</li>
+<li>기업 배포에 적합</li>
+</ul>
+<h4 id="5">옵션 5: 자체 호스팅<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<p>자체 서버에서 호스팅.</p>
+<p><strong>Nginx 사용:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.html</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="c1"># gzip 압축 활성화</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="kn">gzip</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="kn">gzip_types</span><span class="w"> </span><span class="s">text/plain</span><span class="w"> </span><span class="s">text/css</span><span class="w"> </span><span class="s">application/json</span><span class="w"> </span><span class="s">application/javascript</span><span class="w"> </span><span class="s">text/xml</span><span class="w"> </span><span class="s">application/xml</span><span class="p">;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="c1"># 정적 자산 캐시</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)</span>$<span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">1y</span><span class="p">;</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">immutable&quot;</span><span class="p">;</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Apache 사용:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>your-domain.com
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/ministry-mapper/build</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="nt">&gt;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">        </span><span class="nb">Options</span><span class="w"> </span>-Indexes<span class="w"> </span>+FollowSymLinks
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="c"># React Router 활성화</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">        </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="nb">RewriteBase</span><span class="w"> </span>/
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>^index\.html$<span class="w"> </span>-<span class="w"> </span>[L]
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-d
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>.<span class="w"> </span><span class="sx">/index.html</span><span class="w"> </span>[L]
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<p><strong>자체 호스팅 시 중요 사항:</strong></p>
+<ul>
+<li>HTTPS를 통해 제공 (PWA 기능에 필수)</li>
+<li>백엔드가 다른 도메인에 있는 경우 적절한 CORS 헤더 구성</li>
+<li>정적 자산에 대한 적절한 캐싱 헤더 설정</li>
+<li>SPA 라우팅 작동 확인 (모든 경로가 index.html 제공)</li>
+</ul>
+<h3 id="_19">배포 시 환경 변수<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p><strong>중요</strong>: Vite가 빌드 시 환경 변수를 주입하기 때문에 환경 변수는 런타임이 아닌 빌드 시에 설정해야 합니다.</p>
+<p><strong>Vercel/Netlify/Cloudflare의 경우:</strong></p>
+<ul>
+<li>플랫폼 대시보드에서 환경 변수 추가</li>
+<li>빌드 프로세스 중에 사용 가능</li>
+</ul>
+<p><strong>자체 호스팅의 경우:</strong></p>
+<ul>
+<li><code>npm run build</code> 실행 전에 환경 변수 설정</li>
+<li>또는 설정이 포함된 <code>.env.production</code> 파일 생성</li>
+</ul>
+<h2 id="sentry">Sentry 설정 (선택 사항이지만 권장)<a class="headerlink" href="#sentry" title="Permanent link">&para;</a></h2>
+<p>Sentry는 JavaScript 오류와 성능을 모니터링합니다.</p>
+<h3 id="1-sentry">1. Sentry 계정 생성<a class="headerlink" href="#1-sentry" title="Permanent link">&para;</a></h3>
+<ol>
+<li><a href="https://sentry.io">sentry.io</a>로 이동</li>
+<li>가입 (넉넉한 무료 티어 제공)</li>
+<li>새 프로젝트 생성</li>
+<li>플랫폼 선택: "React"</li>
+</ol>
+<h3 id="2-dsn">2. DSN 얻기<a class="headerlink" href="#2-dsn" title="Permanent link">&para;</a></h3>
+<ol>
+<li>프로젝트 생성 후 DSN이 표시됨</li>
+<li>또는 설정 → 프로젝트 → [프로젝트] → 클라이언트 키 (DSN)로 이동</li>
+<li>DSN URL 복사</li>
+</ol>
+<h3 id="3_1">3. 환경에 추가<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_key@your_org.sentry.io/your_project_id
+</code></pre></div>
+<p><strong>참고</strong>: Sentry는 <code>VITE_SYSTEM_ENVIRONMENT</code>가 <code>production</code>으로 설정된 경우에만 활성화됩니다.</p>
+<h3 id="4-sentry">4. Sentry 구성 (선택 사항)<a class="headerlink" href="#4-sentry" title="Permanent link">&para;</a></h3>
+<p><strong>소스맵</strong>: 빌드 프로세스가 자동으로 소스맵을 생성하여 축소된 프로덕션 코드를 디버깅하는 데 도움이 됩니다.</p>
+<p><strong>알림</strong>: Sentry 대시보드에서 설정:</p>
+<ul>
+<li>새 이슈에 대한 이메일 알림</li>
+<li>Slack/Discord 통합</li>
+<li>중요 오류에 대한 사용자 정의 알림 규칙</li>
+<li>릴리스 추적</li>
+</ul>
+<h2 id="_20">다국어 지원<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper에는 기본적으로 7개 언어가 포함되어 있습니다.</p>
+<h3 id="_21">지원 언어<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>영어 (<code>en</code>)</li>
+<li>스페인어 (<code>es</code> - Español)</li>
+<li>일본어 (<code>ja</code> - 日本語)</li>
+<li>한국어 (<code>ko</code> - 한국어)</li>
+<li>중국어 (<code>zh</code> - 中文)</li>
+<li>인도네시아어 (<code>id</code> - Bahasa Indonesia)</li>
+<li>말레이어 (<code>ms</code> - Bahasa Melayu)</li>
+</ul>
+<h3 id="_22">언어 감지 작동 방식<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>i18next-browser-languagedetector</code> 사용</li>
+<li>첫 방문 시 브라우저 설정에서 자동 감지</li>
+<li>사용자는 네비게이션 바의 언어 선택기를 통해 수동으로 언어 전환 가능</li>
+<li>선택은 <code>localStorage</code>에 저장되며 브라우저 설정보다 우선</li>
+<li>선택한 언어가 지원되지 않으면 영어로 폴백</li>
+</ul>
+<h3 id="_23">새 언어 추가<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>번역 파일 생성</strong></p>
+</li>
+<li>
+<p><code>src/i18n/locales/</code>로 이동</p>
+</li>
+<li>새 파일 생성: <code>[언어-코드].json</code> (예: 프랑스어의 경우 <code>fr.json</code>)</li>
+<li>
+<p><code>en.json</code>에서 구조 복사</p>
+</li>
+<li>
+<p><strong>모든 문자열 번역</strong></p>
+</li>
+<li>
+<p>모든 키-값 쌍 번역</p>
+</li>
+<li>동일한 JSON 구조 유지</li>
+<li>
+<p><code>{{variable}}</code>과 같은 자리 표시자 변수 유지</p>
+</li>
+<li>
+<p><strong>언어 등록</strong></p>
+</li>
+<li><code>src/i18n/index.ts</code> 편집</li>
+<li>번역 파일 가져오기</li>
+<li>resources 객체에 추가</li>
+</ol>
+<p>프랑스어 예:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">fr</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./locales/fr.json&#39;</span><span class="p">;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nx">resources</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">translation</span><span class="o">:</span><span class="w"> </span><span class="kt">en</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nx">fr</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">translation</span><span class="o">:</span><span class="w"> </span><span class="kt">fr</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="c1">// ... 다른 언어</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="pwa">프로그레시브 웹 앱 (PWA)<a class="headerlink" href="#pwa" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper는 Vite PWA 플러그인을 통해 PWA를 지원합니다.</p>
+<h3 id="pwa_1">PWA 기능<a class="headerlink" href="#pwa_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>설치 가능</strong>: 모바일/데스크톱 홈 화면에 설치 가능</li>
+<li><strong>오프라인 자산</strong>: 더 빠른 로딩을 위해 정적 파일 캐시</li>
+<li><strong>서비스 워커</strong>: 자동 생성 및 등록</li>
+<li><strong>캐시 전략</strong>: 외부 자산에 StaleWhileRevalidate, 폰트에 CacheFirst</li>
+</ul>
+<h3 id="pwa_2">PWA 구성<a class="headerlink" href="#pwa_2" title="Permanent link">&para;</a></h3>
+<p><code>vite.config.js</code>의 구성:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nx">VitePWA</span><span class="p">({</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nx">registerType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;autoUpdate&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 서비스 워커 자동 업데이트</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nx">manifest</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// 매니페스트 없음 (필요한 경우 추가 가능)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nx">workbox</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="nx">globPatterns</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;**/*.{js,css,html,ico,png,svg,woff2}&quot;</span><span class="p">],</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="nx">skipWaiting</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// 새 서비스 워커 즉시 활성화</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="nx">clientsClaim</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// 클라이언트 즉시 제어</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="nx">cleanupOutdatedCaches</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// 오래된 캐시 제거</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="p">});</span>
+</code></pre></div>
+<h3 id="_24">캐싱 전략<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p><strong>외부 자산</strong> (예: assets.ministry-mapper.com):</p>
+<ul>
+<li>전략: StaleWhileRevalidate</li>
+<li>캐시 이름: "external-assets"</li>
+<li>만료: 7일, 최대 50개 항목</li>
+</ul>
+<p><strong>폰트</strong>:</p>
+<ul>
+<li>전략: CacheFirst</li>
+<li>캐시 이름: "fonts"</li>
+<li>만료: 30일, 최대 30개 항목</li>
+</ul>
+<p><strong>참고</strong>: 앱은 데이터 작업 (PocketBase 연결)을 위해 인터넷이 필요합니다. 정적 자산만 오프라인으로 캐시됩니다.</p>
+<h2 id="_25">배포 테스트<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<h3 id="_26">기능 체크리스트<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 홈페이지가 올바르게 로드됨</li>
+<li>[ ] 가입 페이지 작동</li>
+<li>[ ] 이메일 인증 작동</li>
+<li>[ ] 로그인 페이지 작동</li>
+<li>[ ] OTP 인증 작동 (활성화된 경우)</li>
+<li>[ ] 비밀번호 재설정 작동</li>
+<li>[ ] 구역 선택기 표시됨 (인도자/관리자의 경우)</li>
+<li>[ ] 지도가 올바르게 로드되고 표시됨</li>
+<li>[ ] 구역 조회 가능</li>
+<li>[ ] 주소 상태 업데이트 가능</li>
+<li>[ ] 배정 링크 작동</li>
+<li>[ ] 링크가 올바르게 만료됨</li>
+<li>[ ] 모바일 뷰가 반응형</li>
+<li>[ ] 언어 감지 작동</li>
+<li>[ ] 모든 모달이 올바르게 열리고 닫힘</li>
+</ul>
+<h3 id="_27">성능 검사<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] 초기 페이지 로드 3초 미만</li>
+<li>[ ] Lighthouse 점수 &gt; 90</li>
+<li>[ ] 콘솔 오류 없음</li>
+<li>[ ] 이미지가 빠르게 로드됨</li>
+<li>[ ] 지도가 반응형</li>
+<li>[ ] 부드러운 스크롤 및 네비게이션</li>
+</ul>
+<h3 id="_28">보안 검사<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] HTTPS 적용 (HTTP 접근 없음)</li>
+<li>[ ] 개인정보 보호정책 링크 작동</li>
+<li>[ ] 서비스 약관 링크 작동</li>
+<li>[ ] 브라우저 코드에 API 키 노출 안 됨</li>
+<li>[ ] 백엔드에 대한 CORS가 올바르게 구성됨</li>
+<li>[ ] PocketBase 연결이 안전함</li>
+</ul>
+<h3 id="_29">브라우저 테스트<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<p>여러 브라우저에서 테스트:</p>
+<ul>
+<li>[ ] Chrome/Chromium</li>
+<li>[ ] Firefox</li>
+<li>[ ] Safari (macOS/iOS)</li>
+<li>[ ] Edge</li>
+<li>[ ] 모바일 브라우저</li>
+</ul>
+<h2 id="_30">문제 해결<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<h3 id="_31">백엔드 연결 실패<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p><strong>문제</strong>: "Cannot connect to server" 또는 "Network Error"</p>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li><code>VITE_POCKETBASE_URL</code>이 올바른지 확인 (후행 슬래시 없음)</li>
+<li>PocketBase 백엔드가 실행 중인지 확인</li>
+<li>브라우저에서 백엔드 URL 직접 테스트</li>
+<li>PocketBase의 CORS 설정 확인 (프론트엔드 도메인 허용 필요)</li>
+<li>브라우저 DevTools → 네트워크 탭을 열어 정확한 오류 확인</li>
+<li>배포 위치에서 백엔드에 접근 가능한지 확인</li>
+</ul>
+<h3 id="_32">빌드 오류<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<p><strong>문제</strong>: <code>npm run build</code> 실패</p>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>모든 환경 변수가 올바르게 설정되었는지 확인</li>
+<li><code>npm install</code>을 실행하여 종속성 새로고침</li>
+<li><code>node_modules</code> 삭제 후 재설치: <code>rm -rf node_modules &amp;&amp; npm install</code></li>
+<li>Node.js 버전 확인: <code>node --version</code> (24+ 필요)</li>
+<li>TypeScript 오류 확인: 특정 오류 메시지 확인</li>
+<li><code>npm run prettier:fix</code>를 시도하여 서식 문제 수정</li>
+<li>Vite 캐시 지우기: <code>rm -rf node_modules/.vite</code></li>
+</ul>
+<h3 id="typescript">TypeScript 오류<a class="headerlink" href="#typescript" title="Permanent link">&para;</a></h3>
+<p><strong>문제</strong>: 빌드 중 타입 오류</p>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>타입 정의를 위해 <code>src/utils/interface.ts</code> 확인</li>
+<li>가져오기가 올바른지 확인</li>
+<li><code>npx tsc --noEmit</code>을 실행하여 모든 타입 오류 확인</li>
+<li>모든 종속성이 설치되었는지 확인</li>
+</ul>
+<h3 id="_33">느린 성능<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<p><strong>문제</strong>: 앱이 느리거나 지연됨</p>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>인터넷 연결 속도 확인</li>
+<li>브라우저 캐시를 지우고 새로고침</li>
+<li>PocketBase 백엔드가 빠르게 응답하는지 확인</li>
+<li>브라우저 콘솔에서 JavaScript 오류 확인</li>
+<li>문제를 격리하기 위해 다른 기기/브라우저에서 테스트</li>
+<li>Lighthouse 성능 점수 확인</li>
+<li>서비스 워커 작동 확인: DevTools → 애플리케이션 → 서비스 워커</li>
+</ul>
+<h3 id="pwa_3">PWA 설치 문제<a class="headerlink" href="#pwa_3" title="Permanent link">&para;</a></h3>
+<p><strong>문제</strong>: "홈 화면에 추가"가 나타나지 않음</p>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>HTTPS를 통해 제공되어야 함</li>
+<li>DevTools에서 서비스 워커 등록 확인</li>
+<li>PWA 요구 사항 충족 확인 (매니페스트, 서비스 워커 등)</li>
+<li>다른 브라우저 시도 (Safari, Chrome은 PWA 지원이 다름)</li>
+</ul>
+<h3 id="_34">실시간 업데이트 작동 안 함<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<p><strong>문제</strong>: 다른 사용자의 변경 사항이 나타나지 않음</p>
+<p><strong>해결 방법:</strong></p>
+<ul>
+<li>PocketBase 실시간 구독이 작동하는지 확인</li>
+<li>브라우저 콘솔에서 SSE (Server-Sent Events) 오류 확인</li>
+<li>백엔드 SSE 엔드포인트에 접근 가능한지 확인</li>
+<li>여러 사용자가 실제로 같은 구역을 보고 있는지 확인</li>
+<li>페이지를 새로고침하여 재연결 강제</li>
+</ul>
+<h2 id="_35">유지 관리<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<h3 id="_36">종속성 업데이트 유지<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># 저장소에서 최신 변경 사항 가져오기</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># 업데이트된 종속성 설치</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>npm<span class="w"> </span>install
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># 보안 취약점 확인</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>npm<span class="w"> </span>audit
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># 보안 문제 자동 수정 (가능한 경우)</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>npm<span class="w"> </span>audit<span class="w"> </span>fix
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="c1"># 오래된 패키지 확인</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>npm<span class="w"> </span>outdated
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="c1"># 특정 패키지 업데이트</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>npm<span class="w"> </span>update<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="_37">모니터링<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<p><strong>Sentry 대시보드:</strong></p>
+<ul>
+<li>매주 새 오류 확인</li>
+<li>오류 트렌드 검토</li>
+<li>중요한 문제 신속히 수정</li>
+<li>높은 우선순위 오류에 대한 알림 설정</li>
+</ul>
+<p><strong>Google Cloud Console:</strong></p>
+<ul>
+<li>API 사용량을 모니터링하여 할당량 내 유지</li>
+<li>비정상적인 사용량 급증 확인</li>
+<li>청구 알림 검토</li>
+<li>API가 계속 활성화되어 있는지 확인</li>
+</ul>
+<p><strong>성능:</strong></p>
+<ul>
+<li>주기적으로 Lighthouse 감사 실행</li>
+<li>페이지 로드 시간 모니터링</li>
+<li>Core Web Vitals 확인</li>
+<li>느린 연결에서 테스트</li>
+</ul>
+<p><strong>사용자 피드백:</strong></p>
+<ul>
+<li>회중 구성원의 의견 수렴</li>
+<li>일반적인 문제 추적</li>
+<li>해결 방법 문서화</li>
+<li>필요에 따라 문서 업데이트</li>
+</ul>
+<h3 id="_38">버전 업데이트<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper는 시맨틱 버전 관리를 사용합니다:</p>
+<ul>
+<li><strong>메이저 버전</strong> (x.0.0): 주요 변경 사항</li>
+<li><strong>마이너 버전</strong> (1.x.0): 새 기능</li>
+<li><strong>패치 버전</strong> (1.9.x): 버그 수정</li>
+</ul>
+<h2 id="_39">다음 단계<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<p><strong>사용자의 경우:</strong></p>
+<ul>
+<li><a href="../user-guide/">사용자 가이드</a>를 읽어 애플리케이션 사용법 학습</li>
+</ul>
+<p><strong>관리자의 경우:</strong></p>
+<ul>
+<li>PocketBase 백엔드 설정 (ministry-mapper-be 저장소 참조)</li>
+<li>회중 설정 구성</li>
+<li>사용자 초대 및 역할 할당</li>
+<li>구역 생성 및 주소 추가</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

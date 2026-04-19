@@ -1,0 +1,2026 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/es/">
+      
+      
+      
+        <link rel="next" href="getting-started/">
+      
+      
+        
+          <link rel="alternate" href="/en/" hreflang="en">
+        
+          <link rel="alternate" href="/zh/" hreflang="zh">
+        
+          <link rel="alternate" href="/id/" hreflang="id">
+        
+          <link rel="alternate" href="/ms/" hreflang="ms">
+        
+          <link rel="alternate" href="/ja/" hreflang="ja">
+        
+          <link rel="alternate" href="/ko/" hreflang="ko">
+        
+          <link rel="alternate" href="/es/" hreflang="es">
+        
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Home - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bienvenido-a-ministry-mapper" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/en/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/zh/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/id/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ms/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ja/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ko/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/es/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="/ta/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es Ministry Mapper?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nuestra-historia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuestra Historia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-hace-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Hace Ministry Mapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Qué Hace Ministry Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características Principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-diferentes-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Diferentes Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemas-que-ministry-mapper-resuelve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas que Ministry Mapper Resuelve
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problemas que Ministry Mapper Resuelve">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sin-papel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sin Papel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejor-organizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejor Organización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizaciones-instantaneas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizaciones Instantáneas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registro-mas-sencillo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro Más Sencillo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funciona-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo Funciona Ministry Mapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cómo Funciona Ministry Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-tecnologico-moderno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack Tecnológico Moderno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspectos-destacados-de-la-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aspectos Destacados de la Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consideraciones Importantes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consideraciones Importantes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#privacidad-primero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacidad Primero
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#se-requiere-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Se Requiere Internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curva-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Curva de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primeros-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primeros Pasos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primeros Pasos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-desarrolladores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Desarrolladores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Qué es Ministry Mapper?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nuestra-historia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuestra Historia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-hace-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Hace Ministry Mapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Qué Hace Ministry Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características Principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-diferentes-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Diferentes Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemas-que-ministry-mapper-resuelve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problemas que Ministry Mapper Resuelve
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problemas que Ministry Mapper Resuelve">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sin-papel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sin Papel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejor-organizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mejor Organización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizaciones-instantaneas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizaciones Instantáneas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registro-mas-sencillo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registro Más Sencillo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-funciona-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo Funciona Ministry Mapper
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cómo Funciona Ministry Mapper">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-tecnologico-moderno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack Tecnológico Moderno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aspectos-destacados-de-la-arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aspectos Destacados de la Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consideraciones-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consideraciones Importantes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consideraciones Importantes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#privacidad-primero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacidad Primero
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#se-requiere-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Se Requiere Internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curva-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Curva de Aprendizaje
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#primeros-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Primeros Pasos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Primeros Pasos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-administradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Administradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-desarrolladores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Para Desarrolladores
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="bienvenido-a-ministry-mapper">Bienvenido a Ministry Mapper<a class="headerlink" href="#bienvenido-a-ministry-mapper" title="Permanent link">&para;</a></h1>
+<h2 id="que-es-ministry-mapper">¿Qué es Ministry Mapper?<a class="headerlink" href="#que-es-ministry-mapper" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper es una aplicación web moderna y de código abierto que ayuda a las congregaciones a gestionar sus territorios de ministerio de campo de manera eficiente. En lugar de usar papeletas de territorio en papel, Ministry Mapper ofrece una solución digital completa para organizar, rastrear y gestionar el trabajo del servicio de campo desde cualquier dispositivo con conexión a internet.</p>
+<h2 id="nuestra-historia">Nuestra Historia<a class="headerlink" href="#nuestra-historia" title="Permanent link">&para;</a></h2>
+<p>Comenzamos Ministry Mapper en 2022 como un proyecto simple para ayudar a nuestra congregación local a gestionar los territorios de manera más eficiente. A medida que más congregaciones descubrieron los beneficios de la gestión digital de territorios, continuamos mejorando la plataforma. Hoy en día, Ministry Mapper es utilizado por congregaciones en Singapur y Malasia, ayudando a los publicadores a mantenerse organizados en su trabajo de ministerio con funciones como sincronización en tiempo real, mapas interactivos y soporte multilingüe.</p>
+<h2 id="que-hace-ministry-mapper">Qué Hace Ministry Mapper<a class="headerlink" href="#que-hace-ministry-mapper" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper proporciona capacidades integrales de gestión de territorios:</p>
+<h3 id="caracteristicas-principales">Características Principales<a class="headerlink" href="#caracteristicas-principales" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>🗺️ Gestión de Territorios</strong>: Organiza regiones geográficas en territorios con seguimiento automático de finalización</li>
+<li><strong>🏢 Mapas Interactivos</strong>: Mapas basados en Leaflet con integración de OpenStreetMap, direcciones y geolocalización</li>
+<li><strong>📱 Colaboración en Tiempo Real</strong>: Sincronización de datos en vivo en todos los dispositivos mediante SSE (Server-Sent Events)</li>
+<li><strong>🌍 Soporte Multilingüe</strong>: 8 idiomas (inglés, español, indonesio, japonés, coreano, malayo, chino, tamil)</li>
+<li><strong>👥 Acceso Basado en Roles</strong>: Roles de Publicador, Director, Administrador y Solo Lectura con permisos detallados</li>
+<li><strong>🔗 Enlaces de Asignación</strong>: Enlaces de acceso seguros y con tiempo limitado para territorios sin necesidad de cuentas de usuario</li>
+<li><strong>📊 Seguimiento de Progreso</strong>: Estado de finalización automático con indicadores visuales y estadísticas</li>
+<li><strong>✉️ Notificaciones por Correo Electrónico</strong>: Plantillas de correo HTML para mensajes, notas e informes mensuales</li>
+<li><strong>📈 Informes en Excel</strong>: Informes mensuales de la congregación con estadísticas detalladas</li>
+<li><strong>🔐 Autenticación Multifactor</strong>: Soporte para OTP, MFA y OAuth2 (Google)</li>
+<li><strong>🌙 Modo Oscuro</strong>: Temas adaptables al sistema con opciones claro/oscuro/sistema</li>
+<li><strong>📲 Aplicación Web Progresiva</strong>: Instalable en móvil y escritorio con caché de activos sin conexión</li>
+</ul>
+<h3 id="para-diferentes-usuarios">Para Diferentes Usuarios<a class="headerlink" href="#para-diferentes-usuarios" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Servidores de Territorio</strong>: Gestiona todos los registros de territorio digitalmente con estadísticas e informes completos</li>
+<li><strong>Directores del Servicio de Campo</strong>: Asigna territorios rápidamente con algoritmos inteligentes y realiza seguimiento de la actividad de publicadores</li>
+<li><strong>Publicadores</strong>: Accede a mapas asignados mediante enlaces simples, actualiza el estado de direcciones en tiempo real y colabora eficazmente</li>
+<li><strong>Administradores</strong>: Control total del sistema con gestión de usuarios, configuración de la congregación y registros de auditoría</li>
+</ul>
+<h2 id="problemas-que-ministry-mapper-resuelve">Problemas que Ministry Mapper Resuelve<a class="headerlink" href="#problemas-que-ministry-mapper-resuelve" title="Permanent link">&para;</a></h2>
+<h3 id="sin-papel">Sin Papel<a class="headerlink" href="#sin-papel" title="Permanent link">&para;</a></h3>
+<p>Las papeletas de territorio tradicionales se pierden, dañan o se vuelven difíciles de leer con el tiempo. Ministry Mapper mantiene todo digital y seguro en la nube. Puedes acceder a tus territorios desde tu teléfono, tableta u ordenador en cualquier momento.</p>
+<h3 id="mejor-organizacion">Mejor Organización<a class="headerlink" href="#mejor-organizacion" title="Permanent link">&para;</a></h3>
+<p>Cuando los territorios se comparten entre varios publicadores, es fácil trabajar accidentalmente las mismas direcciones. Ministry Mapper ayuda a todos a ver lo que está ocurriendo en tiempo real, para no perder tiempo cubriendo el mismo terreno.</p>
+<h3 id="actualizaciones-instantaneas">Actualizaciones Instantáneas<a class="headerlink" href="#actualizaciones-instantaneas" title="Permanent link">&para;</a></h3>
+<p>Cuando alguien actualiza un territorio, todos ven los cambios de inmediato. No hay que esperar a que pasen los papeles de mano en mano ni a las reuniones para compartir actualizaciones.</p>
+<h3 id="registro-mas-sencillo">Registro Más Sencillo<a class="headerlink" href="#registro-mas-sencillo" title="Permanent link">&para;</a></h3>
+<p>En lugar de anotar manualmente cada cambio en papeletas de papel, Ministry Mapper realiza el seguimiento de todo automáticamente. Esto ahorra horas de trabajo y previene errores.</p>
+<h2 id="como-funciona-ministry-mapper">Cómo Funciona Ministry Mapper<a class="headerlink" href="#como-funciona-ministry-mapper" title="Permanent link">&para;</a></h2>
+<h3 id="stack-tecnologico-moderno">Stack Tecnológico Moderno<a class="headerlink" href="#stack-tecnologico-moderno" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper aprovecha tecnologías web de vanguardia para un rendimiento óptimo:</p>
+<p><strong>Frontend (ministry-mapper-v2):</strong></p>
+<ul>
+<li><strong>React 19.2.4</strong>: Última biblioteca de interfaz de usuario con optimización automática del compilador</li>
+<li><strong>TypeScript 5.9.3</strong>: Desarrollo con tipos seguros para menos errores</li>
+<li><strong>Vite 8.0.2</strong>: Herramienta de compilación y servidor de desarrollo ultrarrápido</li>
+<li><strong>Leaflet 1.9.4</strong>: Mapas interactivos con OpenStreetMap (sin límites de API)</li>
+<li><strong>Bootstrap 5.3.8</strong>: Marco de interfaz de usuario moderno y responsivo</li>
+<li><strong>Wouter 3.9.0</strong>: Enrutamiento ligero (3KB vs 40KB de alternativas)</li>
+</ul>
+<p><strong>Backend (ministry-mapper-be):</strong></p>
+<ul>
+<li><strong>Go 1.25.0</strong>: Lenguaje compilado de alto rendimiento</li>
+<li><strong>PocketBase 0.36.7</strong>: Backend como servicio alojado con SQLite</li>
+<li><strong>SQLite 1.40.2+</strong>: Base de datos confiable y autónoma (implementación en Go puro)</li>
+<li><strong>Echo v5</strong>: Marco web minimalista y de alto rendimiento</li>
+<li><strong>Sentry 0.43.0</strong>: Seguimiento y monitoreo de errores en tiempo real</li>
+<li><strong>MailerSend 1.6.3</strong>: Servicio de correo electrónico transaccional</li>
+<li><strong>LaunchDarkly 7.14.6</strong>: Gestión de indicadores de características</li>
+<li><strong>Excelize 2.10.1</strong>: Generación de informes Excel</li>
+<li><strong>OpenAI GPT</strong>: Resúmenes impulsados por IA para informes y resúmenes de mensajes</li>
+</ul>
+<h3 id="aspectos-destacados-de-la-arquitectura">Aspectos Destacados de la Arquitectura<a class="headerlink" href="#aspectos-destacados-de-la-arquitectura" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Auto-Alojado</strong>: Sin dependencia de proveedores, control total sobre tus datos</li>
+<li><strong>Multi-Inquilino</strong>: Aislamiento de datos a nivel de congregación para mayor seguridad</li>
+<li><strong>Sincronización en Tiempo Real</strong>: Actualizaciones en vivo basadas en SSE en todos los clientes</li>
+<li><strong>Aplicación Web Progresiva</strong>: Instalable en todos los dispositivos con soporte de activos sin conexión</li>
+<li><strong>Contenedorización Docker</strong>: Implementación y escalado sencillos</li>
+<li><strong>Diseño API-First</strong>: API RESTful con soporte completo del SDK de PocketBase</li>
+<li><strong>Información Impulsada por IA</strong>: Integración opcional de OpenAI GPT para resúmenes inteligentes de informes y resúmenes de mensajes</li>
+</ul>
+<h2 id="consideraciones-importantes">Consideraciones Importantes<a class="headerlink" href="#consideraciones-importantes" title="Permanent link">&para;</a></h2>
+<h3 id="privacidad-primero">Privacidad Primero<a class="headerlink" href="#privacidad-primero" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper rastrea direcciones residenciales, lo que significa que debes seguir las leyes de privacidad de tu área. Diferentes países tienen diferentes reglas (como el RGPD en Europa o la CCPA en California). Asegúrate de entender y cumplir con tus regulaciones locales antes de usar Ministry Mapper.</p>
+<h3 id="se-requiere-internet">Se Requiere Internet<a class="headerlink" href="#se-requiere-internet" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper funciona a través de internet, por lo que necesitarás una conexión para usarlo. Si tu área tiene internet poco confiable, esto podría presentar desafíos. La aplicación funciona bien con datos móviles si no hay WiFi disponible.</p>
+<h3 id="curva-de-aprendizaje">Curva de Aprendizaje<a class="headerlink" href="#curva-de-aprendizaje" title="Permanent link">&para;</a></h3>
+<p>Pasar del papel al formato digital es un cambio, especialmente para quienes se sienten menos cómodos con la tecnología. Ofrecemos ayuda y soporte para facilitar la transición a todos en tu congregación.</p>
+<h2 id="primeros-pasos">Primeros Pasos<a class="headerlink" href="#primeros-pasos" title="Permanent link">&para;</a></h2>
+<h3 id="para-usuarios">Para Usuarios<a class="headerlink" href="#para-usuarios" title="Permanent link">&para;</a></h3>
+<p>La manera más fácil de usar Ministry Mapper es a través de nuestro servicio alojado:</p>
+<p><strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></p>
+<p>Simplemente:</p>
+<ol>
+<li>Visita <a href="https://ministry-mapper.com">ministry-mapper.com</a></li>
+<li>Crea una cuenta usando la página de registro</li>
+<li>Verifica tu dirección de correo electrónico</li>
+<li>Contacta al administrador de tu congregación para obtener los permisos correspondientes</li>
+</ol>
+<p><strong>Enlaces Rápidos:</strong></p>
+<ul>
+<li><strong><a href="getting-started/">Comenzar →</a></strong></li>
+<li><strong><a href="features/">Descripción de Características →</a></strong></li>
+<li><strong><a href="user-guide/">Guía de Usuario →</a></strong></li>
+<li><strong><a href="faq/">Preguntas Frecuentes →</a></strong></li>
+</ul>
+<h3 id="para-administradores">Para Administradores<a class="headerlink" href="#para-administradores" title="Permanent link">&para;</a></h3>
+<p>Si estás considerando Ministry Mapper para tu congregación:</p>
+<ul>
+<li>
+<p><strong>Recomendado</strong>: Usa nuestro servicio alojado en <a href="https://ministry-mapper.com">ministry-mapper.com</a></p>
+</li>
+<li>
+<p>No se requiere configuración técnica</p>
+</li>
+<li>Soporte profesional disponible</li>
+<li>Actualizaciones y mantenimiento automáticos</li>
+<li>
+<p>Mejor confiabilidad y seguridad</p>
+</li>
+<li>
+<p><strong>Alternativa</strong>: Revisa la <a href="deployment/">Guía de Implementación</a> (solo para usuarios avanzados)</p>
+</li>
+</ul>
+<p>No recomendamos el auto-alojamiento debido a la complejidad técnica y los requisitos de mantenimiento continuo. El servicio alojado en ministry-mapper.com proporciona una solución más simple y confiable.</p>
+<p><strong>Recursos para Administradores:</strong></p>
+<ul>
+<li><strong><a href="getting-started/">Guía de Primeros Pasos →</a></strong></li>
+<li><strong><a href="deployment/">Opciones de Implementación →</a></strong></li>
+<li><strong><a href="self-hosting/">Guía de Auto-Alojamiento →</a></strong></li>
+</ul>
+<h3 id="para-desarrolladores">Para Desarrolladores<a class="headerlink" href="#para-desarrolladores" title="Permanent link">&para;</a></h3>
+<p>Si estás interesado en los aspectos técnicos o en contribuir:</p>
+<p><strong>Documentación Técnica:</strong></p>
+<ul>
+<li><strong><a href="architecture/">Descripción de la Arquitectura →</a></strong> - Diseño del sistema y decisiones tecnológicas</li>
+<li><strong><a href="data-models/">Modelos de Datos y Esquema →</a></strong> - Estructura de la base de datos y relaciones</li>
+<li><strong><a href="backend-setup/">Configuración del Backend →</a></strong> - Configuración de PocketBase</li>
+<li><strong><a href="frontend-setup/">Configuración del Frontend →</a></strong> - Configuración de la aplicación React</li>
+</ul>
+<p><strong>Desarrollo:</strong></p>
+<ul>
+<li><strong>Repositorio Frontend:</strong> <a href="https://github.com/rimorin/ministry-mapper-v2">github.com/rimorin/ministry-mapper-v2</a></li>
+<li><strong>Repositorio Backend:</strong> <a href="https://github.com/rimorin/ministry-mapper-be">github.com/rimorin/ministry-mapper-be</a></li>
+<li><strong>Problemas:</strong> GitHub Issues en los repositorios correspondientes</li>
+<li><strong>Contribuciones:</strong> Consulta los archivos CONTRIBUTING.md de los repositorios</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

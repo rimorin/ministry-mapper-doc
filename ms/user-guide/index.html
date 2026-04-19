@@ -1,0 +1,6188 @@
+
+<!doctype html>
+<html lang="ms" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ms/user-guide/">
+      
+      
+        <link rel="prev" href="../features/">
+      
+      
+        <link rel="next" href="../architecture/">
+      
+      
+        
+          <link rel="alternate" href="../../user-guide/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/user-guide/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/user-guide/" hreflang="id">
+        
+          <link rel="alternate" href="./" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/user-guide/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/user-guide/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/user-guide/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/user-guide/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Using Ministry Mapper - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#panduan-pengguna-ministry-mapper" class="md-skip">
+          Langkau tajuk talian
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Pengepala">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Ministry Mapper
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Pilih bahasa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../user-guide/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/user-guide/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/user-guide/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/user-guide/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/user-guide/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/user-guide/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/user-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Carian">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Padam" aria-label="Padam" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Siap carian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tab" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pengenalan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengenalan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bermula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bermula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bermula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mencipta-akaun-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mencipta Akaun Anda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-masuk-ke-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Masuk ke Ministry Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memahami-peranan-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memahami Peranan Pengguna
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memahami Peranan Pengguna">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hierarki-peranan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarki Peranan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👤 Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baca-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👓 Baca Sahaja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konduktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Konduktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pentadbir-hamba-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👑 Pentadbir (Hamba Wilayah)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciri-utama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Utama
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ciri Utama">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan-papan-pemuka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan Papan Pemuka
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gambaran Keseluruhan Papan Pemuka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#untuk-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untuk-konduktor-dan-pentadbir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Konduktor dan Pentadbir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melihat-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melihat Wilayah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Melihat Wilayah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paparan-wilayah-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paparan Wilayah Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paparan-wilayah-pentadbirkonduktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paparan Wilayah Pentadbir/Konduktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bekerja-dengan-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bekerja Dengan Alamat
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bekerja Dengan Alamat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memahami-maklumat-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memahami Maklumat Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jenis-status-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenis Status Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengemas-kini-status-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengemas Kini Status Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menggunakan-ciri-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menggunakan Ciri Peta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menggunakan Ciri Peta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciri-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Peta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petua-navigasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Petua Navigasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-alamat-yang-tiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Alamat yang Tiada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mendapatkan-arah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mendapatkan Arah
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tugasan-wilayah-konduktor-pentadbir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tugasan Wilayah (Konduktor &amp; Pentadbir)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tugasan Wilayah (Konduktor &amp; Pentadbir)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-tugasan-berasaskan-pautan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa Tugasan Berasaskan Pautan?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mencipta-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mencipta Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penciptaan-tugasan-khusus-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penciptaan Tugasan Khusus Peta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengurus-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengurus Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-tugasan-khusus-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Tugasan Khusus Peta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amalan-terbaik-untuk-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amalan Terbaik untuk Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesej-dan-arahan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesej dan Arahan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mesej dan Arahan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jenis-mesej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenis Mesej
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menyiarkan-mesej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menyiarkan Mesej
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciri-mesej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Mesej
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penyegerakan-data-masa-nyata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyegerakan Data Masa Nyata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyegerakan Data Masa Nyata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cara-ia-berfungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara Ia Berfungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-pengguna-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Pengguna (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pengurusan Pengguna (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#melihat-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melihat Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menjemput-pengguna-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menjemput Pengguna Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menukar-peranan-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menukar Peranan Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membuang-akses-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Membuang Akses Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-pengesahan-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Pengesahan Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tetapan-sidang-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Sidang (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tetapan Sidang (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengakses-tetapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengakses Tetapan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tetapan-utama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Utama
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-sidang-jenis-isi-rumah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Sidang (Jenis Isi Rumah)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Peta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfigurasi Peta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-jujukan-peta-seret-lepas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Jujukan Peta (Seret &amp; Lepas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-wilayah-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Wilayah (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pengurusan Wilayah (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mencipta-wilayah-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mencipta Wilayah Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengedit-butiran-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengedit Butiran Wilayah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengedit Butiran Wilayah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-jujukan-wilayah-seret-lepas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Jujukan Wilayah (Seret &amp; Lepas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-konfigurasi-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Konfigurasi Wilayah
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operasi-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operasi Wilayah
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-alamat-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Alamat (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pengurusan Alamat (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jenis-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenis Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-alamat-awam-berbilang-tingkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Alamat Awam (Berbilang Tingkat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-alamat-persendirian-satu-tingkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Alamat Persendirian (Satu Tingkat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengurus-alamat-sedia-ada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengurus Alamat Sedia Ada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengurus-unit-alamat-awam-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengurus Unit (Alamat Awam Sahaja)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penggunaan-mudah-alih" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penggunaan Mudah Alih
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penggunaan Mudah Alih">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#menggunakan-ministry-mapper-pada-telefon-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menggunakan Ministry Mapper pada Telefon Anda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menggunakan Ministry Mapper pada Telefon Anda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengakses-pada-mudah-alih" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengakses pada Mudah Alih
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemasangan-aplikasi-web-progresif-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemasangan Aplikasi Web Progresif (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amalan-terbaik-mudah-alih" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amalan Terbaik Mudah Alih
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keupayaan-dan-had-luar-talian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keupayaan dan Had Luar Talian
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tetapan-akaun-dan-profil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Akaun dan Profil
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tetapan Akaun dan Profil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-profil-peribadi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Profil Peribadi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menukar-kata-laluan-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menukar Kata Laluan Anda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemulihan-kata-laluan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemulihan Kata Laluan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemilihan-bahasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemilihan Bahasa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tetapan-penampilan-dan-tema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Penampilan dan Tema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amalan-terbaik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amalan Terbaik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amalan Terbaik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#untuk-penerbit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untuk-konduktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Konduktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untuk-pentadbir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Pentadbir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prinsip-umum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prinsip Umum
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah-isu-biasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah Isu Biasa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah Isu Biasa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masalah-log-masuk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Log Masuk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-kemas-kini-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Kemas Kini Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-peta-dan-navigasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Peta dan Navigasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-pautan-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Pautan Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-kebenaran-dan-akses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Kebenaran dan Akses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-prestasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Prestasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keserasian-pelayar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keserasian Pelayar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keserasian Pelayar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keserasian-pelayar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keserasian Pelayar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mendapatkan-bantuan-dan-sokongan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mendapatkan Bantuan dan Sokongan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mendapatkan Bantuan dan Sokongan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saluran-sokongan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saluran Sokongan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melaporkan-masalah-dengan-berkesan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melaporkan Masalah dengan Berkesan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hubungan-kecemasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hubungan Kecemasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rujukan-pantas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rujukan Pantas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pintasan-papan-kekunci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pintasan Papan Kekunci
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rujukan-pantas-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rujukan-pantas-keupayaan-peranan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas Keupayaan Peranan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privasi-dan-keselamatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privasi dan Keselamatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privasi dan Keselamatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#melindungi-maklumat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melindungi Maklumat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maklumat-apa-yang-disimpan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maklumat Apa yang Disimpan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penyimpanan-dan-keselamatan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyimpanan dan Keselamatan Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesimpulan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesimpulan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kesimpulan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perkara-utama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perkara Utama
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciri-sistem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Sistem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pengenalan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengenalan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bermula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bermula
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bermula">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mencipta-akaun-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mencipta Akaun Anda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-masuk-ke-ministry-mapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Masuk ke Ministry Mapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memahami-peranan-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memahami Peranan Pengguna
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memahami Peranan Pengguna">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hierarki-peranan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarki Peranan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👤 Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baca-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👓 Baca Sahaja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konduktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Konduktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pentadbir-hamba-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👑 Pentadbir (Hamba Wilayah)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ciri-utama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Utama
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ciri Utama">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan-papan-pemuka" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan Papan Pemuka
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gambaran Keseluruhan Papan Pemuka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#untuk-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untuk-konduktor-dan-pentadbir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Konduktor dan Pentadbir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melihat-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melihat Wilayah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Melihat Wilayah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paparan-wilayah-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paparan Wilayah Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paparan-wilayah-pentadbirkonduktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paparan Wilayah Pentadbir/Konduktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bekerja-dengan-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bekerja Dengan Alamat
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Bekerja Dengan Alamat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memahami-maklumat-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memahami Maklumat Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jenis-status-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenis Status Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengemas-kini-status-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengemas Kini Status Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menggunakan-ciri-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menggunakan Ciri Peta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menggunakan Ciri Peta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciri-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Peta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petua-navigasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Petua Navigasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-alamat-yang-tiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Alamat yang Tiada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mendapatkan-arah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mendapatkan Arah
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tugasan-wilayah-konduktor-pentadbir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tugasan Wilayah (Konduktor &amp; Pentadbir)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tugasan Wilayah (Konduktor &amp; Pentadbir)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengapa-tugasan-berasaskan-pautan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengapa Tugasan Berasaskan Pautan?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mencipta-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mencipta Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penciptaan-tugasan-khusus-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penciptaan Tugasan Khusus Peta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengurus-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengurus Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-tugasan-khusus-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Tugasan Khusus Peta
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amalan-terbaik-untuk-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amalan Terbaik untuk Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesej-dan-arahan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesej dan Arahan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mesej dan Arahan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jenis-mesej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenis Mesej
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menyiarkan-mesej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menyiarkan Mesej
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciri-mesej" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Mesej
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penyegerakan-data-masa-nyata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyegerakan Data Masa Nyata
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyegerakan Data Masa Nyata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cara-ia-berfungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara Ia Berfungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-pengguna-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Pengguna (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pengurusan Pengguna (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#melihat-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melihat Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menjemput-pengguna-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menjemput Pengguna Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menukar-peranan-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menukar Peranan Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#membuang-akses-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Membuang Akses Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-pengesahan-pengguna" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Pengesahan Pengguna
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tetapan-sidang-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Sidang (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tetapan Sidang (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengakses-tetapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengakses Tetapan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tetapan-utama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Utama
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-sidang-jenis-isi-rumah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Sidang (Jenis Isi Rumah)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-peta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Peta
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfigurasi Peta">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-jujukan-peta-seret-lepas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Jujukan Peta (Seret &amp; Lepas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-wilayah-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Wilayah (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pengurusan Wilayah (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mencipta-wilayah-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mencipta Wilayah Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengedit-butiran-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengedit Butiran Wilayah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mengedit Butiran Wilayah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-jujukan-wilayah-seret-lepas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Jujukan Wilayah (Seret &amp; Lepas)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-konfigurasi-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Konfigurasi Wilayah
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operasi-wilayah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operasi Wilayah
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-alamat-pentadbir-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Alamat (Pentadbir Sahaja)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pengurusan Alamat (Pentadbir Sahaja)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jenis-alamat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jenis Alamat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-alamat-awam-berbilang-tingkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Alamat Awam (Berbilang Tingkat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-alamat-persendirian-satu-tingkat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Alamat Persendirian (Satu Tingkat)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengurus-alamat-sedia-ada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengurus Alamat Sedia Ada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengurus-unit-alamat-awam-sahaja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengurus Unit (Alamat Awam Sahaja)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penggunaan-mudah-alih" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penggunaan Mudah Alih
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penggunaan Mudah Alih">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#menggunakan-ministry-mapper-pada-telefon-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menggunakan Ministry Mapper pada Telefon Anda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menggunakan Ministry Mapper pada Telefon Anda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengakses-pada-mudah-alih" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengakses pada Mudah Alih
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemasangan-aplikasi-web-progresif-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemasangan Aplikasi Web Progresif (PWA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amalan-terbaik-mudah-alih" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amalan Terbaik Mudah Alih
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keupayaan-dan-had-luar-talian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keupayaan dan Had Luar Talian
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tetapan-akaun-dan-profil" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Akaun dan Profil
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tetapan Akaun dan Profil">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pengurusan-profil-peribadi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pengurusan Profil Peribadi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menukar-kata-laluan-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menukar Kata Laluan Anda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemulihan-kata-laluan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemulihan Kata Laluan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemilihan-bahasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemilihan Bahasa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tetapan-penampilan-dan-tema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tetapan Penampilan dan Tema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amalan-terbaik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amalan Terbaik
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amalan Terbaik">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#untuk-penerbit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Penerbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untuk-konduktor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Konduktor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#untuk-pentadbir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Untuk Pentadbir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prinsip-umum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prinsip Umum
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah-isu-biasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah Isu Biasa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah Isu Biasa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masalah-log-masuk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Log Masuk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-kemas-kini-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Kemas Kini Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-peta-dan-navigasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Peta dan Navigasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-pautan-tugasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Pautan Tugasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-kebenaran-dan-akses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Kebenaran dan Akses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-prestasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Prestasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keserasian-pelayar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keserasian Pelayar
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Keserasian Pelayar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keserasian-pelayar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keserasian Pelayar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mendapatkan-bantuan-dan-sokongan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mendapatkan Bantuan dan Sokongan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mendapatkan Bantuan dan Sokongan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#saluran-sokongan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saluran Sokongan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#melaporkan-masalah-dengan-berkesan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melaporkan Masalah dengan Berkesan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hubungan-kecemasan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hubungan Kecemasan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rujukan-pantas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rujukan Pantas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pintasan-papan-kekunci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pintasan Papan Kekunci
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rujukan-pantas-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rujukan-pantas-keupayaan-peranan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas Keupayaan Peranan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privasi-dan-keselamatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privasi dan Keselamatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Privasi dan Keselamatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#melindungi-maklumat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Melindungi Maklumat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maklumat-apa-yang-disimpan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maklumat Apa yang Disimpan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penyimpanan-dan-keselamatan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyimpanan dan Keselamatan Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kesimpulan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kesimpulan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kesimpulan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perkara-utama" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perkara Utama
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciri-sistem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Sistem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="panduan-pengguna-ministry-mapper">Panduan Pengguna Ministry Mapper<a class="headerlink" href="#panduan-pengguna-ministry-mapper" title="Permanent link">&para;</a></h1>
+<h2 id="pengenalan">Pengenalan<a class="headerlink" href="#pengenalan" title="Permanent link">&para;</a></h2>
+<p>Selamat datang ke Ministry Mapper, aplikasi web moden yang direka untuk membantu sidang mengurus wilayah khidmat lapangan dengan cekap. Panduan ini akan membimbing anda melalui segala yang perlu anda ketahui untuk bermula dan memanfaatkan aplikasi sepenuhnya.</p>
+<p><strong>Apakah Ministry Mapper?</strong></p>
+<p>Ministry Mapper adalah sistem pengurusan wilayah digital yang menggantikan kaedah berasaskan kertas tradisional. Ia membolehkan sidang untuk:</p>
+<ul>
+<li>Mengatur dan menugaskan wilayah secara digital</li>
+<li>Menjejak lawatan khidmat lapangan dalam masa nyata</li>
+<li>Menyelaras aktiviti merentas berbilang penerbit</li>
+<li>Mengakses wilayah dari mana-mana peranti dengan internet</li>
+</ul>
+<p><strong>Faedah Utama:</strong></p>
+<ul>
+<li>✓ Mesra alam - menghapuskan pembaziran kertas</li>
+<li>✓ Kemas kini masa nyata melalui penyegerakan awan</li>
+<li>✓ Berfungsi pada mana-mana peranti (desktop, tablet, mudah alih)</li>
+<li>✓ Peta interaktif bersepadu untuk navigasi mudah</li>
+<li>✓ Kawalan akses berasaskan peranan yang selamat</li>
+</ul>
+<h2 id="bermula">Bermula<a class="headerlink" href="#bermula" title="Permanent link">&para;</a></h2>
+<h3 id="mencipta-akaun-anda">Mencipta Akaun Anda<a class="headerlink" href="#mencipta-akaun-anda" title="Permanent link">&para;</a></h3>
+<p><img alt="Halaman Pendaftaran" src="../../assets/screenshots/sign_up.png" /></p>
+<p><em>Rajah 1: Borang pendaftaran untuk mencipta akaun Ministry Mapper baharu</em></p>
+<p><strong>Langkah 1: Akses Halaman Pendaftaran</strong></p>
+<p><img alt="Log Masuk" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>Rajah 2: Halaman log masuk dengan pilihan Daftar</em></p>
+<ol>
+<li>Lawati URL Ministry Mapper sidang anda</li>
+<li>Klik butang <strong>"Daftar"</strong> pada halaman log masuk</li>
+</ol>
+<p><strong>Langkah 2: Pilih Kaedah Pendaftaran</strong></p>
+<table>
+<thead>
+<tr>
+<th>Pendaftaran Tradisional</th>
+<th>Google OAuth (Disyorkan)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memerlukan e-mel, kata laluan (6+ aksara, 1 nombor, 1 huruf besar), dan pengesahan e-mel</td>
+<td>Pendaftaran satu klik menggunakan akaun Google</td>
+</tr>
+<tr>
+<td>Pengesahan e-mel manual diperlukan</td>
+<td>Pengesahan e-mel automatik</td>
+</tr>
+<tr>
+<td>Perlu ingat kata laluan lain</td>
+<td>Tiada kata laluan untuk diurus</td>
+</tr>
+<tr>
+<td>Terima Dasar Privasi &amp; Terma</td>
+<td>Keselamatan dipertingkatkan melalui Google</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pendaftaran Tradisional:</strong>
+1. Isikan: Nama, E-mel, Kata Laluan, Sahkan Kata Laluan
+2. Terima Dasar Privasi dan Terma Perkhidmatan
+3. Klik <strong>"Cipta Akaun"</strong></p>
+<p><strong>Pendaftaran Google OAuth:</strong>
+1. Klik butang <strong>"Log masuk dengan Google"</strong> di bawah "Atau teruskan dengan"
+2. Pilih akaun Google anda
+3. Benarkan Ministry Mapper akses profil asas
+4. Akaun dicipta secara automatik</p>
+<p><strong>Langkah 3: Sahkan E-mel Anda</strong></p>
+<p><img alt="E-mel Pengesahan Pendaftaran" src="../../assets/screenshots/sign_up_verification_email.png" /></p>
+<p><em>Rajah 3: Mesej pengesahan e-mel dihantar selepas penciptaan akaun</em></p>
+<ol>
+<li>Semak peti masuk e-mel anda untuk mesej pengesahan dari Ministry Mapper</li>
+<li>Klik pautan pengesahan dalam e-mel</li>
+<li>Anda akan melihat pengesahan bahawa akaun anda telah disahkan</li>
+</ol>
+<p><strong>Langkah 4: Tunggu Akses Sidang</strong></p>
+<p>Selepas pengesahan:</p>
+<ol>
+<li>Kembali ke halaman log masuk</li>
+<li>Log masuk dengan e-mel dan kata laluan anda</li>
+<li>Jika Kata Laluan Sekali (OTP) diaktifkan, semak e-mel anda untuk kod</li>
+</ol>
+<p><img alt="Halaman Pengesahan OTP" src="../../assets/screenshots/otp_verification_page.png" /></p>
+<p><em>Rajah 4: Skrin pengesahan Kata Laluan Sekali (OTP)</em></p>
+<p><img alt="E-mel Pengesahan OTP" src="../../assets/screenshots/otp_verification_email.png" /></p>
+<p><em>Rajah 5: E-mel yang mengandungi kod OTP untuk pengesahan log masuk</em></p>
+<ol>
+<li><strong>Penting</strong>: Anda tidak akan melihat sebarang wilayah lagi - pentadbir mesti memberikan anda akses ke sidang anda terlebih dahulu</li>
+<li>Hubungi hamba wilayah atau pentadbir sidang anda untuk meminta akses</li>
+</ol>
+<h3 id="log-masuk-ke-ministry-mapper">Log Masuk ke Ministry Mapper<a class="headerlink" href="#log-masuk-ke-ministry-mapper" title="Permanent link">&para;</a></h3>
+<p><img alt="Log Masuk Google OAuth" src="../../assets/screenshots/google_oauth_sign_in.png" /></p>
+<p><em>Rajah 6: Pilihan log masuk Google OAuth untuk pengesahan lebih pantas dan selamat</em></p>
+<p>Sebaik sahaja akaun anda disahkan dan anda telah diberikan akses sidang:</p>
+<p><strong>Log Masuk Standard:</strong>
+1. Navigasi ke URL Ministry Mapper sidang anda
+2. Masukkan alamat e-mel dan kata laluan anda
+3. Klik <strong>"Log Masuk"</strong></p>
+<p><strong>Log Masuk Google OAuth (Lebih Pantas):</strong>
+1. Klik butang <strong>"Log masuk dengan Google"</strong>
+2. Pilih akaun Google anda
+3. Log masuk secara automatik (tiada kata laluan diperlukan)</p>
+<p><strong>Langkah 3: Lengkapkan Pengesahan OTP (Jika Diaktifkan)</strong></p>
+<p>Jika sidang anda telah mengaktifkan keselamatan Kata Laluan Sekali:</p>
+<ol>
+<li>Selepas memasukkan kelayakan, anda akan melihat skrin pengesahan OTP</li>
+<li>Semak e-mel anda untuk kod pengesahan</li>
+<li>Masukkan kod 6 digit dari e-mel</li>
+<li>Klik <strong>"Sahkan"</strong> atau <strong>"Hantar"</strong></li>
+<li>Kod tamat tempoh dalam 5-10 minit</li>
+</ol>
+<p><strong>Langkah 4: Akses Papan Pemuka Anda</strong></p>
+<ul>
+<li><strong>Penerbit</strong>: Anda tidak akan melihat papan pemuka - gunakan pautan tugasan yang dihantar kepada anda</li>
+<li><strong>Baca Sahaja, Konduktor, Pentadbir</strong>: Anda akan melihat papan pemuka khusus peranan anda</li>
+</ul>
+<blockquote>
+<p><strong>💡 Petua</strong>: Kekal log masuk pada peranti yang dipercayai untuk kemudahan, tetapi sentiasa log keluar pada komputer yang dikongsi.</p>
+</blockquote>
+<h3 id="memahami-peranan-pengguna">Memahami Peranan Pengguna<a class="headerlink" href="#memahami-peranan-pengguna" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper menggunakan sistem kawalan akses empat peringkat. Peranan anda menentukan ciri yang boleh anda akses dan tindakan yang boleh anda lakukan.</p>
+<h4 id="hierarki-peranan">Hierarki Peranan<a class="headerlink" href="#hierarki-peranan" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Pentadbir (Akses Penuh)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Konduktor (Urus Tugasan)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Baca Sahaja (Lihat Sahaja)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ↓
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Penerbit (Akses Pautan Sahaja)
+</code></pre></div>
+<hr />
+<h4 id="penerbit">👤 Penerbit<a class="headerlink" href="#penerbit" title="Permanent link">&para;</a></h4>
+<p><strong>Kaedah Akses</strong>: Melalui pautan tugasan yang dihantar oleh pentadbir atau konduktor</p>
+<p><strong>Apa yang Penerbit Boleh Lakukan:</strong></p>
+<ul>
+<li>✓ Akses wilayah melalui pautan yang dikongsi</li>
+<li>✓ Lihat peta wilayah dengan pemetaan interaktif</li>
+<li>✓ Kemas kini status alamat selepas lawatan</li>
+<li>Tandakan sebagai: Selesai, Tiada di Rumah, Jangan Panggil, Tidak Sah</li>
+<li>✓ Tambah nota lawatan ke alamat</li>
+<li>✓ Jejak bilangan percubaan "tiada di rumah"</li>
+<li>✓ Lihat butiran alamat dan jujukan</li>
+</ul>
+<p><strong>Apa yang Penerbit Tidak Boleh Lakukan:</strong></p>
+<ul>
+<li>✗ Tiada akses papan pemuka</li>
+<li>✗ Tidak boleh lihat semua wilayah sidang</li>
+<li>✗ Tidak boleh cipta atau urus wilayah</li>
+<li>✗ Tidak boleh akses pautan tugasan tamat tempoh selepas masa yang ditetapkan (lalai: 24 jam, boleh dikonfigurasi oleh pentadbir sidang)</li>
+</ul>
+<p><strong>Paling Sesuai Untuk</strong>: Penerbit biasa yang melakukan khidmat lapangan</p>
+<hr />
+<h4 id="baca-sahaja">👓 Baca Sahaja<a class="headerlink" href="#baca-sahaja" title="Permanent link">&para;</a></h4>
+<p><strong>Kaedah Akses</strong>: Log masuk akaun pengguna dengan kebenaran baca sahaja</p>
+<p><strong>Apa yang Pengguna Baca Sahaja Boleh Lakukan:</strong></p>
+<ul>
+<li>✓ Lihat semua wilayah dalam sidang</li>
+<li>✓ Lihat maklumat alamat lengkap</li>
+<li>✓ Lihat kemajuan dan statistik wilayah</li>
+<li>✓ Akses peta wilayah</li>
+<li>✓ Lihat mesej sidang</li>
+</ul>
+<p><strong>Apa yang Pengguna Baca Sahaja Tidak Boleh Lakukan:</strong></p>
+<ul>
+<li>✗ Tidak boleh ubah suai sebarang data wilayah atau alamat</li>
+<li>✗ Tidak boleh cipta atau padam wilayah</li>
+<li>✗ Tidak boleh urus tugasan</li>
+<li>✗ Tidak boleh tukar tetapan sidang</li>
+</ul>
+<p><strong>Paling Sesuai Untuk</strong>: Penyelia yang memerlukan keterlihatan tanpa keupayaan mengedit</p>
+<hr />
+<h4 id="konduktor">🎯 Konduktor<a class="headerlink" href="#konduktor" title="Permanent link">&para;</a></h4>
+<p><strong>Kaedah Akses</strong>: Log masuk akaun pengguna dengan kebenaran konduktor</p>
+<p><strong>Keupayaan Konduktor Termasuk:</strong></p>
+<ul>
+<li>✓ <strong>Semua yang Baca Sahaja boleh lakukan</strong>, DITAMBAH:</li>
+<li>✓ Cipta dan urus tugasan wilayah</li>
+<li>✓ Jana pautan tugasan untuk penerbit</li>
+<li>✓ Lihat semua sejarah tugasan</li>
+<li>✓ Akses dan siarkan mesej sidang</li>
+<li>✓ Urus pilihan sidang (jenis status isi rumah)</li>
+<li>✓ Lihat status penyelesaian wilayah</li>
+</ul>
+<p><strong>Apa yang Konduktor Tidak Boleh Lakukan:</strong></p>
+<ul>
+<li>✗ Tidak boleh cipta atau padam wilayah</li>
+<li>✗ Tidak boleh edit butiran alamat (alamat, unit, tingkat)</li>
+<li>✗ Tidak boleh urus peranan atau kebenaran pengguna</li>
+<li>✗ Tidak boleh ubah suai tetapan teras sidang</li>
+</ul>
+<p><strong>Paling Sesuai Untuk</strong>: Penyelaras khidmat lapangan dan penyelia kumpulan</p>
+<hr />
+<h4 id="pentadbir-hamba-wilayah">👑 Pentadbir (Hamba Wilayah)<a class="headerlink" href="#pentadbir-hamba-wilayah" title="Permanent link">&para;</a></h4>
+<p><strong>Kaedah Akses</strong>: Log masuk akaun pengguna dengan kebenaran pentadbiran penuh</p>
+<p><strong>Pentadbir Mempunyai Kawalan Lengkap:</strong></p>
+<ul>
+<li>✓ <strong>Semua yang Konduktor boleh lakukan</strong>, DITAMBAH:</li>
+<li>✓ Cipta, edit, dan padam wilayah</li>
+<li>✓ Tambah, ubah suai, dan buang alamat</li>
+<li>✓ Urus bangunan dan unit</li>
+<li>✓ Konfigurasi tetapan sidang</li>
+<li>Tetapkan percubaan tiada di rumah maksimum</li>
+<li>Konfigurasi masa tamat pautan</li>
+<li>Sediakan pilihan jenis isi rumah</li>
+<li>✓ Jemput dan urus pengguna</li>
+<li>✓ Tetapkan peranan dan kebenaran pengguna</li>
+<li>✓ Tetapkan semula wilayah dan alamat</li>
+<li>✓ Urus koordinat geolokasi</li>
+</ul>
+<p><strong>Paling Sesuai Untuk</strong>: Hamba wilayah dan mereka yang mengurus sistem wilayah sidang</p>
+<hr />
+<blockquote>
+<p><strong>💡 Nota</strong>: Hubungi pentadbir sidang anda jika anda perlu menukar peranan anda atau jika anda tidak pasti peranan yang anda ada sekarang.</p>
+</blockquote>
+<h2 id="ciri-utama">Ciri Utama<a class="headerlink" href="#ciri-utama" title="Permanent link">&para;</a></h2>
+<h3 id="gambaran-keseluruhan-papan-pemuka">Gambaran Keseluruhan Papan Pemuka<a class="headerlink" href="#gambaran-keseluruhan-papan-pemuka" title="Permanent link">&para;</a></h3>
+<p><img alt="Papan Pemuka Pentadbir" src="../../assets/screenshots/admin_dashboard.png" /></p>
+<p><em>Rajah 6: Papan pemuka pentadbir menunjukkan pemilih wilayah dan kawalan utama</em></p>
+<p>Antara muka papan pemuka berbeza berdasarkan peranan anda:</p>
+<h4 id="untuk-penerbit">Untuk Penerbit<a class="headerlink" href="#untuk-penerbit" title="Permanent link">&para;</a></h4>
+<p>Penerbit <strong>tidak mempunyai akses papan pemuka</strong>. Sebaliknya, mereka:</p>
+<ul>
+<li>Menerima pautan tugasan melalui e-mel atau mesej</li>
+<li>Klik pautan untuk mengakses wilayah yang ditugaskan</li>
+<li>Bekerja terus dalam paparan wilayah</li>
+<li>Pautan tamat tempoh secara automatik selepas masa yang dikonfigurasi (lalai: 24 jam)</li>
+</ul>
+<h4 id="untuk-konduktor-dan-pentadbir">Untuk Konduktor dan Pentadbir<a class="headerlink" href="#untuk-konduktor-dan-pentadbir" title="Permanent link">&para;</a></h4>
+<p>Papan pemuka menyediakan gambaran keseluruhan komprehensif:</p>
+<p><strong>1. Pemilih Wilayah</strong> (Dropdown Atas)</p>
+<ul>
+<li>Pilih wilayah mana yang hendak dilihat atau diurus</li>
+<li>Menunjukkan kod dan penerangan wilayah</li>
+<li>Navigasi pantas antara wilayah</li>
+</ul>
+<p><strong>2. Butang Tindakan Utama</strong></p>
+<ul>
+<li>📋 <strong>Tugasan</strong>: Lihat dan urus pautan tugasan</li>
+<li>💬 <strong>Mesej</strong>: Siarkan dan lihat mesej sidang</li>
+<li>⚙️ <strong>Tetapan</strong>: Akses konfigurasi sidang (Pentadbir sahaja)</li>
+<li>👥 <strong>Pengguna</strong>: Urus peranan dan jemputan pengguna (Pentadbir sahaja)</li>
+</ul>
+<p><strong>3. Panel Maklumat Wilayah</strong></p>
+<ul>
+<li>Kod dan penerangan wilayah</li>
+<li>Bar kemajuan menunjukkan peratusan penyelesaian</li>
+<li>Cap masa kemas kini terakhir</li>
+<li>Jumlah unit vs. unit selesai</li>
+</ul>
+<p><strong>4. Pilihan Paparan Wilayah</strong></p>
+<ul>
+<li>🗺️ <strong>Paparan Peta</strong>: Paparan peta interaktif</li>
+<li>📋 <strong>Paparan Senarai</strong>: Paparan jadual semua alamat</li>
+</ul>
+<p><strong>5. Menu Dail Pantas</strong> (Butang Tindakan Terapung)</p>
+<p><img alt="Dail Pantas Halaman Pentadbir" src="../../assets/screenshots/speeddial_admin_page.png" /></p>
+<p><em>Rajah 6a: Butang tindakan terapung dail pantas menyediakan akses pantas kepada tindakan biasa</em></p>
+<p>Butang <strong>➕</strong> (sudut kanan bawah) menyediakan akses pantas kepada:
+- 🗺️ <strong>Mod Paparan Peta</strong>: Togol paparan peta skrin penuh
+- 📋 <strong>Pautan Pantas</strong>: Cipta pautan tugasan dengan pantas (Konduktor &amp; Pentadbir)
+- Tindakan sensitif konteks berdasarkan paparan semasa</p>
+<hr />
+<h3 id="melihat-wilayah">Melihat Wilayah<a class="headerlink" href="#melihat-wilayah" title="Permanent link">&para;</a></h3>
+<h4 id="paparan-wilayah-penerbit">Paparan Wilayah Penerbit<a class="headerlink" href="#paparan-wilayah-penerbit" title="Permanent link">&para;</a></h4>
+<p><img alt="Skrin Tugasan Penerbit" src="../../assets/screenshots/publisher_assignment_screen.png" /></p>
+<p><em>Rajah 7: Paparan penerbit wilayah yang ditugaskan dengan peta dan senarai alamat</em></p>
+<p><strong>Mengakses Tugasan Anda:</strong></p>
+<ol>
+<li>Klik pautan tugasan yang dihantar oleh pentadbir/konduktor anda</li>
+<li>Wilayah dimuatkan secara automatik dengan:</li>
+<li>Peta Google Interaktif menunjukkan semua alamat</li>
+<li>Penanda boleh klik untuk setiap lokasi</li>
+<li>Senarai alamat/unit untuk dilawati</li>
+<li>Peratusan kemajuan semasa</li>
+</ol>
+<p><strong>Maklumat Wilayah Dipaparkan:</strong></p>
+<ul>
+<li><strong>Kod Wilayah</strong>: Pengecam (cth., "T-001")</li>
+<li><strong>Penerangan</strong>: Nama atau kawasan wilayah</li>
+<li><strong>Bar Kemajuan</strong>: Status penyelesaian visual</li>
+<li><strong>Peta</strong>: Peta interaktif dengan penanda alamat</li>
+<li><strong>Senarai Alamat</strong>: Semua alamat dengan status semasa</li>
+</ul>
+<h4 id="paparan-wilayah-pentadbirkonduktor">Paparan Wilayah Pentadbir/Konduktor<a class="headerlink" href="#paparan-wilayah-pentadbirkonduktor" title="Permanent link">&para;</a></h4>
+<p><img alt="Papan Pemuka Konduktor" src="../../assets/screenshots/conductor_dashboard.png" /></p>
+<p><em>Rajah 8: Papan pemuka konduktor dengan pemilih wilayah dan pilihan pengurusan</em></p>
+<p><strong>Melihat Wilayah:</strong></p>
+<ol>
+<li>Log masuk ke papan pemuka anda</li>
+<li>Pilih wilayah dari menu dropdown</li>
+<li>Lihat maklumat terperinci:</li>
+<li>Kod dan penerangan wilayah</li>
+<li>Statistik penyelesaian (cth., "15/20 selesai - 75%")</li>
+<li>Peta interaktif dengan semua lokasi</li>
+<li>Senarai alamat/unit lengkap dengan butiran</li>
+<li>Butang pengurusan (Edit, Padam, Tetapkan Semula)</li>
+</ol>
+<p><strong>Pilihan Pengurusan:</strong></p>
+<ul>
+<li>✏️ <strong>Edit Wilayah</strong>: Tukar nama, kod, atau penerangan</li>
+<li>🗑️ <strong>Padam Wilayah</strong>: Buang seluruh wilayah</li>
+<li>🔄 <strong>Tetapkan Semula Wilayah</strong>: Kosongkan semua status alamat</li>
+<li>➕ <strong>Tambah Alamat</strong>: Cipta alamat baharu dalam wilayah</li>
+</ul>
+<h3 id="bekerja-dengan-alamat">Bekerja Dengan Alamat<a class="headerlink" href="#bekerja-dengan-alamat" title="Permanent link">&para;</a></h3>
+<h4 id="memahami-maklumat-alamat">Memahami Maklumat Alamat<a class="headerlink" href="#memahami-maklumat-alamat" title="Permanent link">&para;</a></h4>
+<p><img alt="Butiran Status Alamat" src="../../assets/screenshots/address_status_details.png" /></p>
+<p><em>Rajah 9: Kad alamat menunjukkan semua butiran alamat dan status semasa</em></p>
+<p>Setiap alamat atau unit dalam Ministry Mapper memaparkan maklumat komprehensif:</p>
+<p><strong>Maklumat Asas:</strong></p>
+<ul>
+<li><strong>Alamat/Nombor Unit</strong>: Pengecam lokasi (cth., "#05-123")</li>
+<li><strong>Tingkat</strong>: Tahap bangunan (untuk hartanah berbilang tingkat)</li>
+<li><strong>Jenis</strong>: Klasifikasi isi rumah berdasarkan pilihan sidang</li>
+<li>Contoh: Cina, Inggeris, Tamil, Sepanyol</li>
+<li>Berbilang jenis boleh dipilih jika dikonfigurasi</li>
+<li><strong>Jujukan</strong>: Nombor urutan lawatan</li>
+</ul>
+<p><strong>Maklumat Status:</strong></p>
+<ul>
+<li><strong>Status</strong>: Status lawatan semasa (lihat jenis status di bawah)</li>
+<li><strong>Kiraan Tiada di Rumah</strong>: Bilangan percubaan lawatan tanpa jawapan</li>
+<li><strong>Tarikh Jangan Panggil</strong>: Bila DNC ditandakan (jika berkenaan)</li>
+</ul>
+<p><strong>Penjejakan Aktiviti:</strong></p>
+<ul>
+<li><strong>Nota</strong>: Maklumat penting tentang lawatan atau penghuni rumah</li>
+<li><strong>Kemas Kini Terakhir</strong>: Tarikh dan masa kemas kini terkini</li>
+<li><strong>Dikemas Kini Oleh</strong>: Nama pengguna orang yang membuat perubahan terakhir</li>
+</ul>
+<hr />
+<h4 id="jenis-status-alamat">Jenis Status Alamat<a class="headerlink" href="#jenis-status-alamat" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper menggunakan lima jenis status standard:</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Warna</th>
+<th>Penerangan</th>
+<th>Penggunaan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Belum Selesai</strong></td>
+<td>Putih/Lalai</td>
+<td>Belum dilawati</td>
+<td>Status awal untuk semua alamat</td>
+</tr>
+<tr>
+<td><strong>Selesai</strong></td>
+<td>Hijau</td>
+<td>Berjaya dihubungi</td>
+<td>Penghuni rumah ada di rumah dan dihubungi</td>
+</tr>
+<tr>
+<td><strong>Tiada di Rumah</strong></td>
+<td>Kuning/Oren</td>
+<td>Tiada yang menjawab</td>
+<td>Jejak sehingga percubaan maksimum (boleh dikonfigurasi)</td>
+</tr>
+<tr>
+<td><strong>Jangan Panggil</strong></td>
+<td>Merah</td>
+<td>Meminta tiada lawatan</td>
+<td>Penghuni rumah meminta tiada hubungan lanjut</td>
+</tr>
+<tr>
+<td><strong>Tidak Sah</strong></td>
+<td>Kelabu</td>
+<td>Tidak boleh diakses</td>
+<td>Alamat tidak wujud atau tidak boleh dilawati</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>💡 Petua</strong>: Apabila "Tiada di Rumah" mencapai percubaan maksimum (ditetapkan oleh pentadbir), alamat secara automatik ditandakan sebagai selesai dalam pengiraan kemajuan.</p>
+</blockquote>
+<hr />
+<h4 id="mengemas-kini-status-alamat">Mengemas Kini Status Alamat<a class="headerlink" href="#mengemas-kini-status-alamat" title="Permanent link">&para;</a></h4>
+<p><img alt="Status Tiada di Rumah Alamat" src="../../assets/screenshots/address_not_home_status.png" /></p>
+<p><em>Rajah 10: Modal kemas kini status menunjukkan semua medan dan pilihan</em></p>
+<p><strong>Proses Langkah demi Langkah:</strong></p>
+<p><strong>1. Cari Alamat</strong></p>
+<ul>
+<li>Tatal melalui senarai alamat</li>
+<li>Atau klik penanda pada peta</li>
+<li>Alamat dikumpulkan mengikut tingkat untuk bangunan berbilang tingkat</li>
+</ul>
+<p><strong>2. Buka Modal Kemas Kini</strong></p>
+<ul>
+<li>Klik pada kad alamat/unit</li>
+<li>Modal kemas kini akan dibuka dengan maklumat semasa</li>
+</ul>
+<p><strong>3. Kemas Kini Status</strong> (Diperlukan)</p>
+<p>Pilih status yang sesuai:</p>
+<p><strong>📗 Selesai</strong> - Apabila berjaya dihubungi</p>
+<ul>
+<li>Pilih ini apabila seseorang menjawab</li>
+<li>Perbualan berlaku atau sastera diletakkan</li>
+<li>Kiraan "Tiada di Rumah" ditetapkan semula</li>
+</ul>
+<p><strong>🏠 Tiada di Rumah</strong> - Apabila tiada yang menjawab</p>
+<ul>
+<li>Secara automatik meningkatkan kiraan "Tiada di Rumah"</li>
+<li>Sistem menjejak bilangan percubaan</li>
+<li>Selepas mencapai percubaan maksimum, dianggap sebagai selesai</li>
+</ul>
+<p><strong>🚫 Jangan Panggil</strong> - Apabila diminta untuk tidak melawat</p>
+<p><img alt="Status Jangan Panggil Alamat" src="../../assets/screenshots/address_do_not_call_status.png" /></p>
+<p><em>Rajah 11: Kemas kini status Jangan Panggil dengan pemilihan tarikh</em></p>
+<ul>
+<li>Pilih status ini</li>
+<li>Pilihan tetapkan tarikh DNC (lalai kepada hari ini)</li>
+<li>Tambah nota menerangkan sebab jika sesuai</li>
+<li><strong>Penting</strong>: Hormati hasrat penghuni rumah sentiasa</li>
+</ul>
+<p><strong>❌ Tidak Sah</strong> - Apabila alamat tidak boleh diakses</p>
+<ul>
+<li>Alamat tidak wujud</li>
+<li>Dalam pembinaan</li>
+<li>Ditutup secara kekal</li>
+<li>Tidak boleh diakses</li>
+</ul>
+<p><strong>4. Kemas Kini Jenis Isi Rumah</strong> (Jika Tersedia)</p>
+<p>Jika sidang anda telah mengkonfigurasi jenis isi rumah:</p>
+<ul>
+<li>Pilih satu atau berbilang jenis</li>
+<li>Contoh: Keutamaan bahasa, keadaan khas</li>
+<li>Kosongkan jenis sedia ada jika diperlukan</li>
+</ul>
+<p><strong>5. Tambah atau Kemas Kini Nota</strong> (Pilihan tetapi Disyorkan)</p>
+<p><strong>Amalan terbaik:</strong></p>
+<ul>
+<li>✓ Fokus pada butiran hartanah, bukan individu</li>
+<li>✓ Rekod arahan akses dan masa</li>
+<li>✓ Ringkas dan hormat</li>
+<li>✗ Jangan sekali-kali masukkan maklumat peribadi tentang penghuni rumah</li>
+<li>✗ Jangan sekali-kali masukkan maklumat sensitif</li>
+</ul>
+<p><strong>Contoh Baik:</strong></p>
+<ul>
+<li>"Hartanah berpagar - hubungi rumah pengawal dahulu"</li>
+<li>"Masa terbaik: Hujung minggu selepas 2 petang"</li>
+<li>"Pintu masuk sisi boleh diakses melalui lorong masuk"</li>
+</ul>
+<p><strong>Contoh Buruk:</strong></p>
+<ul>
+<li>Butiran peribadi tentang penduduk</li>
+<li>Maklumat perubatan atau kewangan</li>
+<li>Nama atau penerangan individu</li>
+</ul>
+<p><strong>6. Laraskan Kiraan Tiada di Rumah</strong> (Jika Diperlukan)</p>
+<p>Sistem secara automatik menjejak percubaan tiada di rumah, tetapi anda boleh melaraskan secara manual jika perlu.</p>
+<p><strong>7. Tetapkan Tarikh Jangan Panggil</strong> (Status DNC Sahaja)</p>
+<p>Apabila menandakan sebagai Jangan Panggil:</p>
+<ul>
+<li>Sistem lalai kepada tarikh hari ini</li>
+<li>Laraskan jika diperlukan untuk permintaan DNC tertentu</li>
+<li>Tarikh membantu menjejak bila untuk berpotensi melawat semula</li>
+</ul>
+<p><strong>8. Kemas Kini Geolokasi</strong> (Pentadbir Sahaja)</p>
+<p>Untuk wilayah satu tingkat:</p>
+<ul>
+<li>Klik butang "Kemas Kini Geolokasi"</li>
+<li>Gunakan peta untuk menetapkan lokasi tepat</li>
+<li>Membantu dengan navigasi dan ketepatan pemetaan</li>
+</ul>
+<p><strong>9. Simpan Perubahan</strong></p>
+<ul>
+<li>Semak semua kemas kini</li>
+<li>Klik butang <strong>"Simpan"</strong></li>
+<li>Perubahan disegerakkan serta-merta kepada semua pengguna</li>
+<li>Mesej kejayaan mengesahkan kemas kini</li>
+</ul>
+<p><strong>10. Padam Hartanah</strong> (Pentadbir Sahaja - Satu Tingkat)</p>
+<p>Untuk hartanah persendirian yang perlu dibuang:</p>
+<ul>
+<li>Klik butang "Padam Hartanah" di bahagian bawah</li>
+<li>Sahkan pemadaman</li>
+<li><strong>Amaran</strong>: Tindakan ini tidak boleh dibatalkan</li>
+</ul>
+<hr />
+<h3 id="menggunakan-ciri-peta">Menggunakan Ciri Peta<a class="headerlink" href="#menggunakan-ciri-peta" title="Permanent link">&para;</a></h3>
+<p><img alt="Arah Peta" src="../../assets/screenshots/map_directions.png" /></p>
+<p><em>Rajah 12: Paparan peta interaktif menunjukkan penanda dan kawalan navigasi</em></p>
+<p>Ministry Mapper mengintegrasikan pemetaan interaktif untuk navigasi wilayah intuitif.</p>
+<h4 id="ciri-peta">Ciri Peta<a class="headerlink" href="#ciri-peta" title="Permanent link">&para;</a></h4>
+<p><strong>Penanda Interaktif:</strong></p>
+<ul>
+<li>Setiap alamat ditandakan pada peta</li>
+<li>🔴 Penanda merah menunjukkan destinasi</li>
+<li>🔵 Penanda biru berkelip menunjukkan lokasi semasa</li>
+<li>Klik mana-mana penanda untuk melihat/edit alamat tersebut</li>
+</ul>
+<p><strong>Kawalan Peta:</strong></p>
+<ul>
+<li><strong>Zum</strong>: Butang + dan - atau gerak isyarat cubit</li>
+<li><strong>Sorot</strong>: Klik dan seret untuk bergerak</li>
+<li><strong>Paparan Satelit</strong>: Togol antara peta dan imejan satelit</li>
+<li><strong>Skrin Penuh</strong>: Kembangkan peta ke skrin penuh (atau gunakan Dail Pantas → Mod Paparan Peta)</li>
+<li><strong>Pusatkan pada Wilayah</strong>: Tetapkan semula paparan untuk menunjukkan semua alamat</li>
+</ul>
+<p><strong>Mod Paparan Peta Skrin Penuh</strong> (Pentadbir &amp; Konduktor):</p>
+<p><img alt="Mod Paparan Peta Pentadbir" src="../../assets/screenshots/admin_map_view_mode.png" /></p>
+<p><em>Rajah 12a: Mod paparan peta skrin penuh diakses melalui menu dail pantas</em></p>
+<p>Akses melalui Dail Pantas (➕) → ikon Paparan Peta. Ideal untuk:
+- Perancangan laluan sebelum khidmat lapangan
+- Analisis liputan wilayah
+- Persembahan mesyuarat
+- Mengenal pasti kelompok alamat</p>
+<h4 id="petua-navigasi">Petua Navigasi<a class="headerlink" href="#petua-navigasi" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>Sebelum Meninggalkan Rumah:</strong></p>
+</li>
+<li>
+<p>Lihat peta untuk merancang laluan anda</p>
+</li>
+<li>Kenal pasti kelompok alamat</li>
+<li>
+<p>Perhatikan sebarang keperluan akses khas dari nota</p>
+</li>
+<li>
+<p><strong>Dalam Lapangan:</strong></p>
+</li>
+<li>
+<p>Gunakan peta untuk navigasi antara alamat</p>
+</li>
+<li>Ikut nombor jujukan untuk penghalaan optimum</li>
+<li>
+<p>Ketik penanda untuk mengemas kini status dengan pantas selepas setiap lawatan</p>
+</li>
+<li>
+<p><strong>Menggunakan dengan GPS Telefon:</strong></p>
+</li>
+<li>Aktifkan perkhidmatan lokasi</li>
+<li>Peta menunjukkan kedudukan semasa anda</li>
+<li>Navigasi terus ke alamat seterusnya</li>
+<li>Berfungsi luar talian jika jubin peta dicache (terhad)</li>
+</ol>
+<hr />
+<h3 id="menambah-alamat-yang-tiada">Menambah Alamat yang Tiada<a class="headerlink" href="#menambah-alamat-yang-tiada" title="Permanent link">&para;</a></h3>
+<p>Jika anda mendapati alamat yang tiada semasa pemetaan, anda boleh menambahnya terus tanpa menghubungi pentadbir.</p>
+<blockquote>
+<p><strong>Nota:</strong> Ciri ini sesuai untuk jemaat yang masih membina rekod wilayah mereka.</p>
+</blockquote>
+<p><strong>Langkah-langkah:</strong></p>
+<ol>
+<li>Tatal ke bawah senarai alamat sehingga anda mencapai hujung senarai</li>
+<li>Ketuk kad <strong>"+"</strong> yang muncul di hujung senarai</li>
+<li>Masukkan butiran alamat (kod unit, tingkat, dll.)</li>
+<li>Ketuk <strong>"Simpan"</strong> untuk menyimpan alamat baharu</li>
+</ol>
+<p><img alt="Kad tambah alamat di hujung senarai untuk menambah alamat yang tiada" src="../../assets/screenshots/add_more_add.png" /></p>
+<p><em>Kad "+" di hujung senarai alamat membolehkan penerbit menambah alamat yang tiada semasa pemetaan</em></p>
+<hr />
+<h3 id="mendapatkan-arah">Mendapatkan Arah<a class="headerlink" href="#mendapatkan-arah" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper menyediakan perkhidmatan laluan terbina dalam untuk membantu anda menavigasi ke alamat semasa berada di lapangan.</p>
+<p><strong>Langkah-langkah:</strong></p>
+<ol>
+<li>Ketuk mana-mana alamat dalam senarai atau pada peta</li>
+<li>Ketuk butang <strong>"Arah"</strong> dalam paparan butiran alamat</li>
+<li>Pilih mod perjalanan yang dikehendaki:</li>
+<li>🚗 <strong>Memandu</strong> — untuk perjalanan dengan kenderaan</li>
+<li>🚶 <strong>Berjalan</strong> — untuk kawasan yang boleh diakses dengan berjalan kaki</li>
+<li>🚲 <strong>Berbasikal</strong> — untuk laluan basikal</li>
+<li>Laluan akan diplotkan dan ditunjukkan pada peta secara langsung</li>
+</ol>
+<p><img alt="Panel laluan menunjukkan pilihan mod perjalanan dan laluan yang diplotkan pada peta" src="../../assets/screenshots/map_routing.png" /></p>
+<p><em>Pilih mod perjalanan dan lihat laluan anda terus pada peta interaktif</em></p>
+<blockquote>
+<p><strong>💡 Tip:</strong> Gunakan mod berjalan untuk kawasan padat seperti perumahan atau blok flat di mana memandu mungkin lebih sukar.</p>
+</blockquote>
+<hr />
+<h3 id="tugasan-wilayah-konduktor-pentadbir">Tugasan Wilayah (Konduktor &amp; Pentadbir)<a class="headerlink" href="#tugasan-wilayah-konduktor-pentadbir" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper menggunakan sistem tugasan berasaskan pautan. Konduktor dan Pentadbir mencipta pautan boleh dikongsi yang penerbit gunakan untuk mengakses wilayah.</p>
+<h4 id="mengapa-tugasan-berasaskan-pautan">Mengapa Tugasan Berasaskan Pautan?<a class="headerlink" href="#mengapa-tugasan-berasaskan-pautan" title="Permanent link">&para;</a></h4>
+<ul>
+<li>✓ <strong>Pengedaran Mudah</strong>: Hantar pautan melalui e-mel, mesej, atau teks</li>
+<li>✓ <strong>Tamat Tempoh Automatik</strong>: Pautan tamat tempoh selepas masa yang ditetapkan (lalai: 24 jam)</li>
+<li>✓ <strong>Tiada Akaun Diperlukan</strong>: Penerbit bekerja terus melalui pautan</li>
+<li>✓ <strong>Keselamatan</strong>: Pautan tamat tempoh tidak boleh diakses</li>
+<li>✓ <strong>Penjejakan</strong>: Lihat siapa mengakses apa dan bila</li>
+</ul>
+<h4 id="mencipta-tugasan">Mencipta Tugasan<a class="headerlink" href="#mencipta-tugasan" title="Permanent link">&para;</a></h4>
+<p><strong>Dua Cara untuk Mencipta Tugasan:</strong></p>
+<p><img alt="Pautan Pantas Konduktor Pentadbir" src="../../assets/screenshots/admin_conductor_quicklink.png" /></p>
+<p><em>Rajah 13a: Antara muka penciptaan pautan pantas diakses melalui menu dail pantas</em></p>
+<table>
+<thead>
+<tr>
+<th>Kaedah</th>
+<th>Akses</th>
+<th>Paling Sesuai Untuk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pautan Pantas</strong></td>
+<td>Dail Pantas (➕) → Pautan Pantas</td>
+<td>Penciptaan pantas untuk wilayah semasa</td>
+</tr>
+<tr>
+<td><strong>Standard</strong></td>
+<td>Butang Tugasan → Cipta Baharu</td>
+<td>Pilihan penuh dan penyesuaian</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Langkah 1: Akses Penciptaan Tugasan</strong></p>
+<ul>
+<li><strong>Pautan Pantas</strong>: Klik Dail Pantas (➕) → ikon Pautan Pantas (pra-isi wilayah semasa)</li>
+<li><strong>Standard</strong>: Klik <strong>"Tugasan"</strong> → <strong>"Cipta Tugasan Baharu"</strong> atau <strong>"+"</strong></li>
+</ul>
+<p><strong>Langkah 2: Isi Borang Tugasan</strong></p>
+<table>
+<thead>
+<tr>
+<th>Medan</th>
+<th>Penerangan</th>
+<th>Diperlukan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jenis</strong></td>
+<td>Tugasan Biasa atau Slip Peribadi</td>
+<td>Ya</td>
+</tr>
+<tr>
+<td><strong>Wilayah</strong></td>
+<td>Pilih dari wilayah sidang</td>
+<td>Ya</td>
+</tr>
+<tr>
+<td><strong>Nama Penerbit</strong></td>
+<td>Untuk penjejakan (pautan berfungsi tanpa nama)</td>
+<td>Pilihan</td>
+</tr>
+<tr>
+<td><strong>Tamat Tempoh Pautan</strong></td>
+<td>Jam sehingga pautan tamat tempoh (lalai: 24)</td>
+<td>Ya</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Langkah 3: Jana dan Kongsi</strong></p>
+<ol>
+<li>Klik <strong>"Cipta Tugasan"</strong></li>
+<li>Sistem menjana pautan unik</li>
+<li>Kongsi pautan dengan penerbit melalui:</li>
+<li>E-mel</li>
+<li>Mesej teks</li>
+<li>Aplikasi pemesejan segera</li>
+<li>Sebarang kaedah komunikasi</li>
+</ol>
+<p><strong>Contoh Pautan Tugasan:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://your-ministry-mapper.com/map/abc123xyz456
+</code></pre></div>
+<h4 id="penciptaan-tugasan-khusus-peta">Penciptaan Tugasan Khusus Peta<a class="headerlink" href="#penciptaan-tugasan-khusus-peta" title="Permanent link">&para;</a></h4>
+<p>Cipta tugasan terus dari paparan peta tanpa menavigasi ke modal tugasan pusat.</p>
+<p><strong>Akses:</strong></p>
+<ol>
+<li>Navigasi ke wilayah yang anda mahu tugaskan</li>
+<li>Klik sama ada:</li>
+<li>Butang <strong>"Tugaskan"</strong> - cipta tugasan wilayah biasa</li>
+<li>Butang <strong>"Peribadi"</strong> - cipta tugasan slip peribadi</li>
+</ol>
+<p><strong>Tugasan Wilayah Biasa:</strong></p>
+<p><img alt="Menugaskan Penerbit Peta" src="../../assets/screenshots/assigning_publisher_map.png" /></p>
+<p><em>Rajah 13b: Borang penciptaan tugasan biasa khusus peta</em></p>
+<p>Klik <strong>"Tugaskan"</strong> untuk mencipta tugasan wilayah biasa. Borang memaparkan:</p>
+<ul>
+<li>Maklumat wilayah dalam pengepala</li>
+<li>Medan <strong>Nama Penerbit</strong> - masukkan nama penerbit yang ditugaskan</li>
+<li>Butang <strong>Batal</strong> dan <strong>Sahkan</strong></li>
+</ul>
+<p><strong>Tugasan Slip Peribadi:</strong></p>
+<p><img alt="Tugasan Peribadi Penerbit Peta" src="../../assets/screenshots/personal_assign_publisher_map.png" /></p>
+<p><em>Rajah 13c: Borang penciptaan slip peribadi khusus peta dengan kalendar</em></p>
+<p>Klik <strong>"Peribadi"</strong> untuk mencipta tugasan slip peribadi. Borang termasuk:</p>
+<ul>
+<li>Maklumat wilayah dalam pengepala</li>
+<li><strong>Pemilih kalendar</strong> - pilih tarikh tugasan</li>
+<li>Medan <strong>Nama Penerbit</strong> - masukkan nama penerbit yang ditugaskan</li>
+<li>Butang <strong>Batal</strong> dan <strong>Sahkan</strong></li>
+</ul>
+<p><strong>Faedah:</strong></p>
+<ul>
+<li>✓ Penciptaan tugasan pantas semasa melihat wilayah</li>
+<li>✓ Tiada perlu tukar ke modal tugasan</li>
+<li>✓ Konteks segera wilayah yang ditugaskan</li>
+</ul>
+<h4 id="mengurus-tugasan">Mengurus Tugasan<a class="headerlink" href="#mengurus-tugasan" title="Permanent link">&para;</a></h4>
+<p><img alt="Pengurusan Tugasan" src="../../assets/screenshots/assignment_management.png" /></p>
+<p><em>Rajah 14: Modal pengurusan tugasan menunjukkan semua tugasan aktif merentas wilayah</em></p>
+<p>Antara muka Pengurusan Tugasan membolehkan konduktor dan pentadbir melihat dan mengurus semua tugasan sedia ada dalam sidang.</p>
+<p><strong>Lihat Semua Tugasan:</strong></p>
+<ol>
+<li>Klik butang <strong>"Tugasan"</strong> dari papan pemuka</li>
+<li>Modal Tugasan dibuka memaparkan semua pautan tugasan aktif</li>
+<li>Lihat tugasan untuk semua wilayah dalam senarai berpusat</li>
+</ol>
+<p><strong>Maklumat Tugasan Dipaparkan:</strong></p>
+<p>Untuk setiap tugasan, anda boleh lihat:</p>
+<ul>
+<li><strong>Kod Wilayah dan Lokasi</strong>: Pengecam wilayah dengan penerangan lokasi (cth., "187A, Marsiling Road (M01)")</li>
+<li><strong>Jenis Tugasan</strong>: "Tugaskan" untuk tugasan biasa</li>
+<li><strong>Nama Penerbit</strong>: Nama orang yang ditugaskan (cth., Jon, Erli, Pety)</li>
+<li><strong>Tarikh/Masa Dicipta</strong>: Bila tugasan dicipta (cth., "Dec 22, 2025, 9:38 PM")</li>
+<li><strong>Tarikh/Masa Tamat Tempoh</strong>: Bila pautan tugasan tamat tempoh (cth., "Dec 23, 2025, 9:38 AM" atau "11:38 PM")</li>
+<li><strong>Butang Padam</strong>: Ikon tong sampah (🗑️) untuk membuang tugasan individu</li>
+</ul>
+<p><strong>Padam Tugasan:</strong></p>
+<ol>
+<li>Cari tugasan dalam senarai</li>
+<li>Klik butang <strong>ikon tong sampah</strong> (🗑️) di sebelah kanan tugasan</li>
+<li>Sahkan pemadaman jika diminta</li>
+<li>Pautan tugasan serta-merta menjadi tidak boleh diakses kepada penerbit</li>
+</ol>
+<p><strong>Bila untuk Memadam:</strong></p>
+<ul>
+<li>Wilayah dikembalikan awal oleh penerbit</li>
+<li>Pautan salah dicipta atau dihantar</li>
+<li>Penerbit tidak lagi memerlukan akses</li>
+<li>Tugasan perlu ditugaskan semula kepada orang lain</li>
+<li>Kebimbangan keselamatan atau kompromi</li>
+</ul>
+<p><strong>Menutup Modal Tugasan:</strong></p>
+<ul>
+<li>Klik butang <strong>"Batal"</strong> di bahagian bawah untuk menutup modal dan kembali ke papan pemuka</li>
+</ul>
+<h4 id="pengurusan-tugasan-khusus-peta">Pengurusan Tugasan Khusus Peta<a class="headerlink" href="#pengurusan-tugasan-khusus-peta" title="Permanent link">&para;</a></h4>
+<p>Lihat dan urus tugasan untuk wilayah individu terus dari paparan peta.</p>
+<p><strong>Akses:</strong></p>
+<ol>
+<li>Navigasi ke wilayah</li>
+<li>Klik sama ada:</li>
+<li><strong>"Pautan Tugasan"</strong> - untuk tugasan wilayah biasa</li>
+<li><strong>"Pautan Peribadi"</strong> - untuk tugasan slip peribadi</li>
+</ol>
+<p><img alt="Tugasan Peta Biasa" src="../../assets/screenshots/map_assign_links.png" /></p>
+<p><em>Rajah 14a: Modal Pautan Tugasan untuk wilayah tertentu</em></p>
+<p><img alt="Tugasan Peta Peribadi" src="../../assets/screenshots/map_personal_links.png" /></p>
+<p><em>Rajah 14b: Modal Pautan Peribadi untuk wilayah tertentu</em></p>
+<p><strong>Maklumat Dipaparkan:</strong></p>
+<ul>
+<li>Nama penerbit</li>
+<li>Tarikh/masa dicipta dan tamat tempoh</li>
+<li>Butang padam (🗑️) untuk membuang tugasan</li>
+</ul>
+<p><strong>Bila untuk Menggunakan:</strong></p>
+<ul>
+<li>Semak siapa yang kini mempunyai wilayah ditugaskan</li>
+<li>Buang tugasan semasa melihat wilayah</li>
+<li>Urus tugasan biasa dan peribadi secara berasingan</li>
+</ul>
+<h4 id="amalan-terbaik-untuk-tugasan">Amalan Terbaik untuk Tugasan<a class="headerlink" href="#amalan-terbaik-untuk-tugasan" title="Permanent link">&para;</a></h4>
+<p><strong>Sebelum Mencipta:</strong></p>
+<ul>
+<li>✓ Sahkan wilayah sedia (alamat dikemas kini, arahan jelas)</li>
+<li>✓ Semak tetapan sidang untuk masa tamat tempoh lalai</li>
+<li>✓ Rancang tempoh tamat tempoh yang sesuai untuk saiz wilayah</li>
+</ul>
+<p><strong>Semasa Berkongsi:</strong></p>
+<ul>
+<li>✓ Sertakan arahan dalam mesej anda</li>
+<li>✓ Ingatkan penerbit tentang masa tamat tempoh</li>
+<li>✓ Berikan kenalan anda untuk soalan</li>
+<li>✓ Hantar pada waktu yang munasabah</li>
+</ul>
+<p><strong>Pemantauan:</strong></p>
+<ul>
+<li>✓ Semakan berkala untuk tugasan tamat tempoh</li>
+<li>✓ Bersihkan tugasan lama secara berkala</li>
+<li>✓ Susulan jika wilayah tidak dikembalikan</li>
+<li>✓ Jejak kadar penyelesaian</li>
+</ul>
+<hr />
+<h3 id="mesej-dan-arahan">Mesej dan Arahan<a class="headerlink" href="#mesej-dan-arahan" title="Permanent link">&para;</a></h3>
+<p><img alt="Mesej Konduktor Pentadbir" src="../../assets/screenshots/admin_conductor_messages.png" /></p>
+<p><em>Rajah 15: Modal mesej menunjukkan mesej yang disiarkan dengan pilihan penyematan</em></p>
+<p>Pentadbir dan Konduktor boleh menyiarkan mesej yang kelihatan kepada kumpulan pengguna tertentu.</p>
+<h4 id="jenis-mesej">Jenis Mesej<a class="headerlink" href="#jenis-mesej" title="Permanent link">&para;</a></h4>
+<p><strong>Mesej Penerbit:</strong></p>
+<ul>
+<li>Kelihatan kepada semua penerbit dengan pautan tugasan</li>
+<li>Arahan untuk khidmat lapangan</li>
+<li>Panduan khusus wilayah</li>
+<li>Pengumuman umum</li>
+</ul>
+<p><strong>Mesej Konduktor:</strong></p>
+<ul>
+<li>Kelihatan kepada Konduktor dan Pentadbir</li>
+<li>Maklumat penyelarasan</li>
+<li>Nota pentadbiran</li>
+<li>Maklumat perancangan</li>
+</ul>
+<p><strong>Mesej Pentadbir:</strong></p>
+<ul>
+<li>Kelihatan kepada Pentadbir sahaja</li>
+<li>Nota pentadbiran sistem</li>
+<li>Kemas kini kritikal</li>
+<li>Peringatan pengurusan</li>
+</ul>
+<h4 id="menyiarkan-mesej">Menyiarkan Mesej<a class="headerlink" href="#menyiarkan-mesej" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Klik butang <strong>"Mesej"</strong></li>
+<li>Klik <strong>"Mesej Baharu"</strong> atau <strong>"+"</strong></li>
+<li>Taip mesej anda</li>
+<li>Pilih jenis mesej (Penerbit/Konduktor/Pentadbir)</li>
+<li>Pilihan <strong>semat</strong> mesej penting ke atas</li>
+<li>Klik <strong>"Siarkan"</strong></li>
+</ol>
+<h4 id="ciri-mesej">Ciri Mesej<a class="headerlink" href="#ciri-mesej" title="Permanent link">&para;</a></h4>
+<p><strong>Penyematan:</strong></p>
+<ul>
+<li>Semat mesej penting untuk mengekalkannya di atas</li>
+<li>Hanya satu mesej disemat bagi setiap jenis</li>
+<li>Lepaskan semat apabila tidak lagi kritikal</li>
+</ul>
+<p><strong>Pengeditan:</strong></p>
+<ul>
+<li>Edit mesej selepas menyiarkan</li>
+<li>Kemas kini serta-merta untuk semua penonton</li>
+</ul>
+<p><strong>Pemadaman:</strong></p>
+<ul>
+<li>Buang mesej lapuk</li>
+<li>Bersihkan selepas acara berlalu</li>
+</ul>
+<p><strong>Status Pembacaan:</strong></p>
+<ul>
+<li>Lihat siapa yang telah membaca mesej (paparan pentadbir)</li>
+<li>Jejak pengakuan kemas kini penting</li>
+</ul>
+<hr />
+<h3 id="penyegerakan-data-masa-nyata">Penyegerakan Data Masa Nyata<a class="headerlink" href="#penyegerakan-data-masa-nyata" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper menggunakan langganan masa nyata PocketBase untuk kemas kini segera:</p>
+<h4 id="cara-ia-berfungsi">Cara Ia Berfungsi<a class="headerlink" href="#cara-ia-berfungsi" title="Permanent link">&para;</a></h4>
+<p><strong>Penyegerakan Automatik:</strong></p>
+<ul>
+<li>Perubahan disegerakkan serta-merta merentas semua peranti yang disambungkan</li>
+<li>Tiada muat semula manual diperlukan</li>
+<li>Kemas kini muncul serta-merta untuk semua pengguna yang melihat wilayah yang sama</li>
+</ul>
+<p><strong>Apa yang Disegerakkan:</strong></p>
+<ul>
+<li>✓ Perubahan status alamat</li>
+<li>✓ Nota dan kemas kini baharu</li>
+<li>✓ Kemajuan wilayah</li>
+<li>✓ Mesej baharu</li>
+<li>✓ Perubahan tugasan</li>
+</ul>
+<p><strong>Pengendalian Sambungan:</strong></p>
+<ul>
+<li>Sistem mengesan kehilangan sambungan secara automatik</li>
+<li>Menyambung semula apabila internet dipulihkan</li>
+<li>Menunjukkan penunjuk status sambungan</li>
+<li>Barisan kemas kini jika luar talian (terhad)</li>
+</ul>
+<p><strong>Prestasi:</strong></p>
+<ul>
+<li>Kemas kini hanya apabila wilayah/halaman dibuka</li>
+<li>Pembersihan automatik apabila halaman ditutup</li>
+<li>Penggunaan jalur lebar minimum</li>
+<li>Dioptimumkan untuk data mudah alih</li>
+</ul>
+<blockquote>
+<p><strong>💡 Nota</strong>: Untuk kemas kini masa nyata berfungsi, pastikan tab pelayar anda aktif semasa bekerja pada wilayah.</p>
+</blockquote>
+<hr />
+<h3 id="pengurusan-pengguna-pentadbir-sahaja">Pengurusan Pengguna (Pentadbir Sahaja)<a class="headerlink" href="#pengurusan-pengguna-pentadbir-sahaja" title="Permanent link">&para;</a></h3>
+<p><img alt="Senarai Pengurusan Pengguna" src="../../assets/screenshots/manage_users_list.png" /></p>
+<p><em>Rajah 16: Panel pengurusan pengguna menunjukkan senarai pengguna dengan peranan</em></p>
+<p>Pentadbir mempunyai kawalan penuh ke atas akaun dan kebenaran pengguna dalam sidang mereka.</p>
+<h4 id="melihat-pengguna">Melihat Pengguna<a class="headerlink" href="#melihat-pengguna" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Klik <strong>ikon profil</strong> atau <strong>menu pengguna</strong> anda</li>
+<li>Pilih <strong>"Pengurusan Pengguna"</strong> atau <strong>"Pengguna"</strong></li>
+<li>Lihat senarai lengkap pengguna sidang menunjukkan:</li>
+<li>Nama pengguna</li>
+<li>Alamat e-mel</li>
+<li>Status pengesahan (✓ disahkan / ✗ tidak disahkan)</li>
+<li>Lencana peranan semasa</li>
+<li>Aktiviti terakhir</li>
+</ol>
+<h4 id="menjemput-pengguna-baharu">Menjemput Pengguna Baharu<a class="headerlink" href="#menjemput-pengguna-baharu" title="Permanent link">&para;</a></h4>
+<p><img alt="Jemput Pengguna" src="../../assets/screenshots/invite_users.png" /></p>
+<p><em>Rajah 17: Dialog jemputan pengguna untuk menambah ahli sidang baharu</em></p>
+<p><strong>Langkah 1: Buka Dialog Jemput</strong></p>
+<ol>
+<li>Dalam Pengurusan Pengguna, klik <strong>"Jemput Pengguna"</strong> atau <strong>"+"</strong></li>
+<li>Modal jemput pengguna dibuka</li>
+</ol>
+<p><strong>Langkah 2: Masukkan Maklumat Pengguna</strong></p>
+<ul>
+<li><strong>Alamat E-mel</strong>: E-mel pengguna (mesti sah)</li>
+<li><strong>Penetapan Peranan</strong>: Pilih satu daripada:</li>
+<li>Penerbit</li>
+<li>Baca Sahaja</li>
+<li>Konduktor</li>
+<li>Pentadbir</li>
+</ul>
+<p><strong>Langkah 3: Hantar Jemputan</strong></p>
+<ol>
+<li>Klik <strong>"Hantar Jemputan"</strong></li>
+<li>Sistem menghantar e-mel jemputan kepada pengguna</li>
+<li>E-mel mengandungi:</li>
+<li>Pautan untuk mencipta akaun</li>
+<li>Maklumat sidang</li>
+<li>Butiran penetapan peranan</li>
+<li>Arahan untuk bermula</li>
+</ol>
+<p><strong>Langkah 4: Pengguna Melengkapkan Pendaftaran</strong></p>
+<ul>
+<li>Pengguna menerima e-mel</li>
+<li>Klik pautan untuk mendaftar</li>
+<li>Cipta akaun dengan kata laluan</li>
+<li>Sahkan alamat e-mel</li>
+<li>Secara automatik ditambah ke sidang dengan peranan yang ditetapkan</li>
+</ul>
+<h4 id="menukar-peranan-pengguna">Menukar Peranan Pengguna<a class="headerlink" href="#menukar-peranan-pengguna" title="Permanent link">&para;</a></h4>
+<p><img alt="Butiran Pengurusan Pengguna" src="../../assets/screenshots/manage_users_details.png" /></p>
+<p><em>Rajah 18: Antara muka butiran dan pengurusan peranan pengguna</em></p>
+<ol>
+<li>Cari pengguna dalam senarai pengguna</li>
+<li>Klik pada pengguna atau butang <strong>"Edit"</strong></li>
+<li>Pilih peranan baharu dari dropdown:</li>
+<li><strong>Penerbit</strong>: Akses wilayah asas melalui pautan</li>
+<li><strong>Baca Sahaja</strong>: Akses papan pemuka lihat sahaja</li>
+<li><strong>Konduktor</strong>: Boleh mencipta tugasan dan mengurus mesej</li>
+<li><strong>Pentadbir</strong>: Kawalan penuh</li>
+<li>Klik <strong>"Simpan"</strong> atau <strong>"Kemas Kini"</strong></li>
+<li>Perubahan berkuat kuasa serta-merta</li>
+</ol>
+<blockquote>
+<p><strong>⚠️ Penting</strong>: Pengguna mesti log keluar dan log masuk semula untuk melihat kebenaran baharu mereka dicerminkan.</p>
+</blockquote>
+<h4 id="membuang-akses-pengguna">Membuang Akses Pengguna<a class="headerlink" href="#membuang-akses-pengguna" title="Permanent link">&para;</a></h4>
+<p><strong>Pembuangan Sementara:</strong></p>
+<ol>
+<li>Tukar peranan pengguna kepada <strong>"Tiada Akses"</strong> atau <strong>"Padam Akses"</strong></li>
+<li>Pengguna kehilangan semua kebenaran</li>
+<li>Akaun kekal tetapi tidak boleh mengakses data sidang</li>
+</ol>
+<p><strong>Pembuangan Kekal:</strong></p>
+<ol>
+<li>Klik butang <strong>"Padam"</strong> untuk pengguna</li>
+<li>Sahkan pemadaman</li>
+<li>Pengguna dibuang sepenuhnya dari sidang</li>
+<li>Pengguna boleh dijemput semula jika diperlukan</li>
+</ol>
+<h4 id="status-pengesahan-pengguna">Status Pengesahan Pengguna<a class="headerlink" href="#status-pengesahan-pengguna" title="Permanent link">&para;</a></h4>
+<p><strong>Pengguna Disahkan (✓):</strong></p>
+<ul>
+<li>Alamat e-mel disahkan</li>
+<li>Akses penuh kepada kebenaran yang ditetapkan</li>
+<li>Boleh log masuk secara normal</li>
+</ul>
+<p><strong>Pengguna Tidak Disahkan (✗):</strong></p>
+<ul>
+<li>E-mel belum disahkan</li>
+<li>Akses terhad atau tiada</li>
+<li>Perlu menyemak e-mel dan klik pautan pengesahan</li>
+</ul>
+<p><strong>Untuk Menghantar Semula Pengesahan:</strong></p>
+<ul>
+<li>Sesetengah sistem membenarkan menghantar semula e-mel pengesahan</li>
+<li>Atau minta pengguna menggunakan ciri "Lupa Kata Laluan"</li>
+</ul>
+<hr />
+<h3 id="tetapan-sidang-pentadbir-sahaja">Tetapan Sidang (Pentadbir Sahaja)<a class="headerlink" href="#tetapan-sidang-pentadbir-sahaja" title="Permanent link">&para;</a></h3>
+<p><img alt="Tetapan Sidang" src="../../assets/screenshots/congregation_settings.png" /></p>
+<p><em>Rajah 19: Halaman tetapan sidang dengan semua pilihan konfigurasi</em></p>
+<p>Konfigurasi cara Ministry Mapper berfungsi untuk sidang anda.</p>
+<h4 id="mengakses-tetapan">Mengakses Tetapan<a class="headerlink" href="#mengakses-tetapan" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Klik butang <strong>"Tetapan"</strong> atau ikon ⚙️</li>
+<li>Lihat panel konfigurasi sidang</li>
+</ol>
+<h4 id="tetapan-utama">Tetapan Utama<a class="headerlink" href="#tetapan-utama" title="Permanent link">&para;</a></h4>
+<p><strong>1. Percubaan "Tiada di Rumah" Maksimum</strong></p>
+<ul>
+<li>Lalai: 1</li>
+<li>Julat: 1-4 percubaan</li>
+<li>Apabila dicapai, alamat dianggap selesai untuk pengiraan kemajuan</li>
+<li>Mempengaruhi bila wilayah menunjukkan sebagai selesai</li>
+</ul>
+<p><strong>Contoh:</strong> Jika ditetapkan kepada 3:</p>
+<ul>
+<li>"Tiada di Rumah" pertama: Kiraan = 1</li>
+<li>"Tiada di Rumah" kedua: Kiraan = 2</li>
+<li>"Tiada di Rumah" ketiga: Kiraan = 3, ditandakan selesai</li>
+</ul>
+<p><strong>2. Tamat Tempoh Pautan Tugasan (Jam)</strong></p>
+<ul>
+<li>Lalai: 24 jam</li>
+<li>Julat: 1-168 jam (1 minggu)</li>
+<li>Berapa lama pautan tugasan kekal aktif</li>
+<li>Terpakai kepada pautan yang baru dicipta</li>
+</ul>
+<p><strong>3. Asal/Lokasi Sidang</strong></p>
+<ul>
+<li>Tetapkan lokasi sidang anda</li>
+<li>Digunakan untuk pemetaan dan arah pusat</li>
+<li>Boleh jadi nama bandar atau koordinat</li>
+<li>Membantu dengan perancangan laluan</li>
+</ul>
+<p><strong>4. OTP (Kata Laluan Sekali)</strong></p>
+<ul>
+<li>Aktifkan/lumpuhkan OTP e-mel untuk log masuk</li>
+<li>Menambah lapisan keselamatan tambahan</li>
+<li>Pengguna menerima kod melalui e-mel semasa log masuk</li>
+<li>Disyorkan untuk data sidang sensitif</li>
+</ul>
+<h4 id="pilihan-sidang-jenis-isi-rumah">Pilihan Sidang (Jenis Isi Rumah)<a class="headerlink" href="#pilihan-sidang-jenis-isi-rumah" title="Permanent link">&para;</a></h4>
+<p><img alt="Tetapan Pilihan Isi Rumah" src="../../assets/screenshots/household_options_settings.png" /></p>
+<p><em>Rajah 20: Pengurusan pilihan sidang menunjukkan konfigurasi jenis isi rumah</em></p>
+<p>Konfigurasi jenis klasifikasi isi rumah tersuai untuk wilayah anda.</p>
+<p><strong>Apakah Pilihan Sidang?</strong></p>
+<ul>
+<li>Kategori tersuai untuk mengklasifikasikan isi rumah</li>
+<li>Contoh: Kumpulan bahasa (Cina, Inggeris, Tamil)</li>
+<li>Boleh mewakili sebarang sistem klasifikasi yang sidang anda gunakan</li>
+<li>Berbilang jenis boleh ditetapkan kepada isi rumah tunggal jika dikonfigurasi</li>
+</ul>
+<p><strong>Mengurus Pilihan:</strong></p>
+<ol>
+<li>
+<p><strong>Lihat Pilihan</strong></p>
+</li>
+<li>
+<p>Dalam Tetapan, cari bahagian "Pilihan Sidang"</p>
+</li>
+<li>
+<p>Lihat senarai semua jenis yang dikonfigurasi</p>
+</li>
+<li>
+<p><strong>Tambah Pilihan Baharu</strong></p>
+</li>
+<li>
+<p>Klik "Tambah Pilihan" atau "+"</p>
+</li>
+<li>Isikan:<ul>
+<li><strong>Kod</strong>: Pengecam pendek (cth., "CHI", "ENG")</li>
+<li><strong>Penerangan</strong>: Nama penuh (cth., "Cina", "Inggeris")</li>
+<li><strong>Boleh Dikira</strong>: Tandakan jika perlu dikira ke arah kemajuan wilayah</li>
+<li><strong>Adalah Lalai</strong>: Tandakan jika perlu menjadi pilihan lalai</li>
+<li><strong>Jujukan</strong>: Nombor urutan paparan</li>
+</ul>
+</li>
+<li>
+<p>Klik "Simpan"</p>
+</li>
+<li>
+<p><strong>Edit Pilihan</strong></p>
+</li>
+<li>
+<p>Klik pada pilihan sedia ada</p>
+</li>
+<li>Ubah suai medan</li>
+<li>
+<p>Simpan perubahan</p>
+</li>
+<li>
+<p><strong>Padam Pilihan</strong></p>
+</li>
+<li>Klik butang padam untuk pilihan</li>
+<li>Sahkan pemadaman</li>
+<li><strong>Amaran</strong>: Mempengaruhi semua alamat yang menggunakan jenis ini</li>
+</ol>
+<p><strong>Bendera Pilihan:</strong></p>
+<p><strong>Boleh Dikira:</strong>
+- Mengawal sama ada alamat dengan jenis ini dikira ke arah kemajuan wilayah
+- <strong>Ditandakan</strong>: Disertakan dalam pengiraan kemajuan (cth., Cina, Inggeris, Tamil)
+- <strong>Tidak Ditandakan</strong>: Dikecualikan dari kemajuan (cth., Perniagaan, Dalam Pembinaan)
+- Contoh: 100 jumlah alamat, 10 ditandakan "Perniagaan" (tidak boleh dikira) = kemajuan berdasarkan 90 alamat sahaja</p>
+<p><strong>Adalah Lalai:</strong>
+- Pilih automatik jenis ini semasa mencipta alamat baharu
+- Hanya satu pilihan perlu menjadi lalai
+- Gunakan untuk jenis isi rumah anda yang paling biasa</p>
+<p><strong>Jujukan:</strong>
+- Mengawal urutan paparan dalam menu dropdown
+- Nombor lebih rendah muncul dahulu (1, 2, 3...)
+- <strong>Diurus dengan seret dan lepas</strong> dalam tetapan - hanya seret pilihan untuk menyusun semula
+- Mempengaruhi urutan dalam dropdown isi rumah alamat
+- Petua: Susun dari paling biasa ke paling kurang biasa</p>
+<p><strong>Konfigurasi Pemilihan Berbilang:</strong></p>
+<ul>
+<li>Aktifkan jika isi rumah boleh mempunyai berbilang jenis</li>
+<li>Contoh: Isi rumah bercakap kedua-dua Cina dan Inggeris</li>
+<li>Apabila dilumpuhkan, hanya satu jenis bagi setiap isi rumah</li>
+</ul>
+<h4 id="konfigurasi-peta">Konfigurasi Peta<a class="headerlink" href="#konfigurasi-peta" title="Permanent link">&para;</a></h4>
+<p><img alt="Konfigurasi Peta" src="../../assets/screenshots/map_configurations.png" /></p>
+<p><em>Rajah 34: Pilihan konfigurasi peta lanjutan untuk pentadbir</em></p>
+<p>Konfigurasi cara peta dipaparkan dan berkelakuan dalam sidang anda. Pentadbir mempunyai akses kepada fungsi pengurusan peta yang berkuasa untuk penyelenggaraan dan organisasi wilayah.</p>
+<p><strong>Untuk Mengakses Konfigurasi Peta:</strong></p>
+<ol>
+<li>Pergi ke <strong>Tetapan</strong> (Pentadbir sahaja)</li>
+<li>Pilih wilayah dari dropdown</li>
+<li>Buka paparan peta untuk wilayah yang dipilih</li>
+<li>Akses menu konfigurasi peta (biasanya melalui ikon tetapan atau menu)</li>
+</ol>
+<p><strong>Fungsi Konfigurasi Peta Tersedia:</strong></p>
+<p><strong>1. Tukar Lokasi</strong>
+   - Pindahkan penanda peta ke alamat berbeza
+   - Mengemas kini lokasi geografi unit wilayah
+   - Berguna apabila alamat telah berubah atau lokasi awal tidak betul
+   - Hanya pilih lokasi baharu pada peta</p>
+<p><strong>2. Tukar Wilayah</strong>
+   - Pindahkan alamat atau unit ke wilayah berbeza
+   - Membantu menyusun semula sempadan wilayah
+   - Berguna untuk mengimbangi saiz wilayah
+   - Mengekalkan semua data dan sejarah alamat semasa pemindahan</p>
+<p><strong>3. Tukar Jujukan</strong>
+   - Ubah suai nombor urutan lawatan untuk alamat
+   - Mengoptimumkan laluan untuk kecekapan khidmat lapangan
+   - Nombor lebih rendah dilawati dahulu
+   - Membantu mencipta corak lawatan logik</p>
+<h5 id="kemas-kini-jujukan-peta-seret-lepas">Kemas Kini Jujukan Peta (Seret &amp; Lepas)<a class="headerlink" href="#kemas-kini-jujukan-peta-seret-lepas" title="Permanent link">&para;</a></h5>
+<p><img alt="Kemas Kini Jujukan Peta" src="../../assets/screenshots/update_map_sequence.png" /></p>
+<p><em>Antara muka seret dan lepas untuk menyusun semula semua jujukan peta dalam wilayah</em></p>
+<p><strong>Akses:</strong> Menu alamat → "Tukar Jujukan"</p>
+<p><strong>Cara Ia Berfungsi:</strong>
+1. Setiap kad menunjukkan alamat dengan nombor jujukan semasa
+2. Seret dan lepas untuk menyusun semula - nombor dikemas kini secara automatik
+3. Klik <strong>"Simpan"</strong> untuk menggunakan atau <strong>"Batal"</strong> untuk membuang</p>
+<p><strong>Amalan Terbaik:</strong>
+- Minimumkan pengulangan dengan mengumpulkan alamat berdekatan
+- Kumpulkan tingkat bersama dalam bangunan berbilang tingkat
+- Cipta aliran logik dari satu hujung ke hujung yang lain
+- Semak paparan peta selepas penjujukan</p>
+<p><strong>4. Namakan Semula</strong>
+   - Tukar nama atau pengecam alamat/unit
+   - Kemas kini nama bangunan atau nombor unit
+   - Pastikan data terkini dengan perubahan dunia sebenar
+   - Berguna untuk membetulkan ralat kemasukan awal</p>
+<p><strong>5. Tambah No. Unit</strong>
+   - Tambah nombor unit baharu ke alamat sedia ada
+   - Kembangkan bangunan berbilang tingkat dengan unit tambahan
+   - Berguna apabila apartmen baharu ditambah ke bangunan
+   - Mengekalkan organisasi struktur bangunan</p>
+<p><strong>6. Tambah Tingkat Lebih Tinggi</strong>
+   - Kembangkan bangunan ke atas dengan tingkat tambahan
+   - Untuk bangunan yang telah dikembangkan atau pada awalnya dikurangkan anggaran
+   - Secara automatik mencipta unit untuk tingkat baharu berdasarkan corak bangunan
+   - Membantu memastikan data wilayah terkini dengan perubahan pembinaan</p>
+<p><strong>7. Tambah Tingkat Lebih Rendah</strong>
+   - Tambah tingkat di bawah tingkat terendah semasa
+   - Berguna untuk tahap bawah tanah atau tingkat bawah yang baru boleh diakses
+   - Boleh menambah nombor tingkat negatif (cth., B1, B2)
+   - Mengekalkan sistem penomboran tingkat yang konsisten</p>
+<p><strong>8. Tetapkan Semula Status</strong>
+   - Kosongkan status alamat kembali ke "Belum Selesai"
+   - Membuang status "Selesai" dan "Tiada di Rumah" sahaja
+   - TIDAK membuang status "Jangan Panggil" atau "Tidak Sah"
+   - Mengekalkan nota dan maklumat alamat lain
+   - Berguna apabila memulakan semula kerja pada alamat yang sebelumnya selesai
+   - Tidak mempengaruhi alamat lain dalam wilayah</p>
+<p><strong>9. Padam</strong>
+   - Buang secara kekal alamat, unit, atau tingkat dari wilayah
+   - Tidak boleh dibatalkan - gunakan dengan berhati-hati
+   - Membantu membuang entri pendua atau alamat yang tidak wujud
+   - Sahkan dengan teliti sebelum memadam</p>
+<p><strong>Kes Penggunaan Biasa:</strong>
+- Membetulkan ralat: Namakan Semula dan Tukar Lokasi
+- Pengimbangan semula wilayah: Tukar Wilayah
+- Kemas kini bangunan: Tambah Tingkat Lebih Tinggi/Rendah
+- Pengoptimuman laluan: Tukar Jujukan
+- Pembersihan data: Padam pendua
+- Kemas kini bermusim: Tetapkan Semula Status</p>
+<blockquote>
+<p><strong>⚠️ Amaran</strong>: Perubahan mempengaruhi semua pengguna serta-merta. Padam adalah kekal dan tidak boleh dibatalkan.</p>
+</blockquote>
+<hr />
+<h3 id="pengurusan-wilayah-pentadbir-sahaja">Pengurusan Wilayah (Pentadbir Sahaja)<a class="headerlink" href="#pengurusan-wilayah-pentadbir-sahaja" title="Permanent link">&para;</a></h3>
+<p><img alt="Cipta Wilayah Baharu" src="../../assets/screenshots/create_new_territory.png" /></p>
+<p><em>Rajah 21: Antara muka penciptaan wilayah untuk menambah wilayah baharu</em></p>
+<p>Pentadbir mempunyai kawalan penuh ke atas mencipta, mengedit, dan mengurus wilayah.</p>
+<h4 id="mencipta-wilayah-baharu">Mencipta Wilayah Baharu<a class="headerlink" href="#mencipta-wilayah-baharu" title="Permanent link">&para;</a></h4>
+<p><strong>Langkah 1: Akses Penciptaan Wilayah</strong></p>
+<ol>
+<li>Klik dropdown <strong>pemilih wilayah</strong></li>
+<li>Pilih <strong>"Cipta Wilayah Baharu"</strong> atau <strong>"Wilayah Baharu"</strong></li>
+<li>Borang penciptaan wilayah dibuka</li>
+</ol>
+<p><strong>Langkah 2: Masukkan Maklumat Wilayah</strong></p>
+<ul>
+<li><strong>Kod Wilayah</strong>: Pengecam pendek (cth., "T-001", "M-12", "W-05")</li>
+<li>Pastikan ia pendek dan bermakna</li>
+<li>Gunakan konvensyen penamaan yang konsisten</li>
+<li>Maksimum disyorkan: 10 aksara</li>
+<li><strong>Penerangan</strong>: Nama penuh atau penerangan kawasan</li>
+<li>Contoh: "Komersial Pusat Bandar", "Kediaman Utara"</li>
+<li>Jadi deskriptif untuk pengenalan mudah</li>
+<li>Maksimum disyorkan: 100 aksara</li>
+</ul>
+<p><strong>Langkah 3: Cipta</strong></p>
+<ol>
+<li>Klik <strong>"Cipta Wilayah"</strong></li>
+<li>Wilayah baharu dicipta dan dipilih</li>
+<li>Sedia untuk menambah alamat</li>
+</ol>
+<h4 id="mengedit-butiran-wilayah">Mengedit Butiran Wilayah<a class="headerlink" href="#mengedit-butiran-wilayah" title="Permanent link">&para;</a></h4>
+<p><strong>Tukar Kod Wilayah:</strong></p>
+<ol>
+<li>Pilih wilayah</li>
+<li>Klik ✏️ <strong>"Edit"</strong> atau <strong>"Tukar Kod Wilayah"</strong></li>
+<li>Masukkan kod baharu</li>
+<li>Simpan perubahan</li>
+<li><strong>Amaran</strong>: Kemas kini sebarang rujukan kepada kod lama</li>
+</ol>
+<p><strong>Tukar Penerangan Wilayah:</strong></p>
+<ol>
+<li>Pilih wilayah</li>
+<li>Klik <strong>"Tukar Nama Wilayah"</strong> atau pilihan edit</li>
+<li>Kemas kini penerangan</li>
+<li>Simpan perubahan</li>
+</ol>
+<p><strong>Tukar Jujukan Wilayah:</strong></p>
+<h5 id="kemas-kini-jujukan-wilayah-seret-lepas">Kemas Kini Jujukan Wilayah (Seret &amp; Lepas)<a class="headerlink" href="#kemas-kini-jujukan-wilayah-seret-lepas" title="Permanent link">&para;</a></h5>
+<p><img alt="Kemas Kini Jujukan Wilayah" src="../../assets/screenshots/territory_sequence_change.png" /></p>
+<p><em>Antara muka seret dan lepas untuk menyusun semula semua wilayah dalam sidang</em></p>
+<p><strong>Akses:</strong> Dropdown Wilayah → "Tukar Jujukan"</p>
+<p><strong>Cara Ia Berfungsi:</strong>
+1. Setiap kad menunjukkan kod dan penerangan wilayah
+2. Seret dan lepas untuk menyusun semula - nombor jujukan dikemas kini secara automatik
+3. Klik <strong>"Simpan"</strong> untuk menggunakan atau <strong>"Batal"</strong> untuk membuang
+4. Mengawal urutan dalam dropdown dan senarai pemilihan</p>
+<p><strong>Amalan Terbaik:</strong>
+- Susun mengikut kedekatan geografi
+- Kumpulkan mengikut jenis (kediaman, komersial, perniagaan)
+- Pertimbangkan tugasan kumpulan khidmat lapangan
+- Gunakan untuk perancangan putaran wilayah</p>
+<h4 id="pilihan-konfigurasi-wilayah">Pilihan Konfigurasi Wilayah<a class="headerlink" href="#pilihan-konfigurasi-wilayah" title="Permanent link">&para;</a></h4>
+<p><img alt="Pilihan Konfigurasi Wilayah" src="../../assets/screenshots/territory_configurations.png" /></p>
+<p><em>Menu dropdown wilayah menunjukkan pilihan konfigurasi</em></p>
+<p>Pentadbir boleh mengakses pilihan konfigurasi wilayah melalui butang <strong>Dropdown Wilayah</strong> dalam bar navigasi atas. Klik butang untuk mendedahkan pilihan berikut:</p>
+<p><strong>Pilihan Tersedia:</strong></p>
+<ul>
+<li><strong>Cipta Baharu</strong>: Cipta wilayah baharu dari awal</li>
+<li><strong>Tukar Kod</strong>: Ubah suai pengecam unik wilayah</li>
+<li><strong>Tukar Nama</strong>: Kemas kini penerangan wilayah</li>
+<li><strong>Tukar Jujukan</strong>: Susun semula cara wilayah muncul dalam senarai pemilihan</li>
+<li><strong>Padam Semasa</strong>: Buang secara kekal wilayah yang sedang dipilih</li>
+<li><strong>Tetapkan Semula Status</strong>: Kosongkan semua status alamat kembali ke "Belum Selesai"</li>
+</ul>
+<p>Pilihan ini menyediakan akses pantas kepada tugas pengurusan wilayah biasa tanpa menavigasi melalui berbilang menu.</p>
+<h4 id="operasi-wilayah">Operasi Wilayah<a class="headerlink" href="#operasi-wilayah" title="Permanent link">&para;</a></h4>
+<p><strong>Tetapkan Semula Wilayah:</strong></p>
+<p><img alt="Cipta Peta Baharu" src="../../assets/screenshots/create_new_map.png" /></p>
+<p><em>Rajah 22: Antara muka operasi dan pengurusan wilayah</em></p>
+<p>Menetapkan semula semua alamat dalam wilayah kepada status "Belum Selesai":</p>
+<ol>
+<li>Pilih wilayah</li>
+<li>Klik butang <strong>"Tetapkan Semula Wilayah"</strong></li>
+<li>Sahkan tindakan (ini mengosongkan semua data lawatan!)</li>
+<li>Semua alamat kembali ke "Belum Selesai"</li>
+<li>Kiraan tiada di rumah ditetapkan semula kepada 0</li>
+<li>Nota dikekalkan</li>
+<li>Kemajuan ditetapkan semula kepada 0%</li>
+</ol>
+<p><strong>Gunakan Bila:</strong></p>
+<ul>
+<li>Wilayah sepenuhnya dikerjakan dan sedia untuk ditugaskan semula</li>
+<li>Memulakan pusingan lawatan baharu</li>
+<li>Membersihkan data ujian</li>
+</ul>
+<p><strong>⚠️ Amaran</strong>: Tidak boleh dibatalkan. Semua kemas kini status akan hilang.</p>
+<p><strong>Padam Wilayah:</strong></p>
+<p><img alt="Senarai Pemilihan Wilayah" src="../../assets/screenshots/territory_selection_list.png" /></p>
+<p><em>Rajah 23: Senarai pemilihan wilayah menunjukkan semua wilayah yang tersedia</em></p>
+<p>Membuang secara kekal wilayah dan semua datanya:</p>
+<ol>
+<li>Pilih wilayah untuk dipadam</li>
+<li>Klik butang <strong>"Padam Wilayah"</strong></li>
+<li>Baca mesej amaran dengan teliti</li>
+<li>Taip pengesahan jika diperlukan</li>
+<li>Sahkan pemadaman</li>
+</ol>
+<p><strong>Memadam:</strong></p>
+<ul>
+<li>Rekod wilayah</li>
+<li>Semua alamat dalam wilayah</li>
+<li>Semua unit dan tingkat</li>
+<li>Semua sejarah tugasan</li>
+<li>Semua data berkaitan</li>
+</ul>
+<p><strong>⚠️ Amaran Kritikal</strong>: Tindakan ini TIDAK BOLEH dibatalkan. Pertimbangkan untuk mengeksport data terlebih dahulu.</p>
+<hr />
+<h3 id="pengurusan-alamat-pentadbir-sahaja">Pengurusan Alamat (Pentadbir Sahaja)<a class="headerlink" href="#pengurusan-alamat-pentadbir-sahaja" title="Permanent link">&para;</a></h3>
+<p><img alt="Peta Satu Tingkat" src="../../assets/screenshots/single_story_map.png" /></p>
+<p><em>Rajah 24: Antara muka pengurusan alamat untuk hartanah persendirian/satu tingkat</em></p>
+<p>Pentadbir boleh menambah dan mengurus alamat dalam wilayah.</p>
+<h4 id="jenis-alamat">Jenis Alamat<a class="headerlink" href="#jenis-alamat" title="Permanent link">&para;</a></h4>
+<p>Ministry Mapper menyokong dua jenis alamat:</p>
+<p><strong>1. Alamat Awam (Berbilang Tingkat)</strong></p>
+<ul>
+<li>Bangunan apartmen, kondominium</li>
+<li>Berbilang tingkat dan unit</li>
+<li>Contoh: Flat HDB, kompleks apartmen</li>
+<li>Setiap tingkat mempunyai berbilang unit</li>
+</ul>
+<p><strong>2. Alamat Persendirian (Satu Tingkat)</strong></p>
+<ul>
+<li>Rumah individu, rumah kedai</li>
+<li>Hartanah tunggal dengan satu alamat</li>
+<li>Contoh: Hartanah bertanah, bangunan berdiri sendiri</li>
+<li>Tiada struktur tingkat/unit</li>
+</ul>
+<h4 id="menambah-alamat-awam-berbilang-tingkat">Menambah Alamat Awam (Berbilang Tingkat)<a class="headerlink" href="#menambah-alamat-awam-berbilang-tingkat" title="Permanent link">&para;</a></h4>
+<p><strong>Langkah 1: Mulakan Penciptaan</strong></p>
+<ol>
+<li>Pilih wilayah</li>
+<li>Klik butang <strong>"Tambah Alamat"</strong> atau <strong>"+"</strong></li>
+<li>Pilih jenis <strong>"Alamat Awam"</strong></li>
+</ol>
+<p><strong>Langkah 2: Masukkan Maklumat Bangunan</strong></p>
+<ul>
+<li><strong>Poskod/Alamat</strong>: Pengecam bangunan</li>
+<li>Masukkan poskod atau alamat jalan</li>
+<li>Sistem mungkin mengisi lokasi secara automatik</li>
+<li>Digunakan untuk geokod dan paparan peta</li>
+<li><strong>Nama Bangunan</strong>: Nama bangunan pilihan</li>
+<li>Contoh: "Blok 123A", "Sunny Heights"</li>
+<li>Membantu penerbit mengenal pasti bangunan</li>
+</ul>
+<p><strong>Langkah 3: Konfigurasi Tingkat</strong></p>
+<p><img alt="Peta Berbilang Tingkat" src="../../assets/screenshots/multi_story_map.png" /></p>
+<p><em>Rajah 25: Pengurusan bangunan berbilang tingkat dengan organisasi tingkat dan unit</em></p>
+<ul>
+<li><strong>Tingkat Mula</strong>: Nombor tingkat terendah</li>
+<li>Boleh negatif untuk tahap bawah tanah</li>
+<li>Contoh: -2 (B2), 1 (Bawah), 0</li>
+<li><strong>Tingkat Atas</strong>: Nombor tingkat tertinggi</li>
+<li>Maksimum: 50</li>
+<li>Contoh: 10, 25, 40</li>
+<li><strong>Pemilihan Tingkat</strong>: Pilih tingkat tertentu</li>
+<li>Langkau tingkat tanpa unit (cth., tingkat mekanikal)</li>
+<li>Biasa: Semua tingkat dari mula ke atas</li>
+</ul>
+<p><strong>Langkah 4: Konfigurasi Unit</strong></p>
+<ul>
+<li><strong>Unit Setiap Tingkat</strong>: Bilangan unit pada setiap tingkat</li>
+<li>Contoh: 8, 12, 16</li>
+<li>Mencipta unit secara automatik</li>
+<li><strong>Format Nombor Unit</strong>: Cara menomborkan unit</li>
+<li>Corak: Tingkat + unit (cth., 01-01, 01-02)</li>
+<li>Tersuai: Masukkan nombor unit secara manual kemudian</li>
+</ul>
+<p><strong>Langkah 5: Cipta dan Isi</strong></p>
+<ol>
+<li>Klik <strong>"Cipta"</strong></li>
+<li>Sistem menjana semua tingkat dan unit</li>
+<li>Alamat muncul dalam wilayah dengan semua unit</li>
+</ol>
+<p><strong>Contoh:</strong></p>
+<ul>
+<li>Bangunan: Blok 123</li>
+<li>Tingkat: 1 hingga 12</li>
+<li>Unit setiap tingkat: 8</li>
+<li>Hasil: 96 unit dicipta (12 tingkat × 8 unit)</li>
+</ul>
+<h4 id="menambah-alamat-persendirian-satu-tingkat">Menambah Alamat Persendirian (Satu Tingkat)<a class="headerlink" href="#menambah-alamat-persendirian-satu-tingkat" title="Permanent link">&para;</a></h4>
+<p><strong>Langkah 1: Mulakan Penciptaan</strong></p>
+<ol>
+<li>Pilih wilayah</li>
+<li>Klik <strong>"Tambah Alamat"</strong> atau <strong>"+"</strong></li>
+<li>Pilih jenis <strong>"Alamat Persendirian"</strong></li>
+</ol>
+<p><strong>Langkah 2: Masukkan Maklumat Hartanah</strong></p>
+<ul>
+<li><strong>Poskod/Alamat Hartanah</strong>: Pengecam unik</li>
+<li>Alamat jalan atau poskod</li>
+<li>Setiap hartanah adalah satu rekod</li>
+<li><strong>Nama Hartanah</strong>: Nama rumah pilihan</li>
+<li>Contoh: "123 Jalan Utama", "Villa Sunshine"</li>
+</ul>
+<p><strong>Langkah 3: Tetapkan Lokasi (Pilihan)</strong></p>
+<ul>
+<li>Klik <strong>"Tetapkan Geolokasi"</strong></li>
+<li>Gunakan peta untuk menunjukkan lokasi tepat</li>
+<li>Membantu dengan navigasi</li>
+<li>Boleh dikemas kini kemudian</li>
+</ul>
+<p><strong>Langkah 4: Cipta</strong></p>
+<ol>
+<li>Klik <strong>"Cipta Hartanah"</strong></li>
+<li>Unit alamat tunggal dicipta</li>
+<li>Muncul dalam senarai wilayah</li>
+</ol>
+<h4 id="mengurus-alamat-sedia-ada">Mengurus Alamat Sedia Ada<a class="headerlink" href="#mengurus-alamat-sedia-ada" title="Permanent link">&para;</a></h4>
+<p><strong>Edit Nama Alamat:</strong></p>
+<ol>
+<li>Pilih wilayah dengan alamat</li>
+<li>Klik pilihan edit untuk alamat</li>
+<li>Kemas kini nama/poskod</li>
+<li>Simpan perubahan</li>
+</ol>
+<p><strong>Tukar Poskod:</strong></p>
+<ol>
+<li>Akses mod edit alamat</li>
+<li>Kemas kini medan poskod</li>
+<li>Mungkin mempengaruhi geokod</li>
+<li>Simpan dan sahkan lokasi peta</li>
+</ol>
+<p><strong>Tetapkan Semula Alamat:</strong></p>
+<ul>
+<li>Mengosongkan semua status unit dalam alamat</li>
+<li>Nota dikekalkan</li>
+<li>Gunakan apabila alamat sepenuhnya dikerjakan</li>
+</ul>
+<p><strong>Padam Alamat:</strong></p>
+<ul>
+<li>Membuang keseluruhan alamat dan semua unit</li>
+<li>Tidak boleh dibatalkan</li>
+<li>Sahkan dengan teliti sebelum memadam</li>
+</ul>
+<h4 id="mengurus-unit-alamat-awam-sahaja">Mengurus Unit (Alamat Awam Sahaja)<a class="headerlink" href="#mengurus-unit-alamat-awam-sahaja" title="Permanent link">&para;</a></h4>
+<p><strong>Tambah Unit:</strong></p>
+<ol>
+<li>Pilih alamat</li>
+<li>Klik <strong>"Tambah Unit"</strong></li>
+<li>Nyatakan nombor unit untuk ditambah</li>
+<li>Unit dicipta secara automatik</li>
+</ol>
+<p><strong>Padam Unit:</strong></p>
+<ol>
+<li>Klik pada unit tertentu</li>
+<li>Klik butang <strong>"Padam Unit"</strong> dalam modal</li>
+<li>Sahkan pemadaman</li>
+<li>Unit dibuang dari alamat</li>
+</ol>
+<p><strong>Tukar Jujukan Unit:</strong></p>
+<ol>
+<li>Buka modal edit unit</li>
+<li>Kemas kini nombor jujukan</li>
+<li>Mempengaruhi urutan lawatan</li>
+<li>Nombor lebih rendah dilawati dahulu</li>
+</ol>
+<p><strong>Tambah/Padam Tingkat:</strong></p>
+<ol>
+<li>Akses pengurusan tingkat</li>
+<li>Tambah nombor tingkat baharu</li>
+<li>Atau buang keseluruhan tingkat</li>
+<li>Semua unit pada tingkat terjejas</li>
+</ol>
+<p><strong>Kemas Kini Geolokasi Unit:</strong></p>
+<ul>
+<li>Tetapkan koordinat khusus untuk unit</li>
+<li>Berguna untuk bangunan besar</li>
+<li>Membantu dengan navigasi tepat</li>
+<li>Ciri pilihan</li>
+</ul>
+<hr />
+<hr />
+<h2 id="penggunaan-mudah-alih">Penggunaan Mudah Alih<a class="headerlink" href="#penggunaan-mudah-alih" title="Permanent link">&para;</a></h2>
+<p><img alt="Paparan Peta Tugasan Penerbit" src="../../assets/screenshots/publisher_assignment_map_view.png" /></p>
+<p><em>Rajah 26: Antara muka responsif mudah alih dioptimumkan untuk khidmat lapangan</em></p>
+<h3 id="menggunakan-ministry-mapper-pada-telefon-anda">Menggunakan Ministry Mapper pada Telefon Anda<a class="headerlink" href="#menggunakan-ministry-mapper-pada-telefon-anda" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper sepenuhnya responsif dan dioptimumkan untuk peranti mudah alih, menjadikannya sempurna untuk khidmat lapangan.</p>
+<h4 id="mengakses-pada-mudah-alih">Mengakses pada Mudah Alih<a class="headerlink" href="#mengakses-pada-mudah-alih" title="Permanent link">&para;</a></h4>
+<p><strong>Akses Pelayar:</strong></p>
+<ol>
+<li>Buka pelayar mudah alih anda:</li>
+<li><strong>iOS</strong>: Safari, Chrome</li>
+<li><strong>Android</strong>: Chrome, Firefox, Samsung Internet</li>
+<li>Navigasi ke URL Ministry Mapper sidang anda</li>
+<li>Log masuk atau klik pautan tugasan</li>
+<li>Antara muka menyesuaikan secara automatik kepada saiz skrin anda</li>
+</ol>
+<p><strong>Ciri pada Mudah Alih:</strong></p>
+<ul>
+<li>✓ Butang dan kawalan mesra sentuh</li>
+<li>✓ Gerak isyarat leret untuk navigasi</li>
+<li>✓ Susun atur dioptimumkan untuk skrin kecil</li>
+<li>✓ Sasaran ketik lebih besar untuk pemilihan mudah</li>
+<li>✓ Akses penuh kepada semua ciri desktop</li>
+<li>✓ Integrasi peta interaktif dengan GPS</li>
+</ul>
+<h4 id="pemasangan-aplikasi-web-progresif-pwa">Pemasangan Aplikasi Web Progresif (PWA)<a class="headerlink" href="#pemasangan-aplikasi-web-progresif-pwa" title="Permanent link">&para;</a></h4>
+<p><img alt="Mod Paparan Peta Satu Tingkat" src="../../assets/screenshots/single_story_map_view_mode.png" /></p>
+<p><em>Rajah 27: Mod paparan peta skrin penuh tersedia dalam pemasangan PWA</em></p>
+<p>Pasang Ministry Mapper sebagai aplikasi untuk prestasi lebih baik:</p>
+<p><strong>Faedah Pemasangan:</strong></p>
+<ul>
+<li>🚀 Pemuatan lebih pantas dengan sumber dicache</li>
+<li>📱 Ikon aplikasi pada skrin utama</li>
+<li>🎯 Pengalaman skrin penuh (tiada UI pelayar)</li>
+<li>⚡ Prestasi dipertingkatkan</li>
+<li>🔔 Integrasi lebih baik dengan peranti</li>
+</ul>
+<p><strong>Pemasangan iOS (Safari):</strong></p>
+<ol>
+<li>Buka Ministry Mapper dalam Safari</li>
+<li>Ketik butang <strong>Kongsi</strong> (📤)</li>
+<li>Tatal ke bawah dan ketik <strong>"Tambah ke Skrin Utama"</strong></li>
+<li>Edit nama jika dikehendaki</li>
+<li>Ketik <strong>"Tambah"</strong></li>
+<li>Ikon aplikasi muncul pada skrin utama</li>
+</ol>
+<p><strong>Pemasangan Android (Chrome):</strong></p>
+<ol>
+<li>Buka Ministry Mapper dalam Chrome</li>
+<li>Ketik butang menu (⋮)</li>
+<li>Pilih <strong>"Pasang aplikasi"</strong> atau <strong>"Tambah ke Skrin Utama"</strong></li>
+<li>Sahkan pemasangan</li>
+<li>Ikon aplikasi muncul pada skrin utama atau laci aplikasi</li>
+</ol>
+<p><strong>Menggunakan Aplikasi yang Dipasang:</strong></p>
+<ul>
+<li>Lancar dari skrin utama seperti mana-mana aplikasi</li>
+<li>Tiada bar alamat pelayar</li>
+<li>Pengalaman aplikasi yang lancar</li>
+<li>Kemas kini secara automatik</li>
+</ul>
+<h4 id="amalan-terbaik-mudah-alih">Amalan Terbaik Mudah Alih<a class="headerlink" href="#amalan-terbaik-mudah-alih" title="Permanent link">&para;</a></h4>
+<p><strong>Sebelum Keluar:</strong></p>
+<ol>
+<li>✓ Semak pautan tugasan belum tamat tempoh</li>
+<li>✓ Semak wilayah dan peta</li>
+<li>✓ Perhatikan sebarang arahan khas</li>
+<li>✓ Pastikan sambungan internet stabil</li>
+<li>✓ Cas peranti anda sepenuhnya</li>
+<li>✓ Pertimbangkan pengecas mudah alih</li>
+</ol>
+<p><strong>Semasa dalam Khidmat Lapangan:</strong></p>
+<ol>
+<li>✓ Kemas kini alamat serta-merta selepas lawatan</li>
+<li>✓ Tambah nota semasa maklumat masih segar</li>
+<li>✓ Gunakan navigasi GPS pada peta</li>
+<li>✓ Ikut nombor jujukan untuk penghalaan cekap</li>
+<li>✓ Jimat bateri dengan meredupkan skrin apabila tidak diperlukan</li>
+</ol>
+<p><strong>Petua Penggunaan Data:</strong></p>
+<ul>
+<li>Ministry Mapper menggunakan data minimum</li>
+<li>Jubin peta mungkin menggunakan lebih banyak data</li>
+<li>Kebanyakan kemas kini adalah &lt; 1KB setiap satu</li>
+<li>Sesuai untuk penggunaan data mudah alih</li>
+</ul>
+<h3 id="keupayaan-dan-had-luar-talian">Keupayaan dan Had Luar Talian<a class="headerlink" href="#keupayaan-dan-had-luar-talian" title="Permanent link">&para;</a></h3>
+<p><strong>Sambungan Internet Diperlukan:</strong></p>
+<p>Ministry Mapper memerlukan internet aktif untuk:</p>
+<ul>
+<li>✗ Memuatkan data wilayah</li>
+<li>✗ Menyimpan kemas kini status</li>
+<li>✗ Penyegerakan masa nyata</li>
+<li>✗ Memaparkan peta</li>
+<li>✗ Pengesahan pengguna</li>
+</ul>
+<p><strong>Ciri Luar Talian Terhad:</strong></p>
+<ul>
+<li>Aset statik dicache (shell aplikasi)</li>
+<li>Wilayah yang dimuatkan sebelumnya mungkin dipaparkan</li>
+<li><strong>Tidak boleh membuat kemas kini luar talian</strong></li>
+<li><strong>Kemas kini tidak dibarisi untuk penyegerakan kemudian</strong></li>
+</ul>
+<p><strong>Mengendalikan Kehilangan Sambungan:</strong></p>
+<ul>
+<li>Sistem mengesan kehilangan sambungan</li>
+<li>Memaparkan amaran status sambungan</li>
+<li>Menyambung semula secara automatik apabila tersedia</li>
+<li>Sambung semula kerja apabila sambungan dipulihkan</li>
+</ul>
+<p><strong>Pengesyoran:</strong></p>
+<ul>
+<li>✓ Pastikan sambungan yang boleh dipercayai sebelum bermula</li>
+<li>✓ Uji sambungan di lokasi wilayah</li>
+<li>✓ Ada pelan sandaran untuk kawasan tanpa internet</li>
+<li>✓ Pertimbangkan hotspot WiFi mudah alih jika diperlukan</li>
+<li>✓ Kemas kini alamat semasa sambungan aktif</li>
+</ul>
+<hr />
+<hr />
+<h2 id="tetapan-akaun-dan-profil">Tetapan Akaun dan Profil<a class="headerlink" href="#tetapan-akaun-dan-profil" title="Permanent link">&para;</a></h2>
+<h3 id="pengurusan-profil-peribadi">Pengurusan Profil Peribadi<a class="headerlink" href="#pengurusan-profil-peribadi" title="Permanent link">&para;</a></h3>
+<p><img alt="Log Masuk" src="../../assets/screenshots/sign_in.png" /></p>
+<p><em>Rajah 28: Antara muka log masuk untuk mengakses akaun Ministry Mapper anda</em></p>
+<p><strong>Mengakses Profil Anda:</strong></p>
+<ol>
+<li>Klik <strong>nama/ikon profil</strong> anda (sudut kanan atas)</li>
+<li>Pilih <strong>"Profil"</strong> dari menu dropdown</li>
+<li>Lihat dan urus tetapan akaun anda</li>
+</ol>
+<p><strong>Pilihan Profil Tersedia:</strong></p>
+<ul>
+<li>Lihat maklumat akaun (nama, e-mel)</li>
+<li>Tukar kata laluan</li>
+<li>Lihat keahlian sidang</li>
+<li>Akses pengurusan pengguna (Pentadbir sahaja)</li>
+<li>Log keluar</li>
+</ul>
+<h3 id="menukar-kata-laluan-anda">Menukar Kata Laluan Anda<a class="headerlink" href="#menukar-kata-laluan-anda" title="Permanent link">&para;</a></h3>
+<p><strong>Keperluan Keselamatan:</strong></p>
+<ul>
+<li>Minimum 6 aksara</li>
+<li>Sekurang-kurangnya satu nombor</li>
+<li>Sekurang-kurangnya satu huruf besar</li>
+<li>Mesti sepadan dengan pengesahan</li>
+</ul>
+<p><strong>Langkah untuk Menukar:</strong></p>
+<ol>
+<li>Pergi ke profil anda</li>
+<li>Klik <strong>"Tukar Kata Laluan"</strong></li>
+<li>Masukkan <strong>kata laluan semasa</strong> anda</li>
+<li>Masukkan <strong>kata laluan baharu</strong></li>
+<li><strong>Sahkan kata laluan baharu</strong></li>
+<li>Klik <strong>"Simpan"</strong> atau <strong>"Tukar Kata Laluan"</strong></li>
+<li>Mesej kejayaan mengesahkan perubahan</li>
+</ol>
+<blockquote>
+<p><strong>💡 Petua</strong>: Gunakan kata laluan yang kuat dan unik. Pertimbangkan untuk menggunakan pengurus kata laluan.</p>
+</blockquote>
+<h3 id="pemulihan-kata-laluan">Pemulihan Kata Laluan<a class="headerlink" href="#pemulihan-kata-laluan" title="Permanent link">&para;</a></h3>
+<p><img alt="Lupa Kata Laluan" src="../../assets/screenshots/forgot_password.png" /></p>
+<p><em>Rajah 29: Halaman pemulihan kata laluan untuk menetapkan semula kata laluan yang dilupakan</em></p>
+<p>Lupa kata laluan anda? Proses pemulihan mudah:</p>
+<ol>
+<li>Pergi ke halaman log masuk</li>
+<li>Klik pautan <strong>"Lupa kata laluan anda?"</strong></li>
+<li>Masukkan <strong>alamat e-mel berdaftar</strong> anda</li>
+<li>Klik <strong>"Teruskan"</strong> atau <strong>"Hantar Pautan Tetapan Semula"</strong></li>
+<li>Semak peti masuk e-mel anda</li>
+</ol>
+<p><img alt="E-mel Tetapan Semula Kata Laluan" src="../../assets/screenshots/reset_password_email.png" /></p>
+<p><em>Rajah 30: E-mel tetapan semula kata laluan dengan pautan selamat untuk mencipta kata laluan baharu</em></p>
+<ol>
+<li>Klik pautan tetapan semula kata laluan (sah untuk masa terhad)</li>
+<li>Cipta kata laluan baharu memenuhi keperluan</li>
+<li>Sahkan kata laluan baharu</li>
+<li>Log masuk dengan kata laluan baharu</li>
+</ol>
+<p><strong>Jika anda tidak menerima e-mel:</strong></p>
+<ul>
+<li>Semak folder spam/sampah</li>
+<li>Sahkan anda memasukkan e-mel yang betul</li>
+<li>Tunggu beberapa minit dan cuba lagi</li>
+<li>Hubungi pentadbir jika masalah berterusan</li>
+</ul>
+<h3 id="pemilihan-bahasa">Pemilihan Bahasa<a class="headerlink" href="#pemilihan-bahasa" title="Permanent link">&para;</a></h3>
+<p><img alt="Senarai Pemilihan Bahasa" src="../../assets/screenshots/language_selection_list.png" /></p>
+<p><em>Rajah 31: Antara muka pemilihan bahasa menunjukkan semua bahasa yang disokong</em></p>
+<p>Ministry Mapper menyokong berbilang bahasa untuk sidang antarabangsa.</p>
+<p><strong>Bahasa Disokong:</strong></p>
+<ul>
+<li>🇬🇧 English (en)</li>
+<li>🇯🇵 Japanese (ja / 日本語)</li>
+<li>🇰🇷 Korean (ko / 한국어)</li>
+<li>🇨🇳 Chinese (zh / 中文)</li>
+<li>🇮🇩 Indonesian (id / Bahasa Indonesia)</li>
+<li>🇲🇾 Malay (ms / Bahasa Melayu)</li>
+</ul>
+<p><strong>Cara Bahasa Ditentukan:</strong></p>
+<ul>
+<li>Dikesan secara automatik dari tetapan bahasa pelayar</li>
+<li>Menggunakan keutamaan bahasa sistem pengendalian anda</li>
+<li>Tiada pemilihan manual diperlukan dalam kebanyakan kes</li>
+</ul>
+<p><strong>Untuk Menukar Bahasa:</strong></p>
+<p><img alt="Tetapan Tema Gelap Terang" src="../../assets/screenshots/dark_light_theme_settings.png" /></p>
+<p><em>Rajah 32: Tetapan tema dan penampilan termasuk keutamaan bahasa</em></p>
+<p>Tukar tetapan bahasa pelayar (Chrome: Tetapan → Bahasa | Safari: Keutamaan Sistem → Bahasa &amp; Rantau | Firefox: Tetapan → Umum → Bahasa), kemudian muat semula Ministry Mapper. Semua elemen antara muka, mesej, dan teks bantuan diterjemahkan sepenuhnya.</p>
+<h3 id="tetapan-penampilan-dan-tema">Tetapan Penampilan dan Tema<a class="headerlink" href="#tetapan-penampilan-dan-tema" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper menyokong kedua-dua tema terang dan gelap untuk memenuhi keutamaan anda dan mengurangkan ketegangan mata.</p>
+<p><strong>Menukar Tema:</strong></p>
+<p>Ikon profil → Tetapan Tema/Penampilan → Pilih:
+- <strong>Mod Terang</strong>: Antara muka terang untuk siang hari
+- <strong>Mod Gelap</strong>: Kecerahan dikurangkan untuk cahaya rendah (menjimatkan bateri pada OLED)
+- <strong>Lalai Sistem</strong>: Sepadan dengan tetapan peranti secara automatik</p>
+<hr />
+<h2 id="amalan-terbaik">Amalan Terbaik<a class="headerlink" href="#amalan-terbaik" title="Permanent link">&para;</a></h2>
+<h3 id="untuk-penerbit_1">Untuk Penerbit<a class="headerlink" href="#untuk-penerbit_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Fasa</th>
+<th>Amalan Terbaik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sebelum Bermula</strong></td>
+<td>Semak wilayah pada peta • Semak nota/arahan • Rancang laluan menggunakan jujukan • Perhatikan alamat "Jangan Panggil" • Pastikan peranti dicas</td>
+</tr>
+<tr>
+<td><strong>Semasa Perkhidmatan</strong></td>
+<td>Kemas kini serta-merta selepas setiap lawatan • Tambah nota terperinci dan hormat • Ikut nombor jujukan • Gunakan peta untuk navigasi • Tandakan "Tiada di Rumah" dengan tepat</td>
+</tr>
+<tr>
+<td><strong>Selepas Selesai</strong></td>
+<td>Semak semua kemas kini • Tambah pemerhatian akhir • Maklumkan pentadbir jika selesai • Laporkan masalah alamat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="untuk-konduktor">Untuk Konduktor<a class="headerlink" href="#untuk-konduktor" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Tetapkan masa tamat pautan yang sesuai berdasarkan saiz wilayah</li>
+<li>Sertakan nama penerbit untuk penjejakan</li>
+<li>Bersihkan tugasan tamat tempoh secara berkala</li>
+<li>Pantau penyelesaian wilayah dan susulan tugasan yang tertunggak</li>
+<li>Siarkan mesej dan arahan yang jelas</li>
+</ul>
+<h3 id="untuk-pentadbir">Untuk Pentadbir<a class="headerlink" href="#untuk-pentadbir" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Kawasan</th>
+<th>Amalan Terbaik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Persediaan Wilayah</strong></td>
+<td>Penamaan konsisten • Kod pendek dan bermakna • Penerangan jelas • Sahkan lokasi peta • Jujukan logik</td>
+</tr>
+<tr>
+<td><strong>Pengurusan Data</strong></td>
+<td>Pembersihan berkala • Tetapkan semula wilayah selesai • Sahkan ketepatan • Sandaran luaran • Latih pengguna</td>
+</tr>
+<tr>
+<td><strong>Pengurusan Pengguna</strong></td>
+<td>Penetapan peranan yang sesuai • Buang pengguna tidak aktif • Respons segera kepada permintaan • Komunikasi jelas</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prinsip-umum">Prinsip Umum<a class="headerlink" href="#prinsip-umum" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Rancang Lebih Awal</strong>: Semak sebelum keluar</li>
+<li><strong>Bekerja Secara Sistematik</strong>: Selesaikan satu bahagian pada satu masa</li>
+<li><strong>Kemas Kini Segera</strong>: Jangan tunggu untuk merekod maklumat</li>
+<li><strong>Berkomunikasi dengan Jelas</strong>: Tulis nota yang boleh difahami dan hormat</li>
+<li><strong>Jadi Teliti</strong>: Liputi semua alamat dengan gigih</li>
+<li><strong>Kekal Fleksibel</strong>: Sesuaikan dengan keperluan wilayah</li>
+</ul>
+<hr />
+<h2 id="penyelesaian-masalah-isu-biasa">Penyelesaian Masalah Isu Biasa<a class="headerlink" href="#penyelesaian-masalah-isu-biasa" title="Permanent link">&para;</a></h2>
+<h3 id="masalah-log-masuk">Masalah Log Masuk<a class="headerlink" href="#masalah-log-masuk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Isu</th>
+<th>Gejala</th>
+<th>Penyelesaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kata Laluan Salah</strong></td>
+<td>Ralat "Invalid credentials"</td>
+<td>Sahkan e-mel • Semak Caps Lock • Gunakan "Lupa Kata Laluan" → Tetapkan semula melalui e-mel</td>
+</tr>
+<tr>
+<td><strong>Akaun Tidak Disahkan</strong></td>
+<td>Mesej "E-mel tidak disahkan"</td>
+<td>Semak peti masuk/spam untuk e-mel pengesahan • Klik pautan • Minta yang baharu jika tamat tempoh</td>
+</tr>
+<tr>
+<td><strong>Tiada Akses Sidang</strong></td>
+<td>Log masuk tetapi tiada wilayah ditunjukkan</td>
+<td>Hubungi pentadbir untuk menjemput anda dan menetapkan peranan • Log keluar/masuk selepas akses diberikan</td>
+</tr>
+<tr>
+<td><strong>Masalah OTP</strong></td>
+<td>Tidak menerima/kod OTP tidak sah</td>
+<td>Semak spam • Kod tamat tempoh dalam 5-10 minit • Minta kod baharu • Sahkan alamat e-mel</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="masalah-kemas-kini-data">Masalah Kemas Kini Data<a class="headerlink" href="#masalah-kemas-kini-data" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Isu</th>
+<th>Gejala</th>
+<th>Penyelesaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Perubahan Tidak Disimpan</strong></td>
+<td>Simpan tidak berterusan, hilang selepas muat semula</td>
+<td>Semak sambungan internet • Muat semula halaman (Ctrl/Cmd + R) • Kosongkan cache pelayar • Cuba pelayar berbeza • Semak pengeditan serentak</td>
+</tr>
+<tr>
+<td><strong>Kemas Kini Masa Nyata Tidak Muncul</strong></td>
+<td>Perubahan oleh orang lain tidak ditunjukkan</td>
+<td>Pastikan internet aktif • Kekalkan halaman dibuka • Muat semula untuk memaksa kemas kini • Semak status sambungan</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="masalah-peta-dan-navigasi">Masalah Peta dan Navigasi<a class="headerlink" href="#masalah-peta-dan-navigasi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Isu</th>
+<th>Gejala</th>
+<th>Penyelesaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Peta Tidak Dimuatkan</strong></td>
+<td>Kotak kelabu, ralat, peta beku</td>
+<td>Muat semula halaman (F5) • Tunggu 10-15 saat • Semak kelajuan internet • Kosongkan cache • Cuba pelayar berbeza • Aktifkan JavaScript</td>
+</tr>
+<tr>
+<td><strong>Lokasi Salah</strong></td>
+<td>Penanda tersalah letak</td>
+<td>Pentadbir: Kemas kini geolokasi • Sahkan poskod • Gunakan "Kemas Kini Geolokasi" • Gunakan lat/long jika diperlukan</td>
+</tr>
+<tr>
+<td><strong>Arah Tidak Berfungsi</strong></td>
+<td>Masalah navigasi</td>
+<td>Sahkan lokasi asal sidang • Semak alamat mempunyai koordinat sah</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="masalah-pautan-tugasan">Masalah Pautan Tugasan<a class="headerlink" href="#masalah-pautan-tugasan" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Isu</th>
+<th>Gejala</th>
+<th>Penyelesaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pautan Tamat Tempoh</strong></td>
+<td>"Pautan telah tamat tempoh", ralat 404</td>
+<td>Hubungi pentadbir/konduktor untuk pautan baharu (pautan tamat tempoh selepas masa yang ditetapkan, biasanya 24 jam - ini adalah ciri keselamatan)</td>
+</tr>
+<tr>
+<td><strong>Pautan Tidak Berfungsi</strong></td>
+<td>Tidak akan dibuka, mesej ralat</td>
+<td>Pastikan keseluruhan pautan disalin (semak pemecahan baris) • Salin-tampal ke pelayar (jangan taip) • Sahkan tidak tamat tempoh • Hubungi pentadbir</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="masalah-kebenaran-dan-akses">Masalah Kebenaran dan Akses<a class="headerlink" href="#masalah-kebenaran-dan-akses" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Isu</th>
+<th>Gejala</th>
+<th>Penyelesaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kebenaran Dinafikan</strong></td>
+<td>"Insufficient permissions", ciri dikelabukan</td>
+<td>Sahkan peranan anda dengan pentadbir • Log keluar, kosongkan cache, log masuk semula • Minta naik taraf peranan jika diperlukan</td>
+</tr>
+<tr>
+<td><strong>Data Sidang Salah</strong></td>
+<td>Wilayah/data tidak dikenali</td>
+<td>Sahkan akaun yang betul • Semak pemilih sidang • Log keluar/masuk • Hubungi pentadbir</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="masalah-prestasi">Masalah Prestasi<a class="headerlink" href="#masalah-prestasi" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Isu</th>
+<th>Gejala</th>
+<th>Penyelesaian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pemuatan Perlahan</strong></td>
+<td>Masa muat lama, lag, kelewatan</td>
+<td>Semak kelajuan internet • Tutup tab yang tidak perlu • Kosongkan cache • Mulakan semula pelayar • Cuba masa berbeza • Laporkan jika berterusan</td>
+</tr>
+<tr>
+<td><strong>Ranap/Beku</strong></td>
+<td>Aplikasi berhenti bertindak balas</td>
+<td>Muat semula halaman • Kosongkan cache/kuki • Kemas kini pelayar • Cuba pelayar berbeza • Mulakan semula peranti • Semak memori</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="keserasian-pelayar">Keserasian Pelayar<a class="headerlink" href="#keserasian-pelayar" title="Permanent link">&para;</a></h3>
+<h4 id="keserasian-pelayar_1">Keserasian Pelayar<a class="headerlink" href="#keserasian-pelayar_1" title="Permanent link">&para;</a></h4>
+<p><strong>Disokong:</strong> Chrome, Firefox, Safari, Edge (versi terkini) • iOS Safari (iOS 13+) • Android Chrome</p>
+<p><strong>Tidak Disokong:</strong> Internet Explorer, pelayar lapuk</p>
+<p><strong>Jika mengalami masalah:</strong> Kemas kini pelayar • Aktifkan JavaScript • Benarkan kuki • Lumpuhkan pencegahan penjejakan ketat • Cuba pelayar berbeza</p>
+<hr />
+<h2 id="mendapatkan-bantuan-dan-sokongan">Mendapatkan Bantuan dan Sokongan<a class="headerlink" href="#mendapatkan-bantuan-dan-sokongan" title="Permanent link">&para;</a></h2>
+<h3 id="saluran-sokongan">Saluran Sokongan<a class="headerlink" href="#saluran-sokongan" title="Permanent link">&para;</a></h3>
+<p><strong>1. Pentadbir Sidang Anda</strong></p>
+<ul>
+<li><strong>Titik hubungan pertama</strong> untuk kebanyakan isu</li>
+<li>Boleh membantu dengan:</li>
+<li>Akses dan peranan akaun</li>
+<li>Soalan wilayah</li>
+<li>Pautan tugasan</li>
+<li>Konfigurasi tempatan</li>
+</ul>
+<p><strong>2. Dokumentasi Rasmi</strong></p>
+<ul>
+<li><strong>GitHub Wiki</strong>: https://github.com/rimorin/ministry-mapper/wiki</li>
+<li>Panduan komprehensif untuk semua peranan</li>
+<li>Dokumentasi persediaan dan keselamatan</li>
+<li>Soalan lazim dan penyelesaian biasa</li>
+</ul>
+<p><strong>3. Masalah Teknikal</strong></p>
+<ul>
+<li><strong>GitHub Issues</strong>: https://github.com/rimorin/ministry-mapper/issues</li>
+<li>Laporkan pepijat dan masalah teknikal</li>
+<li>Semak isu sedia ada terlebih dahulu</li>
+<li>Cari masalah yang serupa</li>
+</ul>
+<h3 id="melaporkan-masalah-dengan-berkesan">Melaporkan Masalah dengan Berkesan<a class="headerlink" href="#melaporkan-masalah-dengan-berkesan" title="Permanent link">&para;</a></h3>
+<p><strong>Sertakan dalam Laporan Anda:</strong>
+- Apa yang anda cuba lakukan
+- Apa yang berlaku sebaliknya (mesej ralat, tangkapan skrin)
+- Langkah untuk mengeluarkan semula masalah
+- Pelayar dan versi
+- Peranti dan OS
+- Jenis akaun (Penerbit/Konduktor/Pentadbir)</p>
+<p><strong>Contoh Laporan Baik:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Isu: Tidak boleh menyimpan kemas kini status alamat
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Langkah: Buka pautan → Klik #05-123 → Tukar ke &quot;Selesai&quot; → Klik Simpan → Ralat: &quot;Failed to update&quot;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Pelayar: Chrome 120 | Peranti: iPhone 12, iOS 17 | Akaun: Pautan penerbit
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Tangkapan skrin: [dilampirkan]
+</code></pre></div></p>
+<h3 id="hubungan-kecemasan">Hubungan Kecemasan<a class="headerlink" href="#hubungan-kecemasan" title="Permanent link">&para;</a></h3>
+<p>Untuk isu mendesak:</p>
+<ul>
+<li>Hubungi pentadbir sidang anda secara langsung</li>
+<li>Sediakan nombor telefon/e-mel</li>
+<li>Terangkan kecemasan dengan jelas</li>
+<li>Sediakan butiran berkaitan</li>
+</ul>
+<hr />
+<hr />
+<h2 id="rujukan-pantas">Rujukan Pantas<a class="headerlink" href="#rujukan-pantas" title="Permanent link">&para;</a></h2>
+<h3 id="pintasan-papan-kekunci">Pintasan Papan Kekunci<a class="headerlink" href="#pintasan-papan-kekunci" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper menggunakan pintasan pelayar standard:</p>
+<table>
+<thead>
+<tr>
+<th>Pintasan</th>
+<th>Tindakan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Escape</code></td>
+<td>Tutup modal/dialog terbuka</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>Navigasi antara medan borang</td>
+</tr>
+<tr>
+<td><code>Enter</code></td>
+<td>Hantar borang atau sahkan tindakan</td>
+</tr>
+<tr>
+<td><code>Ctrl/Cmd + R</code></td>
+<td>Muat semula halaman</td>
+</tr>
+<tr>
+<td>Pengeditan standard</td>
+<td>Salin, tampal, pilih semua berfungsi dalam medan teks</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rujukan-pantas-status">Rujukan Pantas Status<a class="headerlink" href="#rujukan-pantas-status" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Simbol</th>
+<th>Bila untuk Digunakan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Belum Selesai</strong></td>
+<td>⚪</td>
+<td>Alamat belum dilawati (lalai)</td>
+</tr>
+<tr>
+<td><strong>Selesai</strong></td>
+<td>✅</td>
+<td>Berjaya menghubungi penghuni rumah</td>
+</tr>
+<tr>
+<td><strong>Tiada di Rumah</strong></td>
+<td>🏠</td>
+<td>Tiada yang menjawab pintu</td>
+</tr>
+<tr>
+<td><strong>Jangan Panggil</strong></td>
+<td>🚫</td>
+<td>Penghuni rumah meminta tiada lawatan</td>
+</tr>
+<tr>
+<td><strong>Tidak Sah</strong></td>
+<td>❌</td>
+<td>Alamat tidak wujud atau tidak boleh diakses</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rujukan-pantas-keupayaan-peranan">Rujukan Pantas Keupayaan Peranan<a class="headerlink" href="#rujukan-pantas-keupayaan-peranan" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ciri</th>
+<th style="text-align: center;">Penerbit</th>
+<th style="text-align: center;">Baca Sahaja</th>
+<th style="text-align: center;">Konduktor</th>
+<th style="text-align: center;">Pentadbir</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lihat melalui pautan tugasan</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>Lihat semua wilayah</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Kemas kini status alamat</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Cipta tugasan</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Siarkan mesej</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Urus wilayah</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Urus pengguna</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+<tr>
+<td>Konfigurasi tetapan</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="privasi-dan-keselamatan">Privasi dan Keselamatan<a class="headerlink" href="#privasi-dan-keselamatan" title="Permanent link">&para;</a></h2>
+<h3 id="melindungi-maklumat">Melindungi Maklumat<a class="headerlink" href="#melindungi-maklumat" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper mengendalikan maklumat alamat dan peribadi yang sensitif. Sila patuhi garis panduan ini:</p>
+<p><strong>Keselamatan Akaun:</strong></p>
+<ul>
+<li>✓ <strong>Jangan sekali-kali berkongsi kelayakan log masuk</strong> dengan sesiapa</li>
+<li>✓ <strong>Gunakan kata laluan yang kuat dan unik</strong> (minimum 6 aksara dengan nombor dan huruf besar)</li>
+<li>✓ <strong>Log keluar pada peranti yang dikongsi</strong> sentiasa</li>
+<li>✓ <strong>Aktifkan OTP jika tersedia</strong> untuk keselamatan tambahan</li>
+<li>✓ <strong>Laporkan aktiviti mencurigakan</strong> serta-merta</li>
+</ul>
+<p><strong>Privasi Data:</strong></p>
+<ul>
+<li>✓ <strong>Rekod hanya maklumat yang perlu</strong> dalam nota</li>
+<li>✓ <strong>Jadi hormat dan faktual</strong> dalam semua penerangan</li>
+<li>✓ <strong>Tiada data peribadi sensitif</strong> (perubatan, kewangan, dll.)</li>
+<li>✓ <strong>Ikut permintaan penghuni rumah</strong> untuk privasi</li>
+<li>✓ <strong>Patuhi undang-undang privasi</strong> (GDPR, CCPA, peraturan tempatan)</li>
+</ul>
+<p><strong>Pematuhan Undang-undang:</strong></p>
+<ul>
+<li>⚠️ <strong>GDPR (Eropah)</strong>: Keperluan perlindungan data peribadi</li>
+<li>⚠️ <strong>CCPA (California)</strong>: Hak privasi pengguna</li>
+<li>⚠️ <strong>LGPD (Brazil)</strong>: Peraturan perlindungan data</li>
+<li>⚠️ <strong>Undang-undang Tempatan</strong>: Semak keperluan rantau anda</li>
+</ul>
+<h3 id="maklumat-apa-yang-disimpan">Maklumat Apa yang Disimpan<a class="headerlink" href="#maklumat-apa-yang-disimpan" title="Permanent link">&para;</a></h3>
+<p><strong>Data Pengguna:</strong></p>
+<ul>
+<li>Butiran akaun (nama, e-mel, status pengesahan)</li>
+<li>Penetapan peranan sidang</li>
+<li>Pautan tugasan dicipta/diakses</li>
+<li>Cap masa aktiviti</li>
+</ul>
+<p><strong>Data Wilayah:</strong></p>
+<ul>
+<li>Maklumat alamat dan unit</li>
+<li>Kemas kini dan sejarah status</li>
+<li>Nota dan maklumat lawatan</li>
+<li>Koordinat geolokasi</li>
+<li>Penjejakan kemajuan</li>
+</ul>
+<p><strong>Data Sistem:</strong></p>
+<ul>
+<li>Sesi log masuk</li>
+<li>Langganan masa nyata</li>
+<li>Sejarah mesej</li>
+<li>Tetapan konfigurasi</li>
+</ul>
+<h3 id="penyimpanan-dan-keselamatan-data">Penyimpanan dan Keselamatan Data<a class="headerlink" href="#penyimpanan-dan-keselamatan-data" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Komponen</th>
+<th>Butiran</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Backend</strong></td>
+<td>Pangkalan data PocketBase diurus oleh pentadbir • Lokasi pengehosan ditentukan oleh sidang • Kawalan akses berasaskan peranan</td>
+</tr>
+<tr>
+<td><strong>Penyegerakan Masa Nyata</strong></td>
+<td>Langganan PocketBase • Sambungan HTTPS disulitkan • Penyambungan semula automatik • Pengurusan sesi</td>
+</tr>
+<tr>
+<td><strong>Sisi Pelanggan</strong></td>
+<td>Service worker mencache aset statik sahaja • Tiada data sensitif disimpan secara tempatan • Kemas kini automatik pada versi baharu</td>
+</tr>
+<tr>
+<td><strong>Tanggungjawab Pentadbir</strong></td>
+<td>Laksanakan prosedur sandaran • Jalankan audit keselamatan • Kekalkan backend dikemas kini • Pantau log akses</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="kesimpulan">Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permanent link">&para;</a></h2>
+<p>Terima kasih kerana menggunakan Ministry Mapper untuk menyokong aktiviti khidmat lapangan sidang anda. Penyelesaian moden berasaskan web ini membawa kecekapan, kerjasama, dan faedah alam sekitar kepada pengurusan wilayah.</p>
+<h3 id="perkara-utama">Perkara Utama<a class="headerlink" href="#perkara-utama" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Peranan</th>
+<th>Tanggungjawab Utama</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Penerbit</strong></td>
+<td>Akses melalui pautan • Kemas kini serta-merta selepas lawatan • Tulis nota yang hormat • Ikut jujukan</td>
+</tr>
+<tr>
+<td><strong>Konduktor</strong></td>
+<td>Cipta tugasan • Pantau kemajuan • Siarkan mesej • Selaraskan aktiviti</td>
+</tr>
+<tr>
+<td><strong>Pentadbir</strong></td>
+<td>Konfigurasi tetapan • Urus wilayah • Tetapkan peranan • Pastikan keselamatan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ciri-sistem">Ciri Sistem<a class="headerlink" href="#ciri-sistem" title="Permanent link">&para;</a></h3>
+<p><strong>Tindanan Teknologi:</strong></p>
+<ul>
+<li>✓ Frontend React 19 + TypeScript</li>
+<li>✓ Backend PocketBase untuk pengurusan data</li>
+<li>✓ Leaflet dengan OpenStreetMap untuk navigasi</li>
+<li>✓ Penyegerakan masa nyata</li>
+<li>✓ PWA responsif mudah alih</li>
+<li>✓ Sokongan berbilang bahasa</li>
+<li>✓ Kawalan akses berasaskan peranan</li>
+<li>✓ Pemantauan ralat Sentry</li>
+</ul>
+<p><strong>Faedah:</strong></p>
+<ul>
+<li>🌱 <strong>Mesra Alam</strong>: Menghapuskan pembaziran kertas</li>
+<li>⚡ <strong>Masa Nyata</strong>: Kemas kini segera merentas semua peranti</li>
+<li>📱 <strong>Mudah Alih Dahulu</strong>: Berfungsi pada mana-mana peranti dengan internet</li>
+<li>🗺️ <strong>Peta Bersepadu</strong>: Pemetaan interaktif untuk navigasi mudah</li>
+<li>🔒 <strong>Selamat</strong>: Kebenaran berasaskan peranan dan sokongan OTP</li>
+<li>🌍 <strong>Berbilang Bahasa</strong>: Sokongan untuk 7+ bahasa</li>
+<li>💾 <strong>Boleh Dipercayai</strong>: Backend PocketBase dengan penyegerakan masa nyata</li>
+</ul>
+<hr />
+<p><strong>Versi</strong>: Rujuk versi penempatan anda
+<strong>Kemas Kini Terakhir</strong>: 2024</p>
+<p>Untuk sokongan teknikal, hubungi pentadbir sidang anda atau lawati wiki GitHub.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Disalin ke papan keratan", "clipboard.copy": "Salin ke papan keratan", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tiada dokumen yang sepadan", "search.result.one": "1 dokumen yang sepadan", "search.result.other": "# dokumen yang sepadan", "search.result.placeholder": "Taip untuk mula mencari", "search.result.term.missing": "Hilang", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

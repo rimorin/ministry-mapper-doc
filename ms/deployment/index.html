@@ -1,0 +1,2627 @@
+
+<!doctype html>
+<html lang="ms" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ms/deployment/">
+      
+      
+        <link rel="prev" href="../data-models/">
+      
+      
+        <link rel="next" href="../self-hosting/">
+      
+      
+        
+          <link rel="alternate" href="../../deployment/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/deployment/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/deployment/" hreflang="id">
+        
+          <link rel="alternate" href="./" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/deployment/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/deployment/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/deployment/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/deployment/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Deployment Guide - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#panduan-pelaksanaan" class="md-skip">
+          Langkau tajuk talian
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Pengepala">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Pilih bahasa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../deployment/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/deployment/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/deployment/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/deployment/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/deployment/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/deployment/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/deployment/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Carian">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Padam" aria-label="Padam" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Siap carian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tab" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pokok-keputusan-pelaksanaan-pantas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pokok Keputusan Pelaksanaan Pantas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-1-perkhidmatan-yang-dihoskan-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Perkhidmatan yang Dihoskan (Disyorkan)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan 1: Perkhidmatan yang Dihoskan (Disyorkan)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kelebihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kelebihan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memulakan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memulakan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-2-pengehosan-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Pengehosan Sendiri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan 2: Pengehosan Sendiri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan-pengehosan-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan Pengehosan Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-pelaksanaan-bahagian-belakang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Pelaksanaan Bahagian Belakang
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Pelaksanaan Bahagian Belakang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-railway-disyorkan-untuk-pengehosan-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Railway (Disyorkan untuk Pengehosan Sendiri)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-digitalocean-droplet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: DigitalOcean Droplet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-4-aws-lanjutan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 4: AWS (Lanjutan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-pelaksanaan-bahagian-hadapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Pelaksanaan Bahagian Hadapan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Pelaksanaan Bahagian Hadapan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-vercel-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Vercel (Disyorkan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konfigurasi-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Persekitaran
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfigurasi Persekitaran">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pembolehubah-persekitaran-bahagian-belakang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pembolehubah Persekitaran Bahagian Belakang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pembolehubah-persekitaran-bahagian-hadapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pembolehubah Persekitaran Bahagian Hadapan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persediaan-sijil-ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persediaan Sijil SSL/TLS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persediaan Sijil SSL/TLS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-lets-encrypt-percuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Let's Encrypt (Percuma)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-cloudflare-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Cloudflare SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-ssl-pembekal-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: SSL Pembekal Cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategi-sandaran-pangkalan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategi Sandaran Pangkalan Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Strategi Sandaran Pangkalan Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sandaran-harian-automatik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandaran Harian Automatik
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sandaran-ke-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandaran ke S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dasar-pengekalan-sandaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dasar Pengekalan Sandaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah-pelaksanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah Pelaksanaan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah Pelaksanaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bahagian-belakang-tidak-boleh-dihubungi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bahagian Belakang Tidak Boleh Dihubungi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralat-binaan-bahagian-hadapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralat Binaan Bahagian Hadapan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isu-penyambungan-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isu Penyambungan CORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peta-tidak-dipaparkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peta Tidak Dipaparkan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#senarai-semak-pelaksanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Senarai Semak Pelaksanaan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-seterusnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Seterusnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pokok-keputusan-pelaksanaan-pantas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pokok Keputusan Pelaksanaan Pantas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-1-perkhidmatan-yang-dihoskan-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Perkhidmatan yang Dihoskan (Disyorkan)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan 1: Perkhidmatan yang Dihoskan (Disyorkan)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kelebihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kelebihan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memulakan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memulakan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-2-pengehosan-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Pengehosan Sendiri
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan 2: Pengehosan Sendiri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan-pengehosan-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan Pengehosan Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-pelaksanaan-bahagian-belakang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Pelaksanaan Bahagian Belakang
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Pelaksanaan Bahagian Belakang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-railway-disyorkan-untuk-pengehosan-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Railway (Disyorkan untuk Pengehosan Sendiri)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-render" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Render
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-digitalocean-droplet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: DigitalOcean Droplet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-4-aws-lanjutan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 4: AWS (Lanjutan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilihan-pelaksanaan-bahagian-hadapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Pelaksanaan Bahagian Hadapan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Pelaksanaan Bahagian Hadapan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-vercel-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Vercel (Disyorkan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konfigurasi-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi Persekitaran
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Konfigurasi Persekitaran">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pembolehubah-persekitaran-bahagian-belakang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pembolehubah Persekitaran Bahagian Belakang
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pembolehubah-persekitaran-bahagian-hadapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pembolehubah Persekitaran Bahagian Hadapan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persediaan-sijil-ssltls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persediaan Sijil SSL/TLS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persediaan Sijil SSL/TLS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-lets-encrypt-percuma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Let's Encrypt (Percuma)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-cloudflare-ssl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Cloudflare SSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-ssl-pembekal-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: SSL Pembekal Cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategi-sandaran-pangkalan-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategi Sandaran Pangkalan Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Strategi Sandaran Pangkalan Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sandaran-harian-automatik" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandaran Harian Automatik
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sandaran-ke-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sandaran ke S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dasar-pengekalan-sandaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dasar Pengekalan Sandaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah-pelaksanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah Pelaksanaan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah Pelaksanaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bahagian-belakang-tidak-boleh-dihubungi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bahagian Belakang Tidak Boleh Dihubungi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralat-binaan-bahagian-hadapan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralat Binaan Bahagian Hadapan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isu-penyambungan-cors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isu Penyambungan CORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peta-tidak-dipaparkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peta Tidak Dipaparkan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#senarai-semak-pelaksanaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Senarai Semak Pelaksanaan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-seterusnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Seterusnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="panduan-pelaksanaan">Panduan Pelaksanaan<a class="headerlink" href="#panduan-pelaksanaan" title="Permanent link">&para;</a></h1>
+<h2 id="gambaran-keseluruhan">Gambaran Keseluruhan<a class="headerlink" href="#gambaran-keseluruhan" title="Permanent link">&para;</a></h2>
+<p>Panduan ini merangkumi pelbagai pilihan pelaksanaan untuk Ministry Mapper, daripada menggunakan perkhidmatan yang dihoskan hingga konfigurasi pengehosan sendiri yang lanjutan.</p>
+<h2 id="pokok-keputusan-pelaksanaan-pantas">Pokok Keputusan Pelaksanaan Pantas<a class="headerlink" href="#pokok-keputusan-pelaksanaan-pantas" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│ Adakah anda mempunyai kepakaran     │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│ teknikal dan keperluan pengehosan   │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│ sendiri yang khusus?                │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└──────────────┬──────────────────────┘
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>               │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>       ┌───────┴───────┐
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>       │               │
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>      YA             TIDAK
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>       │               │
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>       │               └─────────────────┐
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>       │                                 │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>       ▼                                 ▼
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>┌──────────────┐              ┌──────────────────┐
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│ Hosti Sendiri│              │ Gunakan          │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│              │              │ Perkhidmatan     │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│ Lihat Di     │              │ yang Dihoskan    │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│ Bawah        │              │                  │
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>└──────────────┘              │ ministry-mapper  │
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>                              │ .com             │
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                              └──────────────────┘
+</code></pre></div>
+<h2 id="pilihan-1-perkhidmatan-yang-dihoskan-disyorkan">Pilihan 1: Perkhidmatan yang Dihoskan (Disyorkan)<a class="headerlink" href="#pilihan-1-perkhidmatan-yang-dihoskan-disyorkan" title="Permanent link">&para;</a></h2>
+<p><strong>Terbaik untuk:</strong> Kebanyakan jemaah, organisasi kecil hingga sederhana</p>
+<p><strong>URL:</strong> <a href="https://ministry-mapper.com">ministry-mapper.com</a></p>
+<h3 id="kelebihan">Kelebihan<a class="headerlink" href="#kelebihan" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>Tiada Persediaan</strong> - Mula menggunakan segera
+✅ <strong>Sokongan Profesional</strong> - Bantuan apabila anda memerlukannya
+✅ <strong>Kemas Kini Automatik</strong> - Sentiasa pada versi terkini
+✅ <strong>Infrastruktur Diselenggarakan</strong> - Tiada pengurusan pelayan
+✅ <strong>Keselamatan Lebih Baik</strong> - Amalan keselamatan profesional
+✅ <strong>Bantuan Pematuhan</strong> - Bantuan dengan GDPR, CCPA, dll.
+✅ <strong>Sandaran Termasuk</strong> - Sandaran data automatik
+✅ <strong>Skalabiliti</strong> - Mengendalikan pertumbuhan secara automatik
+✅ <strong>Kos Efektif</strong> - Selalunya lebih murah daripada pengehosan sendiri</p>
+<h3 id="memulakan">Memulakan<a class="headerlink" href="#memulakan" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Lawati <a href="https://ministry-mapper.com">ministry-mapper.com</a></li>
+<li>Buat akaun</li>
+<li>Sahkan e-mel anda</li>
+<li>Hubungi pentadbir untuk akses jemaah</li>
+<li>Mula menggunakan segera</li>
+</ol>
+<p><strong>Tiada pengetahuan teknikal diperlukan!</strong></p>
+<hr />
+<h2 id="pilihan-2-pengehosan-sendiri">Pilihan 2: Pengehosan Sendiri<a class="headerlink" href="#pilihan-2-pengehosan-sendiri" title="Permanent link">&para;</a></h2>
+<p><strong>Terbaik untuk:</strong> Organisasi dengan kepakaran teknikal dan keperluan khusus</p>
+<p><strong>Keperluan:</strong>
+- Pentadbir sistem atau pembangun yang berpengalaman
+- Pemahaman tentang Docker, pangkalan data, dan pelayan web
+- Keupayaan untuk menyelenggarakan dan mengemas kini sistem
+- Pengetahuan tentang amalan terbaik keselamatan
+- Kepakaran pematuhan untuk undang-undang privasi</p>
+<h3 id="gambaran-keseluruhan-pengehosan-sendiri">Gambaran Keseluruhan Pengehosan Sendiri<a class="headerlink" href="#gambaran-keseluruhan-pengehosan-sendiri" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper terdiri daripada dua komponen:</p>
+<ol>
+<li><strong>Bahagian Belakang</strong> - Aplikasi PocketBase Go dengan SQLite</li>
+<li><strong>Bahagian Hadapan</strong> - Aplikasi web statik React</li>
+</ol>
+<p>Kedua-dua mesti dilaksanakan dan disambungkan.</p>
+<hr />
+<h2 id="pilihan-pelaksanaan-bahagian-belakang">Pilihan Pelaksanaan Bahagian Belakang<a class="headerlink" href="#pilihan-pelaksanaan-bahagian-belakang" title="Permanent link">&para;</a></h2>
+<h3 id="pilihan-1-railway-disyorkan-untuk-pengehosan-sendiri">Pilihan 1: Railway (Disyorkan untuk Pengehosan Sendiri)<a class="headerlink" href="#pilihan-1-railway-disyorkan-untuk-pengehosan-sendiri" title="Permanent link">&para;</a></h3>
+<p><strong>Terbaik untuk:</strong> Pengehosan sendiri mudah dengan konfigurasi minimum</p>
+<p><strong>Langkah Persediaan:</strong></p>
+<ol>
+<li>
+<p><strong>Buat Akaun Railway</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Lawati: https://railway.app
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Daftar dengan GitHub
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Laksanakan Bahagian Belakang</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Fork repositori</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Sambung ke Railway</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>railway<span class="w"> </span>init
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>railway<span class="w"> </span>link
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Konfigurasikan Persekitaran</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Tambah pembolehubah persekitaran dalam papan pemuka Railway</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>https://your-frontend.vercel.app
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>admin@example.com
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>secure_password_here
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Laksanakan</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>railway<span class="w"> </span>up
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Ciri-ciri:</strong>
+- Peringkat percuma tersedia
+- HTTPS automatik
+- Penskalaan mudah
+- Pemantauan terbina dalam
+- Pelaksanaan satu klik</p>
+<hr />
+<h3 id="pilihan-2-render">Pilihan 2: Render<a class="headerlink" href="#pilihan-2-render" title="Permanent link">&para;</a></h3>
+<p><strong>Langkah Persediaan:</strong></p>
+<ol>
+<li><strong>Buat Akaun Render</strong></li>
+<li><strong>Buat Perkhidmatan Web Baru</strong></li>
+<li>Sambung repositori GitHub</li>
+<li>Pilih <code>ministry-mapper-be</code></li>
+<li>Pilih pelaksanaan Docker</li>
+<li><strong>Konfigurasikan Persekitaran</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>PB_APP_URL=https://your-frontend-url.vercel.app
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>PB_ADMIN_EMAIL=admin@example.com
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>PB_ADMIN_PASSWORD=secure_password
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>PB_ALLOW_ORIGINS=https://your-frontend-url.vercel.app
+</code></pre></div></li>
+<li><strong>Laksanakan</strong></li>
+<li>Render membina dan melaksanakan secara automatik</li>
+<li>Mengambil masa 5-10 minit untuk pelaksanaan pertama</li>
+</ol>
+<hr />
+<h3 id="pilihan-3-digitalocean-droplet">Pilihan 3: DigitalOcean Droplet<a class="headerlink" href="#pilihan-3-digitalocean-droplet" title="Permanent link">&para;</a></h3>
+<p><strong>Terbaik untuk:</strong> Kawalan penuh, pelaksanaan pengeluaran</p>
+<p><strong>Langkah Persediaan:</strong></p>
+<ol>
+<li>
+<p><strong>Buat Droplet</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Ubuntu 22.04 LTS disyorkan</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Minimum: 1GB RAM, 1 CPU, 25GB SSD</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Disyorkan: 2GB RAM, 2 CPU, 50GB SSD</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Pasang Docker</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker.io<span class="w"> </span>docker-compose<span class="w"> </span>-y
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>docker
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>docker
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Klon Repositori</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-be.git
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-be
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Konfigurasikan Persekitaran</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>nano<span class="w"> </span>.env<span class="w">  </span><span class="c1"># Edit dengan tetapan anda</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Bina dan Jalankan</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Sediakan Proksi Terbalik Nginx</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">api.your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="p">;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Real-IP</span><span class="w"> </span><span class="nv">$remote_addr</span><span class="p">;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Sediakan SSL dengan Certbot</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-nginx<span class="w"> </span>-y
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>--nginx<span class="w"> </span>-d<span class="w"> </span>api.your-domain.com
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Ciri-ciri:</strong>
+- Kawalan penuh
+- Harga boleh diramal ($6-12/bulan)
+- Prestasi tinggi
+- Konfigurasi tersuai</p>
+<hr />
+<h3 id="pilihan-4-aws-lanjutan">Pilihan 4: AWS (Lanjutan)<a class="headerlink" href="#pilihan-4-aws-lanjutan" title="Permanent link">&para;</a></h3>
+<p><strong>Terbaik untuk:</strong> Pelaksanaan perusahaan, keperluan skalabiliti tinggi</p>
+<p><strong>Seni Bina:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Route 53 (DNS)
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    ↓
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>CloudFront (CDN)
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    ↓
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Application Load Balancer
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    ↓
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>ECS Fargate (Kontena)
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    ↓
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>RDS PostgreSQL (jika berhijrah dari SQLite)
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    ↓
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>S3 (Penyimpanan Fail)
+</code></pre></div></p>
+<p><strong>Kos:</strong> ~$50-200/bulan bergantung pada penggunaan</p>
+<p><strong>Kerumitan:</strong> Tinggi - memerlukan kepakaran AWS</p>
+<hr />
+<h2 id="pilihan-pelaksanaan-bahagian-hadapan">Pilihan Pelaksanaan Bahagian Hadapan<a class="headerlink" href="#pilihan-pelaksanaan-bahagian-hadapan" title="Permanent link">&para;</a></h2>
+<h3 id="pilihan-1-vercel-disyorkan">Pilihan 1: Vercel (Disyorkan)<a class="headerlink" href="#pilihan-1-vercel-disyorkan" title="Permanent link">&para;</a></h3>
+<p><strong>Terbaik untuk:</strong> Pelaksanaan pantas dan mudah</p>
+<p><strong>Langkah Persediaan:</strong></p>
+<ol>
+<li><strong>Buat Akaun Vercel</strong></li>
+<li><strong>Import Repositori</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>- Klik &quot;New Project&quot;
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>- Import ministry-mapper-v2
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>- Rangka kerja: Vite
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>- Arahan Binaan: npm run build
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>- Direktori Output: build
+</code></pre></div></li>
+<li><strong>Konfigurasikan Pembolehubah Persekitaran</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>your_key
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>your_key
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-url.com
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div></li>
+<li><strong>Laksanakan</strong></li>
+<li>Vercel melaksanakan secara automatik semasa push</li>
+</ol>
+<p><strong>Ciri-ciri:</strong>
+- Percuma untuk projek peribadi
+- HTTPS automatik
+- Rangkaian tepi (pantas di seluruh dunia)
+- Pratonton pelaksanaan untuk PR
+- Domain tersuai</p>
+<hr />
+<h3 id="pilihan-2-netlify">Pilihan 2: Netlify<a class="headerlink" href="#pilihan-2-netlify" title="Permanent link">&para;</a></h3>
+<p><strong>Langkah Persediaan:</strong></p>
+<ol>
+<li><strong>Buat Akaun Netlify</strong></li>
+<li><strong>Import Repositori</strong> - Sambung GitHub, pilih <code>ministry-mapper-v2</code></li>
+<li><strong>Tetapan Binaan</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Arahan Binaan: npm run build
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Direktori Terbit: build
+</code></pre></div></li>
+<li><strong>Tambah Pembolehubah Persekitaran</strong></li>
+<li><strong>Laksanakan</strong></li>
+</ol>
+<hr />
+<h3 id="pilihan-3-cloudflare-pages">Pilihan 3: Cloudflare Pages<a class="headerlink" href="#pilihan-3-cloudflare-pages" title="Permanent link">&para;</a></h3>
+<p><strong>Langkah Persediaan:</strong></p>
+<ol>
+<li><strong>Buat Akaun Cloudflare</strong></li>
+<li><strong>Buat Projek Pages</strong> - Sambung GitHub, pilih repositori</li>
+<li><strong>Konfigurasi Binaan</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Rangka kerja: Vite
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Arahan Binaan: npm run build
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Direktori Output: build
+</code></pre></div></li>
+<li><strong>Pembolehubah Persekitaran</strong></li>
+<li><strong>Laksanakan</strong></li>
+</ol>
+<p><strong>Ciri-ciri:</strong>
+- Lebar jalur tanpa had
+- CDN global
+- Perlindungan DDoS
+- Analitik Web</p>
+<hr />
+<h2 id="konfigurasi-persekitaran">Konfigurasi Persekitaran<a class="headerlink" href="#konfigurasi-persekitaran" title="Permanent link">&para;</a></h2>
+<h3 id="pembolehubah-persekitaran-bahagian-belakang">Pembolehubah Persekitaran Bahagian Belakang<a class="headerlink" href="#pembolehubah-persekitaran-bahagian-belakang" title="Permanent link">&para;</a></h3>
+<p><strong>Diperlukan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>https://your-frontend-url.com
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>admin@example.com
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>secure_password
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>https://your-frontend-url.com
+</code></pre></div></p>
+<p><strong>SMTP (E-mel):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>smtp.gmail.com
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nv">PB_SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nv">PB_SMTP_USERNAME</span><span class="o">=</span>your_email@gmail.com
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nv">PB_SMTP_PASSWORD</span><span class="o">=</span>app_password
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nv">PB_SMTP_SENDER_ADDRESS</span><span class="o">=</span>noreply@your-domain.com
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+</code></pre></div></p>
+<p><strong>Keselamatan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div></p>
+<p><strong>Pemantauan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+</code></pre></div></p>
+<p><strong>Perkhidmatan Pilihan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>your_key
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>your_key
+</code></pre></div></p>
+<h3 id="pembolehubah-persekitaran-bahagian-hadapan">Pembolehubah Persekitaran Bahagian Hadapan<a class="headerlink" href="#pembolehubah-persekitaran-bahagian-hadapan" title="Permanent link">&para;</a></h3>
+<p><strong>Diperlukan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend.com
+</code></pre></div></p>
+<p><strong>Halaman Undang-undang:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-site.com/about
+</code></pre></div></p>
+<p><strong>API Pilihan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>your_openrouteservice_key
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>your_locationiq_key
+</code></pre></div></p>
+<p><strong>Pemantauan:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>your_sentry_dsn
+</code></pre></div></p>
+<hr />
+<h2 id="persediaan-sijil-ssltls">Persediaan Sijil SSL/TLS<a class="headerlink" href="#persediaan-sijil-ssltls" title="Permanent link">&para;</a></h2>
+<h3 id="pilihan-1-lets-encrypt-percuma">Pilihan 1: Let's Encrypt (Percuma)<a class="headerlink" href="#pilihan-1-lets-encrypt-percuma" title="Permanent link">&para;</a></h3>
+<p><strong>Menggunakan Certbot:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>certbot<span class="w"> </span>python3-certbot-nginx
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>--nginx<span class="w"> </span>-d<span class="w"> </span>your-domain.com<span class="w"> </span>-d<span class="w"> </span>www.your-domain.com
+</code></pre></div></p>
+<p><strong>Pembaharuan Auto:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sudo<span class="w"> </span>certbot<span class="w"> </span>renew<span class="w"> </span>--dry-run
+</code></pre></div></p>
+<h3 id="pilihan-2-cloudflare-ssl">Pilihan 2: Cloudflare SSL<a class="headerlink" href="#pilihan-2-cloudflare-ssl" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SSL percuma termasuk dengan Cloudflare</li>
+<li>Pembaharuan automatik</li>
+<li>SSL Universal</li>
+</ul>
+<h3 id="pilihan-3-ssl-pembekal-cloud">Pilihan 3: SSL Pembekal Cloud<a class="headerlink" href="#pilihan-3-ssl-pembekal-cloud" title="Permanent link">&para;</a></h3>
+<p>Kebanyakan pembekal cloud (Vercel, Netlify, Railway) termasuk SSL automatik</p>
+<hr />
+<h2 id="strategi-sandaran-pangkalan-data">Strategi Sandaran Pangkalan Data<a class="headerlink" href="#strategi-sandaran-pangkalan-data" title="Permanent link">&para;</a></h2>
+<h3 id="sandaran-harian-automatik">Sandaran Harian Automatik<a class="headerlink" href="#sandaran-harian-automatik" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># Tambah ke crontab</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+</code></pre></div>
+<h3 id="sandaran-ke-s3">Sandaran ke S3<a class="headerlink" href="#sandaran-ke-s3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Gunakan AWS CLI</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>aws<span class="w"> </span>s3<span class="w"> </span>cp<span class="w"> </span>backup.tar.gz<span class="w"> </span>s3://your-bucket/backups/
+</code></pre></div>
+<h3 id="dasar-pengekalan-sandaran">Dasar Pengekalan Sandaran<a class="headerlink" href="#dasar-pengekalan-sandaran" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Simpan 30 hari terakhir sandaran harian</li>
+<li>Simpan 12 bulan terakhir sandaran bulanan</li>
+<li>Simpan 5 tahun terakhir sandaran tahunan</li>
+<li>Uji prosedur pemulihan secara tetap</li>
+</ul>
+<hr />
+<h2 id="penyelesaian-masalah-pelaksanaan">Penyelesaian Masalah Pelaksanaan<a class="headerlink" href="#penyelesaian-masalah-pelaksanaan" title="Permanent link">&para;</a></h2>
+<h3 id="bahagian-belakang-tidak-boleh-dihubungi">Bahagian Belakang Tidak Boleh Dihubungi<a class="headerlink" href="#bahagian-belakang-tidak-boleh-dihubungi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sahkan bahagian belakang berjalan: <code>docker ps</code></li>
+<li>Semak log: <code>docker logs ministry-mapper</code></li>
+<li>Uji sambungan: <code>curl http://localhost:8080/api/health</code></li>
+<li>Semak tetapan CORS dan tembok api</li>
+</ul>
+<h3 id="ralat-binaan-bahagian-hadapan">Ralat Binaan Bahagian Hadapan<a class="headerlink" href="#ralat-binaan-bahagian-hadapan" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sahkan semua pembolehubah persekitaran ditetapkan</li>
+<li>Semak versi Node.js: <code>node --version</code> (memerlukan 22+)</li>
+<li>Padam dan pasang semula dependensi: <code>rm -rf node_modules &amp;&amp; npm install</code></li>
+<li>Semak mesej ralat TypeScript</li>
+</ul>
+<h3 id="isu-penyambungan-cors">Isu Penyambungan CORS<a class="headerlink" href="#isu-penyambungan-cors" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># Dalam konfigurasi bahagian belakang</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>https://your-frontend-domain.com
+</code></pre></div>
+<h3 id="peta-tidak-dipaparkan">Peta Tidak Dipaparkan<a class="headerlink" href="#peta-tidak-dipaparkan" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Sahkan sambungan internet</li>
+<li>Semak konsol pelayar untuk ralat</li>
+<li>Sahkan Leaflet/OpenStreetMap dapat diakses</li>
+</ul>
+<hr />
+<h2 id="senarai-semak-pelaksanaan">Senarai Semak Pelaksanaan<a class="headerlink" href="#senarai-semak-pelaksanaan" title="Permanent link">&para;</a></h2>
+<p><strong>Bahagian Belakang:</strong>
+- [ ] Pembolehubah persekitaran ditetapkan
+- [ ] Pangkalan data dapat diakses
+- [ ] SMTP dikonfigurasi (pilihan)
+- [ ] Sentry dikonfigurasi (pilihan)
+- [ ] HTTPS diaktifkan
+- [ ] CORS dikonfigurasi dengan betul
+- [ ] Panel pentadbir disembunyikan (PB_HIDE_CONTROLS=true)
+- [ ] Sandaran automatik disediakan
+- [ ] Kata laluan lalai ditukar</p>
+<p><strong>Bahagian Hadapan:</strong>
+- [ ] Pembolehubah persekitaran ditetapkan
+- [ ] Binaan berjaya
+- [ ] URL bahagian belakang betul
+- [ ] HTTPS diaktifkan
+- [ ] Peta dipaparkan dengan betul
+- [ ] Pengesahan pengguna berfungsi</p>
+<hr />
+<h2 id="langkah-seterusnya">Langkah Seterusnya<a class="headerlink" href="#langkah-seterusnya" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../self-hosting/">Panduan Penghosing Sendiri</a> - Panduan pengehosan sendiri yang terperinci</li>
+<li><a href="../backend-setup/">Persediaan Bahagian Belakang</a> - Konfigurasi bahagian belakang</li>
+<li><a href="../frontend-setup/">Persediaan Bahagian Hadapan</a> - Konfigurasi bahagian hadapan</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Disalin ke papan keratan", "clipboard.copy": "Salin ke papan keratan", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tiada dokumen yang sepadan", "search.result.one": "1 dokumen yang sepadan", "search.result.other": "# dokumen yang sepadan", "search.result.placeholder": "Taip untuk mula mencari", "search.result.term.missing": "Hilang", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

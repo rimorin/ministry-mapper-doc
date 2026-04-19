@@ -1,0 +1,3731 @@
+
+<!doctype html>
+<html lang="ms" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/ms/frontend-setup/">
+      
+      
+        <link rel="prev" href="../backend-setup/">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+        
+          <link rel="alternate" href="../../frontend-setup/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/frontend-setup/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/frontend-setup/" hreflang="id">
+        
+          <link rel="alternate" href="./" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/frontend-setup/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/frontend-setup/" hreflang="ko">
+        
+          <link rel="alternate" href="../../es/frontend-setup/" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/frontend-setup/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Frontend Setup - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#panduan-persediaan-frontend" class="md-skip">
+          Langkau tajuk talian
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Pengepala">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Frontend Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Pilih bahasa">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../frontend-setup/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/frontend-setup/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/frontend-setup/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/frontend-setup/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/frontend-setup/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../es/frontend-setup/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/frontend-setup/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cari" placeholder="Cari" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Carian">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Padam" aria-label="Padam" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Siap carian
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tab" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigasi" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rujukan-pantas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rujukan-pantas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rujukan Pantas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tindanan-teknologi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tindanan Teknologi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pemboleh-ubah-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Persekitaran
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pemboleh Ubah Persekitaran">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pemboleh-ubah-diperlukan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Diperlukan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemboleh-ubah-pilihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Pilihan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#butiran-pemboleh-ubah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Butiran Pemboleh Ubah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Butiran Pemboleh Ubah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry_auth_token-sentry_org-sentry_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_openroute_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_OPENROUTE_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_locationiq_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_LOCATIONIQ_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_maintenance_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_MAINTENANCE_MODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persediaan-pembangunan-tempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persediaan Pembangunan Tempatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persediaan Pembangunan Tempatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#langkah-persediaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Persediaan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Langkah Persediaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-klon-repositori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Klon Repositori
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pasang-kebergantungan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pasang Kebergantungan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cipta-fail-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cipta Fail Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mulakan-pelayan-pembangunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mulakan Pelayan Pembangunan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciri-pembangunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Pembangunan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arahan-pembangunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arahan Pembangunan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alat-kualiti-kod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alat Kualiti Kod
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penempatan-pengeluaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penempatan Pengeluaran
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penempatan Pengeluaran">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#membina-untuk-pengeluaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Membina untuk Pengeluaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-penempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Penempatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Penempatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-vercel-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Vercel (Disyorkan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-4-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 4: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-5-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 5: Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemboleh-ubah-persekitaran-dalam-penempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Persekitaran dalam Penempatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menyediakan-sentry-pilihan-tetapi-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menyediakan Sentry (Pilihan tetapi Disyorkan)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menyediakan Sentry (Pilihan tetapi Disyorkan)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cipta-akaun-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cipta Akaun Sentry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dapatkan-dsn-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dapatkan DSN Anda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tambah-ke-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tambah ke Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-konfigurasi-sentry-pilihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Konfigurasi Sentry (Pilihan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sokongan-berbilang-bahasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sokongan Berbilang Bahasa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sokongan Berbilang Bahasa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bahasa-disokong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bahasa Disokong
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-pengesanan-bahasa-berfungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara Pengesanan Bahasa Berfungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-bahasa-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Bahasa Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikasi-web-progresif-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplikasi Web Progresif (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplikasi Web Progresif (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciri-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategi-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategi Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menguji-penempatan-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menguji Penempatan Anda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menguji Penempatan Anda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#senarai-semak-fungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Senarai Semak Fungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semakan-prestasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semakan Prestasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semakan-keselamatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semakan Keselamatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ujian-pelayar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ujian Pelayar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sambungan-backend-gagal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sambungan Backend Gagal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralat-binaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralat Binaan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralat-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralat TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prestasi-perlahan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prestasi Perlahan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-pemasangan-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Pemasangan PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-masa-nyata-tidak-berfungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Masa Nyata Tidak Berfungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelenggaraan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelenggaraan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelenggaraan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengekalkan-kebergantungan-dikemas-kini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengekalkan Kebergantungan Dikemas Kini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemantauan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemantauan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-versi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Versi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-seterusnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Seterusnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Jadual kandungan">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Jadual kandungan
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gambaran-keseluruhan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gambaran Keseluruhan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rujukan-pantas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rujukan-pantas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rujukan Pantas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rujukan Pantas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tindanan-teknologi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tindanan Teknologi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pemboleh-ubah-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Persekitaran
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pemboleh Ubah Persekitaran">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pemboleh-ubah-diperlukan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Diperlukan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemboleh-ubah-pilihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Pilihan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#butiran-pemboleh-ubah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Butiran Pemboleh Ubah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Butiran Pemboleh Ubah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry_auth_token-sentry_org-sentry_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_openroute_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_OPENROUTE_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_locationiq_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_LOCATIONIQ_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_maintenance_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_MAINTENANCE_MODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#persediaan-pembangunan-tempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persediaan Pembangunan Tempatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Persediaan Pembangunan Tempatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prasyarat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prasyarat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#langkah-persediaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Persediaan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Langkah Persediaan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-klon-repositori" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Klon Repositori
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-pasang-kebergantungan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pasang Kebergantungan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cipta-fail-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cipta Fail Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mulakan-pelayan-pembangunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Mulakan Pelayan Pembangunan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ciri-pembangunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri Pembangunan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arahan-pembangunan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arahan Pembangunan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alat-kualiti-kod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alat Kualiti Kod
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penempatan-pengeluaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penempatan Pengeluaran
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penempatan Pengeluaran">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#membina-untuk-pengeluaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Membina untuk Pengeluaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-penempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan Penempatan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pilihan Penempatan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-1-vercel-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 1: Vercel (Disyorkan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-2-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 2: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-3-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 3: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-4-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 4: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilihan-5-hos-sendiri" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilihan 5: Hos Sendiri
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemboleh-ubah-persekitaran-dalam-penempatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemboleh Ubah Persekitaran dalam Penempatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menyediakan-sentry-pilihan-tetapi-disyorkan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menyediakan Sentry (Pilihan tetapi Disyorkan)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menyediakan Sentry (Pilihan tetapi Disyorkan)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cipta-akaun-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cipta Akaun Sentry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-dapatkan-dsn-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dapatkan DSN Anda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tambah-ke-persekitaran" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Tambah ke Persekitaran
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-konfigurasi-sentry-pilihan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Konfigurasi Sentry (Pilihan)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sokongan-berbilang-bahasa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sokongan Berbilang Bahasa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sokongan Berbilang Bahasa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bahasa-disokong" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bahasa Disokong
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cara-pengesanan-bahasa-berfungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cara Pengesanan Bahasa Berfungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menambah-bahasa-baharu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menambah Bahasa Baharu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplikasi-web-progresif-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aplikasi Web Progresif (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplikasi Web Progresif (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciri-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ciri PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfigurasi-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfigurasi PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategi-caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategi Caching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menguji-penempatan-anda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Menguji Penempatan Anda
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Menguji Penempatan Anda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#senarai-semak-fungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Senarai Semak Fungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semakan-prestasi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semakan Prestasi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semakan-keselamatan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semakan Keselamatan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ujian-pelayar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ujian Pelayar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelesaian-masalah" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelesaian Masalah
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelesaian Masalah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sambungan-backend-gagal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sambungan Backend Gagal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralat-binaan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralat Binaan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ralat-typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ralat TypeScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prestasi-perlahan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prestasi Perlahan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#masalah-pemasangan-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Masalah Pemasangan PWA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-masa-nyata-tidak-berfungsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Masa Nyata Tidak Berfungsi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#penyelenggaraan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penyelenggaraan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Penyelenggaraan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengekalkan-kebergantungan-dikemas-kini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mengekalkan Kebergantungan Dikemas Kini
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pemantauan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pemantauan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kemas-kini-versi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kemas Kini Versi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#langkah-seterusnya" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Langkah Seterusnya
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="panduan-persediaan-frontend">Panduan Persediaan Frontend<a class="headerlink" href="#panduan-persediaan-frontend" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Hos Sendiri Tidak Disyorkan</p>
+<p>Panduan ini adalah untuk pengguna lanjutan yang ingin mengehoskan sendiri Ministry Mapper. Kami tidak menggalakkan hos sendiri kerana kerumitan teknikal, beban penyelenggaraan, dan tanggungjawab keselamatan yang terlibat.</p>
+<p><strong>Kebanyakan pengguna sepatutnya</strong>: Gunakan perkhidmatan dihoskan kami di <strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Mencari Dokumentasi Pengguna?</p>
+<p>Jika anda pengguna biasa yang cuba mempelajari cara menggunakan Ministry Mapper, lihat <a href="../getting-started/">Bermula</a> atau <a href="../user-guide/">Panduan Pengguna</a> sebaliknya.</p>
+</div>
+<h2 id="gambaran-keseluruhan">Gambaran Keseluruhan<a class="headerlink" href="#gambaran-keseluruhan" title="Permanent link">&para;</a></h2>
+<p>Frontend Ministry Mapper (ministry-mapper-v2) adalah aplikasi web berasaskan React yang menyediakan:</p>
+<ul>
+<li>Pengesahan pengguna dan pengurusan akaun</li>
+<li>Antara muka pengurusan wilayah interaktif</li>
+<li>Fungsi pemetaan interaktif</li>
+<li>Penyegerakan data masa nyata</li>
+<li>Reka bentuk responsif mudah alih</li>
+<li>Sokongan berbilang bahasa (8 bahasa)</li>
+<li>Keupayaan Aplikasi Web Progresif</li>
+</ul>
+<p><strong>Panduan ini mengandaikan anda mempunyai</strong>:
+- Pengalaman dengan Node.js dan npm
+- Pemahaman tentang pemboleh ubah persekitaran
+- Kebiasaan dengan penempatan laman statik
+- Pengetahuan tentang keselamatan aplikasi web</p>
+<p>Untuk arahan hos sendiri lengkap, lihat <a href="../self-hosting/">Panduan Hos Sendiri</a>.</p>
+<h2 id="rujukan-pantas">Rujukan Pantas<a class="headerlink" href="#rujukan-pantas" title="Permanent link">&para;</a></h2>
+<p>Halaman ini menyediakan rujukan pantas untuk konfigurasi frontend. <strong>Untuk arahan persediaan lengkap, lihat <a href="../self-hosting/">Panduan Hos Sendiri</a>.</strong></p>
+<h2 id="rujukan-pantas_1">Rujukan Pantas<a class="headerlink" href="#rujukan-pantas_1" title="Permanent link">&para;</a></h2>
+<p>Halaman ini menyediakan rujukan pantas untuk konfigurasi frontend. <strong>Untuk arahan persediaan lengkap, lihat <a href="../self-hosting/">Panduan Hos Sendiri</a>.</strong></p>
+<h3 id="tindanan-teknologi">Tindanan Teknologi<a class="headerlink" href="#tindanan-teknologi" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>React 19</strong>: Pustaka UI moden</li>
+<li><strong>TypeScript</strong>: JavaScript selamat jenis</li>
+<li><strong>Vite 7</strong>: Alat bina dan pelayan dev pantas</li>
+<li><strong>Bootstrap 5</strong>: Rangka kerja CSS responsif</li>
+<li><strong>Leaflet</strong>: Pemetaan interaktif</li>
+<li><strong>PocketBase SDK</strong>: Sambungan backend</li>
+<li><strong>Sentry</strong>: Penjejakan ralat</li>
+<li><strong>i18next</strong>: Sokongan berbilang bahasa</li>
+<li><strong>Vite PWA</strong>: Ciri Aplikasi Web Progresif</li>
+</ul>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Arahan Persediaan Lengkap</p>
+<p>Bahagian di bawah menyediakan rujukan teknikal untuk konfigurasi frontend. Untuk arahan persediaan langkah demi langkah dengan pilihan penempatan dan penyelesaian masalah, sila lihat <strong><a href="../self-hosting/">Panduan Hos Sendiri</a></strong>.</p>
+</div>
+<hr />
+<h2 id="pemboleh-ubah-persekitaran">Pemboleh Ubah Persekitaran<a class="headerlink" href="#pemboleh-ubah-persekitaran" title="Permanent link">&para;</a></h2>
+<p>Cipta fail <code>.env</code> dalam direktori akar dengan tetapan ini:</p>
+<h3 id="pemboleh-ubah-diperlukan">Pemboleh Ubah Diperlukan<a class="headerlink" href="#pemboleh-ubah-diperlukan" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Persekitaran Sistem - menentukan persekitaran penempatan</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Versi - secara automatik menggunakan versi package.json</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># URL Backend PocketBase - tiada garis miring di hujung</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-url.com
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Halaman Undang-undang - diperlukan untuk pengeluaran</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-site.com/about
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Peta &amp; Laluan</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>your_openrouteservice_api_key
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>your_locationiq_api_key
+</code></pre></div>
+<h3 id="pemboleh-ubah-pilihan">Pemboleh Ubah Pilihan<a class="headerlink" href="#pemboleh-ubah-pilihan" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Penjejakan Ralat (Sentry) - disyorkan untuk pengeluaran</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_sentry_dsn@sentry.io/123456
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Token Sentry masa bina untuk muat naik peta sumber</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nv">SENTRY_AUTH_TOKEN</span><span class="o">=</span>your_sentry_auth_token
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">SENTRY_ORG</span><span class="o">=</span>your_sentry_org_slug
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nv">SENTRY_PROJECT</span><span class="o">=</span>your_sentry_project_slug
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Mod Penyelenggaraan - tunjukkan sepanduk penyelenggaraan kepada pengguna</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nv">VITE_MAINTENANCE_MODE</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="butiran-pemboleh-ubah">Butiran Pemboleh Ubah<a class="headerlink" href="#butiran-pemboleh-ubah" title="Permanent link">&para;</a></h3>
+<h4 id="vite_system_environment">VITE_SYSTEM_ENVIRONMENT<a class="headerlink" href="#vite_system_environment" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Menentukan persekitaran di mana aplikasi berjalan</li>
+<li><strong>Nilai</strong>:</li>
+<li><code>local</code> - Pembangunan pada mesin tempatan anda</li>
+<li><code>production</code> - Penempatan langsung</li>
+<li><strong>Kesan</strong>: Mempengaruhi konfigurasi penjejakan ralat Sentry dan pengelogan</li>
+</ul>
+<h4 id="vite_version">VITE_VERSION<a class="headerlink" href="#vite_version" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Menjejak versi aplikasi dalam laporan ralat</li>
+<li><strong>Nilai</strong>: <code>$npm_package_version</code> (secara automatik membaca dari package.json)</li>
+<li><strong>Versi Semasa</strong>: 1.9.1 (mengikut package.json)</li>
+<li><strong>Kesan</strong>: Ditunjukkan dalam laporan Sentry dan membantu menjejak versi mana yang mempunyai masalah</li>
+</ul>
+<h4 id="vite_pocketbase_url">VITE_POCKETBASE_URL<a class="headerlink" href="#vite_pocketbase_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: URL pelayan backend PocketBase anda</li>
+<li><strong>Format</strong>: URL penuh tanpa garis miring di hujung</li>
+<li><strong>Contoh</strong>: <code>https://api.ministry-mapper.com</code> atau <code>http://localhost:8090</code> untuk tempatan</li>
+<li><strong>Penting</strong>: Mesti boleh diakses dari mana sahaja frontend ditempatkan</li>
+</ul>
+<h4 id="vite_privacy_url">VITE_PRIVACY_URL<a class="headerlink" href="#vite_privacy_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Pautan ke halaman dasar privasi anda</li>
+<li><strong>Diperlukan</strong>: Ya, untuk pematuhan undang-undang (GDPR, CCPA, dll.)</li>
+<li><strong>Contoh</strong>: <code>https://ministry-mapper.com/privacy</code></li>
+</ul>
+<h4 id="vite_terms_url">VITE_TERMS_URL<a class="headerlink" href="#vite_terms_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Pautan ke halaman terma perkhidmatan anda</li>
+<li><strong>Diperlukan</strong>: Ya, untuk pematuhan undang-undang</li>
+<li><strong>Contoh</strong>: <code>https://ministry-mapper.com/terms</code></li>
+</ul>
+<h4 id="vite_about_url">VITE_ABOUT_URL<a class="headerlink" href="#vite_about_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Pautan ke maklumat tentang contoh Ministry Mapper anda</li>
+<li><strong>Diperlukan</strong>: Tidak, tetapi disyorkan</li>
+<li><strong>Contoh</strong>: <code>https://ministry-mapper.com/about</code></li>
+</ul>
+<h4 id="vite_sentry_dsn">VITE_SENTRY_DSN<a class="headerlink" href="#vite_sentry_dsn" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Menghantar ralat JavaScript ke Sentry untuk pemantauan</li>
+<li><strong>Dapatkan Dari</strong>: <a href="https://sentry.io">sentry.io</a> (peringkat percuma tersedia)</li>
+<li><strong>Diperlukan</strong>: Tidak, tetapi sangat disyorkan untuk pengeluaran</li>
+<li><strong>Faedah</strong>: Jejak ralat, pantau prestasi, dapatkan pemberitahuan masalah</li>
+<li><strong>Nota</strong>: Hanya aktif apabila VITE_SYSTEM_ENVIRONMENT adalah "production"</li>
+</ul>
+<h4 id="sentry_auth_token-sentry_org-sentry_project">SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT<a class="headerlink" href="#sentry_auth_token-sentry_org-sentry_project" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Digunakan semasa <code>npm run build</code> untuk memuat naik peta sumber ke Sentry supaya jejak tindanan yang dikecilkan boleh diselesaikan kembali ke kod sumber asal anda</li>
+<li><strong>Diperlukan</strong>: Tidak — peta sumber dijana secara tempatan jika ini tiada, tetapi memuat naiknya ke Sentry meningkatkan penyahpepijatan ralat dalam pengeluaran dengan ketara</li>
+<li><strong>Cara Mendapatkan</strong>: Cipta token pengesahan dalam tetapan organisasi Sentry anda di bawah <strong>Settings → Auth Tokens</strong></li>
+</ul>
+<h4 id="vite_openroute_api_key">VITE_OPENROUTE_API_KEY<a class="headerlink" href="#vite_openroute_api_key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: OpenRouteService untuk laluan — menggerakkan penghalaan arah memandu, berjalan, dan berbasikal pada peta interaktif</li>
+<li><strong>Dapatkan Dari</strong>: <a href="https://openrouteservice.org">openrouteservice.org</a> (peringkat percuma tersedia)</li>
+<li><strong>Diperlukan</strong>: Ya</li>
+</ul>
+<h4 id="vite_locationiq_api_key">VITE_LOCATIONIQ_API_KEY<a class="headerlink" href="#vite_locationiq_api_key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: LocationIQ untuk geocoding — geokod (tukar alamat kepada koordinat) dan geokod terbalik (koordinat kepada alamat)</li>
+<li><strong>Dapatkan Dari</strong>: <a href="https://locationiq.com">locationiq.com</a> (peringkat percuma tersedia)</li>
+<li><strong>Diperlukan</strong>: Ya</li>
+</ul>
+<h4 id="vite_maintenance_mode">VITE_MAINTENANCE_MODE<a class="headerlink" href="#vite_maintenance_mode" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Tujuan</strong>: Apabila ditetapkan kepada <code>true</code>, menunjukkan sepanduk penyelenggaraan kepada pengguna</li>
+<li><strong>Nilai</strong>: <code>true</code> atau <code>false</code></li>
+<li><strong>Lalai</strong>: <code>false</code></li>
+<li><strong>Kes Penggunaan</strong>: Tetapkan kepada <code>true</code> sementara semasa naik taraf backend atau masa henti yang dirancang</li>
+</ul>
+<h2 id="persediaan-pembangunan-tempatan">Persediaan Pembangunan Tempatan<a class="headerlink" href="#persediaan-pembangunan-tempatan" title="Permanent link">&para;</a></h2>
+<h3 id="prasyarat">Prasyarat<a class="headerlink" href="#prasyarat" title="Permanent link">&para;</a></h3>
+<p>Anda memerlukan Node.js <strong>&gt;=24.0.0</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Semak versi Node.js anda</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>node<span class="w"> </span>--version
+</code></pre></div>
+<p>Jika anda tidak mempunyai Node.js &gt;=24.0.0, muat turun dari: <a href="https://nodejs.org">nodejs.org</a></p>
+<h3 id="langkah-persediaan">Langkah Persediaan<a class="headerlink" href="#langkah-persediaan" title="Permanent link">&para;</a></h3>
+<h4 id="1-klon-repositori">1. Klon Repositori<a class="headerlink" href="#1-klon-repositori" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-v2.git
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+</code></pre></div>
+<h4 id="2-pasang-kebergantungan">2. Pasang Kebergantungan<a class="headerlink" href="#2-pasang-kebergantungan" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm<span class="w"> </span>install
+</code></pre></div>
+<p>Ini memuat turun semua pakej yang diperlukan. Mungkin mengambil beberapa minit bergantung pada sambungan internet anda.</p>
+<h4 id="3-cipta-fail-persekitaran">3. Cipta Fail Persekitaran<a class="headerlink" href="#3-cipta-fail-persekitaran" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Salin fail persekitaran contoh</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<p>Edit <code>.env</code> dengan tetapan anda:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span><span class="nb">local</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">VITE_VERSION</span><span class="o">=</span><span class="nv">$npm_package_version</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>http://localhost:8090
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>http://localhost:3000/privacy
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>http://localhost:3000/terms
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>http://localhost:3000/about
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nv">VITE_OPENROUTE_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nv">VITE_LOCATIONIQ_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nv">VITE_MAINTENANCE_MODE</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<p><strong>Nota</strong>: Anda memerlukan backend PocketBase berjalan pada port 8090. Lihat repositori ministry-mapper-be untuk persediaan backend.</p>
+<h4 id="4-mulakan-pelayan-pembangunan">4. Mulakan Pelayan Pembangunan<a class="headerlink" href="#4-mulakan-pelayan-pembangunan" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>npm<span class="w"> </span>start
+</code></pre></div>
+<p>Aplikasi akan dibuka di <code>http://localhost:3000</code> (port 3000 dikonfigurasi dalam vite.config.js).</p>
+<h3 id="ciri-pembangunan">Ciri Pembangunan<a class="headerlink" href="#ciri-pembangunan" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Hot Module Replacement (HMR)</strong>: Perubahan muncul serta-merta tanpa muat semula halaman penuh</li>
+<li><strong>Semakan TypeScript</strong>: Ralat ditunjukkan dalam terminal dan konsol pelayar</li>
+<li><strong>Peta Sumber</strong>: Penyahpepijatan lebih mudah dengan rujukan kod sumber asal</li>
+<li><strong>Fast Refresh</strong>: Komponen React dikemas kini tanpa kehilangan keadaan</li>
+</ul>
+<h3 id="arahan-pembangunan">Arahan Pembangunan<a class="headerlink" href="#arahan-pembangunan" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Mulakan pelayan pembangunan (port 3000)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>npm<span class="w"> </span>start
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Jalankan ujian dengan Vitest</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>npm<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Semak pemformatan kod</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># Betulkan masalah pemformatan secara automatik</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier:fix
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1"># Bina untuk pengeluaran</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="c1"># Pratonton binaan pengeluaran secara tempatan</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>npm<span class="w"> </span>run<span class="w"> </span>serve
+</code></pre></div>
+<h3 id="alat-kualiti-kod">Alat Kualiti Kod<a class="headerlink" href="#alat-kualiti-kod" title="Permanent link">&para;</a></h3>
+<p><strong>Prettier</strong> (pemformatan kod):</p>
+<ul>
+<li>Dikonfigurasi dalam <code>.prettierrc</code></li>
+<li>Memformat secara automatik pada komit melalui Husky</li>
+<li>Jalankan secara manual dengan <code>npm run prettier:fix</code></li>
+</ul>
+<p><strong>ESLint</strong> (linting kod):</p>
+<ul>
+<li>Dikonfigurasi dalam <code>eslint.config.mjs</code></li>
+<li>Peraturan React dan TypeScript diaktifkan</li>
+<li>Menyemak ralat biasa dan isu kualiti kod</li>
+</ul>
+<p><strong>Husky</strong> (cangkuk git):</p>
+<ul>
+<li>Menjalankan Prettier pada fail yang diletakkan sebelum komit</li>
+<li>Memastikan pemformatan kod yang konsisten</li>
+<li>Mengesahkan mesej komit dengan commitlint</li>
+</ul>
+<h2 id="penempatan-pengeluaran">Penempatan Pengeluaran<a class="headerlink" href="#penempatan-pengeluaran" title="Permanent link">&para;</a></h2>
+<h3 id="membina-untuk-pengeluaran">Membina untuk Pengeluaran<a class="headerlink" href="#membina-untuk-pengeluaran" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Bina fail pengeluaran yang dioptimumkan</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</code></pre></div>
+<p><strong>Apa yang berlaku semasa bina:</strong></p>
+<ul>
+<li>TypeScript dikompil kepada JavaScript</li>
+<li>Kod React dioptimumkan dan dikecilkan</li>
+<li>CSS diproses dan dikecilkan</li>
+<li>Peta sumber dijana</li>
+<li>Kod dipecahkan kepada ketulan untuk pemuatan lebih pantas</li>
+<li>Output pergi ke direktori <code>build/</code></li>
+<li>Service worker dijana untuk sokongan PWA</li>
+</ul>
+<p><strong>Output Binaan:</strong></p>
+<ul>
+<li><code>build/index.html</code> - Fail HTML utama</li>
+<li><code>build/assets/</code> - JavaScript, CSS, dan aset lain</li>
+<li>Nama fail termasuk cincangan kandungan untuk caching</li>
+<li>Jumlah saiz biasanya di bawah 1MB (tidak termasuk kebergantungan luaran)</li>
+</ul>
+<h3 id="pilihan-penempatan">Pilihan Penempatan<a class="headerlink" href="#pilihan-penempatan" title="Permanent link">&para;</a></h3>
+<p>Frontend Ministry Mapper adalah aplikasi web statik. Anda boleh menempatkannya ke mana-mana perkhidmatan pengehosan statik.</p>
+<h4 id="pilihan-1-vercel-disyorkan">Pilihan 1: Vercel (Disyorkan)<a class="headerlink" href="#pilihan-1-vercel-disyorkan" title="Permanent link">&para;</a></h4>
+<p>Pantas, peringkat percuma, penempatan automatik.</p>
+<p><strong>Persediaan:</strong></p>
+<ol>
+<li>Cipta akaun di <a href="https://vercel.com">vercel.com</a></li>
+<li>Klik "New Project"</li>
+<li>Import repositori GitHub anda</li>
+<li>Konfigurasi:</li>
+<li>Framework Preset: Vite</li>
+<li>Build Command: <code>npm run build</code></li>
+<li>Output Directory: <code>build</code></li>
+<li>Install Command: <code>npm install</code></li>
+<li>Tambah pemboleh ubah persekitaran dalam papan pemuka Vercel</li>
+<li>Tempatkan</li>
+</ol>
+<p><strong>Ciri Vercel:</strong></p>
+<ul>
+<li>Penempatan automatik pada git push</li>
+<li>Penempatan pratonton untuk permintaan tarik</li>
+<li>Domain tersuai</li>
+<li>HTTPS secara lalai</li>
+<li>CDN global</li>
+<li>Percuma untuk projek peribadi</li>
+</ul>
+<h4 id="pilihan-2-netlify">Pilihan 2: Netlify<a class="headerlink" href="#pilihan-2-netlify" title="Permanent link">&para;</a></h4>
+<p>Penempatan mudah dengan ciri hebat.</p>
+<p><strong>Persediaan:</strong></p>
+<ol>
+<li>Cipta akaun di <a href="https://netlify.com">netlify.com</a></li>
+<li>"Add new site" → "Import an existing project"</li>
+<li>Sambungkan repositori GitHub</li>
+<li>Tetapan binaan:</li>
+<li>Build Command: <code>npm run build</code></li>
+<li>Publish Directory: <code>build</code></li>
+<li>Tambah pemboleh ubah persekitaran</li>
+<li>Tempatkan</li>
+</ol>
+<p><strong>Ciri Netlify:</strong></p>
+<ul>
+<li>Penempatan automatik</li>
+<li>Pengendalian borang</li>
+<li>Fungsi tanpa pelayan (jika diperlukan)</li>
+<li>Domain tersuai</li>
+<li>HTTPS secara lalai</li>
+</ul>
+<h4 id="pilihan-3-cloudflare-pages">Pilihan 3: Cloudflare Pages<a class="headerlink" href="#pilihan-3-cloudflare-pages" title="Permanent link">&para;</a></h4>
+<p>CDN pantas dengan peringkat percuma murah hati.</p>
+<p><strong>Persediaan:</strong></p>
+<ol>
+<li>Cipta akaun di <a href="https://cloudflare.com">cloudflare.com</a></li>
+<li>Pergi ke Pages → "Create a project"</li>
+<li>Sambungkan repositori GitHub</li>
+<li>Tetapan binaan:</li>
+<li>Framework preset: Vite</li>
+<li>Build command: <code>npm run build</code></li>
+<li>Build output directory: <code>build</code></li>
+<li>Tambah pemboleh ubah persekitaran</li>
+<li>Tempatkan</li>
+</ol>
+<p><strong>Ciri Cloudflare:</strong></p>
+<ul>
+<li>Rangkaian CDN global</li>
+<li>Perlindungan DDoS</li>
+<li>Analitik</li>
+<li>Web Analytics tanpa penjejakan sisi pelanggan</li>
+</ul>
+<h4 id="pilihan-4-aws-s3-cloudfront">Pilihan 4: AWS S3 + CloudFront<a class="headerlink" href="#pilihan-4-aws-s3-cloudfront" title="Permanent link">&para;</a></h4>
+<p>Lebih kawalan, baik untuk penempatan besar.</p>
+<p><strong>Persediaan:</strong></p>
+<ol>
+<li>Cipta baldi S3</li>
+<li>Aktifkan pengehosan laman web statik</li>
+<li>Muat naik kandungan <code>build/</code></li>
+<li>Cipta pengedaran CloudFront</li>
+<li>Konfigurasi domain tersuai</li>
+<li>Sediakan sijil SSL</li>
+</ol>
+<p><strong>Pertimbangan AWS:</strong></p>
+<ul>
+<li>Persediaan lebih kompleks</li>
+<li>Bayar mengikut penggunaan (biasanya sangat murah)</li>
+<li>Lebih pilihan konfigurasi</li>
+<li>Baik untuk penempatan perusahaan</li>
+</ul>
+<h4 id="pilihan-5-hos-sendiri">Pilihan 5: Hos Sendiri<a class="headerlink" href="#pilihan-5-hos-sendiri" title="Permanent link">&para;</a></h4>
+<p>Hos pada pelayan anda sendiri.</p>
+<p><strong>Menggunakan Nginx:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.html</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="c1"># Aktifkan pemampatan gzip</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="kn">gzip</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="kn">gzip_types</span><span class="w"> </span><span class="s">text/plain</span><span class="w"> </span><span class="s">text/css</span><span class="w"> </span><span class="s">application/json</span><span class="w"> </span><span class="s">application/javascript</span><span class="w"> </span><span class="s">text/xml</span><span class="w"> </span><span class="s">application/xml</span><span class="p">;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="c1"># Cache aset statik</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)</span>$<span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">1y</span><span class="p">;</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">immutable&quot;</span><span class="p">;</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Menggunakan Apache:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>your-domain.com
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/ministry-mapper/build</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="nt">&gt;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">        </span><span class="nb">Options</span><span class="w"> </span>-Indexes<span class="w"> </span>+FollowSymLinks
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="c"># Aktifkan React Router</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">        </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="nb">RewriteBase</span><span class="w"> </span>/
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>^index\.html$<span class="w"> </span>-<span class="w"> </span>[L]
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-d
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>.<span class="w"> </span><span class="sx">/index.html</span><span class="w"> </span>[L]
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<p><strong>Penting untuk Hos Sendiri:</strong></p>
+<ul>
+<li>Hidangkan melalui HTTPS (diperlukan untuk ciri PWA)</li>
+<li>Konfigurasi pengepala CORS yang betul jika backend pada domain berbeza</li>
+<li>Sediakan pengepala caching yang betul untuk aset statik</li>
+<li>Pastikan penghalaan SPA berfungsi (semua laluan menghidangkan index.html)</li>
+</ul>
+<h3 id="pemboleh-ubah-persekitaran-dalam-penempatan">Pemboleh Ubah Persekitaran dalam Penempatan<a class="headerlink" href="#pemboleh-ubah-persekitaran-dalam-penempatan" title="Permanent link">&para;</a></h3>
+<p><strong>Penting</strong>: Pemboleh ubah persekitaran mesti ditetapkan semasa masa bina, bukan masa jalan, kerana Vite menyuntiknya pada masa bina.</p>
+<p><strong>Untuk Vercel/Netlify/Cloudflare:</strong></p>
+<ul>
+<li>Tambah pemboleh ubah persekitaran dalam papan pemuka platform</li>
+<li>Ia akan tersedia semasa proses binaan</li>
+</ul>
+<p><strong>Untuk Hos Sendiri:</strong></p>
+<ul>
+<li>Tetapkan pemboleh ubah persekitaran sebelum menjalankan <code>npm run build</code></li>
+<li>Atau cipta fail <code>.env.production</code> dengan tetapan anda</li>
+</ul>
+<h2 id="menyediakan-sentry-pilihan-tetapi-disyorkan">Menyediakan Sentry (Pilihan tetapi Disyorkan)<a class="headerlink" href="#menyediakan-sentry-pilihan-tetapi-disyorkan" title="Permanent link">&para;</a></h2>
+<p>Sentry memantau ralat dan prestasi JavaScript.</p>
+<h3 id="1-cipta-akaun-sentry">1. Cipta Akaun Sentry<a class="headerlink" href="#1-cipta-akaun-sentry" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Pergi ke <a href="https://sentry.io">sentry.io</a></li>
+<li>Daftar (peringkat percuma murah hati tersedia)</li>
+<li>Cipta projek baharu</li>
+<li>Pilih platform: "React"</li>
+</ol>
+<h3 id="2-dapatkan-dsn-anda">2. Dapatkan DSN Anda<a class="headerlink" href="#2-dapatkan-dsn-anda" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Selepas mencipta projek, anda akan melihat DSN</li>
+<li>Atau pergi ke Settings → Projects → [Projek Anda] → Client Keys (DSN)</li>
+<li>Salin URL DSN</li>
+</ol>
+<h3 id="3-tambah-ke-persekitaran">3. Tambah ke Persekitaran<a class="headerlink" href="#3-tambah-ke-persekitaran" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_key@your_org.sentry.io/your_project_id
+</code></pre></div>
+<p><strong>Nota</strong>: Sentry hanya aktif apabila <code>VITE_SYSTEM_ENVIRONMENT</code> ditetapkan kepada <code>production</code>.</p>
+<h3 id="4-konfigurasi-sentry-pilihan">4. Konfigurasi Sentry (Pilihan)<a class="headerlink" href="#4-konfigurasi-sentry-pilihan" title="Permanent link">&para;</a></h3>
+<p><strong>Peta Sumber</strong>: Proses binaan secara automatik menjana peta sumber, yang membantu menyahpepijat kod pengeluaran yang dikecilkan.</p>
+<p><strong>Amaran</strong>: Sediakan dalam papan pemuka Sentry:</p>
+<ul>
+<li>Pemberitahuan e-mel untuk isu baharu</li>
+<li>Integrasi Slack/Discord</li>
+<li>Peraturan amaran tersuai untuk ralat kritikal</li>
+<li>Penjejakan keluaran</li>
+</ul>
+<h2 id="sokongan-berbilang-bahasa">Sokongan Berbilang Bahasa<a class="headerlink" href="#sokongan-berbilang-bahasa" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper termasuk 7 bahasa secara lalai.</p>
+<h3 id="bahasa-disokong">Bahasa Disokong<a class="headerlink" href="#bahasa-disokong" title="Permanent link">&para;</a></h3>
+<ul>
+<li>English (<code>en</code>)</li>
+<li>Spanish (<code>es</code> - Español)</li>
+<li>Japanese (<code>ja</code> - 日本語)</li>
+<li>Korean (<code>ko</code> - 한국어)</li>
+<li>Chinese (<code>zh</code> - 中文)</li>
+<li>Indonesian (<code>id</code> - Bahasa Indonesia)</li>
+<li>Malay (<code>ms</code> - Bahasa Melayu)</li>
+</ul>
+<h3 id="cara-pengesanan-bahasa-berfungsi">Cara Pengesanan Bahasa Berfungsi<a class="headerlink" href="#cara-pengesanan-bahasa-berfungsi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Menggunakan <code>i18next-browser-languagedetector</code></li>
+<li>Mengesan secara automatik dari tetapan pelayar pada lawatan pertama</li>
+<li>Pengguna boleh menukar bahasa secara manual melalui pemilih bahasa dalam bar navigasi</li>
+<li>Pilihan disimpan dalam <code>localStorage</code> dan mengambil keutamaan berbanding tetapan pelayar</li>
+<li>Kembali ke Bahasa Inggeris jika bahasa yang dipilih tidak disokong</li>
+</ul>
+<h3 id="menambah-bahasa-baharu">Menambah Bahasa Baharu<a class="headerlink" href="#menambah-bahasa-baharu" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Cipta Fail Terjemahan</strong></p>
+</li>
+<li>
+<p>Pergi ke <code>src/i18n/locales/</code></p>
+</li>
+<li>Cipta fail baharu: <code>[kod-bahasa].json</code> (cth., <code>fr.json</code> untuk Perancis)</li>
+<li>
+<p>Salin struktur dari <code>en.json</code></p>
+</li>
+<li>
+<p><strong>Terjemahkan Semua Rentetan</strong></p>
+</li>
+<li>
+<p>Terjemahkan semua pasangan kunci-nilai</p>
+</li>
+<li>Kekalkan struktur JSON yang sama</li>
+<li>
+<p>Kekalkan pemboleh ubah pemegang tempat seperti <code>{{variable}}</code></p>
+</li>
+<li>
+<p><strong>Daftarkan Bahasa</strong></p>
+</li>
+<li>Edit <code>src/i18n/index.ts</code></li>
+<li>Import fail terjemahan anda</li>
+<li>Tambah ke objek resources</li>
+</ol>
+<p>Contoh untuk Perancis:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">fr</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./locales/fr.json&#39;</span><span class="p">;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nx">resources</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nx">en</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">translation</span><span class="o">:</span><span class="w"> </span><span class="kt">en</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nx">fr</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">translation</span><span class="o">:</span><span class="w"> </span><span class="kt">fr</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="c1">// ... bahasa lain</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="aplikasi-web-progresif-pwa">Aplikasi Web Progresif (PWA)<a class="headerlink" href="#aplikasi-web-progresif-pwa" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper termasuk sokongan PWA melalui pemalam Vite PWA.</p>
+<h3 id="ciri-pwa">Ciri PWA<a class="headerlink" href="#ciri-pwa" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Boleh Dipasang</strong>: Boleh dipasang pada skrin utama mudah alih/desktop</li>
+<li><strong>Aset Luar Talian</strong>: Fail statik dicache untuk pemuatan lebih pantas</li>
+<li><strong>Service Worker</strong>: Dijana dan didaftarkan secara automatik</li>
+<li><strong>Strategi Cache</strong>: StaleWhileRevalidate untuk aset luaran, CacheFirst untuk fon</li>
+</ul>
+<h3 id="konfigurasi-pwa">Konfigurasi PWA<a class="headerlink" href="#konfigurasi-pwa" title="Permanent link">&para;</a></h3>
+<p>Konfigurasi dalam <code>vite.config.js</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nx">VitePWA</span><span class="p">({</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nx">registerType</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;autoUpdate&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Kemas kini service worker secara automatik</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nx">manifest</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="c1">// Tiada manifest (boleh ditambah jika diperlukan)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nx">workbox</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="nx">globPatterns</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;**/*.{js,css,html,ico,png,svg,woff2}&quot;</span><span class="p">],</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="nx">skipWaiting</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Aktifkan service worker baharu serta-merta</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="nx">clientsClaim</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Ambil kawalan pelanggan serta-merta</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="nx">cleanupOutdatedCaches</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Buang cache lama</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="p">});</span>
+</code></pre></div>
+<h3 id="strategi-caching">Strategi Caching<a class="headerlink" href="#strategi-caching" title="Permanent link">&para;</a></h3>
+<p><strong>Aset Luaran</strong> (cth., dari assets.ministry-mapper.com):</p>
+<ul>
+<li>Strategi: StaleWhileRevalidate</li>
+<li>Nama cache: "external-assets"</li>
+<li>Tamat tempoh: 7 hari, maksimum 50 entri</li>
+</ul>
+<p><strong>Fon</strong>:</p>
+<ul>
+<li>Strategi: CacheFirst</li>
+<li>Nama cache: "fonts"</li>
+<li>Tamat tempoh: 30 hari, maksimum 30 entri</li>
+</ul>
+<p><strong>Nota</strong>: Aplikasi memerlukan internet untuk operasi data (sambungan PocketBase). Hanya aset statik yang dicache luar talian.</p>
+<h2 id="menguji-penempatan-anda">Menguji Penempatan Anda<a class="headerlink" href="#menguji-penempatan-anda" title="Permanent link">&para;</a></h2>
+<h3 id="senarai-semak-fungsi">Senarai Semak Fungsi<a class="headerlink" href="#senarai-semak-fungsi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Halaman utama dimuatkan dengan betul</li>
+<li>[ ] Halaman pendaftaran berfungsi</li>
+<li>[ ] Pengesahan e-mel berfungsi</li>
+<li>[ ] Halaman log masuk berfungsi</li>
+<li>[ ] Pengesahan OTP berfungsi (jika diaktifkan)</li>
+<li>[ ] Tetapan semula kata laluan berfungsi</li>
+<li>[ ] Pemilih wilayah dipaparkan (untuk konduktor/pentadbir)</li>
+<li>[ ] Peta dimuatkan dan dipaparkan dengan betul</li>
+<li>[ ] Boleh melihat wilayah</li>
+<li>[ ] Boleh mengemas kini status alamat</li>
+<li>[ ] Pautan tugasan berfungsi</li>
+<li>[ ] Pautan tamat tempoh dengan betul</li>
+<li>[ ] Paparan mudah alih responsif</li>
+<li>[ ] Pengesanan bahasa berfungsi</li>
+<li>[ ] Semua modal dibuka dan ditutup dengan betul</li>
+</ul>
+<h3 id="semakan-prestasi">Semakan Prestasi<a class="headerlink" href="#semakan-prestasi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Muat halaman awal di bawah 3 saat</li>
+<li>[ ] Skor Lighthouse &gt; 90</li>
+<li>[ ] Tiada ralat konsol</li>
+<li>[ ] Imej dimuatkan dengan pantas</li>
+<li>[ ] Peta responsif</li>
+<li>[ ] Menatal dan navigasi lancar</li>
+</ul>
+<h3 id="semakan-keselamatan">Semakan Keselamatan<a class="headerlink" href="#semakan-keselamatan" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] HTTPS dikuatkuasakan (tiada akses HTTP)</li>
+<li>[ ] Pautan dasar privasi berfungsi</li>
+<li>[ ] Pautan terma perkhidmatan berfungsi</li>
+<li>[ ] Kunci API tidak terdedah dalam kod pelayar</li>
+<li>[ ] CORS dikonfigurasi dengan betul untuk backend</li>
+<li>[ ] Sambungan PocketBase selamat</li>
+</ul>
+<h3 id="ujian-pelayar">Ujian Pelayar<a class="headerlink" href="#ujian-pelayar" title="Permanent link">&para;</a></h3>
+<p>Uji pada berbilang pelayar:</p>
+<ul>
+<li>[ ] Chrome/Chromium</li>
+<li>[ ] Firefox</li>
+<li>[ ] Safari (macOS/iOS)</li>
+<li>[ ] Edge</li>
+<li>[ ] Pelayar mudah alih</li>
+</ul>
+<h2 id="penyelesaian-masalah">Penyelesaian Masalah<a class="headerlink" href="#penyelesaian-masalah" title="Permanent link">&para;</a></h2>
+<h3 id="sambungan-backend-gagal">Sambungan Backend Gagal<a class="headerlink" href="#sambungan-backend-gagal" title="Permanent link">&para;</a></h3>
+<p><strong>Masalah</strong>: "Cannot connect to server" atau "Network Error"</p>
+<p><strong>Penyelesaian:</strong></p>
+<ul>
+<li>Sahkan <code>VITE_POCKETBASE_URL</code> betul (tiada garis miring di hujung)</li>
+<li>Semak jika backend PocketBase berjalan</li>
+<li>Uji URL backend secara langsung dalam pelayar</li>
+<li>Semak tetapan CORS dalam PocketBase (mesti membenarkan domain frontend anda)</li>
+<li>Buka DevTools pelayar → tab Network untuk melihat ralat tepat</li>
+<li>Pastikan backend boleh diakses dari lokasi penempatan anda</li>
+</ul>
+<h3 id="ralat-binaan">Ralat Binaan<a class="headerlink" href="#ralat-binaan" title="Permanent link">&para;</a></h3>
+<p><strong>Masalah</strong>: <code>npm run build</code> gagal</p>
+<p><strong>Penyelesaian:</strong></p>
+<ul>
+<li>Pastikan semua pemboleh ubah persekitaran ditetapkan dengan betul</li>
+<li>Jalankan <code>npm install</code> untuk menyegar semula kebergantungan</li>
+<li>Padam <code>node_modules</code> dan pasang semula: <code>rm -rf node_modules &amp;&amp; npm install</code></li>
+<li>Semak versi Node.js: <code>node --version</code> (memerlukan 24+)</li>
+<li>Semak ralat TypeScript: Lihat mesej ralat tertentu</li>
+<li>Cuba <code>npm run prettier:fix</code> untuk membetulkan masalah pemformatan</li>
+<li>Kosongkan cache Vite: <code>rm -rf node_modules/.vite</code></li>
+</ul>
+<h3 id="ralat-typescript">Ralat TypeScript<a class="headerlink" href="#ralat-typescript" title="Permanent link">&para;</a></h3>
+<p><strong>Masalah</strong>: Ralat jenis semasa binaan</p>
+<p><strong>Penyelesaian:</strong></p>
+<ul>
+<li>Semak <code>src/utils/interface.ts</code> untuk definisi jenis</li>
+<li>Pastikan import betul</li>
+<li>Jalankan <code>npx tsc --noEmit</code> untuk melihat semua ralat jenis</li>
+<li>Sahkan semua kebergantungan dipasang</li>
+</ul>
+<h3 id="prestasi-perlahan">Prestasi Perlahan<a class="headerlink" href="#prestasi-perlahan" title="Permanent link">&para;</a></h3>
+<p><strong>Masalah</strong>: Aplikasi perlahan atau lag</p>
+<p><strong>Penyelesaian:</strong></p>
+<ul>
+<li>Semak kelajuan sambungan internet</li>
+<li>Kosongkan cache pelayar dan muat semula</li>
+<li>Pastikan backend PocketBase bertindak balas dengan pantas</li>
+<li>Semak konsol pelayar untuk ralat JavaScript</li>
+<li>Uji pada peranti/pelayar berbeza untuk mengasingkan masalah</li>
+<li>Semak skor prestasi Lighthouse</li>
+<li>Sahkan service worker berfungsi: DevTools → Application → Service Workers</li>
+</ul>
+<h3 id="masalah-pemasangan-pwa">Masalah Pemasangan PWA<a class="headerlink" href="#masalah-pemasangan-pwa" title="Permanent link">&para;</a></h3>
+<p><strong>Masalah</strong>: "Add to Home Screen" tidak muncul</p>
+<p><strong>Penyelesaian:</strong></p>
+<ul>
+<li>Mesti dihidangkan melalui HTTPS</li>
+<li>Semak pendaftaran service worker dalam DevTools</li>
+<li>Sahkan keperluan PWA dipenuhi (manifest, service worker, dll.)</li>
+<li>Cuba pelayar berbeza (Safari, Chrome mempunyai sokongan PWA berbeza)</li>
+</ul>
+<h3 id="kemas-kini-masa-nyata-tidak-berfungsi">Kemas Kini Masa Nyata Tidak Berfungsi<a class="headerlink" href="#kemas-kini-masa-nyata-tidak-berfungsi" title="Permanent link">&para;</a></h3>
+<p><strong>Masalah</strong>: Perubahan tidak muncul untuk pengguna lain</p>
+<p><strong>Penyelesaian:</strong></p>
+<ul>
+<li>Sahkan langganan masa nyata PocketBase berfungsi</li>
+<li>Semak konsol pelayar untuk ralat SSE (Server-Sent Events)</li>
+<li>Pastikan titik akhir SSE backend boleh diakses</li>
+<li>Semak jika berbilang pengguna sebenarnya melihat wilayah yang sama</li>
+<li>Segar semula halaman untuk memaksa penyambungan semula</li>
+</ul>
+<h2 id="penyelenggaraan">Penyelenggaraan<a class="headerlink" href="#penyelenggaraan" title="Permanent link">&para;</a></h2>
+<h3 id="mengekalkan-kebergantungan-dikemas-kini">Mengekalkan Kebergantungan Dikemas Kini<a class="headerlink" href="#mengekalkan-kebergantungan-dikemas-kini" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Tarik perubahan terkini dari repositori</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Pasang kebergantungan yang dikemas kini</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>npm<span class="w"> </span>install
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Semak kerentanan keselamatan</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>npm<span class="w"> </span>audit
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="c1"># Betulkan isu keselamatan secara automatik (apabila mungkin)</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>npm<span class="w"> </span>audit<span class="w"> </span>fix
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="c1"># Semak pakej yang lapuk</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>npm<span class="w"> </span>outdated
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="c1"># Kemas kini pakej tertentu</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>npm<span class="w"> </span>update<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="pemantauan">Pemantauan<a class="headerlink" href="#pemantauan" title="Permanent link">&para;</a></h3>
+<p><strong>Papan Pemuka Sentry:</strong></p>
+<ul>
+<li>Semak mingguan untuk ralat baharu</li>
+<li>Semak trend ralat</li>
+<li>Betulkan isu kritikal dengan segera</li>
+<li>Sediakan amaran untuk ralat keutamaan tinggi</li>
+</ul>
+<p><strong>Google Cloud Console:</strong></p>
+<ul>
+<li>Pantau penggunaan API untuk kekal dalam kuota</li>
+<li>Semak lonjakan luar biasa dalam penggunaan</li>
+<li>Semak amaran pengebilan</li>
+<li>Pastikan API kekal diaktifkan</li>
+</ul>
+<p><strong>Prestasi:</strong></p>
+<ul>
+<li>Jalankan audit Lighthouse secara berkala</li>
+<li>Pantau masa muat halaman</li>
+<li>Semak Core Web Vitals</li>
+<li>Uji pada sambungan perlahan</li>
+</ul>
+<p><strong>Maklum Balas Pengguna:</strong></p>
+<ul>
+<li>Dengar ahli sidang</li>
+<li>Jejak masalah biasa</li>
+<li>Dokumentasikan penyelesaian</li>
+<li>Kemas kini dokumentasi mengikut keperluan</li>
+</ul>
+<h3 id="kemas-kini-versi">Kemas Kini Versi<a class="headerlink" href="#kemas-kini-versi" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper menggunakan penomboran versi semantik:</p>
+<ul>
+<li><strong>Versi utama</strong> (x.0.0): Perubahan pecah</li>
+<li><strong>Versi minor</strong> (1.x.0): Ciri baharu</li>
+<li><strong>Versi tampalan</strong> (1.9.x): Pembetulan pepijat</li>
+</ul>
+<h2 id="langkah-seterusnya">Langkah Seterusnya<a class="headerlink" href="#langkah-seterusnya" title="Permanent link">&para;</a></h2>
+<p><strong>Untuk Pengguna:</strong></p>
+<ul>
+<li>Baca <a href="../user-guide/">Panduan Pengguna</a> untuk mempelajari cara menggunakan aplikasi</li>
+</ul>
+<p><strong>Untuk Pentadbir:</strong></p>
+<ul>
+<li>Sediakan backend PocketBase (lihat repositori ministry-mapper-be)</li>
+<li>Konfigurasi tetapan sidang</li>
+<li>Jemput pengguna dan tetapkan peranan</li>
+<li>Cipta wilayah dan tambah alamat</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Kembali ke atas
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Disalin ke papan keratan", "clipboard.copy": "Salin ke papan keratan", "search.result.more.one": "1 lagi di halaman ini", "search.result.more.other": "# lagi di halaman ini", "search.result.none": "Tiada dokumen yang sepadan", "search.result.one": "1 dokumen yang sepadan", "search.result.other": "# dokumen yang sepadan", "search.result.placeholder": "Taip untuk mula mencari", "search.result.term.missing": "Hilang", "select.version": "Pilih versi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

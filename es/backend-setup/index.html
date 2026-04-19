@@ -1,0 +1,3391 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/es/backend-setup/">
+      
+      
+        <link rel="prev" href="../self-hosting/">
+      
+      
+        <link rel="next" href="../frontend-setup/">
+      
+      
+        
+          <link rel="alternate" href="../../backend-setup/" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/backend-setup/" hreflang="zh">
+        
+          <link rel="alternate" href="../../id/backend-setup/" hreflang="id">
+        
+          <link rel="alternate" href="../../ms/backend-setup/" hreflang="ms">
+        
+          <link rel="alternate" href="../../ja/backend-setup/" hreflang="ja">
+        
+          <link rel="alternate" href="../../ko/backend-setup/" hreflang="ko">
+        
+          <link rel="alternate" href="./" hreflang="es">
+        
+          <link rel="alternate" href="../../ta/backend-setup/" hreflang="ta">
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Backend Setup - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guia-de-configuracion-del-backend" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../" title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backend Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../backend-setup/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/backend-setup/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../id/backend-setup/" hreflang="id" class="md-select__link">
+              Indonesia
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ms/backend-setup/" hreflang="ms" class="md-select__link">
+              Melayu
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ja/backend-setup/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ko/backend-setup/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../ta/backend-setup/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descripcion-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripción General
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencia-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Referencia Rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-tecnologico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack Tecnológico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características Principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-de-entorno-explicadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables de Entorno Explicadas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables de Entorno Explicadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claves-de-integracion-de-servicios-opcionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claves de Integración de Servicios (Opcionales)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de la Aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuenta-de-administrador-predeterminada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuenta de Administrador Predeterminada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-correo-electronico-smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Correo Electrónico (SMTP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seguridad-y-control-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seguridad y Control de Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Autenticación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limite-de-velocidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Límite de Velocidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rastreo-de-errores-no-esta-en-envsample-agregar-manualmente-si-es-necesario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rastreo de Errores (No está en .env.sample - agregar manualmente si es necesario)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicadores-de-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indicadores de Características
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasos-de-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pasos de Instalación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pasos de Instalación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcion-1-despliegue-con-docker-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opción 1: Despliegue con Docker (Recomendado)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opción 1: Despliegue con Docker (Recomendado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-compilar-la-imagen-de-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Compilar la Imagen de Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ejecutar-el-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ejecutar el Contenedor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcion-2-desarrollo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opción 2: Desarrollo Local
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opción 2: Desarrollo Local">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-instalar-dependencias-de-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Instalar Dependencias de Go
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-variables-de-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configurar Variables de Entorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ejecutar-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ejecutar la Aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceder-al-panel-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceder al Panel de Administración
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Acceder al Panel de Administración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-puedes-hacer-en-el-panel-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Puedes Hacer en el Panel de Administración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de la Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de la Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#respaldar-tus-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Respaldar Tus Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Respaldar Tus Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copia-de-seguridad-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copia de Seguridad Manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copia-de-seguridad-diaria-automatizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copia de Seguridad Diaria Automatizada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restaurar-desde-copia-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restaurar desde Copia de Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lista-de-verificacion-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lista de Verificación de Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actualizar-el-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar el Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actualizar el Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-con-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualización con Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-de-desarrollo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualización de Desarrollo Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraciones-de-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migraciones de Base de Datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoreo-y-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoreo y Registros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoreo y Registros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ver-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver Registros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ver Registros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registros-de-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registros de Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registros-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registros de la Aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-buscar-en-los-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Buscar en los Registros
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución de Problemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solución de Problemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puerto-ya-en-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto ya en Uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-de-datos-bloqueada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base de Datos Bloqueada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correo-electronico-no-se-envia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo Electrónico No Se Envía
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sin-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sin Memoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-se-puede-acceder-al-panel-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No Se Puede Acceder al Panel de Administración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consejos-de-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consejos de Rendimiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consejos de Rendimiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#congregaciones-pequenas-100-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congregaciones Pequeñas (&lt; 100 usuarios)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#congregaciones-medianas-100-500-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congregaciones Medianas (100-500 usuarios)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#congregaciones-grandes-500-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congregaciones Grandes (&gt; 500 usuarios)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-de-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints de API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints de API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-mapas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Mapas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-pisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Pisos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-territorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Territorios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajos-en-segundo-plano-programador-cron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajos en Segundo Plano (Programador Cron)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajos en Segundo Plano (Programador Cron)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trabajos-programados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajos Programados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resumenes-de-informes-con-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resúmenes de Informes con IA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hooks-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks de la Base de Datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Próximos Pasos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descripcion-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripción General
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencia-rapida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencia Rápida
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Referencia Rápida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-tecnologico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stack Tecnológico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Características Principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-de-entorno-explicadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variables de Entorno Explicadas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables de Entorno Explicadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claves-de-integracion-de-servicios-opcionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claves de Integración de Servicios (Opcionales)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de la Aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuenta-de-administrador-predeterminada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cuenta de Administrador Predeterminada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-correo-electronico-smtp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Correo Electrónico (SMTP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seguridad-y-control-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seguridad y Control de Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-de-autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de Autenticación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limite-de-velocidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Límite de Velocidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rastreo-de-errores-no-esta-en-envsample-agregar-manualmente-si-es-necesario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rastreo de Errores (No está en .env.sample - agregar manualmente si es necesario)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indicadores-de-caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indicadores de Características
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasos-de-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pasos de Instalación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pasos de Instalación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcion-1-despliegue-con-docker-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opción 1: Despliegue con Docker (Recomendado)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opción 1: Despliegue con Docker (Recomendado)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-compilar-la-imagen-de-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Compilar la Imagen de Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ejecutar-el-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Ejecutar el Contenedor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcion-2-desarrollo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opción 2: Desarrollo Local
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Opción 2: Desarrollo Local">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-instalar-dependencias-de-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Instalar Dependencias de Go
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configurar-variables-de-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configurar Variables de Entorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ejecutar-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Ejecutar la Aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acceder-al-panel-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Acceder al Panel de Administración
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Acceder al Panel de Administración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-puedes-hacer-en-el-panel-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Puedes Hacer en el Panel de Administración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de la Base de Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de la Base de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#respaldar-tus-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Respaldar Tus Datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Respaldar Tus Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copia-de-seguridad-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copia de Seguridad Manual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copia-de-seguridad-diaria-automatizada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copia de Seguridad Diaria Automatizada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restaurar-desde-copia-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restaurar desde Copia de Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lista-de-verificacion-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lista de Verificación de Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actualizar-el-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualizar el Backend
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actualizar el Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-con-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualización con Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualizacion-de-desarrollo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actualización de Desarrollo Local
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migraciones-de-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migraciones de Base de Datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoreo-y-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoreo y Registros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoreo y Registros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ver-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ver Registros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ver Registros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#registros-de-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registros de Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registros-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Registros de la Aplicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-buscar-en-los-registros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qué Buscar en los Registros
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solucion-de-problemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solución de Problemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solución de Problemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#puerto-ya-en-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Puerto ya en Uso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-de-datos-bloqueada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base de Datos Bloqueada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correo-electronico-no-se-envia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo Electrónico No Se Envía
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sin-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sin Memoria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-se-puede-acceder-al-panel-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No Se Puede Acceder al Panel de Administración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consejos-de-rendimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consejos de Rendimiento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consejos de Rendimiento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#congregaciones-pequenas-100-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congregaciones Pequeñas (&lt; 100 usuarios)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#congregaciones-medianas-100-500-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congregaciones Medianas (100-500 usuarios)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#congregaciones-grandes-500-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Congregaciones Grandes (&gt; 500 usuarios)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-de-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints de API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints de API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-mapas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Mapas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-pisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Pisos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-territorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de Territorios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trabajos-en-segundo-plano-programador-cron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajos en Segundo Plano (Programador Cron)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trabajos en Segundo Plano (Programador Cron)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#trabajos-programados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trabajos Programados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resumenes-de-informes-con-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resúmenes de Informes con IA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hooks-de-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks de la Base de Datos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Próximos Pasos
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="guia-de-configuracion-del-backend">Guía de Configuración del Backend<a class="headerlink" href="#guia-de-configuracion-del-backend" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Auto-Alojamiento No Recomendado</p>
+<p>Esta guía es para usuarios avanzados que desean auto-alojar Ministry Mapper. No recomendamos el auto-alojamiento debido a la complejidad técnica, la carga de mantenimiento y las responsabilidades de seguridad involucradas.</p>
+<p><strong>La mayoría de los usuarios deberían</strong>: Usar nuestro servicio alojado en <strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">¿Buscas Documentación de Usuario?</p>
+<p>Si eres un usuario regular que intenta aprender a usar Ministry Mapper, consulta la <a href="../getting-started/">Guía de Inicio</a> o la <a href="../user-guide/">Guía de Usuario</a> en su lugar.</p>
+</div>
+<h2 id="descripcion-general">Descripción General<a class="headerlink" href="#descripcion-general" title="Permanent link">&para;</a></h2>
+<p>El backend de Ministry Mapper (ministry-mapper-be) está construido con Go y PocketBase. Proporciona:</p>
+<ul>
+<li>Almacenamiento y gestión de datos (base de datos SQLite)</li>
+<li>Autenticación y autorización de usuarios</li>
+<li>Sincronización de datos en tiempo real</li>
+<li>Endpoints de API personalizados para la gestión de territorios</li>
+<li>Trabajos en segundo plano para tareas automatizadas</li>
+<li>Notificaciones por correo electrónico mediante SMTP</li>
+</ul>
+<p><strong>Esta guía asume que tienes</strong>:
+- Experiencia con administración de servidores
+- Comprensión de Docker y la contenedorización
+- Familiaridad con las variables de entorno
+- Conocimiento de las mejores prácticas de seguridad</p>
+<p>Para instrucciones completas de auto-alojamiento, consulta la <a href="../self-hosting/">Guía de Auto-Alojamiento</a>.</p>
+<h2 id="referencia-rapida">Referencia Rápida<a class="headerlink" href="#referencia-rapida" title="Permanent link">&para;</a></h2>
+<p>Esta página proporciona una referencia rápida para la configuración del backend. <strong>Para instrucciones completas de configuración, consulta la <a href="../self-hosting/">Guía de Auto-Alojamiento</a>.</strong></p>
+<h3 id="stack-tecnologico">Stack Tecnológico<a class="headerlink" href="#stack-tecnologico" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Go</strong>: Lenguaje de programación rápido y eficiente</li>
+<li><strong>PocketBase</strong>: Backend como servicio con panel de administración integrado</li>
+<li><strong>SQLite</strong>: Base de datos ligera en la carpeta <code>pb_data</code></li>
+<li><strong>Docker</strong>: Contenedor basado en Alpine Linux</li>
+</ul>
+<h3 id="caracteristicas-principales">Características Principales<a class="headerlink" href="#caracteristicas-principales" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Almacenamiento y gestión de datos</li>
+<li>Autenticación de usuarios</li>
+<li>Suscripciones en tiempo real (Server-Sent Events)</li>
+<li>Endpoints de API personalizados</li>
+<li>Trabajos en segundo plano programados</li>
+<li>Notificaciones por correo electrónico (SMTP)</li>
+<li>Rastreo de errores (Sentry)</li>
+<li>Indicadores de características (LaunchDarkly)</li>
+</ul>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Instrucciones Completas de Configuración</p>
+<p>Las secciones a continuación proporcionan una referencia técnica para la configuración del backend. Para instrucciones de configuración paso a paso con contexto y explicaciones, consulta la <strong><a href="../self-hosting/">Guía de Auto-Alojamiento</a></strong>.</p>
+</div>
+<hr />
+<h2 id="variables-de-entorno-explicadas">Variables de Entorno Explicadas<a class="headerlink" href="#variables-de-entorno-explicadas" title="Permanent link">&para;</a></h2>
+<h3 id="claves-de-integracion-de-servicios-opcionales">Claves de Integración de Servicios (Opcionales)<a class="headerlink" href="#claves-de-integracion-de-servicios-opcionales" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clave de API de MailerSend - para enviar correos electrónicos mediante el servicio MailerSend</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Déjalo vacío si usas SMTP en su lugar</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Dirección de correo electrónico para el remitente de MailerSend</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">MAILERSEND_FROM_EMAIL</span><span class="o">=</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Clave SDK de LaunchDarkly - para indicadores de características que controlan trabajos en segundo plano</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Los trabajos se ejecutan de manera predeterminada si no está configurado</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">LAUNCHDARKLY_CONTEXT_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Clave API de OpenAI - para resúmenes generados por IA en informes mensuales y resúmenes de mensajes</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Opcional: los informes y resúmenes funcionan bien sin esto; las secciones de IA simplemente se omiten</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>
+</code></pre></div>
+<h3 id="configuracion-de-la-aplicacion">Configuración de la Aplicación<a class="headerlink" href="#configuracion-de-la-aplicacion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Nombre mostrado en correos electrónicos y panel de administración</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># URL donde está alojado tu frontend</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>http://localhost:3000
+</code></pre></div>
+<h3 id="cuenta-de-administrador-predeterminada">Cuenta de Administrador Predeterminada<a class="headerlink" href="#cuenta-de-administrador-predeterminada" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Cuenta de administrador inicial creada durante la primera configuración</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># ¡Cambia la contraseña inmediatamente después del primer inicio de sesión!</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>testing_account@ministry-mapper.com
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>pb123456789
+</code></pre></div>
+<h3 id="configuracion-de-correo-electronico-smtp">Configuración de Correo Electrónico (SMTP)<a class="headerlink" href="#configuracion-de-correo-electronico-smtp" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Dirección del servidor SMTP (por ejemplo, smtp.gmail.com, smtp.sendgrid.net)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Contraseña SMTP (usa la Contraseña de Aplicación para Gmail, no tu contraseña regular)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">PB_SMTP_PASSWORD</span><span class="o">=</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Nombre de usuario SMTP (generalmente tu dirección de correo electrónico)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nv">PB_SMTP_USERNAME</span><span class="o">=</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># Puerto SMTP (587 para TLS, 465 para SSL)</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nv">PB_SMTP_PORT</span><span class="o">=</span><span class="m">587</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># Dirección de correo electrónico mostrada en el campo &quot;De&quot;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="nv">PB_SMTP_SENDER_ADDRESS</span><span class="o">=</span>support@ministry-mapper.com
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># Nombre mostrado en el campo &quot;De&quot;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>MM<span class="w"> </span>Support
+</code></pre></div>
+<h3 id="seguridad-y-control-de-acceso">Seguridad y Control de Acceso<a class="headerlink" href="#seguridad-y-control-de-acceso" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Lista de orígenes permitidos para CORS separados por comas</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Usa * para desarrollo, dominios específicos para producción</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Ejemplo: https://app.example.com,https://app2.example.com</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>*
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Ocultar la UI de administración del acceso público (true/false)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Configura como true en producción por seguridad</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="configuracion-de-autenticacion">Configuración de Autenticación<a class="headerlink" href="#configuracion-de-autenticacion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Habilitar inicio de sesión con contraseña de un solo uso (true/false)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Habilitar autenticación multifactor (true/false)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="limite-de-velocidad">Límite de Velocidad<a class="headerlink" href="#limite-de-velocidad" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Habilitar limitación de velocidad para prevenir abuso de la API (true/false)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="rastreo-de-errores-no-esta-en-envsample-agregar-manualmente-si-es-necesario">Rastreo de Errores (No está en .env.sample - agregar manualmente si es necesario)<a class="headerlink" href="#rastreo-de-errores-no-esta-en-envsample-agregar-manualmente-si-es-necesario" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># DSN de Sentry para monitoreo y rastreo de errores</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Nombre del entorno para Sentry (development, staging, production)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Hash de commit de Git - establecido automáticamente por plataformas de alojamiento como Coolify</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nv">SOURCE_COMMIT</span><span class="o">=</span>
+</code></pre></div>
+<h2 id="indicadores-de-caracteristicas">Indicadores de Características<a class="headerlink" href="#indicadores-de-caracteristicas" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper usa <a href="https://launchdarkly.com">LaunchDarkly</a> para controlar la ejecución de trabajos en segundo plano. Cada trabajo puede habilitarse o deshabilitarse de forma independiente sin necesidad de redespliegue. Los indicadores de características requieren que <code>LAUNCHDARKLY_SDK_KEY</code> y <code>LAUNCHDARKLY_CONTEXT_KEY</code> estén configurados.</p>
+<table>
+<thead>
+<tr>
+<th>Clave del Indicador</th>
+<th>Trabajo Controlado</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable-assignments-cleanup</code></td>
+<td><code>cleanUpAssignments</code></td>
+<td>Eliminar asignaciones de mapa expiradas (se ejecuta cada 5 min)</td>
+</tr>
+<tr>
+<td><code>enable-territory-aggregations</code></td>
+<td><code>updateTerritoryAggregates</code></td>
+<td>Recalcular estadísticas de progreso del territorio (se ejecuta cada 10 min)</td>
+</tr>
+<tr>
+<td><code>enable-message-processing</code></td>
+<td><code>processMessages</code></td>
+<td>Procesar mensajes pendientes de publicadores (se ejecuta cada 30 min)</td>
+</tr>
+<tr>
+<td><code>enable-instruction-processing</code></td>
+<td><code>processInstructions</code></td>
+<td>Procesar instrucciones de asignación de territorio (se ejecuta cada 30 min)</td>
+</tr>
+<tr>
+<td><code>enable-note-processing</code></td>
+<td><code>processNotes</code></td>
+<td>Procesar notas de congregación actualizadas (se ejecuta cada hora)</td>
+</tr>
+<tr>
+<td><code>enable-monthly-report</code></td>
+<td><code>generateMonthlyReport</code></td>
+<td>Generar y enviar informes Excel por correo (se ejecuta el 1ro del mes)</td>
+</tr>
+<tr>
+<td><code>enable-unprovisioned-user-processing</code></td>
+<td><code>processUnprovisionedUsers</code></td>
+<td>Advertir y deshabilitar usuarios sin rol asignado (se ejecuta diariamente)</td>
+</tr>
+<tr>
+<td><code>enable-inactive-user-processing</code></td>
+<td><code>processInactiveUsers</code></td>
+<td>Advertir y deshabilitar cuentas inactivas — NIST AC-2(3) (se ejecuta diariamente)</td>
+</tr>
+<tr>
+<td><code>enable-new-addresses-notification</code></td>
+<td><code>processNewAddresses</code></td>
+<td>Enviar correo de resumen diario para direcciones creadas en la aplicación (se ejecuta diariamente)</td>
+</tr>
+<tr>
+<td><code>enable-report-ai-summary</code></td>
+<td>Resumen de IA en informes</td>
+<td>Incluir resumen generado por OpenAI en informes de la congregación</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Si LaunchDarkly no está configurado, todos los trabajos se ejecutan por defecto (habilitado: verdadero).</p>
+</div>
+<h2 id="pasos-de-instalacion">Pasos de Instalación<a class="headerlink" href="#pasos-de-instalacion" title="Permanent link">&para;</a></h2>
+<h3 id="opcion-1-despliegue-con-docker-recomendado">Opción 1: Despliegue con Docker (Recomendado)<a class="headerlink" href="#opcion-1-despliegue-con-docker-recomendado" title="Permanent link">&para;</a></h3>
+<p>Docker hace que el despliegue sea simple y consistente entre plataformas.</p>
+<h4 id="1-compilar-la-imagen-de-docker">1. Compilar la Imagen de Docker<a class="headerlink" href="#1-compilar-la-imagen-de-docker" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+</code></pre></div>
+<h4 id="2-ejecutar-el-contenedor">2. Ejecutar el Contenedor<a class="headerlink" href="#2-ejecutar-el-contenedor" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-v<span class="w"> </span>/ruta/a/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div>
+<p><strong>Notas Importantes:</strong></p>
+<ul>
+<li>El contenedor se ejecuta en el puerto <strong>8080</strong> (no 8090)</li>
+<li><code>-p 8080:8080</code> mapea el puerto 8080 del contenedor a tu puerto 8080 del host</li>
+<li><code>-v /ruta/a/pb_data:/app/pb_data</code> guarda tu base de datos permanentemente (reemplaza <code>/ruta/a/pb_data</code> con una ruta real en tu sistema)</li>
+<li><code>--env-file .env</code> carga tus variables de entorno desde el archivo <code>.env</code></li>
+<li><code>-d</code> ejecuta el contenedor en segundo plano (modo separado)</li>
+</ul>
+<h3 id="opcion-2-desarrollo-local">Opción 2: Desarrollo Local<a class="headerlink" href="#opcion-2-desarrollo-local" title="Permanent link">&para;</a></h3>
+<p>Para desarrollo y pruebas en tu ordenador:</p>
+<h4 id="1-instalar-dependencias-de-go">1. Instalar Dependencias de Go<a class="headerlink" href="#1-instalar-dependencias-de-go" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>./scripts/install.sh
+</code></pre></div>
+<p>Este script ejecuta <code>go get ./...</code> y <code>go mod tidy</code> para instalar todas las dependencias.</p>
+<h4 id="2-configurar-variables-de-entorno">2. Configurar Variables de Entorno<a class="headerlink" href="#2-configurar-variables-de-entorno" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Edita .env con tu configuración</span>
+</code></pre></div>
+<h4 id="3-ejecutar-la-aplicacion">3. Ejecutar la Aplicación<a class="headerlink" href="#3-ejecutar-la-aplicacion" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./scripts/start.sh
+</code></pre></div>
+<p>Este script exporta variables de entorno desde <code>.env</code> y ejecuta <code>go run main.go serve</code>.</p>
+<p>El backend se iniciará en <strong>http://localhost:8090</strong> de manera predeterminada (puerto predeterminado de PocketBase).</p>
+<h2 id="acceder-al-panel-de-administracion">Acceder al Panel de Administración<a class="headerlink" href="#acceder-al-panel-de-administracion" title="Permanent link">&para;</a></h2>
+<p>Una vez que tu backend esté en ejecución:</p>
+<ol>
+<li>Navega a <code>http://tu-url-de-backend/_/</code> (nota el guión bajo y la barra final)</li>
+<li>Inicia sesión con tus credenciales de administrador desde <code>PB_ADMIN_EMAIL</code> y <code>PB_ADMIN_PASSWORD</code></li>
+<li>Verás el panel de administración de PocketBase</li>
+</ol>
+<h3 id="que-puedes-hacer-en-el-panel-de-administracion">Qué Puedes Hacer en el Panel de Administración<a class="headerlink" href="#que-puedes-hacer-en-el-panel-de-administracion" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Colecciones</strong>: Ver y editar todas las tablas de la base de datos (usuarios, congregaciones, territorios, mapas, direcciones, etc.)</li>
+<li><strong>Registros</strong>: Ver registros de aplicación y solicitudes</li>
+<li><strong>Configuración</strong>: Configurar autenticación, correo electrónico, copias de seguridad y más</li>
+<li><strong>Archivos</strong>: Gestionar archivos cargados y almacenamiento</li>
+<li><strong>Reglas de API</strong>: Establecer permisos para cada colección</li>
+</ul>
+<p><strong>Nota de Seguridad</strong>: Configura <code>PB_HIDE_CONTROLS=true</code> en producción para ocultar la UI de administración del acceso público.</p>
+<h2 id="gestion-de-la-base-de-datos">Gestión de la Base de Datos<a class="headerlink" href="#gestion-de-la-base-de-datos" title="Permanent link">&para;</a></h2>
+<h3 id="respaldar-tus-datos">Respaldar Tus Datos<a class="headerlink" href="#respaldar-tus-datos" title="Permanent link">&para;</a></h3>
+<p>Tus datos se almacenan en la carpeta <code>pb_data</code>. Las copias de seguridad regulares son cruciales.</p>
+<h4 id="copia-de-seguridad-manual">Copia de Seguridad Manual<a class="headerlink" href="#copia-de-seguridad-manual" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Crear una copia de seguridad de toda la carpeta pb_data</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>tar<span class="w"> </span>-czf<span class="w"> </span>ministry-mapper-backup-<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.tar.gz<span class="w"> </span>/ruta/a/pb_data/
+</code></pre></div>
+<h4 id="copia-de-seguridad-diaria-automatizada">Copia de Seguridad Diaria Automatizada<a class="headerlink" href="#copia-de-seguridad-diaria-automatizada" title="Permanent link">&para;</a></h4>
+<p>Configura un cron job para respaldar automáticamente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Agregar al crontab (ejecuta: crontab -e)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-backup-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/ruta/a/pb_data/
+</code></pre></div>
+<p>Esto se ejecuta a las 2 AM diariamente y crea copias de seguridad con marca de tiempo.</p>
+<h4 id="restaurar-desde-copia-de-seguridad">Restaurar desde Copia de Seguridad<a class="headerlink" href="#restaurar-desde-copia-de-seguridad" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Detén la aplicación primero</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># Luego extrae la copia de seguridad</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>ministry-mapper-backup-20240101.tar.gz<span class="w"> </span>-C<span class="w"> </span>/ruta/a/
+</code></pre></div>
+<h2 id="lista-de-verificacion-de-seguridad">Lista de Verificación de Seguridad<a class="headerlink" href="#lista-de-verificacion-de-seguridad" title="Permanent link">&para;</a></h2>
+<p>Antes de pasar a producción:</p>
+<ul>
+<li>[ ] Cambia la contraseña de administrador predeterminada inmediatamente después del primer inicio de sesión</li>
+<li>[ ] Configura <code>PB_ALLOW_ORIGINS</code> con tus dominios reales, no <code>*</code></li>
+<li>[ ] Habilita HTTPS (nunca uses HTTP en producción)</li>
+<li>[ ] Configura <code>PB_HIDE_CONTROLS=true</code> para ocultar la UI de administración del acceso no autorizado</li>
+<li>[ ] Considera habilitar la limitación de velocidad con <code>PB_ENABLE_RATE_LIMITING=true</code></li>
+<li>[ ] Configura Sentry (<code>SENTRY_DSN</code> y <code>SENTRY_ENV</code>) para monitoreo de errores</li>
+<li>[ ] Configura copias de seguridad diarias automatizadas</li>
+<li>[ ] Usa contraseñas fuertes y únicas para todas las cuentas</li>
+<li>[ ] Para SMTP de Gmail, usa Contraseñas de Aplicación en lugar de tu contraseña regular</li>
+<li>[ ] Mantén las dependencias de Go actualizadas regularmente con <code>./scripts/update.sh</code></li>
+</ul>
+<h2 id="actualizar-el-backend">Actualizar el Backend<a class="headerlink" href="#actualizar-el-backend" title="Permanent link">&para;</a></h2>
+<p>Para actualizar a una nueva versión:</p>
+<h3 id="actualizacion-con-docker">Actualización con Docker<a class="headerlink" href="#actualizacion-con-docker" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Obtener el último código</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Recompilar la imagen de Docker</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Detener y eliminar el contenedor anterior</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>docker<span class="w"> </span>stop<span class="w"> </span>ministry-mapper
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>docker<span class="w"> </span>rm<span class="w"> </span>ministry-mapper
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1"># Iniciar el nuevo contenedor (usa el puerto 8080, no 8090)</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">  </span>-v<span class="w"> </span>/ruta/a/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">  </span>ministry-mapper-backend
+</code></pre></div>
+<h3 id="actualizacion-de-desarrollo-local">Actualización de Desarrollo Local<a class="headerlink" href="#actualizacion-de-desarrollo-local" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Obtener el último código</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Actualizar dependencias</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>./scripts/update.sh
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Reiniciar la aplicación</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>./scripts/start.sh
+</code></pre></div>
+<p><strong>Nota</strong>: Tus datos en <code>pb_data</code> se conservan durante las actualizaciones.</p>
+<h2 id="migraciones-de-base-de-datos">Migraciones de Base de Datos<a class="headerlink" href="#migraciones-de-base-de-datos" title="Permanent link">&para;</a></h2>
+<p>El backend ejecuta automáticamente las migraciones de la base de datos al iniciarse en modo de desarrollo (cuando se usa <code>go run</code>). Verás mensajes en los registros como:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Running migrations...
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Migration 1759244334_collections_snapshot completed
+</code></pre></div>
+<p><strong>Cómo Funciona:</strong></p>
+<ul>
+<li>Las migraciones se almacenan en la carpeta <code>migrations/</code></li>
+<li>PocketBase detecta si estás ejecutando mediante <code>go run</code> y auto-migra</li>
+<li>En producción (binario compilado), necesitas ejecutar las migraciones manualmente usando: <code>./main migrate</code></li>
+</ul>
+<p><strong>Importante:</strong> Nunca elimines ni modifiques los archivos de migración manualmente. Esto puede dañar tu base de datos.</p>
+<h2 id="monitoreo-y-registros">Monitoreo y Registros<a class="headerlink" href="#monitoreo-y-registros" title="Permanent link">&para;</a></h2>
+<h3 id="ver-registros">Ver Registros<a class="headerlink" href="#ver-registros" title="Permanent link">&para;</a></h3>
+<h4 id="registros-de-docker">Registros de Docker<a class="headerlink" href="#registros-de-docker" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Ver registros recientes</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>ministry-mapper
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Seguir registros en tiempo real (útil para depuración)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>ministry-mapper
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># Ver las últimas 100 líneas</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span>ministry-mapper
+</code></pre></div>
+<h4 id="registros-de-la-aplicacion">Registros de la Aplicación<a class="headerlink" href="#registros-de-la-aplicacion" title="Permanent link">&para;</a></h4>
+<p>PocketBase almacena registros en la carpeta <code>pb_data/logs/</code>. Estos incluyen:</p>
+<ul>
+<li>Registros de solicitudes</li>
+<li>Registros de errores</li>
+<li>Registros de aplicación personalizados</li>
+</ul>
+<h3 id="que-buscar-en-los-registros">Qué Buscar en los Registros<a class="headerlink" href="#que-buscar-en-los-registros" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Mensajes de Inicio</strong>: Confirma la inicialización exitosa (por ejemplo, "Starting Ministry Mapper build...")</li>
+<li><strong>Mensajes de Migración</strong>: Migraciones de base de datos siendo aplicadas</li>
+<li><strong>Inicialización de Sentry</strong>: Configuración de rastreo de errores</li>
+<li><strong>Cron Jobs</strong>: Ejecución de tareas en segundo plano (agregados de territorio, procesamiento de mensajes, etc.)</li>
+<li><strong>Mensajes de Error</strong>: Problemas con la base de datos, correo electrónico, llamadas a la API o LaunchDarkly</li>
+<li><strong>Eventos de Autenticación</strong>: Intentos de inicio de sesión y actividad del usuario</li>
+<li><strong>Problemas de Rendimiento</strong>: Consultas lentas o tiempos de espera</li>
+</ul>
+<h2 id="solucion-de-problemas">Solución de Problemas<a class="headerlink" href="#solucion-de-problemas" title="Permanent link">&para;</a></h2>
+<h3 id="puerto-ya-en-uso">Puerto ya en Uso<a class="headerlink" href="#puerto-ya-en-uso" title="Permanent link">&para;</a></h3>
+<p><strong>Problema</strong>: Error de "Puerto ya en uso"</p>
+<p><strong>Solución</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Para Docker (puerto 8080)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8080
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># Para desarrollo local (puerto 8090)</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8090
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># Matar el proceso que usa el puerto</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;id_proceso&gt;
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1"># O mapear a un puerto diferente</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8081</span>:8080<span class="w"> </span>...<span class="w">  </span><span class="c1"># Mapea el puerto 8081 del host al puerto 8080 del contenedor</span>
+</code></pre></div>
+<h3 id="base-de-datos-bloqueada">Base de Datos Bloqueada<a class="headerlink" href="#base-de-datos-bloqueada" title="Permanent link">&para;</a></h3>
+<p><strong>Problema</strong>: Error de "Database is locked"</p>
+<p><strong>Solución</strong>:
+- Detén todos los contenedores/procesos que acceden a la base de datos
+- Verifica si hay un proceso de copia de seguridad en ejecución
+- Asegúrate de que solo una instancia de la aplicación esté en ejecución
+- SQLite no admite escrituras concurrentes de múltiples procesos
+- Reinicia la aplicación</p>
+<h3 id="correo-electronico-no-se-envia">Correo Electrónico No Se Envía<a class="headerlink" href="#correo-electronico-no-se-envia" title="Permanent link">&para;</a></h3>
+<p><strong>Problema</strong>: Los usuarios no reciben correos electrónicos</p>
+<p><strong>Soluciones</strong>:
+1. <strong>Verifica la Configuración SMTP</strong>: Comprueba todas las variables <code>PB_SMTP_*</code> en <code>.env</code>
+2. <strong>Usuarios de Gmail</strong>: Usa una <a href="https://support.google.com/accounts/answer/185833">Contraseña de Aplicación</a>, no tu contraseña regular
+3. <strong>Verifica la Carpeta de Spam</strong>: Los correos pueden estar siendo filtrados
+4. <strong>Prueba la Conexión SMTP</strong>: Usa una herramienta como <code>telnet</code> o un cliente de correo para verificar las credenciales SMTP
+5. <strong>Revisa los Registros</strong>: Busca mensajes de error en <code>pb_data/logs/</code> o los registros de Docker
+6. <strong>Problemas de Puerto</strong>: Asegúrate de que el puerto 587 (TLS) o 465 (SSL) no esté bloqueado por el firewall</p>
+<h3 id="sin-memoria">Sin Memoria<a class="headerlink" href="#sin-memoria" title="Permanent link">&para;</a></h3>
+<p><strong>Problema</strong>: La aplicación se bloquea con errores de memoria</p>
+<p><strong>Soluciones</strong>:
+- Aumenta los límites de memoria de Docker: <code>docker run -m 1g ...</code>
+- Verifica los registros en busca de fugas de memoria
+- Optimiza las consultas grandes de la base de datos
+- Actualiza la asignación de RAM de tu plan de alojamiento
+- Considera usar optimizaciones PRAGMA de SQLite para grandes conjuntos de datos</p>
+<h3 id="no-se-puede-acceder-al-panel-de-administracion">No Se Puede Acceder al Panel de Administración<a class="headerlink" href="#no-se-puede-acceder-al-panel-de-administracion" title="Permanent link">&para;</a></h3>
+<p><strong>Problema</strong>: Error 404 al acceder a la URL del administrador</p>
+<p><strong>Soluciones</strong>:
+- Asegúrate del formato de URL: <code>http://tu-url/_/</code> (con guión bajo y barra final)
+- Verifica si <code>PB_HIDE_CONTROLS=true</code> (evita el acceso a la UI de administración)
+- Verifica que la aplicación esté en ejecución: <code>docker ps</code> o verifica el proceso
+- Limpia la caché y las cookies del navegador
+- Verifica los registros en busca de errores de inicio</p>
+<h2 id="consejos-de-rendimiento">Consejos de Rendimiento<a class="headerlink" href="#consejos-de-rendimiento" title="Permanent link">&para;</a></h2>
+<h3 id="congregaciones-pequenas-100-usuarios">Congregaciones Pequeñas (&lt; 100 usuarios)<a class="headerlink" href="#congregaciones-pequenas-100-usuarios" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La configuración predeterminada funciona bien</li>
+<li>512MB de RAM es suficiente</li>
+<li>SQLite maneja esta carga fácilmente</li>
+<li>No se necesita configuración especial</li>
+</ul>
+<h3 id="congregaciones-medianas-100-500-usuarios">Congregaciones Medianas (100-500 usuarios)<a class="headerlink" href="#congregaciones-medianas-100-500-usuarios" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recomendado: 1GB de RAM</li>
+<li>Habilita la limitación de velocidad: <code>PB_ENABLE_RATE_LIMITING=true</code></li>
+<li>Configura copias de seguridad automatizadas diarias</li>
+<li>Monitorea el tamaño de la base de datos en <code>pb_data/data.db</code></li>
+</ul>
+<h3 id="congregaciones-grandes-500-usuarios">Congregaciones Grandes (&gt; 500 usuarios)<a class="headerlink" href="#congregaciones-grandes-500-usuarios" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recomendado: 2GB+ de RAM</li>
+<li>Habilita la limitación de velocidad</li>
+<li>Considera alojamiento dedicado (no compartido)</li>
+<li>Monitorea los registros en busca de consultas lentas</li>
+<li>Configura la política de retención de copias de seguridad (conserva los últimos 30 días)</li>
+<li>Considera los indicadores de características de LaunchDarkly para controlar la frecuencia de los trabajos en segundo plano</li>
+</ul>
+<h2 id="endpoints-de-api">Endpoints de API<a class="headerlink" href="#endpoints-de-api" title="Permanent link">&para;</a></h2>
+<p>El backend proporciona estos endpoints de API personalizados autenticados (todos requieren autenticación de usuario):</p>
+<h3 id="gestion-de-mapas">Gestión de Mapas<a class="headerlink" href="#gestion-de-mapas" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /map/codes</code> - Obtener todos los códigos de mapa para un mapa específico</li>
+<li><code>POST /map/code/add</code> - Agregar un nuevo código de dirección a un mapa</li>
+<li><code>POST /map/codes/update</code> - Actualizar la secuencia/orden de los códigos de mapa</li>
+<li><code>POST /map/code/delete</code> - Eliminar un código de dirección de un mapa</li>
+<li><code>POST /map/add</code> - Crear un nuevo mapa</li>
+<li><code>POST /map/territory/update</code> - Actualizar a qué territorio pertenece un mapa</li>
+<li><code>POST /map/reset</code> - Reiniciar un mapa (limpiar todas las asignaciones y datos)</li>
+</ul>
+<h3 id="gestion-de-pisos">Gestión de Pisos<a class="headerlink" href="#gestion-de-pisos" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /map/floor/add</code> - Agregar un nivel de piso a un mapa</li>
+<li><code>POST /map/floor/remove</code> - Eliminar un piso de un mapa</li>
+</ul>
+<h3 id="gestion-de-territorios">Gestión de Territorios<a class="headerlink" href="#gestion-de-territorios" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /territory/reset</code> - Reiniciar un territorio (limpiar asignaciones)</li>
+<li><code>POST /territory/link</code> - Crear un enlace de acceso rápido para un territorio</li>
+</ul>
+<h3 id="configuracion">Configuración<a class="headerlink" href="#configuracion" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /options/update</code> - Actualizar opciones/configuraciones de la congregación</li>
+</ul>
+<p><strong>Autenticación</strong>: Todos los endpoints requieren un token de autenticación de PocketBase válido en el encabezado de la solicitud.</p>
+<p><strong>APIs Integradas de PocketBase</strong>: Además de los endpoints personalizados, PocketBase proporciona APIs REST automáticas para todas las colecciones (operaciones CRUD) en <code>/api/collections/{collection}/records</code>.</p>
+<h2 id="trabajos-en-segundo-plano-programador-cron">Trabajos en Segundo Plano (Programador Cron)<a class="headerlink" href="#trabajos-en-segundo-plano-programador-cron" title="Permanent link">&para;</a></h2>
+<p>El backend ejecuta tareas en segundo plano automatizadas usando un programador cron. Estos trabajos son controlados por los indicadores de características de LaunchDarkly:</p>
+<h3 id="trabajos-programados">Trabajos Programados<a class="headerlink" href="#trabajos-programados" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Agregados de Territorio</strong> (<code>*/10 * * * *</code> - cada 10 minutos)</li>
+<li>Actualiza las estadísticas y datos agregados del territorio</li>
+<li>
+<p>Indicador de característica: <code>enable-territory-aggregations</code></p>
+</li>
+<li>
+<p><strong>Limpieza de Asignaciones</strong> (<code>*/5 * * * *</code> - cada 5 minutos)</p>
+</li>
+<li>Elimina asignaciones de territorio expiradas o no válidas</li>
+<li>
+<p>Indicador de característica: <code>enable-assignments-cleanup</code></p>
+</li>
+<li>
+<p><strong>Procesamiento de Mensajes</strong> (<code>*/30 * * * *</code> - cada 30 minutos)</p>
+</li>
+<li>Procesa los mensajes pendientes en la cola</li>
+<li>Adjunta opcionalmente un resumen generado por IA cuando <code>OPENAI_API_KEY</code> está configurado</li>
+<li>
+<p>Indicador de característica: <code>enable-message-processing</code></p>
+</li>
+<li>
+<p><strong>Procesamiento de Instrucciones</strong> (<code>*/30 * * * *</code> - cada 30 minutos)</p>
+</li>
+<li>Maneja las instrucciones de asignación de territorio pendientes</li>
+<li>
+<p>Indicador de característica: <code>enable-instruction-processing</code></p>
+</li>
+<li>
+<p><strong>Procesamiento de Notas</strong> (<code>0 * * * *</code> - cada hora)</p>
+</li>
+<li>Procesa notas actualizadas para las congregaciones</li>
+<li>Adjunta opcionalmente un resumen generado por IA cuando <code>OPENAI_API_KEY</code> está configurado</li>
+<li>
+<p>Indicador de característica: <code>enable-note-processing</code></p>
+</li>
+<li>
+<p><strong>Informe Mensual</strong> (<code>0 0 1 * *</code> - el día 1 de cada mes a medianoche)</p>
+</li>
+<li>Genera un informe Excel de datos de la congregación y lo envía por correo electrónico a los administradores</li>
+<li>Indicador de característica: <code>enable-monthly-report</code></li>
+<li>
+<p>Indicador de resúmenes de IA: <code>enable-report-ai-summary</code> (requiere <code>OPENAI_API_KEY</code>)</p>
+</li>
+<li>
+<p><strong>Procesamiento de Usuarios No Aprovisionados</strong> (<code>0 1 * * *</code> - diariamente a las 01:00 UTC)</p>
+</li>
+<li>Aplica el ciclo de vida del usuario para cuentas sin asignación de rol:
+     día 3 → primer correo de advertencia, día 6 → correo de advertencia final, día 7 → cuenta deshabilitada, día 37+ → eliminación permanente</li>
+<li>
+<p>Indicador de característica: <code>enable-unprovisioned-user-processing</code></p>
+</li>
+<li>
+<p><strong>Procesamiento de Usuarios Inactivos</strong> (<code>30 1 * * *</code> - diariamente a las 01:30 UTC)</p>
+</li>
+<li>Advierte y eventualmente deshabilita cuentas que han estado inactivas más allá del umbral configurado</li>
+<li>Indicador de característica: <code>enable-inactive-user-processing</code></li>
+</ol>
+<p><strong>Nota</strong>: Si LaunchDarkly no está configurado, todos los trabajos se ejecutan de manera predeterminada (habilitado: true).</p>
+<h3 id="resumenes-de-informes-con-ia">Resúmenes de Informes con IA<a class="headerlink" href="#resumenes-de-informes-con-ia" title="Permanent link">&para;</a></h3>
+<p>Cuando <code>OPENAI_API_KEY</code> está configurado <strong>y</strong> el indicador de LaunchDarkly <code>enable-report-ai-summary</code> está activado, el informe mensual de Excel incluye un resumen generado por IA para cada hoja de territorio. La IA analiza los datos de actividad y produce un resumen de 2-3 oraciones más una lista de observaciones clave.</p>
+<p>Esta característica es completamente opcional — los informes son completamente funcionales sin ella. Para habilitarla:</p>
+<ol>
+<li>Configura <code>OPENAI_API_KEY</code> en tu archivo <code>.env</code>.</li>
+<li>Habilita el indicador <code>enable-report-ai-summary</code> en tu proyecto de LaunchDarkly (o omite LaunchDarkly por completo y el indicador se habilitará de manera predeterminada).</li>
+</ol>
+<h2 id="hooks-de-la-base-de-datos">Hooks de la Base de Datos<a class="headerlink" href="#hooks-de-la-base-de-datos" title="Permanent link">&para;</a></h2>
+<p>La aplicación maneja automáticamente ciertos eventos:</p>
+<ul>
+<li><strong>Actualizaciones de Direcciones</strong>: Cuando las notas de la dirección cambian, las marcas de tiempo y la información del usuario se registran</li>
+<li><strong>Actualizaciones de Direcciones</strong>: Activan el recálculo del agregado del mapa</li>
+<li><strong>Autenticación de Usuario</strong>: Actualiza la marca de tiempo del último inicio de sesión</li>
+<li><strong>Creación de Usuario</strong>: Normaliza y convierte a minúsculas las direcciones de correo electrónico</li>
+</ul>
+<h2 id="proximos-pasos">Próximos Pasos<a class="headerlink" href="#proximos-pasos" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Configura la <a href="../frontend-setup/">Aplicación Frontend</a></li>
+<li>Aprende sobre <a href="user-management.md">Gestión de Usuarios</a></li>
+<li>Configura los <a href="security.md">Ajustes de Seguridad</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
