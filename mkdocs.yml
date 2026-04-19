@@ -127,6 +127,9 @@ extra:
     - name: Español
       link: /es/
       lang: es
+    - name: தமிழ்
+      link: /ta/
+      lang: ta
   social:
     - icon: fontawesome/solid/desktop
       link: https://github.com/rimorin/ministry-mapper-v2
