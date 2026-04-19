@@ -576,6 +576,47 @@ Akses melalui Dail Pantas (➕) → ikon Paparan Peta. Ideal untuk:
 
 ---
 
+### Menambah Alamat yang Tiada
+
+Jika anda mendapati alamat yang tiada semasa pemetaan, anda boleh menambahnya terus tanpa menghubungi pentadbir.
+
+> **Nota:** Ciri ini sesuai untuk jemaat yang masih membina rekod wilayah mereka.
+
+**Langkah-langkah:**
+
+1. Tatal ke bawah senarai alamat sehingga anda mencapai hujung senarai
+2. Ketuk kad **"+"** yang muncul di hujung senarai
+3. Masukkan butiran alamat (kod unit, tingkat, dll.)
+4. Ketuk **"Simpan"** untuk menyimpan alamat baharu
+
+![Kad tambah alamat di hujung senarai untuk menambah alamat yang tiada](assets/screenshots/add_more_add.png)
+
+*Kad "+" di hujung senarai alamat membolehkan penerbit menambah alamat yang tiada semasa pemetaan*
+
+---
+
+### Mendapatkan Arah
+
+Ministry Mapper menyediakan perkhidmatan laluan terbina dalam untuk membantu anda menavigasi ke alamat semasa berada di lapangan.
+
+**Langkah-langkah:**
+
+1. Ketuk mana-mana alamat dalam senarai atau pada peta
+2. Ketuk butang **"Arah"** dalam paparan butiran alamat
+3. Pilih mod perjalanan yang dikehendaki:
+   - 🚗 **Memandu** — untuk perjalanan dengan kenderaan
+   - 🚶 **Berjalan** — untuk kawasan yang boleh diakses dengan berjalan kaki
+   - 🚲 **Berbasikal** — untuk laluan basikal
+4. Laluan akan diplotkan dan ditunjukkan pada peta secara langsung
+
+![Panel laluan menunjukkan pilihan mod perjalanan dan laluan yang diplotkan pada peta](assets/screenshots/map_routing.png)
+
+*Pilih mod perjalanan dan lihat laluan anda terus pada peta interaktif*
+
+> **💡 Tip:** Gunakan mod berjalan untuk kawasan padat seperti perumahan atau blok flat di mana memandu mungkin lebih sukar.
+
+---
+
 ### Tugasan Wilayah (Konduktor & Pentadbir)
 
 Ministry Mapper menggunakan sistem tugasan berasaskan pautan. Konduktor dan Pentadbir mencipta pautan boleh dikongsi yang penerbit gunakan untuk mengakses wilayah.

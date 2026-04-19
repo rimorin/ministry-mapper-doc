@@ -17,7 +17,7 @@ El frontend de Ministry Mapper (ministry-mapper-v2) es una aplicación web basad
 - Funcionalidad de mapeo interactivo
 - Sincronización de datos en tiempo real
 - Diseño responsive para móviles
-- Soporte multiidioma (7 idiomas)
+- Soporte multiidioma (8 idiomas)
 - Capacidades de Aplicación Web Progresiva
 
 **Esta guía asume que tiene**:
@@ -40,7 +40,7 @@ Esta página proporciona una referencia rápida para la configuración del front
 
 - **React 19**: Biblioteca de UI moderna
 - **TypeScript**: JavaScript con tipos
-- **Vite 7**: Herramienta de construcción rápida y servidor de desarrollo
+- **Vite 8**: Herramienta de construcción rápida y servidor de desarrollo
 - **Bootstrap 5**: Framework CSS responsive
 - **Leaflet**: Mapeo interactivo
 - **PocketBase SDK**: Conexión al backend

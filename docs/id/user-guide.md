@@ -576,6 +576,49 @@ Akses melalui Speed Dial (➕) → ikon Tampilan Peta. Ideal untuk:
 
 ---
 
+### Menambahkan Alamat yang Hilang
+
+Jika Anda menemukan alamat yang belum terdaftar saat pemetaan, Anda dapat menambahkannya langsung tanpa bantuan admin.
+
+> **Catatan:** Fitur ini tersedia untuk jemaat yang masih membangun catatan wilayah mereka.
+
+![Kartu "+" di akhir daftar alamat untuk menambahkan alamat yang hilang](assets/screenshots/add_more_add.png)
+
+*Gambar: Kartu tambah di akhir daftar alamat untuk menambahkan alamat yang hilang*
+
+**Langkah-langkah:**
+
+1. Gulir ke bawah daftar alamat hingga ke bagian bawah
+2. Ketuk kartu **"+"** yang muncul di akhir daftar
+3. Masukkan detail alamat (nomor atau nama)
+4. Ketuk **"Simpan"** untuk menyimpan alamat baru
+
+Alamat yang ditambahkan akan langsung muncul di daftar dan dapat segera diperbarui statusnya.
+
+---
+
+### Mendapatkan Petunjuk Arah
+
+Ministry Mapper memiliki layanan rute bawaan untuk membantu Anda menavigasi ke alamat.
+
+![Panel rute menampilkan opsi mode perjalanan dan rute yang diplot di peta](assets/screenshots/map_routing.png)
+
+*Gambar: Panel rute dengan pilihan mode perjalanan*
+
+**Langkah-langkah:**
+
+1. Ketuk alamat yang ingin Anda kunjungi
+2. Ketuk **"Petunjuk Arah"** di modal alamat
+3. Pilih mode perjalanan:
+   - 🚗 **Berkendara** — untuk kendaraan bermotor
+   - 🚶 **Berjalan** — untuk jalan kaki
+   - 🚲 **Bersepeda** — untuk sepeda
+4. Rute ditampilkan di peta dengan petunjuk arah turn-by-turn
+
+> **💡 Tip:** Gunakan mode **Berjalan** untuk area padat atau wilayah yang berdekatan agar rute lebih akurat.
+
+---
+
 ### Penugasan Wilayah (Konduktor & Administrator)
 
 Ministry Mapper menggunakan sistem penugasan berbasis tautan. Konduktor dan Administrator membuat tautan yang dapat dibagikan yang digunakan penginjil untuk mengakses wilayah.

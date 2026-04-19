@@ -62,6 +62,13 @@ Ministry Mapper adalah platform manajemen wilayah digital yang komprehensif yang
 - Menyalin alamat antar lantai
 - Mengganti nama dan mengatur ulang
 
+**Tambah Alamat Otomatis** *(v1.33+)*
+- Penerbit dapat menambahkan alamat yang hilang langsung saat pemetaan melalui kartu tambah di akhir daftar alamat — tanpa perlu intervensi admin
+- Kartu **"+"** muncul di akhir daftar alamat sebagai titik entri cepat
+- Ideal untuk jemaat yang masih membangun catatan wilayah mereka
+
+![Kartu "+" di akhir daftar alamat untuk menambahkan alamat yang hilang](../assets/screenshots/add_more_add.png)
+
 ---
 
 ## 📊 Pelacakan Unit/Rumah Tangga
@@ -420,6 +427,7 @@ Kunjungi URL → Bagikan → "Tambahkan ke layar beranda"
 5. **Korea** (ko) - 한국어
 6. **Melayu** (ms) - Bahasa Melayu
 7. **Tionghoa** (zh) - 中文
+8. **Tamil** (ta) - தமிழ்
 
 **Fitur i18n:**
 - Pemilih bahasa di navigasi
@@ -428,6 +436,11 @@ Kunjungi URL → Bagikan → "Tambahkan ke layar beranda"
 - Terjemahan UI lengkap
 - Pergantian dinamis (tanpa reload)
 - Mudah menambahkan bahasa baru
+
+**Catatan Rilis yang Dilokalisasi:**
+- Catatan rilis dalam aplikasi ditampilkan dalam bahasa yang dipilih pengguna
+- Mendukung 8 bahasa
+- Modal ditampilkan secara otomatis saat versi aplikasi baru terdeteksi, sehingga penerbit selalu mengetahui hal baru tanpa meninggalkan aplikasi
 
 **Menambahkan Bahasa Baru:**
 1. Buat file terjemahan di `src/i18n/locales/[lang].json`
@@ -511,6 +524,12 @@ Kunjungi URL → Bagikan → "Tambahkan ke layar beranda"
 - Pemantauan penugasan aktif
 - Feed aktivitas terbaru
 
+**Ringkasan Laporan yang Dihasilkan AI:**
+- Laporan jemaat bulanan dapat menyertakan ringkasan yang dihasilkan AI tentang tren utama dari catatan dan pesan wilayah
+- Didukung oleh **OpenAI gpt-4o-mini**
+- Dikontrol oleh feature flag `enable-report-ai-summary` — opt-in per deployment sehingga jemaat memilih apakah akan mengaktifkannya
+- Memerlukan `OPENAI_API_KEY` yang dikonfigurasi di lingkungan deployment
+
 ---
 
 ## 🔐 Fitur Keamanan
@@ -574,6 +593,15 @@ Kunjungi URL → Bagikan → "Tambahkan ke layar beranda"
 - Pencatatan alamat IP
 - Percobaan autentikasi
 
+**Manajemen Siklus Hidup Pengguna:**
+
+Penanganan otomatis akun pengguna tidak aktif dan belum disediakan, selaras dengan kontrol keamanan **NIST AC-2** dan **AC-2(3)**:
+
+- **Pengguna Belum Disediakan:** Akun yang belum pernah menyelesaikan pengaturan menerima email peringatan bertahap sebelum otomatis dinonaktifkan dan akhirnya dihapus
+- **Pengguna Tidak Aktif:** Akun tanpa aktivitas login selama periode yang dapat dikonfigurasi diperingatkan, kemudian dinonaktifkan
+- Job latar belakang berjalan setiap hari untuk mengevaluasi dan menerapkan kebijakan siklus hidup — tidak diperlukan intervensi manual
+- Menjaga daftar pengguna jemaat tetap akurat dan meminimalkan permukaan serangan dari akun yang tidak aktif
+
 **Pelacakan Error:**
 - Integrasi Sentry
 - Pemantauan error real-time
@@ -603,6 +631,14 @@ Kunjungi URL → Bagikan → "Tambahkan ke layar beranda"
 - Perhitungan jarak
 - Perencanaan rute optimal
 - Dukungan lokasi GPS
+
+**Layanan Rute (Petunjuk Arah Turn-by-Turn):**
+- Rute bawaan melalui **OpenRouteService**
+- Mendukung tiga mode perjalanan: **berkendara**, **berjalan**, dan **bersepeda**
+- Penerbit dapat meminta petunjuk arah ke alamat mana pun langsung dari tampilan peta
+- Geocoding alamat ditangani oleh **LocationIQ**
+
+![Panel rute menampilkan opsi mode perjalanan dan rute yang diplot di peta](../assets/screenshots/map_routing.png)
 
 **Geolokasi:**
 - Mendeteksi lokasi saat ini

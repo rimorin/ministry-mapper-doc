@@ -63,7 +63,7 @@ Ministry Mapper terdiri daripada dua komponen utama yang bekerjasama:
 | Lapisan | Teknologi | Versi | Tujuan |
 |---------|-----------|-------|--------|
 | **Bahasa** | Go | 1.25.0 | Bahagian belakang berprestasi tinggi |
-| **Rangka Kerja Bahagian Belakang** | PocketBase | 0.36.7 | BaaS dengan SQLite |
+| **Rangka Kerja Bahagian Belakang** | PocketBase | 0.36.9 | BaaS dengan SQLite |
 | **Pangkalan Data** | SQLite | v1.40.2+ | Pangkalan data berdikari |
 | **Rangka Kerja Web** | Echo | v5 | Penghalaan HTTP |
 | **Kontena** | Docker | Terkini | Kontenerisasi |
@@ -86,6 +86,19 @@ Ministry Mapper terdiri daripada dua komponen utama yang bekerjasama:
 | **Pemetaan** | Leaflet | 1.9.4 | Peta interaktif |
 | **Pengujian** | Vitest | 4.1.1 | Ujian unit |
 | **Kualiti Kod** | ESLint + Prettier | Terkini | Pembaikan & pemformatan |
+
+## Integrasi Luaran
+
+### Perkhidmatan Pihak Ketiga
+
+| Perkhidmatan | Tujuan | Nota |
+|--------------|--------|------|
+| **LaunchDarkly** | Bendera ciri & pelancaran terkawal | Mengawal kesemua 9 kerja latar belakang; membolehkan togol bendera tanpa henti masa |
+| **OpenAI (gpt-5.4-mini)** | Ringkasan laporan yang dijana AI | Pilihan; suhu 0.3 untuk output fakta; dikawal bendera ciri |
+| **MailerSend** | Penghantaran e-mel transaksi | Digunakan untuk laporan dan e-mel pemberitahuan kitaran hayat; percubaan semula 3 kali |
+| **Umami** | Analitik mesra privasi | Pilihan; 13 jenis acara tersuai dijejak |
+| **OpenRouteService** | API laluan/arah | Pengiraan laluan memandu, berjalan, dan berbasikal |
+| **LocationIQ** | API geokod | Carian koordinat alamat |
 
 ## Seni Bina Data
 
@@ -233,7 +246,7 @@ Kemas Kini UI Automatik
 | **Penjadual Kerja** | Cron dengan bendera ciri | Operasi berjadual |
 | **Corak Transaksi** | Operasi pangkalan data | Konsistensi data |
 | **Akses Berasaskan Pautan** | Token tugasan | Akses tanpa nama |
-| **Caching Agregat** | Medan JSON | Pengiraan pantas |
+| **Caching Agregat** | Cron berkelompok (10 min / 11 min lookback) | Pra-kira statistik kemajuan wilayah |
 | **Cangkuk Tersuai** | Logik perniagaan | Logik boleh guna semula |
 | **Corak Pembekal** | Pembekal konteks | Keadaan global |
 | **Pemuatan Malas** | Pemisahan laluan | Prestasi |
@@ -304,16 +317,17 @@ useRealtimeSubscription('addresses', (data) => {
 
 ### Tugas Berjadual
 
-| Kerja | Jadual | Tujuan |
-|-------|--------|--------|
-| **Pembersihan Tugasan** | Setiap 5 min | Padam tugasan yang tamat tempoh |
-| **Agregat Wilayah** | Setiap 10 min | Kemas kini statistik kemajuan |
-| **Pemprosesan Mesej** | Setiap 30 min | Hantar pemberitahuan mesej |
-| **Arahan** | Setiap 30 min | Hantar mesej pentadbir |
-| **Kemas Kini Nota** | Setiap 1 jam | Beritahu perubahan nota |
-| **Laporan Bulanan** | 1hb setiap bulan | Janakan laporan Excel (dengan ringkasan AI pilihan) |
-| **Pengguna Tidak Diperuntukkan** | Harian 01:00 UTC | Kuatkuasakan kitaran hayat pengguna (amaran → lumpuhkan → padam) |
-| **Pengguna Tidak Aktif** | Harian 01:30 UTC | Amaran dan lumpuhkan akaun tidak aktif |
+| Kerja | Jadual | Bendera | Penerangan |
+|-------|--------|---------|------------|
+| `cleanUpAssignments` | Setiap 5 min | `enable-assignments-cleanup` | Padam tugasan peta yang tamat tempoh |
+| `updateTerritoryAggregates` | Setiap 10 min | `enable-territory-aggregations` | Kira semula kemajuan wilayah |
+| `processMessages` | Setiap 30 min | `enable-message-processing` | Proses mesej penerbit yang belum dibaca |
+| `processInstructions` | Setiap 30 min | `enable-instruction-processing` | Proses arahan tugasan wilayah |
+| `processNotes` | Setiap jam | `enable-note-processing` | Proses nota jemaah yang dikemas kini |
+| `generateMonthlyReport` | 1hb bulan @ 02:00 SGT | `enable-monthly-report` | Jana & e-mel laporan Excel |
+| `processUnprovisionedUsers` | Harian @ 02:00 SGT | `enable-unprovisioned-user-processing` | Amaran/lumpuhkan pengguna tanpa peranan |
+| `processInactiveUsers` | Harian @ 02:30 SGT | `enable-inactive-user-processing` | Amaran/lumpuhkan akaun tidak aktif |
+| `processNewAddresses` | Harian @ 03:00 SGT | `enable-new-addresses-notification` | **BAHARU** — E-mel ringkasan harian untuk alamat yang dicipta dalam aplikasi |
 
 ### Kawalan Bendera Ciri
 

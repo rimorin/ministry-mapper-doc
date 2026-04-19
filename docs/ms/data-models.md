@@ -14,18 +14,22 @@ Jemaah (Entiti akar - pengasingan berbilang penyewa)
     │      └─── Peta (1:M)
     │             │
     │             ├─── Alamat (1:M)
+    │             │      ├─── addresses_log (1:M)
+    │             │      └─── address_options (1:M)
     │             ├─── Tugasan (1:M)
     │             └─── Mesej (1:M)
     │
     ├─── Pilihan (1:M)
-    │      └─── Alamat (M:M melalui tatasusunan JSON)
+    │      └─── address_options (M:M jambatan dengan Alamat)
     │
     ├─── Pengguna (1:M melalui Peranan)
     │      │
     │      ├─── Peranan (1:M)
     │      └─── Tugasan (1:M)
     │
-    └─── Mesej (1:M)
+    ├─── Mesej (1:M)
+    │
+    └─── aggregates (1:M dari Wilayah dan Peta)
 ```
 
 ## Koleksi Teras
@@ -443,6 +447,125 @@ Dikira secara automatik dari agregat semua peta dalam wilayah
 
 ---
 
+### 10. Addresses Log
+
+**Tujuan:** Jejak audit perubahan status alamat — setiap kali status alamat dikemas kini, rekod ditulis di sini
+
+**Jenis:** Koleksi asas
+
+**Medan:**
+
+| Medan | Jenis | Diperlukan | Penerangan |
+|-------|-------|------------|------------|
+| `id` | text(15) | Ya | ID unik yang dijana secara auto |
+| `address` | relation | Ya | FK ke Alamat (padam berkaskad) |
+| `old_status` | text | Ya | Nilai status alamat sebelumnya |
+| `new_status` | text | Ya | Nilai status alamat baharu |
+| `changed_by` | relation | Tidak | FK ke Pengguna — pengguna yang membuat perubahan |
+| `created` | date | Auto | Cap masa perubahan |
+
+**Hubungan:**
+- M:1 dengan Alamat (setiap entri log milik satu alamat)
+- M:1 dengan Pengguna (melalui `changed_by`)
+
+**Peraturan Akses:**
+- **Senarai/Lihat:** Konduktor atau Pentadbir
+- **Cipta:** Cangkuk sistem (automatik pada perubahan status alamat)
+- **Kemas kini/Padam:** Pentadbir sahaja
+
+---
+
+### 11. Aggregates
+
+**Tujuan:** Syot kilat kemajuan dalam cache untuk wilayah dan peta. Dikira semula oleh kerja latar belakang setiap 10 minit
+
+**Jenis:** Koleksi asas
+
+**Medan:**
+
+| Medan | Jenis | Diperlukan | Penerangan |
+|-------|-------|------------|------------|
+| `id` | text(15) | Ya | ID unik yang dijana secara auto |
+| `notDone` | number | Ya | Bilangan alamat yang belum dilawati |
+| `notHome` | number | Ya | Bilangan alamat "tiada di rumah" |
+| `progress` | number | Ya | Peratusan penyelesaian (0–100) |
+| `territory` | relation | Tidak | FK ke Wilayah — ditetapkan untuk agregat peringkat wilayah |
+| `map` | relation | Tidak | FK ke Peta — ditetapkan untuk agregat peringkat peta |
+
+**Hubungan:**
+- M:1 dengan Wilayah (syot kilat peringkat wilayah)
+- M:1 dengan Peta (syot kilat peringkat peta)
+
+**Peraturan Perniagaan:**
+- Tepat satu daripada `territory` atau `map` ditetapkan per rekod
+- Dikira semula setiap 10 minit oleh kerja latar belakang
+- Nilai adalah syot kilat baca sahaja; kemajuan langsung dikira atas permintaan
+
+**Peraturan Akses:**
+- **Senarai/Lihat:** Pengguna dengan peranan ATAU akses pautan
+- **Cipta/Kemas kini:** Kerja latar belakang sistem sahaja
+- **Padam:** Pentadbir sahaja
+
+---
+
+### 12. Address Options
+
+**Tujuan:** Jadual simpang yang menjejak pilihan peringkat alamat (dari koleksi `options`) yang telah diterapkan pada alamat individu — jadual jambatan untuk hubungan banyak-ke-banyak Alamat ↔ Pilihan
+
+**Jenis:** Koleksi asas
+
+**Medan:**
+
+| Medan | Jenis | Diperlukan | Penerangan |
+|-------|-------|------------|------------|
+| `id` | text(15) | Ya | ID unik yang dijana secara auto |
+| `address` | relation | Ya | FK ke Alamat (padam berkaskad) |
+| `option` | relation | Ya | FK ke Pilihan (padam berkaskad) |
+| `congregation` | relation | Ya | FK ke Jemaah (denormalkan untuk pertanyaan pantas) |
+
+**Indeks:**
+- `(address, option)` — Pasangan unik (satu pilihan per alamat)
+- `(congregation)` — Penggunaan pilihan seluruh jemaah
+
+**Hubungan:**
+- M:1 dengan Alamat
+- M:1 dengan Pilihan
+- M:1 dengan Jemaah
+
+**Peraturan Akses:**
+- **Senarai/Lihat:** Pengguna dengan peranan ATAU akses pautan
+- **Cipta/Padam:** Konduktor atau Pentadbir
+
+---
+
+## Koleksi Analitik
+
+Koleksi analitik menyimpan data sejarah untuk pelaporan dan pandangan. Koleksi ini diurus secara dalaman dan medan tepat mereka mungkin berubah dari semasa ke semasa; didokumentasikan di sini mengikut tujuan dan bukannya medan individu.
+
+### analytics_territories
+
+**Tujuan:** Menyimpan syot kilat berkala metrik peringkat wilayah (contoh, peratusan kemajuan, kiraan alamat) dari semasa ke semasa. Digunakan untuk menjana carta trend sejarah dan laporan penyelesaian wilayah.
+
+### analytics_maps
+
+**Tujuan:** Menyimpan syot kilat berkala metrik peringkat peta dari semasa ke semasa. Membolehkan pelaporan terperinci tentang kadar penyelesaian peta individu dan corak aktiviti.
+
+### analytics_daily_status
+
+**Tujuan:** Kiraan harian agregat status alamat (selesai, belum selesai, tiada di rumah, jangan hubungi, tidak sah) merentas jemaah. Menggerakkan papan pemuka trend hari ke hari dan minggu ke minggu.
+
+### analytics_not_home
+
+**Tujuan:** Menjejak alamat yang berulang kali ditandai sebagai "tiada di rumah". Digunakan untuk menampilkan sasaran susulan untuk konduktor dan mengenal pasti alamat yang berterusan tidak dapat dihubungi.
+
+### analytics_user_audit
+
+**Tujuan:** Merekod tindakan pengguna termasuk log masuk, kemas kini alamat, dan operasi tugasan untuk akauntabiliti dan tujuan audit. Membolehkan pentadbir menyemak sejarah aktiviti dan menyiasat anomali.
+
+> **Nota:** Koleksi analitik diisi oleh kerja latar belakang dan dibaca oleh lapisan pelaporan. Penulisan terus dari kod aplikasi harus dielakkan.
+
+---
+
 ## Teknologi Pangkalan Data
 
 **Enjin:** SQLite melalui PocketBase (modernc.org/sqlite v1.40.2+)
@@ -480,6 +603,11 @@ Dikira secara automatik dari agregat semua peta dalam wilayah
 | Pengguna → Tugasan | 1:M | Simpan tugasan |
 | Jemaah → Pilihan | 1:M | Padam berkaskad |
 | Jemaah → Peranan | M:M | Melalui jadual peranan |
+| Alamat → addresses_log | 1:M | Padam berkaskad |
+| Wilayah → aggregates | 1:M | Dikira semula oleh kerja latar belakang |
+| Peta → aggregates | 1:M | Dikira semula oleh kerja latar belakang |
+| Alamat → address_options | 1:M | Padam berkaskad |
+| Pilihan → address_options | 1:M | Padam berkaskad |
 
 ---
 

@@ -517,6 +517,22 @@ For private properties that need removal:
 
 ---
 
+#### Adding a Missing Address
+
+If you notice a physical address is missing from the map, you can add it on the spot without leaving the mapping view:
+
+1. Scroll to the bottom of the address list on the map
+2. Tap the **+** card at the end of the list
+3. Enter the address details in the form that appears
+4. Tap **Save** — the address is immediately added to the map
+
+!!! note
+    This feature is available to publishers and is designed for congregations that are still building their territory records. Newly added addresses are flagged for review by administrators.
+
+![The + card at the bottom of the address list for adding a missing address](../assets/screenshots/add_more_add.png)
+
+---
+
 ### Using the Map Feature
 
 ![Map Directions](assets/screenshots/map_directions.png)
@@ -553,6 +569,23 @@ Access via Speed Dial (➕) → Map View icon. Ideal for:
 - Territory coverage analysis
 - Meeting presentations
 - Identifying address clusters
+
+#### Getting Directions to an Address
+
+Ministry Mapper has a built-in routing service to help you navigate to addresses in your territory:
+
+1. On the map view, tap any address in the list
+2. Tap the **Directions** button (or the route icon)
+3. Select your preferred travel mode:
+   - 🚗 **Driving** — car navigation
+   - 🚶 **Walking** — pedestrian route
+   - 🚴 **Cycling** — bicycle-friendly route
+4. The route is displayed on the map with turn-by-turn guidance
+
+!!! tip
+    Use **Walking** mode when working densely populated areas to get more accurate pedestrian routes.
+
+![Routing mode selector on the map page](../assets/screenshots/map_routing.png)
 
 #### Navigation Tips
 

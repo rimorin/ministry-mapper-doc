@@ -162,6 +162,26 @@ SENTRY_ENV=production
 SOURCE_COMMIT=
 ```
 
+## フィーチャーフラグ
+
+Ministry Mapper は [LaunchDarkly](https://launchdarkly.com) を使用してバックグラウンドジョブの実行をゲートします。各ジョブは再デプロイなしに独立して有効化・無効化できます。フィーチャーフラグには `LAUNCHDARKLY_SDK_KEY` と `LAUNCHDARKLY_CONTEXT_KEY` の設定が必要です。
+
+| フラグキー | 制御対象ジョブ | 説明 |
+|----------|----------------|-------------|
+| `enable-assignments-cleanup` | `cleanUpAssignments` | 期限切れのマップ割り当てを削除（5分ごとに実行） |
+| `enable-territory-aggregations` | `updateTerritoryAggregates` | テリトリーの進捗統計を再計算（10分ごとに実行） |
+| `enable-message-processing` | `processMessages` | 保留中の伝道者メッセージを処理（30分ごとに実行） |
+| `enable-instruction-processing` | `processInstructions` | テリトリー割り当て指示を処理（30分ごとに実行） |
+| `enable-note-processing` | `processNotes` | 更新された会衆メモを処理（1時間ごとに実行） |
+| `enable-monthly-report` | `generateMonthlyReport` | Excel レポートを生成してメール送信（毎月1日に実行） |
+| `enable-unprovisioned-user-processing` | `processUnprovisionedUsers` | 役割が割り当てられていないユーザーを警告・無効化（毎日実行） |
+| `enable-inactive-user-processing` | `processInactiveUsers` | 非アクティブなアカウントを警告・無効化 — NIST AC-2(3)（毎日実行） |
+| `enable-new-addresses-notification` | `processNewAddresses` | アプリで追加された住所のダイジェストメールを送信（毎日実行） |
+| `enable-report-ai-summary` | レポート内の AI 要約 | 会衆レポートに OpenAI 生成のサマリーを含める |
+
+!!! note
+    LaunchDarkly が設定されていない場合、すべてのジョブはデフォルトで実行されます（enabled: true）。
+
 ## インストール手順
 
 ### オプション1：Docker デプロイ（推奨）

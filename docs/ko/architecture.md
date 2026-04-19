@@ -62,7 +62,7 @@ Ministry Mapper는 함께 작동하는 두 가지 주요 구성 요소로 구성
 | 레이어 | 기술 | 버전 | 목적 |
 |--------|------|------|------|
 | **언어** | Go | 1.25.0 | 고성능 백엔드 |
-| **백엔드 프레임워크** | PocketBase | 0.36.7 | SQLite가 있는 BaaS |
+| **백엔드 프레임워크** | PocketBase | 0.36.9 | SQLite가 있는 BaaS |
 | **데이터베이스** | SQLite | v1.40.2+ | 자체 포함 데이터베이스 |
 | **웹 프레임워크** | Echo | v5 | HTTP 라우팅 |
 | **컨테이너** | Docker | Latest | 컨테이너화 |
@@ -76,6 +76,7 @@ Ministry Mapper는 함께 작동하는 두 가지 주요 구성 요소로 구성
 
 | 레이어 | 기술 | 버전 | 목적 |
 |--------|------|------|------|
+| **런타임** | Node.js | >=24.0.0 | JavaScript 런타임 (개발 도구체인) |
 | **프레임워크** | React | 19.2.4 | UI 라이브러리 |
 | **언어** | TypeScript | 5.9.3 | 타입 안전성 |
 | **빌드 도구** | Vite | 8.0.2 | 빠른 개발 및 빌드 |
@@ -85,6 +86,19 @@ Ministry Mapper는 함께 작동하는 두 가지 주요 구성 요소로 구성
 | **지도** | Leaflet | 1.9.4 | 인터랙티브 지도 |
 | **테스팅** | Vitest | 4.1.1 | 단위 테스팅 |
 | **코드 품질** | ESLint + Prettier | Latest | 린팅 및 포맷팅 |
+
+## 외부 통합
+
+### 서드파티 서비스
+
+| 서비스 | 목적 | 참고 |
+|--------|------|------|
+| **LaunchDarkly** | 기능 플래그 및 제어된 출시 | 모든 9개 백그라운드 작업을 제어; 무중단 플래그 전환 가능 |
+| **OpenAI (gpt-5.4-mini)** | AI 생성 보고서 요약 | 선택적; 사실적 출력을 위한 temperature 0.3; 기능 플래그로 제어 |
+| **MailerSend** | 트랜잭션 이메일 전달 | 보고서 및 수명 주기 알림 이메일에 사용; 3회 재시도 |
+| **Umami** | 개인정보 친화적 분석 | 선택적; 13가지 커스텀 이벤트 유형 추적 |
+| **OpenRouteService** | 라우팅/길 안내 API | 자동차, 도보, 자전거 경로 계산 |
+| **LocationIQ** | 지오코딩 API | 주소 좌표 조회 |
 
 ## 데이터 아키텍처
 
@@ -232,7 +246,7 @@ UI 자동 업데이트
 | **작업 스케줄러** | 기능 플래그가 있는 Cron | 예약된 작업 |
 | **트랜잭션 패턴** | 데이터베이스 작업 | 데이터 일관성 |
 | **링크 기반 접근** | 배정 토큰 | 익명 접근 |
-| **집계 캐싱** | JSON 필드 | 빠른 계산 |
+| **집계 캐싱** | 배치 cron (10분 / 11분 룩백) | 사전 계산된 구역 진행 통계 |
 | **커스텀 훅** | 비즈니스 로직 | 재사용 가능한 로직 |
 | **프로바이더 패턴** | 컨텍스트 프로바이더 | 전역 상태 |
 | **지연 로딩** | 라우트 분리 | 성능 |
@@ -303,16 +317,17 @@ useRealtimeSubscription('addresses', (data) => {
 
 ### 예약된 작업
 
-| 작업 | 스케줄 | 목적 |
-|------|--------|------|
-| **배정 정리** | 매 5분 | 만료된 배정 삭제 |
-| **구역 집계** | 매 10분 | 진행 상황 통계 업데이트 |
-| **메시지 처리** | 매 30분 | 메시지 알림 전송 |
-| **지시사항** | 매 30분 | 관리자 메시지 전송 |
-| **메모 업데이트** | 매 1시간 | 메모 변경 알림 |
-| **월간 보고서** | 매월 1일 | Excel 보고서 생성 (AI 요약 선택 가능) |
-| **미프로비저닝 사용자** | 매일 01:00 UTC | 사용자 수명 주기 적용 (경고 → 비활성화 → 삭제) |
-| **비활성 사용자** | 매일 01:30 UTC | 비활성 계정 경고 및 비활성화 |
+| 작업 | 스케줄 | 플래그 | 목적 |
+|------|--------|--------|------|
+| `cleanUpAssignments` | 매 5분 | `enable-assignments-cleanup` | 만료된 배정 삭제 |
+| `updateTerritoryAggregates` | 매 10분 | `enable-territory-aggregations` | 구역 진행 상황 통계 재계산 |
+| `processMessages` | 매 30분 | `enable-message-processing` | 전도인 메시지 알림 전송 |
+| `processInstructions` | 매 30분 | `enable-instruction-processing` | 관리자 메시지 전송 |
+| `processNotes` | 매 1시간 | `enable-note-processing` | 메모 변경 알림 |
+| `generateMonthlyReport` | 매월 1일 02:00 SGT | `enable-monthly-report` | Excel 보고서 생성 (AI 요약 선택 가능) |
+| `processUnprovisionedUsers` | 매일 02:00 SGT | `enable-unprovisioned-user-processing` | 역할 없는 사용자 경고/비활성화 |
+| `processInactiveUsers` | 매일 02:30 SGT | `enable-inactive-user-processing` | 비활성 계정 경고 및 비활성화 |
+| `processNewAddresses` | 매일 03:00 SGT | `enable-new-addresses-notification` | 앱에서 생성된 주소에 대한 일일 요약 이메일 |
 
 ### 기능 플래그 제어
 
@@ -350,7 +365,7 @@ Ministry Mapper는 지능형 텍스트 요약을 위해 OpenAI의 GPT 모델과 
 ### 백엔드 최적화
 
 - **데이터베이스 인덱스**: 빠른 쿼리를 위한 25개 이상 인덱스
-- **집계 캐싱**: JSON에 미리 계산된 통계
+- **집계 캐싱**: 구역 진행 통계는 배치 cron 작업(`updateTerritoryAggregates`, 11분 룩백 윈도우로 10분마다)으로 사전 계산되며, 이전의 실시간 디바운서 방식을 대체합니다. 결과는 빠른 조회를 위해 JSON으로 저장됩니다.
 - **연결 풀링**: 효율적인 데이터베이스 연결
 - **트랜잭션 일괄 처리**: 데이터베이스 라운드 트립 감소
 

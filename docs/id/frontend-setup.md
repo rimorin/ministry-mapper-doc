@@ -75,6 +75,10 @@ VITE_POCKETBASE_URL=https://your-backend-url.com
 VITE_PRIVACY_URL=https://your-site.com/privacy
 VITE_TERMS_URL=https://your-site.com/terms
 VITE_ABOUT_URL=https://your-site.com/about
+
+# Peta & Rute
+VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 ```
 
 ### Variabel Opsional
@@ -86,10 +90,6 @@ VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
 SENTRY_AUTH_TOKEN=your_sentry_auth_token
 SENTRY_ORG=your_sentry_org_slug
 SENTRY_PROJECT=your_sentry_project_slug
-
-# Routing & Geocoding
-VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
-VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 
 # Mode Pemeliharaan - menampilkan banner pemeliharaan kepada pengguna
 VITE_MAINTENANCE_MODE=false
@@ -153,15 +153,15 @@ VITE_MAINTENANCE_MODE=false
 
 #### VITE_OPENROUTE_API_KEY
 
-- **Tujuan**: Mengaktifkan routing turn-by-turn dan petunjuk arah pada peta interaktif
+- **Tujuan**: Mengaktifkan routing turn-by-turn dan petunjuk arah (berkendara, berjalan, bersepeda) menggunakan OpenRouteService pada peta interaktif
 - **Dapatkan Dari**: [openrouteservice.org](https://openrouteservice.org) (tier gratis tersedia)
-- **Wajib**: Tidak — navigasi peta berfungsi tanpa ini, tetapi petunjuk arah tidak akan tersedia
+- **Wajib**: Ya
 
 #### VITE_LOCATIONIQ_API_KEY
 
-- **Tujuan**: Geocoding (mengubah alamat menjadi koordinat) dan reverse geocoding (koordinat menjadi alamat)
+- **Tujuan**: Geocoding alamat ke koordinat dan reverse geocoding (koordinat menjadi alamat) menggunakan LocationIQ
 - **Dapatkan Dari**: [locationiq.com](https://locationiq.com) (tier gratis tersedia)
-- **Wajib**: Tidak — aplikasi berfungsi tanpa ini, tetapi pencarian alamat dan pengisian otomatis tidak akan tersedia
+- **Wajib**: Ya
 
 #### VITE_MAINTENANCE_MODE
 
@@ -174,14 +174,14 @@ VITE_MAINTENANCE_MODE=false
 
 ### Prasyarat
 
-Anda memerlukan Node.js versi 24 atau lebih tinggi:
+Anda memerlukan Node.js **>=24.0.0**:
 
 ```bash
 # Periksa versi Node.js Anda
 node --version
 ```
 
-Jika Anda tidak memiliki Node.js 24+, unduh dari: [nodejs.org](https://nodejs.org)
+Jika Anda tidak memiliki Node.js >=24.0.0, unduh dari: [nodejs.org](https://nodejs.org)
 
 ### Langkah-langkah Setup
 

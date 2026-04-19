@@ -62,7 +62,7 @@ Ministry Mapper consists of two main components working together:
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
 | **Language** | Go | 1.25.0 | High-performance backend |
-| **Backend Framework** | PocketBase | 0.36.7 | BaaS with SQLite |
+| **Backend Framework** | PocketBase | 0.36.9 | BaaS with SQLite |
 | **Database** | SQLite | v1.40.2+ | Self-contained database |
 | **Web Framework** | Echo | v5 | HTTP routing |
 | **Container** | Docker | Latest | Containerization |
@@ -76,6 +76,7 @@ Ministry Mapper consists of two main components working together:
 
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
+| **Runtime** | Node.js | >=24.0.0 | JavaScript runtime (dev toolchain) |
 | **Framework** | React | 19.2.4 | UI library |
 | **Language** | TypeScript | 5.9.3 | Type safety |
 | **Build Tool** | Vite | 8.0.2 | Fast dev & build |
@@ -85,6 +86,19 @@ Ministry Mapper consists of two main components working together:
 | **Mapping** | Leaflet | 1.9.4 | Interactive maps |
 | **Testing** | Vitest | 4.1.1 | Unit testing |
 | **Code Quality** | ESLint + Prettier | Latest | Linting & formatting |
+
+## External Integrations
+
+### Third-Party Services
+
+| Service | Purpose | Notes |
+|---------|---------|-------|
+| **LaunchDarkly** | Feature flags & controlled rollouts | Controls all 9 background jobs; enables zero-downtime flag toggles |
+| **OpenAI (gpt-5.4-mini)** | AI-generated report summaries | Optional; temperature 0.3 for factual output; feature-flagged |
+| **MailerSend** | Transactional email delivery | Used for reports and lifecycle notification emails; 3-attempt retry |
+| **Umami** | Privacy-friendly analytics | Optional; 13 custom event types tracked |
+| **OpenRouteService** | Routing/directions API | Driving, walking, and cycling route calculations |
+| **LocationIQ** | Geocoding API | Address coordinate lookup |
 
 ## Data Architecture
 
@@ -232,7 +246,7 @@ UI Auto-updates
 | **Job Scheduler** | Cron with feature flags | Scheduled operations |
 | **Transaction Pattern** | Database operations | Data consistency |
 | **Link-Based Access** | Assignment tokens | Anonymous access |
-| **Aggregate Caching** | JSON fields | Fast calculations |
+| **Aggregate Caching** | Batched cron (10 min / 11 min lookback) | Pre-calculated territory progress statistics |
 | **Custom Hooks** | Business logic | Reusable logic |
 | **Provider Pattern** | Context providers | Global state |
 | **Lazy Loading** | Route splitting | Performance |
@@ -303,16 +317,17 @@ useRealtimeSubscription('addresses', (data) => {
 
 ### Scheduled Tasks
 
-| Job | Schedule | Purpose |
-|-----|----------|---------|
-| **Assignment Cleanup** | Every 5 min | Delete expired assignments |
-| **Territory Aggregates** | Every 10 min | Update progress statistics |
-| **Message Processing** | Every 30 min | Send message notifications |
-| **Instructions** | Every 30 min | Send admin messages |
-| **Note Updates** | Every 1 hour | Notify of note changes |
-| **Monthly Reports** | 1st of month | Generate Excel reports (with optional AI summaries) |
-| **Unprovisioned Users** | Daily 01:00 UTC | Enforce user lifecycle (warnings → disable → delete) |
-| **Inactive Users** | Daily 01:30 UTC | Warn and disable inactive accounts |
+| Job | Schedule | Flag | Description |
+|-----|----------|------|-------------|
+| `cleanUpAssignments` | Every 5 min | `enable-assignments-cleanup` | Remove expired map assignments |
+| `updateTerritoryAggregates` | Every 10 min | `enable-territory-aggregations` | Recalculate territory progress |
+| `processMessages` | Every 30 min | `enable-message-processing` | Process pending publisher messages |
+| `processInstructions` | Every 30 min | `enable-instruction-processing` | Process territory assignment instructions |
+| `processNotes` | Hourly | `enable-note-processing` | Process updated congregation notes |
+| `generateMonthlyReport` | 1st of month @ 02:00 SGT | `enable-monthly-report` | Generate & email Excel report |
+| `processUnprovisionedUsers` | Daily @ 02:00 SGT | `enable-unprovisioned-user-processing` | Warn/disable users with no role |
+| `processInactiveUsers` | Daily @ 02:30 SGT | `enable-inactive-user-processing` | Warn/disable inactive accounts |
+| `processNewAddresses` | Daily @ 03:00 SGT | `enable-new-addresses-notification` | **NEW** — Daily digest email for app-created addresses |
 
 ### Feature Flag Control
 
@@ -352,7 +367,7 @@ Ministry Mapper integrates with OpenAI's GPT model for intelligent text summaris
 ### Backend Optimizations
 
 - **Database Indexes**: 25+ indexes for fast queries
-- **Aggregate Caching**: Pre-calculated statistics in JSON
+- **Aggregate Caching**: Territory progress statistics are pre-calculated via a batched cron job (`updateTerritoryAggregates`, every 10 minutes with an 11-minute lookback window), replacing the previous real-time debouncer approach. Results are stored as JSON for fast retrieval.
 - **Connection Pooling**: Efficient database connections
 - **Transaction Batching**: Reduce database round-trips
 

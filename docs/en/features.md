@@ -62,6 +62,13 @@ Ministry Mapper is a comprehensive digital territory management platform designe
 - Copy addresses across floors
 - Rename and reorganize
 
+**Add Address On The Fly** *(v1.33+)*
+- Publishers can add missing addresses directly during the mapping process — no admin intervention required
+- A **"+"** card appears at the end of the address list as a quick-add entry point
+- Ideal for congregations that are still building out their territory records
+
+![The "+" card at the end of an address list for adding a missing address](../assets/screenshots/add_more_add.png)
+
 ---
 
 ## 📊 Unit/Household Tracking
@@ -429,6 +436,11 @@ Visit URL → Share → "Add to home screen"
 - Dynamic switching (no reload)
 - Easy to add new languages
 
+**Localized Release Notes:**
+- In-app changelog displayed in the user's currently selected language
+- Supports all 8 languages
+- A modal is shown automatically when a new application version is detected, so publishers always know what's new without leaving the app
+
 **Adding New Language:**
 1. Create translation file in `src/i18n/locales/[lang].json`
 2. Copy structure from `en.json`
@@ -511,6 +523,12 @@ Visit URL → Share → "Add to home screen"
 - Active assignment monitoring
 - Recent activity feed
 
+**AI-Generated Report Summaries:**
+- Monthly congregation reports can include AI-generated summaries of key trends drawn from territory notes and messages
+- Powered by **OpenAI gpt-4o-mini**
+- Controlled by the `enable-report-ai-summary` feature flag — opt-in per deployment so congregations choose whether to enable it
+- Requires an `OPENAI_API_KEY` to be configured in the deployment environment
+
 ---
 
 ## 🔐 Security Features
@@ -574,6 +592,15 @@ Visit URL → Share → "Add to home screen"
 - IP address logging
 - Authentication attempts
 
+**User Lifecycle Management:**
+
+Automated handling of inactive and unprovisioned user accounts, aligned with **NIST AC-2** and **AC-2(3)** security controls:
+
+- **Unprovisioned Users:** Accounts that have never completed setup receive multi-stage warning emails before being automatically disabled and ultimately deleted
+- **Inactive Users:** Accounts with no login activity for a configurable period are warned, then disabled
+- Background jobs run daily to evaluate and enforce lifecycle policies — no manual intervention needed
+- Keeps congregation user lists accurate and minimises the attack surface from dormant accounts
+
 **Error Tracking:**
 - Sentry integration
 - Real-time error monitoring
@@ -603,6 +630,14 @@ Visit URL → Share → "Add to home screen"
 - Distance calculation
 - Optimal route planning
 - GPS location support
+
+**Routing Service (Turn-by-Turn Directions):**
+- Built-in routing powered by **OpenRouteService**
+- Supports three travel modes: **driving**, **walking**, and **cycling**
+- Publishers can request directions to any address directly from the map view
+- Address geocoding handled by **LocationIQ**
+
+![Routing panel showing travel mode options and a plotted route on the map](../assets/screenshots/map_routing.png)
 
 **Geolocation:**
 - Detect current location

@@ -75,6 +75,10 @@ VITE_POCKETBASE_URL=https://your-backend-url.com
 VITE_PRIVACY_URL=https://your-site.com/privacy
 VITE_TERMS_URL=https://your-site.com/terms
 VITE_ABOUT_URL=https://your-site.com/about
+
+# 地图和路线
+VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 ```
 
 ### 可选变量
@@ -86,10 +90,6 @@ VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
 SENTRY_AUTH_TOKEN=your_sentry_auth_token
 SENTRY_ORG=your_sentry_org_slug
 SENTRY_PROJECT=your_sentry_project_slug
-
-# 路由和地理编码
-VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
-VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 
 # 维护模式 - 向用户显示维护横幅
 VITE_MAINTENANCE_MODE=false
@@ -153,15 +153,15 @@ VITE_MAINTENANCE_MODE=false
 
 #### VITE_OPENROUTE_API_KEY
 
-- **用途**：在交互式地图上提供逐向导航和路线指引
+- **用途**：在交互式地图上提供逐向导航和路线指引（驾车、步行、骑行）
 - **获取方式**：[openrouteservice.org](https://openrouteservice.org)（有免费层）
-- **必需**：否 — 没有它地图导航也能工作，但路线指引将不可用
+- **必需**：是
 
 #### VITE_LOCATIONIQ_API_KEY
 
 - **用途**：地理编码（将地址转换为坐标）和反向地理编码（坐标转换为地址）
 - **获取方式**：[locationiq.com](https://locationiq.com)（有免费层）
-- **必需**：否 — 没有它应用也能工作，但地址搜索和自动填充将不可用
+- **必需**：是
 
 #### VITE_MAINTENANCE_MODE
 
@@ -174,7 +174,7 @@ VITE_MAINTENANCE_MODE=false
 
 ### 前提条件
 
-您需要 Node.js 版本 24 或更高版本：
+您需要 Node.js **>=24.0.0**：
 
 ```bash
 # 检查您的 Node.js 版本

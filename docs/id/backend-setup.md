@@ -78,6 +78,26 @@ LAUNCHDARKLY_CONTEXT_KEY=
 OPENAI_API_KEY=
 ```
 
+#### Email (MailerSend)
+
+| Variabel | Wajib | Deskripsi |
+|----------|-------|-----------|
+| `MAILERSEND_API_KEY` | Opsional | Kunci API MailerSend untuk pengiriman email transaksional (digunakan untuk laporan dan email siklus hidup). Jika tidak diatur, akan menggunakan SMTP sebagai fallback. |
+| `MAILERSEND_FROM_EMAIL` | Opsional | Alamat email pengirim untuk email MailerSend. |
+
+#### Feature Flags (LaunchDarkly)
+
+| Variabel | Wajib | Deskripsi |
+|----------|-------|-----------|
+| `LAUNCHDARKLY_SDK_KEY` | Opsional | Kunci SDK sisi server LaunchDarkly. Diperlukan jika menggunakan background job yang dikontrol feature flag. |
+| `LAUNCHDARKLY_CONTEXT_KEY` | Opsional | Kunci konteks LaunchDarkly yang mengidentifikasi lingkungan deployment ini. |
+
+#### Ringkasan AI (OpenAI)
+
+| Variabel | Wajib | Deskripsi |
+|----------|-------|-----------|
+| `OPENAI_API_KEY` | Opsional | Kunci API OpenAI. Diperlukan hanya jika ringkasan laporan yang dihasilkan AI diaktifkan melalui feature flag. |
+
 ### Pengaturan Aplikasi
 
 ```bash
@@ -161,6 +181,26 @@ SENTRY_ENV=production
 # Hash commit git - secara otomatis diatur oleh platform hosting seperti Coolify
 SOURCE_COMMIT=
 ```
+
+## Feature Flags
+
+Ministry Mapper menggunakan [LaunchDarkly](https://launchdarkly.com) untuk mengontrol eksekusi background job. Setiap job dapat diaktifkan atau dinonaktifkan secara independen tanpa perlu deployment ulang. Feature flags memerlukan `LAUNCHDARKLY_SDK_KEY` dan `LAUNCHDARKLY_CONTEXT_KEY` yang dikonfigurasi.
+
+| Kunci Flag | Job yang Dikontrol | Deskripsi |
+|------------|-------------------|-----------|
+| `enable-assignments-cleanup` | `cleanUpAssignments` | Hapus penugasan peta yang kedaluwarsa (berjalan setiap 5 menit) |
+| `enable-territory-aggregations` | `updateTerritoryAggregates` | Kalkulasi ulang statistik kemajuan wilayah (berjalan setiap 10 menit) |
+| `enable-message-processing` | `processMessages` | Proses pesan penerbit yang tertunda (berjalan setiap 30 menit) |
+| `enable-instruction-processing` | `processInstructions` | Proses instruksi penugasan wilayah (berjalan setiap 30 menit) |
+| `enable-note-processing` | `processNotes` | Proses catatan jemaat yang diperbarui (berjalan setiap jam) |
+| `enable-monthly-report` | `generateMonthlyReport` | Buat dan kirim laporan Excel via email (berjalan tanggal 1 setiap bulan) |
+| `enable-unprovisioned-user-processing` | `processUnprovisionedUsers` | Peringatkan dan nonaktifkan pengguna tanpa peran yang ditetapkan (berjalan harian) |
+| `enable-inactive-user-processing` | `processInactiveUsers` | Peringatkan dan nonaktifkan akun tidak aktif — NIST AC-2(3) (berjalan harian) |
+| `enable-new-addresses-notification` | `processNewAddresses` | Kirim email digest harian untuk alamat yang dibuat dari aplikasi (berjalan harian) |
+| `enable-report-ai-summary` | Ringkasan AI dalam laporan | Sertakan ringkasan yang dihasilkan OpenAI dalam laporan jemaat |
+
+!!! note
+    Jika LaunchDarkly tidak dikonfigurasi, semua job berjalan secara default (enabled: true).
 
 ## Langkah Instalasi
 

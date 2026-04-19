@@ -14,18 +14,22 @@ Congregación (Entidad raíz - aislamiento multi-inquilino)
     │      └─── Mapa (1:M)
     │             │
     │             ├─── Dirección (1:M)
+    │             │      ├─── addresses_log (1:M)
+    │             │      └─── address_options (1:M)
     │             ├─── Asignación (1:M)
     │             └─── Mensaje (1:M)
     │
     ├─── Opción (1:M)
-    │      └─── Dirección (M:M a través de array JSON)
+    │      └─── address_options (M:M puente con Dirección)
     │
     ├─── Usuario (1:M a través de Rol)
     │      │
     │      ├─── Rol (1:M)
     │      └─── Asignación (1:M)
     │
-    └─── Mensaje (1:M)
+    ├─── Mensaje (1:M)
+    │
+    └─── aggregates (1:M desde Territorio y Mapa)
 ```
 
 ## Colecciones Principales
@@ -575,6 +579,125 @@ Calculado automáticamente a partir del agregado de todos los mapas dentro del t
 
 ---
 
+### 10. addresses_log
+
+**Propósito:** Registro de auditoría de cambios de estado de direcciones — cada vez que se actualiza el estado de una dirección, se escribe un registro aquí
+
+**Tipo:** Colección base
+
+**Campos:**
+
+| Campo | Tipo | Requerido | Descripción |
+|-------|------|-----------|-------------|
+| `id` | text(15) | Sí | ID único auto-generado |
+| `address` | relation | Sí | FK a Direcciones (eliminación en cascada) |
+| `old_status` | text | Sí | Valor de estado de dirección anterior |
+| `new_status` | text | Sí | Nuevo valor de estado de dirección |
+| `changed_by` | relation | No | FK a Usuarios — usuario que realizó el cambio |
+| `created` | date | Auto | Marca de tiempo del cambio |
+
+**Relaciones:**
+- M:1 con Direcciones (cada entrada del registro pertenece a una dirección)
+- M:1 con Usuarios (a través de `changed_by`)
+
+**Reglas de Acceso:**
+- **Lista/Ver:** Director o Administrador
+- **Crear:** Hook del sistema (automático al cambiar el estado de la dirección)
+- **Actualizar/Eliminar:** Solo Administrador
+
+---
+
+### 11. aggregates
+
+**Propósito:** Instantáneas de progreso en caché para territorios y mapas. Recalculadas por un trabajo en segundo plano cada 10 minutos
+
+**Tipo:** Colección base
+
+**Campos:**
+
+| Campo | Tipo | Requerido | Descripción |
+|-------|------|-----------|-------------|
+| `id` | text(15) | Sí | ID único auto-generado |
+| `notDone` | number | Sí | Conteo de direcciones aún no visitadas |
+| `notHome` | number | Sí | Conteo de direcciones "nadie en casa" |
+| `progress` | number | Sí | Porcentaje de completado (0–100) |
+| `territory` | relation | No | FK a Territorios — establecido para agregados a nivel de territorio |
+| `map` | relation | No | FK a Mapas — establecido para agregados a nivel de mapa |
+
+**Relaciones:**
+- M:1 con Territorios (instantáneas a nivel de territorio)
+- M:1 con Mapas (instantáneas a nivel de mapa)
+
+**Reglas de Negocio:**
+- Exactamente uno de `territory` o `map` se establece por registro
+- Recalculado cada 10 minutos por el trabajo en segundo plano
+- Los valores son instantáneas de solo lectura; el progreso en vivo se calcula bajo demanda
+
+**Reglas de Acceso:**
+- **Lista/Ver:** Usuario con rol O acceso por enlace
+- **Crear/Actualizar:** Solo trabajo en segundo plano del sistema
+- **Eliminar:** Solo Administrador
+
+---
+
+### 12. address_options
+
+**Propósito:** Tabla de unión que rastrea qué opciones a nivel de dirección (de la colección `options`) se han aplicado a direcciones individuales — la tabla puente para la relación muchos-a-muchos entre Dirección y Opción
+
+**Tipo:** Colección base
+
+**Campos:**
+
+| Campo | Tipo | Requerido | Descripción |
+|-------|------|-----------|-------------|
+| `id` | text(15) | Sí | ID único auto-generado |
+| `address` | relation | Sí | FK a Direcciones (eliminación en cascada) |
+| `option` | relation | Sí | FK a Opciones (eliminación en cascada) |
+| `congregation` | relation | Sí | FK a Congregaciones (desnormalizado para consultas rápidas) |
+
+**Índices:**
+- `(address, option)` — Emparejamiento único (una opción por dirección)
+- `(congregation)` — Uso de opciones en toda la congregación
+
+**Relaciones:**
+- M:1 con Direcciones
+- M:1 con Opciones
+- M:1 con Congregaciones
+
+**Reglas de Acceso:**
+- **Lista/Ver:** Usuario con rol O acceso por enlace
+- **Crear/Eliminar:** Director o Administrador
+
+---
+
+## Colecciones de Análisis
+
+Las colecciones de análisis almacenan datos históricos para informes e información. Estas colecciones se gestionan internamente y sus campos exactos pueden evolucionar con el tiempo; se documentan aquí por propósito en lugar de por campos individuales.
+
+### analytics_territories
+
+**Propósito:** Almacena instantáneas periódicas de métricas a nivel de territorio (ej., porcentaje de progreso, conteos de direcciones) a lo largo del tiempo. Se usa para generar gráficos de tendencias históricas e informes de completado de territorio.
+
+### analytics_maps
+
+**Propósito:** Almacena instantáneas periódicas de métricas a nivel de mapa a lo largo del tiempo. Permite informes detallados sobre tasas de completado de mapas individuales y patrones de actividad.
+
+### analytics_daily_status
+
+**Propósito:** Conteos diarios agregados de estados de direcciones (hecho, no hecho, nadie en casa, no visitar, inválido) en toda la congregación. Impulsa los paneles de tendencias día a día y semana a semana.
+
+### analytics_not_home
+
+**Propósito:** Rastrea direcciones que han sido marcadas repetidamente como "nadie en casa". Se usa para identificar objetivos de seguimiento para conductores y para señalar direcciones persistentemente inalcanzables.
+
+### analytics_user_audit
+
+**Propósito:** Registra acciones de usuario incluyendo inicios de sesión, actualizaciones de direcciones y operaciones de asignación para responsabilidad y fines de auditoría. Permite a los administradores revisar el historial de actividades e investigar anomalías.
+
+> **Nota:** Las colecciones de análisis son pobladas por trabajos en segundo plano y leídas por la capa de informes. Se deben evitar escrituras directas desde el código de la aplicación.
+
+---
+
 ## Tecnología de Base de Datos
 
 **Motor:** SQLite a través de PocketBase (modernc.org/sqlite v1.40.2+)
@@ -613,6 +736,11 @@ Calculado automáticamente a partir del agregado de todos los mapas dentro del t
 | Usuario → Asignación | 1:M | Conservar asignaciones |
 | Congregación → Opción | 1:M | Eliminación en cascada |
 | Congregación → Rol | M:M | A través de la tabla de roles |
+| Dirección → addresses_log | 1:M | Eliminación en cascada |
+| Territorio → aggregates | 1:M | Recalculado por trabajo en segundo plano |
+| Mapa → aggregates | 1:M | Recalculado por trabajo en segundo plano |
+| Dirección → address_options | 1:M | Eliminación en cascada |
+| Opción → address_options | 1:M | Eliminación en cascada |
 
 ---
 

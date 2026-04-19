@@ -17,7 +17,7 @@ Frontend Ministry Mapper (ministry-mapper-v2) adalah aplikasi web berasaskan Rea
 - Fungsi pemetaan interaktif
 - Penyegerakan data masa nyata
 - Reka bentuk responsif mudah alih
-- Sokongan berbilang bahasa (7 bahasa)
+- Sokongan berbilang bahasa (8 bahasa)
 - Keupayaan Aplikasi Web Progresif
 
 **Panduan ini mengandaikan anda mempunyai**:
@@ -75,6 +75,10 @@ VITE_POCKETBASE_URL=https://your-backend-url.com
 VITE_PRIVACY_URL=https://your-site.com/privacy
 VITE_TERMS_URL=https://your-site.com/terms
 VITE_ABOUT_URL=https://your-site.com/about
+
+# Peta & Laluan
+VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 ```
 
 ### Pemboleh Ubah Pilihan
@@ -86,10 +90,6 @@ VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
 SENTRY_AUTH_TOKEN=your_sentry_auth_token
 SENTRY_ORG=your_sentry_org_slug
 SENTRY_PROJECT=your_sentry_project_slug
-
-# Penghalaan & Geokod
-VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
-VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 
 # Mod Penyelenggaraan - tunjukkan sepanduk penyelenggaraan kepada pengguna
 VITE_MAINTENANCE_MODE=false
@@ -153,15 +153,15 @@ VITE_MAINTENANCE_MODE=false
 
 #### VITE_OPENROUTE_API_KEY
 
-- **Tujuan**: Menggerakkan penghalaan belokan demi belokan dan arah pada peta interaktif
+- **Tujuan**: OpenRouteService untuk laluan — menggerakkan penghalaan arah memandu, berjalan, dan berbasikal pada peta interaktif
 - **Dapatkan Dari**: [openrouteservice.org](https://openrouteservice.org) (peringkat percuma tersedia)
-- **Diperlukan**: Tidak — navigasi peta berfungsi tanpanya, tetapi arah tidak akan tersedia
+- **Diperlukan**: Ya
 
 #### VITE_LOCATIONIQ_API_KEY
 
-- **Tujuan**: Geokod (tukar alamat kepada koordinat) dan geokod terbalik (koordinat kepada alamat)
+- **Tujuan**: LocationIQ untuk geocoding — geokod (tukar alamat kepada koordinat) dan geokod terbalik (koordinat kepada alamat)
 - **Dapatkan Dari**: [locationiq.com](https://locationiq.com) (peringkat percuma tersedia)
-- **Diperlukan**: Tidak — aplikasi berfungsi tanpanya, tetapi carian alamat dan isi automatik tidak akan tersedia
+- **Diperlukan**: Ya
 
 #### VITE_MAINTENANCE_MODE
 
@@ -174,14 +174,14 @@ VITE_MAINTENANCE_MODE=false
 
 ### Prasyarat
 
-Anda memerlukan Node.js versi 24 atau lebih tinggi:
+Anda memerlukan Node.js **>=24.0.0**:
 
 ```bash
 # Semak versi Node.js anda
 node --version
 ```
 
-Jika anda tidak mempunyai Node.js 24+, muat turun dari: [nodejs.org](https://nodejs.org)
+Jika anda tidak mempunyai Node.js >=24.0.0, muat turun dari: [nodejs.org](https://nodejs.org)
 
 ### Langkah Persediaan
 

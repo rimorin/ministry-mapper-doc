@@ -75,6 +75,10 @@ VITE_POCKETBASE_URL=https://your-backend-url.com
 VITE_PRIVACY_URL=https://your-site.com/privacy
 VITE_TERMS_URL=https://your-site.com/terms
 VITE_ABOUT_URL=https://your-site.com/about
+
+# Map & Routing
+VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 ```
 
 ### Optional Variables
@@ -86,10 +90,6 @@ VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
 SENTRY_AUTH_TOKEN=your_sentry_auth_token
 SENTRY_ORG=your_sentry_org_slug
 SENTRY_PROJECT=your_sentry_project_slug
-
-# Routing & Geocoding
-VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
-VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 
 # Maintenance Mode - show a maintenance banner to users
 VITE_MAINTENANCE_MODE=false
@@ -153,15 +153,15 @@ VITE_MAINTENANCE_MODE=false
 
 #### VITE_OPENROUTE_API_KEY
 
-- **Purpose**: Powers turn-by-turn routing and directions on the interactive map
+- **Purpose**: Powers turn-by-turn routing and directions (driving, walking, cycling) on the interactive map
 - **Get It From**: [openrouteservice.org](https://openrouteservice.org) (free tier available)
-- **Required**: No — map navigation works without it, but directions will be unavailable
+- **Required**: Yes
 
 #### VITE_LOCATIONIQ_API_KEY
 
-- **Purpose**: Geocoding (convert addresses to coordinates) and reverse geocoding (coordinates to addresses)
+- **Purpose**: Geocoding addresses to coordinates and reverse geocoding (coordinates to addresses)
 - **Get It From**: [locationiq.com](https://locationiq.com) (free tier available)
-- **Required**: No — the app works without it, but address search and auto-fill will be unavailable
+- **Required**: Yes
 
 #### VITE_MAINTENANCE_MODE
 
@@ -174,14 +174,14 @@ VITE_MAINTENANCE_MODE=false
 
 ### Prerequisites
 
-You need Node.js version 24 or higher:
+You need Node.js **>=24.0.0**:
 
 ```bash
 # Check your Node.js version
 node --version
 ```
 
-If you don't have Node.js 24+, download it from: [nodejs.org](https://nodejs.org)
+If you don't have Node.js >=24.0.0, download it from: [nodejs.org](https://nodejs.org)
 
 ### Setup Steps
 
@@ -681,7 +681,7 @@ Test on multiple browsers:
 - Ensure all environment variables are set correctly
 - Run `npm install` to refresh dependencies
 - Delete `node_modules` and reinstall: `rm -rf node_modules && npm install`
-- Check Node.js version: `node --version` (needs 24+)
+- Check Node.js version: `node --version` (needs >=24.0.0)
 - Check for TypeScript errors: Look at specific error messages
 - Try `npm run prettier:fix` to fix formatting issues
 - Clear Vite cache: `rm -rf node_modules/.vite`

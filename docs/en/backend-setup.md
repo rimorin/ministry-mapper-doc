@@ -78,6 +78,26 @@ LAUNCHDARKLY_CONTEXT_KEY=
 OPENAI_API_KEY=
 ```
 
+#### Email (MailerSend)
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `MAILERSEND_API_KEY` | Optional | MailerSend API key for transactional email delivery (used for reports and lifecycle emails). If not set, falls back to SMTP. |
+| `MAILERSEND_FROM_EMAIL` | Optional | Sender email address for MailerSend emails. |
+
+#### Feature Flags (LaunchDarkly)
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `LAUNCHDARKLY_SDK_KEY` | Optional | LaunchDarkly server-side SDK key. Required if using feature flag-controlled background jobs. |
+| `LAUNCHDARKLY_CONTEXT_KEY` | Optional | LaunchDarkly context key identifying this deployment environment. |
+
+#### AI Summaries (OpenAI)
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `OPENAI_API_KEY` | Optional | OpenAI API key. Required only if AI-generated report summaries are enabled via feature flag. |
+
 ### Application Settings
 
 ```bash
@@ -161,6 +181,26 @@ SENTRY_ENV=production
 # Git commit hash - automatically set by hosting platforms like Coolify
 SOURCE_COMMIT=
 ```
+
+## Feature Flags
+
+Ministry Mapper uses [LaunchDarkly](https://launchdarkly.com) to gate background job execution. Each job can be independently enabled or disabled without redeployment. Feature flags require `LAUNCHDARKLY_SDK_KEY` and `LAUNCHDARKLY_CONTEXT_KEY` to be configured.
+
+| Flag Key | Controlled Job | Description |
+|----------|----------------|-------------|
+| `enable-assignments-cleanup` | `cleanUpAssignments` | Remove expired map assignments (runs every 5 min) |
+| `enable-territory-aggregations` | `updateTerritoryAggregates` | Recalculate territory progress stats (runs every 10 min) |
+| `enable-message-processing` | `processMessages` | Process pending publisher messages (runs every 30 min) |
+| `enable-instruction-processing` | `processInstructions` | Process territory assignment instructions (runs every 30 min) |
+| `enable-note-processing` | `processNotes` | Process updated congregation notes (runs hourly) |
+| `enable-monthly-report` | `generateMonthlyReport` | Generate and email Excel reports (runs 1st of month) |
+| `enable-unprovisioned-user-processing` | `processUnprovisionedUsers` | Warn and disable users with no assigned role (runs daily) |
+| `enable-inactive-user-processing` | `processInactiveUsers` | Warn and disable inactive accounts — NIST AC-2(3) (runs daily) |
+| `enable-new-addresses-notification` | `processNewAddresses` | Send daily digest email for app-created addresses (runs daily) |
+| `enable-report-ai-summary` | AI summary in reports | Include OpenAI-generated summary in congregation reports |
+
+!!! note
+    If LaunchDarkly is not configured, all jobs run by default (enabled: true).
 
 ## Installation Steps
 

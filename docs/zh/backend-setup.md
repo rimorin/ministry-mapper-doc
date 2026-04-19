@@ -73,6 +73,26 @@ LAUNCHDARKLY_CONTEXT_KEY=
 OPENAI_API_KEY=
 ```
 
+#### 邮件（MailerSend）
+
+| 变量 | 必填 | 描述 |
+|------|------|------|
+| `MAILERSEND_API_KEY` | 可选 | MailerSend 事务性邮件发送 API 密钥（用于报告和生命周期邮件）。未设置时回退到 SMTP。 |
+| `MAILERSEND_FROM_EMAIL` | 可选 | MailerSend 邮件的发件人地址。 |
+
+#### 功能标志（LaunchDarkly）
+
+| 变量 | 必填 | 描述 |
+|------|------|------|
+| `LAUNCHDARKLY_SDK_KEY` | 可选 | LaunchDarkly 服务端 SDK 密钥。使用功能标志控制的后台任务时必须填写。 |
+| `LAUNCHDARKLY_CONTEXT_KEY` | 可选 | 标识当前部署环境的 LaunchDarkly 上下文密钥。 |
+
+#### AI 摘要（OpenAI）
+
+| 变量 | 必填 | 描述 |
+|------|------|------|
+| `OPENAI_API_KEY` | 可选 | OpenAI API 密钥。仅在通过功能标志启用 AI 生成报告摘要时需要。 |
+
 ### 应用程序设置
 
 ```bash
@@ -156,6 +176,26 @@ SENTRY_ENV=production
 # Git 提交哈希 - 由 Coolify 等托管平台自动设置
 SOURCE_COMMIT=
 ```
+
+## 功能标志
+
+Ministry Mapper 使用 [LaunchDarkly](https://launchdarkly.com) 来控制后台任务的执行。每个任务可以在不重新部署的情况下独立启用或禁用。功能标志需要配置 `LAUNCHDARKLY_SDK_KEY` 和 `LAUNCHDARKLY_CONTEXT_KEY`。
+
+| 标志键 | 控制的任务 | 描述 |
+|--------|-----------|------|
+| `enable-assignments-cleanup` | `cleanUpAssignments` | 删除过期的地图分配（每 5 分钟运行） |
+| `enable-territory-aggregations` | `updateTerritoryAggregates` | 重新计算地区进度统计（每 10 分钟运行） |
+| `enable-message-processing` | `processMessages` | 处理待处理的传道员消息（每 30 分钟运行） |
+| `enable-instruction-processing` | `processInstructions` | 处理地区分配指令（每 30 分钟运行） |
+| `enable-note-processing` | `processNotes` | 处理更新的会众备注（每小时运行） |
+| `enable-monthly-report` | `generateMonthlyReport` | 生成并通过邮件发送 Excel 报告（每月 1 日运行） |
+| `enable-unprovisioned-user-processing` | `processUnprovisionedUsers` | 警告并禁用没有分配角色的用户（每日运行） |
+| `enable-inactive-user-processing` | `processInactiveUsers` | 警告并禁用不活跃账户——符合 NIST AC-2(3)（每日运行） |
+| `enable-new-addresses-notification` | `processNewAddresses` | 发送应用内新增地址的每日摘要邮件（每日运行） |
+| `enable-report-ai-summary` | 报告中的 AI 摘要 | 在会众报告中包含 OpenAI 生成的摘要 |
+
+!!! note
+    如果未配置 LaunchDarkly，所有任务默认运行（启用：true）。
 
 ## 安装步骤
 

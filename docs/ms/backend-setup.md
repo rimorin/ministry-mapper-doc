@@ -78,6 +78,26 @@ LAUNCHDARKLY_CONTEXT_KEY=
 OPENAI_API_KEY=
 ```
 
+#### E-mel (MailerSend)
+
+| Pembolehubah | Diperlukan | Penerangan |
+|--------------|------------|------------|
+| `MAILERSEND_API_KEY` | Pilihan | Kunci API MailerSend untuk penghantaran e-mel transaksi (digunakan untuk laporan dan e-mel kitaran hayat). Jika tidak ditetapkan, menggunakan SMTP sebagai sandaran. |
+| `MAILERSEND_FROM_EMAIL` | Pilihan | Alamat e-mel pengirim untuk e-mel MailerSend. |
+
+#### Bendera Ciri (LaunchDarkly)
+
+| Pembolehubah | Diperlukan | Penerangan |
+|--------------|------------|------------|
+| `LAUNCHDARKLY_SDK_KEY` | Pilihan | Kunci SDK sisi pelayan LaunchDarkly. Diperlukan jika menggunakan kerja latar belakang yang dikawal bendera ciri. |
+| `LAUNCHDARKLY_CONTEXT_KEY` | Pilihan | Kunci konteks LaunchDarkly yang mengenal pasti persekitaran penempatan ini. |
+
+#### Ringkasan AI (OpenAI)
+
+| Pembolehubah | Diperlukan | Penerangan |
+|--------------|------------|------------|
+| `OPENAI_API_KEY` | Pilihan | Kunci API OpenAI. Diperlukan hanya jika ringkasan laporan yang dijana AI diaktifkan melalui bendera ciri. |
+
 ### Tetapan Aplikasi
 
 ```bash
@@ -161,6 +181,26 @@ SENTRY_ENV=production
 # Hash komit git - ditetapkan secara automatik oleh platform pengehosan seperti Coolify
 SOURCE_COMMIT=
 ```
+
+## Bendera Ciri
+
+Ministry Mapper menggunakan [LaunchDarkly](https://launchdarkly.com) untuk mengawal pelaksanaan kerja latar belakang. Setiap kerja boleh diaktifkan atau dinyahaktifkan secara bebas tanpa penggunaan semula. Bendera ciri memerlukan `LAUNCHDARKLY_SDK_KEY` dan `LAUNCHDARKLY_CONTEXT_KEY` dikonfigurasi.
+
+| Kunci Bendera | Kerja Dikawal | Penerangan |
+|---------------|---------------|------------|
+| `enable-assignments-cleanup` | `cleanUpAssignments` | Padam tugasan peta yang tamat tempoh (berjalan setiap 5 min) |
+| `enable-territory-aggregations` | `updateTerritoryAggregates` | Kira semula statistik kemajuan wilayah (berjalan setiap 10 min) |
+| `enable-message-processing` | `processMessages` | Proses mesej penerbit yang belum dibaca (berjalan setiap 30 min) |
+| `enable-instruction-processing` | `processInstructions` | Proses arahan tugasan wilayah (berjalan setiap 30 min) |
+| `enable-note-processing` | `processNotes` | Proses nota jemaah yang dikemas kini (berjalan setiap jam) |
+| `enable-monthly-report` | `generateMonthlyReport` | Jana dan e-mel laporan Excel (berjalan 1hb bulan) |
+| `enable-unprovisioned-user-processing` | `processUnprovisionedUsers` | Amaran dan lumpuhkan pengguna tanpa peranan yang ditetapkan (berjalan harian) |
+| `enable-inactive-user-processing` | `processInactiveUsers` | Amaran dan lumpuhkan akaun tidak aktif — NIST AC-2(3) (berjalan harian) |
+| `enable-new-addresses-notification` | `processNewAddresses` | Hantar e-mel ringkasan harian untuk alamat yang dicipta dalam aplikasi (berjalan harian) |
+| `enable-report-ai-summary` | Ringkasan AI dalam laporan | Sertakan ringkasan yang dijana OpenAI dalam laporan jemaah |
+
+!!! note
+    Jika LaunchDarkly tidak dikonfigurasi, semua kerja berjalan secara lalai (diaktifkan: true).
 
 ## Langkah-Langkah Pemasangan
 

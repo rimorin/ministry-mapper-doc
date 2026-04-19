@@ -62,7 +62,7 @@ Ministry Mapper consta de dos componentes principales que trabajan juntos:
 | Capa | Tecnología | Versión | Propósito |
 |------|-----------|---------|-----------|
 | **Lenguaje** | Go | 1.25.0 | Backend de alto rendimiento |
-| **Marco de Backend** | PocketBase | 0.36.7 | BaaS con SQLite |
+| **Marco de Backend** | PocketBase | 0.36.9 | BaaS con SQLite |
 | **Base de Datos** | SQLite | v1.40.2+ | Base de datos autónoma |
 | **Marco Web** | Echo | v5 | Enrutamiento HTTP |
 | **Contenedor** | Docker | Última | Contenedorización |
@@ -76,6 +76,7 @@ Ministry Mapper consta de dos componentes principales que trabajan juntos:
 
 | Capa | Tecnología | Versión | Propósito |
 |------|-----------|---------|-----------|
+| **Entorno de Ejecución** | Node.js | >=24.0.0 | Entorno de ejecución JavaScript (cadena de herramientas de desarrollo) |
 | **Marco** | React | 19.2.4 | Biblioteca de UI |
 | **Lenguaje** | TypeScript | 5.9.3 | Seguridad de tipos |
 | **Herramienta de Compilación** | Vite | 8.0.2 | Desarrollo y compilación rápidos |
@@ -85,6 +86,19 @@ Ministry Mapper consta de dos componentes principales que trabajan juntos:
 | **Mapas** | Leaflet | 1.9.4 | Mapas interactivos |
 | **Pruebas** | Vitest | 4.1.1 | Pruebas unitarias |
 | **Calidad de Código** | ESLint + Prettier | Última | Linting y formato |
+
+## Integraciones Externas
+
+### Servicios de Terceros
+
+| Servicio | Propósito | Notas |
+|---------|---------|-------|
+| **LaunchDarkly** | Banderas de características y lanzamientos controlados | Controla todos los trabajos en segundo plano; permite alternar banderas sin tiempo de inactividad |
+| **OpenAI (gpt-5.4-mini)** | Resúmenes de informes generados por IA | Opcional; temperatura 0.3 para salida factual; controlado por bandera de característica |
+| **MailerSend** | Entrega de correo electrónico transaccional | Usado para informes y correos de notificación del ciclo de vida; reintento de 3 intentos |
+| **Umami** | Análisis respetuoso con la privacidad | Opcional; 13 tipos de eventos personalizados rastreados |
+| **OpenRouteService** | API de rutas/indicaciones | Cálculo de rutas en conducción, caminata y ciclismo |
+| **LocationIQ** | API de geocodificación | Búsqueda de coordenadas de direcciones |
 
 ## Arquitectura de Datos
 
@@ -232,7 +246,7 @@ Actualizaciones Automáticas de UI
 | **Programador de Trabajos** | Cron con indicadores de características | Operaciones programadas |
 | **Patrón de Transacción** | Operaciones de base de datos | Consistencia de datos |
 | **Acceso Basado en Enlace** | Tokens de asignación | Acceso anónimo |
-| **Caché de Agregados** | Campos JSON | Cálculos rápidos |
+| **Caché de Agregados** | Cron por lotes (10 min / ventana de 11 min) | Estadísticas de progreso de territorio pre-calculadas |
 | **Hooks Personalizados** | Lógica de negocio | Lógica reutilizable |
 | **Patrón Proveedor** | Proveedores de contexto | Estado global |
 | **Carga Diferida** | División de rutas | Rendimiento |
@@ -303,16 +317,17 @@ useRealtimeSubscription('addresses', (data) => {
 
 ### Tareas Programadas
 
-| Trabajo | Horario | Propósito |
-|---------|---------|-----------|
-| **Limpieza de Asignaciones** | Cada 5 min | Eliminar asignaciones expiradas |
-| **Agregados de Territorio** | Cada 10 min | Actualizar estadísticas de progreso |
-| **Procesamiento de Mensajes** | Cada 30 min | Enviar notificaciones de mensajes |
-| **Instrucciones** | Cada 30 min | Enviar mensajes del administrador |
-| **Actualizaciones de Notas** | Cada 1 hora | Notificar cambios de notas |
-| **Informes Mensuales** | 1 del mes | Generar informes Excel (con resúmenes opcionales de IA) |
-| **Usuarios No Aprovisionados** | Diario 01:00 UTC | Aplicar ciclo de vida del usuario (advertencias → deshabilitar → eliminar) |
-| **Usuarios Inactivos** | Diario 01:30 UTC | Advertir y deshabilitar cuentas inactivas |
+| Trabajo | Horario | Bandera | Propósito |
+|---------|---------|---------|-----------|
+| `cleanUpAssignments` | Cada 5 min | `enable-assignments-cleanup` | Eliminar asignaciones de mapa expiradas |
+| `updateTerritoryAggregates` | Cada 10 min | `enable-territory-aggregations` | Recalcular progreso de territorios |
+| `processMessages` | Cada 30 min | `enable-message-processing` | Procesar mensajes pendientes de publicadores |
+| `processInstructions` | Cada 30 min | `enable-instruction-processing` | Procesar instrucciones de asignación de territorio |
+| `processNotes` | Cada 1 hora | `enable-note-processing` | Procesar notas de congregación actualizadas |
+| `generateMonthlyReport` | 1ro del mes @ 02:00 SGT | `enable-monthly-report` | Generar y enviar informe Excel por correo |
+| `processUnprovisionedUsers` | Diario @ 02:00 SGT | `enable-unprovisioned-user-processing` | Advertir/deshabilitar usuarios sin rol |
+| `processInactiveUsers` | Diario @ 02:30 SGT | `enable-inactive-user-processing` | Advertir/deshabilitar cuentas inactivas |
+| `processNewAddresses` | Diario @ 03:00 SGT | `enable-new-addresses-notification` | **NUEVO** — Correo de resumen diario para direcciones creadas en la aplicación |
 
 ### Control de Indicadores de Características
 
@@ -350,7 +365,7 @@ Ministry Mapper se integra con el modelo GPT de OpenAI para resumen inteligente 
 ### Optimizaciones del Backend
 
 - **Índices de Base de Datos**: 25+ índices para consultas rápidas
-- **Caché de Agregados**: Estadísticas pre-calculadas en JSON
+- **Caché de Agregados**: Las estadísticas de progreso del territorio se pre-calculan mediante un trabajo cron por lotes (`updateTerritoryAggregates`, cada 10 minutos con una ventana de retrospectiva de 11 minutos), reemplazando el enfoque anterior de debouncer en tiempo real. Los resultados se almacenan como JSON para una recuperación rápida.
 - **Agrupación de Conexiones**: Conexiones eficientes a la base de datos
 - **Procesamiento por Lotes de Transacciones**: Reducir los viajes de ida y vuelta a la base de datos
 

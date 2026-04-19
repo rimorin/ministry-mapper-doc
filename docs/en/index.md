@@ -17,7 +17,7 @@ Ministry Mapper provides comprehensive territory management capabilities:
 - **🗺️ Territory Management**: Organize geographic regions into territories with automatic completion tracking
 - **🏢 Interactive Mapping**: Leaflet-based maps with OpenStreetMap integration, directions, and geolocation
 - **📱 Real-time Collaboration**: Live data synchronization across all devices via SSE (Server-Sent Events)
-- **🌍 Multi-language Support**: 7 languages (English, Spanish, Indonesian, Japanese, Korean, Malay, Chinese)
+- **🌍 Multi-language Support**: 8 languages (English, Spanish, Indonesian, Japanese, Korean, Malay, Chinese, Tamil)
 - **👥 Role-based Access**: Publisher, Conductor, Administrator, and Read-only roles with fine-grained permissions
 - **🔗 Assignment Links**: Secure, time-limited sharing links for territory access without user accounts
 - **📊 Progress Tracking**: Automatic completion status with visual indicators and statistics

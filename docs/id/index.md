@@ -17,7 +17,7 @@ Ministry Mapper menyediakan kemampuan manajemen wilayah yang komprehensif:
 - **🗺️ Manajemen Wilayah**: Mengorganisir wilayah geografis ke dalam teritori dengan pelacakan penyelesaian otomatis
 - **🏢 Pemetaan Interaktif**: Peta berbasis Leaflet dengan integrasi OpenStreetMap, petunjuk arah, dan geolokasi
 - **📱 Kolaborasi Real-Time**: Sinkronisasi data langsung di semua perangkat melalui SSE (Server-Sent Events)
-- **🌍 Dukungan Multibahasa**: 7 bahasa (Inggris, Spanyol, Indonesia, Jepang, Korea, Melayu, Tionghoa)
+- **🌍 Dukungan Multibahasa**: 8 bahasa (Inggris, Spanyol, Indonesia, Jepang, Korea, Melayu, Tionghoa, Tamil)
 - **👥 Akses Berbasis Peran**: Peran Penerbit, Konduktor, Administrator, dan Hanya-Baca dengan izin yang detail
 - **🔗 Tautan Penugasan**: Tautan berbagi yang aman dan terbatas waktu untuk akses wilayah tanpa akun pengguna
 - **📊 Pelacakan Kemajuan**: Status penyelesaian otomatis dengan indikator visual dan statistik

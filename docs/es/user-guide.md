@@ -2091,6 +2091,47 @@ Gracias por usar Ministry Mapper para apoyar las actividades del servicio del ca
 
 ---
 
+### Agregar una Dirección Faltante
+
+Si nota que falta una dirección en la lista durante el servicio del campo, puede agregarla directamente sin necesidad de contactar a un administrador.
+
+**Cómo Agregar una Dirección Faltante:**
+
+1. Desplácese hasta el final de la lista de direcciones
+2. Toque la tarjeta con el símbolo **"+"** al final de la lista
+3. Ingrese los detalles de la dirección en el formulario
+4. Toque **"Guardar"** para agregar la dirección
+
+![La tarjeta "+" al final de la lista de direcciones para agregar una dirección faltante](assets/screenshots/add_more_add.png)
+
+*La tarjeta con el símbolo más al final de la lista de direcciones permite agregar una dirección faltante*
+
+> **Nota:** Esta función está diseñada para congregaciones que aún están construyendo sus registros de territorio. La dirección se agrega inmediatamente y es visible para todos los usuarios.
+
+---
+
+### Obtener Indicaciones a una Dirección
+
+Ministry Mapper incluye un servicio de rutas integrado para ayudarle a navegar al campo.
+
+**Cómo Obtener Indicaciones:**
+
+1. Toque la dirección a la que desea ir
+2. Toque el botón **"Indicaciones"** en los detalles de la dirección
+3. Seleccione su modo de viaje preferido:
+   - **Conducción** — para desplazarse en auto
+   - **Caminata** — para áreas densamente pobladas o distancias cortas
+   - **Ciclismo** — para desplazarse en bicicleta
+4. La ruta se calcula y se muestra directamente en el mapa
+
+![Panel de enrutamiento mostrando opciones de modo de viaje y una ruta trazada en el mapa](assets/screenshots/map_routing.png)
+
+*El panel de rutas muestra las opciones de modo de viaje y la ruta calculada sobre el mapa*
+
+> **Consejo:** Use el modo caminata para áreas densamente pobladas donde el estacionamiento puede ser difícil. Requiere que `VITE_OPENROUTE_API_KEY` esté configurado en su despliegue.
+
+---
+
 **Versión**: Consulte la versión de su despliegue
 **Última Actualización**: 2024
 

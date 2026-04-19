@@ -62,6 +62,12 @@ Ministry Mapper es una plataforma integral de gestión digital de territorios di
 - Copiar direcciones entre pisos
 - Renombrar y reorganizar
 
+**Agregar Dirección al Vuelo** *(v1.33+)*
+- Los publicadores pueden agregar direcciones faltantes directamente durante el mapeo mediante una tarjeta con el símbolo más al final de la lista de direcciones — sin necesidad de intervención del administrador
+- Ideal para congregaciones que aún están construyendo registros de territorio
+
+![La tarjeta "+" al final de la lista de direcciones para agregar una dirección faltante](../assets/screenshots/add_more_add.png)
+
 ---
 
 ## Seguimiento de Unidades/Hogares
@@ -420,6 +426,7 @@ Visitar URL → Compartir → "Agregar a pantalla de inicio"
 5. **Coreano** (ko) - 한국어
 6. **Malayo** (ms) - Bahasa Melayu
 7. **Chino** (zh) - 中文
+8. **Tamil** (ta) - தமிழ்
 
 **Características de i18n:**
 - Selector de idioma en la navegación
@@ -428,6 +435,11 @@ Visitar URL → Compartir → "Agregar a pantalla de inicio"
 - Traducción completa de la interfaz
 - Cambio dinámico (sin recargar)
 - Fácil agregar nuevos idiomas
+
+**Notas de Versión Localizadas:**
+- Historial de cambios en la aplicación mostrado en el idioma seleccionado actualmente por el usuario
+- Compatible con 8 idiomas
+- Se muestra un modal automáticamente cuando se detecta una nueva versión de la aplicación, para que los publicadores siempre sepan qué hay de nuevo sin salir de la aplicación
 
 **Agregar Nuevo Idioma:**
 1. Crear archivo de traducción en `src/i18n/locales/[lang].json`
@@ -511,6 +523,12 @@ Visitar URL → Compartir → "Agregar a pantalla de inicio"
 - Monitoreo de asignaciones activas
 - Feed de actividad reciente
 
+**Resúmenes de Informes con IA:**
+- Los informes mensuales de la congregación pueden incluir resúmenes generados por IA de las tendencias clave extraídas de notas y mensajes del territorio
+- Impulsados por **OpenAI gpt-5.4-mini**
+- Controlados por la bandera de característica `enable-report-ai-summary` — opcional por despliegue para que las congregaciones elijan si habilitarlo
+- Requiere que se configure `OPENAI_API_KEY` en el entorno de despliegue
+
 ---
 
 ## Características de Seguridad
@@ -574,6 +592,15 @@ Visitar URL → Compartir → "Agregar a pantalla de inicio"
 - Registro de direcciones IP
 - Intentos de autenticación
 
+**Gestión del Ciclo de Vida de Usuarios:**
+
+Manejo automatizado de cuentas de usuario inactivas y no aprovisionadas, alineado con los controles de seguridad **NIST AC-2** y **AC-2(3)**:
+
+- **Usuarios No Aprovisionados:** Las cuentas que nunca completaron la configuración reciben correos de advertencia en múltiples etapas antes de ser deshabilitadas automáticamente y, en última instancia, eliminadas
+- **Usuarios Inactivos:** Las cuentas sin actividad de inicio de sesión durante un período configurable reciben advertencias y luego son deshabilitadas
+- Los trabajos en segundo plano se ejecutan diariamente para evaluar y aplicar las políticas del ciclo de vida — no se necesita intervención manual
+- Mantiene las listas de usuarios de la congregación precisas y minimiza la superficie de ataque de cuentas dormidas
+
 **Seguimiento de Errores:**
 - Integración con Sentry
 - Monitoreo de errores en tiempo real
@@ -603,6 +630,14 @@ Visitar URL → Compartir → "Agregar a pantalla de inicio"
 - Cálculo de distancia
 - Planificación de ruta óptima
 - Soporte de ubicación GPS
+
+**Servicio de Rutas (Indicaciones Paso a Paso):**
+- Enrutamiento integrado impulsado por **OpenRouteService**
+- Compatible con tres modos de viaje: **conducción**, **caminata** y **ciclismo**
+- Los publicadores pueden solicitar indicaciones a cualquier dirección directamente desde la vista del mapa
+- La geocodificación de direcciones es gestionada por **LocationIQ**
+
+![Panel de enrutamiento mostrando opciones de modo de viaje y una ruta trazada en el mapa](../assets/screenshots/map_routing.png)
 
 **Geolocalización:**
 - Detectar ubicación actual

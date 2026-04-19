@@ -62,6 +62,13 @@ Ministry Mapper adalah platform pengurusan wilayah digital yang komprehensif yan
 - Salin alamat merentas tingkat
 - Namakan semula dan atur semula
 
+**Tambah Alamat Semasa Pemetaan** *(v1.33+)*
+- Penerbit boleh menambah alamat yang tiada terus semasa pemetaan melalui kad tambah di hujung senarai alamat — tiada campur tangan pentadbir diperlukan
+- Kad **"+"** muncul di hujung senarai alamat sebagai titik masuk tambah pantas
+- Sesuai untuk jemaat yang masih membina rekod wilayah mereka
+
+![Kad "+" di hujung senarai alamat untuk menambah alamat yang tiada](../assets/screenshots/add_more_add.png)
+
 ---
 
 ## 📊 Penjejakan Unit/Isi Rumah
@@ -420,6 +427,7 @@ Lawati URL → Kongsi → "Tambah ke skrin utama"
 5. **Korean** (ko) - 한국어
 6. **Malay** (ms) - Bahasa Melayu
 7. **Chinese** (zh) - 中文
+8. **Tamil** (ta) - தமிழ்
 
 **Ciri i18n:**
 - Pemilih bahasa dalam navigasi
@@ -428,6 +436,11 @@ Lawati URL → Kongsi → "Tambah ke skrin utama"
 - Terjemahan UI lengkap
 - Penukaran dinamik (tanpa muat semula)
 - Mudah untuk menambah bahasa baharu
+
+**Nota Keluaran Setempat:**
+- Log perubahan dalam aplikasi dipaparkan dalam bahasa yang dipilih pengguna
+- Menyokong kesemua 8 bahasa
+- Modal dipaparkan secara automatik apabila versi aplikasi baharu dikesan, supaya penerbit sentiasa mengetahui perkara baharu tanpa meninggalkan aplikasi
 
 **Menambah Bahasa Baharu:**
 1. Cipta fail terjemahan dalam `src/i18n/locales/[lang].json`
@@ -511,6 +524,12 @@ Lawati URL → Kongsi → "Tambah ke skrin utama"
 - Pemantauan tugasan aktif
 - Suapan aktiviti terkini
 
+**Ringkasan Laporan AI:**
+- Laporan jemaah bulanan boleh menyertakan ringkasan trend utama yang dijana AI berdasarkan nota wilayah dan mesej
+- Dikuasakan oleh **OpenAI gpt-5.4-mini**
+- Dikawal oleh bendera ciri `enable-report-ai-summary` — pilihan masuk bagi setiap penempatan supaya jemaat memilih sama ada untuk mengaktifkannya
+- Memerlukan `OPENAI_API_KEY` dikonfigurasi dalam persekitaran penempatan
+
 ---
 
 ## 🔐 Ciri Keselamatan
@@ -574,6 +593,15 @@ Lawati URL → Kongsi → "Tambah ke skrin utama"
 - Pengelogan alamat IP
 - Percubaan pengesahan
 
+**Pengurusan Kitaran Hayat Pengguna:**
+
+Pengendalian automatik akaun pengguna tidak aktif dan tidak diperuntukkan, sejajar dengan kawalan keselamatan **NIST AC-2** dan **AC-2(3)**:
+
+- **Pengguna Tidak Diperuntukkan:** Akaun yang belum pernah menyelesaikan persediaan menerima e-mel amaran berbilang peringkat sebelum dilumpuhkan secara automatik dan akhirnya dipadamkan
+- **Pengguna Tidak Aktif:** Akaun tanpa aktiviti log masuk untuk tempoh yang boleh dikonfigurasi akan diperingatkan, kemudian dilumpuhkan
+- Kerja latar belakang berjalan setiap hari untuk menilai dan menguatkuasakan dasar kitaran hayat — tiada campur tangan manual diperlukan
+- Mengekalkan senarai pengguna jemaat yang tepat dan meminimumkan permukaan serangan dari akaun yang tidak aktif
+
 **Penjejakan Ralat:**
 - Integrasi Sentry
 - Pemantauan ralat masa nyata
@@ -603,6 +631,14 @@ Lawati URL → Kongsi → "Tambah ke skrin utama"
 - Pengiraan jarak
 - Perancangan laluan optimum
 - Sokongan lokasi GPS
+
+**Perkhidmatan Laluan (Arah Pusingan demi Pusingan):**
+- Laluan terbina dalam dikuasakan oleh **OpenRouteService**
+- Menyokong tiga mod perjalanan: **memandu**, **berjalan**, dan **berbasikal**
+- Penerbit boleh meminta arah ke mana-mana alamat terus dari paparan peta
+- Geokod alamat dikendalikan oleh **LocationIQ**
+
+![Panel laluan menunjukkan pilihan mod perjalanan dan laluan yang diplotkan pada peta](../assets/screenshots/map_routing.png)
 
 **Geolokasi:**
 - Kesan lokasi semasa

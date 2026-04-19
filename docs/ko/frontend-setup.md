@@ -17,7 +17,7 @@ Ministry Mapper 프론트엔드 (ministry-mapper-v2)는 다음을 제공하는 R
 - 대화형 매핑 기능
 - 실시간 데이터 동기화
 - 모바일 반응형 디자인
-- 다국어 지원 (7개 언어)
+- 다국어 지원 (8개 언어)
 - 프로그레시브 웹 앱 기능
 
 **이 가이드는 다음을 갖추고 있다고 가정합니다**:
@@ -75,6 +75,10 @@ VITE_POCKETBASE_URL=https://your-backend-url.com
 VITE_PRIVACY_URL=https://your-site.com/privacy
 VITE_TERMS_URL=https://your-site.com/terms
 VITE_ABOUT_URL=https://your-site.com/about
+
+# 지도 및 라우팅
+VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
+VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 ```
 
 ### 선택적 변수
@@ -86,10 +90,6 @@ VITE_SENTRY_DSN=https://your_sentry_dsn@sentry.io/123456
 SENTRY_AUTH_TOKEN=your_sentry_auth_token
 SENTRY_ORG=your_sentry_org_slug
 SENTRY_PROJECT=your_sentry_project_slug
-
-# 라우팅 및 지오코딩
-VITE_OPENROUTE_API_KEY=your_openrouteservice_api_key
-VITE_LOCATIONIQ_API_KEY=your_locationiq_api_key
 
 # 유지 관리 모드 - 사용자에게 유지 관리 배너 표시
 VITE_MAINTENANCE_MODE=false
@@ -153,15 +153,15 @@ VITE_MAINTENANCE_MODE=false
 
 #### VITE_OPENROUTE_API_KEY
 
-- **목적**: 대화형 지도에서 턴바이턴 라우팅 및 길 안내 제공
+- **목적**: 대화형 지도에서 턴바이턴 라우팅 및 길 안내(자동차, 도보, 자전거) 제공
 - **얻는 곳**: [openrouteservice.org](https://openrouteservice.org) (무료 티어 제공)
-- **필수**: 아니오 — 없어도 지도 네비게이션은 작동하지만 길 안내를 사용할 수 없음
+- **필수**: 예
 
 #### VITE_LOCATIONIQ_API_KEY
 
-- **목적**: 지오코딩 (주소를 좌표로 변환) 및 역 지오코딩 (좌표를 주소로)
+- **목적**: 지오코딩(주소를 좌표로) 및 역 지오코딩(좌표를 주소로)
 - **얻는 곳**: [locationiq.com](https://locationiq.com) (무료 티어 제공)
-- **필수**: 아니오 — 없어도 앱은 작동하지만 주소 검색 및 자동 완성을 사용할 수 없음
+- **필수**: 예
 
 #### VITE_MAINTENANCE_MODE
 
@@ -174,7 +174,7 @@ VITE_MAINTENANCE_MODE=false
 
 ### 전제 조건
 
-Node.js 버전 24 이상이 필요합니다:
+Node.js **>=24.0.0**이 필요합니다:
 
 ```bash
 # Node.js 버전 확인

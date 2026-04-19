@@ -161,6 +161,26 @@ SENTRY_ENV=production
 SOURCE_COMMIT=
 ```
 
+## 기능 플래그
+
+Ministry Mapper는 [LaunchDarkly](https://launchdarkly.com)를 사용하여 백그라운드 작업 실행을 제어합니다. 각 작업은 재배포 없이 독립적으로 활성화 또는 비활성화할 수 있습니다. 기능 플래그를 사용하려면 `LAUNCHDARKLY_SDK_KEY`와 `LAUNCHDARKLY_CONTEXT_KEY`가 구성되어 있어야 합니다.
+
+| 플래그 키 | 제어 작업 | 설명 |
+|----------|-----------|------|
+| `enable-assignments-cleanup` | `cleanUpAssignments` | 만료된 배정 삭제 (5분마다 실행) |
+| `enable-territory-aggregations` | `updateTerritoryAggregates` | 구역 진행 통계 재계산 (10분마다 실행) |
+| `enable-message-processing` | `processMessages` | 전도인 메시지 처리 (30분마다 실행) |
+| `enable-instruction-processing` | `processInstructions` | 구역 배정 지시사항 처리 (30분마다 실행) |
+| `enable-note-processing` | `processNotes` | 회중 메모 업데이트 처리 (매시간 실행) |
+| `enable-monthly-report` | `generateMonthlyReport` | Excel 보고서 생성 및 이메일 전송 (매월 1일 실행) |
+| `enable-unprovisioned-user-processing` | `processUnprovisionedUsers` | 역할이 없는 사용자 경고 및 비활성화 (매일 실행) |
+| `enable-inactive-user-processing` | `processInactiveUsers` | 비활성 계정 경고 및 비활성화 — NIST AC-2(3) (매일 실행) |
+| `enable-new-addresses-notification` | `processNewAddresses` | 앱에서 생성된 주소에 대한 일일 요약 이메일 전송 (매일 실행) |
+| `enable-report-ai-summary` | 보고서의 AI 요약 | 회중 보고서에 OpenAI 생성 요약 포함 |
+
+!!! note
+    LaunchDarkly가 구성되지 않은 경우 모든 작업이 기본적으로 실행됩니다 (활성화: true).
+
 ## 설치 단계
 
 ### 옵션 1: Docker 배포 (권장)

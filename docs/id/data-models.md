@@ -14,18 +14,22 @@ Congregation (Entitas root - isolasi multi-tenant)
     │      └─── Map (1:M)
     │             │
     │             ├─── Address (1:M)
+    │             │      ├─── addresses_log (1:M)
+    │             │      └─── address_options (1:M)
     │             ├─── Assignment (1:M)
     │             └─── Message (1:M)
     │
     ├─── Option (1:M)
-    │      └─── Address (M:M via JSON array)
+    │      └─── address_options (M:M bridge dengan Address)
     │
     ├─── User (1:M via Role)
     │      │
     │      ├─── Role (1:M)
     │      └─── Assignment (1:M)
     │
-    └─── Message (1:M)
+    ├─── Message (1:M)
+    │
+    └─── aggregates (1:M dari Territory dan Map)
 ```
 
 ## Koleksi Inti
@@ -575,6 +579,125 @@ Secara otomatis dikalkulasikan dari agregat semua peta dalam wilayah
 
 ---
 
+### 10. Addresses Log
+
+**Tujuan:** Jejak audit perubahan status alamat — setiap kali status alamat diperbarui, sebuah catatan ditulis di sini
+
+**Tipe:** Koleksi dasar
+
+**Field:**
+
+| Field | Tipe | Wajib | Deskripsi |
+|-------|------|-------|-----------|
+| `id` | text(15) | Ya | ID unik yang dihasilkan otomatis |
+| `address` | relation | Ya | FK ke Addresses (cascade delete) |
+| `old_status` | text | Ya | Nilai status alamat sebelumnya |
+| `new_status` | text | Ya | Nilai status alamat baru |
+| `changed_by` | relation | Tidak | FK ke Users — pengguna yang melakukan perubahan |
+| `created` | date | Auto | Timestamp perubahan |
+
+**Hubungan:**
+- M:1 dengan Addresses (setiap entri log milik satu alamat)
+- M:1 dengan Users (melalui `changed_by`)
+
+**Aturan Akses:**
+- **Daftar/Lihat:** Konduktor atau Administrator
+- **Buat:** Hook sistem (otomatis saat status alamat berubah)
+- **Perbarui/Hapus:** Hanya Administrator
+
+---
+
+### 11. Aggregates
+
+**Tujuan:** Snapshot kemajuan yang di-cache untuk wilayah dan peta. Dikalkulasikan ulang oleh background job setiap 10 menit
+
+**Tipe:** Koleksi dasar
+
+**Field:**
+
+| Field | Tipe | Wajib | Deskripsi |
+|-------|------|-------|-----------|
+| `id` | text(15) | Ya | ID unik yang dihasilkan otomatis |
+| `notDone` | number | Ya | Jumlah alamat yang belum dikunjungi |
+| `notHome` | number | Ya | Jumlah alamat "tidak ada di rumah" |
+| `progress` | number | Ya | Persentase penyelesaian (0–100) |
+| `territory` | relation | Tidak | FK ke Territories — diatur untuk agregat tingkat wilayah |
+| `map` | relation | Tidak | FK ke Maps — diatur untuk agregat tingkat peta |
+
+**Hubungan:**
+- M:1 dengan Territories (snapshot tingkat wilayah)
+- M:1 dengan Maps (snapshot tingkat peta)
+
+**Aturan Bisnis:**
+- Tepat satu dari `territory` atau `map` diatur per catatan
+- Dikalkulasikan ulang setiap 10 menit oleh background job
+- Nilai adalah snapshot hanya-baca; kemajuan langsung dihitung sesuai permintaan
+
+**Aturan Akses:**
+- **Daftar/Lihat:** Pengguna dengan peran ATAU akses tautan
+- **Buat/Perbarui:** Hanya background job sistem
+- **Hapus:** Hanya Administrator
+
+---
+
+### 12. Address Options
+
+**Tujuan:** Tabel gabungan yang melacak opsi tingkat alamat (dari koleksi `options`) yang telah diterapkan ke alamat individual — tabel junction untuk hubungan many-to-many Address ↔ Option
+
+**Tipe:** Koleksi dasar
+
+**Field:**
+
+| Field | Tipe | Wajib | Deskripsi |
+|-------|------|-------|-----------|
+| `id` | text(15) | Ya | ID unik yang dihasilkan otomatis |
+| `address` | relation | Ya | FK ke Addresses (cascade delete) |
+| `option` | relation | Ya | FK ke Options (cascade delete) |
+| `congregation` | relation | Ya | FK ke Congregations (denormalized untuk kueri cepat) |
+
+**Indeks:**
+- `(address, option)` — Pasangan unik (satu opsi per alamat)
+- `(congregation)` — Penggunaan opsi di seluruh jemaat
+
+**Hubungan:**
+- M:1 dengan Addresses
+- M:1 dengan Options
+- M:1 dengan Congregations
+
+**Aturan Akses:**
+- **Daftar/Lihat:** Pengguna dengan peran ATAU akses tautan
+- **Buat/Hapus:** Konduktor atau Administrator
+
+---
+
+## Koleksi Analitik
+
+Koleksi analitik menyimpan data historis untuk pelaporan dan wawasan. Koleksi-koleksi ini dikelola secara internal dan field pastinya dapat berkembang dari waktu ke waktu; koleksi ini didokumentasikan di sini berdasarkan tujuan, bukan field individual.
+
+### analytics_territories
+
+**Tujuan:** Menyimpan snapshot berkala dari metrik tingkat wilayah (mis., persentase kemajuan, jumlah alamat) dari waktu ke waktu. Digunakan untuk menghasilkan grafik tren historis dan laporan penyelesaian wilayah.
+
+### analytics_maps
+
+**Tujuan:** Menyimpan snapshot berkala dari metrik tingkat peta dari waktu ke waktu. Memungkinkan pelaporan terperinci tentang tingkat penyelesaian peta individual dan pola aktivitas.
+
+### analytics_daily_status
+
+**Tujuan:** Jumlah harian teragregasi dari status alamat (selesai, belum selesai, tidak ada di rumah, jangan hubungi, tidak valid) di seluruh jemaat. Mendukung dashboard tren hari ke hari dan minggu ke minggu.
+
+### analytics_not_home
+
+**Tujuan:** Melacak alamat yang telah berulang kali ditandai sebagai "tidak ada di rumah". Digunakan untuk menampilkan target tindak lanjut bagi konduktor dan mengidentifikasi alamat yang terus-menerus tidak dapat dijangkau.
+
+### analytics_user_audit
+
+**Tujuan:** Mencatat tindakan pengguna termasuk login, pembaruan alamat, dan operasi penugasan untuk akuntabilitas dan tujuan audit. Memungkinkan administrator meninjau riwayat aktivitas dan menyelidiki anomali.
+
+> **Catatan:** Koleksi analitik diisi oleh background job dan dibaca oleh lapisan pelaporan. Penulisan langsung dari kode aplikasi harus dihindari.
+
+---
+
 ## Teknologi Database
 
 **Engine:** SQLite melalui PocketBase (modernc.org/sqlite v1.40.2+)
@@ -613,6 +736,11 @@ Secara otomatis dikalkulasikan dari agregat semua peta dalam wilayah
 | User → Assignment | 1:M | Pertahankan penugasan |
 | Congregation → Option | 1:M | Delete cascade |
 | Congregation → Role | M:M | Melalui tabel roles |
+| Address → addresses_log | 1:M | Delete cascade |
+| Territory → aggregates | 1:M | Dikalkulasikan ulang oleh background job |
+| Map → aggregates | 1:M | Dikalkulasikan ulang oleh background job |
+| Address → address_options | 1:M | Delete cascade |
+| Option → address_options | 1:M | Delete cascade |
 
 ---
 

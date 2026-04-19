@@ -62,7 +62,7 @@ Ministry Mapper terdiri dari dua komponen utama yang bekerja bersama:
 | Layer | Teknologi | Versi | Tujuan |
 |-------|-----------|-------|--------|
 | **Bahasa** | Go | 1.25.0 | Backend berkinerja tinggi |
-| **Framework Backend** | PocketBase | 0.36.7 | BaaS dengan SQLite |
+| **Framework Backend** | PocketBase | 0.36.9 | BaaS dengan SQLite |
 | **Database** | SQLite | v1.40.2+ | Database mandiri |
 | **Framework Web** | Echo | v5 | HTTP routing |
 | **Container** | Docker | Latest | Kontainerisasi |
@@ -76,6 +76,7 @@ Ministry Mapper terdiri dari dua komponen utama yang bekerja bersama:
 
 | Layer | Teknologi | Versi | Tujuan |
 |-------|-----------|-------|--------|
+| **Runtime** | Node.js | >=24.0.0 | JavaScript runtime (dev toolchain) |
 | **Framework** | React | 19.2.4 | Library UI |
 | **Bahasa** | TypeScript | 5.9.3 | Type safety |
 | **Build Tool** | Vite | 8.0.2 | Dev & build yang cepat |
@@ -87,6 +88,17 @@ Ministry Mapper terdiri dari dua komponen utama yang bekerja bersama:
 | **Kualitas Kode** | ESLint + Prettier | Latest | Linting & formatting |
 
 ## Arsitektur Data
+
+### Integrasi Pihak Ketiga
+
+| Layanan | Tujuan | Catatan |
+|---------|--------|---------|
+| **LaunchDarkly** | Feature flags & rollout terkontrol | Mengontrol semua 9 background job; memungkinkan toggle flag tanpa downtime |
+| **OpenAI (gpt-5.4-mini)** | Ringkasan laporan yang dihasilkan AI | Opsional; temperature 0.3 untuk output faktual; dikontrol feature flag |
+| **MailerSend** | Pengiriman email transaksional | Digunakan untuk laporan dan email notifikasi siklus hidup; 3 percobaan ulang |
+| **Umami** | Analitik yang ramah privasi | Opsional; 13 jenis event kustom dilacak |
+| **OpenRouteService** | API rute/petunjuk arah | Kalkulasi rute berkendara, berjalan, dan bersepeda |
+| **LocationIQ** | API geocoding | Pencarian koordinat alamat |
 
 ### Model Entity Relationship
 
@@ -232,7 +244,7 @@ UI Auto-updates
 | **Job Scheduler** | Cron dengan feature flags | Operasi terjadwal |
 | **Transaction Pattern** | Operasi database | Konsistensi data |
 | **Link-Based Access** | Token penugasan | Akses anonim |
-| **Aggregate Caching** | Field JSON | Kalkulasi cepat |
+| **Aggregate Caching** | Cron batch (10 menit / lookback 11 menit) | Statistik kemajuan wilayah pra-kalkulasi, menggantikan pendekatan debouncer real-time sebelumnya. Hasil disimpan sebagai JSON untuk pengambilan cepat. |
 | **Custom Hooks** | Logika bisnis | Logika yang dapat digunakan ulang |
 | **Provider Pattern** | Context providers | State global |
 | **Lazy Loading** | Route splitting | Kinerja |
@@ -303,16 +315,17 @@ useRealtimeSubscription('addresses', (data) => {
 
 ### Tugas Terjadwal
 
-| Job | Jadwal | Tujuan |
-|-----|--------|--------|
-| **Assignment Cleanup** | Setiap 5 menit | Hapus penugasan yang kedaluwarsa |
-| **Territory Aggregates** | Setiap 10 menit | Perbarui statistik kemajuan |
-| **Message Processing** | Setiap 30 menit | Kirim notifikasi pesan |
-| **Instructions** | Setiap 30 menit | Kirim pesan admin |
-| **Note Updates** | Setiap 1 jam | Beri tahu perubahan catatan |
-| **Monthly Reports** | Tanggal 1 setiap bulan | Buat laporan Excel (dengan ringkasan AI opsional) |
-| **Unprovisioned Users** | Harian 01:00 UTC | Terapkan siklus hidup pengguna (peringatan → nonaktif → hapus) |
-| **Inactive Users** | Harian 01:30 UTC | Peringatkan dan nonaktifkan akun yang tidak aktif |
+| Job | Jadwal | Flag | Tujuan |
+|-----|--------|------|--------|
+| `cleanUpAssignments` | Setiap 5 menit | `enable-assignments-cleanup` | Hapus penugasan peta yang kedaluwarsa |
+| `updateTerritoryAggregates` | Setiap 10 menit | `enable-territory-aggregations` | Kalkulasi ulang kemajuan wilayah |
+| `processMessages` | Setiap 30 menit | `enable-message-processing` | Proses pesan penerbit yang tertunda |
+| `processInstructions` | Setiap 30 menit | `enable-instruction-processing` | Proses instruksi penugasan wilayah |
+| `processNotes` | Setiap jam | `enable-note-processing` | Proses catatan jemaat yang diperbarui |
+| `generateMonthlyReport` | Tgl 1 bulan @ 02:00 SGT | `enable-monthly-report` | Buat & kirim laporan Excel via email |
+| `processUnprovisionedUsers` | Harian @ 02:00 SGT | `enable-unprovisioned-user-processing` | Peringatkan/nonaktifkan pengguna tanpa peran |
+| `processInactiveUsers` | Harian @ 02:30 SGT | `enable-inactive-user-processing` | Peringatkan/nonaktifkan akun tidak aktif |
+| `processNewAddresses` | Harian @ 03:00 SGT | `enable-new-addresses-notification` | **BARU** — Email digest harian untuk alamat yang dibuat dari aplikasi |
 
 ### Kontrol Feature Flag
 
@@ -350,7 +363,7 @@ Ministry Mapper berintegrasi dengan model GPT OpenAI untuk ringkasan teks yang c
 ### Optimasi Backend
 
 - **Database Indexes**: 25+ indeks untuk kueri cepat
-- **Aggregate Caching**: Statistik yang telah dikalkulasikan di JSON
+- **Aggregate Caching**: Statistik kemajuan wilayah pra-kalkulasi melalui cron job batch (`updateTerritoryAggregates`, setiap 10 menit dengan jendela lookback 11 menit), menggantikan pendekatan debouncer real-time sebelumnya. Hasil disimpan sebagai JSON untuk pengambilan cepat.
 - **Connection Pooling**: Koneksi database yang efisien
 - **Transaction Batching**: Kurangi round-trip database
 

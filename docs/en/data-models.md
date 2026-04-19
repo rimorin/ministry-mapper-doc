@@ -14,18 +14,22 @@ Congregation (Root entity - multi-tenant isolation)
     │      └─── Map (1:M)
     │             │
     │             ├─── Address (1:M)
+    │             │      ├─── addresses_log (1:M)
+    │             │      └─── address_options (1:M)
     │             ├─── Assignment (1:M)
     │             └─── Message (1:M)
     │
     ├─── Option (1:M)
-    │      └─── Address (M:M via JSON array)
+    │      └─── address_options (M:M bridge with Address)
     │
     ├─── User (1:M via Role)
     │      │
     │      ├─── Role (1:M)
     │      └─── Assignment (1:M)
     │
-    └─── Message (1:M)
+    ├─── Message (1:M)
+    │
+    └─── aggregates (1:M from Territory and Map)
 ```
 
 ## Core Collections
@@ -575,6 +579,125 @@ Automatically calculated from aggregate of all maps within territory
 
 ---
 
+### 10. Addresses Log
+
+**Purpose:** Audit trail of address status changes — every time an address status is updated, a record is written here
+
+**Type:** Base collection
+
+**Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | text(15) | Yes | Auto-generated unique ID |
+| `address` | relation | Yes | FK to Addresses (cascade delete) |
+| `old_status` | text | Yes | Previous address status value |
+| `new_status` | text | Yes | New address status value |
+| `changed_by` | relation | No | FK to Users — user who made the change |
+| `created` | date | Auto | Timestamp of the change |
+
+**Relationships:**
+- M:1 with Addresses (each log entry belongs to one address)
+- M:1 with Users (via `changed_by`)
+
+**Access Rules:**
+- **List/View:** Conductor or Administrator
+- **Create:** System hook (automatic on address status change)
+- **Update/Delete:** Administrator only
+
+---
+
+### 11. Aggregates
+
+**Purpose:** Cached progress snapshots for territories and maps. Recalculated by a background job every 10 minutes
+
+**Type:** Base collection
+
+**Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | text(15) | Yes | Auto-generated unique ID |
+| `notDone` | number | Yes | Count of addresses not yet visited |
+| `notHome` | number | Yes | Count of "not home" addresses |
+| `progress` | number | Yes | Completion percentage (0–100) |
+| `territory` | relation | No | FK to Territories — set for territory-level aggregates |
+| `map` | relation | No | FK to Maps — set for map-level aggregates |
+
+**Relationships:**
+- M:1 with Territories (territory-level snapshots)
+- M:1 with Maps (map-level snapshots)
+
+**Business Rules:**
+- Exactly one of `territory` or `map` is set per record
+- Recalculated every 10 minutes by background job
+- Values are read-only snapshots; live progress is computed on-demand
+
+**Access Rules:**
+- **List/View:** User with role OR link access
+- **Create/Update:** System background job only
+- **Delete:** Administrator only
+
+---
+
+### 12. Address Options
+
+**Purpose:** Tracks which address-level options (from the `options` collection) have been applied to individual addresses — the junction table for the Address ↔ Option many-to-many relationship
+
+**Type:** Base collection
+
+**Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `id` | text(15) | Yes | Auto-generated unique ID |
+| `address` | relation | Yes | FK to Addresses (cascade delete) |
+| `option` | relation | Yes | FK to Options (cascade delete) |
+| `congregation` | relation | Yes | FK to Congregations (denormalized for fast queries) |
+
+**Indexes:**
+- `(address, option)` — Unique pairing (one option per address)
+- `(congregation)` — Congregation-wide option usage
+
+**Relationships:**
+- M:1 with Addresses
+- M:1 with Options
+- M:1 with Congregations
+
+**Access Rules:**
+- **List/View:** User with role OR link access
+- **Create/Delete:** Conductor or Administrator
+
+---
+
+## Analytics Collections
+
+Analytics collections store historical data for reporting and insights. These collections are managed internally and their exact fields may evolve over time; they are documented here by purpose rather than individual fields.
+
+### analytics_territories
+
+**Purpose:** Stores periodic snapshots of territory-level metrics (e.g., progress percentage, address counts) over time. Used to generate historical trend charts and territory completion reports.
+
+### analytics_maps
+
+**Purpose:** Stores periodic snapshots of map-level metrics over time. Enables granular reporting on individual map completion rates and activity patterns.
+
+### analytics_daily_status
+
+**Purpose:** Aggregated daily counts of address statuses (done, not done, not home, do not call, invalid) across the congregation. Powers day-over-day and week-over-week trend dashboards.
+
+### analytics_not_home
+
+**Purpose:** Tracks addresses that have been repeatedly marked as "not home". Used to surface follow-up targets for conductors and to identify persistently unreachable addresses.
+
+### analytics_user_audit
+
+**Purpose:** Records user actions including logins, address updates, and assignment operations for accountability and audit purposes. Enables administrators to review activity history and investigate anomalies.
+
+> **Note:** Analytics collections are populated by background jobs and read by the reporting layer. Direct writes from application code should be avoided.
+
+---
+
 ## Database Technology
 
 **Engine:** SQLite via PocketBase (modernc.org/sqlite v1.40.2+)
@@ -613,6 +736,11 @@ Automatically calculated from aggregate of all maps within territory
 | User → Assignment | 1:M | Keep assignments |
 | Congregation → Option | 1:M | Delete cascade |
 | Congregation → Role | M:M | Through roles table |
+| Address → addresses_log | 1:M | Delete cascade |
+| Territory → aggregates | 1:M | Recalculated by background job |
+| Map → aggregates | 1:M | Recalculated by background job |
+| Address → address_options | 1:M | Delete cascade |
+| Option → address_options | 1:M | Delete cascade |
 
 ---
 

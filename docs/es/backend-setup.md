@@ -162,6 +162,26 @@ SENTRY_ENV=production
 SOURCE_COMMIT=
 ```
 
+## Indicadores de Características
+
+Ministry Mapper usa [LaunchDarkly](https://launchdarkly.com) para controlar la ejecución de trabajos en segundo plano. Cada trabajo puede habilitarse o deshabilitarse de forma independiente sin necesidad de redespliegue. Los indicadores de características requieren que `LAUNCHDARKLY_SDK_KEY` y `LAUNCHDARKLY_CONTEXT_KEY` estén configurados.
+
+| Clave del Indicador | Trabajo Controlado | Descripción |
+|---------------------|-------------------|-------------|
+| `enable-assignments-cleanup` | `cleanUpAssignments` | Eliminar asignaciones de mapa expiradas (se ejecuta cada 5 min) |
+| `enable-territory-aggregations` | `updateTerritoryAggregates` | Recalcular estadísticas de progreso del territorio (se ejecuta cada 10 min) |
+| `enable-message-processing` | `processMessages` | Procesar mensajes pendientes de publicadores (se ejecuta cada 30 min) |
+| `enable-instruction-processing` | `processInstructions` | Procesar instrucciones de asignación de territorio (se ejecuta cada 30 min) |
+| `enable-note-processing` | `processNotes` | Procesar notas de congregación actualizadas (se ejecuta cada hora) |
+| `enable-monthly-report` | `generateMonthlyReport` | Generar y enviar informes Excel por correo (se ejecuta el 1ro del mes) |
+| `enable-unprovisioned-user-processing` | `processUnprovisionedUsers` | Advertir y deshabilitar usuarios sin rol asignado (se ejecuta diariamente) |
+| `enable-inactive-user-processing` | `processInactiveUsers` | Advertir y deshabilitar cuentas inactivas — NIST AC-2(3) (se ejecuta diariamente) |
+| `enable-new-addresses-notification` | `processNewAddresses` | Enviar correo de resumen diario para direcciones creadas en la aplicación (se ejecuta diariamente) |
+| `enable-report-ai-summary` | Resumen de IA en informes | Incluir resumen generado por OpenAI en informes de la congregación |
+
+!!! note
+    Si LaunchDarkly no está configurado, todos los trabajos se ejecutan por defecto (habilitado: verdadero).
+
 ## Pasos de Instalación
 
 ### Opción 1: Despliegue con Docker (Recomendado)
