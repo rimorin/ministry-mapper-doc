@@ -1,0 +1,4306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/frontend-setup/">
+      
+      
+        <link rel="prev" href="../backend-setup/">
+      
+      
+        <link rel="next" href="../faq/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Frontend Setup - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frontend-setup-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Frontend Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-time-only-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build-Time Only Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injected-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Injected Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_geoapify_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_GEOAPIFY_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_launchdarkly_client_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_LAUNCHDARKLY_CLIENT_ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_umami_src_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_UMAMI_SRC_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_umami_website_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_UMAMI_WEBSITE_ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_umami_domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_UMAMI_DOMAINS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_maintenance_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_MAINTENANCE_MODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_app_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_APP_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry_auth_token-sentry_org-sentry_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-development-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Development Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Development Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clone the Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-environment-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Environment File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-development-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Start Development Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundle-chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bundle Chunking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-tracking-with-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Tracking with Sentry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Tracking with Sentry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-sentry-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Sentry Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-your-dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Get Your DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-to-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add to Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-how-sentry-is-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How Sentry Is Configured
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration-and-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Integration and Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Coolify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-vercel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Vercel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-4-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-5-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 5: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-6-self-hosted-web-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 6: Self-Hosted Web Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables-in-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables in Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Language Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Language Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-language-selection-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Language Selection Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a New Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Web App (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwa-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-updates-are-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Updates Are Detected
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Your Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Your Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functionality-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functionality Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-pocketbase-url-setup-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Missing PocketBase URL" Setup Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-connection-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Connection Failed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps-are-blank-or-search-returns-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maps Are Blank or Search Returns Nothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#styles-look-wrong-after-editing-a-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Styles Look Wrong After Editing a Component
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slow-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slow Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Installation Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installed-app-stays-on-an-old-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed App Stays on an Old Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-updates-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-time Updates Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keeping-dependencies-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Dependencies Updated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-time-only-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build-Time Only Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injected-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Injected Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variable Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vite_pocketbase_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_POCKETBASE_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_system_environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SYSTEM_ENVIRONMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_geoapify_api_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_GEOAPIFY_API_KEY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_privacy_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_PRIVACY_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_terms_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_TERMS_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_about_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_ABOUT_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_launchdarkly_client_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_LAUNCHDARKLY_CLIENT_ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_sentry_dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_SENTRY_DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_umami_src_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_UMAMI_SRC_URL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_umami_website_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_UMAMI_WEBSITE_ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_umami_domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_UMAMI_DOMAINS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_maintenance_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_MAINTENANCE_MODE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vite_app_version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VITE_APP_VERSION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentry_auth_token-sentry_org-sentry_project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-development-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Development Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Development Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clone the Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-environment-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Create Environment File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-development-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Start Development Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality Tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundle-chunking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bundle Chunking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-tracking-with-sentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Tracking with Sentry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Tracking with Sentry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-sentry-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Sentry Account
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-get-your-dsn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Get Your DSN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-to-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Add to Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-how-sentry-is-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. How Sentry Is Configured
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Production Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-integration-and-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continuous Integration and Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-coolify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Coolify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-vercel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Vercel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-3-netlify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 3: Netlify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-4-cloudflare-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 4: Cloudflare Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-5-aws-s3-cloudfront" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 5: AWS S3 + CloudFront
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-6-self-hosted-web-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 6: Self-Hosted Web Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables-in-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables in Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Language Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Language Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Languages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-language-selection-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Language Selection Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a New Language
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Progressive Web App (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwa-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-updates-are-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Updates Are Detected
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-your-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Your Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing Your Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functionality-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functionality Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Browser Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-pocketbase-url-setup-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Missing PocketBase URL" Setup Page
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-connection-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Connection Failed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maps-are-blank-or-search-returns-nothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maps Are Blank or Search Returns Nothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#styles-look-wrong-after-editing-a-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Styles Look Wrong After Editing a Component
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slow-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slow Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pwa-installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PWA Installation Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installed-app-stays-on-an-old-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installed App Stays on an Old Version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-updates-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-time Updates Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keeping-dependencies-updated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping Dependencies Updated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="frontend-setup-guide">Frontend Setup Guide<a class="headerlink" href="#frontend-setup-guide" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Self-Hosting Not Recommended</p>
+<p>This guide is for advanced users who want to self-host Ministry Mapper. We don't encourage self-hosting due to the technical complexity, maintenance burden, and security responsibilities involved.</p>
+<p><strong>Most users should</strong>: Use our hosted service at <strong><a href="https://ministry-mapper.com">ministry-mapper.com</a></strong></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Looking for User Documentation?</p>
+<p>If you're a regular user trying to learn how to use Ministry Mapper, see the <a href="../getting-started/">Getting Started</a> or <a href="../user-guide/">User Guide</a> instead.</p>
+</div>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Ministry Mapper frontend (ministry-mapper-v2) is a React-based web application that provides:</p>
+<ul>
+<li>User authentication and account management</li>
+<li>Interactive territory management interface</li>
+<li>Interactive mapping functionality</li>
+<li>Real-time data synchronization over Server-Sent Events</li>
+<li>Local-first publisher updates (Smart Sync) with an offline queue</li>
+<li>Mobile-responsive design</li>
+<li>Multi-language support (8 languages)</li>
+<li>Progressive Web App capabilities</li>
+</ul>
+<p><strong>This guide assumes you have</strong>:
+- Experience with Node.js and npm
+- Understanding of environment variables
+- Familiarity with static site deployment
+- Knowledge of web application security</p>
+<p>For complete self-hosting instructions, see the <a href="../self-hosting/">Self-Hosting Guide</a>.</p>
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<p>This page provides a quick reference for frontend configuration. <strong>For complete setup instructions, see the <a href="../self-hosting/">Self-Hosting Guide</a>.</strong></p>
+<h3 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Node.js &gt;=24.0.0</strong>: Declared in <code>engines.node</code>; CI pins <code>node-version: 24</code></li>
+<li><strong>React 19.2.8</strong>: UI library, compiled with the <strong>React Compiler</strong> (<code>babel-plugin-react-compiler</code>), which is active in both the Vite build and the Vitest run</li>
+<li><strong>TypeScript 6.0.3</strong>: <code>strict: true</code>, with the path alias <code>@/* → ./src/*</code></li>
+<li><strong>Vite 8.2.0</strong>: Build tool and dev server — this release is <strong>Rolldown-based</strong>, which changes how bundle chunking is configured</li>
+<li><strong>Vitest 4.1.11</strong>: Test runner (jsdom environment, v8 coverage)</li>
+<li><strong>Tailwind CSS 4.3.3</strong>: Styling, via <code>@tailwindcss/vite</code>. Tailwind 4 is <strong>CSS-first</strong> — there is <strong>no <code>tailwind.config</code></strong> file; tokens and theme live in <code>src/index.css</code></li>
+<li><strong>shadcn/ui on Base UI</strong>: The component layer is shadcn/ui's <strong>Base UI</strong> flavour (<code>@base-ui/react</code> 1.7.0). <code>components.json</code> declares <code>"style": "base-vega"</code></li>
+<li><strong>wouter 3.10.0</strong>: Client-side router</li>
+<li><strong>motion 13.1.0</strong>: Animation (the Framer Motion successor)</li>
+<li><strong>lucide-react</strong>: Icon set</li>
+<li><strong>react-hook-form</strong>: Form state — used <strong>without</strong> a schema resolver</li>
+<li><strong>Leaflet 1.9.4 + react-leaflet 5.0.0</strong>: Interactive mapping</li>
+<li><strong>PocketBase SDK 0.27.3</strong>: Backend connection</li>
+<li><strong>i18next 26.3.6 + react-i18next</strong>: Multi-language support</li>
+<li><strong>@sentry/react 10.70.0</strong>: Error tracking</li>
+<li><strong>launchdarkly-react-client-sdk</strong>: Runtime feature flags</li>
+<li><strong>vite-plugin-pwa 1.3.0</strong>: Progressive Web App features</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Libraries you may see referenced in older documentation</p>
+<p>The 2.0.0 release rebuilt the interface from the ground up. <strong>Bootstrap 5 and react-bootstrap are gone</strong>, and so are <strong>SCSS/Sass</strong>, <strong>react-select</strong> (replaced by an in-house <code>MultiSelect</code> dialog), <strong>react-calendar</strong> (replaced by react-day-picker) and <strong>leaflet-geosearch</strong> (replaced by an in-house Geoapify <code>SearchControl</code>). <strong>sonner</strong> was removed at 2.5.0 in favour of the Base UI toast.</p>
+<p>Two things are commonly assumed and are <strong>not</strong> true here: <strong>Radix UI is not used</strong> — the shadcn components in this project are the Base UI flavour, and no Radix package is installed. <strong>Zod is not a dependency</strong> either; the string <code>zod</code> appears in <code>vite.config.js</code> as dead chunk configuration only.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">The <code>data-slot</code> attributes are part of the component API</p>
+<p>Every primitive under <code>src/components/ui/</code> stamps <code>data-slot="..."</code> attributes on its internal elements. These are <strong>not decorative</strong> — Tailwind selectors elsewhere in the app target them (for example to restyle a dialog's header from the outside). Removing or renaming a <code>data-slot</code> value is a breaking change to that component's API, even though nothing in TypeScript will complain.</p>
+</div>
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Complete Setup Instructions</p>
+<p>The sections below provide a technical reference for frontend configuration. For step-by-step setup instructions with deployment options and troubleshooting, please see the <strong><a href="../self-hosting/">Self-Hosting Guide</a></strong>.</p>
+</div>
+<hr />
+<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<p>Create a <code>.env</code> file in the root directory with these settings. A template ships in the repository:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Only <code>VITE_</code>-prefixed variables reach the browser</p>
+<p>Vite inlines every variable whose name begins with <code>VITE_</code> into the JavaScript bundle at <strong>build time</strong>. Anything shipped that way is public: it is readable by anyone who opens DevTools. Variables <strong>without</strong> the prefix are visible only to the build process and never reach the client — which is why the Sentry upload credentials are deliberately unprefixed.</p>
+<p>The corollary is that a <code>VITE_</code> variable is not a secret. Never put a backend API secret, a database credential, or a private token behind a <code>VITE_</code> name.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><code>.env.example</code> vs <code>.env.sample</code></p>
+<p>The frontend template is <strong><code>.env.example</code></strong>; the backend repository uses <strong><code>.env.sample</code></strong>. The two filenames differ, and copying the wrong one is a common first-run mistake.</p>
+</div>
+<h3 id="required-variables">Required Variables<a class="headerlink" href="#required-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># System Environment - specifies the deployment environment</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span>production
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># PocketBase Backend URL - no trailing slash</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>https://your-backend-url.com
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Geoapify API key - map tiles, address search and routing</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nv">VITE_GEOAPIFY_API_KEY</span><span class="o">=</span>your_geoapify_api_key
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Legal Pages - required for sign-up</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>https://your-site.com/privacy
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>https://your-site.com/terms
+</code></pre></div>
+<h3 id="optional-variables">Optional Variables<a class="headerlink" href="#optional-variables" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># About link shown in the sign-in footer</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>https://your-site.com/about
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Error Tracking (Sentry) - recommended for production</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_sentry_dsn@sentry.io/123456
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Runtime feature flags (leave empty to disable flags entirely)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nv">VITE_LAUNCHDARKLY_CLIENT_ID</span><span class="o">=</span>your_launchdarkly_client_side_id
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Umami Analytics</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nv">VITE_UMAMI_SRC_URL</span><span class="o">=</span>https://cloud.umami.is/script.js
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nv">VITE_UMAMI_WEBSITE_ID</span><span class="o">=</span>your_umami_website_id
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nv">VITE_UMAMI_DOMAINS</span><span class="o">=</span>yourdomain.com
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># Maintenance Mode - build-time kill switch</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="nv">VITE_MAINTENANCE_MODE</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="build-time-only-variables">Build-Time Only Variables<a class="headerlink" href="#build-time-only-variables" title="Permanent link">&para;</a></h3>
+<p>These are <strong>not</strong> <code>VITE_</code>-prefixed, so they are never shipped to the client. They affect only the build.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Sentry source-map upload (the plugin runs only when NODE_ENV=production)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">SENTRY_AUTH_TOKEN</span><span class="o">=</span>your_sentry_auth_token
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nv">SENTRY_ORG</span><span class="o">=</span>your_sentry_org_slug
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nv">SENTRY_PROJECT</span><span class="o">=</span>your_sentry_project_slug
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Set to "production" to enable minified-build behaviour and the Sentry plugin</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nv">NODE_ENV</span><span class="o">=</span>production
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Set to any value to emit a bundle-size report (stats.html)</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nv">ANALYZE</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<p><code>CI</code> is also read by <code>vite.config.js</code>, but is currently unused.</p>
+<h3 id="injected-variables">Injected Variables<a class="headerlink" href="#injected-variables" title="Permanent link">&para;</a></h3>
+<p><code>VITE_APP_VERSION</code> is <strong>defined by the build, not by you</strong>. <code>vite.config.js</code> injects it from <code>package.json</code>'s <code>version</code> field. Setting it in <code>.env</code> has no effect. Do not add it to your environment.</p>
+<h3 id="variable-details">Variable Details<a class="headerlink" href="#variable-details" title="Permanent link">&para;</a></h3>
+<h4 id="vite_pocketbase_url">VITE_POCKETBASE_URL<a class="headerlink" href="#vite_pocketbase_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Base URL of your PocketBase backend server; also used to build the <code>/api/health</code> probe that drives the connection-status indicator</li>
+<li><strong>Required</strong>: Yes</li>
+<li><strong>Format</strong>: Full URL without trailing slash</li>
+<li><strong>Example</strong>: <code>https://api.ministry-mapper.com</code> or <code>http://localhost:8090</code> for local</li>
+<li><strong>Effect if missing</strong>: The app does not start normally — it renders a <strong>"Missing PocketBase URL"</strong> setup page instead of the sign-in screen. If you see that page, this variable was not present at build time</li>
+<li><strong>Important</strong>: Must be accessible from wherever the frontend is deployed, and PocketBase's allowed origins must include your frontend domain</li>
+</ul>
+<h4 id="vite_system_environment">VITE_SYSTEM_ENVIRONMENT<a class="headerlink" href="#vite_system_environment" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Declares which environment this build represents</li>
+<li><strong>Required</strong>: Yes</li>
+<li><strong>Values</strong>: <code>local</code>, <code>development</code>, <code>staging</code>, <code>production</code></li>
+<li><strong>Default</strong>: <code>local</code> when unset</li>
+<li><strong>Effect</strong>: Tags Sentry events with the environment name, gates whether route-level errors are forwarded to Sentry (only in <code>production</code>), and controls the STG/DEV corner badge and the version footer</li>
+</ul>
+<h4 id="vite_geoapify_api_key">VITE_GEOAPIFY_API_KEY<a class="headerlink" href="#vite_geoapify_api_key" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: The <strong>single</strong> geo credential. It covers all three map-related services: <strong>tiles</strong> (style <code>osm-carto</code>, retina-aware, <code>maxZoom</code> 20), <strong>geocode autocomplete</strong> in the address search control, and <strong>routing</strong> for the Directions and Quick Link screens</li>
+<li><strong>Required</strong>: Yes, for anything map-related to work</li>
+<li><strong>Get It From</strong>: <a href="https://www.geoapify.com">geoapify.com</a> (free tier available)</li>
+<li><strong>Example</strong>: <code>VITE_GEOAPIFY_API_KEY=abc123def456</code></li>
+<li><strong>Note</strong>: Earlier versions used separate OpenRouteService and LocationIQ keys. <strong>Both providers have been removed</strong>; if your <code>.env</code> still carries <code>VITE_OPENROUTE_API_KEY</code> or <code>VITE_LOCATIONIQ_API_KEY</code>, delete those lines — nothing reads them</li>
+</ul>
+<h4 id="vite_privacy_url">VITE_PRIVACY_URL<a class="headerlink" href="#vite_privacy_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Link to your privacy policy page, shown on the sign-up form</li>
+<li><strong>Required</strong>: Yes, for legal compliance (GDPR, CCPA, etc.)</li>
+<li><strong>Example</strong>: <code>https://ministry-mapper.com/privacy</code></li>
+</ul>
+<h4 id="vite_terms_url">VITE_TERMS_URL<a class="headerlink" href="#vite_terms_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Link to your terms of service page, shown on the sign-up form</li>
+<li><strong>Required</strong>: Yes, for legal compliance</li>
+<li><strong>Example</strong>: <code>https://ministry-mapper.com/terms</code></li>
+</ul>
+<h4 id="vite_about_url">VITE_ABOUT_URL<a class="headerlink" href="#vite_about_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Target of the <strong>About</strong> button in the sign-in footer</li>
+<li><strong>Required</strong>: No</li>
+<li><strong>Default</strong>: Falls back to the hosted user guide when unset</li>
+<li><strong>Example</strong>: <code>https://ministry-mapper.com/about</code></li>
+</ul>
+<h4 id="vite_launchdarkly_client_id">VITE_LAUNCHDARKLY_CLIENT_ID<a class="headerlink" href="#vite_launchdarkly_client_id" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: LaunchDarkly client-side ID, enabling runtime feature flags</li>
+<li><strong>Required</strong>: No</li>
+<li><strong>Example</strong>: <code>VITE_LAUNCHDARKLY_CLIENT_ID=64f0c1a2b3c4d5e6f7a8b9c0</code></li>
+<li><strong>Effect if empty</strong>: Feature flags are disabled entirely and the app renders without the flag provider. See <a href="#feature-flags">Feature Flags</a> for the degradation behaviour</li>
+</ul>
+<h4 id="vite_sentry_dsn">VITE_SENTRY_DSN<a class="headerlink" href="#vite_sentry_dsn" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Sends JavaScript errors to Sentry for monitoring</li>
+<li><strong>Required</strong>: No, but highly recommended for production</li>
+<li><strong>Get It From</strong>: <a href="https://sentry.io">sentry.io</a> (free tier available)</li>
+<li><strong>Example</strong>: <code>https://your_key@your_org.sentry.io/your_project_id</code></li>
+<li><strong>Effect if empty</strong>: Sentry initializes but is inert — no events are sent</li>
+</ul>
+<h4 id="vite_umami_src_url">VITE_UMAMI_SRC_URL<a class="headerlink" href="#vite_umami_src_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: URL of the Umami analytics script</li>
+<li><strong>Required</strong>: No</li>
+<li><strong>Example</strong>: <code>https://cloud.umami.is/script.js</code></li>
+<li><strong>Note</strong>: <strong>Both this and <code>VITE_UMAMI_WEBSITE_ID</code> must be set.</strong> If either is missing, analytics initialization returns early and no script is injected at all — there is no partial mode</li>
+</ul>
+<h4 id="vite_umami_website_id">VITE_UMAMI_WEBSITE_ID<a class="headerlink" href="#vite_umami_website_id" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Identifies your site inside Umami</li>
+<li><strong>Required</strong>: No, but mandatory if <code>VITE_UMAMI_SRC_URL</code> is set</li>
+<li><strong>Example</strong>: <code>VITE_UMAMI_WEBSITE_ID=8f3c1a90-1234-4c56-9abc-def012345678</code></li>
+</ul>
+<h4 id="vite_umami_domains">VITE_UMAMI_DOMAINS<a class="headerlink" href="#vite_umami_domains" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Comma-separated list of domains Umami should record events from, passed through as the script's <code>data-domains</code> attribute</li>
+<li><strong>Required</strong>: No</li>
+<li><strong>Example</strong>: <code>VITE_UMAMI_DOMAINS=ministry-mapper.com,www.ministry-mapper.com</code></li>
+<li><strong>Effect</strong>: Keeps preview and localhost traffic out of your analytics</li>
+</ul>
+<h4 id="vite_maintenance_mode">VITE_MAINTENANCE_MODE<a class="headerlink" href="#vite_maintenance_mode" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Build-time kill switch. When set to <code>true</code>, the app renders the maintenance screen instead of the application</li>
+<li><strong>Required</strong>: No</li>
+<li><strong>Values</strong>: <code>true</code> or <code>false</code> — the check is an exact string comparison against <code>"true"</code></li>
+<li><strong>Default</strong>: Unset, which behaves as <code>false</code></li>
+<li><strong>Use Case</strong>: Planned downtime during a backend upgrade, when you would rather rebuild than manage a runtime flag</li>
+<li><strong>Note</strong>: This variable is <strong>not</strong> in <code>.env.example</code>. It is one of two independent triggers for maintenance mode; the other is the LaunchDarkly <code>maintenance-mode</code> flag, which can be flipped without a rebuild. Either one on its own turns maintenance mode on</li>
+</ul>
+<h4 id="vite_app_version">VITE_APP_VERSION<a class="headerlink" href="#vite_app_version" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: The application version, used as the Sentry release name, the LaunchDarkly application version, the version footer, and the value the PWA staleness check compares against <code>version.json</code></li>
+<li><strong>Required</strong>: <strong>Injected — do not set.</strong> <code>vite.config.js</code> defines it from <code>package.json</code>'s <code>version</code></li>
+<li><strong>Effect of setting it manually</strong>: None; the build's own definition wins</li>
+</ul>
+<h4 id="sentry_auth_token-sentry_org-sentry_project">SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT<a class="headerlink" href="#sentry_auth_token-sentry_org-sentry_project" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Purpose</strong>: Used during <code>npm run build</code> to upload source maps to Sentry so that minified stack traces can be resolved back to your original source code</li>
+<li><strong>Required</strong>: No — the build still produces hidden source maps without them, but uploading greatly improves error debugging in production</li>
+<li><strong>How to Get</strong>: Create an auth token in your Sentry organisation settings under <strong>Settings → Auth Tokens</strong></li>
+<li><strong>Note</strong>: The Sentry Vite plugin runs <strong>only when <code>NODE_ENV</code> is <code>production</code></strong>. In any other mode these three variables are ignored. After a successful upload the plugin deletes the <code>.map</code> files from <code>build/</code>, so they are never served publicly</li>
+</ul>
+<h2 id="local-development-setup">Local Development Setup<a class="headerlink" href="#local-development-setup" title="Permanent link">&para;</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<p>You need Node.js <strong>&gt;=24.0.0</strong>, as declared by <code>engines.node</code> in <code>package.json</code>. CI pins <code>node-version: 24</code>, so matching that locally avoids surprises.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Check your Node.js version</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>node<span class="w"> </span>--version
+</code></pre></div>
+<p>If you don't have Node.js &gt;=24.0.0, download it from: <a href="https://nodejs.org">nodejs.org</a></p>
+<div class="admonition note">
+<p class="admonition-title">Don't read the Node version out of <code>.nvmrc</code></p>
+<p>The repository's <code>.nvmrc</code> holds an <strong>nvm alias name</strong> (<code>mm_fe</code>), not a version number, and it is gitignored. <code>engines.node</code> and the CI workflow are the two places that state the real requirement.</p>
+</div>
+<h3 id="setup-steps">Setup Steps<a class="headerlink" href="#setup-steps" title="Permanent link">&para;</a></h3>
+<h4 id="1-clone-the-repository">1. Clone the Repository<a class="headerlink" href="#1-clone-the-repository" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rimorin/ministry-mapper-v2.git
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>ministry-mapper-v2
+</code></pre></div>
+<h4 id="2-install-dependencies">2. Install Dependencies<a class="headerlink" href="#2-install-dependencies" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>npm<span class="w"> </span>install
+</code></pre></div>
+<p>This downloads all required packages. May take a few minutes depending on your internet connection. It also installs the Husky git hooks via the <code>prepare</code> script.</p>
+<h4 id="3-create-environment-file">3. Create Environment File<a class="headerlink" href="#3-create-environment-file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Copy the example environment file</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<p>Edit <code>.env</code> with your settings:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">VITE_SYSTEM_ENVIRONMENT</span><span class="o">=</span><span class="nb">local</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">VITE_POCKETBASE_URL</span><span class="o">=</span>http://localhost:8090
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">VITE_GEOAPIFY_API_KEY</span><span class="o">=</span>your_geoapify_api_key
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">VITE_PRIVACY_URL</span><span class="o">=</span>http://localhost:3000/privacy
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">VITE_TERMS_URL</span><span class="o">=</span>http://localhost:3000/terms
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nv">VITE_ABOUT_URL</span><span class="o">=</span>http://localhost:3000/about
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nv">VITE_LAUNCHDARKLY_CLIENT_ID</span><span class="o">=</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nv">VITE_UMAMI_SRC_URL</span><span class="o">=</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nv">VITE_UMAMI_WEBSITE_ID</span><span class="o">=</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="nv">VITE_UMAMI_DOMAINS</span><span class="o">=</span>
+</code></pre></div>
+<p><strong>Note</strong>: You'll need a PocketBase backend running on port 8090. See the ministry-mapper-be repository for backend setup.</p>
+<h4 id="4-start-development-server">4. Start Development Server<a class="headerlink" href="#4-start-development-server" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>npm<span class="w"> </span>start
+</code></pre></div>
+<p>The app will open at <code>http://localhost:3000</code> (port 3000 is configured in <code>vite.config.js</code>).</p>
+<div class="admonition info">
+<p class="admonition-title"><code>prestart</code> and <code>prebuild</code> generate two files first</p>
+<p>Both <code>npm start</code> and <code>npm run build</code> run <code>node scripts/prebuild.js</code> beforehand. It writes:</p>
+<ul>
+<li><strong><code>public/changelog.json</code></strong> — the in-app release notes, parsed from <code>release-notes/</code> across all locales and <strong>capped at the 10 most recent releases</strong></li>
+<li><strong><code>public/version.json</code></strong> — the current version, used by the PWA staleness check</li>
+</ul>
+<p>Both files are <strong>gitignored</strong> and regenerated on every start and build. If the in-app "What's New" dialog is empty or the update prompt never fires, the usual cause is a build that skipped the prebuild step.</p>
+</div>
+<h3 id="development-features">Development Features<a class="headerlink" href="#development-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Hot Module Replacement (HMR)</strong>: Changes appear instantly without full page reload</li>
+<li><strong>TypeScript Checking</strong>: Errors show in terminal and browser console</li>
+<li><strong>Source Maps</strong>: Debugging is easier with original source code references</li>
+<li><strong>Fast Refresh</strong>: React components update without losing state</li>
+<li><strong>React Compiler</strong>: Components are auto-memoized at build time, so most manual <code>useMemo</code>/<code>useCallback</code> wrapping is unnecessary</li>
+</ul>
+<h3 id="development-commands">Development Commands<a class="headerlink" href="#development-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Start development server (port 3000); runs prestart first</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>npm<span class="w"> </span>start
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Run the full test suite once (vitest run)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>npm<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Watch mode</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>npm<span class="w"> </span>run<span class="w"> </span>test:watch
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># Vitest UI</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>npm<span class="w"> </span>run<span class="w"> </span>test:ui
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c1"># Coverage report (v8)</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>npm<span class="w"> </span>run<span class="w"> </span>test:coverage
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1"># Run only the hook tests</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>npm<span class="w"> </span>run<span class="w"> </span>test:hooks
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="c1"># Run only the component tests</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>npm<span class="w"> </span>run<span class="w"> </span>test:components
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="c1"># Lint</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>npm<span class="w"> </span>run<span class="w"> </span>lint
+<a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
+<a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="c1"># Lint and auto-fix</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>npm<span class="w"> </span>run<span class="w"> </span>lint:fix
+<a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
+<a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="c1"># Check code formatting</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier
+<a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>
+<a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="c1"># Auto-fix formatting issues</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>npm<span class="w"> </span>run<span class="w"> </span>prettier:fix
+<a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>
+<a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="c1"># Build for production; runs prebuild first</span>
+<a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>
+<a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="c1"># Preview the production build locally (vite preview)</span>
+<a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>npm<span class="w"> </span>run<span class="w"> </span>serve
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title"><code>npm run serve</code>, not <code>npm run preview</code></p>
+<p>Vite's own convention is <code>preview</code>, but this project names the script <strong><code>serve</code></strong>. It runs <code>vite preview</code> underneath. There is no <code>preview</code> script and no <code>dev</code> script — the dev server is <code>npm start</code>.</p>
+</div>
+<h3 id="build-output">Build Output<a class="headerlink" href="#build-output" title="Permanent link">&para;</a></h3>
+<p><code>npm run build</code> writes to <strong><code>build/</code></strong>, not Vite's default <code>dist/</code>. The relevant <code>vite.config.js</code> settings are:</p>
+<ul>
+<li><code>outDir: "build"</code></li>
+<li><code>target: "esnext"</code> — no legacy transpilation; the app targets modern browsers only</li>
+<li><code>sourcemap: "hidden"</code> — maps are generated for Sentry but not referenced from the shipped bundles</li>
+</ul>
+<p>Every static-host configuration in this guide therefore points at <code>build</code>.</p>
+<h3 id="code-quality-tools">Code Quality Tools<a class="headerlink" href="#code-quality-tools" title="Permanent link">&para;</a></h3>
+<p><strong>Prettier</strong> (code formatting):</p>
+<ul>
+<li>Configured in <code>.prettierrc</code> — double quotes, no trailing commas, 2-space indent</li>
+<li><code>.prettierignore</code> excludes <code>*.md</code></li>
+<li>Run manually with <code>npm run prettier:fix</code></li>
+</ul>
+<p><strong>ESLint</strong> (code linting):</p>
+<ul>
+<li>Flat config in <code>eslint.config.mjs</code>: the recommended sets from ESLint, typescript-eslint and <code>@eslint-react</code></li>
+<li>Unused variables must be prefixed with <code>_</code></li>
+<li><code>npm run lint</code> runs plain <code>eslint src</code></li>
+</ul>
+<p><strong>Husky</strong> (git hooks):</p>
+<ul>
+<li><code>.husky/pre-commit</code> runs lint-staged: Prettier writes <code>*.{css,ts,tsx}</code>, then ESLint fixes <code>*.{ts,tsx}</code> with <strong><code>--max-warnings 0</code></strong></li>
+<li><code>.husky/commit-msg</code> runs commitlint against <code>@commitlint/config-conventional</code></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">The pre-commit lint is stricter than the CI lint</p>
+<p>lint-staged runs <code>eslint --fix --max-warnings 0</code>, so <strong>any warning blocks a commit</strong>. CI runs plain <code>eslint src</code>, which does not fail on warnings. A commit that Husky rejects locally is therefore not necessarily a CI failure — and, more importantly, code that passes CI can still be blocked at commit time. If you bypass the hook, expect to re-fix warnings later.</p>
+</div>
+<p><strong>Conventional Commits</strong>:</p>
+<p>Commit messages must follow <a href="https://www.conventionalcommits.org">Conventional Commits</a> — <code>feat:</code>, <code>fix:</code>, <code>chore:</code>, and so on, with <code>feat!:</code>/<code>fix!:</code> marking a breaking change. This is not cosmetic: <code>semantic-release</code> derives the next version number and the changelog directly from these messages. commitlint enforces the format on every commit.</p>
+<h2 id="feature-flags">Feature Flags<a class="headerlink" href="#feature-flags" title="Permanent link">&para;</a></h2>
+<p>Runtime feature flags come from <strong>LaunchDarkly</strong>, enabled by <code>VITE_LAUNCHDARKLY_CLIENT_ID</code>.</p>
+<p><strong>Exactly one flag exists</strong>: <strong><code>maintenance-mode</code></strong>. When it is on, the app renders the maintenance screen instead of the application. The build-time <code>VITE_MAINTENANCE_MODE=true</code> is the second, independent trigger for the same screen; either alone is sufficient.</p>
+<p>Initialization details worth knowing:</p>
+<ul>
+<li>Pre-login sessions all share <strong>one anonymous context</strong> (<code>{ kind: "user", key: "anonymous", anonymous: true }</code>) rather than one per device, which keeps global flag evaluation billable as roughly one monthly active user</li>
+<li>Once a signed-in user's roles load, the app calls <code>identify()</code> with a <strong>multi-context</strong>: a billable <code>user</code> context and a non-billable <code>congregation</code> context. <code>email</code> is registered as a private attribute</li>
+<li>The client bootstraps from <code>localStorage</code>, so repeat loads resolve flags synchronously with no flicker</li>
+<li>A <code>&lt;Loader/&gt;</code> paints before LaunchDarkly resolves, so the maintenance gate never flashes the real application</li>
+</ul>
+<p><strong>Three fail-open degradation layers</strong>, so a LaunchDarkly outage can never take the app down:</p>
+<ol>
+<li><strong>No client ID</strong> — the app renders without the flag provider and flag lookups return an empty object. This is the normal state for a self-hosted instance</li>
+<li><strong>Initialization throws</strong> — the error is caught, reported to Sentry in production, and the app renders without flags</li>
+<li><strong>Initialization is slow</strong> — the 1.5-second timeout does <strong>not</strong> reject. It resolves with a working provider that hydrates once the client signals ready, so the timeout only bounds the cold-cache load</li>
+</ol>
+<p>In all three cases the result is the same: the app runs with flags off. Nothing gates behind a successful flag fetch.</p>
+<h2 id="bundle-chunking">Bundle Chunking<a class="headerlink" href="#bundle-chunking" title="Permanent link">&para;</a></h2>
+<p>Because Vite 8 is Rolldown-based, vendor chunking uses <strong>Rolldown's native <code>advancedChunks.groups</code></strong> API in <code>vite.config.js</code>, with an explicit <code>priority</code> on each group. <code>vendor-react</code> carries the highest priority so React can never be captured into another group.</p>
+<div class="admonition warning">
+<p class="admonition-title">Do not switch back to a <code>manualChunks()</code> function</p>
+<p>This is recorded as a comment in <code>vite.config.js</code> because it was a real regression. Rolldown's compatibility emulation of Rollup's <code>manualChunks()</code> <strong>mis-assigns <code>react</code>, <code>react-dom</code> and <code>jsx-runtime</code> into the <code>vendor-base-ui</code> group</strong>, which drags the entire Base UI chunk (~87 kB gzipped) onto the initial preload path and slows first paint for every visitor. The native <code>advancedChunks</code> API with explicit priorities is what prevents that. If you are tempted to "simplify" the chunk configuration back into a function, don't.</p>
+</div>
+<p>Three chunks are deliberately split <em>out</em> of the large Base UI bundle because of when they load: <code>vendor-nice-modal</code> and <code>vendor-base-ui-toast</code> (the toaster mounts at app entry), and <code>vendor-base-ui-drawer</code> (only mobile bottom sheets render it, so it must not ride along in the chunk every dialog download pulls).</p>
+<p>To inspect the result, build with <code>ANALYZE=1 npm run build</code> and open the generated <code>stats.html</code>.</p>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>Tests run on <strong>Vitest</strong> in a <strong>jsdom</strong> environment, with <strong>v8</strong> coverage.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Run everything once</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>npm<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Coverage report</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>npm<span class="w"> </span>run<span class="w"> </span>test:coverage
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Narrow the run</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>npm<span class="w"> </span>run<span class="w"> </span>test:hooks
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>npm<span class="w"> </span>run<span class="w"> </span>test:components
+</code></pre></div>
+<ul>
+<li><strong>103 test files, all colocated</strong> — <code>useMapManagement.test.ts</code> sits next to <code>useMapManagement.ts</code>. There is <strong>no <code>__tests__/</code> directory</strong>, and new tests should not create one</li>
+<li>Configuration lives in <code>vitest.config.ts</code>: <code>environment: "jsdom"</code>, <code>globals: true</code>, <code>setupFiles: ["./src/setupTests.ts"]</code>, <code>css: false</code>. The React Compiler babel preset runs in tests too, so tested components behave as they do in a build</li>
+<li><strong><code>fake-indexeddb</code></strong> backs the Smart Sync tests, which need a real IndexedDB implementation to exercise the offline queue</li>
+<li>Component tests render through the shared wrapper at <strong><code>src/utils/test/test-wrapper.tsx</code></strong>, which supplies the i18n provider, the modal provider and the theme middleware, accepts a <code>locale</code> option, and re-exports Testing Library plus <code>userEvent</code>. Use it rather than rendering bare — a component rendered without it will throw on the first translation lookup</li>
+<li>Hook tests declare shared mock state with <code>vi.hoisted()</code>, <code>vi.mock()</code> the PocketBase, i18n and sibling modules, then <code>await import()</code> the module under test <strong>after</strong> the mocks are in place</li>
+</ul>
+<h2 id="error-tracking-with-sentry">Error Tracking with Sentry<a class="headerlink" href="#error-tracking-with-sentry" title="Permanent link">&para;</a></h2>
+<p>Sentry monitors JavaScript errors in production.</p>
+<h3 id="1-create-sentry-account">1. Create Sentry Account<a class="headerlink" href="#1-create-sentry-account" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <a href="https://sentry.io">sentry.io</a></li>
+<li>Sign up (generous free tier available)</li>
+<li>Create a new project</li>
+<li>Choose platform: "React"</li>
+</ol>
+<h3 id="2-get-your-dsn">2. Get Your DSN<a class="headerlink" href="#2-get-your-dsn" title="Permanent link">&para;</a></h3>
+<ol>
+<li>After creating project, you'll see the DSN</li>
+<li>Or go to Settings → Projects → [Your Project] → Client Keys (DSN)</li>
+<li>Copy the DSN URL</li>
+</ol>
+<h3 id="3-add-to-environment">3. Add to Environment<a class="headerlink" href="#3-add-to-environment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">VITE_SENTRY_DSN</span><span class="o">=</span>https://your_key@your_org.sentry.io/your_project_id
+</code></pre></div>
+<p>The <code>environment</code> tag on every event comes from <code>VITE_SYSTEM_ENVIRONMENT</code>. Route-level errors are forwarded to Sentry only when that value is <code>production</code>.</p>
+<h3 id="4-how-sentry-is-configured">4. How Sentry Is Configured<a class="headerlink" href="#4-how-sentry-is-configured" title="Permanent link">&para;</a></h3>
+<p>Initialization lives in <code>instrument.js</code>, which is imported as the very first line of <code>src/index.tsx</code> so it is in place before any application code runs.</p>
+<ul>
+<li><strong><code>tracesSampleRate: 0</code></strong> — performance monitoring is switched off deliberately. The Sentry Vite plugin's <code>bundleSizeOptimizations</code> then tree-shakes tracing, debug statements and every Session Replay variant out of the bundle entirely, so this is a size decision as much as a data one</li>
+<li><strong>Default integrations only</strong> — breadcrumbs, uncaught exceptions and unhandled rejections</li>
+<li><strong><code>ignoreErrors</code></strong> filters the noise that is never actionable: <code>ResizeObserver loop</code>, <code>NetworkError</code>, <code>Failed to fetch</code>, <code>Load failed</code>, <code>cancelled</code>, <code>AbortError</code>. Most of these come from ordinary connectivity loss or from request cancellations the app performs on purpose</li>
+<li><strong>Browser-extension frames are dropped.</strong> <code>beforeSend</code> discards any event whose stack contains a <code>chrome-extension://</code> or <code>moz-extension://</code> frame. These are crashes inside a visitor's extension, not in the app, and they cannot be fixed from here</li>
+<li><strong>Release tracking</strong> uses <code>VITE_APP_VERSION</code>, so issues group per released version</li>
+</ul>
+<h3 id="5-alerts">5. Alerts<a class="headerlink" href="#5-alerts" title="Permanent link">&para;</a></h3>
+<p>Set up in the Sentry dashboard:</p>
+<ul>
+<li>Email notifications for new issues</li>
+<li>Slack/Discord integration</li>
+<li>Custom alert rules for critical errors</li>
+<li>Release tracking</li>
+</ul>
+<h2 id="production-deployment">Production Deployment<a class="headerlink" href="#production-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="building-for-production">Building for Production<a class="headerlink" href="#building-for-production" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Build optimized production files</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</code></pre></div>
+<p><strong>What happens during build:</strong></p>
+<ul>
+<li><code>prebuild</code> regenerates <code>public/changelog.json</code> and <code>public/version.json</code></li>
+<li>TypeScript compiles to JavaScript, with the React Compiler auto-memoizing components</li>
+<li>Tailwind generates the stylesheet from the classes actually used</li>
+<li>Code is split into vendor chunks by Rolldown's <code>advancedChunks</code> groups</li>
+<li>Hidden source maps are generated, uploaded to Sentry if the build-time Sentry variables are present, then deleted from the output</li>
+<li>A service worker is generated for PWA support</li>
+<li>Output goes to the <code>build/</code> directory</li>
+</ul>
+<p><strong>Build Output:</strong></p>
+<ul>
+<li><code>build/index.html</code> - Main HTML file</li>
+<li><code>build/assets/</code> - JavaScript, CSS, and other assets</li>
+<li>Filenames include content hashes for caching</li>
+<li>Each language ships as its own <code>translation-*.js</code> chunk, downloaded on demand</li>
+</ul>
+<h3 id="continuous-integration-and-release">Continuous Integration and Release<a class="headerlink" href="#continuous-integration-and-release" title="Permanent link">&para;</a></h3>
+<p>The project's own pipeline lives in <code>.github/workflows/</code>.</p>
+<p><strong>Pull requests</strong> (<code>checks.yaml</code>, on PRs to <code>master</code> or <code>staging</code>) run four gates in order:</p>
+<ol>
+<li><strong>format</strong> — <code>npm run prettier</code></li>
+<li><strong>lint</strong> — <code>npm run lint</code></li>
+<li><strong>test</strong> — <code>npm test</code></li>
+<li><strong>build</strong> — <code>npm run build</code></li>
+</ol>
+<p><strong>Push to <code>master</code></strong> (<code>release.yaml</code>) runs the <strong>same four gates</strong>, then:</p>
+<ol>
+<li><code>npx semantic-release</code> — derives the version from the Conventional Commit messages, writes the changelog, tags, and publishes the GitHub release</li>
+<li><strong>POSTs to a Coolify webhook</strong>, which triggers the deployment</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>--fail-with-body<span class="w"> </span>--silent<span class="w"> </span>--show-error<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="s2">"</span><span class="nv">$COOLIFY_WEBHOOK</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>--header<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$COOLIFY_TOKEN</span><span class="s2">"</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Why that curl invocation looks the way it does</p>
+<p>Two flags in that command are load-bearing. The webhook must be called with <strong>POST</strong>: it answers a GET with <code>405 This endpoint has changed to a POST request</code>, even though older Coolify documentation still shows GET. And without <strong><code>--fail-with-body</code></strong>, curl exits <code>0</code> on a 4xx or 5xx response — so the 405 was reported as a successful step while every release quietly deployed nothing. If you copy this pattern for your own webhook, keep both.</p>
+</div>
+<p>The release workflow deliberately repeats the PR gates because a push straight to <code>master</code> never runs PR checks, and it clones with <code>fetch-depth: 0</code> because <code>semantic-release</code> reads back to the last tag — a shallow clone yields the wrong version.</p>
+<h3 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h3>
+<p>The hosted service is deployed to <strong>Coolify</strong> behind Cloudflare, as described above. The frontend is otherwise an ordinary static web application, so self-hosters can serve the <code>build/</code> directory from any static host. The options below are <strong>alternatives for self-hosting</strong>, not what the project itself uses.</p>
+<h4 id="option-1-coolify">Option 1: Coolify<a class="headerlink" href="#option-1-coolify" title="Permanent link">&para;</a></h4>
+<p>Self-hostable platform; matches how the hosted service is deployed.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create an application in Coolify pointing at your fork</li>
+<li>Configure:</li>
+<li>Build Command: <code>npm run build</code></li>
+<li>Publish Directory: <code>build</code></li>
+<li>Add environment variables in the Coolify UI (they must exist at build time)</li>
+<li>Copy the deploy webhook URL and token if you want to trigger releases from CI</li>
+<li>Deploy</li>
+</ol>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Runs on your own server</li>
+<li>Git-push or webhook deployments</li>
+<li>Managed TLS certificates</li>
+<li>Same platform used for the backend, so one place to look</li>
+</ul>
+<h4 id="option-2-vercel">Option 2: Vercel<a class="headerlink" href="#option-2-vercel" title="Permanent link">&para;</a></h4>
+<p>Fast, free tier, automatic deployments.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create account at <a href="https://vercel.com">vercel.com</a></li>
+<li>Click "New Project"</li>
+<li>Import your GitHub repository</li>
+<li>Configure:</li>
+<li>Framework Preset: Vite</li>
+<li>Build Command: <code>npm run build</code></li>
+<li>Output Directory: <code>build</code></li>
+<li>Install Command: <code>npm install</code></li>
+<li>Add environment variables in Vercel dashboard</li>
+<li>Deploy</li>
+</ol>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Automatic deployments on git push</li>
+<li>Preview deployments for pull requests</li>
+<li>Custom domains</li>
+<li>HTTPS by default</li>
+<li>Global CDN</li>
+<li>Free for personal projects</li>
+</ul>
+<h4 id="option-3-netlify">Option 3: Netlify<a class="headerlink" href="#option-3-netlify" title="Permanent link">&para;</a></h4>
+<p>Simple deployment with great features.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create account at <a href="https://netlify.com">netlify.com</a></li>
+<li>"Add new site" → "Import an existing project"</li>
+<li>Connect GitHub repository</li>
+<li>Build settings:</li>
+<li>Build Command: <code>npm run build</code></li>
+<li>Publish Directory: <code>build</code></li>
+<li>Add environment variables</li>
+<li>Deploy</li>
+</ol>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Automatic deployments</li>
+<li>Form handling</li>
+<li>Serverless functions (if needed)</li>
+<li>Custom domains</li>
+<li>HTTPS by default</li>
+</ul>
+<h4 id="option-4-cloudflare-pages">Option 4: Cloudflare Pages<a class="headerlink" href="#option-4-cloudflare-pages" title="Permanent link">&para;</a></h4>
+<p>Fast CDN with generous free tier.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create account at <a href="https://cloudflare.com">cloudflare.com</a></li>
+<li>Go to Pages → "Create a project"</li>
+<li>Connect GitHub repository</li>
+<li>Build settings:</li>
+<li>Framework preset: Vite</li>
+<li>Build command: <code>npm run build</code></li>
+<li>Build output directory: <code>build</code></li>
+<li>Add environment variables</li>
+<li>Deploy</li>
+</ol>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Global CDN network</li>
+<li>DDoS protection</li>
+<li>Analytics</li>
+<li>Web Analytics without client-side tracking</li>
+</ul>
+<h4 id="option-5-aws-s3-cloudfront">Option 5: AWS S3 + CloudFront<a class="headerlink" href="#option-5-aws-s3-cloudfront" title="Permanent link">&para;</a></h4>
+<p>More control, good for large deployments.</p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create S3 bucket</li>
+<li>Enable static website hosting</li>
+<li>Upload <code>build/</code> contents</li>
+<li>Create CloudFront distribution</li>
+<li>Configure custom domain</li>
+<li>Set up SSL certificate</li>
+</ol>
+<p><strong>Features:</strong></p>
+<ul>
+<li>More complex setup</li>
+<li>Pay per usage (usually very cheap)</li>
+<li>More configuration options</li>
+<li>Good for enterprise deployments</li>
+</ul>
+<h4 id="option-6-self-hosted-web-server">Option 6: Self-Hosted Web Server<a class="headerlink" href="#option-6-self-hosted-web-server" title="Permanent link">&para;</a></h4>
+<p>Host on your own server.</p>
+<p><strong>Using Nginx:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">your-domain.com</span><span class="p">;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="p">;</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.html</span><span class="p">;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.html</span><span class="p">;</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span><span class="c1"># Enable gzip compression</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="kn">gzip</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="kn">gzip_types</span><span class="w"> </span><span class="s">text/plain</span><span class="w"> </span><span class="s">text/css</span><span class="w"> </span><span class="s">application/json</span><span class="w"> </span><span class="s">application/javascript</span><span class="w"> </span><span class="s">text/xml</span><span class="w"> </span><span class="s">application/xml</span><span class="p">;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="c1"># Cache static assets</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2)</span>$<span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">1y</span><span class="p">;</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w"> </span><span class="s">"public,</span><span class="w"> </span><span class="s">immutable"</span><span class="p">;</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Using Apache:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:80</span><span class="nt">&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>your-domain.com
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/ministry-mapper/build</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">/var/www/ministry-mapper/build</span><span class="nt">&gt;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">        </span><span class="nb">Options</span><span class="w"> </span>-Indexes<span class="w"> </span>+FollowSymLinks
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">        </span><span class="nb">AllowOverride</span><span class="w"> </span><span class="k">All</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="nb">Require</span><span class="w"> </span><span class="k">all</span><span class="w"> </span>granted
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">        </span><span class="c"># SPA history-mode fallback: serve index.html for client-side routes</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="nb">RewriteBase</span><span class="w"> </span>/
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>^index\.html$<span class="w"> </span>-<span class="w"> </span>[L]
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-f
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">        </span><span class="nb">RewriteCond</span><span class="w"> </span>%{REQUEST_FILENAME}<span class="w"> </span>!-d
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">        </span><span class="nb">RewriteRule</span><span class="w"> </span>.<span class="w"> </span><span class="sx">/index.html</span><span class="w"> </span>[L]
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">    </span><span class="nt">&lt;/Directory&gt;</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<p><strong>Important for Self-Hosting:</strong></p>
+<ul>
+<li>Serve over HTTPS (required for PWA features, geolocation and the Web Share API)</li>
+<li>Configure proper CORS headers if backend is on different domain</li>
+<li>Set up proper caching headers for static assets</li>
+<li>Ensure SPA routing works (all routes serve <code>index.html</code>), so that a deep link such as <code>/map/&lt;id&gt;</code> opens correctly on a cold load</li>
+</ul>
+<h3 id="environment-variables-in-deployment">Environment Variables in Deployment<a class="headerlink" href="#environment-variables-in-deployment" title="Permanent link">&para;</a></h3>
+<p><strong>Important</strong>: Environment variables must be set during build time, not runtime, because Vite injects them at build time. Changing a value on your host without rebuilding has no effect on an already-built bundle.</p>
+<p><strong>For Coolify/Vercel/Netlify/Cloudflare:</strong></p>
+<ul>
+<li>Add environment variables in the platform's dashboard</li>
+<li>They'll be available during the build process</li>
+</ul>
+<p><strong>For Self-Hosted:</strong></p>
+<ul>
+<li>Set environment variables before running <code>npm run build</code></li>
+<li>Or create a <code>.env.production</code> file with your settings</li>
+</ul>
+<h2 id="multi-language-support">Multi-Language Support<a class="headerlink" href="#multi-language-support" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper ships <strong>8 languages</strong> out of the box.</p>
+<h3 id="supported-languages">Supported Languages<a class="headerlink" href="#supported-languages" title="Permanent link">&para;</a></h3>
+<ul>
+<li>English (<code>en</code>)</li>
+<li>Spanish (<code>es</code> - Español)</li>
+<li>Chinese (<code>zh</code> - 中文)</li>
+<li>Tamil (<code>ta</code> - தமிழ்)</li>
+<li>Indonesian (<code>id</code> - Bahasa Indonesia)</li>
+<li>Malay (<code>ms</code> - B. Melayu)</li>
+<li>Japanese (<code>ja</code> - 日本語)</li>
+<li>Korean (<code>ko</code> - 한국어)</li>
+</ul>
+<p>Locale files live at <code>src/i18n/locales/&lt;code&gt;/translation.json</code>. All 8 are <strong>key-identical, 474 keys each</strong> — a key added to one must be added to all eight.</p>
+<h3 id="how-language-selection-works">How Language Selection Works<a class="headerlink" href="#how-language-selection-works" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Language is chosen inside the app</strong>, not in your browser settings. The <strong>Language</strong> button appears in three places: the admin sidebar footer, the sign-in footer (so it works before you log in), and the publisher map's bottom navigation bar, where it also shows the current language</li>
+<li>Detection order on a first visit is <strong><code>localStorage</code> → <code>navigator</code></strong>: a previously chosen language always wins over the browser's preference. The choice is cached under the <code>i18nextLng</code> key</li>
+<li><code>load: "languageOnly"</code> means a browser reporting <code>zh-TW</code> is stored and served as <code>zh</code>; regional variants collapse to their base language</li>
+<li><code>fallbackLng: "en"</code> — English fills in for any key missing from another locale</li>
+<li><strong>Each language code-splits into its own chunk.</strong> Translations are fetched on demand rather than bundled together, which is why the service worker treats them specially (see <a href="#caching-strategy">Caching Strategy</a>)</li>
+</ul>
+<h3 id="adding-a-new-language">Adding a New Language<a class="headerlink" href="#adding-a-new-language" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Create Translation File</strong></p>
+</li>
+<li>
+<p>Create the directory <code>src/i18n/locales/[language-code]/</code> (e.g., <code>fr/</code> for French)</p>
+</li>
+<li>Add <code>translation.json</code> inside it</li>
+<li>
+<p>Copy the structure from <code>src/i18n/locales/en/translation.json</code></p>
+</li>
+<li>
+<p><strong>Translate All Strings</strong></p>
+</li>
+<li>
+<p>Translate all 474 key-value pairs</p>
+</li>
+<li>Keep the same JSON structure and key names</li>
+<li>
+<p>Maintain placeholder variables like <code>{{count}}</code></p>
+</li>
+<li>
+<p><strong>Register the Language</strong></p>
+</li>
+<li>Edit <code>src/i18n/index.ts</code> and add the code to the supported-languages list</li>
+<li>Add a label for it in <code>src/i18n/LanguageSelector.tsx</code> so it appears in the picker</li>
+</ol>
+<p>Locale files are loaded by dynamic import, so no <code>resources</code> object needs editing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// src/i18n/index.ts — locales resolve through a dynamic import,</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1">// which is what gives each language its own chunk.</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nx">resourcesToBackend</span><span class="p">(</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="p">(</span><span class="nx">language</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">namespace</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="k">import</span><span class="p">(</span><span class="sb">`./locales/</span><span class="si">${</span><span class="nx">language</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">namespace</span><span class="si">}</span><span class="sb">.json`</span><span class="p">)</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">);</span>
+</code></pre></div>
+<h2 id="progressive-web-app-pwa">Progressive Web App (PWA)<a class="headerlink" href="#progressive-web-app-pwa" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper includes PWA support via the Vite PWA plugin.</p>
+<h3 id="pwa-features">PWA Features<a class="headerlink" href="#pwa-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Installable</strong>: Can be installed on mobile/desktop home screen</li>
+<li><strong>Offline Assets</strong>: Static files are precached for faster loading</li>
+<li><strong>Service Worker</strong>: Generated (<code>strategies: "generateSW"</code>) and registered automatically</li>
+<li><strong>Automatic Updates</strong>: <code>registerType: "autoUpdate"</code>, with a user-visible reload prompt</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title"><code>manifest: false</code> does not mean there is no manifest</p>
+<p>The plugin is configured with <code>manifest: false</code>, which tells it <strong>not to generate</strong> a web app manifest. The app is still installable because a hand-written manifest ships at <strong><code>public/site.webmanifest</code></strong> and is linked from <code>index.html</code>. Editing PWA metadata — name, icons, <code>display</code>, <code>start_url</code>, theme colours — therefore means editing that file, not <code>vite.config.js</code>.</p>
+<p>The manifest declares <code>display: "standalone"</code>, <code>start_url: "/"</code>, <code>scope: "/"</code>, and four icons (192 and 512 px in both <code>any</code> and <code>maskable</code> purposes) hosted on the asset CDN.</p>
+</div>
+<h3 id="pwa-configuration">PWA Configuration<a class="headerlink" href="#pwa-configuration" title="Permanent link">&para;</a></h3>
+<p>Configuration in <code>vite.config.js</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nx">VitePWA</span><span class="p">({</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nx">strategies</span><span class="o">:</span><span class="w"> </span><span class="s2">"generateSW"</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nx">registerType</span><span class="o">:</span><span class="w"> </span><span class="s2">"autoUpdate"</span><span class="p">,</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nx">injectRegister</span><span class="o">:</span><span class="w"> </span><span class="s2">"auto"</span><span class="p">,</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="c1">// Use the existing site.webmanifest — don't generate a new one</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="nx">manifest</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">  </span><span class="nx">workbox</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="nx">globPatterns</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"**/*.{js,css,html}"</span><span class="p">],</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="c1">// Exclude translation chunks from precache — they are large (~18-42 kB each)</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="c1">// and users only ever need 1 language. Runtime CacheFirst handles them instead.</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="nx">globIgnores</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"**/translation-*.js"</span><span class="p">],</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">    </span><span class="nx">navigateFallback</span><span class="o">:</span><span class="w"> </span><span class="s2">"/index.html"</span><span class="p">,</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="c1">// Prevent the SW from intercepting direct file navigations (e.g. .json,</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="c1">// .webmanifest, .ico) and serving index.html in their place.</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="nx">navigateFallbackDenylist</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="sr">/\.[a-z]{2,6}$/i</span><span class="p">],</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">    </span><span class="nx">inlineWorkboxRuntime</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">    </span><span class="nx">cleanupOutdatedCaches</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">    </span><span class="nx">runtimeCaching</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">        </span><span class="nx">urlPattern</span><span class="o">:</span><span class="w"> </span><span class="sr">/\/assets\/translation-[^/]+\.js$/</span><span class="p">,</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">        </span><span class="nx">handler</span><span class="o">:</span><span class="w"> </span><span class="s2">"CacheFirst"</span><span class="p">,</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">        </span><span class="nx">options</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">          </span><span class="nx">cacheName</span><span class="o">:</span><span class="w"> </span><span class="s2">"translations"</span><span class="p">,</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">          </span><span class="nx">expiration</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">maxEntries</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">maxAgeSeconds</span><span class="o">:</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a><span class="w">  </span><span class="nx">devOptions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">enabled</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a><span class="p">});</span>
+</code></pre></div>
+<h3 id="caching-strategy">Caching Strategy<a class="headerlink" href="#caching-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Application shell</strong> — precached from <code>globPatterns: ["**/*.{js,css,html}"]</code>.</p>
+<p><strong>Translation chunks</strong> — excluded from precache by <code>globIgnores: ["**/translation-*.js"]</code> and served instead by a runtime <strong>CacheFirst</strong> cache:</p>
+<ul>
+<li>Cache name: <code>translations</code></li>
+<li>Expiration: 30 days, max <strong>4</strong> entries</li>
+</ul>
+<p>The reason is arithmetic: each locale chunk is <strong>18–42 kB</strong> and a given user needs exactly one of them. Precaching all eight would add hundreds of kilobytes to every install for content that would never be read. Keeping four entries covers switching languages and switching back without a refetch.</p>
+<p><strong>Navigation requests</strong> — <code>navigateFallback: "/index.html"</code> makes deep links work offline. The <code>navigateFallbackDenylist</code> (<code>/\.[a-z]{2,6}$/i</code>) stops the service worker from answering a direct request for <code>version.json</code>, <code>site.webmanifest</code> or <code>favicon.ico</code> with the HTML shell, which would otherwise break the update check.</p>
+<div class="admonition note">
+<p class="admonition-title">What is <em>not</em> cached</p>
+<p>Data operations go to PocketBase over the network. Reads fall back to a local cache when the network is unavailable (IndexedDB for map addresses, <code>localStorage</code> for the publisher link payload) and <strong>publisher address updates are queued offline by Smart Sync</strong>, but administrator actions require a live connection. See the <a href="../user-guide/">User Guide</a> for what works offline in practice.</p>
+</div>
+<h3 id="how-updates-are-detected">How Updates Are Detected<a class="headerlink" href="#how-updates-are-detected" title="Permanent link">&para;</a></h3>
+<p>An installed PWA can sit suspended for days, so update detection does not rely on any single signal. <strong>Three independent paths</strong> exist, all wired up in <code>src/index.tsx</code>:</p>
+<ol>
+<li><strong><code>controllerchange</code></strong> — a new service worker takes control and there was a previous controller (so a first install doesn't count as an update)</li>
+<li><strong>Tab-focus check</strong> — on <code>visibilitychange</code> to visible, throttled to 5 minutes, the app asks the registration to update. Skipped while a worker is already installing, or while offline</li>
+<li><strong><code>version.json</code> backstop</strong> — a frozen or suspended standalone window may never fire either of the above, so the app fetches <code>/version.json</code> with <code>cache: "no-store"</code> and compares it against the compiled-in <code>VITE_APP_VERSION</code>. Also throttled to 5 minutes, but the throttle is <strong>bypassed on a <code>pageshow</code> with <code>event.persisted === true</code></strong> — returning from the app switcher is precisely the moment staleness must be caught</li>
+</ol>
+<p>Any of the three raises a persistent toast titled <strong>"Update Available"</strong> with the body "Reload to get the latest updates." and a <strong>"Reload"</strong> action. The app never reloads by itself, so nobody loses a half-finished edit.</p>
+<p><strong>Chunk-load recovery</strong>: a deploy can remove a lazy chunk the open tab still expects. On the resulting <code>vite:preloadError</code> the app reloads <strong>once</strong>, guarded by a <code>sessionStorage</code> marker, so a genuinely missing chunk falls through to the error boundary and Sentry instead of reload-looping.</p>
+<h2 id="testing-your-deployment">Testing Your Deployment<a class="headerlink" href="#testing-your-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="functionality-checklist">Functionality Checklist<a class="headerlink" href="#functionality-checklist" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Homepage loads correctly</li>
+<li>[ ] Sign up page works</li>
+<li>[ ] Email verification works</li>
+<li>[ ] Login page works</li>
+<li>[ ] OTP authentication works (if enabled)</li>
+<li>[ ] Google sign-in works, including from an installed PWA</li>
+<li>[ ] Password reset works</li>
+<li>[ ] Territory selector displays (for conductors and administrators)</li>
+<li>[ ] Maps load and display correctly</li>
+<li>[ ] Map tiles, address search and Directions all work (Geoapify key is valid)</li>
+<li>[ ] Can view territories</li>
+<li>[ ] Can update address status</li>
+<li>[ ] Assignment links work</li>
+<li>[ ] Links expire correctly</li>
+<li>[ ] Mobile view is responsive</li>
+<li>[ ] Language selector switches language and the choice survives a reload</li>
+<li>[ ] All modals open and close properly</li>
+</ul>
+<h3 id="performance-checks">Performance Checks<a class="headerlink" href="#performance-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Initial page load under 3 seconds</li>
+<li>[ ] Lighthouse score &gt; 90</li>
+<li>[ ] No console errors</li>
+<li>[ ] Images load quickly</li>
+<li>[ ] Maps are responsive</li>
+<li>[ ] Smooth scrolling and navigation</li>
+<li>[ ] Only one translation chunk is downloaded on first load</li>
+</ul>
+<h3 id="security-checks">Security Checks<a class="headerlink" href="#security-checks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] HTTPS is enforced (no HTTP access)</li>
+<li>[ ] Privacy policy link works</li>
+<li>[ ] Terms of service link works</li>
+<li>[ ] No secret is exposed through a <code>VITE_</code>-prefixed variable</li>
+<li>[ ] <code>SENTRY_AUTH_TOKEN</code> is set only in CI, never in <code>.env</code> committed to the repository</li>
+<li>[ ] No <code>.map</code> files are served from <code>build/assets/</code></li>
+<li>[ ] CORS configured correctly for backend</li>
+<li>[ ] PocketBase connection is secure</li>
+</ul>
+<h3 id="browser-testing">Browser Testing<a class="headerlink" href="#browser-testing" title="Permanent link">&para;</a></h3>
+<p>Test on multiple browsers:</p>
+<ul>
+<li>[ ] Chrome/Chromium</li>
+<li>[ ] Firefox</li>
+<li>[ ] Safari (macOS/iOS)</li>
+<li>[ ] Edge</li>
+<li>[ ] Mobile browsers</li>
+<li>[ ] Safari Private Browsing (IndexedDB is unavailable there; the app should fall back to writing directly to the server)</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="missing-pocketbase-url-setup-page">"Missing PocketBase URL" Setup Page<a class="headerlink" href="#missing-pocketbase-url-setup-page" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: The app renders a setup page instead of the sign-in screen</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li><code>VITE_POCKETBASE_URL</code> was not present <strong>at build time</strong> — setting it on the host afterwards changes nothing</li>
+<li>Confirm the variable is defined in your host's build environment, then rebuild and redeploy</li>
+<li>Check for a typo in the prefix: <code>VITE_POCKETBASE_URL</code>, not <code>POCKETBASE_URL</code></li>
+</ul>
+<h3 id="backend-connection-failed">Backend Connection Failed<a class="headerlink" href="#backend-connection-failed" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: "Cannot connect to server" or "Network Error"</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify <code>VITE_POCKETBASE_URL</code> is correct (no trailing slash)</li>
+<li>Check if PocketBase backend is running</li>
+<li>Test backend URL directly in browser</li>
+<li>Check allowed origins in PocketBase (must include your frontend domain)</li>
+<li>Open browser DevTools → Network tab to see exact error</li>
+<li>Ensure backend is accessible from your deployment location</li>
+</ul>
+<h3 id="maps-are-blank-or-search-returns-nothing">Maps Are Blank or Search Returns Nothing<a class="headerlink" href="#maps-are-blank-or-search-returns-nothing" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: Tiles don't load, address autocomplete is empty, or Directions never draws a route</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify <code>VITE_GEOAPIFY_API_KEY</code> is set and was present at build time — all three features share this one key, so all three fail together</li>
+<li>Check the Geoapify dashboard for a quota overrun</li>
+<li>Remove any leftover <code>VITE_OPENROUTE_API_KEY</code> or <code>VITE_LOCATIONIQ_API_KEY</code> lines; those providers were removed and setting them has no effect</li>
+<li>Open DevTools → Network and look for <code>401</code>/<code>403</code> responses from <code>api.geoapify.com</code></li>
+</ul>
+<h3 id="build-errors">Build Errors<a class="headerlink" href="#build-errors" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: <code>npm run build</code> fails</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Ensure all environment variables are set correctly</li>
+<li>Run <code>npm install</code> to refresh dependencies</li>
+<li>Delete <code>node_modules</code> and reinstall: <code>rm -rf node_modules &amp;&amp; npm install</code></li>
+<li>Check Node.js version: <code>node --version</code> (needs &gt;=24.0.0)</li>
+<li>Check for TypeScript errors: Look at specific error messages</li>
+<li>Try <code>npm run prettier:fix</code> to fix formatting issues</li>
+<li>Clear Vite cache: <code>rm -rf node_modules/.vite</code></li>
+</ul>
+<h3 id="typescript-errors">TypeScript Errors<a class="headerlink" href="#typescript-errors" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: Type errors during build</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Run <code>npx tsc --noEmit</code> to see all type errors</li>
+<li>Check <code>src/utils/interface.ts</code> for the shared domain types and <code>src/env.d.ts</code> for the environment-variable declarations</li>
+<li>Remember the path alias: imports use <code>@/</code> for <code>src/</code></li>
+<li>Ensure all dependencies are installed</li>
+</ul>
+<h3 id="styles-look-wrong-after-editing-a-component">Styles Look Wrong After Editing a Component<a class="headerlink" href="#styles-look-wrong-after-editing-a-component" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: A component under <code>src/components/ui/</code> renders unstyled or loses spacing</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check whether a <code>data-slot</code> attribute was removed or renamed — Tailwind selectors elsewhere target these, and nothing in TypeScript will flag the break</li>
+<li>Remember Tailwind 4 is CSS-first: there is <strong>no <code>tailwind.config</code></strong>. Theme tokens live in <code>src/index.css</code></li>
+<li>Confirm the class string is statically visible; Tailwind cannot see class names assembled at runtime from fragments</li>
+</ul>
+<h3 id="slow-performance">Slow Performance<a class="headerlink" href="#slow-performance" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: App is slow or laggy</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check internet connection speed</li>
+<li>Clear browser cache and reload</li>
+<li>Ensure PocketBase backend is responding quickly</li>
+<li>Check browser console for JavaScript errors</li>
+<li>Test on different device/browser to isolate issue</li>
+<li>Check Lighthouse performance score</li>
+<li>Verify service worker is working: DevTools → Application → Service Workers</li>
+<li>Build with <code>ANALYZE=1 npm run build</code> and open <code>stats.html</code> to check that React is not being pulled into another vendor chunk</li>
+</ul>
+<h3 id="pwa-installation-issues">PWA Installation Issues<a class="headerlink" href="#pwa-installation-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: "Add to Home Screen" doesn't appear</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Must be served over HTTPS</li>
+<li>Check service worker registration in DevTools</li>
+<li>Confirm <code>public/site.webmanifest</code> is being served and is linked from <code>index.html</code> — the plugin is configured with <code>manifest: false</code>, so this file is the only manifest</li>
+<li>Check that the manifest request is not being answered with <code>index.html</code>; that indicates the <code>navigateFallbackDenylist</code> is not in effect</li>
+<li>Try different browser (Safari, Chrome have different PWA support)</li>
+</ul>
+<h3 id="installed-app-stays-on-an-old-version">Installed App Stays on an Old Version<a class="headerlink" href="#installed-app-stays-on-an-old-version" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: The home-screen app keeps showing an older release</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Confirm <code>public/version.json</code> exists in the deployed output — it is generated by <code>prebuild</code>, so a build that skipped that step ships without it</li>
+<li>Check that <code>/version.json</code> returns JSON rather than the HTML shell</li>
+<li>Switch away from the app and back; the resume path bypasses the 5-minute throttle deliberately</li>
+<li>Look for the "Update Available" toast; the app never reloads on its own</li>
+</ul>
+<h3 id="real-time-updates-not-working">Real-time Updates Not Working<a class="headerlink" href="#real-time-updates-not-working" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: Changes don't appear for other users</p>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify PocketBase realtime subscriptions are working</li>
+<li>Check browser console for SSE (Server-Sent Events) errors</li>
+<li>Ensure backend SSE endpoint is accessible</li>
+<li>If a reverse proxy sits in front of PocketBase, confirm response buffering is disabled — a buffering proxy holds SSE messages and the stream appears dead</li>
+<li>Check if multiple users are actually viewing the same territory</li>
+<li>Refresh the page to force reconnection</li>
+</ul>
+<h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h2>
+<h3 id="keeping-dependencies-updated">Keeping Dependencies Updated<a class="headerlink" href="#keeping-dependencies-updated" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Pull latest changes from repository</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>master
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Install updated dependencies</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>npm<span class="w"> </span>install
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># Check for security vulnerabilities</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>npm<span class="w"> </span>audit
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="c1"># Automatically fix security issues (when possible)</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>npm<span class="w"> </span>audit<span class="w"> </span>fix
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="c1"># Check for outdated packages</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>npm<span class="w"> </span>outdated
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="c1"># Update specific package</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>npm<span class="w"> </span>update<span class="w"> </span>package-name
+</code></pre></div>
+<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
+<p><strong>Sentry Dashboard:</strong></p>
+<ul>
+<li>Check weekly for new errors</li>
+<li>Review error trends</li>
+<li>Fix critical issues promptly</li>
+<li>Set up alerts for high-priority errors</li>
+</ul>
+<p><strong>Geoapify Dashboard:</strong></p>
+<ul>
+<li>Monitor request usage against your plan's quota — tiles, geocoding and routing all draw on the same key, so map browsing dominates the count</li>
+<li>Check for unusual spikes in usage</li>
+<li>Review billing alerts</li>
+</ul>
+<p><strong>Umami:</strong></p>
+<ul>
+<li>Review page and event traffic if analytics are configured</li>
+<li>Confirm <code>VITE_UMAMI_DOMAINS</code> still matches your production hostnames, so preview deployments don't pollute the data</li>
+</ul>
+<p><strong>Performance:</strong></p>
+<ul>
+<li>Run Lighthouse audits periodically</li>
+<li>Monitor page load times</li>
+<li>Check Core Web Vitals</li>
+<li>Test on slow connections</li>
+</ul>
+<p><strong>User Feedback:</strong></p>
+<ul>
+<li>Listen to congregation members</li>
+<li>Track common issues</li>
+<li>Document solutions</li>
+<li>Update documentation as needed</li>
+</ul>
+<h3 id="version-updates">Version Updates<a class="headerlink" href="#version-updates" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper uses semantic versioning, generated by <code>semantic-release</code> from the Conventional Commit history. The current release is <strong>2.7.2</strong>.</p>
+<ul>
+<li><strong>Major version</strong> (x.0.0): Breaking changes — from a <code>feat!:</code> or <code>fix!:</code> commit</li>
+<li><strong>Minor version</strong> (2.x.0): New features — from a <code>feat:</code> commit</li>
+<li><strong>Patch version</strong> (2.7.x): Bug fixes — from a <code>fix:</code> commit</li>
+</ul>
+<p>You never edit the version by hand: the released version is whatever the commit messages imply.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p><strong>For Users:</strong></p>
+<ul>
+<li>Read the <a href="../user-guide/">User Guide</a> to learn how to use the application</li>
+</ul>
+<p><strong>For Administrators:</strong></p>
+<ul>
+<li>Set up the PocketBase backend (see ministry-mapper-be repository)</li>
+<li>Configure congregation settings</li>
+<li>Invite users and assign roles</li>
+<li>Create territories and add addresses</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

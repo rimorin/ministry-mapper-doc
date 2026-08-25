@@ -1,0 +1,3290 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/architecture/">
+      
+      
+        <link rel="prev" href="../user-guide/">
+      
+      
+        <link rel="next" href="../data-models/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Architecture Overview - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Level Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Integrations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="External Integrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#third-party-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Third-Party Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entity-relationship-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entity Relationship Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Collections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-organization-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component Organization Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-management-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Management Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Flow Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-design-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Design Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-control-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Synchronization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-Time Synchronization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSE Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscription-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subscription Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduled-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduled Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-flag-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flag Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aillm-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI/LLM Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontend-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-containerization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Containerization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scalability Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why These Technologies?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Level Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Stack
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology Stack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#backend-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frontend-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Integrations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="External Integrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#third-party-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Third-Party Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entity-relationship-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entity Relationship Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Collections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frontend-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frontend Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-organization-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component Organization Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-management-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        State Management Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Flow Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-design-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Design Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorization Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-control-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Control Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real-Time Synchronization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real-Time Synchronization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sse-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSE Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscription-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subscription Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduled-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduled Tasks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-flag-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flag Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aillm-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI/LLM Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontend-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Optimizations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-containerization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker Containerization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring &amp; Observability
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring &amp; Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalability-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scalability Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scaling-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technology-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technology Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technology Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why These Technologies?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h1>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper consists of two main components working together:</p>
+<h3 id="high-level-architecture-diagram">High-Level Architecture Diagram<a class="headerlink" href="#high-level-architecture-diagram" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌──────────────────────────────────────────────────────────────────┐
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                     Client Applications                           │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│         (Web UI, Installable PWA, PocketBase SDK clients)        │
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└──────────────────────────────┬───────────────────────────────────┘
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                               │
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                    HTTP REST API (Port 8080)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                               │
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>┌──────────────────────────────▼───────────────────────────────────┐
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│                    PocketBase Application                         │
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├──────────────────────────────────────────────────────────────────┤
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│                                                                   │
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  │ API Layer (internal/handlers/)                              │ │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  │ - Public / link-scoped routes (4 POST)                      │ │
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│  │ - Map &amp; floor management (10 POST)                          │ │
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│  │ - Territory management (3 POST)                             │ │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│  │ - Options &amp; report generation (2 POST)                      │ │
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│  │ - Database health probe (1 GET)                             │ │
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│                                                                   │
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│  │ Middleware Layer                                            │ │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>│  │ - Authentication &amp; Authorization                            │ │
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>│  │ - Error Capture (Sentry)                                    │ │
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│  │ - Request Logging                                           │ │
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>│                                                                   │
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>│  │ Background Jobs (internal/jobs/)                            │ │
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>│  │ - 8 scheduled tasks (cron-based, UTC)                      │ │
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>│  │ - Feature flag control (LaunchDarkly)                      │ │
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>│                                                                   │
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>│  ┌─────────────────────────────────────────────────────────────┐ │
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>│  │ Built-in Services                                           │ │
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>│  │ - Authentication (Email/Password, OAuth2, OTP, MFA)        │ │
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>│  │ - Real-time Events (SSE)                                   │ │
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>│  │ - Admin Dashboard                                          │ │
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>│  └─────────────────────────────────────────────────────────────┘ │
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>│                                                                   │
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>└────────────┬──────────────────────┬────────────────┬──────────────┘
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>             │                      │                │
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>             │                      │                │
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    ┌────────▼──────┐      ┌────────▼──────┐  ┌─────▼────────┐
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    │   SQLite       │      │  Sentry       │  │MailerSend    │
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    │   Database     │      │  (Error Track)│  │(Email)       │
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>    │   (/app/pb_data)│      │               │  │              │
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    └────────────────┘      └────────────────┘  └──────────────┘
+</code></pre></div>
+<p>Every custom route is a <code>POST</code> except <code>GET /api/db-health</code>, the unauthenticated
+database health probe used by the hosting platform. Collection CRUD is served by
+PocketBase's own generated REST API at <code>/api/collections/{collection}/records</code>.</p>
+<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<h3 id="backend-stack">Backend Stack<a class="headerlink" href="#backend-stack" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Language</strong></td>
+<td>Go</td>
+<td>1.27</td>
+<td>Compiled backend</td>
+</tr>
+<tr>
+<td><strong>Backend Framework</strong></td>
+<td>PocketBase</td>
+<td>v0.40.0</td>
+<td>BaaS with SQLite, auth, realtime and admin UI</td>
+</tr>
+<tr>
+<td><strong>HTTP Routing</strong></td>
+<td>PocketBase <code>router</code> package</td>
+<td>bundled</td>
+<td>PocketBase dropped Echo at v0.23; routing is now built in</td>
+</tr>
+<tr>
+<td><strong>Database Driver</strong></td>
+<td><code>modernc.org/sqlite</code></td>
+<td>v1.57.0</td>
+<td>Pure-Go SQLite driver — no C compiler, which is why the image builds with <code>CGO_ENABLED=0</code></td>
+</tr>
+<tr>
+<td><strong>Query Builder</strong></td>
+<td>pocketbase/dbx</td>
+<td>v1.12.0</td>
+<td>Hand-written SQL for aggregates and scope checks</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>ozzo-validation</td>
+<td>v4.3.0</td>
+<td>Request payload validation</td>
+</tr>
+<tr>
+<td><strong>CLI</strong></td>
+<td>Cobra</td>
+<td>v1.10.2</td>
+<td>Console commands (<code>serve</code>, <code>fix-sequences</code>)</td>
+</tr>
+<tr>
+<td><strong>Container</strong></td>
+<td>Docker</td>
+<td>golang:1.27.0-alpine → alpine:3.24</td>
+<td>Multi-stage build, ~73.6 MB final image</td>
+</tr>
+<tr>
+<td><strong>Error Tracking</strong></td>
+<td>sentry-go</td>
+<td>v0.48.0</td>
+<td>Error and log forwarding</td>
+</tr>
+<tr>
+<td><strong>Email Service</strong></td>
+<td>mailersend-go</td>
+<td>v1.6.6</td>
+<td>Digest and report email</td>
+</tr>
+<tr>
+<td><strong>Feature Flags</strong></td>
+<td>LaunchDarkly go-server-sdk</td>
+<td>v7.15.6</td>
+<td>Job and feature gating</td>
+</tr>
+<tr>
+<td><strong>Report Generation</strong></td>
+<td>Excelize</td>
+<td>v2.11.0</td>
+<td>Excel reports</td>
+</tr>
+<tr>
+<td><strong>AI Summaries</strong></td>
+<td>openai-go</td>
+<td>v3.52.0</td>
+<td>SDK version — the model is named under External Integrations</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frontend-stack">Frontend Stack<a class="headerlink" href="#frontend-stack" title="Permanent link">&para;</a></h3>
+<p>Application version <strong>2.7.2</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Runtime</strong></td>
+<td>Node.js</td>
+<td>&gt;=24.0.0</td>
+<td>Dev toolchain (CI pins Node 24)</td>
+</tr>
+<tr>
+<td><strong>Framework</strong></td>
+<td>React</td>
+<td>19.2.8</td>
+<td>UI library, with the React Compiler enabled</td>
+</tr>
+<tr>
+<td><strong>Language</strong></td>
+<td>TypeScript</td>
+<td>6.0.3</td>
+<td>Type safety, <code>strict: true</code></td>
+</tr>
+<tr>
+<td><strong>Build Tool</strong></td>
+<td>Vite</td>
+<td>8.2.0</td>
+<td>Rolldown-based dev server and bundler</td>
+</tr>
+<tr>
+<td><strong>Routing</strong></td>
+<td>wouter</td>
+<td>3.10.0</td>
+<td>Minimal hook-based router</td>
+</tr>
+<tr>
+<td><strong>State Management</strong></td>
+<td>React hooks + narrow contexts</td>
+<td>-</td>
+<td>No state library at all — no Redux, no Zustand, no TanStack Query</td>
+</tr>
+<tr>
+<td><strong>Styling</strong></td>
+<td>Tailwind CSS</td>
+<td>4.3.3</td>
+<td>CSS-first configuration; there is no <code>tailwind.config</code></td>
+</tr>
+<tr>
+<td><strong>Component Layer</strong></td>
+<td>shadcn/ui on Base UI (<code>@base-ui/react</code>)</td>
+<td>1.7.0</td>
+<td><code>components.json</code> style <code>base-vega</code>; no Bootstrap, no Radix</td>
+</tr>
+<tr>
+<td><strong>Icons</strong></td>
+<td>lucide-react</td>
+<td>1.33.0</td>
+<td>Icon set</td>
+</tr>
+<tr>
+<td><strong>Animation</strong></td>
+<td>motion</td>
+<td>13.1.0</td>
+<td>The Framer Motion successor</td>
+</tr>
+<tr>
+<td><strong>Forms</strong></td>
+<td>react-hook-form</td>
+<td>7.85.0</td>
+<td>Form state, no schema resolver</td>
+</tr>
+<tr>
+<td><strong>Mapping</strong></td>
+<td>Leaflet + react-leaflet</td>
+<td>1.9.4 / 5.0.0</td>
+<td>Interactive maps</td>
+</tr>
+<tr>
+<td><strong>Virtualization</strong></td>
+<td>react-window</td>
+<td>2.3.0</td>
+<td>Long map and address lists</td>
+</tr>
+<tr>
+<td><strong>Drag &amp; Drop</strong></td>
+<td>@dnd-kit</td>
+<td>core 6.3.1</td>
+<td>Reordering options and map sequences</td>
+</tr>
+<tr>
+<td><strong>Internationalization</strong></td>
+<td>i18next + react-i18next</td>
+<td>26.3.6 / 17.0.11</td>
+<td>8 in-app languages</td>
+</tr>
+<tr>
+<td><strong>Offline Storage</strong></td>
+<td>idb (IndexedDB)</td>
+<td>8.0.3</td>
+<td>Address cache and the offline write queue</td>
+</tr>
+<tr>
+<td><strong>Backend SDK</strong></td>
+<td>PocketBase JS SDK</td>
+<td>0.27.3</td>
+<td>REST + SSE client</td>
+</tr>
+<tr>
+<td><strong>Error Tracking</strong></td>
+<td>@sentry/react</td>
+<td>10.70.0</td>
+<td>Error monitoring</td>
+</tr>
+<tr>
+<td><strong>PWA</strong></td>
+<td>vite-plugin-pwa</td>
+<td>1.3.0</td>
+<td>Service worker and install support</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Vitest</td>
+<td>4.1.11</td>
+<td>Unit tests (jsdom, v8 coverage)</td>
+</tr>
+<tr>
+<td><strong>Code Quality</strong></td>
+<td>ESLint + Prettier</td>
+<td>10.8.1 / 3.9.6</td>
+<td>Linting &amp; formatting</td>
+</tr>
+</tbody>
+</table>
+<h2 id="external-integrations">External Integrations<a class="headerlink" href="#external-integrations" title="Permanent link">&para;</a></h2>
+<h3 id="third-party-services">Third-Party Services<a class="headerlink" href="#third-party-services" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LaunchDarkly</strong></td>
+<td>Feature flags &amp; controlled rollouts</td>
+<td>Gates the 8 background jobs plus a ninth, non-job flag for AI summaries; the job flags default to <strong>enabled</strong> when LaunchDarkly is unconfigured, while <code>enable-report-ai-summary</code> defaults to <strong>disabled</strong></td>
+</tr>
+<tr>
+<td><strong>OpenAI (gpt-5.4-mini)</strong></td>
+<td>AI-generated report and digest summaries</td>
+<td>Optional; Chat Completions in JSON mode, temperature 0.3, 90-second timeout; requires both <code>OPENAI_API_KEY</code> and the LaunchDarkly flag</td>
+</tr>
+<tr>
+<td><strong>MailerSend</strong></td>
+<td>Transactional email delivery</td>
+<td>Reports, digests and account-lifecycle mail; report sends retry 3 times with backoff</td>
+</tr>
+<tr>
+<td><strong>Sentry</strong></td>
+<td>Error tracking</td>
+<td>Both stacks; the backend also mirrors PocketBase log rows into Sentry</td>
+</tr>
+<tr>
+<td><strong>Umami</strong></td>
+<td>Privacy-friendly analytics</td>
+<td>Optional; 23 custom event types. <code>VITE_UMAMI_SRC_URL</code> <strong>and</strong> <code>VITE_UMAMI_WEBSITE_ID</code> must both be set or initialization returns early; <code>VITE_UMAMI_DOMAINS</code> is optional</td>
+</tr>
+<tr>
+<td><strong>Geoapify</strong></td>
+<td>Map tiles, geocoding and routing</td>
+<td>The only geo provider. One key, <code>VITE_GEOAPIFY_API_KEY</code>, covers <code>osm-carto</code> tiles (retina-aware, max zoom 20), address autocomplete, and walking/driving routes</td>
+</tr>
+<tr>
+<td><strong>Google OAuth2</strong></td>
+<td>Social sign-in</td>
+<td>Requires <code>GOOGLE_CLIENT_ID</code> and <code>GOOGLE_CLIENT_SECRET</code> on the backend</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-architecture">Data Architecture<a class="headerlink" href="#data-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="entity-relationship-model">Entity Relationship Model<a class="headerlink" href="#entity-relationship-model" title="Permanent link">&para;</a></h3>
+<p>The system organizes data hierarchically with congregation-level isolation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Congregation (Organization boundary)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ├── Territory (Geographic region)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    │   └── Map (Building/Location)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    │       ├── Address (Individual unit)
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    │       │   └── Address Option (Household type, junction row)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    │       ├── Assignment (Publisher link)
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    │       └── Message (Feedback / pinned instruction)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    ├── Option (Household type classification)
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    ├── User (System user)
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    │   └── Role (One per user, per congregation)
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    └── Audit logs (Addresses Log, Assignments Log, Roles Log)
+</code></pre></div>
+<h3 id="core-collections">Core Collections<a class="headerlink" href="#core-collections" title="Permanent link">&para;</a></h3>
+<p>The whole schema lives in one authoritative snapshot migration, applied with
+<code>deleteMissing</code> enabled, plus a later migration that adds the two newest audit-log
+collections. That is <strong>23 collections</strong>: 13 application collections, 5 read-only
+analytics views, and PocketBase's own 5 system collections.</p>
+<p><strong>1. Congregations</strong> - Organization settings and boundaries
+- Controls multi-tenant isolation
+- Defines assignment link duration (<code>expiry_hours</code>) and the not-home retry limit (<code>max_tries</code>)
+- Regional settings: <code>timezone</code> (20 IANA zones) and <code>origin</code> (13 country codes)</p>
+<p><strong>2. Territories</strong> - Geographic divisions
+- Contains multiple maps
+- Stores a boundary polygon and an aggregate completion percentage
+- Progress is summed from its maps' aggregates, never from an address scan</p>
+<p><strong>3. Maps</strong> - Specific locations (buildings)
+- <code>type</code> is <code>single</code> (landed houses) or <code>multi</code> (floors and units)
+- Optional <code>coordinates</code> for map view and proximity sorting
+- Holds the <code>aggregates</code> JSON progress snapshot and an integer <code>progress</code></p>
+<p><strong>4. Addresses</strong> - Individual units/households
+- Status tracking: <code>not_done</code>, <code>done</code>, <code>not_home</code>, <code>do_not_call</code>, <code>invalid</code>
+- <code>not_home_tries</code>, visit notes, floor, unit code and column <code>sequence</code>
+- <code>source</code> records how the row was created: <code>app</code>, <code>admin</code>, <code>map_init</code>, <code>floor_copy</code>
+- Location is a single <code>coordinates</code> JSON column (<code>{"lat": …, "lng": …}</code> or null) — there are no separate latitude/longitude fields</p>
+<p><strong>5. Address Options</strong> - Household types per address
+- A junction collection between addresses and options
+- Only addresses carrying at least one countable option count towards progress</p>
+<p><strong>6. Options</strong> - Household type classifications
+- Customizable per congregation, with a display sequence and one default
+- Countable vs non-countable types
+- Affects progress calculations</p>
+<p><strong>7. Users</strong> - System accounts
+- Email/password or OAuth2 (Google) authentication
+- Email OTP and MFA supported by PocketBase
+- <code>last_login</code> plus the account-lifecycle warning stamps</p>
+<p><strong>8. Roles</strong> - Permission assignments
+- One row per user, per congregation
+- Exactly three values: <code>read_only</code>, <code>conductor</code>, <code>administrator</code>
+- Publisher is <strong>not</strong> a role — see Security Architecture</p>
+<p><strong>9. Assignments</strong> - Publisher access tokens
+- The record id is a 25-character token and <em>is</em> the shareable link
+- Scoped to exactly one map, with an expiry date
+- Cleaned up by a background job that logs each expiry</p>
+<p><strong>10. Messages</strong> - Communications
+- <code>type</code> is <code>publisher</code>, <code>conductor</code> or <code>administrator</code>
+- Publisher feedback, plus pinned administrator instructions
+- Drives the message and instruction digest emails</p>
+<p><strong>11. Addresses Log</strong> - Address status audit trail
+- One row per status change, including a not-home retry increment
+- Superuser-only; feeds the daily-status analytics view</p>
+<p><strong>12. Assignments Log</strong> - Assignment audit trail
+- Actions: <code>assigned</code>, <code>unassigned</code>, <code>expired</code>
+- Records the map, user, publisher name, type and expiry date</p>
+<p><strong>13. Roles Log</strong> - Role audit trail
+- Actions: <code>granted</code>, <code>changed</code>, <code>revoked</code>, with the old and new role
+- <code>changed_by</code> is empty for superuser actions, which have no user record</p>
+<p><strong>Analytics views</strong> - Five read-only SQL views, superuser-only: <code>analytics_maps</code>,
+<code>analytics_territories</code>, <code>analytics_daily_status</code>, <code>analytics_not_home</code> and
+<code>analytics_user_audit</code>. They back the monthly report and its AI summary.</p>
+<p><strong>PocketBase system collections</strong> - <code>_superusers</code>, <code>_mfas</code>, <code>_otps</code>,
+<code>_externalAuths</code> and <code>_authOrigins</code>, managed by PocketBase itself.</p>
+<h2 id="frontend-architecture">Frontend Architecture<a class="headerlink" href="#frontend-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="component-organization-pattern">Component Organization Pattern<a class="headerlink" href="#component-organization-pattern" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper uses a <strong>feature-based component organization</strong>. Counts below are
+as of application version 2.7.2:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Pages (wouter routes)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  ├── /              Front page: sign-in, verification, or the admin app
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  ├── /signup        Account creation
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  ├── /forgot        Password reset request
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  ├── /map/:id       Publisher territory slip (link token, no login)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  ├── /usermgmt      Email verification and password reset landing
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  ├── /auth/callback OAuth2 redirect target
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  └── *              Not found
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>Components (src/components/)
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  ├── ui/          33 shadcn primitives built on Base UI
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  ├── navigation/  30 components
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  ├── modal/       24 dialogs, sheets and flows
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  ├── form/        15 components
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  ├── statics/     13 static pages and placeholders
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>  ├── map/          8 Leaflet components
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  ├── table/        8 address grid components
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>  ├── middlewares/  6 providers and gates
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>  └── common/       4 shared wrappers
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>Business Logic (src/hooks/) — 28 hooks, including
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>  ├── useTerritoryManagement
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>  ├── useMapManagement
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>  ├── useCongManagement
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>  ├── useModalManagement
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>  ├── useRealtimeSubscription
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>  ├── useSmartSync
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>  └── useNetworkStatus
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>Utilities &amp; Types (src/utils/)
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>  ├── interface.ts   TypeScript interfaces
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>  ├── constants.ts   Access levels, field projections, timers
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>  ├── helpers/       20 helper modules
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>  ├── pocketbase.ts  SDK wrapper with retry and cancellation keys
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>  ├── policies.ts    Authorization policies
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>  └── i18n/          8 locales, lazily loaded
+</code></pre></div>
+<h3 id="state-management-strategy">State Management Strategy<a class="headerlink" href="#state-management-strategy" title="Permanent link">&para;</a></h3>
+<p><strong>Four-Layer Approach:</strong></p>
+<ol>
+<li><strong>Narrow Contexts</strong> - Theme, language, network status, release notes, offline sync</li>
+<li><strong>Custom Hooks</strong> - Domain-specific logic and data</li>
+<li><strong>Local Component State</strong> - UI toggles and forms</li>
+<li><strong>Persistent State</strong> - localStorage for preferences, IndexedDB for cached addresses and queued edits</li>
+</ol>
+<p><strong>Benefits:</strong>
+- No state library at all, so no store to keep in sync
+- Simpler data flow
+- Better code splitting
+- Easier testing</p>
+<h3 id="data-flow-pattern">Data Flow Pattern<a class="headerlink" href="#data-flow-pattern" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>User Action
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    ↓
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Component Event Handler
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    ↓
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Custom Hook (validation, state management)
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    ↓
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>PocketBase Utils (CRUD, retry, cancellation)
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    ↓
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>PocketBase Backend (permissions, hooks, database)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    ↓
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>Real-time Subscription (SSE)
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    ↓
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>UI Auto-updates
+</code></pre></div>
+<h2 id="key-design-patterns">Key Design Patterns<a class="headerlink" href="#key-design-patterns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Usage</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Middleware Wrapper</strong></td>
+<td>Sentry integration</td>
+<td>Centralized error tracking</td>
+</tr>
+<tr>
+<td><strong>Event Hooks</strong></td>
+<td>PocketBase lifecycle</td>
+<td>Automatic updates</td>
+</tr>
+<tr>
+<td><strong>Job Scheduler</strong></td>
+<td>Cron with feature flags</td>
+<td>Scheduled operations</td>
+</tr>
+<tr>
+<td><strong>Transaction Pattern</strong></td>
+<td>Database operations</td>
+<td>Data consistency</td>
+</tr>
+<tr>
+<td><strong>Link-Based Access</strong></td>
+<td>Assignment tokens</td>
+<td>Anonymous access</td>
+</tr>
+<tr>
+<td><strong>Hook-Driven Aggregation</strong></td>
+<td><code>OnRecordAfterUpdateSuccess("addresses")</code></td>
+<td>Map and territory progress recalculated as writes land</td>
+</tr>
+<tr>
+<td><strong>Suppression Flag</strong></td>
+<td><code>bulk_reset:&lt;mapID&gt;</code> in the app store</td>
+<td>One recalculation per bulk operation instead of one per address</td>
+</tr>
+<tr>
+<td><strong>Post-Query Pruning</strong></td>
+<td>List request hooks</td>
+<td>Results trimmed to the caller's server-derived scope</td>
+</tr>
+<tr>
+<td><strong>Custom Hooks</strong></td>
+<td>Business logic</td>
+<td>Reusable logic</td>
+</tr>
+<tr>
+<td><strong>Provider Pattern</strong></td>
+<td>Context providers</td>
+<td>Global state</td>
+</tr>
+<tr>
+<td><strong>Lazy Loading</strong></td>
+<td>Route splitting</td>
+<td>Performance</td>
+</tr>
+<tr>
+<td><strong>Policy Pattern</strong></td>
+<td>Authorization</td>
+<td>Security rules</td>
+</tr>
+</tbody>
+</table>
+<h2 id="security-architecture">Security Architecture<a class="headerlink" href="#security-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="authentication-methods">Authentication Methods<a class="headerlink" href="#authentication-methods" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Email/Password</strong> - Standard authentication with bcrypt hashing</li>
+<li><strong>OAuth2 (Google)</strong> - Social login, completed through a full-page redirect to <code>/auth/callback</code></li>
+<li><strong>One-Time Password (OTP)</strong> - A 4-digit code, valid for 180 seconds</li>
+<li><strong>Multi-Factor Authentication (MFA)</strong> - PocketBase's email-OTP second factor; there is no TOTP and there are no backup codes</li>
+</ol>
+<p>OTP and MFA are enabled in the collection snapshot, but the <code>PB_OTP_ENABLED</code> and
+<code>PB_MFA_ENABLED</code> migration variables default to false and are compared against the
+literal string <code>true</code>, so <code>TRUE</code> and <code>1</code> do not switch them on.</p>
+<h3 id="authorization-model">Authorization Model<a class="headerlink" href="#authorization-model" title="Permanent link">&para;</a></h3>
+<p>There are <strong>three congregation roles plus one link-based access path</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Access</th>
+<th>Permissions</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>read_only</strong></td>
+<td>View territories, maps, the address grid, directions and messages</td>
+<td>Observers, auditors</td>
+</tr>
+<tr>
+<td><strong>conductor</strong></td>
+<td>Everything read-only, plus quick links, assignment links, and creating or updating addresses; may reset and delete territories</td>
+<td>Field coordinators</td>
+</tr>
+<tr>
+<td><strong>administrator</strong></td>
+<td>Full access, including maps, floors, territories, congregation settings, household options, user roles and reports</td>
+<td>Territory servants, system administrators</td>
+</tr>
+<tr>
+<td><strong>Assignment link</strong></td>
+<td>Read and update the addresses of exactly one map, until the link expires</td>
+<td>Publishers, with no account and no login</td>
+</tr>
+</tbody>
+</table>
+<p>Publisher is not a role and has no <code>roles</code> row. A publisher is simply somebody
+holding a valid assignment link, presented as a <code>link-id</code> header whose value is an
+<code>assignments</code> record id. The frontend's internal access scale treats a link holder
+at conductor-equivalent level for the address grid only; it is a UI gating scale,
+not the schema.</p>
+<p>Removing somebody's access means deleting their <code>roles</code> row — there is no
+"no access" or "delete access" role.</p>
+<h3 id="access-control-patterns">Access Control Patterns<a class="headerlink" href="#access-control-patterns" title="Permanent link">&para;</a></h3>
+<p><strong>Pattern 1: Authenticated User with Role</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>User must be logged in
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>+ User has role in roles collection
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>+ Role is for specific congregation
+</code></pre></div></p>
+<p><strong>Pattern 2: Link-Based Access</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Assignment ID passed in the link-id header
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>+ Assignment exists and not expired
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>+ Assignment belongs to requested map
+</code></pre></div></p>
+<p><strong>Pattern 3: Congregation Isolation</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Every entity has congregation foreign key
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>+ Access rules filter by congregation
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>+ Prevents cross-congregation data access
+</code></pre></div></p>
+<p><strong>Pattern 4: Link Precedence — a link-id beats a role</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Superuser            -&gt; allow
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Non-empty link-id    -&gt; the link check alone decides
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                        (a failed link is refused even when the same request
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                         also carries a valid administrator token)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Otherwise            -&gt; the role check decides
+</code></pre></div></p>
+<p>A link is a bearer credential handed to publishers. Falling back to the caller's
+own role when the link is expired or points at the wrong map would silently widen
+a link-scoped session's reach, so the link path never falls back. A link is scoped
+to exactly one map, and a list or subscribe request naming more than one map id is
+refused outright.</p>
+<p>Two spellings of the header exist and both are honoured: Go reads <code>link-id</code>, while
+PocketBase collection rules see <code>@request.headers.link_id</code>.</p>
+<p><strong>Pattern 5: Filter Scoping — defence in depth on list and subscribe</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>The client's filter must name only ids the caller may see
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>+ The returned rows are independently pruned to the caller's server-derived scope
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>+ A realtime filter must be provably unable to match anything outside that scope
+</code></pre></div></p>
+<p>Authorizing ids extracted from the client's own filter is not sufficient on its
+own: a filter such as <code>map="myMap" || id!=""</code> names one authorized id, passes that
+check, and then returns every row in the table. So results are pruned <em>after</em> the
+query has run, and realtime filters are additionally evaluated against the
+collection restricted to out-of-scope maps — if anything comes back, the
+subscription is dropped. That check <strong>fails closed</strong>: an empty filter, an empty
+allow-list, a parse error and a resolver error all count as an escape.</p>
+<p>Related hardenings worth knowing about: moving a map to a territory in another
+congregation is refused with a single generic <code>400 Invalid destination territory</code>
+(so the response cannot be used to probe foreign territory ids), and minting a
+territory quick link requires a role in that congregation.</p>
+<p>Clients cannot supply <code>created_by</code> or <code>updated_by</code>. The server derives the actor:
+the signed-in user's name, or, for link access, the assignment's publisher name.</p>
+<h2 id="real-time-synchronization">Real-Time Synchronization<a class="headerlink" href="#real-time-synchronization" title="Permanent link">&para;</a></h2>
+<h3 id="sse-architecture">SSE Architecture<a class="headerlink" href="#sse-architecture" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PocketBase Real-time API</strong>: Server-Sent Events (SSE). There are no WebSockets anywhere</li>
+<li><strong>Subscription Requests</strong>: sent as <code>POST /api/realtime</code>, validated by an <code>OnRealtimeSubscribeRequest</code> hook</li>
+<li><strong>Automatic Subscriptions</strong>: Components subscribe to collections or to a single record id</li>
+<li><strong>Live Updates</strong>: Changes broadcast to all connected clients, then batched by the client (100 ms) so a map reset does not re-render the grid per address</li>
+<li><strong>Conflict Resolution</strong>: Timestamp-based resolution</li>
+<li><strong>Visibility Detection</strong>: Auto-refresh and resubscribe when the tab becomes active</li>
+<li><strong>Reverse proxies</strong>: SSE needs <code>proxy_buffering off;</code> in Nginx, or events queue up instead of streaming</li>
+</ul>
+<p><strong>A subscription string is an SSE channel name, not configuration.</strong> The server
+broadcasts each event under the exact string it stored, and the browser's
+<code>EventSource</code> listens under the string it sent. Rewriting either side publishes to
+a channel nobody is listening on and every event is discarded silently, with no
+error on either end. The authorization hook may therefore only <strong>keep or drop</strong> a
+subscription — never rewrite it.</p>
+<p>Only three collections are validated: <code>messages</code>, <code>addresses</code> and
+<code>address_options</code>. Everything else, including <code>maps</code>, passes through verbatim.
+That asymmetry explains a real past failure: while the hook still rewrote strings,
+map-level realtime kept working and address-level realtime was silently dead.</p>
+<p>Whether a write reaches subscribers is a deliberate choice of write path. Ordinary
+saves and deletes fire hooks and realtime events; raw SQL suppresses them, which
+is why territory cascade deletes and sequence repairs do not spam publishers who
+are working a map.</p>
+<p>Realtime subscriptions do not inherit the publisher header, so the frontend passes
+<code>link-id</code> explicitly in the subscription's <code>headers</code> option.</p>
+<h3 id="subscription-pattern">Subscription Pattern<a class="headerlink" href="#subscription-pattern" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Components subscribe to data changes</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nx">useRealtimeSubscription</span><span class="p">(</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="s2">"addresses"</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nx">handleSubscription</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nx">filter</span><span class="o">:</span><span class="w"> </span><span class="sb">`map="</span><span class="si">${</span><span class="nx">mapId</span><span class="si">}</span><span class="sb">"`</span><span class="p">,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nx">fields</span><span class="o">:</span><span class="w"> </span><span class="kt">PB_FIELDS.ADDRESSES_SUBSCRIPTION</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="c1">// publisher access must pass the link header explicitly</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">...(</span><span class="nx">assignmentId</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"link-id"</span><span class="o">:</span><span class="w"> </span><span class="nx">assignmentId</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">  </span><span class="p">[</span><span class="nx">mapId</span><span class="p">,</span><span class="w"> </span><span class="nx">assignmentId</span><span class="p">],</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="o">!!</span><span class="nx">mapId</span><span class="p">,</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">  </span><span class="nx">REALTIME_DEBOUNCE_MS</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">);</span>
+</code></pre></div>
+<h2 id="background-jobs">Background Jobs<a class="headerlink" href="#background-jobs" title="Permanent link">&para;</a></h2>
+<h3 id="scheduled-tasks">Scheduled Tasks<a class="headerlink" href="#scheduled-tasks" title="Permanent link">&para;</a></h3>
+<p>Eight cron jobs run in the backend process. <strong>All schedules are UTC.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Cron (UTC)</th>
+<th>Cadence</th>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cleanUpAssignments</code></td>
+<td><code>1,6,11,...,56 * * * *</code></td>
+<td>Every 5 min</td>
+<td><code>enable-assignments-cleanup</code></td>
+<td>Remove expired map assignments and log each expiry</td>
+</tr>
+<tr>
+<td><code>processMessages</code></td>
+<td><code>8,38 * * * *</code></td>
+<td>Every 30 min</td>
+<td><code>enable-message-processing</code></td>
+<td>Email a publisher-feedback digest per congregation</td>
+</tr>
+<tr>
+<td><code>processInstructions</code></td>
+<td><code>18,48 * * * *</code></td>
+<td>Every 30 min</td>
+<td><code>enable-instruction-processing</code></td>
+<td>Email pinned administrator instructions per map</td>
+</tr>
+<tr>
+<td><code>processNotes</code></td>
+<td><code>28 * * * *</code></td>
+<td>Hourly</td>
+<td><code>enable-note-processing</code></td>
+<td>Email a digest of updated property notes</td>
+</tr>
+<tr>
+<td><code>generateMonthlyReport</code></td>
+<td><code>0 18 1 * *</code></td>
+<td>Monthly, 1st</td>
+<td><code>enable-monthly-report</code></td>
+<td>Generate and email the Excel activity report</td>
+</tr>
+<tr>
+<td><code>processUnprovisionedUsers</code></td>
+<td><code>0 18 * * *</code></td>
+<td>Daily</td>
+<td><code>enable-unprovisioned-user-processing</code></td>
+<td>Warn, then disable, then delete accounts with no role</td>
+</tr>
+<tr>
+<td><code>processInactiveUsers</code></td>
+<td><code>30 18 * * *</code></td>
+<td>Daily</td>
+<td><code>enable-inactive-user-processing</code></td>
+<td>Warn, then disable inactive accounts</td>
+</tr>
+<tr>
+<td><code>processNewAddresses</code></td>
+<td><code>0 19 * * *</code></td>
+<td>Daily</td>
+<td><code>enable-new-addresses-notification</code></td>
+<td>Digest email for addresses added from the app</td>
+</tr>
+</tbody>
+</table>
+<p>The daily and monthly jobs are deliberately staggered across 18:00-19:00 UTC,
+which is 02:00-03:00 in Singapore — clear of the 08:00-12:00 local field service
+peak, so nobody's email digest lands mid-ministry.</p>
+<p><strong>There is no aggregate cron.</strong> Map and territory progress used to be recalculated
+by a batched job; that job was deleted. Progress is now recalculated as writes
+land, by an <code>OnRecordAfterUpdateSuccess("addresses")</code> hook that fires only when
+the status or the not-home try count actually changed. Bulk operations — a map or
+territory reset — set a <code>bulk_reset:&lt;mapID&gt;</code> flag in the application store before
+their transaction and clear it afterwards, so a 300-unit reset triggers one
+recalculation instead of 300.</p>
+<h3 id="feature-flag-control">Feature Flag Control<a class="headerlink" href="#feature-flag-control" title="Permanent link">&para;</a></h3>
+<p>Background jobs are gated by LaunchDarkly feature flags:
+- Enable/disable jobs without deployment
+- Gradual rollout capabilities
+- Emergency off switch</p>
+<p>Flags are environment-scoped, not per-congregation. Their defaults are
+deliberately asymmetric when LaunchDarkly is not configured at all:</p>
+<table>
+<thead>
+<tr>
+<th>Flag group</th>
+<th>Default without LaunchDarkly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The 8 job flags</td>
+<td><strong>Enabled</strong> — a self-hoster with no LaunchDarkly account still gets every scheduled job</td>
+</tr>
+<tr>
+<td><code>enable-report-ai-summary</code></td>
+<td><strong>Disabled</strong> — AI summaries stay off even when <code>OPENAI_API_KEY</code> is set</td>
+</tr>
+</tbody>
+</table>
+<h3 id="aillm-integration">AI/LLM Integration<a class="headerlink" href="#aillm-integration" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper can use an OpenAI model to summarise text. This is an <strong>optional</strong>
+feature that needs both <code>OPENAI_API_KEY</code> and the <code>enable-report-ai-summary</code>
+LaunchDarkly flag.</p>
+<p><strong>Model</strong>: <code>gpt-5.4-mini</code> via the <code>openai-go</code> SDK<br />
+<strong>Request</strong>: Chat Completions, JSON mode, temperature 0.3, 90-second timeout</p>
+<p><strong>Use Cases:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Job</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monthly and on-demand activity reports</td>
+<td><code>generateMonthlyReport</code>, <code>POST /report/generate</code></td>
+<td><code>covered_activity</code>, <code>territory_analysis</code>, <code>conclusion</code></td>
+</tr>
+<tr>
+<td>Publisher message digests</td>
+<td><code>processMessages</code></td>
+<td><code>overview</code> and <code>key_themes</code></td>
+</tr>
+<tr>
+<td>Property notes digests</td>
+<td><code>processNotes</code></td>
+<td><code>overview</code></td>
+</tr>
+<tr>
+<td>Pinned instruction digests</td>
+<td><code>processInstructions</code></td>
+<td><code>overview</code></td>
+</tr>
+</tbody>
+</table>
+<p>The scheduled report covers the previous full calendar month; the on-demand report
+covers a rolling 30 days.</p>
+<p><strong>Privacy note</strong>: when the feature is on, the text of publisher messages and
+property notes is sent to OpenAI for summarisation.</p>
+<p><strong>Graceful Degradation</strong>: if the key is missing, the flag is off, the API errors,
+or the response will not parse, the summary is simply marked unavailable and the
+email omits that section. No errors are raised.</p>
+<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
+<h3 id="frontend-optimizations">Frontend Optimizations<a class="headerlink" href="#frontend-optimizations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Code Splitting</strong>: Lazy-loaded routes, plus explicit vendor chunk groups so React never rides along with a large UI chunk</li>
+<li><strong>Bundle Optimization</strong>: Tree shaking, minification, hidden source maps</li>
+<li><strong>React 19 Compiler</strong>: Automatic memoization; floor rows are kept referentially stable so a realtime update re-renders one floor, not the whole grid</li>
+<li><strong>PWA Caching</strong>: Service worker for static assets, with translation chunks cached on demand rather than precached</li>
+<li><strong>Virtualized Lists</strong>: react-window for large map lists</li>
+<li><strong>Cheap Compositing</strong>: No always-on GPU layer promotion and no backdrop blur, both of which cost battery and scroll smoothness on phones</li>
+<li><strong>Payload Discipline</strong>: Every list and subscription requests an explicit field projection</li>
+</ul>
+<h3 id="backend-optimizations">Backend Optimizations<a class="headerlink" href="#backend-optimizations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Database Indexes</strong>: 29 indexes across the application collections, composite and ordered to match the actual query shapes. Six prefix-redundant indexes were dropped once a wider index already answered the query — verified against a copy of production carrying 1,160,985 addresses — which reclaimed roughly 27 MB and removed six index writes per address insert</li>
+<li><strong>Hook-Driven Aggregates</strong>: Map progress is recalculated in a tracked background routine when an address status or retry count changes, and territory progress is summed from the maps' <code>aggregates</code> JSON rather than by scanning addresses</li>
+<li><strong>Bulk Suppression</strong>: Resets recalculate once per map instead of once per address</li>
+<li><strong>Caching</strong>: A congregation expiry cache in front of the quick-link path (invalidated by a congregation update hook, so admin-UI edits count too), PocketBase's cached collection lookups in hot loops, the report template parsed once, and package-level compiled regexes</li>
+<li><strong>Transaction Batching</strong>: Reduce database round-trips; sequence renumbering is atomic</li>
+</ul>
+<h2 id="deployment-architecture">Deployment Architecture<a class="headerlink" href="#deployment-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="docker-containerization">Docker Containerization<a class="headerlink" href="#docker-containerization" title="Permanent link">&para;</a></h3>
+<p><strong>Backend:</strong>
+- Multi-stage Docker build with a persisted Go build cache
+- <code>alpine:3.24</code> runtime base for a small footprint (~73.6 MB), built for <code>amd64</code>
+- The image carries <code>tzdata</code> for congregation time zones and <code>curl</code> for the platform health check
+- <code>pb_data/</code> is the entire application state and must be a persistent volume at <code>/app/pb_data</code>
+- The health probe is <code>GET /api/db-health</code>, configured on the platform side</p>
+<p><strong>Frontend:</strong>
+- Static build served by CDN
+- Edge caching for fast delivery
+- Progressive Web App capabilities, with three independent update paths</p>
+<h3 id="infrastructure-options">Infrastructure Options<a class="headerlink" href="#infrastructure-options" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Hosted Service</strong> (Recommended)</li>
+<li>ministry-mapper.com</li>
+<li>Both stacks are deployed on <strong>Coolify</strong>, with Cloudflare in front</li>
+<li>The frontend release workflow finishes by calling a Coolify deploy webhook</li>
+<li>
+<p>Managed infrastructure and automatic updates</p>
+</li>
+<li>
+<p><strong>Self-Hosted</strong></p>
+</li>
+<li>Any Docker host: Coolify, Railway, Render, DigitalOcean and similar</li>
+<li>Requires technical expertise</li>
+<li>Full control</li>
+</ol>
+<h2 id="monitoring-observability">Monitoring &amp; Observability<a class="headerlink" href="#monitoring-observability" title="Permanent link">&para;</a></h2>
+<h3 id="error-tracking">Error Tracking<a class="headerlink" href="#error-tracking" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sentry Integration</strong>: Both frontend and backend</li>
+<li><strong>Error Categorization</strong>: By severity and type</li>
+<li><strong>Source Maps</strong>: Uploaded at build time for debugging minified code</li>
+<li><strong>Release Tracking</strong>: Version-specific errors, keyed to the deployed commit</li>
+</ul>
+<h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Backend</strong>: Structured logs in PocketBase's <code>logs.db</code>, mirrored into Sentry</li>
+<li><strong>Frontend</strong>: Console logging in development</li>
+<li><strong>Production</strong>: Errors sent to Sentry</li>
+<li><strong>Audit Trail</strong>: Address status changes, assignment grants and expiries, and role changes are written to three superuser-only log collections</li>
+</ul>
+<h2 id="scalability-considerations">Scalability Considerations<a class="headerlink" href="#scalability-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="current-limitations">Current Limitations<a class="headerlink" href="#current-limitations" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SQLite single-writer limitation</li>
+<li>Designed for small to medium congregations (&lt; 1000 concurrent users)</li>
+<li>Vertical scaling only: a bigger server, not more of them</li>
+</ul>
+<h3 id="scaling-approach">Scaling Approach<a class="headerlink" href="#scaling-approach" title="Permanent link">&para;</a></h3>
+<p>PocketBase runs on SQLite and only SQLite. There are no read replicas and no
+PostgreSQL migration path, so the honest scaling story is:</p>
+<ul>
+<li><strong>Scale up, not out</strong> - more CPU, more RAM and faster disk on the single instance</li>
+<li><strong>Keep writes cheap</strong> - the index work above exists to keep the single writer fast</li>
+<li><strong>Push reads to the edge</strong> - CDN caching for the static frontend and its assets</li>
+<li><strong>Trim payloads</strong> - explicit field projections and one-request page loads</li>
+<li><strong>Back up deliberately</strong> - <code>pb_data/</code> is the whole state; PocketBase's built-in backups are the mechanism</li>
+</ul>
+<h2 id="technology-decisions">Technology Decisions<a class="headerlink" href="#technology-decisions" title="Permanent link">&para;</a></h2>
+<h3 id="why-these-technologies">Why These Technologies?<a class="headerlink" href="#why-these-technologies" title="Permanent link">&para;</a></h3>
+<p><strong>React 19</strong>: Latest features, automatic optimization via the React Compiler, smaller bundle</p>
+<p><strong>TypeScript</strong>: Type safety, better IDE support, fewer runtime errors</p>
+<p><strong>Vite</strong>: Fast dev server, instant HMR, optimized Rolldown builds</p>
+<p><strong>PocketBase</strong>: Self-hosted, no vendor lock-in, easy to maintain</p>
+<p><strong>wouter</strong>: A minimal hook-based router, far smaller than a full routing framework</p>
+<p><strong>Tailwind CSS + shadcn/ui on Base UI</strong>: Components live in the repository and can be edited directly, with accessible Base UI behaviour underneath</p>
+<p><strong>Leaflet</strong>: Free maps, no API limits, lightweight</p>
+<p><strong>SQLite</strong>: Self-contained, no separate database server, perfect for self-hosting</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../backend-setup/">Backend Setup</a> - Configure the backend</li>
+<li><a href="../frontend-setup/">Frontend Setup</a> - Deploy the frontend</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

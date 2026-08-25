@@ -1,0 +1,4322 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/features/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../user-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Features Overview - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#features-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Features Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#territory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Territory Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ Territory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organize-geographic-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organize Geographic Regions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map-address-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏢 Map &amp; Address Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏢 Map &amp; Address Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-location-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Location Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unithousehold-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Unit/Household Tracking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Unit/Household Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-visit-status-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Visit Status Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finishing-a-map-endgame-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Finishing a Map (Endgame Helpers)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 Finishing a Map (Endgame Helpers)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-to-the-last-few-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting to the Last Few Addresses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-system-publisher-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Assignment System (Publisher Links)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Assignment System (Publisher Links)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secure-time-limited-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secure, Time-Limited Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-through-a-territorys-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔀 Working Through a Territory's Maps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔀 Working Through a Territory&#39;s Maps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sorting-and-scanning-the-map-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting and Scanning the Map List
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-management-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👥 User Management &amp; Access Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👥 User Management &amp; Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#role-based-permission-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role-Based Permission System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Role-Based Permission System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-read-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Read-Only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-conductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Conductor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Administrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher-access-link-based-no-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publisher Access (Link-Based, No Account)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capability-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-account-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Account Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congregation-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Congregation Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Congregation Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customizable-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customizable Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💬 Communication &amp; Messaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💬 Communication &amp; Messaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-app-communication-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-App Communication System
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Real-Time Collaboration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Real-Time Collaboration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#live-data-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live Data Synchronization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectivity-offline-behaviour-smart-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📶 Connectivity, Offline Behaviour &amp; Smart Sync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📶 Connectivity, Offline Behaviour &amp; Smart Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-actually-works-without-a-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Actually Works Without a Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📱 Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📱 Progressive Web App (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#native-app-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native App Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internationalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Internationalization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌍 Internationalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Language Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-notes-whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📣 Release Notes &amp; What's New
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📣 Release Notes &amp; What&#39;s New">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#targeted-in-app-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Targeted, In-App Changelog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#themes-appearance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌗 Themes &amp; Appearance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌗 Themes &amp; Appearance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#light-dark-system-and-five-colour-themes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Light, Dark, System — and Five Colour Themes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Reporting &amp; Analytics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Reporting &amp; Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-generated-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤖 AI-Generated Summaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤖 AI-Generated Summaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plain-language-overviews-of-the-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plain-Language Overviews of the Numbers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔐 Security Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-grade-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise-Grade Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Interactive Mapping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ Interactive Mapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leaflet-openstreetmap-data-via-geoapify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leaflet + OpenStreetMap Data via Geoapify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#email-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📧 Email System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📧 Email System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-email-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Email Notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Background Jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Background Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-task-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Task Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎨 User Interface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 User Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modern-responsive-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modern, Responsive Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Performance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimized-for-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimized for Speed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔌 API &amp; Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔌 API &amp; Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restful-api-sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RESTful API + SSE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Data Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Data Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#robust-data-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robust Data Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Roadmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#under-consideration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Under Consideration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Documentation &amp; Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Documentation &amp; Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#territory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Territory Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ Territory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organize-geographic-regions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organize Geographic Regions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map-address-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏢 Map &amp; Address Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏢 Map &amp; Address Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-location-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Location Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unithousehold-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Unit/Household Tracking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Unit/Household Tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-visit-status-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Visit Status Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#finishing-a-map-endgame-helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Finishing a Map (Endgame Helpers)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 Finishing a Map (Endgame Helpers)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-to-the-last-few-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting to the Last Few Addresses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assignment-system-publisher-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Assignment System (Publisher Links)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Assignment System (Publisher Links)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#secure-time-limited-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Secure, Time-Limited Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-through-a-territorys-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔀 Working Through a Territory's Maps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔀 Working Through a Territory&#39;s Maps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sorting-and-scanning-the-map-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting and Scanning the Map List
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-management-access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👥 User Management &amp; Access Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👥 User Management &amp; Access Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#role-based-permission-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role-Based Permission System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Role-Based Permission System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-read-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Read-Only
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-conductor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Conductor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-administrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Administrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher-access-link-based-no-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publisher Access (Link-Based, No Account)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capability-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capability Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-account-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Account Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congregation-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Congregation Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Congregation Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customizable-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customizable Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-messaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💬 Communication &amp; Messaging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💬 Communication &amp; Messaging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-app-communication-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-App Communication System
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-time-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Real-Time Collaboration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Real-Time Collaboration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#live-data-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Live Data Synchronization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectivity-offline-behaviour-smart-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📶 Connectivity, Offline Behaviour &amp; Smart Sync
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📶 Connectivity, Offline Behaviour &amp; Smart Sync">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-actually-works-without-a-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Actually Works Without a Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#progressive-web-app-pwa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📱 Progressive Web App (PWA)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📱 Progressive Web App (PWA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#native-app-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Native App Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internationalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌍 Internationalization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌍 Internationalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-language-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Language Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-notes-whats-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📣 Release Notes &amp; What's New
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📣 Release Notes &amp; What&#39;s New">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#targeted-in-app-changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Targeted, In-App Changelog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#themes-appearance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌗 Themes &amp; Appearance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌗 Themes &amp; Appearance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#light-dark-system-and-five-colour-themes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Light, Dark, System — and Five Colour Themes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Reporting &amp; Analytics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Reporting &amp; Analytics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-generated-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤖 AI-Generated Summaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🤖 AI-Generated Summaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plain-language-overviews-of-the-numbers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plain-Language Overviews of the Numbers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔐 Security Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Security Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-grade-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise-Grade Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗺️ Interactive Mapping
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🗺️ Interactive Mapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leaflet-openstreetmap-data-via-geoapify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leaflet + OpenStreetMap Data via Geoapify
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#email-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📧 Email System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📧 Email System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-email-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Email Notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Background Jobs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔄 Background Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-task-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Task Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎨 User Interface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎨 User Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modern-responsive-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modern, Responsive Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Performance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimized-for-speed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimized for Speed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔌 API &amp; Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔌 API &amp; Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restful-api-sse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RESTful API + SSE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Data Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Data Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#robust-data-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Robust Data Layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Roadmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#under-consideration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Under Consideration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Documentation &amp; Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Documentation &amp; Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="features-overview">Features Overview<a class="headerlink" href="#features-overview" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper is a comprehensive digital territory management platform designed for religious congregations. This page provides a detailed overview of all features and capabilities as of application version <strong>2.7.2</strong>.</p>
+<p>The platform is made up of two parts: a React web application that publishers, conductors and administrators use in the browser, and a Go/PocketBase backend that stores the data, enforces access control and runs the scheduled jobs. Everything below is available in all <strong>8 interface languages</strong>.</p>
+<hr />
+<h2 id="territory-management">🗺️ Territory Management<a class="headerlink" href="#territory-management" title="Permanent link">&para;</a></h2>
+<h3 id="organize-geographic-regions">Organize Geographic Regions<a class="headerlink" href="#organize-geographic-regions" title="Permanent link">&para;</a></h3>
+<p><strong>Create and Manage Territories:</strong>
+- Create unlimited territories per congregation
+- Assign unique codes and descriptions
+- Organize maps within a territory with drag-and-drop sequencing
+- Track completion percentage automatically
+- Reset territory status to restart tracking
+- Move maps between territories easily (a map can only move to a territory in the same congregation)</p>
+<p><strong>Territory Boundaries:</strong>
+- Draw a territory boundary directly on the map — click to add each vertex, double-click or press Enter to close the shape
+- A boundary needs at least <strong>3</strong> points and accepts at most <strong>25</strong>
+- Backspace removes the last point; Escape cancels the whole drawing
+- The territory map view draws every boundary as a coloured polygon with the territory code and a progress-coloured percentage label at its centre, plus a badge counting territories that still have no boundary</p>
+<p><strong>Territory Statistics:</strong>
+- Aggregate completion tracking
+- Visual progress indicators
+- Real-time update of statistics — progress is recalculated the moment an address changes, not on a timer
+- Per-territory breakdowns
+- Territory progress is derived by summing the completed and total counts of the territory's maps, so a map with no countable addresses simply does not affect the percentage</p>
+<p><strong>Use Case:</strong> Divide your congregation's service area into manageable territories for organized field service work.</p>
+<hr />
+<h2 id="map-address-management">🏢 Map &amp; Address Management<a class="headerlink" href="#map-address-management" title="Permanent link">&para;</a></h2>
+<h3 id="interactive-location-tracking">Interactive Location Tracking<a class="headerlink" href="#interactive-location-tracking" title="Permanent link">&para;</a></h3>
+<p><strong>Map Types:</strong></p>
+<p><strong>1. Public Addresses (Multi-floor Buildings)</strong>
+- Support for multi-story buildings
+- Add/remove floors dynamically
+- Each floor contains multiple units
+- Automatic address code application to all floors
+- Floor-by-floor organization</p>
+<p><strong>2. Private Addresses (Single-story Residences)</strong>
+- Individual houses or standalone properties
+- Simpler structure without floor subdivision
+- Quick address entry
+- Can be viewed either as a card grid (List View) or as pins on a map (Map View)</p>
+<p><strong>Map Features:</strong>
+- Attach GPS coordinates for precise location
+- Add detailed descriptions
+- Sequence numbers for organized visiting
+- Visual map integration with Leaflet and OpenStreetMap-based tiles
+- Get directions to any address
+- Geolocation support</p>
+<p><strong>Address Operations:</strong>
+- Add/remove address codes
+- Resequence addresses for optimal routing
+- Bulk operations for efficiency
+- Copy addresses across floors
+- Rename and reorganize</p>
+<p><strong>Add Address On The Fly</strong>
+- Publishers can add missing addresses directly during the mapping process — no admin intervention required
+- A <strong>"+"</strong> card appears at the end of the address list on single-story maps as a quick-add entry point
+- Property Number is required, and a duplicate code is rejected with <em>"Address {{code}} already exists in this territory map."</em>
+- Ideal for congregations that are still building out their territory records
+- Administrators receive a daily digest email listing the addresses publishers added, so records added in the field can be reviewed</p>
+<p><img alt="The &quot;+&quot; card at the end of an address list for adding a missing address" src="../assets/screenshots/add_more_add.png" /></p>
+<p><strong>Household Type Is Required When Adding <em>or</em> Updating an Address</strong>
+- If the congregation has configured household options at all, at least one household type must be selected before an address can be saved — on the add-address form <strong>and</strong> on the update-status form
+- Leaving it empty shows <strong>"Please select at least one household type."</strong>, and the message clears as soon as a type is picked
+- The reason is arithmetic, not bureaucracy: an address with no household type is not countable, so it would never appear as still needing a call — not on the grid and not on the map
+- Congregations that have not configured any household options are unaffected; the field is simply not enforced</p>
+<p><strong>Choosing Household Types (Multi-Select With Cancel)</strong>
+- Household types are picked in a full dialog rather than a dropdown, so the list is comfortable to use on a phone
+- The dialog edits a <strong>draft</strong>: nothing is written until <strong>Done</strong> is pressed, and <strong>Done</strong> shows a live count of the current selection, e.g. <strong>"Done (3)"</strong>
+- ✅ <strong>Cancel</strong> discards the draft and leaves the saved value untouched
+- ✅ Pressing Escape or tapping outside the dialog behaves exactly like Cancel
+- ❌ No selection is ever committed on close — the only way to save is <strong>Done</strong>
+- Re-opening the dialog always re-seeds the draft from the saved value, so a previous cancel can never leak stale selections back in</p>
+<p><strong>Save a House's Location From the Phone</strong>
+- <strong>"Use my location"</strong> captures the device's GPS fix in a single tap; while it is working the button shows a spinner and reads <em>"Getting location…"</em>
+- If the fix cannot be obtained the app says <em>"Unable to get your current location. Please check your browser settings."</em>
+- <strong>"On map"</strong> still allows manual placement, with address search, tap-to-place and a recentre-on-me control
+- Saved coordinates are shown to <strong>6 decimal places</strong> (roughly 0.1 m) in a fixed-height row so the form never jumps as the value appears
+- Available on <strong>landed-house (single-story) maps only</strong>
+- An address with no coordinates reads <strong>"No pin set"</strong> and is <strong>hidden from Map View entirely</strong> — there would be no way to reach it from a map with no pin. Map View therefore shows a note reading <em>"{{count}} addresses need a pin"</em> with the hint <em>"Tap to set the first"</em>, which opens the first unpinned address
+- Works offline: the fix is taken from the device, and the save goes through the offline queue like any other publisher edit</p>
+<p><strong>Use Case:</strong> A publisher walking a landed-house territory can pin the houses as they go, and the next publisher gets a usable map view instead of a list of names.</p>
+<hr />
+<h2 id="unithousehold-tracking">📊 Unit/Household Tracking<a class="headerlink" href="#unithousehold-tracking" title="Permanent link">&para;</a></h2>
+<h3 id="comprehensive-visit-status-management">Comprehensive Visit Status Management<a class="headerlink" href="#comprehensive-visit-status-management" title="Permanent link">&para;</a></h3>
+<p><strong>Status Types:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+<th>Impact on Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Not Done</strong></td>
+<td>Initial state, not yet visited</td>
+<td>Counted in incomplete</td>
+</tr>
+<tr>
+<td><strong>Done</strong></td>
+<td>Successfully completed</td>
+<td>Counted as complete</td>
+</tr>
+<tr>
+<td><strong>Not Home</strong></td>
+<td>No one home, can retry</td>
+<td>Counted as complete after max tries</td>
+</tr>
+<tr>
+<td><strong>Do Not Call (DNC)</strong></td>
+<td>Household requests no visits</td>
+<td>Excluded from counting</td>
+</tr>
+<tr>
+<td><strong>Invalid</strong></td>
+<td>Unit doesn't exist</td>
+<td>Excluded from counting</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Not Home Tracking:</strong>
+- Configurable maximum tries per congregation
+- Automatic counter increment, shown as a small number on the envelope glyph
+- Treated as "done" after max attempts
+- A maximum of <code>0</code> (or less) means "no limit", in which case a not-home address never counts as completed by that route
+- Prevents indefinite revisits</p>
+<p><strong>Completion Logic:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Complete when:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  - Status = Done, OR
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  - Status = Not Home AND tries &gt;= max_tries
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Total countable = done + not done + not home
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                  (Do Not Call and Invalid are excluded)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Progress % = round(Completed / Total Countable × 100)
+</code></pre></div></p>
+<p>Only addresses carrying at least one <strong>countable</strong> household option are counted at all, and the percentage is <strong>rounded</strong>, not truncated — 199 of 200 reads as 100%, not 99%.</p>
+<p><strong>Household Options:</strong>
+- Customizable address classifications
+- Countable vs non-countable types
+- Default options for new addresses
+- Multiple options per address
+- Affects progress calculations</p>
+<p><strong>Visit Notes:</strong>
+- Add detailed notes per address
+- Automatic timestamp tracking
+- Track who made updates — the actor is derived on the server from the signed-in user or the assignment's publisher name, never sent by the browser
+- Email digests for note changes
+- Historical note viewing</p>
+<hr />
+<h2 id="finishing-a-map-endgame-helpers">🧭 Finishing a Map (Endgame Helpers)<a class="headerlink" href="#finishing-a-map-endgame-helpers" title="Permanent link">&para;</a></h2>
+<h3 id="getting-to-the-last-few-addresses">Getting to the Last Few Addresses<a class="headerlink" href="#getting-to-the-last-few-addresses" title="Permanent link">&para;</a></h3>
+<p>The hardest part of a map is not the first half — it is finding the seven addresses still outstanding in a 300-unit block. Ministry Mapper therefore holds a set of helpers back until a map is nearly finished, so they appear exactly when they are useful and never add clutter before that.</p>
+<p><strong>1. The "X to go" Jump Button</strong>
+- A floating pill in the bottom-right corner of the grid, labelled <strong>"{{count}} to go"</strong> (for example <em>"7 to go"</em>)
+- Each tap scrolls to the next address that still needs a call and rings it, so it is obvious which one you were taken to
+- The tour follows the grid's own order — top floor first, then downwards, left to right — and <strong>wraps around</strong> to the first outstanding address after the last one
+- Your place in the tour is kept even after you complete the address you were taken to, so tapping again moves forward rather than restarting
+- The ring is not sticky: it disappears as soon as that address is done, so a finished map is left unmarked
+- Only the grid scrolls; the surrounding page stays put. The scroll is instant rather than animated for anyone who has asked their device to reduce motion
+- <strong>It only appears once the map is at least 90% done</strong>, and it disappears again at 100% when there is nothing left to jump to</p>
+<div class="admonition note">
+<p class="admonition-title">Why the 90% gate</p>
+<p>Earlier releases showed this button from the first visit, where it read "47 to go" on a map at 6% — a number that told a publisher nothing they could not see. It is a finishing tool, so it now waits for the finish.</p>
+</div>
+<p><strong>2. Per-Floor Outstanding Counts</strong>
+- On a multi-floor map, a small badge next to each floor number shows how many addresses on that floor still need a call
+- The badge is announced to screen readers as <em>"{{count}} still to call on this floor"</em>
+- ✅ Shown only in the same endgame window as the jump button — a map at 6% no longer puts a number beside every floor
+- ❌ Never shown on single-floor maps, where the floor number itself carries no meaning</p>
+<p><strong>3. Remaining-Work Breakdown</strong>
+- Under the progress bar on the publisher map, the endgame also reveals the split of what is left, e.g. <strong>"12 not done · 3 not home"</strong>, so a publisher can tell "nobody has knocked here" apart from "nobody was in"</p>
+<p><strong>Use Case:</strong> A publisher returning to finish a block taps the pill repeatedly and is walked straight through the remaining calls, instead of scrolling a wall of completed units looking for gaps.</p>
+<hr />
+<h2 id="assignment-system-publisher-links">🔗 Assignment System (Publisher Links)<a class="headerlink" href="#assignment-system-publisher-links" title="Permanent link">&para;</a></h2>
+<h3 id="secure-time-limited-access">Secure, Time-Limited Access<a class="headerlink" href="#secure-time-limited-access" title="Permanent link">&para;</a></h3>
+<p><strong>Link Features:</strong>
+- <strong>Time-Limited:</strong> Configurable expiry per congregation (default 24 hours)
+- <strong>Token-Based:</strong> The link carries a <strong>25-character</strong> token, which is the assignment record's own id
+- <strong>No Account Needed:</strong> Publishers access via link only — no login, no password, no user record
+- <strong>Scoped to One Map:</strong> A link grants access to exactly one map. A request naming any other map is refused
+- <strong>Two Types:</strong>
+  - Normal assignments for regular territory work
+  - Personal assignments for personal ministry</p>
+<p><strong>Intelligent Assignment Algorithm:</strong></p>
+<p>When a conductor or administrator requests a Quick Link, the server picks the map for them. The blurb in the app describes it as <em>"Assigns the best available territory map nearby — balancing workload, distance, and completion progress."</em> Under that sentence are four deterministic passes over the territory's maps:</p>
+<ol>
+<li><strong>Distance is measured first</strong></li>
+<li>The straight-line (haversine) distance from the requester's current position to each map is computed in metres</li>
+<li>
+<p>Maps with no usable coordinates are excluded from the selection entirely</p>
+</li>
+<li>
+<p><strong>Fewest active assignments wins</strong></p>
+</li>
+<li>Among the maps with usable coordinates, only those tied for the <strong>lowest number of active assignments</strong> stay in contention</li>
+<li>
+<p>This is what prevents the same map being handed to five publishers on a Saturday morning</p>
+</li>
+<li>
+<p><strong>Then the nearest of those</strong></p>
+</li>
+<li>
+<p>Within that cohort, the smallest distance wins</p>
+</li>
+<li>
+<p><strong>Progress breaks a near-tie</strong></p>
+</li>
+<li>Maps within <strong>50 metres</strong> of the nearest candidate are treated as equally close, and among them the map with the <strong>lowest completion progress</strong> is chosen</li>
+<li>So when two blocks are effectively next to each other, the less-worked one is assigned</li>
+</ol>
+<p>Because every pass is deterministic, the same request from the same place produces the same answer — there is no randomness in territory allocation.</p>
+<p><strong>Assignment Workflow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1. Conductor generates an assignment link (Quick Link, or Assign on a specific map)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2. Link shared with publisher (share sheet, messaging app, email)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>3. Publisher opens /map/:id — the token in the URL is the credential
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>4. Server validates the token, its map and its expiry on every request
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>5. Publisher updates address status; changes appear live for everyone
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>6. Link expires automatically at its expiry time
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>7. Expired links are cleaned up by a background job
+</code></pre></div></p>
+<p><strong>Two-Step Assign-and-Share</strong></p>
+<p>Creating a link and sharing it are deliberately two separate steps:</p>
+<ol>
+<li><strong>Step 1 — confirm the slip.</strong> Pick an expiry date (personal links only; the earliest allowed is tomorrow) and enter the publisher's name, which is required. Normal assignments use the congregation's configured expiry.</li>
+<li><strong>Step 2 — "Map link is ready".</strong> The same panel becomes a summary: the map name, the link type, the territory, <strong>"Assigned to {name}"</strong>, the expiry, the not-done/not-home breakdown — and, when applicable, an amber <strong>"Already assigned"</strong> warning listing up to three publishers who already hold a link to this map (with <em>"+{{count}} more"</em> beyond that). A <strong>Share</strong> button finishes the job.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Why it is two steps and not one</p>
+<p>Browsers only allow the share sheet and the clipboard to open inside the brief window created by the user's own tap. The old single-step flow created the assignment over the network <em>between</em> the tap and the share sheet, and on a slow connection the browser silently refused to open the sheet — most often Chrome on iPhone. Splitting the flow means the Share button does nothing but share. Where the browser cannot share at all, the button copies the link instead.</p>
+</div>
+<p><strong>Copy an Assigned Link</strong>
+- Every active link in the assignments list has a <strong>Copy link</strong> button beside its delete button
+- It copies the bare URL only — no accompanying message — so the link can be pasted anywhere
+- A "Link copied" confirmation appears on success</p>
+<p><strong>Assignment Management:</strong>
+- View active assignments per map, opened from the count badge beside Assign/Personal or from <strong>Account → Assignments</strong> in the sidebar
+- Each row shows who assigned it, who it was assigned to, when it was created and when it expires
+- Open the link in a new tab, copy it, or delete it
+- Deleting a link takes effect immediately and removes the row; deleting the last link closes the list
+- Automatic cleanup of expired links (every 5 minutes)
+- Assignment grants, removals and expiries are recorded in an audit log</p>
+<p><strong>Expired Links Are Enforced Everywhere</strong></p>
+<p>A link that has expired stops working through four independent detectors, all of which land on the same screen — <strong>"This link has expired ⌛"</strong> with <em>"Please close this tab."</em>:</p>
+<ol>
+<li>The app compares the expiry against the current time when the link is opened</li>
+<li>The server rejects the request outright, which the app treats as an expired link rather than a lost session</li>
+<li>The live countdown in the top bar reaching zero expires the link in place, mid-session</li>
+<li>A permanent authorization failure while flushing queued offline edits expires the link too</li>
+</ol>
+<p>Expiring a link also <strong>purges its cached copy</strong> from the device, so an expired link cannot be served from the local cache.</p>
+<p><strong>Link Expiry Countdown</strong>
+- The publisher's top bar shows a live <strong>Expires</strong> countdown
+- It changes tone as the deadline approaches: amber within the last hour, red and pulsing within the last 15 minutes
+- The format adapts too — days and hours far out, minutes and seconds at the end — and so does the tick rate, which slows down when there is no need for a per-second update (a per-second timer running for hours is a real battery cost on a phone)</p>
+<div class="admonition warning">
+<p class="admonition-title">Map links bypass login — treat them like keys</p>
+<p>Anyone who holds a map link has access to that map, without signing in. Do not post map links to public statuses or stories (for example WhatsApp Status), and do not share them in group chats beyond the publishers who need them.</p>
+<p>If a link is posted publicly, remove the post immediately and tell a conductor or administrator so the link can be deleted and reissued. Administrators can shrink the risk window by shortening the congregation's link expiry.</p>
+</div>
+<hr />
+<h2 id="working-through-a-territorys-maps">🔀 Working Through a Territory's Maps<a class="headerlink" href="#working-through-a-territorys-maps" title="Permanent link">&para;</a></h2>
+<h3 id="sorting-and-scanning-the-map-list">Sorting and Scanning the Map List<a class="headerlink" href="#sorting-and-scanning-the-map-list" title="Permanent link">&para;</a></h3>
+<p><strong>Sortable Map List</strong></p>
+<p>The territory's map list can be ordered three ways, chosen from a dropdown beside the list/map toggle:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sequence</strong></td>
+<td>The territory's own configured order. This is the default</td>
+</tr>
+<tr>
+<td><strong>Progress</strong></td>
+<td>Least-complete maps first, so the work that needs attention rises to the top</td>
+</tr>
+<tr>
+<td><strong>Proximity</strong></td>
+<td>Nearest maps first, based on the device's current location</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Proximity</strong> needs location permission. If the location cannot be obtained the app warns <em>"Could not get your location. Check location permissions and try again."</em> and stays on the current sort rather than silently reordering nothing</li>
+<li>If Proximity was the saved choice and location is refused on a later visit, the list quietly falls back to <strong>Sequence</strong></li>
+<li>Nothing is requested from the device until Proximity is actually chosen</li>
+<li>In Proximity mode each map shows its distance — <strong>"450 m"</strong> below a kilometre, <strong>"3.9 km"</strong> above it. Maps without coordinates sort to the end and show no distance</li>
+<li>The chosen sort is remembered per device</li>
+<li>The sort control appears only when a territory is selected and the list (not map) view is showing</li>
+</ul>
+<p><strong>Not-Done and Not-Home Counts on Each Map Row</strong>
+- Each map row can show a two-line breakdown: <strong>Not Done</strong> and <strong>Not Home</strong>, with right-aligned figures
+- Each line appears only when its count is above zero, and the whole block disappears when both are zero — a finished map stays visually quiet
+- The counts are computed on the server and stored with the map, so they cost nothing to display and are identical for everyone, including publishers opening a link</p>
+<p><strong>Use Case:</strong> A conductor standing in a territory switches the list to Proximity to see what is within walking distance, then to Progress to find the block that has been neglected for a month.</p>
+<hr />
+<h2 id="user-management-access-control">👥 User Management &amp; Access Control<a class="headerlink" href="#user-management-access-control" title="Permanent link">&para;</a></h2>
+<h3 id="role-based-permission-system">Role-Based Permission System<a class="headerlink" href="#role-based-permission-system" title="Permanent link">&para;</a></h3>
+<p><strong>Three congregation roles — plus one link-based access path.</strong></p>
+<p>A user's authority comes from a role record attached to a specific congregation, and there are exactly three role values:</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Value stored</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Read-Only</strong></td>
+<td><code>read_only</code></td>
+</tr>
+<tr>
+<td><strong>Conductor</strong></td>
+<td><code>conductor</code></td>
+</tr>
+<tr>
+<td><strong>Administrator</strong></td>
+<td><code>administrator</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>"Publisher" is not a role.</strong> A publisher has no user account, no password and no role record. A publisher is simply someone holding a valid assignment link, and the link itself is the credential. That is a separate access path rather than a fourth rung on the same ladder, which is why it is described on its own below.</p>
+<p>Removing someone's access means deleting their role record for that congregation; there is no "no access" role to assign. A single user can hold <strong>different roles in different congregations</strong>.</p>
+<hr />
+<h4 id="1-read-only">1. Read-Only<a class="headerlink" href="#1-read-only" title="Permanent link">&para;</a></h4>
+<p><strong>Access Method:</strong> User account with the <code>read_only</code> role</p>
+<p><strong>Permissions:</strong>
+- ✅ View all congregation territories, maps and address grids
+- ✅ Switch between list and map views, and sort the map list
+- ✅ Get directions to an address
+- ✅ Read and post messages
+- ❌ Cannot create or update addresses
+- ❌ Cannot create assignment links
+- ❌ Cannot create, reset or delete territories
+- ❌ Cannot manage users or congregation settings</p>
+<p><strong>Use Case:</strong> Observers, auditors, service committee members</p>
+<hr />
+<h4 id="2-conductor">2. Conductor<a class="headerlink" href="#2-conductor" title="Permanent link">&para;</a></h4>
+<p><strong>Access Method:</strong> User account with the <code>conductor</code> role</p>
+<p><strong>Permissions:</strong>
+- ✅ Everything Read-Only can do
+- ✅ <strong>Create and update addresses</strong>, including the quick-add "+" card on single-story maps
+- ✅ <strong>Reset a territory's status</strong>
+- ✅ <strong>Delete a territory</strong>
+- ✅ Create assignment links — Quick Link and the per-map <strong>Assign</strong> button
+- ✅ View and delete the assignments list
+- ❌ Cannot create a territory, add a map, or use the Manage group of actions (rename, change boundary, reorder maps, change details)
+- ❌ Cannot create personal links
+- ❌ Cannot manage user roles, invite users or delete accounts
+- ❌ Cannot configure congregation settings or household options
+- ❌ Cannot delete a floor or a unit column from a map</p>
+<div class="admonition note">
+<p class="admonition-title">Conductors and territories</p>
+<p>A conductor <strong>can</strong> reset and delete territories, and <strong>can</strong> create and update addresses. Anywhere the documentation has previously said a conductor cannot do these things, this page is the correct one — those permissions are granted by the server to both conductors and administrators. What a conductor cannot do is <em>create</em> a new territory or change its details, boundary or map order.</p>
+</div>
+<p><strong>Use Case:</strong> Field service overseers and territory coordinators who hand out territory for the week</p>
+<hr />
+<h4 id="3-administrator">3. Administrator<a class="headerlink" href="#3-administrator" title="Permanent link">&para;</a></h4>
+<p><strong>Access Method:</strong> User account with the <code>administrator</code> role</p>
+<p><strong>Permissions:</strong>
+- ✅ Everything Conductor can do
+- ✅ Create territories and maps; change a map's name, location, territory and sequence
+- ✅ Add and remove floors, add and delete unit columns, resequence address codes
+- ✅ Reset a map's status and delete a map
+- ✅ Create <strong>personal</strong> links as well as normal assignment links
+- ✅ Invite users, grant and change roles, and remove access
+- ✅ Configure congregation settings, including maximum not-home tries and link expiry
+- ✅ Create and reorder household options
+- ✅ Pin, mark read and delete messages
+- ✅ Generate an activity report on demand</p>
+<p><strong>Use Case:</strong> Territory servants and system administrators</p>
+<hr />
+<h4 id="publisher-access-link-based-no-account">Publisher Access (Link-Based, No Account)<a class="headerlink" href="#publisher-access-link-based-no-account" title="Permanent link">&para;</a></h4>
+<p><strong>Access Method:</strong> A valid, unexpired assignment link. No sign-in, no user record, no role</p>
+<p><strong>Permissions:</strong>
+- ✅ View the single map the link was issued for
+- ✅ Update address and unit status, and record not-home tries
+- ✅ Add and edit address notes
+- ✅ Pin a house's location on single-story maps
+- ✅ Add a missing address on single-story maps
+- ✅ Send feedback messages, and read pinned instructions
+- ✅ Get directions, switch language and switch theme
+- ❌ Cannot see any other map or territory
+- ❌ Cannot see the congregation's settings, users or reports
+- ❌ Cannot create or manage assignment links</p>
+<p><strong>How it is enforced:</strong> the link is presented as a header on every request and re-validated against its map and expiry each time. A link takes precedence over any signed-in session in the same browser — if the link is invalid the request is refused rather than falling back to the account's own authority, so a link-scoped session can never quietly widen into an administrator one.</p>
+<p><strong>Use Case:</strong> Field service publishers working a territory for the day</p>
+<hr />
+<h3 id="capability-summary">Capability Summary<a class="headerlink" href="#capability-summary" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Read-Only</th>
+<th>Conductor</th>
+<th>Administrator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>View territories, maps and grids; sort; directions; messages</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Create or update an address</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Quick Link, Assign link, assignments list</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Reset a territory, delete a territory</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Create a territory, New Map, Manage group</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Personal link</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Map row actions, delete a floor or unit</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Congregation settings, household options, users, reports</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="user-account-management">User Account Management<a class="headerlink" href="#user-account-management" title="Permanent link">&para;</a></h3>
+<p><strong>Features:</strong>
+- Email-based authentication
+- Email verification required before the app can be used
+- Password reset by email
+- OAuth2 Google sign-in
+- Optional one-time password (OTP) as a second factor
+- Account disable/enable
+- Last login tracking
+- Multi-congregation support (different roles per congregation)
+- Role grants, changes and revocations are written to an audit log</p>
+<hr />
+<h2 id="congregation-settings">🛠️ Congregation Settings<a class="headerlink" href="#congregation-settings" title="Permanent link">&para;</a></h2>
+<h3 id="customizable-configuration">Customizable Configuration<a class="headerlink" href="#customizable-configuration" title="Permanent link">&para;</a></h3>
+<p><strong>Core Settings:</strong></p>
+<p><strong>1. Maximum Not-Home Tries</strong>
+- Set how many "not home" visits before an address counts as complete
+- Typical: 2–3 tries
+- Affects progress calculations
+- Congregation-specific; a value of <code>0</code> means no limit</p>
+<p><strong>2. Assignment Link Expiry</strong>
+- Configure how long links remain valid
+- Default: 24 hours
+- Customizable per congregation, and a change takes effect immediately
+- Automatic cleanup of expired links</p>
+<p><strong>3. Household Options</strong>
+- Create custom address classifications
+- Examples: "Residential", "Business", "High-rise", "Language: Spanish"
+- Mark options as "countable" (affects completion %)
+- Set exactly one default option for new addresses
+- Reorder with drag-and-drop
+- Codes are validated for uniqueness, and deleting an option re-points the addresses that used it to the default rather than leaving them blank</p>
+<p><strong>4. Regional Settings</strong>
+- Timezone configuration (20 IANA timezones)
+- Country/region selection (13 regions)
+- Affects date calculations and reports</p>
+<hr />
+<h2 id="communication-messaging">💬 Communication &amp; Messaging<a class="headerlink" href="#communication-messaging" title="Permanent link">&para;</a></h2>
+<h3 id="in-app-communication-system">In-App Communication System<a class="headerlink" href="#in-app-communication-system" title="Permanent link">&para;</a></h3>
+<p><strong>Message Types:</strong></p>
+<p><strong>1. Publisher Messages</strong>
+- From publishers to conductors/admins
+- Attached to specific maps
+- Territory-specific feedback
+- Real-time delivery</p>
+<p><strong>2. Conductor Messages</strong>
+- Administrative communications
+- Map-specific instructions
+- Coordination messages</p>
+<p><strong>3. Admin Messages</strong>
+- Can be pinned for visibility
+- Read status tracking
+- Important announcements
+- Broadcast to publishers</p>
+<p><strong>4. Pinned Messages</strong>
+- Remain visible until unpinned
+- Read tracking
+- Auto-email to relevant users
+- Priority display</p>
+<p><strong>Message Thread:</strong>
+- Chat-style thread with author initials, <strong>📌 Pinned</strong> and <strong>Read</strong> badges
+- Auto-scrolls to the newest message
+- ⌘/Ctrl + Enter sends
+- Marking read, pinning and deleting are administrator actions</p>
+<p><strong>Email Notifications:</strong></p>
+<p>Automated email digests sent for:
+- <strong>Every 30 minutes:</strong> Unread messages to administrators
+- <strong>Every 30 minutes:</strong> Pinned admin instructions to publishers
+- <strong>Every hour:</strong> Note updates to administrators
+- <strong>Daily:</strong> Addresses added in the field, to administrators
+- <strong>Monthly:</strong> Congregation reports with Excel attachment</p>
+<p><strong>Email Templates:</strong>
+- Professional HTML templates
+- Mobile-responsive design
+- Includes relevant links back to the map
+- Rendered server-side from templates shipped with the backend</p>
+<hr />
+<h2 id="real-time-collaboration">🔄 Real-Time Collaboration<a class="headerlink" href="#real-time-collaboration" title="Permanent link">&para;</a></h2>
+<h3 id="live-data-synchronization">Live Data Synchronization<a class="headerlink" href="#live-data-synchronization" title="Permanent link">&para;</a></h3>
+<p><strong>Real-Time Features:</strong></p>
+<p><strong>SSE Subscriptions:</strong>
+- Live updates via Server-Sent Events (SSE) — there are no WebSockets anywhere in the platform
+- Automatic reconnection with backoff, and resubscription when the tab regains focus
+- Low latency (&lt;100ms typical)
+- Publishers receive realtime updates too: the link credential is passed explicitly with each subscription</p>
+<p><strong>Event Batching:</strong>
+- Bursts of events are coalesced into a single update pass roughly every 100 ms
+- This matters for bulk operations: resetting a 300-unit map emits one event per address, and without batching the grid would re-render hundreds of times
+- Repairs performed by maintenance commands deliberately do <strong>not</strong> broadcast, so publishers working a map are not spammed by a renumbering</p>
+<p><strong>Concurrent Editing:</strong>
+- Multiple users can work simultaneously
+- Last-write-wins strategy
+- Timestamp-based resolution</p>
+<p><strong>Automatic Refresh:</strong>
+- Data updates immediately when changed
+- No manual page refresh needed
+- Visual indicators for updates
+- Optimistic UI updates</p>
+<p><strong>Visibility Detection:</strong>
+- Automatically refreshes when the tab becomes visible
+- Saves bandwidth when the tab is hidden
+- Prevents stale data</p>
+<p><strong>Collaboration Scenarios:</strong>
+- Admin creates territory while conductor viewing list → Instantly appears
+- Publisher marks units complete → Admin sees progress update live
+- Multiple conductors managing different territories → No conflicts
+- Real-time statistics updates as work progresses</p>
+<hr />
+<h2 id="connectivity-offline-behaviour-smart-sync">📶 Connectivity, Offline Behaviour &amp; Smart Sync<a class="headerlink" href="#connectivity-offline-behaviour-smart-sync" title="Permanent link">&para;</a></h2>
+<h3 id="what-actually-works-without-a-connection">What Actually Works Without a Connection<a class="headerlink" href="#what-actually-works-without-a-connection" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper is an online application with a genuine, but deliberately limited, offline story. The honest summary:</p>
+<p><strong>Reading — falls back to a local cache</strong>
+- If the address list cannot be fetched, the app serves the last copy it stored on the device and re-applies any of your own edits that are still waiting to be sent, so you see your work rather than a stale server snapshot
+- The publisher link payload is cached the same way, with a 7-day lifetime
+- ✅ You can keep working a map you had already opened
+- ❌ You cannot open a map for the first time while offline</p>
+<p><strong>Writing — queued, but for publisher address updates only</strong>
+- <strong>Smart Sync</strong> queues publisher address updates locally and sends them when the connection returns
+- ✅ Status changes, not-home tries, notes, household types and pinned coordinates on a publisher map are all queued
+- ❌ <strong>Administrator actions are not queued</strong> — creating territories or maps, resetting, deleting, changing settings, managing users and generating reports all require a live connection
+- ❌ The queue is <strong>unavailable entirely</strong> when the browser blocks local database storage (see below), in which case writes go straight to the server and fail visibly if the network is down</p>
+<p><strong>Smart Sync in detail</strong>
+- A <strong>📤</strong> badge in the navigation bar counts the updates still in flight
+- Each unsynced address carries a small orange dot. Both indicators wait 300 ms before appearing, so a normal fast save never flashes a warning
+- One queued update is kept per address — saving the same address twice replaces the earlier entry rather than queueing both, and the original "before" state is preserved so a second offline edit cannot undo the first edit's intent
+- Retries use exponential backoff with random jitter, so hundreds of publishers reconnecting at the same moment do not all retry in the same instant
+- Errors that can never succeed (rejected, missing, or invalid) are dropped rather than retried forever, and the app says so: <em>"{{count}} edit(s) could not be saved and were discarded."</em>
+- If the session or link expires while edits are queued, you are told <em>"Your session expired. Please sign in again — your offline edits are saved locally."</em> — the queue is not thrown away
+- A queued edit survives closing the tab or the app being killed</p>
+<p><strong>Graceful degradation when local storage is blocked</strong>
+- Some browsers — Safari in Private Browsing most notably — provide no local database at all
+- The app detects this and switches to <strong>direct mode</strong>: every save goes straight to the server, errors surface immediately in the dialog, and the app remains fully usable
+- The only thing lost is the offline queue and the optimistic display that depends on it
+- If a second tab is holding the local database open during an upgrade, the app asks you to <em>"App update pending. Please close other open tabs to continue."</em> rather than failing silently</p>
+<p><strong>Connection status</strong>
+- A pill in the bottom-right corner reports <strong>"No internet connection"</strong> or <strong>"Weak connection"</strong>, announced politely to screen readers
+- The publisher map's navigation row dims and stops responding while offline, so nothing is tapped in the hope that it will work
+- The app polls a lightweight health endpoint rather than guessing from the browser's own online flag, and it polls less often on devices that give no network information — frequent polling keeps the mobile radio awake and is a real battery cost</p>
+<p><strong>Use Case:</strong> A publisher in a lift lobby with no signal keeps marking units; the moment they step outside, everything uploads without them thinking about it.</p>
+<hr />
+<h2 id="progressive-web-app-pwa">📱 Progressive Web App (PWA)<a class="headerlink" href="#progressive-web-app-pwa" title="Permanent link">&para;</a></h2>
+<h3 id="native-app-experience">Native App Experience<a class="headerlink" href="#native-app-experience" title="Permanent link">&para;</a></h3>
+<p><strong>Installable</strong> — installation is supported again</p>
+<p>Installing the app was previously disabled and actively discouraged, because an installed copy could get stuck on an old version and there was no reliable way to notice. That has been addressed, and installing is supported again — although the browser remains the recommended primary experience.</p>
+<p><strong>Desktop Installation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Visit URL → Browser menu → "Install app"
+</code></pre></div></p>
+<p><strong>Mobile Installation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>iOS Safari:     Visit URL → Share → "Add to Home Screen"
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Android Chrome: Visit URL → Menu → "Install app" / "Add to Home screen"
+</code></pre></div></p>
+<p><strong>How Staleness Is Now Caught</strong></p>
+<p>Three independent mechanisms, so no single failure leaves an installed copy behind:</p>
+<ol>
+<li><strong>Service worker takeover</strong> — when a new version takes control of an already-running app, the app is told immediately (the very first install is ignored, since that is not an update)</li>
+<li><strong>Focus check</strong> — when the tab or window becomes visible again, the app asks for an update check, throttled to once every 5 minutes and skipped while offline</li>
+<li><strong>Version file backstop</strong> — the app compares its own compiled-in version against a small version file on the server. This exists because a frozen or suspended installed window may never fire either of the first two signals; the throttle is deliberately bypassed when the app is resumed from the app switcher, which is precisely the moment staleness must be caught</li>
+</ol>
+<p>When a new version is found, a persistent <strong>"Update Available"</strong> notice appears with <em>"Reload to get the latest updates."</em> and a <strong>Reload</strong> action. If a stale code chunk fails to load, the app reloads itself once and then stops trying, so a genuinely missing file surfaces as an error instead of an endless reload loop.</p>
+<p><strong>Google Sign-In Works in an Installed App</strong>
+- Signing in with Google from an installed (home-screen) copy previously failed on iOS: the sign-in was waiting for a response on a live channel, and iOS suspends the app while Google's own screen is in front, which aborted the login
+- Sign-in now uses a full-page redirect with the handshake parked locally and completed on return, so suspension is harmless
+- Dismissing Google's screen is treated as a <strong>choice, not an error</strong> — cancelling is silent, with no error message</p>
+<p><strong>Offline Support:</strong>
+- Static assets cached by the service worker
+- Cached data remains viewable when offline, with your own pending edits applied on top
+- Publisher address updates are queued and sent when the connection returns
+- Administrator actions require a live connection
+- See <strong>Connectivity, Offline Behaviour &amp; Smart Sync</strong> above for exactly what is and is not covered</p>
+<p><strong>Performance Benefits:</strong>
+- Faster load times (cached assets)
+- Reduced data usage
+- Works on slow connections
+- Smooth animations</p>
+<p><strong>Native Features:</strong>
+- Share sheet integration for assignment links, with a clipboard fallback
+- Standalone (full-screen) display with a custom icon
+- Push notifications are <strong>not</strong> implemented</p>
+<hr />
+<h2 id="internationalization">🌍 Internationalization<a class="headerlink" href="#internationalization" title="Permanent link">&para;</a></h2>
+<h3 id="multi-language-support">Multi-Language Support<a class="headerlink" href="#multi-language-support" title="Permanent link">&para;</a></h3>
+<p><strong>Supported Languages (8):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Code</th>
+<th>In-app label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>English</td>
+<td><code>en</code></td>
+<td>English</td>
+</tr>
+<tr>
+<td>Spanish</td>
+<td><code>es</code></td>
+<td>Español</td>
+</tr>
+<tr>
+<td>Chinese</td>
+<td><code>zh</code></td>
+<td>中文</td>
+</tr>
+<tr>
+<td>Tamil</td>
+<td><code>ta</code></td>
+<td>தமிழ்</td>
+</tr>
+<tr>
+<td>Indonesian</td>
+<td><code>id</code></td>
+<td>Bahasa Indonesia</td>
+</tr>
+<tr>
+<td>Malay</td>
+<td><code>ms</code></td>
+<td>B. Melayu</td>
+</tr>
+<tr>
+<td>Japanese</td>
+<td><code>ja</code></td>
+<td>日本語</td>
+</tr>
+<tr>
+<td>Korean</td>
+<td><code>ko</code></td>
+<td>한국어</td>
+</tr>
+</tbody>
+</table>
+<p><strong>i18n Features:</strong>
+- <strong>Language is chosen inside the app</strong> — no browser settings to change and no page reload. There is a <strong>Language</strong> button in the admin sidebar footer, on the sign-in screen (so the language can be changed before signing in) and in the publisher map's bottom navigation, where it also shows the language currently in use
+- The choice is remembered per device
+- Complete UI translation — every interface string exists in all 8 languages
+- Each language is downloaded on demand, so a user only ever fetches the one they use
+- Content coming from the server, such as a map's description, can itself be stored per language and falls back sensibly — the exact language first, then the base language, then English</p>
+<p><img alt="The in-app language selector" src="../assets/screenshots/language_selection_list.png" /></p>
+<p><strong>Use Case:</strong> A congregation whose publishers read four different languages can hand out one link, and each publisher sees the map in their own language.</p>
+<hr />
+<h2 id="release-notes-whats-new">📣 Release Notes &amp; What's New<a class="headerlink" href="#release-notes-whats-new" title="Permanent link">&para;</a></h2>
+<h3 id="targeted-in-app-changelog">Targeted, In-App Changelog<a class="headerlink" href="#targeted-in-app-changelog" title="Permanent link">&para;</a></h3>
+<p><strong>What's New Modal:</strong>
+- New releases are announced in an in-app <strong>"What's New"</strong> panel, shown automatically the first time a user opens the app after an update
+- The panel is translated into all 8 languages
+- Each item carries a coloured type chip: <strong>New</strong>, <strong>Fix</strong>, <strong>Improved</strong> or <strong>Announcement</strong>, and the most recent release is marked <strong>Latest</strong>
+- A release can also carry a warning notice and a screenshot
+- <strong>Release History</strong> is available on demand from the sidebar footer, showing the ten most recent releases</p>
+<p><strong>Audience Targeting:</strong>
+- Individual items can be tagged for <strong>administrators</strong> or for <strong>publishers</strong>, and an untagged item is shown to both
+- The audience is inferred from where the reader is: a publisher map page gets the publisher list, the admin app gets the admin list
+- Seen-state is tracked <strong>separately per audience</strong>, so a publisher who is also an administrator does not miss admin items because they already read the publisher ones, or vice versa
+- Release-level notices and screenshots are always shown to both audiences — they are not targetable
+- A first-time reader sees only the latest release rather than the entire back catalogue</p>
+<p><strong>Use Case:</strong> An administrator learns about the new household-option validation; a publisher opening a link the same day sees only the items that change what they do.</p>
+<hr />
+<h2 id="themes-appearance">🌗 Themes &amp; Appearance<a class="headerlink" href="#themes-appearance" title="Permanent link">&para;</a></h2>
+<h3 id="light-dark-system-and-five-colour-themes">Light, Dark, System — and Five Colour Themes<a class="headerlink" href="#light-dark-system-and-five-colour-themes" title="Permanent link">&para;</a></h3>
+<p><strong>Theme Modes:</strong>
+- ☀️ <strong>Light</strong> — <em>"Bright and clear theme"</em>
+- 🌙 <strong>Dark</strong> — <em>"Easy on the eyes"</em>
+- 💻 <strong>System</strong> — <em>"Follows your device settings"</em> (the default)</p>
+<p><strong>Colour Themes:</strong></p>
+<p>Independently of light/dark, the app's accent palette can be switched between five named themes:</p>
+<table>
+<thead>
+<tr>
+<th>Theme</th>
+<th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Classic</strong></td>
+<td>The default neutral palette</td>
+</tr>
+<tr>
+<td><strong>Tangerine</strong></td>
+<td>Warm orange</td>
+</tr>
+<tr>
+<td><strong>Perpetuity</strong></td>
+<td>Teal</td>
+</tr>
+<tr>
+<td><strong>Cosmic Night</strong></td>
+<td>Violet</td>
+</tr>
+<tr>
+<td><strong>Mocha Mousse</strong></td>
+<td>Muted brown</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How it works:</strong>
+- Open the <strong>palette</strong> icon — in the admin sidebar footer, on the sign-in screen, or in the publisher map's bottom navigation — to reach <strong>Theme Settings</strong>, headed <em>"Choose your preferred theme or follow your system settings"</em>, with the five colour swatches under a <strong>Color</strong> heading
+- <strong>There is no Save button.</strong> A tap applies instantly and is remembered on that device
+- The chosen theme is applied before the app renders, so there is no flash of the wrong theme on load
+- Selecting <strong>System</strong> keeps following the device, including a change made while the app is open</p>
+<div class="admonition note">
+<p class="admonition-title">Status colours never change</p>
+<p>The status symbols — the green Done tick, the red Do Not Call sign, the violet Invalid mark, the amber note flag, the not-home envelope, the orange pending-sync dot and the map markers — deliberately keep the <strong>same fixed colours in every theme</strong>. Those colours carry meaning, and a publisher glancing at a grid must not have to re-learn them because someone picked a different accent. Only the light/dark variants of those colours differ.</p>
+</div>
+<p><img alt="Theme settings" src="../assets/screenshots/dark_light_theme_settings.png" /></p>
+<p><strong>Benefits:</strong>
+- Reduced eye strain
+- Better battery life (OLED screens)
+- A congregation can pick a look without any code change or deployment</p>
+<hr />
+<h2 id="reporting-analytics">📈 Reporting &amp; Analytics<a class="headerlink" href="#reporting-analytics" title="Permanent link">&para;</a></h2>
+<h3 id="comprehensive-statistics">Comprehensive Statistics<a class="headerlink" href="#comprehensive-statistics" title="Permanent link">&para;</a></h3>
+<p><strong>Monthly Congregation Reports:</strong>
+- <strong>Schedule:</strong> Monthly, on the 1st
+- <strong>Period:</strong> the previous full calendar month
+- <strong>Format:</strong> Excel workbook (.xlsx) attached to an HTML email
+- <strong>Delivery:</strong> Email to administrators</p>
+<p><strong>On-Demand Reports:</strong>
+- An administrator can generate a report at any time from <strong>Congregation → Generate Report</strong>
+- On-demand reports cover a <strong>rolling 30 days</strong> ending today, not a calendar month
+- The request is accepted immediately and the workbook is emailed to the requesting administrator when it is ready: <em>"Report generation started. You will receive an email shortly."</em></p>
+<p><strong>Report Contents:</strong></p>
+<p><strong>1. Congregation Overview</strong>
+- Congregation name and details
+- Reporting period
+- Overall statistics</p>
+<p><strong>2. Territory Breakdown</strong>
+- Completion percentage per territory
+- Number of maps per territory
+- Address distribution
+- Status changes recorded during the period</p>
+<p><strong>3. Address Statistics</strong>
+- Total addresses by type
+- Status distribution (done, not done, not home, DNC, invalid)
+- Countable vs non-countable breakdown</p>
+<p><strong>4. Not-Home Standing</strong>
+- Addresses that have exhausted the congregation's try limit
+- Addresses still being retried
+- Addresses untouched for more than two weeks</p>
+<p><strong>5. Map Health</strong>
+- Maps with work outstanding but no progress at all
+- Completed maps
+- Maps with the highest Do-Not-Call counts</p>
+<p><strong>Excel Features:</strong>
+- Professional formatting
+- One sheet per view of the data
+- Pivot-ready data
+- Print-friendly layout</p>
+<p><strong>Real-Time Dashboard:</strong>
+- Live statistics in the admin app
+- Territory completion tracking
+- Address status distribution
+- Active assignment monitoring</p>
+<hr />
+<h2 id="ai-generated-summaries">🤖 AI-Generated Summaries<a class="headerlink" href="#ai-generated-summaries" title="Permanent link">&para;</a></h2>
+<h3 id="plain-language-overviews-of-the-numbers">Plain-Language Overviews of the Numbers<a class="headerlink" href="#plain-language-overviews-of-the-numbers" title="Permanent link">&para;</a></h3>
+<p>Ministry Mapper can attach a short, written summary to four different emails, produced by a language model from the data the email already contains.</p>
+<p><strong>Provider and model:</strong> OpenAI, model <strong><code>gpt-5.4-mini</code></strong>, called in JSON mode with a low temperature and a 90-second time limit so a slow response can never hold up an email.</p>
+<p><strong>The four summaries:</strong></p>
+<p><strong>1. Territory Activity Report Summary</strong>
+- Attached to the monthly report and to on-demand reports
+- Written in the voice of the congregation's territory servant, addressed to the service overseer and the elders
+- Produces three sections: what was covered, an analysis per territory, and a conclusion
+- Draws on the report's own analytics: per-territory progress and an estimate of the months remaining, congregation-wide status changes with the busiest day, per-territory activity for the period, how not-home addresses are standing, and map health
+- Instructed to cite specific numbers, never to invent data, and never to make assignment recommendations</p>
+<p><strong>2. Messages Digest Overview</strong>
+- Summarizes the publisher feedback messages in a congregation's message digest
+- Produces an overview plus <strong>key themes</strong>, including action items such as address-data corrections that keep coming up</p>
+<p><strong>3. Notes Digest Overview</strong>
+- Summarizes recently changed <strong>property notes</strong> for a congregation — dogs, gate access, intercom codes, parking, renovations, vacancies
+- Produces an overview only</p>
+<p><strong>4. Instructions Digest Overview</strong>
+- Summarizes an administrator's pinned instructions for a single map, for the publishers who receive them
+- Produces an overview only</p>
+<p><strong>Enabling it takes two things, and both are required:</strong></p>
+<ol>
+<li>An OpenAI API key configured in the deployment environment (<code>OPENAI_API_KEY</code>)</li>
+<li>The feature flag <strong><code>enable-report-ai-summary</code></strong> turned on</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">AI summaries are off by default</p>
+<p>Unlike the background-job flags, <code>enable-report-ai-summary</code> defaults to <strong>disabled</strong> when no feature-flag service is configured. Setting <code>OPENAI_API_KEY</code> on its own is <strong>not</strong> enough to switch the feature on — the flag must be enabled as well. This is deliberate: sending congregation text to a third party should be an explicit decision.</p>
+</div>
+<p><strong>It fails quietly by design.</strong> If the key is missing, the flag is off, the API returns an error, or the response cannot be parsed, the email is sent <strong>without</strong> the summary section. Nothing is delayed and nothing is lost.</p>
+<div class="admonition info">
+<p class="admonition-title">What is sent to OpenAI</p>
+<p>When the feature is enabled, the text being summarized leaves the deployment — including the text of <strong>publisher feedback messages</strong> and <strong>property notes</strong>. Congregations that would rather that text never left their own server should leave the flag off, in which case no data is sent at all.</p>
+</div>
+<hr />
+<h2 id="security-features">🔐 Security Features<a class="headerlink" href="#security-features" title="Permanent link">&para;</a></h2>
+<h3 id="enterprise-grade-security">Enterprise-Grade Security<a class="headerlink" href="#enterprise-grade-security" title="Permanent link">&para;</a></h3>
+<p><strong>Authentication Methods:</strong></p>
+<p><strong>1. Email/Password</strong>
+- Bcrypt password hashing (cost: 10)
+- Minimum 6 characters
+- Email verification required
+- Password reset via email</p>
+<p><strong>2. OAuth2 (Google)</strong>
+- PKCE flow for security
+- Automatic user creation
+- No password management needed
+- Full-page redirect handshake, so it also works in an installed app</p>
+<p><strong>3. One-Time Password (OTP) and MFA</strong>
+- Optional <strong>4-digit</strong> code delivered <strong>by email</strong>
+- The code is valid for <strong>180 seconds</strong>, with Resend, Paste and Clear controls on the entry screen
+- The multi-factor session itself lasts 1800 seconds
+- Authenticator apps (TOTP) and printed backup codes are <strong>not</strong> supported — the second factor here is the emailed code</p>
+<p><strong>Session Handling:</strong>
+- Sessions last 14 days and are refreshed on return, so a returning administrator gets a rolling window rather than a fixed expiry counted from their first sign-in
+- A rejected request clears the session — <strong>unless</strong> the request carried a publisher link, in which case it means the link expired rather than that the administrator's session died</p>
+<p><strong>Access Control:</strong></p>
+<p><strong>Role-Based Access Control (RBAC):</strong>
+- Fine-grained permissions per congregation
+- Congregation-level isolation
+- Multi-tenant architecture
+- Secure by default: address changes are only accepted through purpose-built endpoints, never by writing to the table directly</p>
+<p><strong>Link-Based Access:</strong>
+- Temporary anonymous access
+- Token-based, scoped to exactly one map
+- Automatic expiration
+- Revocable at any time by deleting the link
+- Takes precedence over any signed-in session in the same browser, and never falls back to it</p>
+<p><strong>Server-Derived Identity:</strong>
+- The browser cannot claim who made a change. "Updated by" is taken from the signed-in user's name, or, for link access, from the publisher name recorded on the assignment</p>
+<p><strong>Result Scoping:</strong>
+- List results are pruned on the server to what the caller is actually allowed to see, rather than trusting the filter the browser sent
+- Realtime subscriptions must be provably unable to match anything outside the caller's scope, and are refused if they cannot be proven safe — an unparseable or over-broad filter is rejected rather than allowed
+- A map cannot be moved into another congregation's territory, and a territory link cannot be minted for a congregation the requester has no role in</p>
+<p><strong>Security Best Practices:</strong>
+- HTTPS enforcement
+- CORS configuration
+- Rate limiting
+- SQL injection prevention (parameterized queries)
+- XSS protection
+- Input validation with predictable, non-probing error messages
+- Output sanitization</p>
+<p><strong>Audit Trail:</strong></p>
+<p>Three audit logs are written, all readable only by the server operator:</p>
+<ul>
+<li><strong>Address changes</strong> — status changes and note edits, with who and when</li>
+<li><strong>Assignments</strong> — links granted, removed and expired</li>
+<li><strong>Roles</strong> — access granted, changed and revoked</li>
+</ul>
+<p>Authentication attempts are logged by the backend platform.</p>
+<p><strong>User Lifecycle Management:</strong></p>
+<p>Automated handling of inactive and unprovisioned user accounts, aligned with <strong>NIST AC-2</strong> and <strong>AC-2(3)</strong> security controls:</p>
+<ul>
+<li><strong>Unprovisioned users</strong> (accounts with no congregation role at all): administrators are alerted on first detection, the user is warned on day 3 and again on day 6, the account is <strong>disabled on day 7</strong> and <strong>permanently deleted on day 37</strong> — a 30-day window in which a genuine account can still be investigated and rescued</li>
+<li><strong>Inactive users</strong> (by last login): warned at <strong>91 days</strong>, final warning at <strong>152 days</strong>, <strong>disabled at 183 days</strong>, and <strong>never automatically deleted</strong></li>
+<li>Any successful sign-in clears the warnings</li>
+<li>Both checks run daily, with no manual intervention needed</li>
+<li>Keeps congregation user lists accurate and minimises the attack surface from dormant accounts</li>
+</ul>
+<p><strong>Error Tracking:</strong>
+- Sentry integration
+- Real-time error monitoring
+- Stack traces for debugging
+- Release tracking
+- Reports caused by browser extensions are discarded rather than investigated</p>
+<hr />
+<h2 id="interactive-mapping">🗺️ Interactive Mapping<a class="headerlink" href="#interactive-mapping" title="Permanent link">&para;</a></h2>
+<h3 id="leaflet-openstreetmap-data-via-geoapify">Leaflet + OpenStreetMap Data via Geoapify<a class="headerlink" href="#leaflet-openstreetmap-data-via-geoapify" title="Permanent link">&para;</a></h3>
+<p><strong>One geo provider.</strong> Map tiles, address search and turn-by-turn routing all come from <strong>Geoapify</strong>, drawing on OpenStreetMap data, and all use a single API key.</p>
+<p><strong>Base Features:</strong>
+- Interactive pan and zoom, up to zoom level 20, with high-resolution tiles on retina screens
+- Street-level detail
+- Custom markers for addresses and for maps
+- Territory boundary polygons with progress labels
+- There is <strong>no satellite layer</strong> — the tiles are street-map tiles only</p>
+<p><strong>Navigation and Directions:</strong>
+- Get directions to any address or map from the app
+- <strong>Two travel modes: walking and driving</strong>, and the choice is remembered
+- A live tracking map follows the publisher's position and redraws the route only after about 20 m of movement, rather than recomputing constantly
+- An ETA panel shows the mode, the remaining time and the remaining distance
+- On arrival — within 50 m of the destination — the route clears and the app confirms <em>"You've reached your destination"</em>
+- Hand-off buttons open the same destination in <strong>Google Maps</strong> or <strong>Waze</strong> for anyone who prefers their usual app</p>
+<p><img alt="Routing panel showing travel mode options and a plotted route on the map" src="../assets/screenshots/map_routing.png" /></p>
+<p><strong>Address Search:</strong>
+- Type-ahead address search on the map, used when placing a map or pinning a house
+- Searching starts after three characters, and requests are debounced so typing does not fire a request per keystroke</p>
+<p><strong>Geolocation:</strong>
+- Detect current location
+- Centre map on user
+- Proximity-based assignment and proximity sorting
+- Distance to maps, shown in metres or kilometres
+- Location is only ever requested when a feature actually needs it</p>
+<p><strong>Map View Markers (Redesigned)</strong></p>
+<p>Each map's marker is a small dial that answers three questions at a glance:</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number in the centre</td>
+<td>Completion percentage</td>
+</tr>
+<tr>
+<td><strong>Blue ring</strong></td>
+<td>How much of the map is done</td>
+</tr>
+<tr>
+<td>Grey remaining arc</td>
+<td>What is left</td>
+</tr>
+<tr>
+<td><strong>Green dot at the top</strong></td>
+<td>The map is <strong>assigned</strong></td>
+</tr>
+<tr>
+<td><strong>Orange dot at the bottom</strong></td>
+<td>The map has a <strong>personal link</strong></td>
+</tr>
+<tr>
+<td><strong>No dots</strong></td>
+<td>No active links</td>
+</tr>
+<tr>
+<td><strong>Grey outline</strong></td>
+<td>This marker is selected</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The green and orange indicators are distinguished by <strong>position</strong> (top versus bottom), not by colour alone — those two hues are almost identical in brightness, so colour alone would be unreadable for many people and invisible in bright sunlight</li>
+<li><strong>Grey</strong>, not orange, now marks the selected marker: selection is interaction state, not territory information. Orange means "personal link" and nothing else</li>
+<li>The remaining arc is grey rather than near-white, so an unfinished map reads as unfinished at a glance</li>
+<li>A dial only appears when it means something — an empty position is never drawn</li>
+</ul>
+<p><strong>Marker Guide</strong>
+- A small <strong>Marker Guide</strong> button sits in the top-right corner of the map
+- Opening it shows a key: green dial = <strong>Assignment</strong>, orange dial = <strong>Personal</strong>, blue ring = <strong>Progress</strong>
+- The swatches are drawn as the real shapes rather than as plain colour chips — a key should look like the thing it describes</p>
+<p><img alt="Map view with the redesigned markers" src="../assets/screenshots/admin_map_view_mode.png" /></p>
+<p><strong>Address Markers (Single-Story Maps)</strong>
+- Individual houses appear as pins whose ring shows whether the house still needs a call
+- In the endgame the outstanding houses switch to amber, matching the rest of the finishing helpers
+- Houses with no pin set are not drawn at all, and are reachable through the "needs a pin" prompt instead</p>
+<p><strong>Performance:</strong>
+- Lazy loading of tiles
+- Marker state is fetched in one bulk request rather than one request per marker, then kept live individually
+- Viewport-based loading
+- Mobile-optimized: expensive blur effects were removed from map controls and popovers because they are among the costliest effects on a phone GPU</p>
+<p><strong>Advantages:</strong>
+- OpenStreetMap data — broad worldwide coverage, including informal and rural addressing
+- One provider and one API key for tiles, search and routing
+- Tiles, geocoding and routing are all subject to the Geoapify plan in use, so a self-hoster should size their key to their congregation</p>
+<hr />
+<h2 id="email-system">📧 Email System<a class="headerlink" href="#email-system" title="Permanent link">&para;</a></h2>
+<h3 id="automated-email-notifications">Automated Email Notifications<a class="headerlink" href="#automated-email-notifications" title="Permanent link">&para;</a></h3>
+<p><strong>Email Service:</strong> MailerSend API</p>
+<p><strong>Email Types:</strong></p>
+<p><strong>1. Message Notifications</strong>
+- Schedule: Every 30 minutes
+- Recipients: Administrators
+- Content: Unread publisher messages, with an optional AI overview and key themes</p>
+<p><strong>2. Admin Instructions</strong>
+- Schedule: Every 30 minutes
+- Recipients: Publishers with active links
+- Content: Pinned administrator instructions for the map, with an optional AI overview</p>
+<p><strong>3. Note Updates</strong>
+- Schedule: Every hour
+- Recipients: Administrators
+- Content: Address note changes, with an optional AI overview</p>
+<p><strong>4. New Addresses</strong>
+- Schedule: Daily
+- Recipients: Administrators
+- Content: Addresses added in the field by publishers, for review</p>
+<p><strong>5. Monthly Reports</strong>
+- Schedule: Monthly, on the 1st
+- Recipients: Administrators
+- Content: Statistical report for the previous calendar month, with an optional AI-written summary
+- Attachment: Excel workbook</p>
+<p><strong>6. User Lifecycle Emails</strong>
+- Warnings, final warnings and disable notices for unprovisioned and inactive accounts
+- Alerts to the server operator when an account has never been provisioned</p>
+<p><strong>7. System Emails</strong>
+- Email verification
+- Password reset
+- One-time passwords
+- Email-change confirmation</p>
+<p><strong>Template Features:</strong>
+- Mobile-responsive HTML
+- Professional design
+- Inline CSS for compatibility
+- Rendered from templates shipped alongside the server, parsed once and reused
+- No tracking pixels, and no unsubscribe mechanism — every email is transactional and tied to a congregation role or an active assignment, so there is no marketing list to leave</p>
+<hr />
+<h2 id="background-jobs">🔄 Background Jobs<a class="headerlink" href="#background-jobs" title="Permanent link">&para;</a></h2>
+<h3 id="automated-task-processing">Automated Task Processing<a class="headerlink" href="#automated-task-processing" title="Permanent link">&para;</a></h3>
+<p><strong>Job Scheduler:</strong> Cron-based, with a feature flag per job. <strong>All schedules below are UTC.</strong></p>
+<p><strong>Scheduled Jobs (8):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Cron (UTC)</th>
+<th>Cadence</th>
+<th>Purpose</th>
+<th>Feature flag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Assignment cleanup</td>
+<td><code>1,6,11,…,56 * * * *</code></td>
+<td>Every 5 min</td>
+<td>Delete expired assignment links</td>
+<td><code>enable-assignments-cleanup</code></td>
+</tr>
+<tr>
+<td>Message processing</td>
+<td><code>8,38 * * * *</code></td>
+<td>Every 30 min</td>
+<td>Email unread publisher messages to administrators</td>
+<td><code>enable-message-processing</code></td>
+</tr>
+<tr>
+<td>Instruction processing</td>
+<td><code>18,48 * * * *</code></td>
+<td>Every 30 min</td>
+<td>Email pinned administrator instructions to publishers</td>
+<td><code>enable-instruction-processing</code></td>
+</tr>
+<tr>
+<td>Note processing</td>
+<td><code>28 * * * *</code></td>
+<td>Hourly</td>
+<td>Email address-note changes to administrators</td>
+<td><code>enable-note-processing</code></td>
+</tr>
+<tr>
+<td>Monthly report</td>
+<td><code>0 18 1 * *</code></td>
+<td>Monthly, 1st</td>
+<td>Generate and email the Excel activity report</td>
+<td><code>enable-monthly-report</code></td>
+</tr>
+<tr>
+<td>Unprovisioned users</td>
+<td><code>0 18 * * *</code></td>
+<td>Daily</td>
+<td>Warn, disable and eventually delete accounts with no role</td>
+<td><code>enable-unprovisioned-user-processing</code></td>
+</tr>
+<tr>
+<td>Inactive users</td>
+<td><code>30 18 * * *</code></td>
+<td>Daily</td>
+<td>Warn and disable accounts with no recent login</td>
+<td><code>enable-inactive-user-processing</code></td>
+</tr>
+<tr>
+<td>New addresses</td>
+<td><code>0 19 * * *</code></td>
+<td>Daily</td>
+<td>Email administrators the addresses publishers added</td>
+<td><code>enable-new-addresses-notification</code></td>
+</tr>
+</tbody>
+</table>
+<p>The daily and monthly jobs run between 18:00 and 19:00 UTC — that is 02:00–03:00 in Singapore, deliberately clear of the 08:00–12:00 local field-service peak.</p>
+<p><strong>A ninth flag, which is not a job:</strong> <code>enable-report-ai-summary</code> gates the AI summaries described above.</p>
+<div class="admonition note">
+<p class="admonition-title">The defaults are deliberately different</p>
+<p>When no feature-flag service is configured, the <strong>eight job flags default to enabled</strong> — a deployment with no flag service still gets its cleanup, its digests and its reports. The AI flag is the exception and <strong>defaults to disabled</strong>, so AI summaries never switch themselves on by accident.</p>
+</div>
+<p><strong>Feature Flag Control:</strong>
+- Enable or disable any job without a deployment
+- Gradual rollout
+- Emergency off switch
+- Flags are <strong>environment-scoped</strong>, not per-congregation: turning a job off turns it off for the whole deployment, not for one congregation</p>
+<p><strong>Progress Is No Longer a Job</strong>
+- There is no periodic "aggregate" job. Map and territory progress are recalculated <strong>the moment an address changes</strong>
+- Bulk operations such as resetting a map suppress the per-address recalculation and then recalculate once at the end, so a 300-unit reset costs one recalculation rather than 300</p>
+<p><strong>Job Monitoring:</strong>
+- Execution logs
+- Failures reported to Sentry with the underlying cause, not a generic wrapper
+- Business-rule rejections are kept out of error reporting so genuine incidents stay visible</p>
+<hr />
+<h2 id="user-interface">🎨 User Interface<a class="headerlink" href="#user-interface" title="Permanent link">&para;</a></h2>
+<h3 id="modern-responsive-design">Modern, Responsive Design<a class="headerlink" href="#modern-responsive-design" title="Permanent link">&para;</a></h3>
+<p><strong>UI Framework:</strong> <strong>Tailwind CSS 4</strong> with <strong>shadcn/ui components built on Base UI</strong></p>
+<p><strong>The 2.0.0 Interface Rebuild</strong></p>
+<p>Version 2.0.0 replaced the original Bootstrap interface with Tailwind and shadcn/ui. What that meant in practice depended on who you were:</p>
+<ul>
+<li><strong>For publishers, nothing changed but the look.</strong> The address grid, the status dialog, the notes, the messages and the link countdown all work exactly as before. No retraining was needed</li>
+<li><strong>For administrators, the navigation moved.</strong> The menus that used to sit in a top bar and a floating button are now in a <strong>left-hand panel</strong>, opened from the button in the top-left corner. The panel groups actions into <strong>Workspace</strong>, <strong>Manage</strong>, <strong>Congregation</strong> and <strong>Account</strong>, and remembers which groups you leave open</li>
+</ul>
+<p>Alongside the rebuild, the component set was consolidated: the old third-party select, calendar and map-search widgets were replaced with in-house equivalents that behave consistently on a phone.</p>
+<p><strong>Design Principles:</strong>
+- Mobile-first approach
+- Touch-friendly interactions — full-size tap targets on every control that matters in the field
+- Accessibility considered as a design constraint, not a checklist: meaning is carried by shape and position as well as colour, live regions announce countdowns and connection state, and every motion effect respects the device's reduced-motion setting
+- Consistent visual language
+- Intuitive navigation</p>
+<p><strong>Key UI Elements:</strong></p>
+<p><strong>Navigation:</strong>
+- Left-hand sidebar with four collapsible groups
+- Congregation and territory selectors, presented as bottom sheets on a phone
+- Sticky territory header with the list/map toggle, the sort control, Quick Link and New Map
+- Publisher map has its own bottom navigation: Messages, List/Map View, Directions, Language, Theme
+- Back-to-top control on long map lists, and scroll position restored when returning to the same territory</p>
+<p><strong>Getting Started Wizard:</strong>
+- A new congregation is walked through four gated steps — create household options, create a territory, select it, create maps
+- Each step explains <strong>where</strong>, <strong>what</strong> and <strong>why</strong>, with a worked example, and steps unlock in order
+- A progress bar tracks "X of Y steps complete", and the wizard disappears once the congregation is set up</p>
+<p><strong>Forms:</strong>
+- Inline validation with specific messages
+- Household types chosen in a full dialog with draft/Cancel/Done semantics
+- Date selection for personal link expiry
+- Progressive disclosure — fields appear only where they apply, such as coordinates on landed-house maps</p>
+<p><strong>Grids:</strong>
+- Multi-floor maps render as a table with sticky floor and unit headers
+- Single-story maps render as a card grid, or as pins on a map
+- Long map lists are virtualized, so a congregation with hundreds of maps still scrolls smoothly
+- A realtime update re-renders the affected floor, not the entire grid</p>
+<p><strong>Dialogs:</strong>
+- Every destructive action is confirmed, with the confirm button styled by severity and the focus resting on <strong>Cancel</strong> — the single exception is deleting an assignment link, which is immediate
+- Keyboard navigation and focus management throughout
+- Dialogs become bottom sheets on a phone</p>
+<p><strong>Feedback:</strong>
+- Toast notifications
+- Loading indicators and skeleton placeholders
+- Animated progress bars and counters
+- Success confirmations and error alerts
+- Persistent notices for things that need a decision, such as an available update</p>
+<p><strong>Responsive Breakpoints:</strong>
+- Mobile: &lt;768px
+- Tablet: 768px–1024px
+- Desktop: &gt;1024px
+- Large desktop: &gt;1440px</p>
+<hr />
+<h2 id="performance">🚀 Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
+<h3 id="optimized-for-speed">Optimized for Speed<a class="headerlink" href="#optimized-for-speed" title="Permanent link">&para;</a></h3>
+<p><strong>Frontend Optimizations:</strong>
+- Code splitting by route, with every page lazily loaded behind its own error boundary
+- Explicitly grouped vendor bundles, so the framework can never be dragged into a large feature chunk and onto the initial load path
+- Each language is its own chunk, cached separately — a user downloads the one language they use, not all eight
+- CSS and JavaScript minification, tree shaking
+- Service worker caching</p>
+<p><strong>React 19 Compiler:</strong>
+- Automatic memoization
+- No manual optimization needed
+- Faster rendering, with untouched rows skipped entirely on a realtime update</p>
+<p><strong>Deliberate Mobile Trade-Offs:</strong>
+- Expensive backdrop-blur effects removed from map controls, popovers and dialogs
+- Always-on GPU layer promotion removed from long virtualized lists, cutting memory pressure and scroll jank
+- Grid status animations play only when a status actually changes, so opening a 300-unit map no longer plays 300 animations at once
+- Health-check polling and the expiry countdown were both slowed on devices that cannot report their network state — frequent timers keep the mobile radio awake, which is the dominant battery cost on those phones</p>
+<p><strong>Fewer Round Trips:</strong>
+- Opening a publisher link is a <strong>single</strong> request that returns the expiry, the publisher, the map, the congregation's policy, the household options and all the addresses
+- Map marker state is fetched in one bulk request instead of one per marker
+- Map sequence changes are saved in one batched call
+- Every list request asks for only the fields it needs
+- Superseded requests are cancelled cleanly instead of surfacing spurious errors</p>
+<p><strong>Backend Optimizations:</strong>
+- Purpose-built composite indexes on the tables that matter — and six redundant single-column indexes were <strong>removed</strong> after verification against a copy of production data with over 1.1 million addresses, reclaiming roughly 27 MB and removing six index writes from every address insert
+- Query optimization
+- Congregation link-expiry lookups are cached, and the cache is invalidated whenever the setting changes — including a change made directly in the admin console
+- Transaction batching
+- Gzip compression</p>
+<p><strong>Caching Strategy:</strong>
+- Browser caching (static assets)
+- Service worker (offline assets)
+- CDN edge caching
+- Local caches on the device for the address list and the publisher link payload</p>
+<hr />
+<h2 id="api-integration">🔌 API &amp; Integration<a class="headerlink" href="#api-integration" title="Permanent link">&para;</a></h2>
+<h3 id="restful-api-sse">RESTful API + SSE<a class="headerlink" href="#restful-api-sse" title="Permanent link">&para;</a></h3>
+<p><strong>API Features:</strong>
+- RESTful endpoints — the PocketBase collection API, plus <strong>20 purpose-built routes</strong> (19 POST and one GET health check)
+- JSON payloads
+- Token-based authentication for accounts, and the link header for publishers
+- Pagination support
+- Filtering and sorting, with results pruned server-side to the caller's scope
+- Rate limiting
+- CORS support
+- An unauthenticated database health endpoint intended for platform health checks</p>
+<p><strong>SSE (Server-Sent Events):</strong>
+- Real-time subscriptions
+- Automatic reconnection
+- Low latency
+- Event-driven updates
+- Note for self-hosters: a reverse proxy in front of the app must have response buffering <strong>disabled</strong>, or realtime events will be held back</p>
+<p><strong>Integration Options:</strong>
+- PocketBase SDK (JavaScript/TypeScript)
+- Direct HTTP requests
+- SSE client
+- OAuth2 integration</p>
+<hr />
+<h2 id="data-management">📊 Data Management<a class="headerlink" href="#data-management" title="Permanent link">&para;</a></h2>
+<h3 id="robust-data-layer">Robust Data Layer<a class="headerlink" href="#robust-data-layer" title="Permanent link">&para;</a></h3>
+<p><strong>Database:</strong> SQLite via PocketBase — a single file that holds the entire application state</p>
+<p><strong>Features:</strong>
+- ACID transactions
+- Foreign key constraints
+- Cascade deletes
+- JSON field support, used for coordinates and for cached progress aggregates
+- Schema defined as one authoritative snapshot, applied automatically when the server starts</p>
+<p><strong>Backups:</strong>
+- PocketBase's built-in backup feature can create a full snapshot of the database and uploaded files, from the admin console (<strong>Settings → Backups</strong>) or over the API
+- Backups are <strong>manual or externally scheduled</strong> — nothing in Ministry Mapper takes backups on its own, so a self-hoster must decide when they run and where they are kept
+- Restoring is likewise done through the same built-in mechanism</p>
+<p><strong>Data Import/Export:</strong>
+- Excel export (activity reports)
+- JSON export via the API
+- Backup and restore through PocketBase</p>
+<p><strong>Data Integrity:</strong>
+- Referential integrity
+- Validation rules with clear, non-probing error messages
+- Unique constraints
+- Address ordering is validated on write, so two addresses can no longer end up sharing a column position — a condition that used to make one of them vanish from the Excel export
+- A maintenance command can find and repair historical ordering conflicts, running as a dry run unless explicitly told to apply changes</p>
+<hr />
+<h2 id="roadmap">🎯 Roadmap<a class="headerlink" href="#roadmap" title="Permanent link">&para;</a></h2>
+<h3 id="under-consideration">Under Consideration<a class="headerlink" href="#under-consideration" title="Permanent link">&para;</a></h3>
+<p>The list below is a set of ideas, deliberately undated. Ministry Mapper is developed alongside real congregation use, and priorities follow what congregations actually ask for.</p>
+<ul>
+<li>Push notifications</li>
+<li>CSV import and export</li>
+<li>Advanced filtering and custom report layouts</li>
+<li>Print layouts for congregations that still want paper as a fallback</li>
+<li>Native mobile applications</li>
+<li>Webhook integrations</li>
+<li>Custom address fields</li>
+<li>Multi-congregation hierarchies for circuits</li>
+</ul>
+<p><strong>Already shipped, previously on this roadmap:</strong>
+- ✅ AI-generated insights and summaries — see <strong>AI-Generated Summaries</strong> above
+- ✅ Offline queueing of publisher updates — see <strong>Connectivity, Offline Behaviour &amp; Smart Sync</strong>
+- ✅ Installable app (PWA), with reliable update detection
+- ✅ Colour themes
+- ✅ Tamil interface language</p>
+<hr />
+<h2 id="documentation-support">📚 Documentation &amp; Support<a class="headerlink" href="#documentation-support" title="Permanent link">&para;</a></h2>
+<h3 id="comprehensive-resources">Comprehensive Resources<a class="headerlink" href="#comprehensive-resources" title="Permanent link">&para;</a></h3>
+<p><strong>Documentation:</strong>
+- <a href="../getting-started/">Getting Started</a>
+- <a href="../user-guide/">User Guide</a>
+- <a href="../architecture/">Architecture</a>
+- <a href="../deployment/">Deployment Guide</a>
+- <a href="../faq/">FAQ</a></p>
+<p><strong>Support Channels:</strong>
+- GitHub Issues
+- Email support (hosted service)
+- Documentation site
+- In-app release notes</p>
+<hr />
+<h2 id="conclusion">✅ Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper provides a complete, modern solution for digital territory management with:</p>
+<ul>
+<li>✅ Comprehensive territory and address management</li>
+<li>✅ Real-time collaboration over Server-Sent Events</li>
+<li>✅ Three congregation roles plus secure, expiring publisher links</li>
+<li>✅ Support for 8 interface languages</li>
+<li>✅ Installable web app with offline queueing for publisher updates</li>
+<li>✅ Automated reporting, digests and optional AI summaries</li>
+<li>✅ Interactive mapping, routing and location capture</li>
+<li>✅ Audited, lifecycle-managed access control</li>
+<li>✅ Open-source and self-hostable</li>
+<li>✅ Active development and support</li>
+</ul>
+<p><strong>Ready to get started?</strong>
+- <a href="../getting-started/">Quick Start Guide</a>
+- <a href="https://ministry-mapper.com">Ministry Mapper hosted service</a>
+- <a href="../deployment/">Self-Host Instructions</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

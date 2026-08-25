@@ -1,0 +1,4120 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete guide for setting up and using Ministry Mapper, a digital territory management system">
+      
+      
+        <meta name="author" content="Ministry Mapper Team">
+      
+      
+        <link rel="canonical" href="https://docs.ministry-mapper.com/data-models/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Data Models & Schema - Ministry Mapper Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-models-schema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Ministry Mapper Documentation" class="md-header__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ministry Mapper Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Models & Schema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../architecture/" class="md-tabs__link">
+          
+  
+  
+  Technical Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../deployment/" class="md-tabs__link">
+          
+  
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Ministry Mapper Documentation" class="md-nav__button md-logo" aria-label="Ministry Mapper Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.png" alt="logo">
+
+    </a>
+    Ministry Mapper Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Ministry Mapper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Documentation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models & Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entity-relationship-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entity Relationship Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Collections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-congregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Congregations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Addresses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Addresses Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-assignments-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Assignments Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-roles-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Roles Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-address-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Address Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytics Collections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analytics Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pocketbase-system-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PocketBase System Collections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-technology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Technology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Index Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dropped-redundant-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dropped Redundant Indexes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deliberately-kept-addressesidx_4xbudipskj-source-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliberately Kept: addresses.idx_4xBUDiPsKJ (source, created)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freelist-and-vacuum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Freelist and VACUUM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Business Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Business Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#progress-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progress Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Address Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-update-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Update Triggers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration &amp; Schema Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration &amp; Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migration-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../self-hosting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Self-Hosting Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../frontend-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frontend Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terms-of-service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entity-relationship-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entity Relationship Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Collections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-congregations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Congregations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Addresses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Roles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Assignments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-addresses-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Addresses Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-assignments-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Assignments Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-roles-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Roles Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-address-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Address Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analytics-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analytics Collections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analytics Collections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#analytics_territories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_territories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_daily_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_daily_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_not_home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_not_home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics_user_audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        analytics_user_audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pocketbase-system-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PocketBase System Collections
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-technology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Technology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Index Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Index Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dropped-redundant-indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dropped Redundant Indexes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deliberately-kept-addressesidx_4xbudipskj-source-created" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deliberately Kept: addresses.idx_4xBUDiPsKJ (source, created)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freelist-and-vacuum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Freelist and VACUUM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Relationships
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#business-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Business Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Business Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#progress-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progress Calculation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Address Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-update-triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Update Triggers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-schema-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration &amp; Schema Updates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration &amp; Schema Updates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migration-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-models-schema">Data Models &amp; Schema<a class="headerlink" href="#data-models-schema" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper uses SQLite via PocketBase with a hierarchical data model designed for multi-tenant congregation management. This document provides comprehensive documentation of all data models, relationships, and business rules.</p>
+<p>The schema is defined by a single generated snapshot migration, <code>migrations/1777788260_collections_snapshot.go</code>, plus a small number of follow-up migrations (see <a href="#migration-schema-updates">Migration &amp; Schema Updates</a>).</p>
+<p><strong>Collection counts.</strong> The snapshot defines <strong>21 collections</strong>: 5 PocketBase system collections, 11 application collections and 5 analytics views. A later migration adds the two audit-log collections <code>assignments_log</code> and <code>roles_log</code>, so the running system has <strong>23 collections: 13 application + 5 analytics views + 5 PocketBase system</strong>.</p>
+<h2 id="entity-relationship-diagram">Entity Relationship Diagram<a class="headerlink" href="#entity-relationship-diagram" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Congregation (Root entity - multi-tenant isolation)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    │
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├─── Territory (1:M)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    │      │
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    │      └─── Map (1:M)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    │             │
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    │             ├─── Address (1:M)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    │             │      ├─── addresses_log (1:M)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    │             │      └─── address_options (1:M)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    │             ├─── Assignment (1:M)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    │             │      └─── assignments_log (1:M)
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    │             └─── Message (1:M)
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    │
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    ├─── Option (1:M)
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    │      └─── address_options (M:M bridge with Address)
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    │
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    ├─── User (1:M via Role)
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    │      │
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    │      ├─── Role (1:M)
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    │      │      └─── roles_log (1:M)
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    │      └─── Assignment (1:M)
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    │
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    └─── Message (1:M)
+</code></pre></div>
+<p>Progress and per-status counts are <strong>not</strong> a separate collection: they live in the <code>aggregates</code> JSON column on <code>maps</code> and in the <code>progress</code> number column on <code>maps</code> and <code>territories</code>.</p>
+<h2 id="core-collections">Core Collections<a class="headerlink" href="#core-collections" title="Permanent link">&para;</a></h2>
+<p>There are 13 application collections. Three of them are audit logs - <code>addresses_log</code>, <code>assignments_log</code> and <code>roles_log</code>. <strong>There is no collection named <code>audit_logs</code>.</strong></p>
+<p>In the field tables below, <strong>Required</strong> describes whether the application always populates the field. At the PocketBase schema level only record ids, <code>users.password</code>, <code>users.tokenKey</code>, <code>users.name</code> and <code>addresses.code</code> actually carry the <code>required</code> flag.</p>
+<h3 id="1-congregations">1. Congregations<a class="headerlink" href="#1-congregations" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Central entity for multi-tenant isolation and organization settings</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Organization code</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Organization name</td>
+</tr>
+<tr>
+<td><code>expiry_hours</code></td>
+<td>number</td>
+<td>Yes</td>
+<td>Assignment link duration (hours)</td>
+</tr>
+<tr>
+<td><code>max_tries</code></td>
+<td>number</td>
+<td>Yes</td>
+<td>"Not home" attempts after which an address counts as completed</td>
+</tr>
+<tr>
+<td><code>origin</code></td>
+<td>select</td>
+<td>Yes</td>
+<td>Country/region code (single select, 13 values)</td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>select</td>
+<td>Yes</td>
+<td>IANA timezone for date calculations (single select, 20 values)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Origin Values (13):</strong>
+<code>us</code>, <code>cn</code>, <code>in</code>, <code>mx</code>, <code>eg</code>, <code>sa</code>, <code>bd</code>, <code>br</code>, <code>id</code>, <code>jp</code>, <code>kr</code>, <code>sg</code>, <code>my</code></p>
+<p><strong>Timezone Values (20 IANA zones):</strong>
+<code>America/New_York</code>, <code>America/Chicago</code>, <code>America/Denver</code>, <code>America/Los_Angeles</code>, <code>America/Mexico_City</code>, <code>America/Sao_Paulo</code>, <code>Asia/Shanghai</code>, <code>Asia/Kolkata</code>, <code>Asia/Dhaka</code>, <code>Asia/Jakarta</code>, <code>Asia/Tokyo</code>, <code>Asia/Seoul</code>, <code>Asia/Singapore</code>, <code>Asia/Kuala_Lumpur</code>, <code>Asia/Riyadh</code>, <code>Asia/Dubai</code>, <code>Africa/Cairo</code>, <code>Africa/Johannesburg</code>, <code>Australia/Sydney</code>, <code>Pacific/Auckland</code></p>
+<p><strong>Indexes:</strong>
+- None. Congregation records are always fetched by primary key.</p>
+<p><strong>Access Rules:</strong>
+- <strong>List:</strong> Superuser only (<code>listRule</code> is <code>null</code>)
+- <strong>View:</strong> User with role in the congregation OR valid link-based access
+- <strong>Update:</strong> Administrator
+- <strong>Create/Delete:</strong> Superuser only</p>
+<p><strong>Business Rules:</strong>
+- Controls default assignment link duration for all maps in the congregation
+- <code>max_tries</code> determines when a "not home" address counts as completed
+- Timezone affects date-based calculations and reports
+- Updating <code>expiry_hours</code> invalidates the in-memory expiry cache through an after-update hook</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONG001"</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"North Congregation"</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">"expiry_hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">"max_tries"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">"origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sg"</span><span class="p">,</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asia/Singapore"</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="2-territories">2. Territories<a class="headerlink" href="#2-territories" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Geographic divisions within congregation for organizing field service</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Territory identifier (auto: "0")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>No</td>
+<td>Human-readable description</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>Auto</td>
+<td>Completion percentage, integer 0-100</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>No</td>
+<td>Optional territory centre, <code>null</code> or <code>{"lat": &lt;float&gt;, "lng": &lt;float&gt;}</code></td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexes:</strong>
+- <code>(congregation, code)</code> - Lookup by congregation and code</p>
+<p>The single-column <code>(congregation)</code> index was dropped as a redundant prefix of <code>(congregation, code)</code>. See <a href="#index-strategy">Index Strategy</a>.</p>
+<p><strong>Relationships:</strong>
+- 1:M with Maps
+- 1:M with Addresses (denormalized for performance)</p>
+<p><strong>Access Rules:</strong>
+- <strong>List:</strong> Authenticated user, filter must name a <code>congregation</code>; results are pruned to congregations the caller holds a role in
+- <strong>View:</strong> Authenticated user, filter must name a <code>user</code>
+- <strong>Create/Update/Delete:</strong> Administrator
+- <strong>Reset/Delete via endpoints:</strong> <code>/territory/reset</code> and <code>/territory/delete</code> accept Administrator <strong>or</strong> Conductor</p>
+<p><strong>Progress Calculation:</strong>
+Derived from the map <code>aggregates</code> of all maps in the territory. See <a href="#business-rules">Business Rules</a>.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terr_abc"</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Downtown District"</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="nt">"progress"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3521</span><span class="p">,</span><span class="w"> </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">103.8198</span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="3-maps">3. Maps<a class="headerlink" href="#3-maps" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Represents specific locations or buildings containing addresses</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Territories (cascade delete)</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>Yes</td>
+<td>Display order within the territory (integer)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Map identifier/number (auto: "0")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>No</td>
+<td>Location description (plain string or localized object)</td>
+</tr>
+<tr>
+<td><code>progress</code></td>
+<td>number</td>
+<td>Auto</td>
+<td>Completion percentage</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>Yes</td>
+<td><code>single</code> or <code>multi</code> (floor type)</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>No</td>
+<td><code>null</code> or <code>{"lat": &lt;float&gt;, "lng": &lt;float&gt;}</code></td>
+</tr>
+<tr>
+<td><code>aggregates</code></td>
+<td>JSON</td>
+<td>Auto</td>
+<td>Cached per-status counts (max 2MB)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexes:</strong>
+- <code>(territory, code)</code> - Primary lookup
+- <code>(territory, sequence)</code> - Ordering within a territory
+- <code>(congregation)</code> - Congregation-wide map listing</p>
+<p>The single-column <code>(territory)</code> index was dropped as a redundant prefix of <code>(territory, sequence)</code>. See <a href="#index-strategy">Index Strategy</a>.</p>
+<p><strong>Cascade Deletes:</strong>
+- Addresses
+- Assignments
+- Messages</p>
+<p><strong>Localized Description:</strong>
+<code>description</code> may hold either a plain string or a <code>{lang: value}</code> object. When it is an object the backend resolves it with a fallback chain: exact locale, then the base subtag (<code>zh-TW</code> to <code>zh</code>), then <code>en</code>, then the first available value.</p>
+<p><strong>Aggregates Structure (a contract, not an internal detail):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"notDone"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"done"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">"notHome"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">"invalid"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">"dnc"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">87</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>These seven keys are <strong>camelCase on purpose</strong>, unlike the snake_case used for every other field name in the schema. The shape is a contract in two places:</p>
+<ul>
+<li>Territory progress is computed by SUMming <code>$.completed</code> and <code>$.total</code> out of this JSON across the territory's maps. Renaming or removing either key silently breaks territory progress - no error is raised, the percentage simply stops being correct.</li>
+<li><code>analytics_maps</code> reads <code>$.done</code>, <code>$.notDone</code>, <code>$.notHome</code>, <code>$.dnc</code> and <code>$.invalid</code> with <code>json_extract</code>, so the reporting layer breaks the same silent way.</li>
+</ul>
+<p><strong>Map Types:</strong>
+- <strong>single</strong>: Private addresses (landed houses)
+- <strong>multi</strong>: Public addresses (multi-floor buildings)</p>
+<p><strong>Access Rules:</strong>
+- <strong>List:</strong> Authenticated user, filter must name a <code>territory</code> or <code>congregation</code>; results are pruned to congregations the caller holds a role in
+- <strong>View:</strong> User with role in the map's congregation OR valid link for that map
+- <strong>Create:</strong> <code>/map/add</code> endpoint (Administrator)
+- <strong>Update/Delete:</strong> Administrator</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map_xyz"</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">"territory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terr_abc"</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">"sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Main Street Apartments"</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multi"</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3521</span><span class="p">,</span><span class="w"> </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">103.8198</span><span class="p">},</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nt">"aggregates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nt">"notDone"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">"done"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">"notHome"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nt">"invalid"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="nt">"dnc"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nt">"completed"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">  </span><span class="nt">"progress"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="4-addresses">4. Addresses<a class="headerlink" href="#4-addresses" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Individual units or households within maps</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (denormalized, cascade delete)</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Territories (denormalized, cascade delete)</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Maps (cascade delete)</td>
+</tr>
+<tr>
+<td><code>floor</code></td>
+<td>number</td>
+<td>Yes</td>
+<td>Floor number (0-based)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Unit/door code, min 1 char, pattern <code>^[a-zA-Z0-9-]+$</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>select</td>
+<td>Yes</td>
+<td>Address visit status</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>Yes</td>
+<td>Column order within the map</td>
+</tr>
+<tr>
+<td><code>not_home_tries</code></td>
+<td>number</td>
+<td>Auto</td>
+<td>Counter for "not home" attempts</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>text</td>
+<td>No</td>
+<td>Field worker notes</td>
+</tr>
+<tr>
+<td><code>last_notes_updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>When notes last changed (via hook)</td>
+</tr>
+<tr>
+<td><code>last_notes_updated_by</code></td>
+<td>text</td>
+<td>Auto</td>
+<td>Name of last note updater (via hook)</td>
+</tr>
+<tr>
+<td><code>dnc_time</code></td>
+<td>date</td>
+<td>No</td>
+<td>When marked "do not call"</td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>JSON</td>
+<td>No</td>
+<td><code>null</code> or <code>{"lat": &lt;float&gt;, "lng": &lt;float&gt;}</code></td>
+</tr>
+<tr>
+<td><code>updated_by</code></td>
+<td>text</td>
+<td>Auto</td>
+<td>Server-derived name of the last updater</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>select</td>
+<td>No</td>
+<td>How the address was created</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>text</td>
+<td>Auto</td>
+<td>Server-derived name of the creator</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p>There is <strong>no</strong> <code>type</code> field on <code>addresses</code>. Household options are linked through the <code>address_options</code> junction collection.</p>
+<p><strong>Status Values:</strong>
+- <code>not_done</code> - Not yet visited (initial state)
+- <code>done</code> - Successfully completed
+- <code>not_home</code> - No one home (can retry)
+- <code>do_not_call</code> - Excluded from work
+- <code>invalid</code> - Address doesn't exist</p>
+<p><strong>Source Values:</strong>
+- <code>app</code> - Created by a publisher or administrator in the app
+- <code>admin</code> - Created through an administrative action
+- <code>map_init</code> - Created when the map was initialized
+- <code>floor_copy</code> - Created by copying an existing floor</p>
+<p><strong>Coordinates:</strong>
+<code>coordinates</code> is a single JSON column, shaped either <code>null</code> or <code>{"lat": &lt;float&gt;, "lng": &lt;float&gt;}</code>. There are <strong>no</strong> <code>latitude</code> / <code>longitude</code> columns anywhere in the schema.</p>
+<ul>
+<li><code>/address/update</code> and <code>/address/add</code> accept the value as raw JSON. An empty value or the literal <code>null</code> clears the field; anything else is stored verbatim.</li>
+<li>Read endpoints return it as raw JSON or <code>null</code>.</li>
+<li>The column has existed since the first backend commit, which is why the app's "capture this house's location from the device" feature needed <strong>no migration</strong> - it simply started populating a field that was already there.</li>
+<li><code>maps.coordinates</code> and <code>territories.coordinates</code> are separate fields of the same shape.</li>
+</ul>
+<p><strong>Indexes:</strong>
+- <code>(code, map)</code> - Code lookup within a map
+- <code>(floor, map)</code> - Floor organization
+- <code>(map, status)</code> - Status distribution queries and map filtering
+- <code>(territory, status)</code> - Territory-wide status
+- <code>(source, created)</code> - New-address notification job</p>
+<p>The single-column <code>(map)</code> index was dropped as a redundant prefix of <code>(map, status)</code>. See <a href="#index-strategy">Index Strategy</a>.</p>
+<p><strong>Auto Hooks:</strong>
+- A pre-save hook stamps <code>last_notes_updated</code> and <code>last_notes_updated_by</code> when <code>notes</code> changed
+- An after-update hook writes an <code>addresses_log</code> row for the status change
+- An after-update hook recalculates the map <code>aggregates</code> and rolls the result up to the territory, <strong>in real time</strong> - there is no aggregate cron job. Bulk operations set a <code>bulk_reset:&lt;mapID&gt;</code> flag in the application store to suppress per-address recalculation and then recalculate once at the end.
+- A <code>not_home_tries</code> increment on a <code>not_home</code> address triggers both the audit log and the aggregate recalculation even though the status string did not change, because the aggregate bucket moves.</p>
+<p><strong>Access Rules:</strong>
+- <strong>List:</strong> Authenticated user <strong>or</strong> valid <code>link-id</code>; the filter must name a <code>map</code> and explicit <code>fields</code>. Link holders may name exactly one map, and it must be the linked map. Results are additionally pruned server-side to the caller's authorized maps.
+- <strong>View/Create/Update/Delete:</strong> Superuser only at the collection API level (all four rules are <code>null</code>).
+- <strong>Application writes:</strong> every mutation goes through the custom endpoints - <code>/address/update</code> and <code>/address/add</code> (valid <code>link-id</code> or any congregation role), and the administrator-only map endpoints for structural changes (<code>/map/code/add</code>, <code>/map/codes/update</code>, <code>/map/code/delete</code>, <code>/map/floor/add</code>, <code>/map/floor/remove</code>, <code>/map/reset</code>).
+- <code>updated_by</code> and <code>created_by</code> cannot be supplied by a client; the server derives the actor from the JWT user's name or, for link access, from the assignment's <code>publisher</code> field.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addr_123"</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">"territory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terr_abc"</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map_xyz"</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">"floor"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201"</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_home"</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nt">"sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">"not_home_tries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Try after 6pm"</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="nt">"last_notes_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-19T14:30:00Z"</span><span class="p">,</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nt">"last_notes_updated_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="nt">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3521</span><span class="p">,</span><span class="w"> </span><span class="nt">"lng"</span><span class="p">:</span><span class="w"> </span><span class="mf">103.8198</span><span class="p">},</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="nt">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app"</span><span class="p">,</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="nt">"updated_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="5-users">5. Users<a class="headerlink" href="#5-users" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> System user accounts with authentication</p>
+<p><strong>Type:</strong> Auth collection (PocketBase user-auth-type), 17 fields</p>
+<p><strong>System Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>email</td>
+<td>Yes</td>
+<td>Login identity (unique where non-empty)</td>
+</tr>
+<tr>
+<td><code>emailVisibility</code></td>
+<td>bool</td>
+<td>Auto</td>
+<td>Whether email is public (set true on create)</td>
+</tr>
+<tr>
+<td><code>verified</code></td>
+<td>bool</td>
+<td>Auto</td>
+<td>Email verification status</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>password</td>
+<td>Yes</td>
+<td>Bcrypt hashed (cost: 10, min 6 chars)</td>
+</tr>
+<tr>
+<td><code>tokenKey</code></td>
+<td>text</td>
+<td>Hidden</td>
+<td>Token generation key (30-60 chars)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Custom Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Display name (2-50 chars)</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td>bool</td>
+<td>No</td>
+<td>Account disabled flag</td>
+</tr>
+<tr>
+<td><code>last_login</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last authentication timestamp (via hook)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+<tr>
+<td><code>unprovisioned_since</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>When the user was first seen with no role rows</td>
+</tr>
+<tr>
+<td><code>unprovisioned_warning_sent_at</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Unprovisioned warning stamp</td>
+</tr>
+<tr>
+<td><code>unprovisioned_final_warning_sent_at</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Unprovisioned final warning stamp</td>
+</tr>
+<tr>
+<td><code>admin_alerted_at</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>When superusers were alerted about the account</td>
+</tr>
+<tr>
+<td><code>inactive_warning_sent_at</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Inactivity warning stamp</td>
+</tr>
+<tr>
+<td><code>inactive_final_warning_sent_at</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Inactivity final warning stamp</td>
+</tr>
+</tbody>
+</table>
+<p>The six lifecycle date fields drive the daily unprovisioned-user and inactive-user jobs. A successful login clears both inactivity stamps.</p>
+<p><strong>Name Validation Pattern:</strong>
+<code>^[A-Za-z][\w\s\.\-']*$</code> (starts with letter, allows word chars, spaces, dots, hyphens, apostrophes)</p>
+<p><strong>Autogen Pattern:</strong>
+<code>user[0-9]{5}[A-Za-z]</code> (e.g., user12345A)</p>
+<p><strong>Indexes:</strong>
+- <code>email</code> (unique, partial: <code>WHERE email != ''</code>) - Fast auth lookup
+- <code>tokenKey</code> (unique) - Token validation</p>
+<p><strong>Auth Configuration:</strong>
+- <strong>Password Auth:</strong> Enabled, identity field <code>email</code> (min 6 chars, bcrypt cost 10)
+- <strong>OAuth2:</strong> Google PKCE flow
+  - Maps <code>name</code> from OAuth provider
+  - Auto-creates user on first login
+- <strong>MFA:</strong> Enabled (duration: 1800s) with rule <code>@request.context != 'oauth2'</code> - so MFA is skipped for OAuth2 sign-in
+- <strong>OTP:</strong> Enabled (duration: 180s, length: <strong>4 digits</strong>)
+- <strong>Auth Token:</strong> Duration 1209600s (14 days)
+- <strong>Verify Email:</strong> Duration 604800s (7 days)
+- <strong>Password Reset:</strong> Duration 1800s (30 min)
+- <strong>Email Change:</strong> Duration 1800s (30 min)
+- <strong>Auth Alert:</strong> Enabled (notifies on login from new location)</p>
+<p><strong>MFA/OTP - two switches, both real:</strong>
+Documentation elsewhere shows <code>PB_OTP_ENABLED=false</code> and <code>PB_MFA_ENABLED=false</code>, which looks like it contradicts the "Enabled" above. Both statements are true, because two different mechanisms write the same setting:</p>
+<ol>
+<li>The collection snapshot ships the <code>users</code> collection with <strong>MFA and OTP enabled</strong>, together with the durations and the 4-digit OTP length listed above. This is the state a database gets from importing the snapshot.</li>
+<li>The <code>initial_user_auth.go</code> migration then sets <code>users.OTP.Enabled</code> and <code>users.MFA.Enabled</code> from <code>PB_OTP_ENABLED</code> / <code>PB_MFA_ENABLED</code>, which <strong>default to false</strong>. The comparison is against the literal string <code>"true"</code>, so <code>TRUE</code>, <code>True</code> and <code>1</code> do not enable anything.</li>
+</ol>
+<p>Because that migration is one of the <code>initial_*.go</code> files, it runs <em>after</em> the snapshot (see <a href="#migration-schema-updates">Migration &amp; Schema Updates</a>) and therefore wins. Like every env var read inside a migration, it only takes effect on the <strong>first</strong> migration run against a given database; changing it later has no effect until the setting is changed in the admin UI.</p>
+<p><strong>There is no TOTP and there are no backup codes.</strong> PocketBase MFA here is email one-time-password: a 4-digit code, valid for 180 seconds, delivered by email.</p>
+<p><strong>Access Rules:</strong>
+- <strong>List:</strong> Administrator (in any congregation). The collection rule additionally restricts listing to <code>email~</code> / <code>name~</code> searches on verified users with an explicit <code>fields</code> parameter.
+- <strong>View:</strong> Own record always; otherwise Administrator
+- <strong>Create:</strong> Public - either an OAuth2 context, or a body carrying <code>email</code>, <code>name</code> and <code>password</code>
+- <strong>Update:</strong> Self only
+- <strong>Delete:</strong> Superuser only</p>
+<p><strong>File Token:</strong> 120s duration</p>
+<p><strong>Relationships:</strong>
+- 1:M with Roles
+- 1:M with Assignments</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_abc"</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">  </span><span class="nt">"disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">"last_login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-19T14:30:00Z"</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="6-roles">6. Roles<a class="headerlink" href="#6-roles" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Permission assignments linking users to congregations</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Users (cascade delete)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>select</td>
+<td>Yes</td>
+<td>Permission level (single select)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Role Values - there are exactly three:</strong>
+- <code>read_only</code> - View only access
+- <code>conductor</code> - Can manage assignments, addresses and territory resets
+- <code>administrator</code> - Full access</p>
+<p>This collection is the authoritative definition of what a "role" is in Ministry Mapper. <strong><code>publisher</code> is not a role and has no <code>roles</code> row.</strong> A publisher is someone holding a valid assignment link: the credential is the <code>link-id</code> header, whose value is an <code>assignments</code> record id, and it comes with no user account and no login. So the system has <strong>three congregation roles plus one link-based access path</strong>, not four roles.</p>
+<p>The frontend keeps a separate client-side gating scale (<code>no_access: -1</code>, <code>read_only: 1</code>, <code>publisher: 2</code>, <code>conductor: 2</code>, <code>administrator: 3</code>). That is UI gating, not schema - <code>publisher</code> there is the level a link holder is treated as. There is likewise no "no access" or "delete access" role: removing someone's access means deleting their <code>roles</code> row.</p>
+<p><strong>Indexes:</strong>
+- <code>(congregation, role)</code> - Role distribution within a congregation
+- <code>(user, congregation, role)</code> - Covering index for the per-user role lookup</p>
+<p>The <code>(user)</code> and <code>(user, congregation)</code> indexes were dropped as redundant prefixes of <code>(user, congregation, role)</code>. See <a href="#index-strategy">Index Strategy</a>.</p>
+<p><strong>Access Rules:</strong>
+- <strong>Create/Update/Delete:</strong> Administrator
+- <strong>List:</strong> Authenticated user; with <code>congregation=</code> filters the caller must hold a role in each, and a <code>user=</code> filter is allowed only for the caller's own id
+- <strong>View:</strong> Superuser only (<code>viewRule</code> is <code>null</code>); role data reaches clients through the list endpoint</p>
+<p><strong>Relationships:</strong>
+- M:N between Users and Congregations
+- Every create, role change and revocation writes a <code>roles_log</code> row</p>
+<p><strong>Business Rules:</strong>
+- One role per user per congregation
+- Role determines permissions for all actions
+- Deleting a user's last role stamps <code>users.unprovisioned_since</code> and clears the unprovisioned warning stamps, restarting the grace period</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"role_xyz"</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_abc"</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conductor"</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="7-assignments">7. Assignments<a class="headerlink" href="#7-assignments" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Publisher access tokens for time-limited map access</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(25)</td>
+<td>Yes</td>
+<td><strong>Serves as the anonymous access token</strong>, 25 chars matching <code>[a-zA-Z0-9]</code></td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Maps (cascade delete)</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>No</td>
+<td>Publisher user (optional, no cascade delete)</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>Yes</td>
+<td>Assignment classification</td>
+</tr>
+<tr>
+<td><code>expiry_date</code></td>
+<td>date</td>
+<td>Yes</td>
+<td>Automatic expiry timestamp</td>
+</tr>
+<tr>
+<td><code>publisher</code></td>
+<td>text</td>
+<td>No</td>
+<td>Publisher name/identifier</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assignment Types:</strong>
+- <code>normal</code> - Regular territory work
+- <code>personal</code> - Personal ministry territory</p>
+<p><strong>Indexes:</strong>
+- <code>(expiry_date)</code> - For the background cleanup job
+- <code>(user, created)</code> - User assignment history
+- <code>(map, expiry_date)</code> - Expiry check per map</p>
+<p>The single-column <code>(map)</code> index was dropped as a redundant prefix of <code>(map, expiry_date)</code>. See <a href="#index-strategy">Index Strategy</a>.</p>
+<p><strong>Access Rules:</strong>
+- <strong>Create/Delete:</strong> Administrator or Conductor
+- <strong>View:</strong> User with a role in the assignment's congregation, OR a <code>link-id</code> equal to this record's id - a link may read only itself - and <code>expiry_date &gt; now</code>
+- <strong>List:</strong> Authenticated user; <code>map=</code> filters require authorization for every map named, and another user's history requires Administrator or Conductor somewhere</p>
+<p><strong>Workflow:</strong>
+1. A Conductor or Administrator creates the assignment via the <code>/territory/link</code> endpoint (any congregation role may mint a quicklink, but only for their own congregation's territory)
+2. The publisher receives the 25-character assignment id as the link token
+3. The publisher's requests carry that token as an HTTP header
+4. The server validates it in SQL on every request: <code>id = ? AND map = ? AND expiry_date &gt; datetime('now')</code>
+5. A background job deletes expired assignments every 5 minutes and writes an <code>expired</code> row to <code>assignments_log</code></p>
+<p><strong>Header Naming Trap:</strong>
+The same header has two spellings depending on where you are looking:</p>
+<table>
+<thead>
+<tr>
+<th>Context</th>
+<th>Spelling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Go handler code, and the header actually sent on the wire</td>
+<td><code>link-id</code> (hyphen)</td>
+</tr>
+<tr>
+<td>PocketBase API-rule expressions</td>
+<td><code>@request.headers.link_id</code> (underscore)</td>
+</tr>
+</tbody>
+</table>
+<p>PocketBase normalizes header names to underscores inside rule expressions, so both appear in the schema and both are correct in their own context. The realtime path accepts either spelling inside the subscription's <code>options.headers</code>. Realtime subscriptions do not inherit the header from the HTTP session, so it must be passed explicitly in the subscription options.</p>
+<p><strong>Precedence:</strong> a non-empty <code>link-id</code> decides the request on its own. If the link check fails the request is refused <strong>even when the caller also presented a valid administrator JWT</strong> - it never falls back to the role check. A link is scoped to exactly one map, and list or subscribe requests naming more than one map id are refused outright.</p>
+<p><strong>Audit Trail:</strong> creation and deletion write <code>assignments_log</code> rows with actions <code>assigned</code> and <code>unassigned</code>; cron-driven expiry writes <code>expired</code>.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"k3n8sq2vt7yb1dp9wx4gc6h0z"</span><span class="p">,</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map_xyz"</span><span class="p">,</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_abc"</span><span class="p">,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-20T14:30:00Z"</span><span class="p">,</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">"publisher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="8-options">8. Options<a class="headerlink" href="#8-options" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Household type classifications (customizable per congregation)</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Option identifier (e.g., "RES", "BUS")</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Human-readable label</td>
+</tr>
+<tr>
+<td><code>is_countable</code></td>
+<td>bool</td>
+<td>Yes</td>
+<td>Include in progress calculations</td>
+</tr>
+<tr>
+<td><code>is_default</code></td>
+<td>bool</td>
+<td>Yes</td>
+<td>Default option for new addresses</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>number</td>
+<td>Yes</td>
+<td>Display/sort order (integer)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexes:</strong>
+- <code>(congregation, sequence)</code> - Ordering within congregation
+- <code>(congregation, is_default)</code> - Find default option</p>
+<p><strong>Constraints:</strong>
+- Exactly one <code>is_default = true</code> per congregation (enforced at application layer)
+- Codes unique per congregation
+- Sequences unique per congregation</p>
+<p><strong>Impact on Progress:</strong>
+- Only addresses carrying at least one countable option (<code>is_countable = true</code>) are counted in progress at all
+- Non-countable options are tracked but excluded from the progress calculation
+- When an option is deleted, affected addresses receive the congregation's default option</p>
+<p><strong>Access Rules:</strong>
+- <strong>List:</strong> Authenticated user or valid <code>link-id</code>; the filter must name a <code>congregation</code>
+- <strong>View:</strong> User with a role in the option's congregation, or a link valid for that congregation
+- <strong>Create/Update/Delete:</strong> <code>/options/update</code> endpoint (Administrator). All three collection-level rules are <code>null</code>.</p>
+<p><strong>Relationships:</strong>
+- M:M with Addresses through the <code>address_options</code> junction collection</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opt_res"</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RES"</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Residential"</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">"is_countable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">"sequence"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="9-messages">9. Messages<a class="headerlink" href="#9-messages" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Communications and notifications between users</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (cascade delete)</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Maps (cascade delete)</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Message content</td>
+</tr>
+<tr>
+<td><code>created_by</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Name of creator</td>
+</tr>
+<tr>
+<td><code>read</code></td>
+<td>bool</td>
+<td>Yes</td>
+<td>Whether read by administrator</td>
+</tr>
+<tr>
+<td><code>pinned</code></td>
+<td>bool</td>
+<td>Yes</td>
+<td>Admin pinned instruction flag</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>select</td>
+<td>Yes</td>
+<td>Intended recipient type</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Types:</strong>
+- <code>publisher</code> - From publishers to admins
+- <code>conductor</code> - From conductors
+- <code>administrator</code> - Admin instructions (can be pinned)</p>
+<p><strong>Indexes:</strong>
+- <code>(map, pinned, created)</code> - Recent pinned messages
+- <code>(map, type, pinned)</code> - Filter by recipient type and pin status
+- <code>(map, type, read)</code> - Unread count per type</p>
+<p><strong>Access Rules:</strong>
+- <strong>Create:</strong> Any congregation role OR valid link access
+- <strong>List:</strong> Authenticated user or valid <code>link-id</code>; the filter must name a <code>map</code>
+- <strong>Update/Delete:</strong> Administrator
+- <strong>View:</strong> Superuser only (<code>viewRule</code> is <code>null</code>); messages reach clients through the list endpoint</p>
+<p><strong>Background Processing (all cron times UTC):</strong>
+- <code>processMessages</code> at <code>:08</code> and <code>:38</code> - unread publisher messages emailed to administrators
+- <code>processInstructions</code> at <code>:18</code> and <code>:48</code> - pinned administrator instructions emailed to publishers
+- <code>processNotes</code> at <code>:28</code> - property note updates emailed to administrators</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"msg_abc"</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map_xyz"</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please revisit unit 205"</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="nt">"read"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="nt">"pinned"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"publisher"</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="10-addresses-log">10. Addresses Log<a class="headerlink" href="#10-addresses-log" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Audit trail of address status changes - every time an address status changes, a record is written here</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Addresses (no cascade delete)</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (no cascade delete)</td>
+</tr>
+<tr>
+<td><code>territory</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Territory id, stored as plain text</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Map id, stored as plain text</td>
+</tr>
+<tr>
+<td><code>old_status</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>Previous address status value</td>
+</tr>
+<tr>
+<td><code>new_status</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>New address status value</td>
+</tr>
+<tr>
+<td><code>changed_by</code></td>
+<td>text</td>
+<td>No</td>
+<td>Name of the actor, copied from <code>addresses.updated_by</code></td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp of the change</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><code>territory</code> and <code>map</code> are plain text, not relations, so log rows survive the deletion of the records they describe.</p>
+<p><strong>Indexes:</strong>
+- <code>(territory, created)</code> - Territory activity over time
+- <code>(map, created)</code> - Map activity over time</p>
+<p><strong>Relationships:</strong>
+- M:1 with Addresses (each log entry belongs to one address)
+- M:1 with Congregations</p>
+<p><strong>Write Rules:</strong>
+- Written by an after-update hook on <code>addresses</code>
+- Nothing is written when either status is empty
+- A row <strong>is</strong> written when the status is unchanged but <code>not_home_tries</code> increased on a <code>not_home</code> address, because the aggregate bucket moves</p>
+<p><strong>Access Rules:</strong>
+- <strong>All operations:</strong> Superuser only. Every collection rule (list, view, create, update, delete) is <code>null</code>.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"log_abc123"</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addr_123"</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="nt">"territory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terr_abc"</span><span class="p">,</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map_xyz"</span><span class="p">,</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="nt">"old_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_done"</span><span class="p">,</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span><span class="nt">"new_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_home"</span><span class="p">,</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="nt">"changed_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="11-assignments-log">11. Assignments Log<a class="headerlink" href="#11-assignments-log" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Audit trail of assignment link grants, revocations and expiries</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>assignment</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>The assignment id, stored as plain text</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (no cascade delete)</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Maps (no cascade delete)</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>No</td>
+<td>FK to Users (no cascade delete)</td>
+</tr>
+<tr>
+<td><code>publisher</code></td>
+<td>text</td>
+<td>No</td>
+<td>Publisher name recorded on the assignment</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>text</td>
+<td>No</td>
+<td>The assignment's <code>type</code> at the time of the action</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>What happened</td>
+</tr>
+<tr>
+<td><code>expiry_date</code></td>
+<td>date</td>
+<td>No</td>
+<td>The assignment's expiry at the time of the action</td>
+</tr>
+<tr>
+<td><code>changed_by</code></td>
+<td>relation</td>
+<td>No</td>
+<td>FK to Users - who performed the action</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp of the action</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action Values:</strong>
+- <code>assigned</code> - Link created
+- <code>unassigned</code> - Link deleted by a person
+- <code>expired</code> - Link removed by the 5-minute cleanup job</p>
+<p><strong>Indexes:</strong>
+- <code>(map, created)</code> - Assignment history per map
+- <code>(user, created)</code> - Assignment history per user</p>
+<p><strong>Write Rules:</strong>
+- Written by hooks on <code>assignments</code> create and delete, which run <strong>after</strong> the request succeeded, so a rejected request leaves no audit row
+- The expiry cleanup job writes its <code>expired</code> rows inside the cleanup transaction
+- <code>changed_by</code> is <code>""</code> when the actor is a superuser or the cron job. A superuser has no <code>users</code> record, and passing a superuser id into a relation pointing at <code>users</code> would fail validation and abort the audit write.</p>
+<p><strong>Access Rules:</strong>
+- <strong>All operations:</strong> Superuser only. Every collection rule is <code>null</code>.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alog_abc123"</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">"assignment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"k3n8sq2vt7yb1dp9wx4gc6h0z"</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map_xyz"</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_abc"</span><span class="p">,</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nt">"publisher"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assigned"</span><span class="p">,</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">  </span><span class="nt">"expiry_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-08-20T14:30:00Z"</span><span class="p">,</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">  </span><span class="nt">"changed_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_admin1"</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="12-roles-log">12. Roles Log<a class="headerlink" href="#12-roles-log" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Audit trail of role grants, changes and revocations</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (no cascade delete)</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Users - whose role changed (no cascade delete)</td>
+</tr>
+<tr>
+<td><code>old_role</code></td>
+<td>text</td>
+<td>No</td>
+<td>Role before the change</td>
+</tr>
+<tr>
+<td><code>new_role</code></td>
+<td>text</td>
+<td>No</td>
+<td>Role after the change</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td>text</td>
+<td>Yes</td>
+<td>What happened</td>
+</tr>
+<tr>
+<td><code>changed_by</code></td>
+<td>relation</td>
+<td>No</td>
+<td>FK to Users - who performed the action</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Timestamp of the action</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action Values:</strong>
+- <code>granted</code> - Role created; <code>new_role</code> is the new role
+- <code>changed</code> - Role updated; <code>old_role</code> is captured before the write
+- <code>revoked</code> - Role deleted; <code>old_role</code> is the removed role and <code>new_role</code> is <code>""</code></p>
+<p><strong>Indexes:</strong>
+- <code>(congregation, created)</code> - Role activity per congregation
+- <code>(user, created)</code> - Role history per user</p>
+<p><strong>Write Rules:</strong>
+- Written by hooks on <code>roles</code> create, update and delete, all running after the request succeeded
+- A no-op update where the old and new role are identical writes nothing
+- <code>changed_by</code> is <code>""</code> for superuser actors, for the same relation-validation reason as <code>assignments_log</code></p>
+<p><strong>Access Rules:</strong>
+- <strong>All operations:</strong> Superuser only. Every collection rule is <code>null</code>.</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rlog_abc123"</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span><span class="p">,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_abc"</span><span class="p">,</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nt">"old_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_only"</span><span class="p">,</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nt">"new_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conductor"</span><span class="p">,</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">  </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"changed"</span><span class="p">,</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span><span class="nt">"changed_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_admin1"</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="13-address-options">13. Address Options<a class="headerlink" href="#13-address-options" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Tracks which household options (from the <code>options</code> collection) apply to individual addresses - the junction table for the Address to Option many-to-many relationship</p>
+<p><strong>Type:</strong> Base collection</p>
+<p><strong>Fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>text(15)</td>
+<td>Yes</td>
+<td>Auto-generated unique ID</td>
+</tr>
+<tr>
+<td><code>address</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Addresses (cascade delete)</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Maps (denormalized for fast queries)</td>
+</tr>
+<tr>
+<td><code>option</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Options</td>
+</tr>
+<tr>
+<td><code>congregation</code></td>
+<td>relation</td>
+<td>Yes</td>
+<td>FK to Congregations (denormalized for fast queries)</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Creation timestamp</td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>date</td>
+<td>Auto</td>
+<td>Last update timestamp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexes:</strong>
+- <code>(address, option, map)</code> - <strong>Unique</strong>; one row per address/option/map triple
+- <code>(map)</code> - Fetch every option assignment for a map in one query</p>
+<p><strong>Relationships:</strong>
+- M:1 with Addresses
+- M:1 with Options
+- M:1 with Maps
+- M:1 with Congregations</p>
+<p><strong>Business Rules:</strong>
+- Every address must have at least one row here; new addresses receive the congregation's default option
+- An address with no countable option is uncountable and never appears as "still needs a call"</p>
+<p><strong>Access Rules:</strong>
+- <strong>List:</strong> Authenticated user or valid <code>link-id</code>; the filter must name a <code>map</code> and explicit <code>fields</code>
+- <strong>View:</strong> Authenticated user or valid <code>link-id</code>, checked against the record's map
+- <strong>Create/Update/Delete:</strong> Superuser only at the collection API level (all three rules are <code>null</code>); the application writes these rows through <code>/address/add</code>, <code>/address/update</code> and <code>/options/update</code></p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aopt_abc123"</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"addr_123"</span><span class="p">,</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nt">"map"</span><span class="p">:</span><span class="w"> </span><span class="s2">"map_xyz"</span><span class="p">,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nt">"option"</span><span class="p">:</span><span class="w"> </span><span class="s2">"opt_res"</span><span class="p">,</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="nt">"congregation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cong_123"</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="analytics-collections">Analytics Collections<a class="headerlink" href="#analytics-collections" title="Permanent link">&para;</a></h2>
+<p>Analytics collections are <strong>read-only SQL views</strong>, not tables: they hold no rows of their own and are computed at query time from <code>maps</code>, <code>territories</code>, <code>addresses</code>, <code>addresses_log</code>, <code>users</code> and <code>roles</code>. All five have every API rule set to <code>null</code>, so they are readable by superusers only, and they are the data source for the monthly territory activity report. These collections are managed internally and their exact fields may evolve over time; they are documented here by purpose rather than individual fields.</p>
+<h3 id="analytics_territories">analytics_territories<a class="headerlink" href="#analytics_territories" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Territory-level rollup - joins territories to their addresses and congregation, and reports the congregation name, total address count and a count per status alongside the stored territory progress.</p>
+<h3 id="analytics_maps">analytics_maps<a class="headerlink" href="#analytics_maps" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Map-level rollup - flattens each map's <code>aggregates</code> JSON into <code>done</code> / <code>not_done</code> / <code>not_home</code> / <code>dnc</code> / <code>invalid</code> columns and its <code>coordinates</code> JSON into <code>lat</code> / <code>lng</code>, next to the map's code, type, sequence and progress.</p>
+<h3 id="analytics_daily_status">analytics_daily_status<a class="headerlink" href="#analytics_daily_status" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Daily status-change counts derived from <code>addresses_log</code>, grouped by day, congregation, territory and new status. Powers day-over-day and week-over-week trend reporting.</p>
+<h3 id="analytics_not_home">analytics_not_home<a class="headerlink" href="#analytics_not_home" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> Every address currently marked <code>not_home</code>, joined to its congregation's <code>max_tries</code> and labelled <code>maxed_out</code> or <code>retrying</code>. Used to surface follow-up targets and persistently unreachable addresses.</p>
+<h3 id="analytics_user_audit">analytics_user_audit<a class="headerlink" href="#analytics_user_audit" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose:</strong> User accountability view - name, email, <code>last_login</code>, computed <code>days_inactive</code>, disabled and verified flags, role count and a concatenated list of "congregation (role)". Ordered so that users with no roles come first, then the most inactive.</p>
+<blockquote>
+<p><strong>Note:</strong> Analytics collections are views over the operational tables. They are never written to - reads should go through the reporting layer, and application code should not attempt to insert or update rows here.</p>
+</blockquote>
+<hr />
+<h2 id="pocketbase-system-collections">PocketBase System Collections<a class="headerlink" href="#pocketbase-system-collections" title="Permanent link">&para;</a></h2>
+<p>Five system collections are owned and managed by PocketBase itself. They are listed for completeness; application code does not read or write them directly.</p>
+<ul>
+<li><code>_superusers</code> - superuser (admin) accounts, separate from <code>users</code></li>
+<li><code>_mfas</code> - in-flight multi-factor authentication challenges</li>
+<li><code>_otps</code> - issued one-time passwords</li>
+<li><code>_externalAuths</code> - links between a <code>users</code> record and an OAuth2 provider identity</li>
+<li><code>_authOrigins</code> - remembered device fingerprints, used by the new-location auth alert</li>
+</ul>
+<hr />
+<h2 id="database-technology">Database Technology<a class="headerlink" href="#database-technology" title="Permanent link">&para;</a></h2>
+<p><strong>Engine:</strong> SQLite via PocketBase (modernc.org/sqlite v1.57.0)</p>
+<p><strong>Features:</strong>
+- Pure Go implementation (CGo-free) - enables cross-platform compilation
+- Based on C SQLite transpiled to Go using ccgo/v4
+- Actively maintained with regular security updates</p>
+<p><strong>SQL Features Used:</strong>
+- JSON fields for flexible data (coordinates, aggregates), read with <code>json_extract</code>
+- Composite indexes for query optimization
+- Transactions for ACID compliance
+- SQL views for the analytics layer</p>
+<p><strong>Advantages:</strong>
+- Self-contained file-based database
+- No separate database service needed
+- Perfect for self-hosted deployments
+- No CGO dependency enables static binary builds
+- Proven stability with security patches</p>
+<hr />
+<h2 id="index-strategy">Index Strategy<a class="headerlink" href="#index-strategy" title="Permanent link">&para;</a></h2>
+<p><strong>Total: 29 indexes across the 13 application collections</strong>, counted after the redundant-index migration below. The five analytics views carry no indexes of their own; the PocketBase system collections carry theirs.</p>
+<table>
+<thead>
+<tr>
+<th>Collection</th>
+<th>Indexes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>congregations</code></td>
+<td>0</td>
+</tr>
+<tr>
+<td><code>territories</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>maps</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>addresses</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>address_options</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>assignments</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>roles</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>addresses_log</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>assignments_log</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>roles_log</code></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dropped-redundant-indexes">Dropped Redundant Indexes<a class="headerlink" href="#dropped-redundant-indexes" title="Permanent link">&para;</a></h3>
+<p>Migration <code>1786627200_drop_redundant_indexes.go</code> dropped six indexes. Each was a strict leading prefix of a wider index that already answers the same queries, so SQLite can use the wider index for both:</p>
+<table>
+<thead>
+<tr>
+<th>Dropped</th>
+<th>Collection</th>
+<th>Covered instead by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idx_7CBdHug (map)</code></td>
+<td><code>addresses</code></td>
+<td><code>idx_Fx581hd (map, status)</code></td>
+</tr>
+<tr>
+<td><code>idx_O2TlLJr (territory)</code></td>
+<td><code>maps</code></td>
+<td><code>idx_TzbzxPXi9e (territory, sequence)</code></td>
+</tr>
+<tr>
+<td><code>idx_Otsl0yR (congregation)</code></td>
+<td><code>territories</code></td>
+<td><code>idx_fMh5sfU (congregation, code)</code></td>
+</tr>
+<tr>
+<td><code>idx_pI4sxv2 (map)</code></td>
+<td><code>assignments</code></td>
+<td><code>idx_Su1rP10S5r (map, expiry_date)</code></td>
+</tr>
+<tr>
+<td><code>idx_iPooFW46s8 (user)</code></td>
+<td><code>roles</code></td>
+<td><code>idx_PUEoaq44d4 (user, congregation, role)</code></td>
+</tr>
+<tr>
+<td><code>idx_Dya44KEsGS (user, congregation)</code></td>
+<td><code>roles</code></td>
+<td><code>idx_PUEoaq44d4 (user, congregation, role)</code></td>
+</tr>
+</tbody>
+</table>
+<p>This was verified against a copy of production data holding 1,160,985 addresses: every affected query keeps an indexed search, and both <code>roles</code> lookups stay covering. The result is roughly 27 MB reclaimed and six fewer index writes on every address insert. The migration is idempotent - it skips collections and indexes that are already in the desired state, so it is safe on a fresh database.</p>
+<h3 id="deliberately-kept-addressesidx_4xbudipskj-source-created">Deliberately Kept: <code>addresses.idx_4xBUDiPsKJ (source, created)</code><a class="headerlink" href="#deliberately-kept-addressesidx_4xbudipskj-source-created" title="Permanent link">&para;</a></h3>
+<p>This index is about 38 MB for a few hundred matching rows, which looks like an obvious candidate for a partial index on <code>source = 'app'</code>. It is kept in full on purpose. PocketBase compiles the literal in <code>source = 'app'</code> down to a <strong>bound parameter</strong>, and SQLite cannot prove that a bound parameter satisfies a partial-index predicate. A partial index would therefore be ignored and the query would fall back to a full table scan.</p>
+<h3 id="freelist-and-vacuum">Freelist and VACUUM<a class="headerlink" href="#freelist-and-vacuum" title="Permanent link">&para;</a></h3>
+<p>Dropping an index returns its pages to the SQLite <strong>freelist</strong>, not to the filesystem: the database file does not shrink on its own. Reclaiming that space requires a manual <code>VACUUM</code>, which <strong>cannot</strong> be run from a migration because migrations execute inside a transaction. Plan it as a separate maintenance step during a quiet window.</p>
+<hr />
+<h2 id="key-relationships">Key Relationships<a class="headerlink" href="#key-relationships" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th>Cardinality</th>
+<th>Cascade Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Congregation → Territory</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Congregation → Map</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Congregation → Address</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Congregation → Option</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Congregation → Role</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Congregation → Assignment</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Congregation → Message</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Territory → Map</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Territory → Address</td>
+<td>1:M</td>
+<td>Delete cascade (denormalized)</td>
+</tr>
+<tr>
+<td>Map → Address</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Map → Assignment</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Map → Message</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Address → address_options</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>Option → address_options</td>
+<td>1:M</td>
+<td>No cascade; handled by <code>/options/update</code></td>
+</tr>
+<tr>
+<td>Address ↔ Option</td>
+<td>M:M</td>
+<td>Through <code>address_options</code></td>
+</tr>
+<tr>
+<td>User → Role</td>
+<td>1:M</td>
+<td>Delete cascade</td>
+</tr>
+<tr>
+<td>User → Assignment</td>
+<td>1:M</td>
+<td>No cascade; assignments are kept</td>
+</tr>
+<tr>
+<td>Address → addresses_log</td>
+<td>1:M</td>
+<td>No cascade; log rows are retained</td>
+</tr>
+<tr>
+<td>Assignment → assignments_log</td>
+<td>1:M</td>
+<td>No cascade; <code>assignment</code> is a plain id</td>
+</tr>
+<tr>
+<td>Role change → roles_log</td>
+<td>1:M</td>
+<td>No cascade; references <code>user</code> and <code>congregation</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sequences">Sequences<a class="headerlink" href="#sequences" title="Permanent link">&para;</a></h2>
+<p>"Sequence" means two different things in this schema, and they are unrelated:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Scope</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addresses.sequence</code></td>
+<td>Per map</td>
+<td><strong>Column ordering of the map grid.</strong> Shared by every floor of the same <code>code</code></td>
+</tr>
+<tr>
+<td><code>maps.sequence</code></td>
+<td>Per territory</td>
+<td><strong>Display order of maps</strong> in the territory list</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Invariant: one <code>sequence</code> per <code>code</code> per map.</strong> Two codes sharing a sequence puts a unit's cells under its neighbour's column header, and because the Excel report keys its grid on <code>sequence</code>, the second of a tied pair silently overwrites the first and disappears from the export.</p>
+<p>Gaps in sequence values are legal; only collisions and partial payloads are refused. <code>/maps/sequence</code> and <code>/map/codes/update</code> both require a complete, duplicate-free ordering and renumber atomically. New collisions can no longer be introduced: <code>/map/code/add</code> and <code>/address/add</code> read the high-water mark inside their transaction, and <code>/map/floor/add</code> copies an existing floor's sequences.</p>
+<p>A console command repairs historical collisions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>./main<span class="w"> </span>fix-sequences<span class="w"> </span><span class="o">[</span>--apply<span class="o">]</span><span class="w"> </span><span class="o">[</span>--include-unclear<span class="o">]</span><span class="w"> </span><span class="o">[</span>--map<span class="w"> </span>&lt;id&gt;<span class="o">]</span>
+</code></pre></div>
+<p>It is a <strong>dry run unless <code>--apply</code></strong> is passed. It detects both violations - two codes sharing a sequence, and one code holding two sequences - and renumbers affected maps to <code>0..N-1</code> while preserving the map's own column direction (a corridor numbered high-to-low is as normal as low-to-high). Maps where a code holds more than one sequence are skipped, because renumbering cannot decide which duplicate to keep; maps with no dominant column direction are reported as UNCLEAR and skipped unless <code>--include-unclear</code> is passed. The repair writes with raw SQL, so it does not stamp <code>updated</code> / <code>updated_by</code> and does not broadcast realtime events to publishers working the map.</p>
+<hr />
+<h2 id="business-rules">Business Rules<a class="headerlink" href="#business-rules" title="Permanent link">&para;</a></h2>
+<h3 id="progress-calculation">Progress Calculation<a class="headerlink" href="#progress-calculation" title="Permanent link">&para;</a></h3>
+<p>Only addresses carrying at least one <strong>countable</strong> household option are counted at all. Addresses with status <code>do_not_call</code> or <code>invalid</code> are excluded from the denominator entirely.</p>
+<p><strong>Map progress:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>total     = done + not_done + not_home_max_tries + not_home_less_tries
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>completed = done + not_home_max_tries
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>progress  = round(completed / total * 100)
+</code></pre></div></p>
+<ul>
+<li><code>not_home_max_tries</code> are <code>not_home</code> addresses whose <code>not_home_tries</code> has reached the congregation's <code>max_tries</code>. They count as <strong>completed</strong>.</li>
+<li><code>not_home_less_tries</code> are <code>not_home</code> addresses still within the limit. They count towards <code>total</code> but not towards <code>completed</code>.</li>
+<li>Rounding is arithmetic rounding, not truncation: 199 of 200 renders as 100%, not 99%.</li>
+<li>If <code>max_tries &lt;= 0</code> the congregation has <strong>no limit</strong>, so nothing is ever completed through the not-home path.</li>
+</ul>
+<p><strong>Territory progress</strong> is derived from the map aggregates, never from a fresh address scan:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>territory.progress = round(
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    SUM(json_extract(maps.aggregates, '$.completed')) /
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    SUM(json_extract(maps.aggregates, '$.total')) * 100
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>)
+</code></pre></div>
+A map with no countable addresses contributes 0/0 and is invisible to the percentage rather than dragging it down.</p>
+<p><strong>About <code>max_tries</code>:</strong> it is a per-congregation setting with no universal default. <code>/link/map</code> coalesces a missing value to <strong>1</strong>, and the seed and example data in this documentation use <strong>3</strong>. Do not assume a value when reading a congregation's records.</p>
+<h3 id="address-lifecycle">Address Lifecycle<a class="headerlink" href="#address-lifecycle" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>not_done → not_home (retry attempts) → done
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>        → do_not_call (excluded)
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>        → invalid (excluded)
+</code></pre></div>
+<p><code>do_not_call</code> and <code>invalid</code> leave the progress denominator entirely; a <code>not_home</code> address re-enters <code>completed</code> once its tries reach <code>max_tries</code>.</p>
+<h3 id="auto-update-triggers">Auto-Update Triggers<a class="headerlink" href="#auto-update-triggers" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Address Update:</strong></li>
+<li>Updates <code>last_notes_updated</code> and <code>last_notes_updated_by</code> if notes changed</li>
+<li>Writes an <code>addresses_log</code> row for the status change</li>
+<li>Recalculates the map <code>aggregates</code> and <code>progress</code> <strong>in real time</strong>, then rolls the result up to the territory. This replaced an earlier batch cron job - there is no aggregate cron.</li>
+<li>
+<p>Skips the recalculation entirely when neither <code>status</code> nor <code>not_home_tries</code> changed, so a notes-only edit does no aggregate work</p>
+</li>
+<li>
+<p><strong>Bulk Map Operations:</strong></p>
+</li>
+<li>Set a <code>bulk_reset:&lt;mapID&gt;</code> flag in the application store before the transaction, so N address writes do not trigger N recalculations</li>
+<li>
+<p>Clear the flag and recalculate once when the transaction finishes</p>
+</li>
+<li>
+<p><strong>Assignment Creation:</strong></p>
+</li>
+<li>Sets expiry from the congregation's <code>expiry_hours</code></li>
+<li>
+<p>Generates a unique 25-character id, which is itself the access token</p>
+</li>
+<li>
+<p><strong>Role Changes:</strong></p>
+</li>
+<li>Write a <code>roles_log</code> row on grant, change and revocation</li>
+<li>Deleting a user's last role restarts their unprovisioned grace period</li>
+</ol>
+<hr />
+<h2 id="migration-schema-updates">Migration &amp; Schema Updates<a class="headerlink" href="#migration-schema-updates" title="Permanent link">&para;</a></h2>
+<p><strong>Schema Snapshot:</strong> <code>migrations/1777788260_collections_snapshot.go</code></p>
+<p>The snapshot is a single generated JSON array imported with <code>deleteMissing = true</code>. That makes the snapshot <strong>authoritative</strong>: any collection that is not in it is dropped. It defines 21 collections (5 PocketBase system + 11 application + 5 analytics views); the two audit-log collections are added by a later migration.</p>
+<h3 id="migration-order">Migration Order<a class="headerlink" href="#migration-order" title="Permanent link">&para;</a></h3>
+<p>PocketBase runs registered migrations in <strong>filename order</strong>, and digits sort before letters - so the four <code>initial_*.go</code> files run <strong>last</strong>, after the snapshot. This is not obvious and it matters: settings, the bootstrap superuser and the Google OAuth2 provider are all applied on top of the imported collections, and <code>initial_user_auth.go</code> has the final word on the <code>users</code> MFA/OTP flags.</p>
+<ol>
+<li><code>1767764876_initial_origins.go</code> - adds the <code>congregations.origin</code> and <code>congregations.timezone</code> select fields, idempotently</li>
+<li><code>1777788260_collections_snapshot.go</code> - the whole schema, imported with <code>deleteMissing = true</code></li>
+<li><code>1778400000_create_log_collections.go</code> - creates <code>assignments_log</code> and <code>roles_log</code>, all API rules left <code>null</code></li>
+<li><code>1780000000_seed_test_data.go</code> - <strong>test fixtures only</strong>; guarded by the <code>testdata</code> build tag, so it is never compiled into a production binary</li>
+<li><code>1780000001_add_bulk_reset_address_source.go</code> - adds <code>bulk_reset</code> to the <code>addresses.source</code> select values</li>
+<li><code>1780000002_remove_bulk_reset_address_source.go</code> - reverses the previous migration after hook suppression moved to the application store; clears leftover <code>source = 'bulk_reset'</code> values</li>
+<li><code>1781395200_backfill_map_territory_progress.go</code> - backfills <code>maps.aggregates.$.completed</code> / <code>$.total</code>, recomputes <code>maps.progress</code>, then recomputes <code>territories.progress</code> from the map JSON. Maps with no countable addresses are deliberately left untouched.</li>
+<li><code>1786627200_drop_redundant_indexes.go</code> - drops the six redundant indexes described in <a href="#index-strategy">Index Strategy</a></li>
+<li><code>initial_admin_usr.go</code> - bootstraps the <code>_superusers</code> record from <code>PB_ADMIN_EMAIL</code> / <code>PB_ADMIN_PASSWORD</code>; skips if that email already exists</li>
+<li><code>initial_google_oauth.go</code> - appends the <code>google</code> OAuth2 provider to <code>users</code>, only when both <code>GOOGLE_CLIENT_ID</code> and <code>GOOGLE_CLIENT_SECRET</code> are set</li>
+<li><code>initial_settings.go</code> - writes PocketBase settings from the environment: app name and URL, sender identity, SMTP, hidden controls, batch API limits and rate-limit rules</li>
+<li><code>initial_user_auth.go</code> - sets <code>users.OTP.Enabled</code> and <code>users.MFA.Enabled</code> from <code>PB_OTP_ENABLED</code> / <code>PB_MFA_ENABLED</code></li>
+</ol>
+<h3 id="migration-process">Migration Process<a class="headerlink" href="#migration-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Migrations are applied <strong>automatically when the server starts</strong> (<code>serve</code>). There is no manual <code>./main migrate</code> step in the normal flow, and the bootstrap superuser is created as part of that first run.</li>
+<li><em>Automigrate</em> - generating new migration files from schema edits made in the PocketBase admin UI - is a separate feature and is enabled <strong>only under <code>go run</code></strong>. A compiled production binary never automigrates, so admin-UI schema changes there are not captured in code.</li>
+<li>Applied migrations are tracked in the <code>_migrations</code> system table.</li>
+<li>Environment variables read <strong>inside</strong> a migration only take effect on the <strong>first</strong> migration run against a given database. Changing them later does not re-apply them - this is the usual explanation for "I set the variable and nothing happened".</li>
+<li>Schema changes require a new migration file, named <code>&lt;unix-timestamp&gt;_snake_description.go</code>, registered with <code>m.Register(up, down)</code> and written to be idempotent.</li>
+</ol>
+<hr />
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../architecture/">Architecture</a> - System architecture</li>
+<li><a href="../backend-setup/">Backend Setup</a> - Configure database</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Ministry Mapper Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-v2" target="_blank" rel="noopener" title="Frontend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/rimorin/ministry-mapper-be" target="_blank" rel="noopener" title="Backend Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0M64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-64c0-35.3-28.7-64-64-64zm216 72a24 24 0 1 1 0 48 24 24 0 1 1 0-48m56 24a24 24 0 1 1 48 0 24 24 0 1 1-48 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
