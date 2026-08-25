@@ -176,7 +176,7 @@ Help Ministry Mapper grow:
 - 💡 Suggest improvements
 - 📝 Improve documentation
 - 💻 Contribute code
-- 🌐 Translate to new languages
+- 🌐 Translate the app into new languages
 
 ## License
 
