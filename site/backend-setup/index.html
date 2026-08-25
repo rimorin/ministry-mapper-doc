@@ -22,22 +22,6 @@
       
       
         
-          <link rel="alternate" href="./" hreflang="en">
-        
-          <link rel="alternate" href="../zh/backend-setup/" hreflang="zh">
-        
-          <link rel="alternate" href="../id/backend-setup/" hreflang="id">
-        
-          <link rel="alternate" href="../ms/backend-setup/" hreflang="ms">
-        
-          <link rel="alternate" href="../ta/backend-setup/" hreflang="ta">
-        
-          <link rel="alternate" href="../ja/backend-setup/" hreflang="ja">
-        
-          <link rel="alternate" href="../ko/backend-setup/" hreflang="ko">
-        
-          <link rel="alternate" href="../es/backend-setup/" hreflang="es">
-        
       
       
       <link rel="icon" href="../assets/favicon.ico">
@@ -165,68 +149,6 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-    
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="Select language">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
-    </button>
-    <div class="md-select__inner">
-      <ul class="md-select__list">
-        
-          <li class="md-select__item">
-            <a href="./" hreflang="en" class="md-select__link">
-              English
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../zh/backend-setup/" hreflang="zh" class="md-select__link">
-              中文
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../id/backend-setup/" hreflang="id" class="md-select__link">
-              Indonesia
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../ms/backend-setup/" hreflang="ms" class="md-select__link">
-              Melayu
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../ta/backend-setup/" hreflang="ta" class="md-select__link">
-              தமிழ்
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../ja/backend-setup/" hreflang="ja" class="md-select__link">
-              日本語
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../ko/backend-setup/" hreflang="ko" class="md-select__link">
-              한국어
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="../es/backend-setup/" hreflang="es" class="md-select__link">
-              Español
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</div>
     
     
       
@@ -1033,6 +955,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1051,13 +984,52 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#service-integration-keys-optional" class="md-nav__link">
+  <a href="#service-integration-keys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Service Integration Keys (Optional)
+        Service Integration Keys
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Service Integration Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#email-mailersend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Email (MailerSend)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-flags-launchdarkly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flags (LaunchDarkly)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-summaries-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Summaries (OpenAI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1117,6 +1089,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#google-sign-in-missing-from-envsample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Sign-In (Missing from .env.sample)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rate-limiting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1128,10 +1111,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#error-tracking-not-in-envsample-add-manually-if-needed" class="md-nav__link">
+  <a href="#error-tracking-and-build-metadata" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Tracking (Not in .env.sample - add manually if needed)
+        Error Tracking and Build Metadata
       
     </span>
   </a>
@@ -1140,6 +1123,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flags
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1183,6 +1177,17 @@
     <span class="md-ellipsis">
       
         2. Run the Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#about-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About the Docker Image
       
     </span>
   </a>
@@ -1302,10 +1307,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#manual-backup" class="md-nav__link">
+  <a href="#option-a-pocketbases-built-in-backups-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manual Backup
+        Option A: PocketBase's Built-In Backups (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-copying-pb_data-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Copying pb_data Yourself
       
     </span>
   </a>
@@ -1336,6 +1352,17 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reclaiming-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reclaiming Disk Space
+      
+    </span>
+  </a>
   
 </li>
         
@@ -1406,6 +1433,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#console-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Console Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Console Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fix-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fix-sequences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#monitoring-and-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1457,6 +1523,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-to-look-for-in-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1495,8 +1572,268 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#database-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Locked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-not-sending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Email Not Sending
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cannot-access-admin-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cannot Access Admin Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-credentials-rejected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Admin Credentials Rejected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variable-change-has-no-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variable Change Has No Effect
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#small-congregations-100-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Small Congregations (&lt; 100 users)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-congregations-100-500-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medium Congregations (100-500 users)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-congregations-500-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Congregations (&gt; 500 users)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-self-authenticating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public / Self-Authenticating
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-management-administrator-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Map Management (Administrator Only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#territory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Territory Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-jobs-cron-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Jobs (Cron Scheduler)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Jobs (Cron Scheduler)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduled-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduled Jobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-report-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Report Summaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1821,6 +2158,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1839,13 +2187,52 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#service-integration-keys-optional" class="md-nav__link">
+  <a href="#service-integration-keys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Service Integration Keys (Optional)
+        Service Integration Keys
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Service Integration Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#email-mailersend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Email (MailerSend)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feature-flags-launchdarkly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flags (LaunchDarkly)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-summaries-openai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Summaries (OpenAI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1905,6 +2292,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#google-sign-in-missing-from-envsample" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Sign-In (Missing from .env.sample)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#rate-limiting" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1916,10 +2314,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#error-tracking-not-in-envsample-add-manually-if-needed" class="md-nav__link">
+  <a href="#error-tracking-and-build-metadata" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error Tracking (Not in .env.sample - add manually if needed)
+        Error Tracking and Build Metadata
       
     </span>
   </a>
@@ -1928,6 +2326,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Flags
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1971,6 +2380,17 @@
     <span class="md-ellipsis">
       
         2. Run the Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#about-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About the Docker Image
       
     </span>
   </a>
@@ -2090,10 +2510,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#manual-backup" class="md-nav__link">
+  <a href="#option-a-pocketbases-built-in-backups-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manual Backup
+        Option A: PocketBase's Built-In Backups (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-copying-pb_data-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Copying pb_data Yourself
       
     </span>
   </a>
@@ -2124,6 +2555,17 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reclaiming-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reclaiming Disk Space
+      
+    </span>
+  </a>
   
 </li>
         
@@ -2194,6 +2636,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#console-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Console Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Console Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fix-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fix-sequences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#monitoring-and-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2245,6 +2726,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-to-look-for-in-logs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,8 +2775,268 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#database-locked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Locked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-not-sending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Email Not Sending
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-of-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Out of Memory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cannot-access-admin-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cannot Access Admin Panel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-credentials-rejected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Admin Credentials Rejected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variable-change-has-no-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variable Change Has No Effect
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#small-congregations-100-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Small Congregations (&lt; 100 users)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#medium-congregations-100-500-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Medium Congregations (100-500 users)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-congregations-500-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large Congregations (&gt; 500 users)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-self-authenticating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public / Self-Authenticating
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-management-administrator-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Map Management (Administrator Only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#territory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Territory Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#background-jobs-cron-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Background Jobs (Cron Scheduler)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Background Jobs (Cron Scheduler)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scheduled-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduled Jobs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai-report-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Report Summaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Hooks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2320,10 +3072,10 @@
 <ul>
 <li>Data storage and management (SQLite database)</li>
 <li>User authentication and authorization</li>
-<li>Real-time data synchronization</li>
+<li>Real-time data synchronization (Server-Sent Events)</li>
 <li>Custom API endpoints for territory management</li>
 <li>Background jobs for automated tasks</li>
-<li>Email notifications via SMTP</li>
+<li>Email notifications (MailerSend for digests and reports, SMTP for auth mail)</li>
 </ul>
 <p><strong>This guide assumes you have</strong>:
 - Experience with server administration
@@ -2335,10 +3087,10 @@
 <p>This page provides a quick reference for backend configuration. <strong>For complete setup instructions, see the <a href="../self-hosting/">Self-Hosting Guide</a>.</strong></p>
 <h3 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Go</strong>: Fast, efficient programming language</li>
-<li><strong>PocketBase</strong>: Backend-as-a-service with built-in admin panel</li>
-<li><strong>SQLite</strong>: Lightweight database in <code>pb_data</code> folder</li>
-<li><strong>Docker</strong>: Alpine Linux-based container</li>
+<li><strong>Go 1.27</strong>: the toolchain version pinned in <code>go.mod</code></li>
+<li><strong>PocketBase v0.40.0</strong>: backend framework with a built-in admin panel</li>
+<li><strong>SQLite</strong>: the entire database lives in the <code>pb_data</code> folder, reached through the pure-Go <code>modernc.org/sqlite</code> driver (which is why the binary builds with <code>CGO_ENABLED=0</code>)</li>
+<li><strong>Docker</strong>: multi-stage build — <code>golang:1.27.0-alpine</code> builder, <code>alpine:3.24</code> runtime</li>
 </ul>
 <h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2346,10 +3098,18 @@
 <li>User authentication</li>
 <li>Real-time subscriptions (Server-Sent Events)</li>
 <li>Custom API endpoints</li>
-<li>Scheduled background jobs</li>
-<li>Email notifications (SMTP)</li>
+<li>Scheduled background jobs (8 cron jobs)</li>
+<li>Email notifications (MailerSend + SMTP)</li>
 <li>Error tracking (Sentry)</li>
 <li>Feature flags (LaunchDarkly)</li>
+<li>Optional AI report and digest summaries (OpenAI)</li>
+</ul>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Go 1.27</strong> — the version in <code>go.mod</code>. An older toolchain will download 1.27 at build time; the Docker builder pins <code>golang:1.27.0-alpine</code> to avoid that.</li>
+<li><strong>The <code>sqlite3</code> command-line tool</strong> — a hard dependency of <code>./scripts/test.sh</code>, which uses it to checkpoint the WAL and to verify seed counts. CI installs it explicitly (<code>sudo apt-get install -y sqlite3</code>). Without it the integration suite cannot run.</li>
+<li><strong>Docker</strong> with BuildKit enabled (the Dockerfile uses a <code>--mount=type=cache</code> build step) if you intend to build the image.</li>
+<li>Roughly <strong>2 GB of RAM to build</strong> — see <a href="#about-the-docker-image">About the Docker Image</a>.</li>
 </ul>
 <hr />
 <div class="admonition note">
@@ -2358,38 +3118,163 @@
 </div>
 <hr />
 <h2 id="environment-variables-explained">Environment Variables Explained<a class="headerlink" href="#environment-variables-explained" title="Permanent link">&para;</a></h2>
-<h3 id="service-integration-keys-optional">Service Integration Keys (Optional)<a class="headerlink" href="#service-integration-keys-optional" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># MailerSend API key - for sending emails via MailerSend service</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Leave empty if using SMTP instead</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Email address for MailerSend sender</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nv">MAILERSEND_FROM_EMAIL</span><span class="o">=</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># LaunchDarkly SDK key - for feature flags to control background jobs</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Jobs run by default if not configured</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nv">LAUNCHDARKLY_CONTEXT_KEY</span><span class="o">=</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># OpenAI API key - for AI-generated summaries in monthly reports and message digests</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Optional: reports and digests work fine without this; AI sections are simply omitted</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>
+<p>The backend reads <strong>25</strong> environment variables. They fall into two very different groups, and mixing them up is the single most common self-hosting mistake.</p>
+<div class="admonition warning">
+<p class="admonition-title">Migration-Read Variables Only Take Effect Once</p>
+<p>Sixteen of the variables below are read <strong>only by migrations</strong>, which means they apply <strong>only on the first migration run against a given database</strong>. Once <code>pb_data</code> exists, editing them and restarting does nothing — the settings already live in the database and must be changed in the admin panel (or by starting from an empty <code>pb_data</code>).</p>
+<p>The migration-read variables are: <code>PB_APP_NAME</code>, <code>PB_APP_URL</code>, <code>PB_ADMIN_EMAIL</code>, <code>PB_ADMIN_PASSWORD</code>, <code>PB_SMTP_HOST</code>, <code>PB_SMTP_PORT</code>, <code>PB_SMTP_USERNAME</code>, <code>PB_SMTP_PASSWORD</code>, <code>PB_SMTP_SENDER_ADDRESS</code>, <code>PB_SMTP_SENDER_NAME</code>, <code>PB_HIDE_CONTROLS</code>, <code>PB_ENABLE_RATE_LIMITING</code>, <code>PB_OTP_ENABLED</code>, <code>PB_MFA_ENABLED</code>, <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_CLIENT_SECRET</code>.</p>
+<p>(<code>PB_APP_URL</code> is the one exception that is <em>also</em> read at runtime, for the links inside lifecycle emails.)</p>
+<p>The remaining variables — <code>SOURCE_COMMIT</code>, <code>SENTRY_DSN</code>, <code>SENTRY_ENV</code>, <code>PB_ALLOW_ORIGINS</code>, <code>PB_APP_URL</code>, <code>LAUNCHDARKLY_SDK_KEY</code>, <code>LAUNCHDARKLY_CONTEXT_KEY</code>, <code>MAILERSEND_API_KEY</code>, <code>MAILERSEND_FROM_EMAIL</code>, <code>OPENAI_API_KEY</code> — are read by the running application, so a restart is enough to pick up a change.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Nothing Is Strictly Required</p>
+<p>Every variable has a fallback value or a "feature disabled" path, so the server starts with an empty <code>.env</code>. The only practical requirement is <strong>MailerSend</strong>: without <code>MAILERSEND_API_KEY</code> and <code>MAILERSEND_FROM_EMAIL</code> the email jobs (digests, reports, lifecycle notices) have nowhere to send and fail. Treat the "Required" column below as guidance about what breaks, not as a start-up requirement.</p>
+</div>
+<h3 id="service-integration-keys">Service Integration Keys<a class="headerlink" href="#service-integration-keys" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># MailerSend API key - used by all digest and report emails</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">MAILERSEND_API_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Email address for MailerSend sender (the display name is hard-coded &quot;Ministry Mapper&quot;)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nv">MAILERSEND_FROM_EMAIL</span><span class="o">=</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># LaunchDarkly SDK key - for feature flags to control background jobs</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># The 8 job flags default to ENABLED if not configured</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nv">LAUNCHDARKLY_SDK_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nv">LAUNCHDARKLY_CONTEXT_KEY</span><span class="o">=</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># OpenAI API key - for AI-generated summaries in reports and digests</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Optional: reports and digests work fine without this; AI sections are simply omitted</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nv">OPENAI_API_KEY</span><span class="o">=</span>
 </code></pre></div>
+<h4 id="email-mailersend">Email (MailerSend)<a class="headerlink" href="#email-mailersend" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MAILERSEND_API_KEY</code></td>
+<td>Needed for email</td>
+<td>MailerSend API key. Used for every digest, report and lifecycle email. Unset means those sends error out — the server still runs. This is <strong>not</strong> a fallback for SMTP: MailerSend and SMTP serve different purposes (see below).</td>
+</tr>
+<tr>
+<td><code>MAILERSEND_FROM_EMAIL</code></td>
+<td>Needed for email</td>
+<td>Sender email address for MailerSend. The display name is hard-coded to "Ministry Mapper".</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">MailerSend and SMTP Are Not Alternatives</p>
+<p>MailerSend sends the application's own mail — message digests, notes digests, instruction digests, new-address digests, monthly reports and user-lifecycle notices. The <code>PB_SMTP_*</code> settings configure PocketBase's own transactional mail only: email verification, password reset, email change and OTP. Configuring one does not cover the other.</p>
+</div>
+<h4 id="feature-flags-launchdarkly">Feature Flags (LaunchDarkly)<a class="headerlink" href="#feature-flags-launchdarkly" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LAUNCHDARKLY_SDK_KEY</code></td>
+<td>Optional</td>
+<td>LaunchDarkly server-side SDK key. Unset means no client is created: the 8 job flags then evaluate to <strong>enabled</strong>, and <code>enable-report-ai-summary</code> evaluates to <strong>disabled</strong>.</td>
+</tr>
+<tr>
+<td><code>LAUNCHDARKLY_CONTEXT_KEY</code></td>
+<td>Optional</td>
+<td>Context key for the evaluation context (kind <code>environment</code>), e.g. <code>production</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ai-summaries-openai">AI Summaries (OpenAI)<a class="headerlink" href="#ai-summaries-openai" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OPENAI_API_KEY</code></td>
+<td>Optional</td>
+<td>OpenAI API key. Unset means no client is created and every AI section is omitted. Setting it is <strong>not sufficient on its own</strong> — the <code>enable-report-ai-summary</code> flag must also be on, and that flag is off when LaunchDarkly is unconfigured.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="application-settings">Application Settings<a class="headerlink" href="#application-settings" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Name shown in emails and admin panel</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">PB_APP_NAME</span><span class="o">=</span>Ministry<span class="w"> </span>Mapper
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># URL where your frontend is hosted</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># URL where your frontend is hosted - also used in lifecycle email links</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">PB_APP_URL</span><span class="o">=</span>http://localhost:3000
 </code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PB_APP_NAME</code></td>
+<td>Optional</td>
+<td>PocketBase application name. Defaults to <code>Ministry Mapper</code>. Migration-read.</td>
+</tr>
+<tr>
+<td><code>PB_APP_URL</code></td>
+<td>Recommended</td>
+<td>Frontend URL. Written into PocketBase settings by migration <strong>and</strong> read at runtime for the links in unprovisioned/inactive user emails. Defaults to a placeholder domain, so set it or those emails link nowhere useful.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="default-admin-account">Default Admin Account<a class="headerlink" href="#default-admin-account" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Initial admin account created during first setup</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Change password immediately after first login!</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Initial superuser created on the FIRST migration run</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># The shipped defaults are public - change them before you ever expose the server</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">PB_ADMIN_EMAIL</span><span class="o">=</span>testing_account@ministry-mapper.com
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nv">PB_ADMIN_PASSWORD</span><span class="o">=</span>pb123456789
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Change These Before First Start — Not After</p>
+<p><code>testing_account@ministry-mapper.com</code> / <code>pb123456789</code> are the <strong>defaults compiled into the code</strong> and published in this documentation. If you start the server without setting your own values, that account is created with that password and anyone who reads these docs can log into your admin panel.</p>
+<p>Because this is a migration-read setting, changing <code>.env</code> afterwards does <strong>not</strong> update the account. Fix it either by setting both variables before the very first start, or — if you already started — by changing the password in the admin panel at <code>/_/</code> immediately.</p>
+<p>The superuser is created automatically; there is no manual admin-creation step.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PB_ADMIN_EMAIL</code></td>
+<td>Set it</td>
+<td>Bootstrap superuser email. Migration-read; skipped if that email already exists.</td>
+</tr>
+<tr>
+<td><code>PB_ADMIN_PASSWORD</code></td>
+<td>Set it</td>
+<td>Bootstrap superuser password. Migration-read.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="email-configuration-smtp">Email Configuration (SMTP)<a class="headerlink" href="#email-configuration-smtp" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># SMTP server address (e.g., smtp.gmail.com, smtp.sendgrid.net)</span>
+<p>These configure PocketBase's built-in mail (verification, password reset, OTP) — not the digests and reports.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># SMTP server address (e.g., smtp.gmail.com, smtp.mailersend.net)</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">PB_SMTP_HOST</span><span class="o">=</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># SMTP password (use App Password for Gmail, not your regular password)</span>
@@ -2407,74 +3292,322 @@
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1"># Name shown in the &quot;From&quot; field</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="nv">PB_SMTP_SENDER_NAME</span><span class="o">=</span>MM<span class="w"> </span>Support
 </code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PB_SMTP_HOST</code></td>
+<td>Optional</td>
+<td>SMTP host. Defaults to <code>smtp.gmail.com</code>. Migration-read.</td>
+</tr>
+<tr>
+<td><code>PB_SMTP_PORT</code></td>
+<td>Optional</td>
+<td>SMTP port; falls back to <code>587</code> if the value is not a number. Migration-read.</td>
+</tr>
+<tr>
+<td><code>PB_SMTP_USERNAME</code></td>
+<td>Optional</td>
+<td>SMTP username. Has a placeholder default. Migration-read.</td>
+</tr>
+<tr>
+<td><code>PB_SMTP_PASSWORD</code></td>
+<td>Optional</td>
+<td>SMTP password. Has a placeholder default — set a real one. Migration-read.</td>
+</tr>
+<tr>
+<td><code>PB_SMTP_SENDER_ADDRESS</code></td>
+<td>Optional</td>
+<td>"From" address for PocketBase mail. Migration-read.</td>
+</tr>
+<tr>
+<td><code>PB_SMTP_SENDER_NAME</code></td>
+<td>Optional</td>
+<td>"From" display name for PocketBase mail. Migration-read.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="security-access-control">Security &amp; Access Control<a class="headerlink" href="#security-access-control" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Comma-separated list of allowed origins for CORS</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Use * for development, specific domains for production</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Example: https://app.example.com,https://app2.example.com</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nv">PB_ALLOW_ORIGINS</span><span class="o">=</span>*
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Hide the admin UI from public access (true/false)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Set to true in production for security</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Hide the admin UI controls (true/false)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Set to true in production</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nv">PB_HIDE_CONTROLS</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PB_ALLOW_ORIGINS</code></td>
+<td>Optional</td>
+<td>CORS allow list, split on commas. Defaults to <code>*</code> — set your real origins in production. Runtime-read, so a restart applies it.</td>
+</tr>
+<tr>
+<td><code>PB_HIDE_CONTROLS</code></td>
+<td>Optional</td>
+<td>Hides the PocketBase admin UI controls. Defaults to <code>false</code>. Migration-read.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="authentication-settings">Authentication Settings<a class="headerlink" href="#authentication-settings" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Enable one-time password login (true/false)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Enable one-time password login - must be the exact lowercase string &quot;true&quot;</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">PB_OTP_ENABLED</span><span class="o">=</span><span class="nb">false</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Enable multi-factor authentication (true/false)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Enable multi-factor authentication - must be the exact lowercase string &quot;true&quot;</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">PB_MFA_ENABLED</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">These Two Are Compared Against the Literal String <code>true</code></p>
+<p><code>PB_OTP_ENABLED</code> and <code>PB_MFA_ENABLED</code> are evaluated as an exact string comparison against <code>true</code>. <code>TRUE</code>, <code>True</code>, <code>1</code> and <code>yes</code> all silently mean <em>disabled</em>. Unlike the other boolean settings on this page, these do not go through a permissive boolean parse.</p>
+<p>Both are also migration-read, so they only matter on the first run. In an existing database, OTP and MFA are toggled per collection in the admin panel (Collections → <code>users</code> → Options).</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PB_OTP_ENABLED</code></td>
+<td>Optional</td>
+<td>Enables email OTP on the <code>users</code> collection (4-digit code, 180-second validity). Migration-read; literal <code>true</code> only.</td>
+</tr>
+<tr>
+<td><code>PB_MFA_ENABLED</code></td>
+<td>Optional</td>
+<td>Enables PocketBase MFA on the <code>users</code> collection (email OTP as the second factor — there is no TOTP and no backup codes). Migration-read; literal <code>true</code> only.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="google-sign-in-missing-from-envsample">Google Sign-In (Missing from <code>.env.sample</code>)<a class="headerlink" href="#google-sign-in-missing-from-envsample" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Google OAuth2 credentials - NOT present in .env.sample</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">GOOGLE_CLIENT_ID</span><span class="o">=</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">GOOGLE_CLIENT_SECRET</span><span class="o">=</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Nothing in <code>.env.sample</code> Hints That Google Sign-In Is Configurable</p>
+<p><code>GOOGLE_CLIENT_ID</code> and <code>GOOGLE_CLIENT_SECRET</code> are read by a migration that enables the Google OAuth2 provider on the <code>users</code> collection, but neither appears in <code>.env.sample</code>. If you copy the sample and never read the source, Google sign-in simply never gets configured and nothing tells you why.</p>
+<p>Both must be set, and — being migration-read — they must be set <strong>before the first migration run</strong>. On an existing database, add the provider in the admin panel instead (Collections → <code>users</code> → Options → OAuth2).</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GOOGLE_CLIENT_ID</code></td>
+<td>Optional</td>
+<td>Google OAuth2 client id. Both this and the secret must be set or the provider is skipped. Migration-read.</td>
+</tr>
+<tr>
+<td><code>GOOGLE_CLIENT_SECRET</code></td>
+<td>Optional</td>
+<td>Google OAuth2 client secret. Migration-read.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="rate-limiting">Rate Limiting<a class="headerlink" href="#rate-limiting" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Enable rate limiting to prevent API abuse (true/false)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">false</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Enable PocketBase rate limiting (true/false)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">PB_ENABLE_RATE_LIMITING</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div>
-<h3 id="error-tracking-not-in-envsample-add-manually-if-needed">Error Tracking (Not in .env.sample - add manually if needed)<a class="headerlink" href="#error-tracking-not-in-envsample-add-manually-if-needed" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Sentry DSN for error monitoring and tracking</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Environment name for Sentry (development, staging, production)</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Git commit hash - automatically set by hosting platforms like Coolify</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nv">SOURCE_COMMIT</span><span class="o">=</span>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PB_ENABLE_RATE_LIMITING</code></td>
+<td>Optional</td>
+<td>Turns on PocketBase's rate limiter. Defaults to <code>false</code>. Migration-read — in an existing database use Settings → Rate limiting in the admin panel.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="error-tracking-and-build-metadata">Error Tracking and Build Metadata<a class="headerlink" href="#error-tracking-and-build-metadata" title="Permanent link">&para;</a></h3>
+<p><code>SENTRY_DSN</code>, <code>SENTRY_ENV</code> and <code>SOURCE_COMMIT</code> are read at runtime. <code>SENTRY_DSN</code> and <code>SENTRY_ENV</code> are in <code>.env.sample</code>; <code>SOURCE_COMMIT</code> is not, because hosting platforms inject it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Sentry DSN for error monitoring and tracking - empty disables the SDK</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">SENTRY_DSN</span><span class="o">=</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Environment name for Sentry (development, staging, production)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">SENTRY_ENV</span><span class="o">=</span>production
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Git commit hash - automatically injected by the hosting platform (Coolify)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nv">SOURCE_COMMIT</span><span class="o">=</span>
 </code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SENTRY_DSN</code></td>
+<td>Optional</td>
+<td>Sentry DSN. Empty means the Sentry SDK is disabled.</td>
+</tr>
+<tr>
+<td><code>SENTRY_ENV</code></td>
+<td>Optional</td>
+<td>Sentry environment; also selects the trace sample rate (<code>production</code> 0.2, <code>staging</code> 0.5, anything else enables debug mode). Defaults to <code>development</code>.</td>
+</tr>
+<tr>
+<td><code>SOURCE_COMMIT</code></td>
+<td>Optional</td>
+<td>Commit SHA logged at boot and used as the Sentry release. Defaults to <code>development-build</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="feature-flags">Feature Flags<a class="headerlink" href="#feature-flags" title="Permanent link">&para;</a></h2>
+<p>Ministry Mapper uses <a href="https://launchdarkly.com">LaunchDarkly</a> to gate background job execution. Each job can be independently enabled or disabled without redeployment. Flags are read at fire time, so a flag change takes effect on the job's next run.</p>
+<p>There are <strong>8 job flags plus one non-job flag</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Flag Key</th>
+<th>Controlled Job</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>enable-assignments-cleanup</code></td>
+<td><code>cleanUpAssignments</code></td>
+<td>Delete expired map assignments and log them as <code>expired</code> (every 5 min)</td>
+</tr>
+<tr>
+<td><code>enable-message-processing</code></td>
+<td><code>processMessages</code></td>
+<td>Email a digest of unread publisher messages per congregation (every 30 min)</td>
+</tr>
+<tr>
+<td><code>enable-instruction-processing</code></td>
+<td><code>processInstructions</code></td>
+<td>Email pinned administrator instructions to a map's publishers (every 30 min)</td>
+</tr>
+<tr>
+<td><code>enable-note-processing</code></td>
+<td><code>processNotes</code></td>
+<td>Email a digest of recently updated address notes (hourly)</td>
+</tr>
+<tr>
+<td><code>enable-monthly-report</code></td>
+<td><code>generateMonthlyReport</code></td>
+<td>Generate and email the Excel territory activity report (1st of the month)</td>
+</tr>
+<tr>
+<td><code>enable-unprovisioned-user-processing</code></td>
+<td><code>processUnprovisionedUsers</code></td>
+<td>Warn, disable and eventually delete accounts with no congregation role (daily)</td>
+</tr>
+<tr>
+<td><code>enable-inactive-user-processing</code></td>
+<td><code>processInactiveUsers</code></td>
+<td>Warn and disable inactive accounts — NIST SP 800-53 AC-2(3) (daily)</td>
+</tr>
+<tr>
+<td><code>enable-new-addresses-notification</code></td>
+<td><code>processNewAddresses</code></td>
+<td>Email a daily digest of addresses added from the app (daily)</td>
+</tr>
+<tr>
+<td><code>enable-report-ai-summary</code></td>
+<td><em>not a job</em></td>
+<td>Adds the OpenAI-generated summary to reports and digests. Read on demand, not on a schedule.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">The Defaults Are Not Symmetrical</p>
+<p>Without <code>LAUNCHDARKLY_SDK_KEY</code>, no LaunchDarkly client is created, and the two groups of flags then behave in opposite ways:</p>
+<ul>
+<li>The <strong>8 job flags default to enabled</strong> — every job runs on schedule.</li>
+<li><strong><code>enable-report-ai-summary</code> defaults to disabled</strong> — so AI summaries are <strong>off</strong> on a self-hosted install with no LaunchDarkly, even when <code>OPENAI_API_KEY</code> is set.</li>
+</ul>
+<p>Flags are scoped to the deployment environment (the LaunchDarkly context is of kind <code>environment</code>). There is no per-congregation flag control.</p>
+</div>
 <h2 id="installation-steps">Installation Steps<a class="headerlink" href="#installation-steps" title="Permanent link">&para;</a></h2>
 <h3 id="option-1-docker-deployment-recommended">Option 1: Docker Deployment (Recommended)<a class="headerlink" href="#option-1-docker-deployment-recommended" title="Permanent link">&para;</a></h3>
 <p>Docker makes deployment simple and consistent across platforms.</p>
 <h4 id="1-build-the-docker-image">1. Build the Docker Image<a class="headerlink" href="#1-build-the-docker-image" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
 </code></pre></div>
 <h4 id="2-run-the-container">2. Run the Container<a class="headerlink" href="#2-run-the-container" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span>ministry-mapper-backend
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span>ministry-mapper-backend
 </code></pre></div>
 <p><strong>Important Notes:</strong></p>
 <ul>
 <li>The container runs on port <strong>8080</strong> (not 8090)</li>
 <li><code>-p 8080:8080</code> maps the container's port 8080 to your host port 8080</li>
-<li><code>-v /path/to/pb_data:/app/pb_data</code> saves your database permanently (replace <code>/path/to/pb_data</code> with a real path on your system)</li>
+<li><code>-v /path/to/pb_data:/app/pb_data</code> saves your database permanently (replace <code>/path/to/pb_data</code> with a real path on your system). <code>pb_data</code> is the <strong>entire</strong> application state — <code>data.db</code>, <code>auxiliary.db</code>, <code>logs.db</code> and the PocketBase configuration. Losing it means losing everything.</li>
 <li><code>--env-file .env</code> loads your environment variables from the <code>.env</code> file</li>
 <li><code>-d</code> runs the container in the background (detached mode)</li>
+<li>There is no <code>docker-compose.yml</code> in the backend repository — the raw <code>docker build</code> / <code>docker run</code> pair above is the supported path.</li>
 </ul>
+<h4 id="about-the-docker-image">About the Docker Image<a class="headerlink" href="#about-the-docker-image" title="Permanent link">&para;</a></h4>
+<p>Worth knowing before you build or deploy:</p>
+<ul>
+<li><strong><code>.dockerignore</code> is an allowlist.</strong> It denies everything with <code>*</code> and then un-ignores exactly <code>go.mod</code>, <code>go.sum</code>, <code>main.go</code>, <code>internal/</code>, <code>migrations/</code> and <code>templates/</code>. That is deliberate: the previous two-line denylist let <code>COPY . .</code> sweep the developer's <strong><code>.env</code></strong> (with live MailerSend, LaunchDarkly, SMTP and Sentry credentials) and an <strong>~880 MB production database dump</strong> into the builder stage. The published image was never affected — the runtime stage copies only the binary and templates — but a builder layer carrying credentials leaks the moment build cache is exported. The allowlist cut the build context from <strong>911 MB to 815 kB</strong> and the builder image from <strong>2.89 GB to 1.66 GB</strong>.</li>
+<li><strong>A BuildKit cache mount holds the Go build cache</strong> (<code>--mount=type=cache,target=/root/.cache/go-build</code>). Because <code>COPY . .</code> invalidates the build layer, a rebuild without it recompiled all 497 packages including the SQLite driver's; with it a one-line change rebuilds in <strong>3.7 s instead of 21.4 s</strong>. Module downloads are a plain layer on purpose, so a source-only change never re-downloads them.</li>
+<li><strong><code>GOARCH=amd64</code> only.</strong> There is no arm64 or multi-arch build. On an Apple Silicon machine you are building an emulated amd64 image.</li>
+<li><strong>Cold builds peak at about 1.76 GB</strong> — the single-threaded linker, not the compiler. A 1.9 GB host should build the image elsewhere and pull it rather than building in place.</li>
+<li><strong>The container runs as root.</strong> There is no <code>USER</code> directive.</li>
+<li><strong>There is no <code>HEALTHCHECK</code> instruction</strong> in the Dockerfile. The probe is configured platform-side, which is exactly why <code>curl</code> is installed in the runtime image. Point it at <code>GET /api/db-health</code>.</li>
+<li><strong>The final image is about 73.6 MB</strong> — the stripped binary (<code>CGO_ENABLED=0</code>, <code>-ldflags="-w -s"</code>) plus <code>templates/</code> on top of <code>alpine:3.24</code> with <code>tzdata</code> and <code>curl</code>.</li>
+<li><strong><code>templates/</code> must sit beside the binary.</strong> Email templates are parsed by relative path at runtime, so the working directory has to contain <code>templates/</code>.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Hosting Platform</p>
+<p>The hosted service runs on <strong>Coolify</strong>, which builds the image straight from the repository, with Cloudflare in front. <code>curl</code> exists in the runtime image specifically for the Coolify healthcheck. There is no deploy or image-publish GitHub workflow — the repository's two workflows are pull-request checks only.</p>
+</div>
 <h3 id="option-2-local-development">Option 2: Local Development<a class="headerlink" href="#option-2-local-development" title="Permanent link">&para;</a></h3>
 <p>For development and testing on your computer:</p>
 <h4 id="1-install-go-dependencies">1. Install Go Dependencies<a class="headerlink" href="#1-install-go-dependencies" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>./scripts/install.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./scripts/install.sh
 </code></pre></div>
-<p>This script runs <code>go get ./...</code> and <code>go mod tidy</code> to install all dependencies.</p>
+<p>This script runs <code>go get ./...</code> and <code>go mod tidy</code>, then installs <code>.githooks/pre-push</code> into <code>.git/hooks/</code>.</p>
 <h4 id="2-set-up-environment-variables">2. Set Up Environment Variables<a class="headerlink" href="#2-set-up-environment-variables" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Edit .env with your settings</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># Edit .env - at minimum PB_ADMIN_EMAIL, PB_ADMIN_PASSWORD and MAILERSEND_API_KEY</span>
 </code></pre></div>
+<p>Remember that <code>.env.sample</code> does not include <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_CLIENT_SECRET</code> or <code>SOURCE_COMMIT</code>.</p>
 <h4 id="3-run-the-application">3. Run the Application<a class="headerlink" href="#3-run-the-application" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./scripts/start.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>./scripts/start.sh
 </code></pre></div>
 <p>This script exports environment variables from <code>.env</code> and runs <code>go run main.go serve</code>.</p>
-<p>The backend will start on <strong>http://localhost:8090</strong> by default (PocketBase default port).</p>
+<p>The backend will start on <strong>http://localhost:8090</strong> by default (PocketBase's default port — the script passes no <code>--http</code>). Migrations, including the superuser bootstrap, run automatically on the first start.</p>
 <h2 id="accessing-the-admin-panel">Accessing the Admin Panel<a class="headerlink" href="#accessing-the-admin-panel" title="Permanent link">&para;</a></h2>
 <p>Once your backend is running:</p>
 <ol>
@@ -2490,35 +3623,56 @@
 <li><strong>Files</strong>: Manage uploaded files and storage</li>
 <li><strong>API Rules</strong>: Set permissions for each collection</li>
 </ul>
-<p><strong>Security Note</strong>: Set <code>PB_HIDE_CONTROLS=true</code> in production to hide the admin UI from public access.</p>
+<p><strong>Security Note</strong>: Set <code>PB_HIDE_CONTROLS=true</code> before the first start to hide the admin UI controls in production. On an existing database, change the equivalent setting in the admin panel.</p>
 <h2 id="database-management">Database Management<a class="headerlink" href="#database-management" title="Permanent link">&para;</a></h2>
 <h3 id="backing-up-your-data">Backing Up Your Data<a class="headerlink" href="#backing-up-your-data" title="Permanent link">&para;</a></h3>
-<p>Your data lives in the <code>pb_data</code> folder. Regular backups are crucial.</p>
-<h4 id="manual-backup">Manual Backup<a class="headerlink" href="#manual-backup" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Create a backup of the entire pb_data folder</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>tar<span class="w"> </span>-czf<span class="w"> </span>ministry-mapper-backup-<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+<p>Your data lives in the <code>pb_data</code> folder. Regular backups are crucial. <strong>The repository contains no backup tooling</strong> — no cron job, no snapshot script, no restore script. You have two practical options.</p>
+<h4 id="option-a-pocketbases-built-in-backups-recommended">Option A: PocketBase's Built-In Backups (Recommended)<a class="headerlink" href="#option-a-pocketbases-built-in-backups-recommended" title="Permanent link">&para;</a></h4>
+<p>PocketBase can snapshot <code>pb_data</code> itself while the server is running, which avoids copying a database mid-write:</p>
+<ol>
+<li>Open the admin panel at <code>/_/</code></li>
+<li>Go to <strong>Settings → Backups</strong></li>
+<li>Create a backup, download it, or restore a previous one</li>
+</ol>
+<p>The same feature is available over the API at <code>/api/backups</code> (superuser authentication required), so a scheduled job on your side can create and fetch snapshots. Note that "automatic backups" are not configured for you — this mechanism is manual or API-driven.</p>
+<h4 id="option-b-copying-pb_data-yourself">Option B: Copying <code>pb_data</code> Yourself<a class="headerlink" href="#option-b-copying-pb_data-yourself" title="Permanent link">&para;</a></h4>
+<p>If you copy the folder directly, <strong>checkpoint the write-ahead log first</strong> so the <code>.db</code> files are complete on their own:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Flush the WAL into the main database files before copying</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>sqlite3<span class="w"> </span>/path/to/pb_data/data.db<span class="w"> </span><span class="s2">&quot;PRAGMA wal_checkpoint(TRUNCATE);&quot;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>sqlite3<span class="w"> </span>/path/to/pb_data/auxiliary.db<span class="w"> </span><span class="s2">&quot;PRAGMA wal_checkpoint(TRUNCATE);&quot;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1"># Then archive the whole folder</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>tar<span class="w"> </span>-czf<span class="w"> </span><span class="s2">&quot;ministry-mapper-backup-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span><span class="s2">.tar.gz&quot;</span><span class="w"> </span>/path/to/pb_data/
 </code></pre></div>
+<p>Copying a live <code>pb_data</code> without checkpointing can capture a <code>data.db</code> whose most recent writes are still sitting in the <code>-wal</code> file.</p>
 <h4 id="automated-daily-backup">Automated Daily Backup<a class="headerlink" href="#automated-daily-backup" title="Permanent link">&para;</a></h4>
-<p>Set up a cron job to back up automatically:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Add to crontab (run: crontab -e)</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-backup-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
+<p>Set up a cron job to run the same sequence:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Add to crontab (run: crontab -e)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="m">0</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>sqlite3<span class="w"> </span>/path/to/pb_data/data.db<span class="w"> </span><span class="s2">&quot;PRAGMA wal_checkpoint(TRUNCATE);&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>-czf<span class="w"> </span>/backups/ministry-mapper-backup-<span class="k">$(</span>date<span class="w"> </span>+<span class="se">\%</span>Y<span class="se">\%</span>m<span class="se">\%</span>d<span class="k">)</span>.tar.gz<span class="w"> </span>/path/to/pb_data/
 </code></pre></div>
 <p>This runs at 2 AM daily and creates timestamped backups.</p>
 <h4 id="restoring-from-backup">Restoring from Backup<a class="headerlink" href="#restoring-from-backup" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Stop the application first</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># Then extract the backup</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>tar<span class="w"> </span>-xzf<span class="w"> </span>ministry-mapper-backup-20240101.tar.gz<span class="w"> </span>-C<span class="w"> </span>/path/to/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Stop the application first, then extract the archive you want</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>tar<span class="w"> </span>-xzf<span class="w"> </span><span class="s2">&quot;/backups/ministry-mapper-backup-</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span><span class="s2">.tar.gz&quot;</span><span class="w"> </span>-C<span class="w"> </span>/path/to/
+</code></pre></div>
+<p>Substitute the timestamp of the archive you are actually restoring. To restore a snapshot created by PocketBase's built-in backups, use <strong>Settings → Backups → Restore</strong> in the admin panel instead.</p>
+<h3 id="reclaiming-disk-space">Reclaiming Disk Space<a class="headerlink" href="#reclaiming-disk-space" title="Permanent link">&para;</a></h3>
+<p>Deleting rows or dropping indexes returns pages to SQLite's freelist but not to the filesystem. A manual <code>VACUUM</code> is required to shrink the file, and it cannot be done from a migration because migrations run inside a transaction. Run it with the server stopped:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sqlite3<span class="w"> </span>/path/to/pb_data/data.db<span class="w"> </span><span class="s2">&quot;VACUUM;&quot;</span>
 </code></pre></div>
 <h2 id="security-checklist">Security Checklist<a class="headerlink" href="#security-checklist" title="Permanent link">&para;</a></h2>
 <p>Before going to production:</p>
 <ul>
-<li>[ ] Change the default admin password immediately after first login</li>
+<li>[ ] Set <code>PB_ADMIN_EMAIL</code> and <code>PB_ADMIN_PASSWORD</code> <strong>before the first start</strong> — the compiled defaults are published in this guide</li>
+<li>[ ] If you already started with the defaults, change the admin password in <code>/_/</code> immediately</li>
 <li>[ ] Set <code>PB_ALLOW_ORIGINS</code> to your actual domain(s), not <code>*</code></li>
 <li>[ ] Enable HTTPS (never use HTTP in production)</li>
-<li>[ ] Set <code>PB_HIDE_CONTROLS=true</code> to hide admin UI from unauthorized access</li>
+<li>[ ] Set <code>PB_HIDE_CONTROLS=true</code> before the first start to hide the admin UI controls</li>
 <li>[ ] Consider enabling rate limiting with <code>PB_ENABLE_RATE_LIMITING=true</code></li>
 <li>[ ] Configure Sentry (<code>SENTRY_DSN</code> and <code>SENTRY_ENV</code>) for error monitoring</li>
-<li>[ ] Set up automated daily backups</li>
+<li>[ ] Point your platform's healthcheck at <code>GET /api/db-health</code></li>
+<li>[ ] Set up backups (PocketBase Settings → Backups, or your own checkpoint-and-archive job)</li>
+<li>[ ] Keep <code>.env</code> out of the Docker build context — the shipped <code>.dockerignore</code> allowlist already does this; don't loosen it</li>
 <li>[ ] Use strong, unique passwords for all accounts</li>
 <li>[ ] For Gmail SMTP, use App Passwords instead of your regular password</li>
 <li>[ ] Keep Go dependencies updated regularly with <code>./scripts/update.sh</code></li>
@@ -2526,72 +3680,169 @@
 <h2 id="updating-the-backend">Updating the Backend<a class="headerlink" href="#updating-the-backend" title="Permanent link">&para;</a></h2>
 <p>To update to a new version:</p>
 <h3 id="docker-update">Docker Update<a class="headerlink" href="#docker-update" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Pull the latest code</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Rebuild the Docker image</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Stop and remove the old container</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>docker<span class="w"> </span>stop<span class="w"> </span>ministry-mapper
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>docker<span class="w"> </span>rm<span class="w"> </span>ministry-mapper
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1"># Start the new container (use port 8080, not 8090)</span>
-<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">  </span>ministry-mapper-backend
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Pull the latest code</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># Rebuild the Docker image</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>ministry-mapper-backend<span class="w"> </span>.
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># Stop and remove the old container</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>docker<span class="w"> </span>stop<span class="w"> </span>ministry-mapper
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>docker<span class="w"> </span>rm<span class="w"> </span>ministry-mapper
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="c1"># Start the new container (use port 8080, not 8090)</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">  </span>-v<span class="w"> </span>/path/to/pb_data:/app/pb_data<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">  </span>--name<span class="w"> </span>ministry-mapper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">  </span>ministry-mapper-backend
 </code></pre></div>
 <h3 id="local-development-update">Local Development Update<a class="headerlink" href="#local-development-update" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Pull the latest code</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Update dependencies</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>./scripts/update.sh
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Restart the application</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>./scripts/start.sh
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Pull the latest code</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Update dependencies</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>./scripts/update.sh
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># Restart the application</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>./scripts/start.sh
 </code></pre></div>
-<p><strong>Note</strong>: Your data in <code>pb_data</code> is preserved during updates.</p>
+<p><strong>Note</strong>: Your data in <code>pb_data</code> is preserved during updates. Any new migrations shipped with the update apply automatically on start.</p>
 <h2 id="database-migrations">Database Migrations<a class="headerlink" href="#database-migrations" title="Permanent link">&para;</a></h2>
-<p>The backend automatically runs database migrations when starting in development mode (when using <code>go run</code>). You'll see messages in the logs like:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Running migrations...
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Migration 1759244334_collections_snapshot completed
+<p>Migrations live in the <code>migrations/</code> folder and <strong>apply automatically when the server starts</strong> (<code>serve</code>) — in development and in production alike. You'll see messages in the logs like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Running migrations...
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>Migration 1777788260_collections_snapshot completed
 </code></pre></div>
 <p><strong>How it Works:</strong></p>
 <ul>
-<li>Migrations are stored in the <code>migrations/</code> folder</li>
-<li>PocketBase detects if you're running via <code>go run</code> and auto-migrates</li>
-<li>In production (compiled binary), you need to run migrations manually using: <code>./main migrate</code></li>
+<li><code>1777788260_collections_snapshot.go</code> is the authoritative schema snapshot. It is applied with <code>deleteMissing = true</code>, so anything absent from the snapshot is dropped from the database.</li>
+<li>The superuser account is created by the <code>initial_admin_usr.go</code> migration on the first run, from <code>PB_ADMIN_EMAIL</code> / <code>PB_ADMIN_PASSWORD</code>. <strong>There is no manual admin-creation step.</strong> If you ever need the escape hatch, PocketBase still offers <code>go run main.go superuser create &lt;email&gt; &lt;password&gt;</code>.</li>
+<li><strong>There is no manual <code>./main migrate</code> step in the normal flow.</strong> Pending migrations run at bootstrap.</li>
+<li>What <code>go run</code> adds is <em>automigrate</em>: schema edits made in the admin UI generate new migration files, but <strong>only</strong> when the process was started with <code>go run</code>. A compiled production binary never automigrates.</li>
+<li>Environment variables read inside migrations apply only on the first migration run against a database — see the callout in <a href="#environment-variables-explained">Environment Variables Explained</a>.</li>
 </ul>
 <p><strong>Important:</strong> Never delete or modify migration files manually. This can break your database.</p>
+<h2 id="console-commands">Console Commands<a class="headerlink" href="#console-commands" title="Permanent link">&para;</a></h2>
+<p>The binary is a PocketBase application, so it inherits <code>serve</code>, <code>superuser</code>, <code>migrate</code> and the rest. One custom command is registered.</p>
+<h3 id="fix-sequences"><code>fix-sequences</code><a class="headerlink" href="#fix-sequences" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Dry run - report what would change, write nothing</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>./main<span class="w"> </span>fix-sequences
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1"># In local development</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>go<span class="w"> </span>run<span class="w"> </span>main.go<span class="w"> </span>fix-sequences
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># Apply the repair</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>./main<span class="w"> </span>fix-sequences<span class="w"> </span>--apply
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="c1"># Also repair maps with no dominant column direction</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>./main<span class="w"> </span>fix-sequences<span class="w"> </span>--apply<span class="w"> </span>--include-unclear
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="c1"># Limit the scan to a single map</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>./main<span class="w"> </span>fix-sequences<span class="w"> </span>--map<span class="w"> </span>&lt;map_id&gt;
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--apply</code></td>
+<td>Actually write the renumbering. <strong>Without it the command is a dry run</strong> and ends with <code>Dry run - nothing written. Re-run with --apply to write.</code></td>
+</tr>
+<tr>
+<td><code>--include-unclear</code></td>
+<td>Also repair maps where the column direction could not be determined confidently. Skipped by default.</td>
+</tr>
+<tr>
+<td><code>--map &lt;id&gt;</code></td>
+<td>Restrict the scan to one map instead of the whole database.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What it repairs.</strong> Every address column in a map is identified by its <code>sequence</code>, and the invariant is <strong>one <code>sequence</code> per <code>code</code> per map</strong>. The command sweeps for both ways that can break:</p>
+<ul>
+<li>two different codes sharing the same <code>sequence</code>, and</li>
+<li>one code holding two different <code>sequence</code> values.</li>
+</ul>
+<p><strong>Why an operator needs it.</strong> A map renders one row of column headers taken from its highest floor while each floor sorts its own units, so a tied pair can appear under its neighbour's header on floors where the two units differ in status. Worse, the Excel report keys its grid on <code>sequence</code> — so the second of a tied pair silently overwrites the first and <strong>disappears from the export entirely</strong>. When the command was introduced, 451 production maps were affected (413 with a shared sequence, 38 with a split code).</p>
+<p><strong>What it does.</strong> For each affected map it picks each code's dominant sequence and renumbers the surviving columns <strong>0..N-1</strong>, preserving the map's own column direction — a corridor numbered high-to-low is as legitimate as one numbered low-to-high. Only tied codes move relative to each other; untied columns keep their order. Before writing, the plan is verified to be a gapless <code>0..N-1</code> permutation with no duplicate assignment.</p>
+<p><strong>What it skips.</strong></p>
+<ul>
+<li>Maps where a code holds more than one sequence are <strong>skipped entirely</strong> (reported as <code>SKIPPED - duplicate unit records</code>), because renumbering cannot decide which duplicate record to keep.</li>
+<li>Maps with no dominant column direction are reported as <code>UNCLEAR - no dominant column direction</code> and skipped unless <code>--include-unclear</code> is passed.</li>
+<li>When nothing is wrong it prints <code>No sequence collisions found.</code> and exits 0.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Repairs Are Silent by Design</p>
+<p>The renumbering is written with raw SQL rather than through the record API. That deliberately avoids stamping <code>updated</code> / <code>updated_by</code> and avoids broadcasting realtime events, so publishers working the map are not spammed with updates while a repair runs.</p>
+<p>New collisions can no longer be introduced by the application: the address-adding endpoints read the high-water sequence <em>inside</em> their transaction, adding a floor copies an existing floor's sequences, and the code-reordering endpoint rejects collisions and partial payloads. <code>fix-sequences</code> is for cleaning up historical data.</p>
+</div>
+<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
+<p>Tests come in two tiers, split by the <code>testdata</code> build tag.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Tier 1 - unit tests. No database, nothing spun up.</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>./...
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="c1"># Tier 2 - integration tests. Requires the sqlite3 CLI on PATH.</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>./scripts/test.sh
+</code></pre></div>
+<p><strong>Unit tests</strong> (<code>go test ./...</code>) cover handlers, middleware, jobs and console commands — roughly 90 top-level tests. CI runs the same set excluding <code>internal/setup</code>. Integration test files carry <code>//go:build testdata</code>, so plain <code>go test</code> does not compile them.</p>
+<p><strong>Integration tests</strong> (<code>./scripts/test.sh</code>) do rather more than run <code>go test</code>. The script:</p>
+<ol>
+<li>Kills anything left on port 19090 and deletes <code>test_pb_data/</code> and the old test binary</li>
+<li>Builds a <code>-tags testdata</code> server binary — the tag pulls in the seed-data migration</li>
+<li>Boots it on <code>127.0.0.1:19090</code> with <code>--dir=test_pb_data</code>, purely so migrations and the seed run into a fresh database</li>
+<li>Polls <code>/api/health</code> once a second for up to 60 seconds; failing to come up is a hard error</li>
+<li>Stops the bootstrap server</li>
+<li>Runs <code>PRAGMA wal_checkpoint(TRUNCATE)</code> on <code>data.db</code> and <code>auxiliary.db</code> with the <strong><code>sqlite3</code> CLI</strong> so the files are fully flushed before tests open them</li>
+<li>Gates on seed counts — at least 2 congregations, 5 users and 30 addresses</li>
+<li>Runs <code>go test -tags testdata -v -timeout 120s ./internal/setup/ ./internal/jobs/</code></li>
+</ol>
+<p>An <code>EXIT</code>/<code>INT</code>/<code>TERM</code> trap removes <code>test_pb_data/</code> and the test binary. No live server runs during the tests themselves — each test app copies the seeded database to its own temporary directory. Seeded ids are stable and meant to be hard-coded in tests; every seeded user has the password <code>Test1234!</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">The Test Script Does Not Clear Your Environment</p>
+<p><code>scripts/test.sh</code> contains no <code>unset</code> and no <code>env -i</code>, so the bootstrap server inherits whatever is exported in your shell. If you run it in a session that already exported a real <code>.env</code>, your production <code>PB_ADMIN_*</code> and SMTP values are written into the generated test database. Run it from a clean shell.</p>
+</div>
+<p><strong>Pre-push hook.</strong> <code>.githooks/pre-push</code> — installed by <code>./scripts/install.sh</code> — runs the unit tests and then the full integration suite, and aborts the push if either fails. That is why the <code>sqlite3</code> CLI is a prerequisite for contributors, not just for CI.</p>
+<p><strong>CI.</strong> Two pull-request-only workflows: one runs <code>go mod tidy &amp;&amp; go mod verify</code>, <code>go build</code>, <code>go vet</code> and the unit tests; the other installs <code>sqlite3</code> and runs <code>./scripts/test.sh</code>. <strong><code>go vet</code> is the only linter</strong> — there is no golangci-lint. Neither workflow deploys or publishes an image.</p>
 <h2 id="monitoring-and-logs">Monitoring and Logs<a class="headerlink" href="#monitoring-and-logs" title="Permanent link">&para;</a></h2>
 <h3 id="viewing-logs">Viewing Logs<a class="headerlink" href="#viewing-logs" title="Permanent link">&para;</a></h3>
 <h4 id="docker-logs">Docker Logs<a class="headerlink" href="#docker-logs" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># View recent logs</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>ministry-mapper
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Follow logs in real-time (useful for debugging)</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>ministry-mapper
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c1"># View last 100 lines</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span>ministry-mapper
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># View recent logs</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>ministry-mapper
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># Follow logs in real-time (useful for debugging)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>ministry-mapper
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1"># View last 100 lines</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>--tail<span class="w"> </span><span class="m">100</span><span class="w"> </span>ministry-mapper
 </code></pre></div>
 <h4 id="application-logs">Application Logs<a class="headerlink" href="#application-logs" title="Permanent link">&para;</a></h4>
-<p>PocketBase stores logs in the <code>pb_data/logs/</code> folder. These include:</p>
+<p>PocketBase stores its structured logs in the SQLite database <strong><code>pb_data/logs.db</code></strong> — not in a <code>pb_data/logs/</code> folder. Read them through the admin panel's <strong>Logs</strong> section, or query the file directly with the <code>sqlite3</code> CLI. They include:</p>
 <ul>
 <li>Request logs</li>
 <li>Error logs</li>
 <li>Custom application logs</li>
 </ul>
+<p>When <code>SENTRY_DSN</code> is set, every log row is also mirrored to Sentry's structured logging, so errors show up there without a separate integration.</p>
+<h3 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># PocketBase&#39;s own liveness endpoint</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>curl<span class="w"> </span>http://localhost:8080/api/health
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># Ministry Mapper&#39;s database integrity probe</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>curl<span class="w"> </span>http://localhost:8080/api/db-health
+</code></pre></div>
+<p><code>GET /api/db-health</code> runs <code>PRAGMA quick_check</code> with a 10-second timeout and returns <code>200</code> when the database is healthy or <code>503</code> with the failure detail when it is not. It exists because a trivial <code>SELECT 1</code> succeeds even against a corrupted database — index corruption only surfaces in a structural scan. This is the endpoint to give your platform's healthcheck.</p>
 <h3 id="what-to-look-for-in-logs">What to Look For in Logs<a class="headerlink" href="#what-to-look-for-in-logs" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Startup Messages</strong>: Confirms successful initialization (e.g., "Starting Ministry Mapper build...")</li>
+<li><strong>Startup Messages</strong>: Confirms successful initialization, including the build id from <code>SOURCE_COMMIT</code></li>
 <li><strong>Migration Messages</strong>: Database migrations being applied</li>
 <li><strong>Sentry Initialization</strong>: Error tracking setup</li>
-<li><strong>Cron Jobs</strong>: Background task execution (territory aggregates, message processing, etc.)</li>
+<li><strong>Cron Jobs</strong>: Background task execution (assignment cleanup, message processing, and so on)</li>
+<li><strong>Aggregate Hook Failures</strong>: <code>aggregate hook failed</code> with a map id means a map's progress was not recalculated</li>
 <li><strong>Error Messages</strong>: Problems with database, email, API calls, or LaunchDarkly</li>
 <li><strong>Authentication Events</strong>: Login attempts and user activity</li>
 <li><strong>Performance Issues</strong>: Slow queries or timeouts</li>
@@ -2600,181 +3851,294 @@
 <h3 id="port-already-in-use">Port Already in Use<a class="headerlink" href="#port-already-in-use" title="Permanent link">&para;</a></h3>
 <p><strong>Problem</strong>: "Port already in use" error</p>
 <p><strong>Solution</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># For Docker (port 8080)</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8080
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># For local development (port 8090)</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8090
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># Kill the process using the port</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;process_id&gt;
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="c1"># Or map to a different port</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8081</span>:8080<span class="w"> </span>...<span class="w">  </span><span class="c1"># Maps host port 8081 to container port 8080</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># For Docker (port 8080)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8080
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># For local development (port 8090)</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8090
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1"># Kill the process using the port</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;process_id&gt;
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="c1"># Or map to a different port</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8081</span>:8080<span class="w"> </span>...<span class="w">  </span><span class="c1"># Maps host port 8081 to container port 8080</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>### Database Locked
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>**Problem**: &quot;Database is locked&quot; error
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>**Solution**:
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>- Stop all containers/processes accessing the database
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>- Check if a backup process is running
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>- Ensure only one instance of the app is running
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>- SQLite doesn&#39;t support concurrent writes from multiple processes
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>- Restart the application
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>### Email Not Sending
-<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>**Problem**: Users don&#39;t receive emails
-<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>
-<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>**Solutions**:
-<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>1. **Verify SMTP Settings**: Check all `PB_SMTP_*` variables in `.env`
-<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>2. **Gmail Users**: Use an [App Password](https://support.google.com/accounts/answer/185833), not your regular password
-<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>3. **Check Spam Folder**: Emails might be filtered
-<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>4. **Test SMTP Connection**: Use a tool like `telnet` or an email client to verify SMTP credentials
-<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a>5. **Review Logs**: Look for error messages in `pb_data/logs/` or Docker logs
-<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>6. **Port Issues**: Ensure port 587 (TLS) or 465 (SSL) is not blocked by firewall
-<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>
-<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>### Out of Memory
-<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>
-<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>**Problem**: Application crashes with memory errors
-<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>
-<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>**Solutions**:
-<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>- Increase Docker memory limits: `docker run -m 1g ...`
-<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>- Check logs for memory leaks
-<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>- Optimize large database queries
-<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>- Upgrade your hosting plan&#39;s RAM allocation
-<a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>- Consider using SQLite PRAGMA optimizations for large datasets
-<a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>
-<a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a>### Cannot Access Admin Panel
-<a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>
-<a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a>**Problem**: 404 error when accessing admin URL
-<a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a>
-<a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a>**Solutions**:
-<a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a>- Ensure URL format: `http://your-url/_/` (with underscore and trailing slash)
-<a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a>- Check if `PB_HIDE_CONTROLS=true` (prevents admin UI access)
-<a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a>- Verify the application is running: `docker ps` or check process
-<a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a>- Clear browser cache and cookies
-<a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a>- Check logs for startup errors
-<a id="__codelineno-21-45" name="__codelineno-21-45" href="#__codelineno-21-45"></a>
-<a id="__codelineno-21-46" name="__codelineno-21-46" href="#__codelineno-21-46"></a>## Performance Tips
-<a id="__codelineno-21-47" name="__codelineno-21-47" href="#__codelineno-21-47"></a>
-<a id="__codelineno-21-48" name="__codelineno-21-48" href="#__codelineno-21-48"></a>### Small Congregations (&lt; 100 users)
-<a id="__codelineno-21-49" name="__codelineno-21-49" href="#__codelineno-21-49"></a>- Default settings work well
-<a id="__codelineno-21-50" name="__codelineno-21-50" href="#__codelineno-21-50"></a>- 512MB RAM is sufficient
-<a id="__codelineno-21-51" name="__codelineno-21-51" href="#__codelineno-21-51"></a>- SQLite handles this load easily
-<a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a>- No special configuration needed
-<a id="__codelineno-21-53" name="__codelineno-21-53" href="#__codelineno-21-53"></a>
-<a id="__codelineno-21-54" name="__codelineno-21-54" href="#__codelineno-21-54"></a>### Medium Congregations (100-500 users)
-<a id="__codelineno-21-55" name="__codelineno-21-55" href="#__codelineno-21-55"></a>- Recommended: 1GB RAM
-<a id="__codelineno-21-56" name="__codelineno-21-56" href="#__codelineno-21-56"></a>- Enable rate limiting: `PB_ENABLE_RATE_LIMITING=true`
-<a id="__codelineno-21-57" name="__codelineno-21-57" href="#__codelineno-21-57"></a>- Set up daily automated backups
-<a id="__codelineno-21-58" name="__codelineno-21-58" href="#__codelineno-21-58"></a>- Monitor database size in `pb_data/data.db`
-<a id="__codelineno-21-59" name="__codelineno-21-59" href="#__codelineno-21-59"></a>
-<a id="__codelineno-21-60" name="__codelineno-21-60" href="#__codelineno-21-60"></a>### Large Congregations (&gt; 500 users)
-<a id="__codelineno-21-61" name="__codelineno-21-61" href="#__codelineno-21-61"></a>- Recommended: 2GB+ RAM
-<a id="__codelineno-21-62" name="__codelineno-21-62" href="#__codelineno-21-62"></a>- Enable rate limiting
-<a id="__codelineno-21-63" name="__codelineno-21-63" href="#__codelineno-21-63"></a>- Consider dedicated hosting (not shared)
-<a id="__codelineno-21-64" name="__codelineno-21-64" href="#__codelineno-21-64"></a>- Monitor logs for slow queries
-<a id="__codelineno-21-65" name="__codelineno-21-65" href="#__codelineno-21-65"></a>- Set up backup retention policy (keep last 30 days)
-<a id="__codelineno-21-66" name="__codelineno-21-66" href="#__codelineno-21-66"></a>- Consider LaunchDarkly feature flags to control background job frequency
-<a id="__codelineno-21-67" name="__codelineno-21-67" href="#__codelineno-21-67"></a>
-<a id="__codelineno-21-68" name="__codelineno-21-68" href="#__codelineno-21-68"></a>## API Endpoints
-<a id="__codelineno-21-69" name="__codelineno-21-69" href="#__codelineno-21-69"></a>
-<a id="__codelineno-21-70" name="__codelineno-21-70" href="#__codelineno-21-70"></a>The backend provides these custom authenticated API endpoints (all require user authentication):
-<a id="__codelineno-21-71" name="__codelineno-21-71" href="#__codelineno-21-71"></a>
-<a id="__codelineno-21-72" name="__codelineno-21-72" href="#__codelineno-21-72"></a>### Map Management
-<a id="__codelineno-21-73" name="__codelineno-21-73" href="#__codelineno-21-73"></a>- `POST /map/codes` - Get all map codes for a specific map
-<a id="__codelineno-21-74" name="__codelineno-21-74" href="#__codelineno-21-74"></a>- `POST /map/code/add` - Add a new address code to a map
-<a id="__codelineno-21-75" name="__codelineno-21-75" href="#__codelineno-21-75"></a>- `POST /map/codes/update` - Update the sequence/order of map codes
-<a id="__codelineno-21-76" name="__codelineno-21-76" href="#__codelineno-21-76"></a>- `POST /map/code/delete` - Delete an address code from a map
-<a id="__codelineno-21-77" name="__codelineno-21-77" href="#__codelineno-21-77"></a>- `POST /map/add` - Create a new map
-<a id="__codelineno-21-78" name="__codelineno-21-78" href="#__codelineno-21-78"></a>- `POST /map/territory/update` - Update which territory a map belongs to
-<a id="__codelineno-21-79" name="__codelineno-21-79" href="#__codelineno-21-79"></a>- `POST /map/reset` - Reset a map (clear all assignments and data)
-<a id="__codelineno-21-80" name="__codelineno-21-80" href="#__codelineno-21-80"></a>
-<a id="__codelineno-21-81" name="__codelineno-21-81" href="#__codelineno-21-81"></a>### Floor Management
-<a id="__codelineno-21-82" name="__codelineno-21-82" href="#__codelineno-21-82"></a>- `POST /map/floor/add` - Add a floor level to a map
-<a id="__codelineno-21-83" name="__codelineno-21-83" href="#__codelineno-21-83"></a>- `POST /map/floor/remove` - Remove a floor from a map
-<a id="__codelineno-21-84" name="__codelineno-21-84" href="#__codelineno-21-84"></a>
-<a id="__codelineno-21-85" name="__codelineno-21-85" href="#__codelineno-21-85"></a>### Territory Management
-<a id="__codelineno-21-86" name="__codelineno-21-86" href="#__codelineno-21-86"></a>- `POST /territory/reset` - Reset a territory (clear assignments)
-<a id="__codelineno-21-87" name="__codelineno-21-87" href="#__codelineno-21-87"></a>- `POST /territory/link` - Create a quick access link for a territory
-<a id="__codelineno-21-88" name="__codelineno-21-88" href="#__codelineno-21-88"></a>
-<a id="__codelineno-21-89" name="__codelineno-21-89" href="#__codelineno-21-89"></a>### Configuration
-<a id="__codelineno-21-90" name="__codelineno-21-90" href="#__codelineno-21-90"></a>- `POST /options/update` - Update congregation options/settings
-<a id="__codelineno-21-91" name="__codelineno-21-91" href="#__codelineno-21-91"></a>
-<a id="__codelineno-21-92" name="__codelineno-21-92" href="#__codelineno-21-92"></a>**Authentication**: All endpoints require a valid PocketBase authentication token in the request header.
-<a id="__codelineno-21-93" name="__codelineno-21-93" href="#__codelineno-21-93"></a>
-<a id="__codelineno-21-94" name="__codelineno-21-94" href="#__codelineno-21-94"></a>**PocketBase Built-in APIs**: In addition to custom endpoints, PocketBase provides automatic REST APIs for all collections (CRUD operations) at `/api/collections/{collection}/records`.
-<a id="__codelineno-21-95" name="__codelineno-21-95" href="#__codelineno-21-95"></a>
-<a id="__codelineno-21-96" name="__codelineno-21-96" href="#__codelineno-21-96"></a>## Background Jobs (Cron Scheduler)
-<a id="__codelineno-21-97" name="__codelineno-21-97" href="#__codelineno-21-97"></a>
-<a id="__codelineno-21-98" name="__codelineno-21-98" href="#__codelineno-21-98"></a>The backend runs automated background tasks using a cron scheduler. These jobs are controlled by LaunchDarkly feature flags:
-<a id="__codelineno-21-99" name="__codelineno-21-99" href="#__codelineno-21-99"></a>
-<a id="__codelineno-21-100" name="__codelineno-21-100" href="#__codelineno-21-100"></a>### Scheduled Jobs
-<a id="__codelineno-21-101" name="__codelineno-21-101" href="#__codelineno-21-101"></a>
-<a id="__codelineno-21-102" name="__codelineno-21-102" href="#__codelineno-21-102"></a>1. **Territory Aggregates** (`*/10 * * * *` - every 10 minutes)
-<a id="__codelineno-21-103" name="__codelineno-21-103" href="#__codelineno-21-103"></a>   - Updates territory statistics and aggregated data
-<a id="__codelineno-21-104" name="__codelineno-21-104" href="#__codelineno-21-104"></a>   - Feature flag: `enable-territory-aggregations`
-<a id="__codelineno-21-105" name="__codelineno-21-105" href="#__codelineno-21-105"></a>
-<a id="__codelineno-21-106" name="__codelineno-21-106" href="#__codelineno-21-106"></a>2. **Assignment Cleanup** (`*/5 * * * *` - every 5 minutes)
-<a id="__codelineno-21-107" name="__codelineno-21-107" href="#__codelineno-21-107"></a>   - Removes expired or invalid territory assignments
-<a id="__codelineno-21-108" name="__codelineno-21-108" href="#__codelineno-21-108"></a>   - Feature flag: `enable-assignments-cleanup`
-<a id="__codelineno-21-109" name="__codelineno-21-109" href="#__codelineno-21-109"></a>
-<a id="__codelineno-21-110" name="__codelineno-21-110" href="#__codelineno-21-110"></a>3. **Message Processing** (`*/30 * * * *` - every 30 minutes)
-<a id="__codelineno-21-111" name="__codelineno-21-111" href="#__codelineno-21-111"></a>   - Processes pending messages in the queue
-<a id="__codelineno-21-112" name="__codelineno-21-112" href="#__codelineno-21-112"></a>   - Optionally attaches an AI-generated overview when `OPENAI_API_KEY` is set
-<a id="__codelineno-21-113" name="__codelineno-21-113" href="#__codelineno-21-113"></a>   - Feature flag: `enable-message-processing`
-<a id="__codelineno-21-114" name="__codelineno-21-114" href="#__codelineno-21-114"></a>
-<a id="__codelineno-21-115" name="__codelineno-21-115" href="#__codelineno-21-115"></a>4. **Instruction Processing** (`*/30 * * * *` - every 30 minutes)
-<a id="__codelineno-21-116" name="__codelineno-21-116" href="#__codelineno-21-116"></a>   - Handles pending territory assignment instructions
-<a id="__codelineno-21-117" name="__codelineno-21-117" href="#__codelineno-21-117"></a>   - Feature flag: `enable-instruction-processing`
-<a id="__codelineno-21-118" name="__codelineno-21-118" href="#__codelineno-21-118"></a>
-<a id="__codelineno-21-119" name="__codelineno-21-119" href="#__codelineno-21-119"></a>5. **Note Processing** (`0 * * * *` - hourly)
-<a id="__codelineno-21-120" name="__codelineno-21-120" href="#__codelineno-21-120"></a>   - Processes updated notes for congregations
-<a id="__codelineno-21-121" name="__codelineno-21-121" href="#__codelineno-21-121"></a>   - Optionally attaches an AI-generated digest when `OPENAI_API_KEY` is set
-<a id="__codelineno-21-122" name="__codelineno-21-122" href="#__codelineno-21-122"></a>   - Feature flag: `enable-note-processing`
-<a id="__codelineno-21-123" name="__codelineno-21-123" href="#__codelineno-21-123"></a>
-<a id="__codelineno-21-124" name="__codelineno-21-124" href="#__codelineno-21-124"></a>6. **Monthly Report** (`0 0 1 * *` - 1st of each month at midnight)
-<a id="__codelineno-21-125" name="__codelineno-21-125" href="#__codelineno-21-125"></a>   - Generates Excel report of congregation data and emails it to administrators
-<a id="__codelineno-21-126" name="__codelineno-21-126" href="#__codelineno-21-126"></a>   - Feature flag: `enable-monthly-report`
-<a id="__codelineno-21-127" name="__codelineno-21-127" href="#__codelineno-21-127"></a>   - AI summaries flag: `enable-report-ai-summary` (requires `OPENAI_API_KEY`)
-<a id="__codelineno-21-128" name="__codelineno-21-128" href="#__codelineno-21-128"></a>
-<a id="__codelineno-21-129" name="__codelineno-21-129" href="#__codelineno-21-129"></a>7. **Unprovisioned User Processing** (`0 1 * * *` - daily at 01:00 UTC)
-<a id="__codelineno-21-130" name="__codelineno-21-130" href="#__codelineno-21-130"></a>   - Enforces the user lifecycle for accounts without a role assignment:
-<a id="__codelineno-21-131" name="__codelineno-21-131" href="#__codelineno-21-131"></a>     day 3 → first warning email, day 6 → final warning email, day 7 → account disabled, day 37+ → permanent deletion
-<a id="__codelineno-21-132" name="__codelineno-21-132" href="#__codelineno-21-132"></a>   - Feature flag: `enable-unprovisioned-user-processing`
-<a id="__codelineno-21-133" name="__codelineno-21-133" href="#__codelineno-21-133"></a>
-<a id="__codelineno-21-134" name="__codelineno-21-134" href="#__codelineno-21-134"></a>8. **Inactive User Processing** (`30 1 * * *` - daily at 01:30 UTC)
-<a id="__codelineno-21-135" name="__codelineno-21-135" href="#__codelineno-21-135"></a>   - Warns and eventually disables accounts that have been inactive beyond the configured threshold
-<a id="__codelineno-21-136" name="__codelineno-21-136" href="#__codelineno-21-136"></a>   - Feature flag: `enable-inactive-user-processing`
-<a id="__codelineno-21-137" name="__codelineno-21-137" href="#__codelineno-21-137"></a>
-<a id="__codelineno-21-138" name="__codelineno-21-138" href="#__codelineno-21-138"></a>**Note**: If LaunchDarkly is not configured, all jobs run by default (enabled: true).
-<a id="__codelineno-21-139" name="__codelineno-21-139" href="#__codelineno-21-139"></a>
-<a id="__codelineno-21-140" name="__codelineno-21-140" href="#__codelineno-21-140"></a>### AI Report Summaries
-<a id="__codelineno-21-141" name="__codelineno-21-141" href="#__codelineno-21-141"></a>
-<a id="__codelineno-21-142" name="__codelineno-21-142" href="#__codelineno-21-142"></a>When `OPENAI_API_KEY` is configured **and** the `enable-report-ai-summary` LaunchDarkly flag is on, the monthly Excel report includes an AI-generated summary for each territory sheet. The AI analyses activity data and produces a 2–3 sentence overview plus a list of key observations.
-<a id="__codelineno-21-143" name="__codelineno-21-143" href="#__codelineno-21-143"></a>
-<a id="__codelineno-21-144" name="__codelineno-21-144" href="#__codelineno-21-144"></a>This feature is entirely optional — reports are fully functional without it. To enable it:
-<a id="__codelineno-21-145" name="__codelineno-21-145" href="#__codelineno-21-145"></a>
-<a id="__codelineno-21-146" name="__codelineno-21-146" href="#__codelineno-21-146"></a>1. Set `OPENAI_API_KEY` in your `.env` file.
-<a id="__codelineno-21-147" name="__codelineno-21-147" href="#__codelineno-21-147"></a>2. Enable the `enable-report-ai-summary` flag in your LaunchDarkly project (or omit LaunchDarkly entirely and the flag defaults to enabled).
-<a id="__codelineno-21-148" name="__codelineno-21-148" href="#__codelineno-21-148"></a>
-<a id="__codelineno-21-149" name="__codelineno-21-149" href="#__codelineno-21-149"></a>## Database Hooks
-<a id="__codelineno-21-150" name="__codelineno-21-150" href="#__codelineno-21-150"></a>
-<a id="__codelineno-21-151" name="__codelineno-21-151" href="#__codelineno-21-151"></a>The application automatically handles certain events:
-<a id="__codelineno-21-152" name="__codelineno-21-152" href="#__codelineno-21-152"></a>
-<a id="__codelineno-21-153" name="__codelineno-21-153" href="#__codelineno-21-153"></a>- **Address Updates**: When address notes change, timestamps and user info are recorded
-<a id="__codelineno-21-154" name="__codelineno-21-154" href="#__codelineno-21-154"></a>- **Address Updates**: Triggers map aggregate recalculation
-<a id="__codelineno-21-155" name="__codelineno-21-155" href="#__codelineno-21-155"></a>- **User Authentication**: Updates last login timestamp
-<a id="__codelineno-21-156" name="__codelineno-21-156" href="#__codelineno-21-156"></a>- **User Creation**: Normalizes and lowercase email addresses
-<a id="__codelineno-21-157" name="__codelineno-21-157" href="#__codelineno-21-157"></a>
-<a id="__codelineno-21-158" name="__codelineno-21-158" href="#__codelineno-21-158"></a>## Next Steps
-<a id="__codelineno-21-159" name="__codelineno-21-159" href="#__codelineno-21-159"></a>
-<a id="__codelineno-21-160" name="__codelineno-21-160" href="#__codelineno-21-160"></a>- Set up the [Frontend Application](frontend-setup.md)
-<a id="__codelineno-21-161" name="__codelineno-21-161" href="#__codelineno-21-161"></a>- Learn about [User Management](user-management.md)
-<a id="__codelineno-21-162" name="__codelineno-21-162" href="#__codelineno-21-162"></a>- Configure [Security Settings](security.md)
-</code></pre></div>
+<h3 id="database-locked">Database Locked<a class="headerlink" href="#database-locked" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: "Database is locked" error</p>
+<p><strong>Solutions</strong>:
+- Stop all containers/processes accessing the database
+- Check if a backup process is running
+- Ensure only one instance of the app is running
+- SQLite doesn't support concurrent writes from multiple processes
+- Restart the application</p>
+<h3 id="email-not-sending">Email Not Sending<a class="headerlink" href="#email-not-sending" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: Users don't receive emails</p>
+<p><strong>Solutions</strong>:
+1. <strong>Identify which mail path is failing</strong>: digests, reports and lifecycle notices go through <strong>MailerSend</strong>; verification, password reset and OTP go through <strong>SMTP</strong>. They are configured separately.
+2. <strong>Verify MailerSend</strong>: <code>MAILERSEND_API_KEY</code> and <code>MAILERSEND_FROM_EMAIL</code> must both be set, or every digest and report send fails
+3. <strong>Verify SMTP Settings</strong>: Check all <code>PB_SMTP_*</code> variables — and remember they are migration-read, so an existing database keeps whatever was configured on its first run. Change them in the admin panel under Settings → Mail.
+4. <strong>Gmail Users</strong>: Use an <a href="https://support.google.com/accounts/answer/185833">App Password</a>, not your regular password
+5. <strong>Check that the job is enabled</strong>: a LaunchDarkly flag set to off means the digest never runs
+6. <strong>Check Spam Folder</strong>: Emails might be filtered
+7. <strong>Review Logs</strong>: Look in the admin panel's Logs section (<code>pb_data/logs.db</code>) or the Docker logs
+8. <strong>Port Issues</strong>: Ensure port 587 (TLS) or 465 (SSL) is not blocked by firewall</p>
+<h3 id="out-of-memory">Out of Memory<a class="headerlink" href="#out-of-memory" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: Application crashes with memory errors</p>
+<p><strong>Solutions</strong>:
+- Increase Docker memory limits: <code>docker run -m 1g ...</code>
+- If it is the <strong>build</strong> that dies, the culprit is the linker's ~1.76 GB peak, not the running server — build on a larger host and pull the image
+- Check logs for memory leaks
+- Optimize large database queries
+- Upgrade your hosting plan's RAM allocation</p>
+<h3 id="cannot-access-admin-panel">Cannot Access Admin Panel<a class="headerlink" href="#cannot-access-admin-panel" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: 404 error when accessing admin URL</p>
+<p><strong>Solutions</strong>:
+- Ensure URL format: <code>http://your-url/_/</code> (with underscore and trailing slash)
+- Check whether the admin UI controls were hidden by <code>PB_HIDE_CONTROLS=true</code>
+- Verify the application is running: <code>docker ps</code> or check process
+- Clear browser cache and cookies
+- Check logs for startup errors</p>
+<h3 id="admin-credentials-rejected">Admin Credentials Rejected<a class="headerlink" href="#admin-credentials-rejected" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: <code>PB_ADMIN_EMAIL</code> and <code>PB_ADMIN_PASSWORD</code> don't work</p>
+<p><strong>Solutions</strong>:
+- Remember that these are <strong>migration-read</strong>: they created the superuser on the first migration run and are ignored afterwards. Editing <code>.env</code> does not change the password.
+- Try the compiled defaults if you never set your own before the first start: <code>testing_account@ministry-mapper.com</code> / <code>pb123456789</code> — and change the password immediately if they work
+- Create a fresh superuser from the command line: <code>./main superuser create &lt;email&gt; &lt;password&gt;</code></p>
+<h3 id="environment-variable-change-has-no-effect">Environment Variable Change Has No Effect<a class="headerlink" href="#environment-variable-change-has-no-effect" title="Permanent link">&para;</a></h3>
+<p><strong>Problem</strong>: You edited <code>.env</code>, restarted, and nothing changed</p>
+<p><strong>Solutions</strong>:
+- Check whether the variable is migration-read (app name/URL, admin credentials, SMTP, OAuth, OTP/MFA, hide-controls, rate limiting). Those apply only on the first migration run against a database — change the equivalent setting in the admin panel instead.
+- For <code>PB_OTP_ENABLED</code> and <code>PB_MFA_ENABLED</code>, check the exact value: only the lowercase string <code>true</code> counts. <code>TRUE</code> and <code>1</code> mean disabled.
+- Confirm the value actually reached the process: <code>docker exec ministry-mapper env | grep PB_</code></p>
+<h2 id="performance-tips">Performance Tips<a class="headerlink" href="#performance-tips" title="Permanent link">&para;</a></h2>
+<h3 id="small-congregations-100-users">Small Congregations (&lt; 100 users)<a class="headerlink" href="#small-congregations-100-users" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Default settings work well</li>
+<li>512MB RAM is sufficient to run (building the image needs more)</li>
+<li>SQLite handles this load easily</li>
+<li>No special configuration needed</li>
+</ul>
+<h3 id="medium-congregations-100-500-users">Medium Congregations (100-500 users)<a class="headerlink" href="#medium-congregations-100-500-users" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recommended: 1GB RAM</li>
+<li>Enable rate limiting: <code>PB_ENABLE_RATE_LIMITING=true</code></li>
+<li>Set up daily backups</li>
+<li>Monitor database size in <code>pb_data/data.db</code></li>
+</ul>
+<h3 id="large-congregations-500-users">Large Congregations (&gt; 500 users)<a class="headerlink" href="#large-congregations-500-users" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recommended: 2GB+ RAM</li>
+<li>Enable rate limiting</li>
+<li>Consider dedicated hosting (not shared)</li>
+<li>Monitor logs for slow queries and the <code>/api/db-health</code> probe for integrity</li>
+<li>Run <code>VACUUM</code> occasionally with the server stopped to return freed pages to the filesystem</li>
+<li>Set up backup retention policy (keep last 30 days)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Scaling Is Vertical</p>
+<p>PocketBase runs on a single embedded SQLite database. There are no read replicas and no PostgreSQL option — scaling means a bigger machine. The application is designed for fewer than 1,000 concurrent users.</p>
+</div>
+<h2 id="api-endpoints">API Endpoints<a class="headerlink" href="#api-endpoints" title="Permanent link">&para;</a></h2>
+<p>The backend adds <strong>20 custom routes</strong> on top of PocketBase's built-in API. Every one is <code>POST</code> except the health probe, which is <code>GET</code>. Authorization differs per group, so the groups below are the important part, not the paths.</p>
+<h3 id="public-self-authenticating">Public / Self-Authenticating<a class="headerlink" href="#public-self-authenticating" title="Permanent link">&para;</a></h3>
+<p>These four are <strong>not</strong> behind the authentication gate — they authorize themselves so publishers holding a map link can use them with no account and no login. The credential is the <code>link-id</code> header, whose value is an assignment record id validated against the map and its expiry on every request.</p>
+<ul>
+<li><code>POST /link/map</code> — the publisher's whole payload in one request: expiry, publisher name, map, congregation policy and options, addresses, and whether pinned messages exist. <strong><code>link-id</code> header only</strong> — a JWT alone is not accepted here.</li>
+<li><code>POST /map/addresses</code> — addresses and address options for one map. Accepts a valid <code>link-id</code> <strong>or</strong> any congregation role.</li>
+<li><code>POST /address/update</code> — update one address (status, notes, tries, coordinates, household options). Accepts a valid <code>link-id</code> or any congregation role; returns <code>204</code>. The actor recorded in <code>updated_by</code> is derived server-side and cannot be supplied by the client.</li>
+<li><code>POST /address/add</code> — add an address to a map. Accepts a valid <code>link-id</code> or any congregation role; returns <code>201</code>.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">A Valid Link Beats a Role</p>
+<p>When a non-empty <code>link-id</code> header is present, the link check decides the request — and if it fails, the request is refused even if the caller also presented a valid administrator token. It never falls back to the role check. A link is scoped to exactly one map.</p>
+</div>
+<h3 id="map-management-administrator-only">Map Management (Administrator Only)<a class="headerlink" href="#map-management-administrator-only" title="Permanent link">&para;</a></h3>
+<p>All ten require authentication <strong>and</strong> the <code>administrator</code> role in the map's congregation:</p>
+<ul>
+<li><code>POST /map/codes</code> — list the address codes in a map</li>
+<li><code>POST /map/code/add</code> — add a new address code (unit column) to a map</li>
+<li><code>POST /map/codes/update</code> — reorder address codes; the payload must be a <strong>complete, collision-free</strong> ordering</li>
+<li><code>POST /map/code/delete</code> — delete an address code from a map</li>
+<li><code>POST /map/floor/add</code> — add a floor to a map</li>
+<li><code>POST /map/floor/remove</code> — remove a floor from a map</li>
+<li><code>POST /map/reset</code> — reset a map's address statuses</li>
+<li><code>POST /map/add</code> — create a new map</li>
+<li><code>POST /map/territory/update</code> — move a map to another territory (a destination in another congregation is rejected)</li>
+<li><code>POST /maps/sequence</code> — reorder the maps within a territory atomically</li>
+</ul>
+<h3 id="territory-management">Territory Management<a class="headerlink" href="#territory-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /territory/reset</code> — reset every map in a territory. <strong>Administrator or conductor.</strong></li>
+<li><code>POST /territory/delete</code> — delete a territory and its contents. <strong>Administrator or conductor.</strong></li>
+<li><code>POST /territory/link</code> — mint a publisher "quicklink" assignment for a map. <strong>Any role in the congregation</strong> (a role is required — it is not open to any authenticated user).</li>
+</ul>
+<h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /options/update</code> — update the congregation's household options. <strong>Administrator.</strong></li>
+</ul>
+<h3 id="reports">Reports<a class="headerlink" href="#reports" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>POST /report/generate</code> — generate the territory activity report on demand and email it to the requesting user, covering a rolling 30 days. <strong>Administrator</strong> for that congregation; returns <code>202</code> and does the work in the background.</li>
+</ul>
+<h3 id="health">Health<a class="headerlink" href="#health" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>GET /api/db-health</code> — database integrity probe. <strong>No authentication.</strong> Intended as the platform healthcheck.</li>
+</ul>
+<p><strong>Authentication</strong>: every route above except the four public ones and the health probe requires a valid PocketBase authentication token, with the role check applied inside the handler.</p>
+<p><strong>PocketBase Built-in APIs</strong>: in addition to these custom endpoints, PocketBase provides automatic REST APIs for all collections at <code>/api/collections/{collection}/records</code>, plus <code>/api/realtime</code> for subscriptions. Those are governed by the collection API rules and by the authorization hooks — notably, <code>addresses</code> and <code>address_options</code> have all their write rules set to superuser-only, so every address mutation must go through the custom <code>/address/*</code> routes.</p>
+<div class="admonition note">
+<p class="admonition-title">Response Shape</p>
+<p><code>/link/map</code> and <code>/map/addresses</code> return raw bodies such as <code>{"error":"..."}</code> rather than PocketBase's standard <code>{code, message, data}</code> envelope, and those particular responses are also invisible to the Sentry middleware. Don't assume a uniform error envelope across the whole API.</p>
+</div>
+<h2 id="background-jobs-cron-scheduler">Background Jobs (Cron Scheduler)<a class="headerlink" href="#background-jobs-cron-scheduler" title="Permanent link">&para;</a></h2>
+<p>The backend runs <strong>8 cron jobs</strong>, each gated by its own LaunchDarkly flag. <strong>All schedules are UTC.</strong></p>
+<h3 id="scheduled-jobs">Scheduled Jobs<a class="headerlink" href="#scheduled-jobs" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Assignment Cleanup</strong> (<code>1,6,11,...,56 * * * *</code> — every 5 minutes)</li>
+<li>Deletes expired map assignments and writes an <code>expired</code> row to the assignment audit log</li>
+<li>Deletion goes through the record API on purpose, so hooks and realtime delete events fire per record</li>
+<li>
+<p>Feature flag: <code>enable-assignments-cleanup</code></p>
+</li>
+<li>
+<p><strong>Message Processing</strong> (<code>8,38 * * * *</code> — every 30 minutes)</p>
+</li>
+<li>Emails one digest per congregation of unread publisher messages, to that congregation's administrators</li>
+<li>The 30-minute window only <em>discovers</em> which congregations have new messages; the whole unread backlog is then swept, and the batch is marked read once the email is sent</li>
+<li>Optionally attaches an AI-generated overview</li>
+<li>
+<p>Feature flag: <code>enable-message-processing</code></p>
+</li>
+<li>
+<p><strong>Instruction Processing</strong> (<code>18,48 * * * *</code> — every 30 minutes)</p>
+</li>
+<li>Emails a map's pinned administrator instructions to that congregation's non-administrators</li>
+<li>Stays map-scoped, and nothing is marked read — pinned instructions are persistent</li>
+<li>Optionally attaches an AI-generated overview</li>
+<li>
+<p>Feature flag: <code>enable-instruction-processing</code></p>
+</li>
+<li>
+<p><strong>Note Processing</strong> (<code>28 * * * *</code> — hourly)</p>
+</li>
+<li>Emails administrators a digest of address notes updated in the last hour</li>
+<li>Optionally attaches an AI-generated overview</li>
+<li>
+<p>Feature flag: <code>enable-note-processing</code></p>
+</li>
+<li>
+<p><strong>Monthly Report</strong> (<code>0 18 1 * *</code> — 1st of each month at 18:00 UTC)</p>
+</li>
+<li>Generates the Excel territory activity report for the <strong>previous full calendar month</strong> and emails it to administrators</li>
+<li>Optionally includes an AI-generated summary — see <a href="#ai-report-summaries">AI Report Summaries</a></li>
+<li>
+<p>Feature flag: <code>enable-monthly-report</code></p>
+</li>
+<li>
+<p><strong>Unprovisioned User Processing</strong> (<code>0 18 * * *</code> — daily at 18:00 UTC)</p>
+</li>
+<li>Enforces the lifecycle for accounts holding no congregation role at all:
+     an alert to the PocketBase superusers on first detection → warning email on day 3 → final warning on day 6 → <strong>account disabled on day 7</strong> → <strong>permanently deleted on day 37</strong> (a 30-day investigation window after disabling)</li>
+<li>The clock restarts if the account's last role was revoked rather than never granted, so a long-tenured user gets a fresh grace period instead of being judged against their signup date</li>
+<li>
+<p>Feature flag: <code>enable-unprovisioned-user-processing</code></p>
+</li>
+<li>
+<p><strong>Inactive User Processing</strong> (<code>30 18 * * *</code> — daily at 18:30 UTC)</p>
+</li>
+<li>Warns and disables accounts by inactivity, measured from <code>last_login</code> (falling back to the creation date for users who never logged in):
+     warning at <strong>91 days</strong> → final warning at <strong>152 days</strong> → <strong>disabled at 183 days</strong>. <strong>Inactive accounts are never automatically deleted.</strong></li>
+<li>Aligned to NIST SP 800-53 AC-2(3). Any successful login clears both warning stamps, so a returning user restarts the sequence</li>
+<li>
+<p>Feature flag: <code>enable-inactive-user-processing</code></p>
+</li>
+<li>
+<p><strong>New Addresses Notification</strong> (<code>0 19 * * *</code> — daily at 19:00 UTC)</p>
+</li>
+<li>Emails administrators a digest of addresses added from the app in the last 24 hours, grouped by map</li>
+<li>Feature flag: <code>enable-new-addresses-notification</code></li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Why 18:00–19:00 UTC?</p>
+<p>The daily and monthly jobs are deliberately staggered inside that hour: 18:00–19:00 UTC is 02:00–03:00 SGT, well clear of the 08:00–12:00 SGT field-service peak. Each job is also wrapped in panic recovery that reports failures to Sentry with a <code>job_name</code> tag, so one failing job cannot take the scheduler down.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Job Flags Default On, the AI Flag Defaults Off</p>
+<p>With LaunchDarkly unconfigured, all 8 jobs above run. The ninth flag, <code>enable-report-ai-summary</code>, is <strong>not</strong> a job and behaves the opposite way — it evaluates to disabled when there is no LaunchDarkly client.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">There Is No Aggregate Cron</p>
+<p>Map and territory progress used to be recalculated by a batch cron job. That job no longer exists: progress is now recalculated in real time by a database hook whenever an address's status or not-home tries change. See <a href="#database-hooks">Database Hooks</a>.</p>
+</div>
+<h3 id="ai-report-summaries">AI Report Summaries<a class="headerlink" href="#ai-report-summaries" title="Permanent link">&para;</a></h3>
+<p>AI summaries are produced by <strong>OpenAI</strong>, using the model <strong><code>gpt-5.4-mini</code></strong> through Chat Completions: the system prompt is sent as a developer message, the response is requested in <strong>JSON mode</strong> (<code>response_format: json_object</code>), the temperature is <strong>0.3</strong>, and the call has a <strong>90-second</strong> timeout.</p>
+<p><strong>Both of these are required:</strong></p>
+<ol>
+<li><code>OPENAI_API_KEY</code> must be set. Unset means no client is created and every AI section is omitted.</li>
+<li>The LaunchDarkly flag <code>enable-report-ai-summary</code> must be on.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Unlike the Job Flags, This One Defaults to Off</p>
+<p>If LaunchDarkly is not configured, <code>enable-report-ai-summary</code> evaluates to <strong>disabled</strong> — so <strong>AI summaries stay off even when <code>OPENAI_API_KEY</code> is set</strong>. Self-hosters who want them need a LaunchDarkly project with the flag turned on.</p>
+</div>
+<p>There are <strong>four separate prompts</strong>, covering four different things:</p>
+<table>
+<thead>
+<tr>
+<th>What is summarized</th>
+<th>Scope</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Territory activity report (monthly job and on-demand <code>/report/generate</code>)</td>
+<td>Congregation</td>
+<td><code>covered_activity</code>, <code>territory_analysis</code>, <code>conclusion</code> — written in the voice of the congregation's territory servant, for the service overseer and elders, from five analytics views</td>
+</tr>
+<tr>
+<td>Publisher messages digest</td>
+<td>Congregation</td>
+<td><code>overview</code> plus <code>key_themes</code>, including action items such as address-data corrections</td>
+</tr>
+<tr>
+<td>Address notes digest</td>
+<td>Congregation</td>
+<td><code>overview</code> — property notes: dogs, gate access, intercom, parking, renovations, vacancy</td>
+</tr>
+<tr>
+<td>Pinned instructions digest</td>
+<td>One map</td>
+<td><code>overview</code> — an administrator's pinned instructions, summarized for the publishers who receive them</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Failure is always graceful.</strong> A missing key, an API error or an unparseable response all produce an unavailable summary, and the email simply omits that section. Nothing else in the report or digest is affected.</p>
+<div class="admonition warning">
+<p class="admonition-title">What Leaves Your Server</p>
+<p>When the feature is enabled, the <strong>text of publisher messages and of address notes is sent to OpenAI</strong>, along with the aggregate statistics behind the report. If that is not acceptable for your congregation, leave <code>OPENAI_API_KEY</code> unset — the flag alone cannot enable the feature.</p>
+</div>
+<h2 id="database-hooks">Database Hooks<a class="headerlink" href="#database-hooks" title="Permanent link">&para;</a></h2>
+<p>A number of behaviours are implemented as PocketBase hooks rather than as endpoints or jobs, which is why they happen "by themselves":</p>
+<ul>
+<li><strong>Map and territory progress, recalculated in real time.</strong> An after-update hook on <code>addresses</code> recalculates the map's aggregates whenever <code>status</code> or <code>not_home_tries</code> actually changed, then rolls the result up into the territory. <strong>This hook replaced the old batch aggregate cron job.</strong> Notes-only or actor-only edits do no work at all, and the recalculation runs in a tracked background routine so the request is not held up.</li>
+<li><strong>Bulk-operation suppression.</strong> Bulk handlers (map reset, territory reset, and similar) set a <code>bulk_reset:&lt;mapID&gt;</code> flag in the application store before their transaction and clear it afterwards, so N address writes do not trigger N recalculations. One explicit recalculation runs at the end instead.</li>
+<li><strong>Address status log.</strong> Another after-update hook on <code>addresses</code> writes a row to the address audit log with the old and new status and the acting user. It deliberately also logs a not-home <em>tries</em> increment that leaves the status string unchanged, because the aggregate bucket moves even though the status did not.</li>
+<li><strong>Notes timestamps.</strong> A pre-save hook on <code>addresses</code> stamps a last-notes-updated timestamp and actor whenever <code>notes</code> changes. This is what the hourly notes digest reads.</li>
+<li><strong>Expiry-cache invalidation.</strong> An after-update hook on <code>congregations</code> clears the cached <code>expiry_hours</code> value used to mint publisher links. It is bound to the <em>after-success</em> hook rather than the update request precisely so that edits made by a superuser in the admin panel invalidate the cache too. Without it, changing link expiry had no effect until the process restarted.</li>
+<li><strong>Assignment audit log.</strong> Create and delete hooks on <code>assignments</code> log <code>assigned</code> and <code>unassigned</code> actions; the cleanup job logs <code>expired</code>. All of them run only after the operation succeeded, so a rejected request leaves no audit row.</li>
+<li><strong>Role audit log.</strong> Create, update and delete hooks on <code>roles</code> log <code>granted</code>, <code>changed</code> and <code>revoked</code>, capturing the previous role before the change. A no-op change writes nothing. Superuser actions are recorded with an empty actor, because a superuser has no <code>users</code> record to reference.</li>
+<li><strong>Role deletion resets the grace period.</strong> After a role is deleted, the user's remaining roles are counted; if none are left, the unprovisioned clock is started fresh and any previous warning stamps are cleared — so a long-standing member who loses their last role gets the full grace period rather than being judged against their signup date.</li>
+<li><strong>Login bookkeeping.</strong> A successful authentication updates <code>last_login</code> and clears both inactivity warning stamps.</li>
+<li><strong>User creation.</strong> Email addresses are trimmed and lower-cased on create.</li>
+</ul>
+<p>The three audit-log collections (addresses, assignments, roles) have all their API rules set to superuser-only, so they are readable through the admin panel and not through the public API.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Set up the <a href="../frontend-setup/">Frontend Application</a></li>
+<li>Read the <a href="../self-hosting/">Self-Hosting Guide</a> for end-to-end deployment instructions</li>
+<li>Review the <a href="../architecture/">Architecture Overview</a> and <a href="../data-models/">Data Models</a></li>
+</ul>
 
 
 
@@ -2810,7 +4174,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024 Ministry Mapper Team
+      Copyright &copy; 2026 Ministry Mapper Team
     </div>
   
   

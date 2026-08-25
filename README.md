@@ -12,7 +12,7 @@ Ministry Mapper replaces traditional paper territory cards with a cloud-based sy
 - **Real-Time Updates**: Changes sync instantly across all devices
 - **Mobile-Friendly**: Works on phones, tablets, and computers
 - **Interactive Maps**: View territories with interactive mapping
-- **Multi-Language**: Available in 7 languages (English, Japanese, Korean, Chinese, Indonesian, Malay, Spanish)
+- **Multi-Language**: Available in 8 languages (English, Chinese, Indonesian, Malay, Japanese, Korean, Spanish, Tamil)
 - **Secure**: Role-based access control and encrypted data
 - **Open Source**: Free to use and modify
 
@@ -42,20 +42,21 @@ This documentation covers everything you need to know:
 
 ## Quick Links
 
-- 📖 **Read the Docs**: [View Documentation](https://rimorin.github.io/ministry-mapper-doc) (when published)
+- 📖 **Read the Docs**: [View Documentation](https://docs.ministry-mapper.com)
 - 🐛 **Report Issues**: [GitHub Issues](https://github.com/rimorin/ministry-mapper-v2/issues)
 - 💡 **Request Features**: [GitHub Discussions](https://github.com/rimorin/ministry-mapper-v2/discussions)
 - 🌟 **Star the Project**: Help others discover Ministry Mapper
 
 ## What's New in the Documentation
 
-This documentation has been completely rewritten to be:
+Every page was reverified in August 2026 against frontend `v2.7.2` and the current backend. What that pass changed:
 
-- **Easy to Understand**: Written in clear, simple language
-- **Comprehensive**: Covers setup, usage, and troubleshooting
-- **Well-Organized**: Logical structure that's easy to navigate
-- **Practical**: Step-by-step instructions with real examples
-- **User-Focused**: Addresses common questions and problems
+- **Rebuilt Frontend UI**: The 2.0.0 rebuild replaced Bootstrap with Tailwind CSS 4 and shadcn/ui on Base UI. Version tables, setup steps, and screenshots now describe frontend 2.7.2.
+- **Current Backend Stack**: PocketBase 0.40 running on Go 1.27. The old "Echo v5" web-framework claim is gone — PocketBase dropped Echo at 0.23 in favour of its own router.
+- **Real-Time Progress Aggregation**: Map and territory progress is recalculated by a database hook the moment an address changes, replacing the batched aggregate cron job the docs used to describe.
+- **Two New Audit Log Collections**: `assignments_log` and `roles_log` join the existing `addresses_log`, giving three superuser-only audit trails.
+- **AI-Generated Summaries**: OpenAI-backed summaries for the monthly territory report and for the messages, notes, and instructions digests — including what text leaves the server and the feature flag that has to be on before any of it runs.
+- **Newer Publisher Features**: Colour themes, sorting the map list by sequence, progress, or proximity, the jump-to-next-address pill for the last stretch of a map, capturing a house's location from the phone, and the redesigned Map View markers.
 
 ## Building the Documentation
 
@@ -64,7 +65,11 @@ This documentation is built with [MkDocs](https://www.mkdocs.org/) and the [Mate
 ### Prerequisites
 
 ```bash
-pip install mkdocs mkdocs-material mkdocs-static-i18n
+# Same packages CI installs (mkdocs itself arrives as a dependency)
+pip install mkdocs-material
+
+# Or pin to the versions this site is known to build with
+pip install mkdocs-material==9.7.1
 ```
 
 ### Local Development
@@ -132,18 +137,20 @@ Our documentation follows these principles:
 
 ## Technology Stack
 
-This documentation uses:
+This is the stack of the documentation *site*. The stack of the Ministry Mapper application itself is documented in the [Architecture Overview](docs/architecture.md).
 
 - **MkDocs**: Static site generator
-- **Material for MkDocs**: Beautiful, responsive theme
+- **Material for MkDocs**: Beautiful, responsive theme, plus search
 - **Markdown**: Easy-to-write formatting
-- **GitHub Pages**: Free hosting
+- **GitHub Actions**: `.github/workflows/ci.yaml` runs `mkdocs gh-deploy` on every push to `main`
+- **GitHub Pages**: Free hosting, served at [docs.ministry-mapper.com](https://docs.ministry-mapper.com)
 - **Git**: Version control
 
 ## Project Status
 
 - ✅ Core documentation complete
 - ✅ All major topics covered
+- ✅ Verified against frontend 2.7.2 and the current backend (August 2026)
 - ✅ Easy-to-understand language
 - ✅ Practical examples included
 - ✅ FAQ section comprehensive
@@ -192,4 +199,4 @@ This documentation is released under the same license as Ministry Mapper. See th
 
 **Note**: Ministry Mapper is a volunteer project maintained by individuals in their free time. Please be patient and respectful when asking for help or reporting issues.
 
-Last updated: January 2025
+Last updated: August 2026

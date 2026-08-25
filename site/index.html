@@ -20,22 +20,6 @@
       
       
         
-          <link rel="alternate" href="/en/" hreflang="en">
-        
-          <link rel="alternate" href="/zh/" hreflang="zh">
-        
-          <link rel="alternate" href="/id/" hreflang="id">
-        
-          <link rel="alternate" href="/ms/" hreflang="ms">
-        
-          <link rel="alternate" href="/ta/" hreflang="ta">
-        
-          <link rel="alternate" href="/ja/" hreflang="ja">
-        
-          <link rel="alternate" href="/ko/" hreflang="ko">
-        
-          <link rel="alternate" href="/es/" hreflang="es">
-        
       
       
       <link rel="icon" href="assets/favicon.ico">
@@ -163,68 +147,6 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-    
-      <div class="md-header__option">
-  <div class="md-select">
-    
-    <button class="md-header__button md-icon" aria-label="Select language">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
-    </button>
-    <div class="md-select__inner">
-      <ul class="md-select__list">
-        
-          <li class="md-select__item">
-            <a href="/en/" hreflang="en" class="md-select__link">
-              English
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/zh/" hreflang="zh" class="md-select__link">
-              中文
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/id/" hreflang="id" class="md-select__link">
-              Indonesia
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/ms/" hreflang="ms" class="md-select__link">
-              Melayu
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/ta/" hreflang="ta" class="md-select__link">
-              தமிழ்
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/ja/" hreflang="ja" class="md-select__link">
-              日本語
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/ko/" hreflang="ko" class="md-select__link">
-              한국어
-            </a>
-          </li>
-        
-          <li class="md-select__item">
-            <a href="/es/" hreflang="es" class="md-select__link">
-              Español
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</div>
     
     
       
@@ -1810,14 +1732,14 @@
 <li><strong>🗺️ Territory Management</strong>: Organize geographic regions into territories with automatic completion tracking</li>
 <li><strong>🏢 Interactive Mapping</strong>: Leaflet-based maps with OpenStreetMap integration, directions, and geolocation</li>
 <li><strong>📱 Real-time Collaboration</strong>: Live data synchronization across all devices via SSE (Server-Sent Events)</li>
-<li><strong>🌍 Multi-language Support</strong>: 8 languages (English, Spanish, Indonesian, Japanese, Korean, Malay, Tamil, Chinese)</li>
-<li><strong>👥 Role-based Access</strong>: Publisher, Conductor, Administrator, and Read-only roles with fine-grained permissions</li>
+<li><strong>🌍 Multi-language Support</strong>: 8 languages (English, Spanish, Indonesian, Japanese, Korean, Malay, Chinese, Tamil)</li>
+<li><strong>👥 Role-based Access</strong>: Three congregation roles (Read-Only, Conductor, Administrator) with fine-grained permissions, plus link-based access for publishers who never need an account</li>
 <li><strong>🔗 Assignment Links</strong>: Secure, time-limited sharing links for territory access without user accounts</li>
 <li><strong>📊 Progress Tracking</strong>: Automatic completion status with visual indicators and statistics</li>
 <li><strong>✉️ Email Notifications</strong>: HTML email templates for messages, notes, and monthly reports</li>
 <li><strong>📈 Excel Reporting</strong>: Monthly congregation reports with detailed statistics</li>
 <li><strong>🔐 Multi-factor Authentication</strong>: OTP, MFA, and OAuth2 (Google) support</li>
-<li><strong>🌙 Dark Mode</strong>: System-aware theming with light/dark/system options</li>
+<li><strong>🌙 Themes</strong>: Light, dark, and system modes plus five colour themes (Classic, Tangerine, Perpetuity, Cosmic Night, Mocha Mousse)</li>
 <li><strong>📲 Progressive Web App</strong>: Installable on mobile and desktop with offline asset caching</li>
 </ul>
 <h3 id="for-different-users">For Different Users<a class="headerlink" href="#for-different-users" title="Permanent link">&para;</a></h3>
@@ -1841,24 +1763,24 @@
 <p>Ministry Mapper leverages cutting-edge web technologies for optimal performance:</p>
 <p><strong>Frontend (ministry-mapper-v2):</strong></p>
 <ul>
-<li><strong>React 19.2.4</strong>: Latest UI library with automatic compiler optimization</li>
-<li><strong>TypeScript 5.9.3</strong>: Type-safe development for fewer bugs</li>
-<li><strong>Vite 8.0.2</strong>: Lightning-fast build tool and dev server</li>
-<li><strong>Leaflet 1.9.4</strong>: Interactive mapping with OpenStreetMap (no API limits)</li>
-<li><strong>Bootstrap 5.3.8</strong>: Modern, responsive UI framework</li>
-<li><strong>Wouter 3.9.0</strong>: Lightweight routing (3KB vs 40KB alternatives)</li>
+<li><strong>React 19.2.8</strong>: Latest UI library, compiled with the React Compiler for automatic optimization</li>
+<li><strong>TypeScript 6.0.3</strong>: Type-safe development for fewer bugs</li>
+<li><strong>Vite 8.2.0</strong>: Rolldown-based build tool and dev server</li>
+<li><strong>Tailwind CSS 4</strong>: Utility-first styling, configured directly in CSS</li>
+<li><strong>shadcn/ui on Base UI</strong>: Accessible component layer for dialogs, menus, and forms</li>
+<li><strong>Leaflet 1.9.4</strong>: Interactive mapping with OpenStreetMap tiles</li>
+<li><strong>wouter 3.10.0</strong>: Lightweight routing (3KB vs 40KB alternatives)</li>
 </ul>
 <p><strong>Backend (ministry-mapper-be):</strong></p>
 <ul>
-<li><strong>Go 1.25.0</strong>: High-performance compiled language</li>
-<li><strong>PocketBase 0.36.7</strong>: Self-hosted backend-as-a-service with SQLite</li>
-<li><strong>SQLite 1.40.2+</strong>: Reliable, self-contained database (pure Go implementation)</li>
-<li><strong>Echo v5</strong>: Minimalist, high-performance web framework</li>
-<li><strong>Sentry 0.43.0</strong>: Real-time error tracking and monitoring</li>
-<li><strong>MailerSend 1.6.3</strong>: Transactional email service</li>
-<li><strong>LaunchDarkly 7.14.6</strong>: Feature flag management</li>
-<li><strong>Excelize 2.10.1</strong>: Excel report generation</li>
-<li><strong>OpenAI GPT</strong>: AI-powered summaries for reports and message digests</li>
+<li><strong>Go 1.27</strong>: High-performance compiled language</li>
+<li><strong>PocketBase v0.40.0</strong>: Self-hosted backend-as-a-service with SQLite</li>
+<li><strong>modernc.org/sqlite v1.57.0</strong>: Pure-Go SQLite driver, so no C toolchain is needed to build</li>
+<li><strong>Sentry v0.48.0</strong>: Real-time error tracking and monitoring</li>
+<li><strong>MailerSend v1.6.6</strong>: Transactional email service</li>
+<li><strong>LaunchDarkly v7.15.6</strong>: Feature flag management</li>
+<li><strong>Excelize v2.11.0</strong>: Excel report generation</li>
+<li><strong>OpenAI (gpt-5.4-mini)</strong>: AI-powered summaries for reports and message digests</li>
 </ul>
 <h3 id="architecture-highlights">Architecture Highlights<a class="headerlink" href="#architecture-highlights" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1868,13 +1790,13 @@
 <li><strong>Progressive Web App</strong>: Installable on all devices with offline asset support</li>
 <li><strong>Docker Containerization</strong>: Easy deployment and scaling</li>
 <li><strong>API-First Design</strong>: RESTful API with comprehensive PocketBase SDK support</li>
-<li><strong>AI-Powered Insights</strong>: Optional OpenAI GPT integration for intelligent report summaries and message digests</li>
+<li><strong>AI-Powered Insights</strong>: Optional OpenAI (gpt-5.4-mini) integration for intelligent report summaries and message digests</li>
 </ul>
 <h2 id="important-considerations">Important Considerations<a class="headerlink" href="#important-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="privacy-first">Privacy First<a class="headerlink" href="#privacy-first" title="Permanent link">&para;</a></h3>
 <p>Ministry Mapper tracks residential addresses, which means you need to follow privacy laws in your area. Different countries have different rules (like GDPR in Europe or CCPA in California). Make sure you understand and follow your local regulations before using Ministry Mapper.</p>
 <h3 id="internet-required">Internet Required<a class="headerlink" href="#internet-required" title="Permanent link">&para;</a></h3>
-<p>Ministry Mapper works over the internet, so you'll need a connection to use it. If your area has unreliable internet, this might cause challenges. The app does work well on mobile data if WiFi isn't available.</p>
+<p>Ministry Mapper works over the internet, so you'll need a connection to use it. If your area has unreliable internet, this might cause challenges. The app does work well on mobile data if WiFi isn't available. Publishers get some tolerance for patchy coverage: a map you have already opened can be read from a local cache, and address updates made offline are queued and sent as soon as the connection returns. Administrator actions always need a live connection.</p>
 <h3 id="learning-curve">Learning Curve<a class="headerlink" href="#learning-curve" title="Permanent link">&para;</a></h3>
 <p>Moving from paper to digital is a change, especially for those less comfortable with technology. We provide help and support to make the transition easier for everyone in your congregation.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
@@ -1971,7 +1893,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024 Ministry Mapper Team
+      Copyright &copy; 2026 Ministry Mapper Team
     </div>
   
   
