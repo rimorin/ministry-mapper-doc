@@ -836,14 +836,13 @@ The script (`scripts/brand.mjs`):
 
 1. Checks the SVG and refuses embedded pictures, filters, masks, styles, scripts and frames that are not square.
 2. Copies it to `brand/logo.svg` and builds the browser-tab icon, `brand/favicon.svg`, from it (the logo on a tile that turns navy in dark mode).
-3. Copies the tile colours from `brand/brand.json` into the `--logo-tile` tokens in `src/index.css`.
-4. Generates the iPhone (`apple-touch-icon-180x180.png`), Android (`maskable-icon-512x512.png`), computer (`pwa-*.png`) and `favicon.ico` icons with `@vite-pwa/assets-generator`, using the padding and backgrounds in `pwa-assets.config.js`.
-5. Uploads `brand/` to the `ministry-mapper-assets` R2 bucket under a folder named from a fingerprint of the files, with `Cache-Control: public, max-age=31536000, immutable`, and checks every file loads through Cloudflare.
-6. Writes the folder to `brand/release.json` and into `index.html` and `public/site.webmanifest`. The app reads it through `BRAND_URL` in `src/utils/constants.ts`.
+3. Generates the iPhone (`apple-touch-icon-180x180.png`), Android (`maskable-icon-512x512.png`), computer (`pwa-*.png`) and `favicon.ico` icons with `@vite-pwa/assets-generator`, using the padding and backgrounds in `pwa-assets.config.js`.
+4. Uploads `brand/` to the `ministry-mapper-assets` R2 bucket under a folder named from a fingerprint of the files, with `Cache-Control: public, max-age=31536000, immutable`, and checks every file loads through Cloudflare.
+5. Writes the folder to `brand/release.json` and into `index.html` and `public/site.webmanifest`. The app reads it through `BRAND_URL` in `src/utils/constants.ts`.
 
-Then run the tests, look at the logo in `npm start`, and commit. `src/utils/brand.test.ts` fails if `index.html`, the manifest, the favicon or the CSS tokens fall out of step with `brand/`.
+Then run the tests, look at the logo in `npm start`, and commit. `src/utils/brand.test.ts` fails if `index.html`, the manifest or the favicon fall out of step with `brand/`.
 
-Inside the app, `AppLogo` imports `brand/logo.svg` directly. Vite inlines it into the bundle, so it needs no download, and its tile follows the app's own light or dark theme.
+Inside the app, `AppLogo` shows `brand/logo.svg` on its own, with no tile, so the drawing must read on both light and dark backgrounds. Vite inlines it into the bundle, so it needs no download.
 
 !!! warning "Never overwrite or delete a published folder"
     Cloudflare and phones cache each folder, and phones running an older copy of the app keep requesting the old one for months. A new logo always gets a new folder. Check Cloudflare's request analytics before deleting anything from the bucket.
