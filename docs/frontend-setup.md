@@ -819,9 +819,38 @@ Ministry Mapper includes PWA support via the Vite PWA plugin.
 - **Automatic Updates**: `registerType: "autoUpdate"`, with a user-visible reload prompt
 
 !!! info "`manifest: false` does not mean there is no manifest"
-    The plugin is configured with `manifest: false`, which tells it **not to generate** a web app manifest. The app is still installable because a hand-written manifest ships at **`public/site.webmanifest`** and is linked from `index.html`. Editing PWA metadata — name, icons, `display`, `start_url`, theme colours — therefore means editing that file, not `vite.config.js`.
+    The plugin is configured with `manifest: false`, which tells it **not to generate** a web app manifest. The app is still installable because a hand-written manifest ships at **`public/site.webmanifest`** and is linked from `index.html`. Editing PWA metadata — name, `display`, `start_url`, theme colours — therefore means editing that file, not `vite.config.js`. The icon entries are the exception: `npm run brand` writes them (see [Logo and icons](#logo-and-icons)).
 
-    The manifest declares `display: "standalone"`, `start_url: "/"`, `scope: "/"`, and four icons (192 and 512 px in both `any` and `maskable` purposes) hosted on the asset CDN.
+    The manifest declares `display: "standalone"`, `start_url: "/"`, `scope: "/"`, and icons at 64, 192 and 512 px plus a separate 512 px `maskable` icon, all hosted on the asset host.
+
+### Logo and icons
+
+Every icon comes from one drawing, `brand/logo.svg`: flat shapes in a square frame on a transparent background. To change the logo, export the new design from Figma as SVG (with "Outline text" on) and run:
+
+```bash
+npx wrangler login          # once; the upload needs your Cloudflare sign-in
+npm run brand -- path/to/new-logo.svg
+```
+
+The script (`scripts/brand.mjs`):
+
+1. Checks the SVG and refuses embedded pictures, filters, masks, styles, scripts and frames that are not square.
+2. Copies it to `brand/logo.svg` and builds the browser-tab icon, `brand/favicon.svg`, from it (the logo on a tile that turns navy in dark mode).
+3. Copies the tile colours from `brand/brand.json` into the `--logo-tile` tokens in `src/index.css`.
+4. Generates the iPhone (`apple-touch-icon-180x180.png`), Android (`maskable-icon-512x512.png`), computer (`pwa-*.png`) and `favicon.ico` icons with `@vite-pwa/assets-generator`, using the padding and backgrounds in `pwa-assets.config.js`.
+5. Uploads `brand/` to the `ministry-mapper-assets` R2 bucket under a folder named from a fingerprint of the files, with `Cache-Control: public, max-age=31536000, immutable`, and checks every file loads through Cloudflare.
+6. Writes the folder to `brand/release.json` and into `index.html` and `public/site.webmanifest`. The app reads it through `BRAND_URL` in `src/utils/constants.ts`.
+
+Then run the tests, look at the logo in `npm start`, and commit. `src/utils/brand.test.ts` fails if `index.html`, the manifest, the favicon or the CSS tokens fall out of step with `brand/`.
+
+Inside the app, `AppLogo` imports `brand/logo.svg` directly. Vite inlines it into the bundle, so it needs no download, and its tile follows the app's own light or dark theme.
+
+!!! warning "Never overwrite or delete a published folder"
+    Cloudflare and phones cache each folder, and phones running an older copy of the app keep requesting the old one for months. A new logo always gets a new folder. Check Cloudflare's request analytics before deleting anything from the bucket.
+
+Home Screen icons are copied onto the phone when the app is added, so people see a new icon only after removing the app and adding it again.
+
+The script also makes `brand/google-oauth-logo-120x120.png` for the "Sign in with Google" screen. Google doesn't fetch it: upload it in Google Cloud under **Google Auth Platform → Branding → App logo**. Because the app's branding is verified, Google may review the change before showing the new logo.
 
 ### PWA Configuration
 

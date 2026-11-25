@@ -6,7 +6,7 @@ site_url: https://docs.ministry-mapper.com
 theme:
   name: material
   language: en
-  logo: assets/logo.png
+  logo: assets/logo.svg
   favicon: assets/favicon.ico
   palette:
     # Palette toggle for light mode
